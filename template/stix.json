@@ -1,0 +1,302 @@
+{
+  "spec_version": "2.1",
+  "id": "bundle--4840f65c-b70b-4bb6-bf35-949aad000ef7",
+  "type": "bundle",
+  "objects": [
+    {
+      "id": "malware--985d6954-18cf-4a41-9ebe-e062836eb817",
+      "type": "malware",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--5d3b73cc-aeda-4379-a4e3-f6b54841401f",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "aliases": [],
+      "first_seen": "2023-08-12T16:04:11+01:00",
+      "last_seen": "2023-08-12T16:04:11+01:00",
+      "operating_system_refs": [],
+      "architecture_execution_envs": [
+        "x86",
+        "x86-64"
+      ],
+      "implementation_languages": [
+        "c++"
+      ],
+      "capabilities": [
+        "accesses-remote-machines",
+        "controls-local-machine",
+        "evades-av"
+      ],
+      "sample_refs": [],
+      "malware_types": [
+        "downloader",
+        "screen-capture"
+      ],
+      "name": "LOLbin",
+      "description": "",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+          "phase_name": "delivery"
+        },
+        {
+          "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+          "phase_name": "actions-on-objectives"
+        }
+      ]
+    },
+    {
+      "id": "indicator--b6bd11f2-d2c4-44eb-aa5e-5abf6e8fbdd3",
+      "type": "indicator",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--bed3f7d8-d64d-478a-84b7-02eb80ead8bc",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "indicator_types": [],
+      "name": "",
+      "description": "",
+      "pattern": "",
+      "pattern_type": "stix",
+      "pattern_version": "",
+      "valid_from": "2023-08-12T16:04:11+01:00",
+      "valid_until": "2023-08-12T16:04:11+01:00",
+      "kill_chain_phases": []
+    },
+    {
+      "source_ref": "indicator--b6bd11f2-d2c4-44eb-aa5e-5abf6e8fbdd3",
+      "target_ref": "malware--985d6954-18cf-4a41-9ebe-e062836eb817",
+      "relationship_type": "indicates",
+      "type": "relationship",
+      "created": "2023-08-13T12:51:55.164Z",
+      "modified": "2023-08-13T12:51:55.164Z",
+      "id": "relationship--1e24a89f-441b-481b-8dcf-6c74abdfb696",
+      "targetObjectType": "malware"
+    },
+
+    {
+      "id": "attack-pattern--c80e082d-0c37-4f0b-8cd0-e42bb43a14bf",
+      "type": "attack-pattern",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--c8a0e169-253c-4379-97be-5bbbc25af21f",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "aliases": [],
+      "name": "",
+      "description": "",
+      "kill_chain_phases": []
+    },
+    {
+      "source_ref": "attack-pattern--c80e082d-0c37-4f0b-8cd0-e42bb43a14bf",
+      "target_ref": "malware--985d6954-18cf-4a41-9ebe-e062836eb817",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-13T12:51:48.995Z",
+      "modified": "2023-08-13T12:51:48.995Z",
+      "id": "relationship--461c439b-c49a-47e6-9261-e22eac6e3836",
+      "targetObjectType": "malware"
+    },
+
+    {
+      "id": "threat-actor--a02c2356-0a59-4477-b10b-2b081fa0c235",
+      "type": "threat-actor",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--717791b9-b87e-40ab-bfdd-dbf478a52bbc",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "threat_actor_types": [
+        "criminal"
+      ],
+      "name": "",
+      "description": "",
+      "aliases": [],
+      "roles": [
+        "independent"
+      ],
+      "goals": [],
+      "first_seen": "2023-08-12T16:04:11+01:00",
+      "last_seen": "2023-08-12T16:04:11+01:00",
+      "sophistication": "",
+      "resource_level": "",
+      "primary_motivation": "",
+      "secondary_motivations": [],
+      "personal_motivations": []
+    },
+    {
+      "id": "campaign--b1b22804-94cf-42be-a131-931c1f027901",
+      "type": "campaign",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--24a24cb4-9a71-43ff-aa70-a0791098bed0",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "name": "",
+      "description": "",
+      "aliases": [],
+      "first_seen": "2023-08-12T16:04:11+01:00",
+      "last_seen": "2023-08-12T16:04:11+01:00",
+      "objective": ""
+    },
+    {
+      "source_ref": "campaign--b1b22804-94cf-42be-a131-931c1f027901",
+      "target_ref": "threat-actor--a02c2356-0a59-4477-b10b-2b081fa0c235",
+      "relationship_type": "attributed-to",
+      "type": "relationship",
+      "created": "2023-08-12T15:25:48.236Z",
+      "modified": "2023-08-12T15:25:48.236Z",
+      "id": "relationship--e819d14e-dc4e-4ce8-950b-3848ba54579d",
+      "targetObjectType": "threat-actor"
+    },
+    {
+      "source_ref": "threat-actor--a02c2356-0a59-4477-b10b-2b081fa0c235",
+      "target_ref": "malware--985d6954-18cf-4a41-9ebe-e062836eb817",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-13T12:52:03.034Z",
+      "modified": "2023-08-13T12:52:03.034Z",
+      "id": "relationship--1eea375a-ec40-475d-ac0a-afd1fd346483",
+      "targetObjectType": "malware"
+    },
+    
+    {
+      "id": "course-of-action--6dc6ec47-2c0b-402a-8790-765ec84a77ed",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--18451642-90f1-46e7-9244-9f2514fde963",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "name": "mitigations",
+      "description": ""
+    },
+    {
+      "source_ref": "course-of-action--6dc6ec47-2c0b-402a-8790-765ec84a77ed",
+      "target_ref": "malware--985d6954-18cf-4a41-9ebe-e062836eb817",
+      "relationship_type": "mitigates",
+      "type": "relationship",
+      "created": "2023-08-13T12:52:24.234Z",
+      "modified": "2023-08-13T12:52:24.234Z",
+      "id": "relationship--ea0b63fd-42a4-457f-9cfa-77915e090cdc",
+      "targetObjectType": "malware"
+    },
+    
+    {
+      "id": "course-of-action--fe447736-2078-4ee2-bfdc-373cdc709557",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--18451642-90f1-46e7-9244-9f2514fde963",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "name": "detections",
+      "description": ""
+    },
+    {
+      "source_ref": "course-of-action--fe447736-2078-4ee2-bfdc-373cdc709557",
+      "target_ref": "malware--985d6954-18cf-4a41-9ebe-e062836eb817",
+      "relationship_type": "mitigates",
+      "type": "relationship",
+      "created": "2023-08-13T16:10:29.555Z",
+      "modified": "2023-08-13T16:10:29.555Z",
+      "id": "relationship--dfaad861-672e-4382-88d5-5c7ea05c032d",
+      "targetObjectType": "malware"
+    },
+
+    {
+      "id": "sighting--1925c86c-ac27-4e46-ba1a-d62cbd163ff9",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--f6435401-7db0-41de-bc7c-7a81af4118e9",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "description": "",
+      "first_seen": "2023-08-12T16:04:11+01:00",
+      "last_seen": "2023-08-12T16:04:11+01:00",
+      "count": 0,
+      "observed_data_refs": [],
+      "where_sighted_refs": [],
+      "summary": false,
+      "sighting_of_ref": "malware--985d6954-18cf-4a41-9ebe-e062836eb817"
+    },
+
+    {
+      "id": "vulnerability--547f8f4d-4aad-4b44-8272-627d31cae966",
+      "type": "vulnerability",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--9505ce07-ef57-4610-ab93-fe46677d04a7",
+      "labels": [],
+      "created": "2023-08-12T16:04:11+01:00",
+      "modified": "2023-08-12T16:04:11+01:00",
+      "revoked": false,
+      "confidence": 0,
+      "lang": "en",
+      "external_references": [],
+      "object_marking_refs": [],
+      "granular_markings": [],
+      "name": "",
+      "description": ""
+    },
+    {
+      "source_ref": "malware--985d6954-18cf-4a41-9ebe-e062836eb817",
+      "target_ref": "vulnerability--547f8f4d-4aad-4b44-8272-627d31cae966",
+      "relationship_type": "targets",
+      "type": "relationship",
+      "created": "2023-08-13T12:52:09.973Z",
+      "modified": "2023-08-13T12:52:09.973Z",
+      "id": "relationship--e4179cd1-cad1-4348-983b-f2facd167d60",
+      "targetObjectType": "vulnerability"
+    }
+    
+  ]
+}

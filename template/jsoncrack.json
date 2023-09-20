@@ -1,0 +1,101 @@
+{
+  "type": "lolbin",
+  "version": 1,
+  "id": "identifier UUID e.g:f9aa24ad-a4a6-41dd-8e42-c8449b1a9fb4",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "YYYY-MM-DDTHH:MM",
+  "modified": "YYYY-MM-DDTHH:MM",
+  "name": "binary_name.exe",
+  "description": "A general description about the binary.",
+  "Required_privilege": [
+    "User",
+    "Admin",
+    "etc."
+  ],
+  "paths": [
+    "c:\\windows\\system32\\binary.exe",
+    "c:\\windows\\syswow64\\binary.exe"
+  ],
+  "hashe": "The hashe of the binary e.g: bf379376c124b19a7535cba8ea179802",
+  "associated_kill_chain_phases": [
+    "TA0001:Initial Access",
+    "TA0007:Discovery",
+    "etc."
+  ],
+  "capabilities": [
+    "Download",
+    "AWL Bypass",
+    "Tamper",
+    "Execute",
+    "Reconnaissance",
+    "Dump",
+    "Upload",
+    "etc."
+  ],
+  "relationship": [
+    {
+      "associated_apts": [
+        "APT1",
+        "APT2"
+      ],
+      "associated_campaigns": [
+        "campaigns1",
+        "-"
+      ],
+      "associated_commands": [
+        "cmd1",
+        "cmd2"
+      ],
+      "pre_and_next_related_cmd": [
+        {
+          "pre_cmd_event": [
+            "cmd1",
+            "cmd2"
+          ]
+        },
+        {
+          "next_cmd_event": [
+            "cmd1",
+            "cmd2"
+          ]
+        }
+      ]
+    }
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "detections": [
+    {
+      "eventsid": [
+        {
+          "sysmon": [
+            "eventID1",
+            "eventID2"
+          ],
+          "windows": [
+            "eventID1",
+            "eventID2"
+          ]
+        }
+      ],
+      "sigma_rules": [
+        "https://example.com/to/sigma/rule1",
+        "https://example.com/to/sigma/rule2"
+      ],
+      "other_rules": [
+        "https://example.com/to/others/rules"
+      ]
+    }
+  ],
+  "related_CVE": [
+    "CVE1"
+  ],
+  "mitigations": [
+    "A general description about mitigation."
+  ],
+  "references": [
+    "https://reference1.com",
+    "https://reference2.com"
+  ]
+}

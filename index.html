@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="Living-Off-the-Land Binaries Cyber Threat Intelligence Driven"
+    content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>LOLBins CTI-Driven</title>
+</head>
+
+<body>
+  <script src="/js/funcs.js"></script>
+  <div class="navbar">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#"><i class="fa fa-connectdevelop"></i> LOLBins CTI-Driven</a>
+    <a href="https://github.com/CTI-Driven/LOLBins"><i class="fa fa-github"></i> Github</a>
+  </div>
+  <br />
+  <img src="logo.png" alt="logo" class="logo">
+
+  <p
+    style="color:rgb(62, 34, 138); font-size: 25px; text-align:center; text-decoration: underline; text-shadow: 0 0 1px;">
+    Living-Off-the-Land Binaries Cyber Threat Intelligence Driven</p>
+
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for binary.." title="binary">
+
+  <div class="tab">
+    <button class="tablinks" onclick="opentag(event, 'Certutil')">Certutil</button>
+    <button class="tablinks" onclick="opentag(event, 'Bitsadmin')">Bitsadmin</button>
+    <button class="tablinks" onclick="opentag(event, 'Mshta')">Mshta</button>
+    <button class="tablinks" onclick="opentag(event, 'Cscript')">Cscript</button>
+    <button class="tablinks" onclick="opentag(event, 'Wscript')">Wscript</button>
+    <button class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
+    <button class="tablinks" onclick="opentag(event, 'WMIC')">WMIC</button>
+    <button class="tablinks" onclick="opentag(event, 'Rundll32')">Rundll32</button>
+    <button class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
+    <button class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
+    <button class="tablinks" onclick="opentag(event, 'Reg')">Reg</button>
+    <button class="tablinks" onclick="opentag(event, 'Tasklist')">Tasklist</button>
+    <button class="tablinks" onclick="opentag(event, 'At')">At</button>
+    <button class="tablinks" onclick="opentag(event, 'CMD')">CMD</button>
+    <button class="tablinks" onclick="opentag(event, 'PowerShell')">PowerShell</button>
+  </div>
+
+  <!--Certutil-->
+  <div id="Certutil" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/software/S0160">[MITRE ATT&CK: S0160]</a>
+      <p><b>Certutil</b> is a command-line utility that can be used to obtain certificate authority information and
+        configure Certificate Services.</p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [certutil] to:</b><br />| Download files from a given
+        URL
+        | Base64 encode collected data | Decode binaries hidden inside certificate files as Base64 information | Install
+        browser root certificates as a precursor to performing Adversary-in-the-Middle |</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixCertutil')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackCertutil')">JSON Crack Visualizer</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixCertutil" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/certutil.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackCertutil" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/certutil.json"></iframe>
+    </div>
+  </div>
+
+  <!--Bitsadmin-->
+  <div id="Bitsadmin" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/software/S0190">[MITRE ATT&CK: S0190]</a>
+      <p><b>BITSAdmin</b> is a command line tool used to create and manage BITS Jobs. </p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [BITSAdmin] to:</b><br />| Create BITS Jobs to launch
+        a malicious process | Create BITS Jobs to upload files from a compromised host | Create BITS Jobs to upload
+        and/or download files | Create BITS Jobs to upload and/or download files from SMB file servers |</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixBitsadmin')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackBitsadmin')">JSON Crack Visualizer</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixBitsadmin" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/bitsadmin.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackBitsadmin" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/bitsadmin.json"></iframe>
+    </div>
+  </div>
+
+  <!--Mshta-->
+  <div id="Mshta" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/techniques/T1218/005/">[MITRE ATT&CK: T1218.005]</a>
+      <p>Adversaries may abuse <b>mshta.exe</b> to proxy execution of malicious .hta files and Javascript or VBScript
+        through a trusted Windows utility. </p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Mshta] to:</b><br />| Execute malicious payloads |
+        Execute a malicious hta file | Executed malicious JavaScript code | Execute HTML pages | Execute malicious
+        VBScript | Execute DLLs | Download and execute applications from a remote server |</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixMshta')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackMshta')">JSON Crack Visualizer</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixMshta" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/mshta.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackMshta" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/mshta.json"></iframe>
+    </div>
+  </div>
+
+  <!--Cscript-->
+  <div id="Cscript" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--Wscript-->
+  <div id="Wscript" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--PsExec-->
+  <div id="PsExec" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--WMIC-->
+  <div id="WMIC" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--Rundll32-->
+  <div id="Rundll32" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--Schtasks-->
+  <div id="Schtasks" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--Regsvr32-->
+  <div id="Regsvr32" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--Reg-->
+  <div id="Reg" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--Tasklist-->
+  <div id="Tasklist" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--At-->
+  <div id="At" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--CMD-->
+  <div id="CMD" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <!--PowerShell-->
+  <div id="PowerShell" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <div class="w3-panel w3-border-left">
+        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
+        </center>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

