@@ -3,7 +3,7 @@
 <img src="logo.png" style="border-radius:60px;width:20%;height:auto"> 
 </p>
 
-The LOLBins CTI-Driven (Living-Off-the-Land Binaries Cyber Threat Intelligence Driven) is a project that aims to help cyber defenders understand how LOLBin binaries are being used by threat actors during an intrusion in a graphical way and digestible format for the TIPs platform using the STIX format, therefore providing valuable insights and context about LOLBins from a Cyber threat Intel and Cyber defence perspective. 
+The LOLBins CTI-Driven (Living-Off-the-Land Binaries Cyber Threat Intelligence Driven) is a project that aims to help cyber defenders understand how LOLBin binaries are used by threat actors during an intrusion in a graphical and digestible format for the TIPs platform using the STIX format. Therefore providing valuable insights and context about LOLBins from a Cyber threat Intel and Cyber defence perspective. 
 
 This includes :
 
