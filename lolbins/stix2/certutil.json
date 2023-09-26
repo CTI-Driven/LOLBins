@@ -1428,14 +1428,14 @@
       ]
     },
     {
-      "source_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
-      "target_ref": "grouping-29aba8dd-09af-4848-8366-f575d26ff356",
-      "relationship_type": "related-to",
+      "source_ref": "grouping-29aba8dd-09af-4848-8366-f575d26ff356",
+      "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "relationship_type": "uses",
       "type": "relationship",
       "created": "2023-08-20T17:34:58.798Z",
       "modified": "2023-08-20T17:34:58.798Z",
       "id": "relationship--b602385b-71ae-490f-9fb5-116ab302342e",
-      "targetObjectType": "related-to"
+      "targetObjectType": "grouping"
     },
     {
       "name": "Associated TTPs",
@@ -1454,9 +1454,9 @@
       ]
     },
     {
-      "source_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
-      "target_ref": "grouping-dfc93fde-f428-4cb4-83d3-215fda509b36",
-      "relationship_type": "related-to",
+      "source_ref": "grouping-dfc93fde-f428-4cb4-83d3-215fda509b36",
+      "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "relationship_type": "uses",
       "type": "relationship",
       "created": "2023-08-20T18:53:57.511Z",
       "modified": "2023-08-20T18:53:57.511Z",
@@ -1497,9 +1497,19 @@
         "malware--071d5d65-83ec-4a55-acfa-be7d5f28ba9a",
         "malware--5be33fef-39c0-4532-84ee-bea31e1b5324",
         "malware--54a73038-1937-4d71-a253-316e76d5413c",
-        "malware--754effde-613c-4244-a83e-fb659b2a4d06",
-        "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc"
+        "malware--754effde-613c-4244-a83e-fb659b2a4d06"
+
       ]
+    },
+    {
+      "source_ref": "grouping-9a517244-4139-49d7-b2f4-fab8251fac74",
+      "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--fa0d37b1-d651-43d5-81d5-8d66fb3f822b",
+      "targetObjectType": "grouping"
     },
     {
       "modified": "2023-03-22T05:03:29.436Z",

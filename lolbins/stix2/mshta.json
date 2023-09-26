@@ -1430,7 +1430,6 @@
       "modified": "2023-09-05T23:23:32+01:00",
       "context": "suspicious-activity",
       "object_refs": [
-        "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
         "intrusion-set--899ce53f-13a0-479b-a0e4-67d46e241542",
         "intrusion-set--247cb30b-955f-42eb-97a5-a89fef69341e",
         "intrusion-set--6eded342-33e5-4451-b6b2-e1c62863129f",
@@ -1447,6 +1446,16 @@
         "intrusion-set--3fc023b2-c5cc-481d-9c3e-70141ae1a87e",
         "intrusion-set--94873029-f950-4268-9cfd-5032e15cb182"
       ]
+    },
+    {
+      "source_ref": "grouping--073e5f07-c0e2-4945-8b4a-1d0e8a33f381",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--d0702e54-4c60-47de-b8bf-b544e7a8346f",
+      "targetObjectType": "grouping"
     },
     {
       "modified": "2021-03-12T17:26:12.324Z",
@@ -1938,9 +1947,18 @@
         "malware--bdb27a1d-1844-42f1-a0c0-826027ae0326",
         "malware--979adb5a-dc30-48f0-9e3d-9a26d866928c",
         "malware--6a92d80f-cc65-45f6-aa66-3cdea6786b3c",
-        "tool--c8655260-9f4b-44e3-85e1-6538a5f6e4f4",
-        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
+        "tool--c8655260-9f4b-44e3-85e1-6538a5f6e4f4"
       ]
+    },
+    {
+      "source_ref": "grouping-646e6344-714b-436a-9920-0a1f452ade14",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--ad1ee6dd-984b-48c3-a9cc-8ad2e77e947b",
+      "targetObjectType": "grouping"
     },
     {
       "modified": "2022-09-30T21:05:22.490Z",
@@ -2035,9 +2053,29 @@
       "context": "suspicious-activity",
       "object_refs": [
         "campaign--78068e68-4124-4243-b6f4-76e4e5be8a06",
-        "campaign--4603cf2f-06d0-4970-9c5d-5071b08c817f",
-        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
+        "campaign--4603cf2f-06d0-4970-9c5d-5071b08c817f"
+
       ]
+    },
+    {
+      "source_ref": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--37ed155f-83cd-4ec2-bc29-669b30e99b34",
+      "targetObjectType": "grouping"
+    },
+    {
+      "source_ref": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--37ed155f-83cd-4ec2-bc29-669b30e99b34",
+      "targetObjectType": "grouping"
     },
     {
       "name": "Disable or Remove Feature or Program",
