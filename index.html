@@ -30,11 +30,11 @@
     <button class="tablinks" onclick="opentag(event, 'Certutil')">Certutil</button>
     <button class="tablinks" onclick="opentag(event, 'Bitsadmin')">Bitsadmin</button>
     <button class="tablinks" onclick="opentag(event, 'Mshta')">Mshta</button>
+    <button class="tablinks" onclick="opentag(event, 'Rundll32')">Rundll32</button>
     <button class="tablinks" onclick="opentag(event, 'Cscript')">Cscript</button>
     <button class="tablinks" onclick="opentag(event, 'Wscript')">Wscript</button>
     <button class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
     <button class="tablinks" onclick="opentag(event, 'WMIC')">WMIC</button>
-    <button class="tablinks" onclick="opentag(event, 'Rundll32')">Rundll32</button>
     <button class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
     <button class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
     <button class="tablinks" onclick="opentag(event, 'Reg')">Reg</button>
@@ -140,6 +140,39 @@
     </div>
   </div>
 
+    <!--Rundll32-->
+  <div id="Rundll32" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/techniques/T1218/011/">[MITRE ATT&CK: T1218.011]</a>
+      <p>Adversaries may abuse <b>Rundll32.exe</b> to proxy execution of malicious code. </p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Rundll32] to:</b><br />| Execute binaries, scripts,
+        and Control Panel Item files and to execute code via proxy to avoid triggering security tools | Establish
+        persistence within Registry Run Keys / Startup Folder entries to execute malicious DLLs |
+        Execute an initial infection process and launch a malicious DLL | Load a malicious DLL | Execute the Cobalt
+        Strike Beacon loader DLL | Execute commands and scripts |</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixRundll32')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackRundll32')">JSON Crack Visualizer</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixRundll32" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/rundll32.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackRundll32" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/rundll32.json"></iframe>
+    </div>
+  </div>
+  
   <!--Cscript-->
   <div id="Cscript" class="tabcontent">
     <div class="w3-panel w3-border-left">
@@ -175,17 +208,6 @@
 
   <!--WMIC-->
   <div id="WMIC" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--Rundll32-->
-  <div id="Rundll32" class="tabcontent">
     <div class="w3-panel w3-border-left">
       <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
       <div class="w3-panel w3-border-left">
