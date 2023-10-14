@@ -31,9 +31,7 @@
     <button class="tablinks" onclick="opentag(event, 'Bitsadmin')">Bitsadmin</button>
     <button class="tablinks" onclick="opentag(event, 'Mshta')">Mshta</button>
     <button class="tablinks" onclick="opentag(event, 'Rundll32')">Rundll32</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Cscript')">Cscript</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Wscript')">Wscript</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
+    <button class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'WMIC')">WMIC</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
@@ -42,8 +40,10 @@
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'At')">At</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'CMD')">CMD</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'PowerShell')">PowerShell</button>
+    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Cscript')">Cscript</button>
+    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Wscript')">Wscript</button>
   </div>
-
+  
   <!--Certutil-->
   <div id="Certutil" class="tabcontent">
     <div class="w3-panel w3-border-left">
@@ -173,6 +173,40 @@
     </div>
   </div>
   
+<!--PsExec-->
+  <div id="PsExec" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/software/S0029/">[MITRE ATT&CK: S0029]</a>
+      <p>Adversaries may abuse <b>PsExec.exe</b> to move laterally between computers on the company's network and
+        install their malicious tools on multiple assets. </p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [PsExec] to:</b><br />| Remotely create accounts on
+        target systems | Leverage Windows services to escalate privileges from administrator to SYSTEM | Download or
+        upload a file over a network share |
+        Writes programs to the ADMIN$ network share to execute commands on remote systems | Execute binaries on remote
+        systems using a temporary Windows service</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixPsExec')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackPsExec')">JSON Crack Visualizer</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixPsExec" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/psexec.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackPsExec" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/psexec.json"></iframe>
+    </div>
+  </div>
+  
   <!--Cscript-->
   <div id="Cscript" class="tabcontent">
     <div class="w3-panel w3-border-left">
@@ -186,17 +220,6 @@
 
   <!--Wscript-->
   <div id="Wscript" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--PsExec-->
-  <div id="PsExec" class="tabcontent">
     <div class="w3-panel w3-border-left">
       <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
       <div class="w3-panel w3-border-left">
