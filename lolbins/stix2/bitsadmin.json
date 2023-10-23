@@ -1064,7 +1064,7 @@
       "description": "Malware been observed using LOLBin tool Bitsadmin.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-79312ab8-4c85-4caf-b8d9-f3e545bfa633",
+      "id": "grouping--79312ab8-4c85-4caf-b8d9-f3e545bfa633",
       "created": "2023-08-20T17:34:58.798Z",
       "modified": "2023-08-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -1076,7 +1076,7 @@
       ]
     },
     {
-      "source_ref": "grouping-79312ab8-4c85-4caf-b8d9-f3e545bfa633",
+      "source_ref": "grouping--79312ab8-4c85-4caf-b8d9-f3e545bfa633",
       "target_ref": "tool--64764dc6-a032-495f-8250-1e4c06bdc163",
       "relationship_type": "uses",
       "type": "relationship",
