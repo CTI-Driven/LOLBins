@@ -1423,7 +1423,7 @@
     {
       "name": "Associated APTs",
       "description": "APTs been observed using LOLBin tool Mshta.exe",
-      "id": "grouping--073e5f07-c0e2-4945-8b4a-1d0e8a33f381",
+      "id": "-073e5f07-c0e2-4945-8b4a-1d0e8a33f381",
       "type": "grouping",
       "spec_version": 2.1,
       "created": "2023-09-05T23:23:32+01:00",
@@ -1448,7 +1448,7 @@
       ]
     },
     {
-      "source_ref": "grouping--073e5f07-c0e2-4945-8b4a-1d0e8a33f381",
+      "source_ref": "-073e5f07-c0e2-4945-8b4a-1d0e8a33f381",
       "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
       "relationship_type": "uses",
       "type": "relationship",
@@ -1933,7 +1933,7 @@
       "description": "Malware been observed using LOLBin tool Mshta.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-646e6344-714b-436a-9920-0a1f452ade14",
+      "id": "grouping--646e6344-714b-436a-9920-0a1f452ade14",
       "created": "2023-08-20T17:34:58.798Z",
       "modified": "2023-08-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -1951,7 +1951,7 @@
       ]
     },
     {
-      "source_ref": "grouping-646e6344-714b-436a-9920-0a1f452ade14",
+      "source_ref": "grouping--646e6344-714b-436a-9920-0a1f452ade14",
       "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
       "relationship_type": "uses",
       "type": "relationship",
@@ -2047,7 +2047,7 @@
       "description": "campaign been observed using LOLBin tool Mshta.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "id": "grouping--1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
       "created": "2023-08-20T17:34:58.798Z",
       "modified": "2023-08-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -2058,7 +2058,7 @@
       ]
     },
     {
-      "source_ref": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "source_ref": "grouping--1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
       "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
       "relationship_type": "uses",
       "type": "relationship",
@@ -2068,7 +2068,7 @@
       "targetObjectType": "grouping"
     },
     {
-      "source_ref": "grouping-1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
+      "source_ref": "grouping--1651bfdc-cde5-4863-b287-eb8fd3bf8b16",
       "target_ref": "tool--577a8da2-77cf-490c-8f92-55976b5c3116",
       "relationship_type": "uses",
       "type": "relationship",
