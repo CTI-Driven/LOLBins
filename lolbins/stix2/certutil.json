@@ -1396,7 +1396,7 @@
       "description": "APTs been observed using LOLBin tool Certutil.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-29aba8dd-09af-4848-8366-f575d26ff356",
+      "id": "grouping--29aba8dd-09af-4848-8366-f575d26ff356",
       "created": "2023-08-20T17:34:58.798Z",
       "modified": "2023-08-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -1413,7 +1413,7 @@
       ]
     },
     {
-      "source_ref": "grouping-29aba8dd-09af-4848-8366-f575d26ff356",
+      "source_ref": "grouping--29aba8dd-09af-4848-8366-f575d26ff356",
       "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
       "relationship_type": "uses",
       "type": "relationship",
@@ -1427,7 +1427,7 @@
       "description": "TTPs been used by LOLBin tool Certutil.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-dfc93fde-f428-4cb4-83d3-215fda509b36",
+      "id": "grouping--dfc93fde-f428-4cb4-83d3-215fda509b36",
       "created": "2023-08-20T17:34:58.798Z",
       "modified": "2023-08-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -1439,7 +1439,7 @@
       ]
     },
     {
-      "source_ref": "grouping-dfc93fde-f428-4cb4-83d3-215fda509b36",
+      "source_ref": "grouping--dfc93fde-f428-4cb4-83d3-215fda509b36",
       "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
       "relationship_type": "uses",
       "type": "relationship",
@@ -1473,7 +1473,7 @@
       "description": "Malware been observed using LOLBin tool Certutil.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-9a517244-4139-49d7-b2f4-fab8251fac74",
+      "id": "grouping--9a517244-4139-49d7-b2f4-fab8251fac74",
       "created": "2023-08-20T17:34:58.798Z",
       "modified": "2023-08-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -1486,7 +1486,7 @@
       ]
     },
     {
-      "source_ref": "grouping-9a517244-4139-49d7-b2f4-fab8251fac74",
+      "source_ref": "grouping--9a517244-4139-49d7-b2f4-fab8251fac74",
       "target_ref": "tool--0a68f1f1-da74-4d28-8d9a-696c082706cc",
       "relationship_type": "uses",
       "type": "relationship",
