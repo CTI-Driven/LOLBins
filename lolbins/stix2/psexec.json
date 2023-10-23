@@ -3110,7 +3110,7 @@
       "description": "TTPs been used by LOLBin tool PsExec.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-1be8fcc9-2ffb-4918-a96a-0f1263d5005f",
+      "id": "grouping--1be8fcc9-2ffb-4918-a96a-0f1263d5005f",
       "created": "2023-09-20T17:34:58.798Z",
       "modified": "2023-09-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -3124,7 +3124,7 @@
     },
     {
       "source_ref": "tool--ff6caf67-ea1f-4895-b80e-4bb0fc31c6db",
-      "target_ref": "grouping-1be8fcc9-2ffb-4918-a96a-0f1263d5005f",
+      "target_ref": "grouping--1be8fcc9-2ffb-4918-a96a-0f1263d5005f",
       "relationship_type": "uses",
       "type": "relationship",
       "created": "2023-08-20T18:53:57.511Z",
@@ -3179,7 +3179,7 @@
       "description": "Malware been used by LOLBin tool PsExec.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-06b8d8e4-06d5-45f8-951b-739e6af3c04c",
+      "id": "grouping--06b8d8e4-06d5-45f8-951b-739e6af3c04c",
       "created": "2023-09-20T17:34:58.798Z",
       "modified": "2023-09-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -3188,7 +3188,7 @@
       ]
     },
     {
-      "source_ref": "grouping-06b8d8e4-06d5-45f8-951b-739e6af3c04c",
+      "source_ref": "grouping--06b8d8e4-06d5-45f8-951b-739e6af3c04c",
       "target_ref": "tool--ff6caf67-ea1f-4895-b80e-4bb0fc31c6db",
       "relationship_type": "uses",
       "type": "relationship",
