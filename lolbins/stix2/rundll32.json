@@ -336,7 +336,7 @@
       "description": "TTPs been used by LOLBin tool rundll32.exe",
       "type": "grouping",
       "spec_version": "2.1",
-      "id": "grouping-1cd23a3f-baa0-4775-becb-dd5d29d1ffda",
+      "id": "grouping--1cd23a3f-baa0-4775-becb-dd5d29d1ffda",
       "created": "2023-09-20T17:34:58.798Z",
       "modified": "2023-09-20T17:34:58.798Z",
       "context": "suspicious-activity",
@@ -348,7 +348,7 @@
     },
     {
       "source_ref": "tool--ff8d7fa5-1ae0-4273-8164-c3c4cced5f54",
-      "target_ref": "grouping-1cd23a3f-baa0-4775-becb-dd5d29d1ffda",
+      "target_ref": "grouping--1cd23a3f-baa0-4775-becb-dd5d29d1ffda",
       "relationship_type": "uses",
       "type": "relationship",
       "created": "2023-08-20T18:53:57.511Z",
@@ -2211,7 +2211,7 @@
       "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
     },
     {
-      "source_ref": "grouping-1cd23a3f-baa0-4775-becb-dd5d29d1ffda",
+      "source_ref": "grouping--1cd23a3f-baa0-4775-becb-dd5d29d1ffda",
       "target_ref": "tool--ff8d7fa5-1ae0-4273-8164-c3c4cced5f54",
       "relationship_type": "uses",
       "type": "relationship",
