@@ -32,18 +32,19 @@
     <button class="tablinks" onclick="opentag(event, 'Mshta')">Mshta</button>
     <button class="tablinks" onclick="opentag(event, 'Rundll32')">Rundll32</button>
     <button class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
+    <button class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'WMIC')">WMIC</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Reg')">Reg</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Tasklist')">Tasklist</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'At')">At</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'CMD')">CMD</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'PowerShell')">PowerShell</button>
+    <button style="background-color: #b0b2be;" class="tablinks"
+      onclick="opentag(event, 'PowerShell')">PowerShell</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Cscript')">Cscript</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Wscript')">Wscript</button>
   </div>
-  
+
   <!--Certutil-->
   <div id="Certutil" class="tabcontent">
     <div class="w3-panel w3-border-left">
@@ -60,6 +61,8 @@
     <div class="tab">
       <button class="tablinksn" onclick="opentagn(event, 'stixCertutil')">STIX Visualizer</button>
       <button class="tablinksn" onclick="opentagn(event, 'jsoncrackCertutil')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaCertutil')">Sigma
+        Rules SearchEngine</button>
     </div>
 
     <!--STIX Visualizer-->
@@ -74,6 +77,16 @@
     <div id="jsoncrackCertutil" class="tabcontentn" style="display:none">
       <iframe id="jsoncrackEmbed"
         src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/certutil.json"></iframe>
+    </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmaCertutil" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>"Image:certutil.exe"</b> in the below input
+          and press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
     </div>
   </div>
 
@@ -91,6 +104,8 @@
     <div class="tab">
       <button class="tablinksn" onclick="opentagn(event, 'stixBitsadmin')">STIX Visualizer</button>
       <button class="tablinksn" onclick="opentagn(event, 'jsoncrackBitsadmin')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaBitsadmin')">Sigma
+        Rules SearchEngine</button>
     </div>
 
     <!--STIX Visualizer-->
@@ -105,6 +120,16 @@
     <div id="jsoncrackBitsadmin" class="tabcontentn" style="display:none">
       <iframe id="jsoncrackEmbed"
         src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/bitsadmin.json"></iframe>
+    </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmaBitsadmin" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>"Image:bitsadmin.exe"</b> in the below input
+          and press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
     </div>
   </div>
 
@@ -123,6 +148,8 @@
     <div class="tab">
       <button class="tablinksn" onclick="opentagn(event, 'stixMshta')">STIX Visualizer</button>
       <button class="tablinksn" onclick="opentagn(event, 'jsoncrackMshta')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaMshta')">Sigma Rules
+        SearchEngine</button>
     </div>
 
     <!--STIX Visualizer-->
@@ -138,9 +165,19 @@
       <iframe id="jsoncrackEmbed"
         src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/mshta.json"></iframe>
     </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmaMshta" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>"Image:mshta.exe"</b> in the below input and
+          press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
+    </div>
   </div>
 
-    <!--Rundll32-->
+  <!--Rundll32-->
   <div id="Rundll32" class="tabcontent">
     <div class="w3-panel w3-border-left">
       <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
@@ -156,6 +193,8 @@
     <div class="tab">
       <button class="tablinksn" onclick="opentagn(event, 'stixRundll32')">STIX Visualizer</button>
       <button class="tablinksn" onclick="opentagn(event, 'jsoncrackRundll32')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaRundll32')">Sigma
+        Rules SearchEngine</button>
     </div>
 
     <!--STIX Visualizer-->
@@ -171,9 +210,19 @@
       <iframe id="jsoncrackEmbed"
         src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/rundll32.json"></iframe>
     </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmaRundll32" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>"Image:rundll32.exe"</b> in the below input
+          and press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
+    </div>
   </div>
-  
-<!--PsExec-->
+
+  <!--PsExec-->
   <div id="PsExec" class="tabcontent">
     <div class="w3-panel w3-border-left">
       <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
@@ -190,6 +239,8 @@
     <div class="tab">
       <button class="tablinksn" onclick="opentagn(event, 'stixPsExec')">STIX Visualizer</button>
       <button class="tablinksn" onclick="opentagn(event, 'jsoncrackPsExec')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmapsexec')">Sigma Rules
+        SearchEngine</button>
     </div>
 
     <!--STIX Visualizer-->
@@ -205,8 +256,64 @@
       <iframe id="jsoncrackEmbed"
         src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/psexec.json"></iframe>
     </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmapsexec" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>"Image:psexec.exe"</b> in the below input and
+          press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
+    </div>
   </div>
-  
+
+  <!--Schtasks-->
+  <div id="Schtasks" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/software/S0111/">[MITRE ATT&CK: S0111]</a>
+      <p>Adversaries may abuse the Windows Task Scheduler (<b>schtasks.exe</b>) to perform task scheduling for initial
+        or recurring execution of malicious code.</p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Schtasks] to:</b><br />| Achieved persistence via
+        scheduled tasks | Created a scheduled SYSTEM task that runs when a user logs in | Run programs at system startup
+        |
+        Run malicious scripts on a compromised host (.vbe, .dat) | Downloaded additional malware including Cobalt
+        Strike, PowerShell loader| Execute malware during lateral movement | Bypass UAC | Maintain RDP backdoors</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixschtasks')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackschtasks')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaschtasks')">Sigma
+        Rules SearchEngine</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixschtasks" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/schtasks.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackschtasks" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/schtasks.json"></iframe>
+    </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmaschtasks" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>"Image:schtasks.exe"</b> in the below input
+          and press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
+    </div>
+  </div>
+
   <!--Cscript-->
   <div id="Cscript" class="tabcontent">
     <div class="w3-panel w3-border-left">
@@ -231,17 +338,6 @@
 
   <!--WMIC-->
   <div id="WMIC" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--Schtasks-->
-  <div id="Schtasks" class="tabcontent">
     <div class="w3-panel w3-border-left">
       <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
       <div class="w3-panel w3-border-left">
