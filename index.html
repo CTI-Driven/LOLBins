@@ -33,8 +33,8 @@
     <button class="tablinks" onclick="opentag(event, 'Rundll32')">Rundll32</button>
     <button class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
     <button class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
+    <button class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'WMIC')">WMIC</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Reg')">Reg</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Tasklist')">Tasklist</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'At')">At</button>
@@ -314,6 +314,53 @@
     </div>
   </div>
 
+  <!--Regsvr32-->
+  <div id="Regsvr32" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/techniques/T1218/010/">[MITRE ATT&CK: T1218.010]</a>
+      <p>Adversaries may abuse (<b>Regsvr32.exe</b>) to proxy execution of malicious code. Regsvr32.exe is a
+        command-line program used to register and unregister object linking and embedding controls, including dynamic
+        link libraries (DLLs), on Windows systems.</p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Regsvr32] to:</b><br />| Bypass application control
+        techniques | Execute a COM scriptlet that dynamically downloaded a backdoor and injected it into memory |
+        Execute malicious scripts | Load malicious DLLs| Execute malicious DLLs | Execute malicious payloads | Run a
+        remote scriptlet that drops a file and executes it | Ensure persistence at system boot | Run a .sct file for
+        execution</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixregsvr32')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackregsvr32')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaregsvr32')">Sigma
+        Rules SearchEngine</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixregsvr32" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/regsvr32.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackregsvr32" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/regsvr32.json"></iframe>
+    </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmaregsvr32" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:regsvr32.exe</b> in the below input
+          and press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
+    </div>
+  </div>
+
   <!--Cscript-->
   <div id="Cscript" class="tabcontent">
     <div class="w3-panel w3-border-left">
@@ -338,17 +385,6 @@
 
   <!--WMIC-->
   <div id="WMIC" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--Regsvr32-->
-  <div id="Regsvr32" class="tabcontent">
     <div class="w3-panel w3-border-left">
       <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
       <div class="w3-panel w3-border-left">
