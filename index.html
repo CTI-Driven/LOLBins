@@ -34,8 +34,8 @@
     <button class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
     <button class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
     <button class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
+    <button class="tablinks" onclick="opentag(event, 'Reg')">Reg</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'WMIC')">WMIC</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Reg')">Reg</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Tasklist')">Tasklist</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'At')">At</button>
     <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'CMD')">CMD</button>
@@ -80,7 +80,7 @@
     </div>
 
     <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaCertutil" class="tabcontentn" style="display:none">
+    <div id="sigmaCertutil" class="tabcontentn">
       <div class="cti-stix-visualization">
         <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:certutil.exe</b> in the below input
           and press submit<br /></p>
@@ -123,7 +123,7 @@
     </div>
 
     <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaBitsadmin" class="tabcontentn" style="display:none">
+    <div id="sigmaBitsadmin" class="tabcontentn">
       <div class="cti-stix-visualization">
         <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:bitsadmin.exe</b> in the below input
           and press submit<br /></p>
@@ -167,7 +167,7 @@
     </div>
 
     <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaMshta" class="tabcontentn" style="display:none">
+    <div id="sigmaMshta" class="tabcontentn">
       <div class="cti-stix-visualization">
         <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:mshta.exe</b> in the below input and
           press submit<br /></p>
@@ -212,7 +212,7 @@
     </div>
 
     <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaRundll32" class="tabcontentn" style="display:none">
+    <div id="sigmaRundll32" class="tabcontentn">
       <div class="cti-stix-visualization">
         <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:rundll32.exe</b> in the below input
           and press submit<br /></p>
@@ -258,7 +258,7 @@
     </div>
 
     <!--SIGMA Sigmasearchengine-->
-    <div id="sigmapsexec" class="tabcontentn" style="display:none">
+    <div id="sigmapsexec" class="tabcontentn">
       <div class="cti-stix-visualization">
         <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:psexec.exe</b> in the below input and
           press submit<br /></p>
@@ -304,7 +304,7 @@
     </div>
 
     <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaschtasks" class="tabcontentn" style="display:none">
+    <div id="sigmaschtasks" class="tabcontentn">
       <div class="cti-stix-visualization">
         <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:schtasks.exe</b> in the below input
           and press submit<br /></p>
@@ -351,9 +351,55 @@
     </div>
 
     <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaregsvr32" class="tabcontentn" style="display:none">
+    <div id="sigmaregsvr32" class="tabcontentn">
       <div class="cti-stix-visualization">
         <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:regsvr32.exe</b> in the below input
+          and press submit<br /></p>
+        <iframe src="https://sigmasearchengine.com/"></iframe>
+      </div>
+      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
+    </div>
+  </div>
+
+  <!--Reg-->
+  <div id="Reg" class="tabcontent">
+    <div class="w3-panel w3-border-left">
+      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+      <a href="https://attack.mitre.org/software/S0075/">[MITRE ATT&CK: S0075]</a>
+      <p><b>Reg.exe</b> is a Windows utility used to interact with the Windows Registry.
+        It can be used at the command-line interface to query, add, modify, and remove information.
+        Utilities such as <b>Reg.exe</b> are known to be used by persistent threats.</p>
+      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [reg.exe] to:</b><br />| Interact with and modify the
+        Windows Registry of a local or remote system | Gather details from the Windows Registry of a local or remote
+        system | Find/Extract credentials from the Registry | Check for installed software on the system | Retrieve
+        proxy information in the Registry | Remove/Deactivate security settings eg.(AV/EDR/FW/UAC) |</p>
+    </div>
+    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
+    <div class="tab">
+      <button class="tablinksn" onclick="opentagn(event, 'stixreg')">STIX Visualizer</button>
+      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackreg')">JSON Crack Visualizer</button>
+      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmareg')">Sigma
+        Rules SearchEngine</button>
+    </div>
+
+    <!--STIX Visualizer-->
+    <div id="stixreg" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <iframe
+          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/reg.json"></iframe>
+      </div>
+    </div>
+
+    <!--JSON Crack Visualizer-->
+    <div id="jsoncrackreg" class="tabcontentn" style="display:none">
+      <iframe id="jsoncrackEmbed"
+        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/reg.json"></iframe>
+    </div>
+
+    <!--SIGMA Sigmasearchengine-->
+    <div id="sigmareg" class="tabcontentn">
+      <div class="cti-stix-visualization">
+        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:reg.exe</b> in the below input
           and press submit<br /></p>
         <iframe src="https://sigmasearchengine.com/"></iframe>
       </div>
@@ -385,17 +431,6 @@
 
   <!--WMIC-->
   <div id="WMIC" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--Reg-->
-  <div id="Reg" class="tabcontent">
     <div class="w3-panel w3-border-left">
       <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
       <div class="w3-panel w3-border-left">
