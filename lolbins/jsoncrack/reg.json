@@ -1,0 +1,166 @@
+{
+  "type": "lolbin",
+  "version": 1,
+  "id": "cc31e472-8787-49f7-be75-65d74ed949dd",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2024-01-01T00:00",
+  "modified": "2023-01-01T00:00",
+  "name": "Reg.exe",
+  "description": "Reg is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. [1]\\n\\nUtilities such as Reg are known to be used by persistent threats.",
+  "Required_privilege": [
+    "User",
+    "Administrator"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\reg.exe",
+    "c:\\windows\\syswow64\\reg.exe"
+  ],
+  "hashe": "227F63E1D9008B36BDBCC4B397780BE4",
+  "associated_kill_chain_phases": [
+    "TA0005:Defense Evasion:T1112",
+    "TA0007:Discovery:T1012",
+    "TA0006:Credential Access:T1552.002"
+  ],
+  "capabilities": [
+    "Reconnaissance",
+    "Dump"
+  ],
+  "relationship": [
+    {
+      "associated_apts": [
+        "Turla",
+        "OilRig",
+        "Rancor",
+        "Dragonfly",
+        "GALLIUM",
+        "Volt Typhoon",
+        "BianLian Ransomware Group"
+      ],
+      "Relationship Reg.exe -> APTs": [
+        "[Wizard Spider](https://attack.mitre.org/groups/G0102) has modified the Registry key <code>HKLM\\System\\CurrentControlSet\\Control\\SecurityProviders\\WDigest</code> by setting the <code>UseLogonCredential</code> registry value to <code>1</code> in order to force credentials to be stored in clear text in memory. [Wizard Spider](https://attack.mitre.org/groups/G0102) has also modified the WDigest registry key to allow plaintext credentials to be cached in memory.(Citation: CrowdStrike Grim Spider May 2019)(Citation: Mandiant FIN12 Oct 2021)",
+        "[Magic Hound](https://attack.mitre.org/groups/G0059) has modified Registry settings for security tools.(Citation: DFIR Report APT35 ProxyShell March 2022)",
+        "[Kimsuky](https://attack.mitre.org/groups/G0094) has modified Registry settings for default file associations to enable all macros and for persistence.(Citation: CISA AA20-301A Kimsuky)(Citation: Crowdstrike GTR2020 Mar 2020)(Citation: Talos Kimsuky Nov 2021)(Citation: KISA Operation Muzabi)",
+        "[Dragonfly](https://attack.mitre.org/groups/G0035) has modified the Registry to perform multiple techniques through the use of [Reg](https://attack.mitre.org/software/S0075).(Citation: US-CERT TA18-074A)",
+        "[APT32](https://attack.mitre.org/groups/G0050)'s backdoor has modified the Windows Registry to store the backdoor's configuration. (Citation: ESET OceanLotus Mar 2019) ",
+        "[Earth Lusca](https://attack.mitre.org/groups/G1006) modified the registry using the command <code>reg add “HKEY_CURRENT_USER\\Environment” /v UserInitMprLogonScript /t REG_SZ /d “[file path]”</code> for persistence.(Citation: TrendMicro EarthLusca 2022)",
+        "A [Patchwork](https://attack.mitre.org/groups/G0040) payload deletes Resiliency Registry keys created by Microsoft Office applications in an apparent effort to trick users into thinking there were no issues during application runs.(Citation: TrendMicro Patchwork Dec 2017)",
+        "[TA505](https://attack.mitre.org/groups/G0092) has used malware to disable Windows Defender through modification of the Registry.(Citation: Korean FSI TA505 2020)",
+        "[Turla](https://attack.mitre.org/groups/G0010) has modify Registry values to store payloads.(Citation: ESET Turla PowerShell May 2019)(Citation: Symantec Waterbug Jun 2019)",
+        "[APT19](https://attack.mitre.org/groups/G0073) uses a Port 22 malware variant to modify several Registry keys.(Citation: Unit 42 C0d0so0 Jan 2016)",
+        "[FIN8](https://attack.mitre.org/groups/G0061) has deleted Registry keys during post compromise cleanup activities.(Citation: FireEye Know Your Enemy FIN8 Aug 2016)",
+        "[Gamaredon Group](https://attack.mitre.org/groups/G0047) has removed security settings for VBA macro execution by changing registry values <code>HKCU\\Software\\Microsoft\\Office\\&lt;version&gt;\\&lt;product&gt;\\Security\\VBAWarnings</code> and <code>HKCU\\Software\\Microsoft\\Office\\&lt;version&gt;\\&lt;product&gt;\\Security\\AccessVBOM</code>.(Citation: ESET Gamaredon June 2020)(Citation: CERT-EE Gamaredon January 2021)",
+        "[Gorgon Group](https://attack.mitre.org/groups/G0078) malware can deactivate security mechanisms in Microsoft Office by editing several keys and values under <code>HKCU\\Software\\Microsoft\\Office\\</code>.(Citation: Unit 42 Gorgon Group Aug 2018)",
+        "[Blue Mockingbird](https://attack.mitre.org/groups/G0108) has used Windows Registry modifications to specify a DLL payload.(Citation: RedCanary Mockingbird May 2020) ",
+        "[Silence](https://attack.mitre.org/groups/G0091) can create, delete, or modify a specified Registry key or value.(Citation: Group IB Silence Sept 2018)",
+        "[LuminousMoth](https://attack.mitre.org/groups/G1014) has used malware that adds Registry keys for persistence.(Citation: Kaspersky LuminousMoth July 2021)(Citation: Bitdefender LuminousMoth July 2021)",
+        "[Ember Bear](https://attack.mitre.org/groups/G1003) has used an open source batch script to modify Windows Defender registry keys.(Citation: Palo Alto Unit 42 OutSteel SaintBot February 2022 )",
+        "[APT41](https://attack.mitre.org/groups/G0096) used a malware variant called GOODLUCK to modify the registry in order to steal credentials.(Citation: FireEye APT41 Aug 2019)(Citation: Group IB APT 41 June 2021)",
+        "A [Threat Group-3390](https://attack.mitre.org/groups/G0027) tool has created new Registry keys under `HKEY_CURRENT_USER\\Software\\Classes\\` and `HKLM\\SYSTEM\\CurrentControlSet\\services`.(Citation: Nccgroup Emissary Panda May 2018)(Citation: Trend Micro Iron Tiger April 2021)",
+        "[APT38](https://attack.mitre.org/groups/G0082) uses a tool called CLEANTOAD that has the capability to modify Registry keys.(Citation: FireEye APT38 Oct 2018)",
+        "[Turla](https://attack.mitre.org/groups/G0010) surveys a system upon check-in to discover information in the Windows Registry with the <code>reg query</code> command.(Citation: Kaspersky Turla) [Turla](https://attack.mitre.org/groups/G0010) has also retrieved PowerShell payloads hidden in Registry keys as well as checking keys associated with null session named pipes .(Citation: ESET Turla PowerShell May 2019)",
+        "[Kimsuky](https://attack.mitre.org/groups/G0094) has obtained specific Registry keys and values on a compromised host.(Citation: Talos Kimsuky Nov 2021)",
+        "[OilRig](https://attack.mitre.org/groups/G0049) has used <code>reg query “HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default”</code> on a victim to query the Registry.(Citation: Palo Alto OilRig May 2016)",
+        "[Stealth Falcon](https://attack.mitre.org/groups/G0038) malware attempts to determine the installed version of .NET by querying the Registry.(Citation: Citizen Lab Stealth Falcon May 2016)",
+        "A [Threat Group-3390](https://attack.mitre.org/groups/G0027) tool can read and decrypt stored Registry values.(Citation: Nccgroup Emissary Panda May 2018)",
+        "[Dragonfly](https://attack.mitre.org/groups/G0035) has queried the Registry to identify victim information.(Citation: US-CERT TA18-074A)",
+        "[APT32](https://attack.mitre.org/groups/G0050)'s backdoor can query the Windows Registry to gather system information. (Citation: ESET OceanLotus Mar 2019)",
+        "[APT39](https://attack.mitre.org/groups/G0087) has used various strains of malware to query the Registry.(Citation: FBI FLASH APT39 September 2020)",
+        "[Volt Typhoon](https://attack.mitre.org/groups/G1017) has queried the Registry on compromised systems, reg query hklm\\software\\, for information on installed software.(Citation: Joint Cybersecurity Advisory Volt Typhoon June 2023)",
+        "[ZIRCONIUM](https://attack.mitre.org/groups/G0128) has used a tool to query the Registry for proxy settings.(Citation: Zscaler APT31 Covid-19 October 2020)",
+        "[Chimera](https://attack.mitre.org/groups/G0114) has queried Registry keys using <code>reg query \\<host>\\HKU\\<SID>\\SOFTWARE\\Microsoft\\Terminal Server Client\\Servers</code> and <code>reg query \\<host>\\HKU\\<SID>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings</code>.(Citation: NCC Group Chimera January 2021)",
+        "[Lazarus Group](https://attack.mitre.org/groups/G0032) malware IndiaIndia checks Registry keys within HKCU and HKLM to determine if certain applications are present, including SecureCRT, Terminal Services, RealVNC, TightVNC, UltraVNC, Radmin, mRemote, TeamViewer, FileZilla, pcAnyware, and Remote Desktop. Another [Lazarus Group](https://attack.mitre.org/groups/G0032) malware sample checks for the presence of the following Registry key:<code>HKEY_CURRENT_USER\\Software\\Bitcoin\\Bitcoin-Qt</code>.(Citation: Novetta Blockbuster)(Citation: Novetta Blockbuster Loaders)(Citation: McAfee Lazarus Resurfaces Feb 2018)",
+        "[Fox Kitten](https://attack.mitre.org/groups/G0117) has accessed Registry hives ntuser.dat and UserClass.dat.(Citation: CISA AA20-259A Iran-Based Actor September 2020)",
+        "[APT32](https://attack.mitre.org/groups/G0050) used Outlook Credential Dumper to harvest credentials stored in Windows registry.(Citation: Cybereason Oceanlotus May 2017)(Citation: Cybereason Cobalt Kitty 2017)"
+      ],
+      "Relationship Reg.exe -> TTPs": [
+        "[Reg](https://attack.mitre.org/software/S0075) may be used to interact with and modify the Windows Registry of a local or remote system at the command-line interface.(Citation: Microsoft Reg)",
+        "[Reg](https://attack.mitre.org/software/S0075) may be used to find credentials in the Windows Registry.(Citation: Pentestlab Stored Credentials)",
+        "[Reg](https://attack.mitre.org/software/S0075) may be used to gather details from the Windows Registry of a local or remote system at the command-line interface.(Citation: Microsoft Reg)"
+      ],
+      "associated_campaigns": [
+        "Operation Honeybee"
+      ],
+      "associated_Malware": [
+        "Query Registry",
+        "Modify Registry",
+        "Credentials in Registry",
+        "Security Account Manager",
+        "NTFS File Attributes"
+      ],
+      "associated_commands": [
+        "reg delete \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /f",
+        "reg add \"HKLM\\Software\\Polics\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiVirus\" /t REG_DWORD /d \"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\MpEngine\" /v \"MpEnablePus\" /t REG_DWORD /d \"o\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableBehaviorMonitoring\" /t",
+        "REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableIOAVProtection\" /t REG_DWORD /d \"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableOnAccess Protection\" /t REG_DWORD /d \"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableScanOn RealtimeEnable\" /t REG_DWORD /d \"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Reporting\" /v \"Disable EnhancedNotifications\" /t REG_DWORD /d\"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"DisableBlockAtFirstSeen\" /t REG_DWORD /d \"1\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"Spynet Reporting\" /t REG_DWORD /d \"0\" /f",
+        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"SubmitSamplesConsent\" /t REG_DWORD /d \"2\" /f",
+        "rem 0 Disable Logging",
+        "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderApiLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
+        "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderAuditLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
+        "rem Disable WD Tasks",
+        "schtasks /Change /TN \"Microsoft\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh\" /Disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Cache Maintenance\" /Disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Cleanup\" /Disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Scheduled Scan\" /Disable schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Verification\" /Disable",
+        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
+        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
+        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f",
+        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fSingleSessionPerUser /t REG_DWORD /d 0 /f",
+        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\Licensing Core\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
+        "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
+        "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllowMultipleTSSessions /t REG_DWORD /d 1 /f",
+        "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services\" /v MaxInstanceCount /t REG_DWORD /d 100 /f",
+        "reg add \"HKEY_CURRENT_USER\\Environment\" /v UserInitMprLogonScript /t REG_SZ /d \"[file path]\" ",
+        "/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions\"\"Local Machine Hive: ",
+        "reg query HKLM /f password /t REG_SZ /s\" \"Current User Hive: reg query HKCU /f password /t REG_SZ /s"
+      ]
+    }
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "detections": [
+    {
+      "eventsid": [
+        {
+          "sysmon": [
+            "T1112:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1"
+          ],
+          "windows": [
+            "T1112:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
+            "T1552.002:script:script_execution:log_channel:Microsoft-Windows-PowerShellOperational:log_provider:Microsoft-Windows-PowerShell:4103",
+            "T1218.010:script:script_execution:log_channel:Microsoft-Windows-PowerShellOperational:log_provider:Microsoft-Windows-PowerShell:4103"
+          ]
+        }
+      ],
+      "sigma_rules": [
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_reg_add_safeboot.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_reg_enumeration_for_credentials_in_registry.yml",
+        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml"
+      ],
+      "other_rules": []
+    }
+  ],
+  "related_CVE": [
+    "CVE-2023-42793"
+  ],
+  "mitigations": [
+    "Ensure proper permissions are set for Registry hives to prevent users from modifying keys for system components that may lead to privilege escalation.",
+    "Do not store credentials within the Registry.",
+    "If it is necessary that software must store credentials in the Registry, then ensure the associated accounts have limited permissions so they cannot be abused if obtained by an adversary.",
+    "Proactively search for credentials within the Registry and attempt to remediate the risk."
+  ],
+  "references": [
+    "https://attack.mitre.org/software/S0075/",
+    "https://strontic.github.io/xcyclopedia/library/reg.exe-227F63E1D9008B36BDBCC4B397780BE4.html",
+    "https://lolbas-project.github.io/lolbas/Binaries/Reg/",
+    "https://app.tidalcyber.com/software/d796615c-fa3d-4afd-817a-1a3db8c73532"
+  ]
+}
