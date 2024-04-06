@@ -33,7 +33,7 @@ This includes :
 [![Youtube Video](screenshots/video.png)](https://youtu.be/xiu17NC61J4 "LOLBins CTI-Driven Youtube Video")
 
 
-## Agenda for 2023:
+## Agenda for 2023-2024:
 * Add the Top 15 LOLBins files that are being used by threat actors.
 * Add an API to streamline the passing of LOLBinCTI-Driven JSON files to the TIPs platform.
 
