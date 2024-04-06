@@ -1,0 +1,1533 @@
+{
+  "spec_version": "2.1",
+  "id": "bundle--dd13df4f-7bc3-4e6a-bb58-a1fbe41c4274",
+  "type": "bundle",
+  "objects": [
+    {
+      "name": "Nounou Mbeiri",
+      "description": "MITRE ATT&CK Defender (MAD) | Cyber Threat Intelligence researcher | Collaborator in Cyber Threat Intelligence community (GINSEG) | Public Speaking",
+      "identity_class": "individual",
+      "contact_information": "Twitter: @Nounou_Mbeiri",
+      "id": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "type": "identity",
+      "spec_version": "2.1",
+      "created": "2021-03-10T10:00:00.000Z",
+      "modified": "2021-03-10T10:00:00.000Z"
+    },
+    {
+      "name": "LOLBin: Reg.exe",
+      "description": "  Reg is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. Utilities such as Reg are known to be used by persistent threats.",
+      "published": "2024-01-10T00:00:00.000Z",
+      "id": "report--9226bb01-8ab9-4148-90b6-fc10daf29350",
+      "type": "report",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2024-01-10T00:00:00.000Z",
+      "modified": "2024-01-10T00:00:00.000Z",
+      "report_types": [
+        "tool"
+      ],
+      "object_refs": [
+        "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f"
+      ]
+    },
+    {
+      "modified": "2022-10-13T20:23:35.333Z",
+      "name": "Reg.exe",
+      "description": "[Reg](https://attack.mitre.org/software/S0075) is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. (Citation: Microsoft Reg)\n\nUtilities such as [Reg](https://attack.mitre.org/software/S0075) are known to be used by persistent threats. (Citation: Windows Commands JPCERT)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_aliases": [
+        "Reg",
+        "reg.exe"
+      ],
+      "type": "tool",
+      "id": "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+      "created": "2017-05-31T21:32:49.000Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0075",
+          "external_id": "S0075"
+        },
+        {
+          "source_name": "Microsoft Reg",
+          "description": "Microsoft. (2012, April 17). Reg. Retrieved May 1, 2015.",
+          "url": "https://technet.microsoft.com/en-us/library/cc732643.aspx"
+        },
+        {
+          "source_name": "Windows Commands JPCERT",
+          "description": "Tomonaga, S. (2016, January 26). Windows Commands Abused by Attackers. Retrieved February 2, 2016.",
+          "url": "https://blogs.jpcert.or.jp/en/2016/01/windows-commands-abused-by-attackers.html"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "labels": [
+        "tool"
+      ],
+      "x_mitre_attack_spec_version": "2.1.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+    },
+{
+    "type": "intrusion-set",
+    "id": "intrusion-set--7a19ecb1-3c65-4de3-a230-993516aed6a6",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2017-05-31T21:31:49.816Z",
+    "modified": "2023-03-22T05:41:28.428Z",
+    "name": "Turla",
+    "description": "[Turla](https://attack.mitre.org/groups/G0010) is a Russian-based threat group that has infected victims in over 45 countries, spanning a range of industries including government, embassies, military, education, research and pharmaceutical companies since 2004. Heightened activity was seen in mid-2015. [Turla](https://attack.mitre.org/groups/G0010) is known for conducting watering hole and spearphishing campaigns and leveraging in-house tools and malware. [Turla](https://attack.mitre.org/groups/G0010)\u2019s espionage platform is mainly used against Windows machines, but has also been seen used against macOS and Linux machines.(Citation: Kaspersky Turla)(Citation: ESET Gazer Aug 2017)(Citation: CrowdStrike VENOMOUS BEAR)(Citation: ESET Turla Mosquito Jan 2018)",
+    "aliases": [
+        "Turla",
+        "IRON HUNTER",
+        "Group 88",
+        "Belugasturgeon",
+        "Waterbug",
+        "WhiteBear",
+        "Snake",
+        "Krypton",
+        "Venomous Bear"
+    ],
+    "external_references": [
+        {
+            "source_name": "mitre-attack",
+            "url": "https://attack.mitre.org/groups/G0010",
+            "external_id": "G0010"
+        },
+        {
+            "source_name": "Belugasturgeon",
+            "description": "(Citation: Accenture HyperStack October 2020)"
+        },
+        {
+            "source_name": "Krypton",
+            "description": "(Citation: CrowdStrike VENOMOUS BEAR)"
+        },
+        {
+            "source_name": "Snake",
+            "description": "(Citation: CrowdStrike VENOMOUS BEAR)(Citation: ESET Turla PowerShell May 2019)(Citation: Talos TinyTurla September 2021)"
+        },
+        {
+            "source_name": "Venomous Bear",
+            "description": "(Citation: CrowdStrike VENOMOUS BEAR)(Citation: Talos TinyTurla September 2021)"
+        },
+        {
+            "source_name": "Turla",
+            "description": "(Citation: Kaspersky Turla)"
+        },
+        {
+            "source_name": "Group 88",
+            "description": "(Citation: Leonardo Turla Penquin May 2020)"
+        },
+        {
+            "source_name": "IRON HUNTER",
+            "description": "(Citation: Secureworks IRON HUNTER Profile)"
+        },
+        {
+            "source_name": "Accenture HyperStack October 2020",
+            "description": "Accenture. (2020, October). Turla uses HyperStack, Carbon, and Kazuar to compromise government entity. Retrieved December 2, 2020.",
+            "url": "https://www.accenture.com/us-en/blogs/cyber-defense/turla-belugasturgeon-compromises-government-entity"
+        },
+        {
+            "source_name": "Waterbug",
+            "description": "Based similarity in TTPs and malware used, Turla and Waterbug appear to be the same group.(Citation: Symantec Waterbug)"
+        },
+        {
+            "source_name": "Talos TinyTurla September 2021",
+            "description": "Cisco Talos. (2021, September 21). TinyTurla - Turla deploys new malware to keep a secret backdoor on victim machines. Retrieved December 2, 2021.",
+            "url": "https://blog.talosintelligence.com/2021/09/tinyturla.html"
+        },
+        {
+            "source_name": "ESET Turla Mosquito Jan 2018",
+            "description": "ESET, et al. (2018, January). Diplomats in Eastern Europe bitten by a Turla mosquito. Retrieved July 3, 2018.",
+            "url": "https://www.welivesecurity.com/wp-content/uploads/2018/01/ESET_Turla_Mosquito.pdf"
+        },
+        {
+            "source_name": "ESET Gazer Aug 2017",
+            "description": "ESET. (2017, August). Gazing at Gazer: Turla\u2019s new second stage backdoor. Retrieved September 14, 2017.",
+            "url": "https://www.welivesecurity.com/wp-content/uploads/2017/08/eset-gazer.pdf"
+        },
+        {
+            "source_name": "ESET Turla PowerShell May 2019",
+            "description": "Faou, M. and Dumont R.. (2019, May 29). A dive into Turla PowerShell usage. Retrieved June 14, 2019.",
+            "url": "https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/"
+        },
+        {
+            "source_name": "Securelist WhiteBear Aug 2017",
+            "description": "Kaspersky Lab's Global Research & Analysis Team. (2017, August 30). Introducing WhiteBear. Retrieved September 21, 2017.",
+            "url": "https://securelist.com/introducing-whitebear/81638/"
+        },
+        {
+            "source_name": "Kaspersky Turla",
+            "description": "Kaspersky Lab's Global Research and Analysis Team. (2014, August 7). The Epic Turla Operation: Solving some of the mysteries of Snake/Uroburos. Retrieved December 11, 2014.",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+        },
+        {
+            "source_name": "Leonardo Turla Penquin May 2020",
+            "description": "Leonardo. (2020, May 29). MALWARE TECHNICAL INSIGHT TURLA \u201cPenquin_x64\u201d. Retrieved March 11, 2021.",
+            "url": "https://www.leonardo.com/documents/20142/10868623/Malware+Technical+Insight+_Turla+%E2%80%9CPenquin_x64%E2%80%9D.pdf"
+        },
+        {
+            "source_name": "CrowdStrike VENOMOUS BEAR",
+            "description": "Meyers, A. (2018, March 12). Meet CrowdStrike\u2019s Adversary of the Month for March: VENOMOUS BEAR. Retrieved May 16, 2018.",
+            "url": "https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-march-venomous-bear/"
+        },
+        {
+            "source_name": "Secureworks IRON HUNTER Profile",
+            "description": "Secureworks CTU. (n.d.). IRON HUNTER. Retrieved February 22, 2022.",
+            "url": "http://www.secureworks.com/research/threat-profiles/iron-hunter"
+        },
+        {
+            "source_name": "Symantec Waterbug",
+            "description": "Symantec. (2015, January 26). The Waterbug attack group. Retrieved April 10, 2015.",
+            "url": "https://www.threatminer.org/report.php?q=waterbug-attack-group.pdf&y=2015#gsc.tab=0&gsc.q=waterbug-attack-group.pdf&gsc.page=1"
+        },
+        {
+            "source_name": "WhiteBear",
+            "description": "WhiteBear is a designation used by Securelist to describe a cluster of activity that has overlaps with activity described by others as Turla, but appears to have a separate focus.(Citation: Securelist WhiteBear Aug 2017)(Citation: Talos TinyTurla September 2021)"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "3.1.0",
+    "x_mitre_contributors": [
+        "Matthieu Faou, ESET",
+        "Edward Millington"
+    ],
+    "x_mitre_deprecated": false,
+    "x_mitre_domains": [
+        "enterprise-attack"
+    ],
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "3.1"
+},
+{
+  "type": "intrusion-set",
+  "id": "intrusion-set--a2add2a0-2b54-4623-a380-a9ad91f1f2dd",
+  "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "created": "2017-05-31T21:31:49.816Z",
+  "modified": "2023-03-22T05:41:28.428Z",
+  "name": "BianLian Ransomware Group",
+  "description": "BianLian is an extortion-focused threat actor group. The group originally used double-extortion methods when it began its operations in June 2022, demanding payment in exchange for decrypting locked files while also threatening to leak exfiltrated data. U.S. & Australian cybersecurity officials observed BianLian actors shifting almost exclusively to exfiltration-focused extortion schemes in 2023.[U.S. CISA BianLian Ransomware May 2023]",
+  "aliases": [
+      "BianLian"
+  ],
+  "external_references": [
+      {
+          "source_name": "Tidalcyber",
+          "url": "https://app.tidalcyber.com/groups/a2add2a0-2b54-4623-a380-a9ad91f1f2dd",
+          "external_id": "G5000"
+      }
+  ]
+},
+{
+  "type": "intrusion-set",
+  "id": "intrusion-set--3290dcb9-5781-4b87-8fa0-6ae820e152cd", 
+  "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "created": "2017-05-31T21:31:49.816Z",
+  "modified": "2023-03-22T05:41:28.428Z",
+  "name": "Volt Typhoon",
+  "description": "Volt Typhoon is a China state-backed threat actor that has targeted critical infrastructure organizations in a range of specific sectors in Guam and elsewhere in the United States since mid-2021. Its activities primarily focus on espionage and information gathering. Researchers indicate the group is focused on maintaining stealth and persistence in victim networks for as long as possible, leveraging a large number of living-off-the-land techniques to accomplish these goals. Researchers assessed with moderate confidence that Volt Typhoon's activities are focused on developing capabilities that could disrupt communications infrastructure between the United States and entities in Asia in the event of a potential geopolitical crisis.[U.S. CISA Volt Typhoon May 24 2023]",
+  "aliases": [
+      "Volt Typhoon"
+  ],
+  "external_references": [
+      {
+          "source_name": "Tidalcyber",
+          "url": "https://app.tidalcyber.com/groups/3290dcb9-5781-4b87-8fa0-6ae820e152cd",
+          "external_id": "G5001"
+      }
+  ]
+},
+
+{
+    "type": "intrusion-set",
+    "id": "intrusion-set--4ca1929c-7d64-4aab-b849-badbfc0c760d",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2017-12-14T16:46:06.044Z",
+    "modified": "2023-02-06T20:58:52.317Z",
+    "name": "OilRig",
+    "description": "[OilRig](https://attack.mitre.org/groups/G0049) is a suspected Iranian threat group that has targeted Middle Eastern and international victims since at least 2014. The group has targeted a variety of sectors, including financial, government, energy, chemical, and telecommunications. It appears the group carries out supply chain attacks, leveraging the trust relationship between organizations to attack their primary targets. FireEye assesses that the group works on behalf of the Iranian government based on infrastructure details that contain references to Iran, use of Iranian infrastructure, and targeting that aligns with nation-state interests.(Citation: Palo Alto OilRig April 2017)(Citation: ClearSky OilRig Jan 2017)(Citation: Palo Alto OilRig May 2016)(Citation: Palo Alto OilRig Oct 2016)(Citation: Unit42 OilRig Playbook 2023)(Citation: FireEye APT34 Dec 2017)(Citation: Unit 42 QUADAGENT July 2018)",
+    "aliases": [
+        "OilRig",
+        "COBALT GYPSY",
+        "IRN2",
+        "APT34",
+        "Helix Kitten",
+        "Evasive Serpens"
+    ],
+    "external_references": [
+        {
+            "source_name": "mitre-attack",
+            "url": "https://attack.mitre.org/groups/G0049",
+            "external_id": "G0049"
+        },
+        {
+            "source_name": "IRN2",
+            "description": "(Citation: Crowdstrike Helix Kitten Nov 2018)"
+        },
+        {
+            "source_name": "OilRig",
+            "description": "(Citation: Palo Alto OilRig April 2017) (Citation: ClearSky OilRig Jan 2017) (Citation: Palo Alto OilRig May 2016) (Citation: Palo Alto OilRig Oct 2016) (Citation: Unit 42 Playbook Dec 2017) (Citation: Unit 42 QUADAGENT July 2018)"
+        },
+        {
+            "source_name": "COBALT GYPSY",
+            "description": "(Citation: Secureworks COBALT GYPSY Threat Profile)"
+        },
+        {
+            "source_name": "Helix Kitten",
+            "description": "(Citation: Unit 42 QUADAGENT July 2018)(Citation: Crowdstrike Helix Kitten Nov 2018)"
+        },
+        {
+            "source_name": "Evasive Serpens",
+            "description": "(Citation: Unit42 OilRig Playbook 2023)"
+        },
+        {
+            "source_name": "Check Point APT34 April 2021",
+            "description": "Check Point. (2021, April 8). Iran\u2019s APT34 Returns with an Updated Arsenal. Retrieved May 5, 2021.",
+            "url": "https://research.checkpoint.com/2021/irans-apt34-returns-with-an-updated-arsenal/"
+        },
+        {
+            "source_name": "ClearSky OilRig Jan 2017",
+            "description": "ClearSky Cybersecurity. (2017, January 5). Iranian Threat Agent OilRig Delivers Digitally Signed Malware, Impersonates University of Oxford. Retrieved May 3, 2017.",
+            "url": "http://www.clearskysec.com/oilrig/"
+        },
+        {
+            "source_name": "Palo Alto OilRig May 2016",
+            "description": "Falcone, R. and Lee, B.. (2016, May 26). The OilRig Campaign: Attacks on Saudi Arabian Organizations Deliver Helminth Backdoor. Retrieved May 3, 2017.",
+            "url": "http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+        },
+        {
+            "source_name": "Palo Alto OilRig April 2017",
+            "description": "Falcone, R.. (2017, April 27). OilRig Actors Provide a Glimpse into Development and Testing Efforts. Retrieved May 3, 2017.",
+            "url": "http://researchcenter.paloaltonetworks.com/2017/04/unit42-oilrig-actors-provide-glimpse-development-testing-efforts/"
+        },
+        {
+            "source_name": "Palo Alto OilRig Oct 2016",
+            "description": "Grunzweig, J. and Falcone, R.. (2016, October 4). OilRig Malware Campaign Updates Toolset and Expands Targets. Retrieved May 3, 2017.",
+            "url": "http://researchcenter.paloaltonetworks.com/2016/10/unit42-oilrig-malware-campaign-updates-toolset-and-expands-targets/"
+        },
+        {
+            "source_name": "Unit 42 QUADAGENT July 2018",
+            "description": "Lee, B., Falcone, R. (2018, July 25). OilRig Targets Technology Service Provider and Government Agency with QUADAGENT. Retrieved August 9, 2018.",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/07/unit42-oilrig-targets-technology-service-provider-government-agency-quadagent/"
+        },
+        {
+            "source_name": "Crowdstrike Helix Kitten Nov 2018",
+            "description": "Meyers, A. (2018, November 27). Meet CrowdStrike\u2019s Adversary of the Month for November: HELIX KITTEN. Retrieved December 18, 2018.",
+            "url": "https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-november-helix-kitten/"
+        },
+        {
+            "source_name": "FireEye APT34 Dec 2017",
+            "description": "Sardiwal, M, et al. (2017, December 7). New Targeted Attack in the Middle East by APT34, a Suspected Iranian Threat Group, Using CVE-2017-11882 Exploit. Retrieved December 20, 2017.",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+        },
+        {
+            "source_name": "Secureworks COBALT GYPSY Threat Profile",
+            "description": "Secureworks. (n.d.). COBALT GYPSY Threat Profile. Retrieved April 14, 2021.",
+            "url": "https://www.secureworks.com/research/threat-profiles/cobalt-gypsy"
+        },
+        {
+            "source_name": "APT34",
+            "description": "This group was previously tracked under two distinct groups, APT34 and OilRig, but was combined due to additional reporting giving higher confidence about the overlap of the activity.(Citation: Unit 42 QUADAGENT July 2018)(Citation: FireEye APT34 Dec 2017)(Citation: Check Point APT34 April 2021)"
+        },
+        {
+            "source_name": "Unit 42 Playbook Dec 2017",
+            "description": "Unit 42. (2017, December 15). Unit 42 Playbook Viewer. Retrieved December 20, 2017.",
+            "url": "https://pan-unit42.github.io/playbook_viewer/"
+        },
+        {
+            "source_name": "Unit42 OilRig Playbook 2023",
+            "description": "Unit42. (2016, May 1). Evasive Serpens Unit 42 Playbook Viewer. Retrieved February 6, 2023.",
+            "url": "https://pan-unit42.github.io/playbook_viewer/?pb=evasive-serpens"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "3.1.0",
+    "x_mitre_contributors": [
+        "Robert Falcone",
+        "Bryan Lee",
+        "Dragos  Threat  Intelligence"
+    ],
+    "x_mitre_deprecated": false,
+    "x_mitre_domains": [
+        "enterprise-attack",
+        "ics-attack"
+    ],
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "3.1"
+},
+{
+    "type": "intrusion-set",
+    "id": "intrusion-set--f40eb8ce-2a74-4e56-89a1-227021410142",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2018-10-17T00:14:20.652Z",
+    "modified": "2020-03-30T19:15:49.217Z",
+    "name": "Rancor",
+    "description": "[Rancor](https://attack.mitre.org/groups/G0075) is a threat group that has led targeted campaigns against the South East Asia region. [Rancor](https://attack.mitre.org/groups/G0075) uses politically-motivated lures to entice victims to open malicious documents. (Citation: Rancor Unit42 June 2018)",
+    "aliases": [
+        "Rancor"
+    ],
+    "external_references": [
+        {
+            "source_name": "mitre-attack",
+            "url": "https://attack.mitre.org/groups/G0075",
+            "external_id": "G0075"
+        },
+        {
+            "source_name": "Rancor",
+            "description": "(Citation: Rancor Unit42 June 2018)"
+        },
+        {
+            "source_name": "Rancor Unit42 June 2018",
+            "description": "Ash, B., et al. (2018, June 26). RANCOR: Targeted Attacks in South East Asia Using PLAINTEE and DDKONG Malware Families. Retrieved July 2, 2018.",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_domains": [
+        "enterprise-attack"
+    ],
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "1.2"
+},
+{
+    "type": "intrusion-set",
+    "id": "intrusion-set--1c63d4ec-0a75-4daa-b1df-0d11af3d3cc1",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2017-05-31T21:32:05.217Z",
+    "modified": "2023-03-08T22:03:28.170Z",
+    "name": "Dragonfly",
+    "description": "[Dragonfly](https://attack.mitre.org/groups/G0035) is a cyber espionage group that has been attributed to Russia's Federal Security Service (FSB) Center 16.(Citation: DOJ Russia Targeting Critical Infrastructure March 2022)(Citation: UK GOV FSB Factsheet April 2022) Active since at least 2010, [Dragonfly](https://attack.mitre.org/groups/G0035) has targeted defense and aviation companies, government entities, companies related to industrial control systems, and critical infrastructure sectors worldwide through supply chain, spearphishing, and drive-by compromise attacks.(Citation: Symantec Dragonfly)(Citation: Secureworks IRON LIBERTY July 2019)(Citation: Symantec Dragonfly Sept 2017)(Citation: Fortune Dragonfly 2.0 Sept 2017)(Citation: Gigamon Berserk Bear October 2021)(Citation: CISA AA20-296A Berserk Bear December 2020)(Citation: Symantec Dragonfly 2.0 October 2017)",
+    "aliases": [
+        "Dragonfly",
+        "TEMP.Isotope",
+        "DYMALLOY",
+        "Berserk Bear",
+        "TG-4192",
+        "Crouching Yeti",
+        "IRON LIBERTY",
+        "Energetic Bear"
+    ],
+    "external_references": [
+        {
+            "source_name": "mitre-attack",
+            "url": "https://attack.mitre.org/groups/G0035",
+            "external_id": "G0035"
+        },
+        {
+            "source_name": "DYMALLOY",
+            "description": "(Citation: Dragos DYMALLOY )(Citation: UK GOV FSB Factsheet April 2022)"
+        },
+        {
+            "source_name": "Berserk Bear",
+            "description": "(Citation: Gigamon Berserk Bear October 2021)(Citation: DOJ Russia Targeting Critical Infrastructure March 2022)(Citation: UK GOV FSB Factsheet April 2022)"
+        },
+        {
+            "source_name": "TEMP.Isotope",
+            "description": "(Citation: Mandiant Ukraine Cyber Threats January 2022)(Citation: Gigamon Berserk Bear October 2021)"
+        },
+        {
+            "source_name": "Crouching Yeti",
+            "description": "(Citation: Secureworks IRON LIBERTY July 2019)(Citation: Gigamon Berserk Bear October 2021)(Citation: DOJ Russia Targeting Critical Infrastructure March 2022)(Citation: UK GOV FSB Factsheet April 2022)"
+        },
+        {
+            "source_name": "IRON LIBERTY",
+            "description": "(Citation: Secureworks IRON LIBERTY July 2019)(Citation: Secureworks MCMD July 2019)(Citation: Secureworks Karagany July 2019)(Citation: UK GOV FSB Factsheet April 2022)"
+        },
+        {
+            "source_name": "TG-4192",
+            "description": "(Citation: Secureworks IRON LIBERTY July 2019)(Citation: UK GOV FSB Factsheet April 2022)"
+        },
+        {
+            "source_name": "Dragonfly",
+            "description": "(Citation: Symantec Dragonfly)(Citation: Secureworks IRON LIBERTY July 2019)(Citation: Gigamon Berserk Bear October 2021)(Citation: DOJ Russia Targeting Critical Infrastructure March 2022)(Citation: UK GOV FSB Factsheet April 2022)"
+        },
+        {
+            "source_name": "Energetic Bear",
+            "description": "(Citation: Symantec Dragonfly)(Citation: Secureworks IRON LIBERTY July 2019)(Citation: Secureworks MCMD July 2019)(Citation: Secureworks Karagany July 2019)(Citation: Gigamon Berserk Bear October 2021)(Citation: DOJ Russia Targeting Critical Infrastructure March 2022)(Citation: UK GOV FSB Factsheet April 2022)"
+        },
+        {
+            "source_name": "CISA AA20-296A Berserk Bear December 2020",
+            "description": "CISA. (2020, December 1). Russian State-Sponsored Advanced Persistent Threat Actor Compromises U.S. Government Targets. Retrieved December 9, 2021.",
+            "url": "https://www.cisa.gov/uscert/ncas/alerts/aa20-296a#revisions"
+        },
+        {
+            "source_name": "DOJ Russia Targeting Critical Infrastructure March 2022",
+            "description": "Department of Justice. (2022, March 24). Four Russian Government Employees Charged in Two Historical Hacking Campaigns Targeting Critical Infrastructure Worldwide. Retrieved April 5, 2022.",
+            "url": "https://www.justice.gov/opa/pr/four-russian-government-employees-charged-two-historical-hacking-campaigns-targeting-critical"
+        },
+        {
+            "source_name": "Dragos DYMALLOY ",
+            "description": "Dragos. (n.d.). DYMALLOY. Retrieved August 20, 2020.",
+            "url": "https://www.dragos.com/threat/dymalloy/"
+        },
+        {
+            "source_name": "Fortune Dragonfly 2.0 Sept 2017",
+            "description": "Hackett, R. (2017, September 6). Hackers Have Penetrated Energy Grid, Symantec Warns. Retrieved June 6, 2018.",
+            "url": "http://fortune.com/2017/09/06/hack-energy-grid-symantec/"
+        },
+        {
+            "source_name": "Mandiant Ukraine Cyber Threats January 2022",
+            "description": "Hultquist, J. (2022, January 20). Anticipating Cyber Threats as the Ukraine Crisis Escalates. Retrieved January 24, 2022.",
+            "url": "https://www.mandiant.com/resources/ukraine-crisis-cyber-threats"
+        },
+        {
+            "source_name": "Secureworks MCMD July 2019",
+            "description": "Secureworks. (2019, July 24). MCMD Malware Analysis. Retrieved August 13, 2020.",
+            "url": "https://www.secureworks.com/research/mcmd-malware-analysis"
+        },
+        {
+            "source_name": "Secureworks IRON LIBERTY July 2019",
+            "description": "Secureworks. (2019, July 24). Resurgent Iron Liberty Targeting Energy Sector. Retrieved August 12, 2020.",
+            "url": "https://www.secureworks.com/research/resurgent-iron-liberty-targeting-energy-sector"
+        },
+        {
+            "source_name": "Secureworks Karagany July 2019",
+            "description": "Secureworks. (2019, July 24). Updated Karagany Malware Targets Energy Sector. Retrieved August 12, 2020.",
+            "url": "https://www.secureworks.com/research/updated-karagany-malware-targets-energy-sector"
+        },
+        {
+            "source_name": "Gigamon Berserk Bear October 2021",
+            "description": "Slowik, J. (2021, October). THE BAFFLING BERSERK BEAR: A DECADE\u2019S ACTIVITY TARGETING CRITICAL INFRASTRUCTURE. Retrieved December 6, 2021.",
+            "url": "https://vblocalhost.com/uploads/VB2021-Slowik.pdf"
+        },
+        {
+            "source_name": "Symantec Dragonfly Sept 2017",
+            "description": "Symantec Security Response. (2014, July 7). Dragonfly: Western energy sector targeted by sophisticated attack group. Retrieved September 9, 2017.",
+            "url": "https://docs.broadcom.com/doc/dragonfly_threat_against_western_energy_suppliers"
+        },
+        {
+            "source_name": "Symantec Dragonfly",
+            "description": "Symantec Security Response. (2014, June 30). Dragonfly: Cyberespionage Attacks Against Energy Suppliers. Retrieved April 8, 2016.",
+            "url": "https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=7382dce7-0260-4782-84cc-890971ed3f17&CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&tab=librarydocuments"
+        },
+        {
+            "source_name": "Symantec Dragonfly 2.0 October 2017",
+            "description": "Symantec. (2017, October 7). Dragonfly: Western energy sector targeted by sophisticated attack group. Retrieved April 19, 2022.",
+            "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/dragonfly-energy-sector-cyber-attacks"
+        },
+        {
+            "source_name": "UK GOV FSB Factsheet April 2022",
+            "description": "UK Gov. (2022, April 5). Russia's FSB malign activity: factsheet. Retrieved April 5, 2022.",
+            "url": "https://www.gov.uk/government/publications/russias-fsb-malign-cyber-activity-factsheet/russias-fsb-malign-activity-factsheet"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "3.1.0",
+    "x_mitre_contributors": [
+        "Dragos Threat Intelligence"
+    ],
+    "x_mitre_deprecated": false,
+    "x_mitre_domains": [
+        "enterprise-attack",
+        "ics-attack"
+    ],
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "3.1"
+},
+{
+    "type": "intrusion-set",
+    "id": "intrusion-set--06a11b7e-2a36-47fe-8d3e-82c265df3258",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2019-07-18T20:47:50.050Z",
+    "modified": "2022-08-12T21:26:22.303Z",
+    "name": "GALLIUM",
+    "description": "[GALLIUM](https://attack.mitre.org/groups/G0093) is a cyberespionage group that has been active since at least 2012, primarily targeting telecommunications companies, financial institutions, and government entities in Afghanistan, Australia, Belgium, Cambodia, Malaysia, Mozambique, the Philippines, Russia, and Vietnam. Security researchers have identified [GALLIUM](https://attack.mitre.org/groups/G0093) as a likely Chinese state-sponsored group, based in part on tools used and TTPs commonly associated with Chinese threat actors.(Citation: Cybereason Soft Cell June 2019)(Citation: Microsoft GALLIUM December 2019)(Citation: Unit 42 PingPull Jun 2022)",
+    "aliases": [
+        "GALLIUM",
+        "Operation Soft Cell"
+    ],
+    "external_references": [
+        {
+            "source_name": "mitre-attack",
+            "url": "https://attack.mitre.org/groups/G0093",
+            "external_id": "G0093"
+        },
+        {
+            "source_name": "Operation Soft Cell",
+            "description": "(Citation: Cybereason Soft Cell June 2019)"
+        },
+        {
+            "source_name": "GALLIUM",
+            "description": "(Citation: Microsoft GALLIUM December 2019)"
+        },
+        {
+            "source_name": "Cybereason Soft Cell June 2019",
+            "description": "Cybereason Nocturnus. (2019, June 25). Operation Soft Cell: A Worldwide Campaign Against Telecommunications Providers. Retrieved July 18, 2019.",
+            "url": "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+        },
+        {
+            "source_name": "Microsoft GALLIUM December 2019",
+            "description": "MSTIC. (2019, December 12). GALLIUM: Targeting global telecom. Retrieved January 13, 2021.",
+            "url": "https://www.microsoft.com/security/blog/2019/12/12/gallium-targeting-global-telecom/"
+        },
+        {
+            "source_name": "Unit 42 PingPull Jun 2022",
+            "description": "Unit 42. (2022, June 13). GALLIUM Expands Targeting Across Telecommunications, Government and Finance Sectors With New PingPull Tool. Retrieved August 7, 2022.",
+            "url": "https://unit42.paloaltonetworks.com/pingpull-gallium/"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security",
+        "Cybereason Nocturnus, @nocturnus"
+    ],
+    "x_mitre_deprecated": false,
+    "x_mitre_domains": [
+        "enterprise-attack"
+    ],
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "3.0"
+},
+{
+  "source_ref": "grouping--89cac034-7669-4451-9e41-b23fd5f558c6",
+  "target_ref": "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+  "relationship_type": "uses",
+  "type": "relationship",
+  "created": "2023-08-20T18:53:57.511Z",
+  "modified": "2023-08-20T18:53:57.511Z",
+  "id": "relationship--822aee6d-58c7-4e62-9b12-0b26716fb375",
+  "targetObjectType": "grouping"
+},
+{
+  "id": "grouping--89cac034-7669-4451-9e41-b23fd5f558c6",
+  "type": "grouping",
+  "spec_version": "2.1",
+  "created":"2024-01-10T00:00:00.000Z",
+  "modified":"2024-01-10T00:00:00.000Z",
+  "name": "Associated APTs",
+  "description": "APTs been observed using LOLBin tool Reg.exe",
+  "context": "suspicious-activity",
+  "object_refs": [
+    
+    "intrusion-set--7a19ecb1-3c65-4de3-a230-993516aed6a6",
+    "intrusion-set--4ca1929c-7d64-4aab-b849-badbfc0c760d",
+    "intrusion-set--f40eb8ce-2a74-4e56-89a1-227021410142",
+    "intrusion-set--1c63d4ec-0a75-4daa-b1df-0d11af3d3cc1",
+    "intrusion-set--06a11b7e-2a36-47fe-8d3e-82c265df3258",
+    "intrusion-set--3290dcb9-5781-4b87-8fa0-6ae820e152cd",
+    "intrusion-set--a2add2a0-2b54-4623-a380-a9ad91f1f2dd"
+  ]
+},
+{
+    "type": "campaign",
+    "id": "campaign--4553292d-12c6-4a93-934d-12160370d4e0",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-09-16T21:08:54.358Z",
+    "modified": "2022-10-13T17:57:06.034Z",
+    "name": "Operation Honeybee",
+    "description": "[Operation Honeybee](https://attack.mitre.org/campaigns/C0006) was a campaign that targeted humanitarian aid and inter-Korean affairs organizations from at least late 2017 through early 2018. [Operation Honeybee](https://attack.mitre.org/campaigns/C0006) initially targeted South Korea, but expanded to include Vietnam, Singapore, Japan, Indonesia, Argentina, and Canada. Security researchers assessed the threat actors were likely Korean speakers based on metadata used in both lure documents and executables, and named the campaign \"Honeybee\" after the author name discovered in malicious Word documents.(Citation: McAfee Honeybee) ",
+    "aliases": [
+        "Operation Honeybee"
+    ],
+    "first_seen": "2017-08-01T05:00:00Z",
+    "last_seen": "2018-02-01T06:00:00Z",
+    "external_references": [
+        {
+            "source_name": "mitre-attack",
+            "url": "https://attack.mitre.org/campaigns/C0006",
+            "external_id": "C0006"
+        },
+        {
+            "source_name": "McAfee Honeybee",
+            "description": "Sherstobitoff, R. (2018, March 02). McAfee Uncovers Operation Honeybee, a Malicious Document Campaign Targeting Humanitarian Aid Groups. Retrieved May 16, 2018.",
+            "url": "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/mcafee-uncovers-operation-honeybee-malicious-document-campaign-targeting-humanitarian-aid-groups/"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "3.0.0",
+    "x_mitre_deprecated": false,
+    "x_mitre_domains": [
+        "enterprise-attack"
+    ],
+    "x_mitre_first_seen_citation": "(Citation: McAfee Honeybee)",
+    "x_mitre_last_seen_citation": "(Citation: McAfee Honeybee)",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "1.0"
+},
+{
+  "source_ref": "grouping--c40f5243-40b4-4be1-a701-d8429354ce08",
+  "target_ref": "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+  "relationship_type": "uses",
+  "type": "relationship",
+  "created": "2023-08-20T18:53:57.511Z",
+  "modified": "2023-08-20T18:53:57.511Z",
+  "id": "relationship--34d5b22e-25e3-4668-a00d-5c8a32f17c5c",
+  "targetObjectType": "grouping"
+},
+{
+  "id": "grouping--c40f5243-40b4-4be1-a701-d8429354ce08",
+  "type": "grouping",
+  "spec_version": "2.1",
+  "created":"2024-01-10T00:00:00.000Z",
+  "modified":"2024-01-10T00:00:00.000Z",
+  "name": "Associated Campaigns",
+  "description": "campaign been observed using LOLBin tool Reg.exe",
+  "context": "suspicious-activity",
+  "object_refs": [
+    "campaign--4553292d-12c6-4a93-934d-12160370d4e0"
+  ]
+},{
+  "type": "attack-pattern",
+  "id": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+  "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "created": "2017-05-31T21:31:23.587Z",
+  "modified": "2023-04-21T12:19:38.962Z",
+  "name": "Modify Registry",
+  "description": "Adversaries may interact with the Windows Registry to hide configuration information within Registry keys, remove information as part of cleaning up, or as part of other techniques to aid in persistence and execution.\n\nAccess to specific areas of the Registry depends on account permissions, some requiring administrator-level access. The built-in Windows command-line utility [Reg](https://attack.mitre.org/software/S0075) may be used for local or remote Registry modification. (Citation: Microsoft Reg) Other tools may also be used, such as a remote access tool, which may contain functionality to interact with the Registry through the Windows API.\n\nRegistry modifications may also include actions to hide keys, such as prepending key names with a null character, which will cause an error and/or be ignored when read via [Reg](https://attack.mitre.org/software/S0075) or other utilities using the Win32 API. (Citation: Microsoft Reghide NOV 2006) Adversaries may abuse these pseudo-hidden keys to conceal payloads/commands used to maintain persistence. (Citation: TrendMicro POWELIKS AUG 2014) (Citation: SpectorOps Hiding Reg Jul 2017)\n\nThe Registry of a remote system may be modified to aid in execution of files as part of lateral movement. It requires the remote Registry service to be running on the target system. (Citation: Microsoft Remote) Often [Valid Accounts](https://attack.mitre.org/techniques/T1078) are required, along with access to the remote system's [SMB/Windows Admin Shares](https://attack.mitre.org/techniques/T1021/002) for RPC communication.",
+  "kill_chain_phases": [
+      {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "defense-evasion"
+      }
+  ],
+  "external_references": [
+      {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1112",
+          "external_id": "T1112"
+      },
+      {
+          "source_name": "Microsoft Reg",
+          "description": "Microsoft. (2012, April 17). Reg. Retrieved May 1, 2015.",
+          "url": "https://technet.microsoft.com/en-us/library/cc732643.aspx"
+      },
+      {
+          "source_name": "Microsoft Remote",
+          "description": "Microsoft. (n.d.). Enable the Remote Registry Service. Retrieved May 1, 2015.",
+          "url": "https://technet.microsoft.com/en-us/library/cc754820.aspx"
+      },
+      {
+          "source_name": "Microsoft 4657 APR 2017",
+          "description": "Miroshnikov, A. & Hall, J. (2017, April 18). 4657(S): A registry value was modified. Retrieved August 9, 2018.",
+          "url": "https://docs.microsoft.com/windows/security/threat-protection/auditing/event-4657"
+      },
+      {
+          "source_name": "SpectorOps Hiding Reg Jul 2017",
+          "description": "Reitz, B. (2017, July 14). Hiding Registry keys with PSReflect. Retrieved August 9, 2018.",
+          "url": "https://posts.specterops.io/hiding-registry-keys-with-psreflect-b18ec5ac8353"
+      },
+      {
+          "source_name": "Microsoft Reghide NOV 2006",
+          "description": "Russinovich, M. & Sharkey, K. (2006, January 10). Reghide. Retrieved August 9, 2018.",
+          "url": "https://docs.microsoft.com/sysinternals/downloads/reghide"
+      },
+      {
+          "source_name": "Microsoft RegDelNull July 2016",
+          "description": "Russinovich, M. & Sharkey, K. (2016, July 4). RegDelNull v1.11. Retrieved August 10, 2018.",
+          "url": "https://docs.microsoft.com/en-us/sysinternals/downloads/regdelnull"
+      },
+      {
+          "source_name": "TrendMicro POWELIKS AUG 2014",
+          "description": "Santos, R. (2014, August 1). POWELIKS: Malware Hides In Windows Registry. Retrieved August 9, 2018.",
+          "url": "https://blog.trendmicro.com/trendlabs-security-intelligence/poweliks-malware-hides-in-windows-registry/"
+      }
+  ],
+  "object_marking_refs": [
+      "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+  ],
+  "x_mitre_attack_spec_version": "3.1.0",
+  "x_mitre_contributors": [
+      "Bartosz Jerzman",
+      "Travis Smith, Tripwire",
+      "David Lu, Tripwire"
+  ],
+  "x_mitre_data_sources": [
+      "Process: OS API Execution",
+      "Process: Process Creation",
+      "Windows Registry: Windows Registry Key Deletion",
+      "Windows Registry: Windows Registry Key Modification",
+      "Command: Command Execution",
+      "Windows Registry: Windows Registry Key Creation"
+  ],
+  "x_mitre_defense_bypassed": [
+      "Host forensic analysis"
+  ],
+  "x_mitre_deprecated": false,
+  "x_mitre_detection": "Modifications to the Registry are normal and occur throughout typical use of the Windows operating system. Consider enabling Registry Auditing on specific keys to produce an alertable event (Event ID 4657) whenever a value is changed (though this may not trigger when values are created with Reghide or other evasive methods). (Citation: Microsoft 4657 APR 2017) Changes to Registry entries that load software on Windows startup that do not correlate with known software, patch cycles, etc., are suspicious, as are additions or changes to files within the startup folder. Changes could also include new services and modification of existing binary paths to point to malicious files. If a change to a service-related entry occurs, then it will likely be followed by a local or remote service start or restart to execute the file.\n\nMonitor processes and command-line arguments for actions that could be taken to change or delete information in the Registry. Remote access tools with built-in features may interact directly with the Windows API to gather information. The Registry may also be modified through Windows system management tools such as [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) and [PowerShell](https://attack.mitre.org/techniques/T1059/001), which may require additional logging features to be configured in the operating system to collect necessary information for analysis.\n\nMonitor for processes, command-line arguments, and API calls associated with concealing Registry keys, such as Reghide. (Citation: Microsoft Reghide NOV 2006) Inspect and cleanup malicious hidden Registry entries using Native Windows API calls and/or tools such as Autoruns (Citation: SpectorOps Hiding Reg Jul 2017) and RegDelNull (Citation: Microsoft RegDelNull July 2016).",
+  "x_mitre_domains": [
+      "enterprise-attack"
+  ],
+  "x_mitre_is_subtechnique": false,
+  "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "x_mitre_platforms": [
+      "Windows"
+  ],
+  "x_mitre_version": "1.3"
+},
+{
+  "type": "attack-pattern",
+  "id": "attack-pattern--341e222a-a6e3-4f6f-b69c-831d792b1580",
+  "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "created": "2020-02-04T12:58:40.678Z",
+  "modified": "2020-02-07T20:49:18.834Z",
+  "name": "Credentials in Registry",
+  "description": "Adversaries may search the Registry on compromised systems for insecurely stored credentials. The Windows Registry stores configuration information that can be used by the system or other programs. Adversaries may query the Registry looking for credentials and passwords that have been stored for use by other programs or services. Sometimes these credentials are used for automatic logons.\n\nExample commands to find Registry keys related to password information: (Citation: Pentestlab Stored Credentials)\n\n* Local Machine Hive: <code>reg query HKLM /f password /t REG_SZ /s</code>\n* Current User Hive: <code>reg query HKCU /f password /t REG_SZ /s</code>",
+  "kill_chain_phases": [
+      {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "credential-access"
+      }
+  ],
+  "external_references": [
+      {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1552/002",
+          "external_id": "T1552.002"
+      },
+      {
+          "source_name": "Pentestlab Stored Credentials",
+          "description": "netbiosX. (2017, April 19). Stored Credentials. Retrieved April 6, 2018.",
+          "url": "https://pentestlab.blog/2017/04/19/stored-credentials/"
+      }
+  ],
+  "object_marking_refs": [
+      "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+  ],
+  "x_mitre_contributors": [
+      "Sudhanshu Chauhan, @Sudhanshu_C"
+  ],
+  "x_mitre_data_sources": [
+      "Command: Command Execution",
+      "Process: Process Creation",
+      "Windows Registry: Windows Registry Key Access"
+  ],
+  "x_mitre_detection": "Monitor processes for applications that can be used to query the Registry, such as [Reg](https://attack.mitre.org/software/S0075), and collect command parameters that may indicate credentials are being searched. Correlate activity with related suspicious behavior that may indicate an active intrusion to reduce false positives.",
+  "x_mitre_domains": [
+      "enterprise-attack"
+  ],
+  "x_mitre_is_subtechnique": true,
+  "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "x_mitre_permissions_required": [
+      "Administrator",
+      "User"
+  ],
+  "x_mitre_platforms": [
+      "Windows"
+  ],
+  "x_mitre_system_requirements": [
+      "Ability to query some Registry locations depends on the adversary's level of access. User permissions are usually limited to access of user-related Registry keys."
+  ],
+  "x_mitre_version": "1.0"
+},
+{
+  "type": "attack-pattern",
+  "id": "attack-pattern--c32f7008-9fea-41f7-8366-5eb9b74bd896",
+  "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "created": "2017-05-31T21:30:25.584Z",
+  "modified": "2023-04-03T18:56:37.011Z",
+  "name": "Query Registry",
+  "description": "Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed software.\n\nThe Registry contains a significant amount of information about the operating system, configuration, software, and security.(Citation: Wikipedia Windows Registry) Information can easily be queried using the [Reg](https://attack.mitre.org/software/S0075) utility, though other means to access the Registry exist. Some of the information may help adversaries to further their operation within a network. Adversaries may use the information from [Query Registry](https://attack.mitre.org/techniques/T1012) during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+  "kill_chain_phases": [
+      {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "discovery"
+      }
+  ],
+  "external_references": [
+      {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1012",
+          "external_id": "T1012"
+      },
+      {
+          "source_name": "Wikipedia Windows Registry",
+          "description": "Wikipedia. (n.d.). Windows Registry. Retrieved February 2, 2015.",
+          "url": "https://en.wikipedia.org/wiki/Windows_Registry"
+      }
+  ],
+  "object_marking_refs": [
+      "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+  ],
+  "x_mitre_attack_spec_version": "3.1.0",
+  "x_mitre_data_sources": [
+      "Windows Registry: Windows Registry Key Access",
+      "Command: Command Execution",
+      "Process: OS API Execution",
+      "Process: Process Creation"
+  ],
+  "x_mitre_deprecated": false,
+  "x_mitre_detection": "System and network discovery techniques normally occur throughout an operation as an adversary learns the environment. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as Lateral Movement, based on the information obtained.\n\nInteraction with the Windows Registry may come from the command line using utilities such as [Reg](https://attack.mitre.org/software/S0075) or through running malware that may interact with the Registry through an API. Command-line invocation of utilities used to query the Registry may be detected through process and command-line monitoring. Remote access tools with built-in features may interact directly with the Windows API to gather information. Information may also be acquired through Windows system management tools such as [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) and [PowerShell](https://attack.mitre.org/techniques/T1059/001).",
+  "x_mitre_domains": [
+      "enterprise-attack"
+  ],
+  "x_mitre_is_subtechnique": false,
+  "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "x_mitre_platforms": [
+      "Windows"
+  ],
+  "x_mitre_version": "1.3"
+},
+{
+  "name": "Security Account Manager",
+  "description": "Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database either through in-memory techniques or through the Windows Registry where the SAM database is stored. The SAM is a database file that contains local accounts for the host, typically those found with the <code>net user</code> command. Enumerating the SAM database requires SYSTEM level access.\n\nA number of tools can be used to retrieve the SAM file through in-memory techniques:\n\n* pwdumpx.exe\n* [gsecdump](https://attack.mitre.org/software/S0008)\n* [Mimikatz](https://attack.mitre.org/software/S0002)\n* secretsdump.py\n\nAlternatively, the SAM can be extracted from the Registry with Reg:\n\n* <code>reg save HKLM\\sam sam</code>\n* <code>reg save HKLM\\system system</code>\n\nCreddump7 can then be used to process the SAM database locally to retrieve hashes.(Citation: GitHub Creddump7)\n\nNotes: \n\n* RID 500 account is the local, built-in administrator.\n* RID 501 is the guest account.\n* User accounts start with a RID of 1,000+.\n",
+  "description_TD": "Description (LOLBAS Project): Dump registry hives (SAM, SYSTEM, SECURITY) to retrieve password hashes and key material\n\nreg save HKLM\\SECURITY c:\\test\\security.bak && reg save HKLM\\SYSTEM c:\\test\\system.bak && reg save HKLM\\SAM c:\\test\\sam.bak\n\nUsecase: Dump credentials from the Security Account Manager (SAM)\n\nPrivileges required: Administrator\n\nOS: Windows Vista, Windows 7, Windows 8, Windows 8.1, Windows 10, Windows 11[Reg.exe - LOLBAS Project]",
+  "modified": "2022-06-15T16:17:19.049Z",
+  "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "x_mitre_detection": "Hash dumpers open the Security Accounts Manager (SAM) on the local file system (<code>%SystemRoot%/system32/config/SAM</code>) or create a dump of the Registry SAM key to access stored account password hashes. Some hash dumpers will open the local file system as a device and parse to the SAM table to avoid file access defenses. Others will make an in-memory copy of the SAM table before reading hashes. Detection of compromised [Valid Accounts](https://attack.mitre.org/techniques/T1078) in-use by adversaries may help as well.",
+  "kill_chain_phases": [
+    {
+      "kill_chain_name": "mitre-attack",
+      "phase_name": "credential-access"
+    }
+  ],
+  "x_mitre_platforms": [
+    "Windows"
+  ],
+  "x_mitre_domains": [
+    "enterprise-attack"
+  ],
+  "x_mitre_contributors": [
+    "Ed Williams, Trustwave, SpiderLabs"
+  ],
+  "object_marking_refs": [
+    "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+  ],
+  "type": "attack-pattern",
+  "id": "attack-pattern--1644e709-12d2-41e5-a60f-3470991f5011",
+  "created": "2020-02-11T18:42:07.281Z",
+  "x_mitre_version": "1.0",
+  "external_references": [
+    {
+      "source_name": "mitre-attack",
+      "external_id": "T1003.002",
+      "url": "https://attack.mitre.org/techniques/T1003/002"
+    },
+    {
+      "source_name": "GitHub Creddump7",
+      "url": "https://github.com/Neohapsis/creddump7",
+      "description": "Flathers, R. (2018, February 19). creddump7. Retrieved April 11, 2018."
+    }
+  ],
+  "x_mitre_deprecated": false,
+  "revoked": false,
+  "x_mitre_is_subtechnique": true,
+  "x_mitre_data_sources": [
+    "File: File Access",
+    "Command: Command Execution",
+    "Windows Registry: Windows Registry Key Access"
+  ],
+  "x_mitre_attack_spec_version": "2.1.0",
+  "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+},
+{
+  "modified": "2020-03-29T22:46:56.308Z",
+  "name": "NTFS File Attributes",
+  "description": "Adversaries may use NTFS file attributes to hide their malicious data in order to evade detection. Every New Technology File System (NTFS) formatted partition contains a Master File Table (MFT) that maintains a record for every file/directory on the partition. (Citation: SpectorOps Host-Based Jul 2017) Within MFT entries are file attributes, (Citation: Microsoft NTFS File Attributes Aug 2010) such as Extended Attributes (EA) and Data [known as Alternate Data Streams (ADSs) when more than one Data attribute is present], that can be used to store arbitrary data (and even complete files). (Citation: SpectorOps Host-Based Jul 2017) (Citation: Microsoft File Streams) (Citation: MalwareBytes ADS July 2015) (Citation: Microsoft ADS Mar 2014)\n\nAdversaries may store malicious data or binaries in file attribute metadata instead of directly in files. This may be done to evade some defenses, such as static indicator scanning tools and anti-virus. (Citation: Journey into IR ZeroAccess NTFS EA) (Citation: MalwareBytes ADS July 2015)",
+  "description_TD": "Description (LOLBAS Project): Export the target Registry key and save it to the specified .REG file within an Alternate data stream.\n\nreg export HKLM\\SOFTWARE\\Microsoft\\Evilreg c:\\ads\\file.txt:evilreg.reg\n\nUsecase: Hide/plant registry information in Alternate data stream for later use\n\nPrivileges required: User\n\nOS: Windows vista, Windows 7, Windows 8, Windows 8.1, Windows 10, Windows 11[Reg.exe - LOLBAS Project]",
+  "x_mitre_platforms": [
+    "Windows"
+  ],
+  "x_mitre_domains": [
+    "enterprise-attack"
+  ],
+  "x_mitre_contributors": [
+    "Oddvar Moe, @oddvarmoe",
+    "Red Canary"
+  ],
+  "object_marking_refs": [
+    "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+  ],
+  "id": "attack-pattern--f2857333-11d4-45bf-b064-2c28d8525be5",
+  "type": "attack-pattern",
+  "created": "2020-03-13T20:33:00.009Z",
+  "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "external_references": [
+    {
+      "source_name": "mitre-attack",
+      "external_id": "T1564.004",
+      "url": "https://attack.mitre.org/techniques/T1564/004"
+    },
+    {
+      "url": "https://posts.specterops.io/host-based-threat-modeling-indicator-design-a9dbbb53d5ea",
+      "description": "Atkinson, J. (2017, July 18). Host-based Threat Modeling & Indicator Design. Retrieved March 21, 2018.",
+      "source_name": "SpectorOps Host-Based Jul 2017"
+    },
+    {
+      "url": "https://blogs.technet.microsoft.com/askcore/2010/08/25/ntfs-file-attributes/",
+      "description": "Hughes, J. (2010, August 25). NTFS File Attributes. Retrieved March 21, 2018.",
+      "source_name": "Microsoft NTFS File Attributes Aug 2010"
+    },
+    {
+      "url": "http://msdn.microsoft.com/en-us/library/aa364404",
+      "description": "Microsoft. (n.d.). File Streams. Retrieved December 2, 2014.",
+      "source_name": "Microsoft File Streams"
+    },
+    {
+      "url": "https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/",
+      "description": "Arntz, P. (2015, July 22). Introduction to Alternate Data Streams. Retrieved March 21, 2018.",
+      "source_name": "MalwareBytes ADS July 2015"
+    },
+    {
+      "url": "https://blogs.technet.microsoft.com/askcore/2013/03/24/alternate-data-streams-in-ntfs/",
+      "description": "Marlin, J. (2013, March 24). Alternate Data Streams in NTFS. Retrieved March 21, 2018.",
+      "source_name": "Microsoft ADS Mar 2014"
+    },
+    {
+      "url": "http://journeyintoir.blogspot.com/2012/12/extracting-zeroaccess-from-ntfs.html",
+      "description": "Harrell, C. (2012, December 11). Extracting ZeroAccess from NTFS Extended Attributes. Retrieved June 3, 2016.",
+      "source_name": "Journey into IR ZeroAccess NTFS EA"
+    },
+    {
+      "url": "https://oddvar.moe/2018/01/14/putting-data-in-alternate-data-streams-and-how-to-execute-it/",
+      "description": "Moe, O. (2018, January 14). Putting Data in Alternate Data Streams and How to Execute It. Retrieved June 30, 2018.",
+      "source_name": "Oddvar Moe ADS1 Jan 2018"
+    },
+    {
+      "url": "https://oddvar.moe/2018/04/11/putting-data-in-alternate-data-streams-and-how-to-execute-it-part-2/",
+      "description": "Moe, O. (2018, April 11). Putting Data in Alternate Data Streams and How to Execute It - Part 2. Retrieved June 30, 2018.",
+      "source_name": "Oddvar Moe ADS2 Apr 2018"
+    },
+    {
+      "url": "https://www.symantec.com/connect/articles/what-you-need-know-about-alternate-data-streams-windows-your-data-secure-can-you-restore",
+      "description": "Pravs. (2009, May 25). What you need to know about alternate data streams in windows? Is your Data secure? Can you restore that?. Retrieved March 21, 2018.",
+      "source_name": "Symantec ADS May 2009"
+    }
+  ],
+    "kill_chain_phases": [
+    {
+      "kill_chain_name": "mitre-attack",
+      "phase_name": "defense-evasion"
+    }
+  ],
+  "x_mitre_detection": "Forensic techniques exist to identify information stored in NTFS EA. (Citation: Journey into IR ZeroAccess NTFS EA) Monitor calls to the <code>ZwSetEaFile</code> and <code>ZwQueryEaFile</code> Windows API functions as well as binaries used to interact with EA, (Citation: Oddvar Moe ADS1 Jan 2018) (Citation: Oddvar Moe ADS2 Apr 2018) and consider regularly scanning for the presence of modified information. (Citation: SpectorOps Host-Based Jul 2017)\n\nThere are many ways to create and interact with ADSs using Windows utilities. Monitor for operations (execution, copies, etc.) with file names that contain colons. This syntax (ex: <code>file.ext:ads[.ext]</code>) is commonly associated with ADSs. (Citation: Microsoft ADS Mar 2014) (Citation: Oddvar Moe ADS1 Jan 2018) (Citation: Oddvar Moe ADS2 Apr 2018) For a more exhaustive list of utilities that can be used to execute and create ADSs, see https://gist.github.com/api0cradle/cdd2d0d0ec9abb686f0e89306e277b8f.\n\nThe Streams tool of Sysinternals can be used to uncover files with ADSs. The <code>dir /r</code> command can also be used to display ADSs. (Citation: Symantec ADS May 2009) Many PowerShell commands (such as Get-Item, Set-Item, Remove-Item, and Get-ChildItem) can also accept a <code>-stream</code> parameter to interact with ADSs. (Citation: MalwareBytes ADS July 2015) (Citation: Microsoft ADS Mar 2014)",
+  "x_mitre_is_subtechnique": true,
+  "x_mitre_version": "1.0",
+  "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+  "x_mitre_data_sources": [
+    "Command: Command Execution",
+    "File: File Modification",
+    "File: File Metadata",
+    "Process: OS API Execution"
+  ],
+  "x_mitre_defense_bypassed": [
+    "Anti-virus",
+    "Host forensic analysis",
+    "Signature-based detection"
+  ],
+  "x_mitre_system_requirements": [
+    "NTFS partitioned hard drive"
+  ]
+},
+{
+  "name": "Associated TTPs",
+  "description": "TTPs been used by LOLBin tool Reg.exe",
+  "type": "grouping",
+  "spec_version": "2.1",
+  "id": "grouping--b9db1e3f-4a08-4346-9ab3-99902ec12cfe",
+  "created": "2023-09-20T17:34:58.798Z",
+  "modified": "2023-09-20T17:34:58.798Z",
+  "context": "suspicious-activity",
+  "object_refs": [
+    "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+    "attack-pattern--341e222a-a6e3-4f6f-b69c-831d792b1580",
+    "attack-pattern--c32f7008-9fea-41f7-8366-5eb9b74bd896",
+    "attack-pattern--f2857333-11d4-45bf-b064-2c28d8525be5",
+    "attack-pattern--1644e709-12d2-41e5-a60f-3470991f5011"
+  ]
+},
+{
+  "source_ref": "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+  "target_ref": "grouping--b9db1e3f-4a08-4346-9ab3-99902ec12cfe",
+  "relationship_type": "uses",
+  "type": "relationship",
+  "created": "2023-08-20T18:53:57.511Z",
+  "modified": "2023-08-20T18:53:57.511Z",
+  "id": "relationship--4459a74e-2e64-4949-a726-4d1f77b9eb33",
+  "targetObjectType": "grouping"
+},
+{
+    "source_ref": "indicator--d86958aa-54c5-456d-b8e4-c842b907e67f",
+    "target_ref": "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+    "relationship_type": "indicates",
+    "type": "relationship",
+    "created": "2023-09-12T13:45:03.075Z",
+    "modified": "2023-09-12T13:45:03.076Z",
+    "id": "relationship--30b2a676-b3ba-471e-bf3a-3997933a2316",
+    "targetObjectType": "tool"
+  },
+  {
+    "id": "file--75d9aa88-1de9-4bc9-9228-cefda3bf0bdd",
+    "type": "file",
+    "spec_version": "2.1",
+    "name": "Reg.exe",
+    "parent_directory_ref": [
+      "directory--03dbebd8-94a6-422a-bfd4-fdcecc6f591e",
+      "directory--d31692b6-c0ea-4b7d-8601-427d482a7db2"
+    ]
+  },
+  {
+    "id": "directory--03dbebd8-94a6-422a-bfd4-fdcecc6f591e",
+    "type": "directory",
+    "spec_version": "2.1",
+    "path": "c:\\windows\\system32\\reg.exe"
+  },
+  {
+    "id": "directory--d31692b6-c0ea-4b7d-8601-427d482a7db2",
+    "type": "directory",
+    "spec_version": "2.1",
+    "path": "c:\\windows\\syswow64\\reg.exe"
+  },
+  {
+    "id": "observed-data--58920ff1-dd83-46b8-8d3a-cc4c0b29493a",
+    "type": "observed-data",
+    "spec_version": "2.1",
+    "created": "2023-09-05T23:23:32+01:00",
+    "modified": "22023-09-05T23:23:32+01:00",
+    "first_observed": "2019-12-15T23:23:32+01:00",
+    "last_observed": "2023-09-05T23:23:32+01:00",
+    "number_observed": 12,
+    "object_refs": [
+      "file--75d9aa88-1de9-4bc9-9228-cefda3bf0bdd"
+    ]
+  },
+  {
+    "source_ref": "indicator--d86958aa-54c5-456d-b8e4-c842b907e67f",
+    "target_ref": "observed-data--58920ff1-dd83-46b8-8d3a-cc4c0b29493a",
+    "relationship_type": "based-on",
+    "type": "relationship",
+    "created": "2023-09-20T19:59:49.268Z",
+    "modified": "2023-09-20T19:59:49.268Z",
+    "id": "relationship--ad6816f1-9df8-456f-8884-8066c7d28982",
+    "targetObjectType": "indicator"
+  },
+  {
+    "description": "\n\nReg is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. [1]\n\nUtilities such as Reg are known to be used by persistent threats. [2]",
+    "pattern": "[file:hashes.'SHA-256' = ' c0e25b1f9b22de445298c1e96ddfcead265ca030fa6626f61a4a4786cc4a3b7d ']",
+    "id": "indicator--d86958aa-54c5-456d-b8e4-c842b907e67f",
+    "type": "indicator",
+    "spec_version": 2.1,
+    "created": "2023-08-20T18:02:03+01:00",
+    "modified": "2023-08-20T18:02:03+01:00",
+    "name": "227F63E1D9008B36BDBCC4B397780BE4",
+    "pattern_type": "stix",
+    "valid_from": "2018-12-12T18:02:03+01:00",
+    "valid_until": "2024-01-20T18:02:03+01:00"
+  },
+  {
+    "name": "Relationship Reg.exe ->TTPs",
+    "description": "\"[Reg](https://attack.mitre.org/software/S0075) may be used to interact with and modify the Windows Registry of a local or remote system at the command-line interface.(Citation: Microsoft Reg)\",\n\"[Reg](https://attack.mitre.org/software/S0075) may be used to find credentials in the Windows Registry.(Citation: Pentestlab Stored Credentials)\",\n\"[Reg](https://attack.mitre.org/software/S0075) may be used to gather details from the Windows Registry of a local or remote system at the command-line interface.(Citation: Microsoft Reg)\"",
+    "id": "sighting--e4271559-5248-450d-aee9-850cdad1a812",
+    "type": "sighting",
+    "spec_version": 2.1,
+    "created": "2023-09-20T18:02:03+01:00",
+    "modified": "2023-09-20T18:02:03+01:00",
+    "sighting_of_ref": [
+      "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f"
+    ]
+  },
+  {
+    "id": "grouping--5bca5f0e-67e5-4148-bb09-9d4708c5a287",
+    "type": "grouping",
+    "spec_version": 2.1,
+    "created": "2023-09-05T23:23:32+01:00",
+    "modified": "2023-09-05T23:23:32+01:00",
+    "name": "Associated Detections",
+    "description": "Associated Detections",
+    "context": "unspecified",
+    "object_refs": [
+      "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+      "course-of-action--442a2cd1-62fa-4da2-9160-afbf88e6a8b9",
+      "course-of-action--d6f3c818-929f-43d8-8888-fba25dff7b1c",
+      "course-of-action--a5a90de4-41ab-4275-9dfe-c0ddc6ab7565",
+      "course-of-action--a446142d-dd7a-428a-9a4b-5023bf637e52", 
+      "course-of-action--a6bc65f9-30c8-4f55-b4ce-049afdb3255b",  
+      "course-of-action--3da41636-b5e3-4c81-b7e6-8e536d83ce5a", 
+      "course-of-action--387d3f7f-0967-43da-a84e-e720a3b1e977",
+      "course-of-action--0aae6418-f1c3-4b93-b40c-a43985ec1376",
+      "course-of-action--01dc8f01-b295-4b1f-b943-a347fdfebe95",
+      "course-of-action--ee9553a2-2c7c-46e1-a96d-8b148c2747fd"
+
+    ]
+  },
+  {
+    "type": "course-of-action",
+    "name":"Process Creation",
+    "description": "Monitor newly executed processes for applications that can be used to query the Registry, such as [Reg](https://attack.mitre.org/software/S0075), and collect command parameters that may indicate credentials are being searched. Correlate activity with related suspicious behavior that may indicate an active intrusion to reduce false positives.",
+    "id": "course-of-action--442a2cd1-62fa-4da2-9160-afbf88e6a8b9",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.840Z",
+    "modified": "2022-04-19T23:51:52.558Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+    "target_ref": "attack-pattern--341e222a-a6e3-4f6f-b69c-831d792b1580",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_deprecated": false,
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "0.1"
+},
+{
+    "type": "course-of-action",
+    "name":"Windows Registry Key Access",
+    "description": "Monitor for unexpected windows registry key being accessed that may search the Registry on compromised systems for insecurely stored credentials.",
+    "id": "course-of-action--d6f3c818-929f-43d8-8888-fba25dff7b1c",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.840Z",
+    "modified": "2022-03-30T14:26:51.840Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--ed0dd8aa-1677-4551-bb7d-8da767617e1b",
+    "target_ref": "attack-pattern--341e222a-a6e3-4f6f-b69c-831d792b1580",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+},
+{
+    "type": "course-of-action",
+    "name":"Command Execution",
+    "description": "Monitor executed commands and arguments that may search the Registry on compromised systems for insecurely stored credentials.",
+    "id": "course-of-action--a5a90de4-41ab-4275-9dfe-c0ddc6ab7565",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.840Z",
+    "modified": "2022-03-30T14:26:51.840Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--685f917a-e95e-4ba0-ade1-c7d354dae6e0",
+    "target_ref": "attack-pattern--341e222a-a6e3-4f6f-b69c-831d792b1580",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+},
+{
+    "type": "course-of-action",
+    "name":"Windows Registry Key Creation",
+    "description": "Monitor for newly constructed registry keys or values to aid in persistence and execution. ",
+    "id": "course-of-action--a446142d-dd7a-428a-9a4b-5023bf637e52", 
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.857Z",
+    "modified": "2022-03-30T14:26:51.857Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--7f70fae7-a68d-4730-a83a-f260b9606129",
+    "target_ref": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+},
+{
+    "type": "course-of-action",
+    "id": "course-of-action--a6bc65f9-30c8-4f55-b4ce-049afdb3255b", 
+    "name": "Process Creation",
+"description": "Monitor processes and command-line arguments for actions that could be taken to change, conceal, and/or delete information in the Registry. (i.e. reg.exe, regedit.exe) \n\n<h4> Implementation 1 : Suspicious Processes </h4>\n\n<h5> Detection Pseudocode</h5>\n<code>reg_processes = filter processes where ( \n  (event_id == \"1\" OR event_id == \"4688\") AND (exe == \"reg.exe\" AND parent_exe == \"cmd.exe\")\n)\ncmd_processes = filter processes where ( \n  (event_id == \"1\" OR event_id == \"4688\") AND (exe == \"cmd.exe\" AND parent_exe != \"explorer.exe\"\")\n)\nreg_and_cmd_processes = join (reg_processes, cmd_processes) where (reg.parent_pid == cmd.pid and reg.hostname == cmd.hostname)</code>\n\n<h4>Detection Notes </h4>\n\n- Pseudocode Event IDs are for Sysmon (Event ID 1 - process create) and Windows Security Log (Event ID 4688 - a new process has been created). \n- The Detection Pseudocode is oriented around detecting invocations of [Reg](https://attack.mitre.org/software/S0075) where the parent executable is an instance of cmd.exe that wasn\u2019t spawned by explorer.exe. The built-in utility\u00a0reg.exe provides a\u00a0command-line interface to the registry, so that queries and modifications can be performed from a shell, such as\u00a0cmd.exe. When a user is responsible for these actions, the parent of\u00a0cmd.exewill typically be\u00a0explorer.exe. Occasionally, power users and administrators write scripts that do this behavior as well, but likely from a different process tree. These background scripts must be baselined so they can be tuned out accordingly.",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.857Z",
+    "modified": "2023-03-27T17:54:15.564Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+    "target_ref": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "3.1.0",
+    "x_mitre_deprecated": false,
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "0.1"
+},
+{
+    "type": "course-of-action",
+    "id": "course-of-action--3da41636-b5e3-4c81-b7e6-8e536d83ce5a",
+        "name":"Windows Registry Key Deletion",
+    "description": "Monitor for unexpected deletion of windows registry keys to hide configuration information, remove information as part of cleaning up, or as part of other techniques to aid in persistence and execution. ",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.857Z",
+    "modified": "2022-03-30T14:26:51.857Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--1177a4c5-31c8-400c-8544-9071166afa0e",
+    "target_ref": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+},
+{
+    "type": "course-of-action",
+    "name": "Command Execution",
+    "description": " Monitor executed commands and arguments for actions that could be taken to change, conceal, and/or delete information in the Registry. The Registry may also be modified through Windows system management tools such as Windows Management Instrumentation and PowerShell, which may require additional logging features to be configured in the operating system to collect necessary information for analysis.",
+    "id": "course-of-action--387d3f7f-0967-43da-a84e-e720a3b1e977",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.857Z",
+    "modified": "2022-03-30T14:26:51.857Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--685f917a-e95e-4ba0-ade1-c7d354dae6e0",
+    "target_ref": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+},
+{
+    "type": "course-of-action",
+    "description": "Monitor for API calls associated with concealing Registry keys, such as Reghide. (Citation: Microsoft Reghide NOV 2006) Inspect and cleanup malicious hidden Registry entries using Native Windows API calls and/or tools such as Autoruns (Citation: SpectorOps Hiding Reg Jul 2017) and RegDelNull (Citation: Microsoft RegDelNull July 2016). \n\n<h4>Detection Notes</h4>\n\n- Most EDR tools do not support direct monitoring of API calls due to the sheer volume of calls produced by an endpoint but may have alerts or events that are based on abstractions of OS API calls.\n- Dynamic malware analysis tools (i.e., sandboxes) can be used to trace the execution, including OS API calls, for a single PE binary. \n- Other API calls relevant to Registry Modification include <code>RegOpenKeyExA</code>,<code> RegCreateKeyExA</code>,<code> RegDeleteKeyExA</code>,<code> RegDeleteValueExA</code>,<code> RegEnumKeyExA</code>,<code> RegEnumValueExA</code>, among others.",
+    "name":"OS API Execution",
+    "id": "course-of-action--0aae6418-f1c3-4b93-b40c-a43985ec1376",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.857Z",
+    "modified": "2023-03-27T17:50:49.696Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--9bde2f9d-a695-4344-bfac-f2dce13d121e",
+    "target_ref": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+    "external_references": [
+        {
+            "source_name": "SpectorOps Hiding Reg Jul 2017",
+            "description": "Reitz, B. (2017, July 14). Hiding Registry keys with PSReflect. Retrieved August 9, 2018.",
+            "url": "https://posts.specterops.io/hiding-registry-keys-with-psreflect-b18ec5ac8353"
+        },
+        {
+            "source_name": "Microsoft Reghide NOV 2006",
+            "description": "Russinovich, M. & Sharkey, K. (2006, January 10). Reghide. Retrieved August 9, 2018.",
+            "url": "https://docs.microsoft.com/sysinternals/downloads/reghide"
+        },
+        {
+            "source_name": "Microsoft RegDelNull July 2016",
+            "description": "Russinovich, M. & Sharkey, K. (2016, July 4). RegDelNull v1.11. Retrieved August 10, 2018.",
+            "url": "https://docs.microsoft.com/en-us/sysinternals/downloads/regdelnull"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "3.1.0",
+    "x_mitre_deprecated": false,
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "0.1"
+},
+{
+    "type": "course-of-action",
+    "name":"Windows Registry Key Modification",
+    "description": "Monitor for changes made to windows registry keys or values. Consider enabling Registry Auditing on specific keys to produce an alertable event (Event ID 4657) whenever a value is changed (though this may not trigger when values are created with Reghide or other evasive methods). (Citation: Microsoft 4657 APR 2017) Changes to Registry entries that load software on Windows startup that do not correlate with known software, patch cycles, etc., are suspicious, as are additions or changes to files within the startup folder. Changes could also include new services and modification of existing binary paths to point to malicious files. If a change to a service-related entry occurs, then it will likely be followed by a local or remote service start or restart to execute the file.",
+    "id": "course-of-action--01dc8f01-b295-4b1f-b943-a347fdfebe95",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2022-03-30T14:26:51.857Z",
+    "modified": "2022-03-30T14:26:51.857Z",
+    "relationship_type": "detects",
+    "source_ref": "x-mitre-data-component--da85d358-741a-410d-9433-20d6269a6170",
+    "target_ref": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+    "external_references": [
+        {
+            "source_name": "Microsoft 4657 APR 2017",
+            "description": "Miroshnikov, A. & Hall, J. (2017, April 18). 4657(S): A registry value was modified. Retrieved August 9, 2018.",
+            "url": "https://docs.microsoft.com/windows/security/threat-protection/auditing/event-4657"
+        }
+    ],
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_attack_spec_version": "2.1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+},
+{
+    "name": "Relationship Reg.exe -> APTs",
+  "description": "\"[Wizard Spider](https://attack.mitre.org/groups/G0102) has modified the Registry key <code>HKLM\\System\\CurrentControlSet\\Control\\SecurityProviders\\WDigest</code> by setting the <code>UseLogonCredential</code> registry value to <code>1</code> in order to force credentials to be stored in clear text in memory. [Wizard Spider](https://attack.mitre.org/groups/G0102) has also modified the WDigest registry key to allow plaintext credentials to be cached in memory.(Citation: CrowdStrike Grim Spider May 2019)(Citation: Mandiant FIN12 Oct 2021)\",\n\"[Magic Hound](https://attack.mitre.org/groups/G0059) has modified Registry settings for security tools.(Citation: DFIR Report APT35 ProxyShell March 2022)\",\n\"[Kimsuky](https://attack.mitre.org/groups/G0094) has modified Registry settings for default file associations to enable all macros and for persistence.(Citation: CISA AA20-301A Kimsuky)(Citation: Crowdstrike GTR2020 Mar 2020)(Citation: Talos Kimsuky Nov 2021)(Citation: KISA Operation Muzabi)\",\n\"[Dragonfly](https://attack.mitre.org/groups/G0035) has modified the Registry to perform multiple techniques through the use of [Reg](https://attack.mitre.org/software/S0075).(Citation: US-CERT TA18-074A)\",\n\"[APT32](https://attack.mitre.org/groups/G0050)'s backdoor has modified the Windows Registry to store the backdoor's configuration. (Citation: ESET OceanLotus Mar 2019)\t\",\n\"[Earth Lusca](https://attack.mitre.org/groups/G1006) modified the registry using the command <code>reg add “HKEY_CURRENT_USER\\Environment” /v UserInitMprLogonScript /t REG_SZ /d “[file path]”</code> for persistence.(Citation: TrendMicro EarthLusca 2022)\",\n\"A [Patchwork](https://attack.mitre.org/groups/G0040) payload deletes Resiliency Registry keys created by Microsoft Office applications in an apparent effort to trick users into thinking there were no issues during application runs.(Citation: TrendMicro Patchwork Dec 2017)\",\n\"[TA505](https://attack.mitre.org/groups/G0092) has used malware to disable Windows Defender through modification of the Registry.(Citation: Korean FSI TA505 2020)\",\n\"[Turla](https://attack.mitre.org/groups/G0010) has modify Registry values to store payloads.(Citation: ESET Turla PowerShell May 2019)(Citation: Symantec Waterbug Jun 2019)\",\n\"[APT19](https://attack.mitre.org/groups/G0073) uses a Port 22 malware variant to modify several Registry keys.(Citation: Unit 42 C0d0so0 Jan 2016)\",\n\"[FIN8](https://attack.mitre.org/groups/G0061) has deleted Registry keys during post compromise cleanup activities.(Citation: FireEye Know Your Enemy FIN8 Aug 2016)\",\n\"[Gamaredon Group](https://attack.mitre.org/groups/G0047) has removed security settings for VBA macro execution by changing registry values <code>HKCU\\Software\\Microsoft\\Office\\&lt;version&gt;\\&lt;product&gt;\\Security\\VBAWarnings</code> and <code>HKCU\\Software\\Microsoft\\Office\\&lt;version&gt;\\&lt;product&gt;\\Security\\AccessVBOM</code>.(Citation: ESET Gamaredon June 2020)(Citation: CERT-EE Gamaredon January 2021)\",\n\"[Gorgon Group](https://attack.mitre.org/groups/G0078) malware can deactivate security mechanisms in Microsoft Office by editing several keys and values under <code>HKCU\\Software\\Microsoft\\Office\\</code>.(Citation: Unit 42 Gorgon Group Aug 2018)\",\n\"[Blue Mockingbird](https://attack.mitre.org/groups/G0108) has used Windows Registry modifications to specify a DLL payload.(Citation: RedCanary Mockingbird May 2020)\t\",\n\"[Silence](https://attack.mitre.org/groups/G0091) can create, delete, or modify a specified Registry key or value.(Citation: Group IB Silence Sept 2018)\",\n\"[LuminousMoth](https://attack.mitre.org/groups/G1014) has used malware that adds Registry keys for persistence.(Citation: Kaspersky LuminousMoth July 2021)(Citation: Bitdefender LuminousMoth July 2021)\",\n\"[Ember Bear](https://attack.mitre.org/groups/G1003) has used an open source batch script to modify Windows Defender registry keys.(Citation: Palo Alto Unit 42 OutSteel SaintBot February 2022 )\",\n\"[APT41](https://attack.mitre.org/groups/G0096) used a malware variant called GOODLUCK to modify the registry in order to steal credentials.(Citation: FireEye APT41 Aug 2019)(Citation: Group IB APT 41 June 2021)\",\n\"A [Threat Group-3390](https://attack.mitre.org/groups/G0027) tool has created new Registry keys under `HKEY_CURRENT_USER\\Software\\Classes\\` and `HKLM\\SYSTEM\\CurrentControlSet\\services`.(Citation: Nccgroup Emissary Panda May 2018)(Citation: Trend Micro Iron Tiger April 2021)\",\n\"[APT38](https://attack.mitre.org/groups/G0082) uses a tool called CLEANTOAD that has the capability to modify Registry keys.(Citation: FireEye APT38 Oct 2018)\",\n\n\"[Turla](https://attack.mitre.org/groups/G0010) surveys a system upon check-in to discover information in the Windows Registry with the <code>reg query</code> command.(Citation: Kaspersky Turla) [Turla](https://attack.mitre.org/groups/G0010) has also retrieved PowerShell payloads hidden in Registry keys as well as checking keys associated with null session named pipes .(Citation: ESET Turla PowerShell May 2019)\",\n\"[Kimsuky](https://attack.mitre.org/groups/G0094) has obtained specific Registry keys and values on a compromised host.(Citation: Talos Kimsuky Nov 2021)\",\n\"[OilRig](https://attack.mitre.org/groups/G0049) has used <code>reg query “HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default”</code> on a victim to query the Registry.(Citation: Palo Alto OilRig May 2016)\",\n\"[Stealth Falcon](https://attack.mitre.org/groups/G0038) malware attempts to determine the installed version of .NET by querying the Registry.(Citation: Citizen Lab Stealth Falcon May 2016)\",\n\"A [Threat Group-3390](https://attack.mitre.org/groups/G0027) tool can read and decrypt stored Registry values.(Citation: Nccgroup Emissary Panda May 2018)\",\n\"[Dragonfly](https://attack.mitre.org/groups/G0035) has queried the Registry to identify victim information.(Citation: US-CERT TA18-074A)\",\n\"[APT32](https://attack.mitre.org/groups/G0050)'s backdoor can query the Windows Registry to gather system information. (Citation: ESET OceanLotus Mar 2019)\",\n\"[APT39](https://attack.mitre.org/groups/G0087) has used various strains of malware to query the Registry.(Citation: FBI FLASH APT39 September 2020)\",\n\"[Volt Typhoon](https://attack.mitre.org/groups/G1017) has queried the Registry on compromised systems, `reg query hklm\\software\\`, for information on installed software.(Citation: Joint Cybersecurity Advisory Volt Typhoon June 2023)\",\n\"[ZIRCONIUM](https://attack.mitre.org/groups/G0128) has used a tool to query the Registry for proxy settings.(Citation: Zscaler APT31 Covid-19 October 2020)\",\n\"[Chimera](https://attack.mitre.org/groups/G0114) has queried Registry keys using <code>reg query \\\\<host>\\HKU\\<SID>\\SOFTWARE\\Microsoft\\Terminal Server Client\\Servers</code> and <code>reg query \\\\<host>\\HKU\\<SID>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings</code>.(Citation: NCC Group Chimera January 2021)\",\n\"[Lazarus Group](https://attack.mitre.org/groups/G0032) malware IndiaIndia checks Registry keys within HKCU and HKLM to determine if certain applications are present, including SecureCRT, Terminal Services, RealVNC, TightVNC, UltraVNC, Radmin, mRemote, TeamViewer, FileZilla, pcAnyware, and Remote Desktop. Another [Lazarus Group](https://attack.mitre.org/groups/G0032) malware sample checks for the presence of the following Registry key:<code>HKEY_CURRENT_USER\\Software\\Bitcoin\\Bitcoin-Qt</code>.(Citation: Novetta Blockbuster)(Citation: Novetta Blockbuster Loaders)(Citation: McAfee Lazarus Resurfaces Feb 2018)\",\n\"[Fox Kitten](https://attack.mitre.org/groups/G0117) has accessed Registry hives ntuser.dat and UserClass.dat.(Citation: CISA AA20-259A Iran-Based Actor September 2020)\",\n\n\"[APT32](https://attack.mitre.org/groups/G0050) used Outlook Credential Dumper to harvest credentials stored in Windows registry.(Citation: Cybereason Oceanlotus May 2017)(Citation: Cybereason Cobalt Kitty 2017)\",\n",
+    "id": "sighting--bb7277d9-911a-4a8a-8257-d987896c045f",
+    "type": "sighting",
+    "spec_version": 2.1,
+    "created": "2023-09-20T18:02:03+01:00",
+    "modified": "2023-09-20T18:02:03+01:00",
+    "sighting_of_ref": [
+      "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f"
+    ]
+  },
+
+  {
+    "name": "(Sysmon|windowsEventId)",
+    "description": "\"T1112:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1\",\n            \"T1112:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688\",\n            \"T1552.002:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103\"",
+    "id": "course-of-action--ee9553a2-2c7c-46e1-a96d-8b148c2747fd",
+    "type": "course-of-action",
+    "spec_version": 2.1,
+    "created": "2023-09-20T18:02:03+01:00",
+    "modified": "2023-09-20T18:02:03+01:00",
+    "external_references": [
+      {
+        "source_name": "OSSEM-DM",
+        "url": "https://github.com/OTRF/OSSEM-DM/blob/03404288803c743cd5254f8888d664a5a106ec89/use-cases/mitre_attack/techniques_to_events_mapping.yaml"
+      }
+    ]
+  },
+  {
+    "name": "Associated commands",
+    "description": "Disable Real-time protection\n\nreg delete \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /f\nreg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiVirus\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\MpEngine\" /v \"MpEnablePus\" /t REG_DWORD /d \"o\" /f\nreg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableBehaviorMonitoring\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableIOAVProtection\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableOnAccess Protection\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableScanOn RealtimeEnable\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Reporting\" /v \"Disable EnhancedNotifications\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"DisableBlockAtFirstSeen\" /t REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"Spynet Reporting\" /t REG_DWORD /d \"0\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"SubmitSamplesConsent\" /t REG_DWORD /d \"2\" /f\nrem 0 Disable Logging\nreg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderApiLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderAuditLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f\n\nrem Disable WD Tasks\nschtasks /Change /TN \"Microsoft\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh\" /Disable\nschtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Cache Maintenance\" /Disable schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Cleanup\" /Disable schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Scheduled Scan\" /Disable schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Verification\" /Disable\n\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fSingleSessionPerUser /t REG_DWORD /d 0 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\Licensing Core\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllowMultipleTSSessions /t REG_DWORD /d 1 /f\nreg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services\" /v MaxInstanceCount /t REG_DWORD /d 100 /f\nreg add \"HKEY_CURRENT_USER\\Environment\" /v UserInitMprLogonScript /t REG_SZ /d \"[file path]\" for persistence.\n/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions\\\nLocal Machine Hive: reg query HKLM /f password /t REG_SZ /s\nCurrent User Hive: reg query HKCU /f password /t REG_SZ /s",
+    "id": "sighting--94168c1f-298b-4082-8b7e-7e8989d1a21f",
+    "type": "sighting",
+    "spec_version": 2.1,
+    "created": "2023-09-20T18:02:03+01:00",
+    "modified": "2023-09-20T18:02:03+01:00",
+    "sighting_of_ref": [
+     "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f"
+    ]
+  },
+  {
+    "id": "grouping--0b8e13c4-1924-41ab-8807-7099d466bd62",
+    "type": "grouping",
+    "spec_version": 2.1,
+    "created": "2023-09-05T23:23:32+01:00",
+    "modified": "2023-09-05T23:23:32+01:00",
+    "name": "Associated Mitigations",
+    "description": "Associated Mitigations",
+    "context": "unspecified",
+    "object_refs": [
+      "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+      "course-of-action--4490fee2-5c70-4db3-8db5-8d88767dbd55",
+      "course-of-action--21454d73-1532-4656-9cd6-172f046613b3",
+      "course-of-action--9c4bd197-08a2-4ded-baba-bd70b6b4afd0",
+      "course-of-action--9378f139-10ef-4e4b-b679-2255a0818902"
+
+    ]
+  },
+  {
+    "name": "Credentials in Registry Mitigation",
+    "description": "Do not store credentials within the Registry. Proactively search for credentials within Registry keys and attempt to remediate the risk. If necessary software must store credentials, then ensure those accounts have limited permissions so they cannot be abused if obtained by an adversary.",
+    "x_mitre_domains": [
+      "enterprise-attack"
+    ],
+    "object_marking_refs": [
+      "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "id": "course-of-action--4490fee2-5c70-4db3-8db5-8d88767dbd55",
+    "type": "course-of-action",
+    "created": "2018-10-17T00:14:20.652Z",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "external_references": [
+      {
+        "source_name": "mitre-attack",
+        "url": "https://attack.mitre.org/mitigations/T1214",
+        "external_id": "T1214"
+      }
+    ],
+    "modified": "2019-07-24T14:22:57.902Z",
+     "x_mitre_deprecated": true,
+    "x_mitre_version": "1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+  },
+{
+    "name": "Service Registry Permissions Weakness Mitigation",
+    "description": "Ensure proper permissions are set for Registry hives to prevent users from modifying keys for system components that may lead to privilege escalation.\n\nIdentify and block potentially malicious software that may be executed through service abuse by using whitelisting (Citation: Beechey 2010) tools like AppLocker (Citation: Windows Commands JPCERT) (Citation: NSA MS AppLocker) that are capable of auditing and/or blocking unknown programs.",
+    "x_mitre_domains": [
+      "enterprise-attack"
+    ],
+    "object_marking_refs": [
+      "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "id": "course-of-action--9378f139-10ef-4e4b-b679-2255a0818902",
+    "type": "course-of-action",
+    "created": "2018-10-17T00:14:20.652Z",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "external_references": [
+      {
+        "external_id": "T1058",
+        "url": "https://attack.mitre.org/mitigations/T1058",
+        "source_name": "mitre-attack"
+      },
+      {
+        "source_name": "Beechey 2010",
+        "description": "Beechey, J. (2010, December). Application Whitelisting: Panacea or Propaganda?. Retrieved November 18, 2014.",
+        "url": "http://www.sans.org/reading-room/whitepapers/application/application-whitelisting-panacea-propaganda-33599"
+      },
+      {
+        "url": "http://blog.jpcert.or.jp/2016/01/windows-commands-abused-by-attackers.html",
+        "description": "Tomonaga, S. (2016, January 26). Windows Commands Abused by Attackers. Retrieved February 2, 2016.",
+        "source_name": "Windows Commands JPCERT"
+      },
+      {
+        "url": "https://apps.nsa.gov/iaarchive/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm",
+        "description": "NSA Information Assurance Directorate. (2014, August). Application Whitelisting Using Microsoft AppLocker. Retrieved March 31, 2016.",
+        "source_name": "NSA MS AppLocker"
+      }
+    ],
+    "modified": "2020-01-17T16:45:24.258Z",
+        "x_mitre_deprecated": true,
+    "x_mitre_version": "1.0",
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"
+  },
+{
+    "name":"Privileged Account Management ",
+    "description": "If it is necessary that software must store credentials in the Registry, then ensure the associated accounts have limited permissions so they cannot be abused if obtained by an adversary.",
+    "type": "course-of-action",
+    "id": "course-of-action--21454d73-1532-4656-9cd6-172f046613b3",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2020-02-04T12:58:40.978Z",
+    "modified": "2020-02-07T20:49:19.015Z",
+    "relationship_type": "mitigates",
+    "source_ref": "course-of-action--9bb9e696-bff8-4ae1-9454-961fc7d91d5f",
+    "target_ref": "attack-pattern--341e222a-a6e3-4f6f-b69c-831d792b1580",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "1.0"
+},
+{
+    "name":"Audit",
+    "description": "Proactively search for credentials within the Registry and attempt to remediate the risk.",
+    "type": "course-of-action",
+    "id": "course-of-action--9c4bd197-08a2-4ded-baba-bd70b6b4afd0",
+    "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "created": "2020-02-04T12:58:40.980Z",
+    "modified": "2020-02-07T20:49:19.028Z",
+    "relationship_type": "mitigates",
+    "source_ref": "course-of-action--cc2399fd-3cd3-4319-8d0a-fbd6420cdaf8",
+    "target_ref": "attack-pattern--341e222a-a6e3-4f6f-b69c-831d792b1580",
+    "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+    ],
+    "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+    "x_mitre_version": "1.0"
+},
+{
+    "description": "Reg.exe has been used to exploit CVE-2023-42793",
+    "id": "sighting--8a150fbb-701c-4919-a551-f38ea1a33203",
+    "type": "sighting",
+    "spec_version": 2.1,
+    "created": "2024-03-20T18:02:03+01:00",
+    "modified": "2023-08-20T18:02:03+01:00",
+    "external_references": [
+      {
+        "source_name": "fortinet",
+        "url": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
+      }
+    ],
+    "sighting_of_ref": [
+      "tool--cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+      "vulnerability--7c4038c5-f794-485e-a8a7-13e3ccadc2c7"
+    ]
+  },
+  {
+    "name": "CVE-2023-42793",
+    "description": "Reg has been used to exploit CVE-2023-42793; Affected Platforms: Machines running vulnerable JetBrains TeamCity versions (before 2023.05.4, per vendor advice)",
+    "id": "vulnerability--7c4038c5-f794-485e-a8a7-13e3ccadc2c7",
+    "type": "vulnerability",
+    "spec_version": 2.1,
+    "created": "2023-08-20T18:02:03+01:00",
+    "modified": "2023-08-20T18:02:03+01:00"
+  }
+
+  ]  
+}
