@@ -57,7 +57,7 @@ Only commands whose exact text is in the cited report. Each has an intent taken 
 
 ### YouTube video demo
 
-[![YouTube video](screenshots/video.png)](https://youtu.be/xiu17NC61J4 "LOLBins CTI-Driven on YouTube")
+[![YouTube video](screenshots/video.png)](https://youtu.be/m8i7hRx6ZKc "LOLBins CTI-Driven on YouTube")
 
 ## Advanced hunting (KQL)
 
