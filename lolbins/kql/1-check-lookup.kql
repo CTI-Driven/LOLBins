@@ -1,0 +1,4 @@
+let LOLBinContext = externaldata(BinaryKey:string, FileName:string, OriginalFileName:string, Binary:string, AttackId:string, AttackName:string, AttackUrl:string, Techniques:string, Tactics:string, Capabilities:string, Privileges:string, ExpectedPaths:string, GroupCount:int, Groups:string, CampaignCount:int, Campaigns:string, MalwareCount:int, Malware:string, ToolCount:int, Tools:string, SigmaRuleCount:int, EventIds:string, Mitigations:string, CVEs:string, SourcedCommandCount:int, PageUrl:string, StixUrl:string, AttackVersion:string) [h@"https://raw.githubusercontent.com/CTI-Driven/LOLBins/HEAD/lolbins/kql/lolbins.csv"] with (format = "csv", ignoreFirstRecord = true);
+LOLBinContext
+| summarize Rows = count(), Binaries = dcount(BinaryKey),
+            EmptyKeys = countif(isempty(FileName))

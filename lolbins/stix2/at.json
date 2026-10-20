@@ -1,0 +1,3279 @@
+{
+  "type": "bundle",
+  "id": "bundle--31865473-bbef-5f3f-a874-e183e3481a55",
+  "objects": [
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2021-03-10T10:00:00.000Z",
+      "modified": "2021-03-10T10:00:00.000Z",
+      "name": "Nounou Mbeiri",
+      "identity_class": "individual",
+      "contact_information": "Twitter: @Nounou_Mbeiri",
+      "description": "MITRE ATT&CK Defender (MAD) | Cyber Threat Intelligence researcher | Collaborator in Cyber Threat Intelligence community (GINSEG) | Public Speaking"
+    },
+    {
+      "type": "report",
+      "id": "report--31865473-bbef-5f3f-a874-e183e3481a55",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "LOLBin: At.exe",
+      "description": "at is used to schedule tasks on a system to run at a specified date or time.",
+      "published": "2026-10-16T00:15:00.000Z",
+      "report_types": [
+        "tool"
+      ],
+      "object_refs": [
+        "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+      ]
+    },
+    {
+      "type": "tool",
+      "id": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "created": "2017-05-31T21:33:06.824Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0110",
+          "external_id": "S0110"
+        },
+        {
+          "source_name": "Linux at",
+          "description": "IEEE/The Open Group. (2017). at(1p) — Linux manual page. Retrieved February 25, 2022.",
+          "url": "https://man7.org/linux/man-pages/man1/at.1p.html"
+        },
+        {
+          "source_name": "TechNet At",
+          "description": "Microsoft. (n.d.). At. Retrieved April 28, 2016.",
+          "url": "https://technet.microsoft.com/en-us/library/bb490866.aspx"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2025-04-16T20:38:49.779Z",
+      "name": "at",
+      "description": "[at](https://attack.mitre.org/software/S0110) is used to schedule tasks on a system to run at a specified date or time.(Citation: TechNet At)(Citation: Linux at)",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.3",
+      "x_mitre_attack_spec_version": "3.2.0",
+      "x_mitre_aliases": [
+        "at",
+        "at.exe"
+      ],
+      "labels": [
+        "tool"
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--38fd6a28-3353-4f2b-bb2b-459fecd5c648",
+      "created": "2017-05-31T21:31:57.733Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0026",
+          "external_id": "G0026"
+        },
+        {
+          "source_name": "Threat Group-0416",
+          "description": "(Citation: ThreatStream Evasion Analysis)"
+        },
+        {
+          "source_name": "APT18",
+          "description": "(Citation: ThreatStream Evasion Analysis)(Citation: Anomali Evasive Maneuvers July 2015)"
+        },
+        {
+          "source_name": "TG-0416",
+          "description": "(Citation: ThreatStream Evasion Analysis)(Citation: Anomali Evasive Maneuvers July 2015)"
+        },
+        {
+          "source_name": "Dynamite Panda",
+          "description": "(Citation: ThreatStream Evasion Analysis)(Citation: Anomali Evasive Maneuvers July 2015)"
+        },
+        {
+          "source_name": "Dell Lateral Movement",
+          "description": "Carvey, H.. (2014, September 2). Where you AT?: Indicators of lateral movement using at.exe on Windows 7 systems. Retrieved January 25, 2016.",
+          "url": "http://www.secureworks.com/resources/blog/where-you-at-indicators-of-lateral-movement-using-at-exe-on-windows-7-systems/"
+        },
+        {
+          "source_name": "Anomali Evasive Maneuvers July 2015",
+          "description": "Shelmire, A. (2015, July 06). Evasive Maneuvers by the Wekby group with custom ROP-packing and DNS covert channels. Retrieved November 15, 2018.",
+          "url": "https://www.anomali.com/blog/evasive-maneuvers-the-wekby-group-attempts-to-evade-analysis-via-custom-rop"
+        },
+        {
+          "source_name": "ThreatStream Evasion Analysis",
+          "description": "Shelmire, A.. (2015, July 6). Evasive Maneuvers. Retrieved January 22, 2016.",
+          "url": "https://www.threatstream.com/blog/evasive-maneuvers-the-wekby-group-attempts-to-evade-analysis-via-custom-rop"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-07-31T18:47:50.082Z",
+      "name": "APT18",
+      "description": "[APT18](https://attack.mitre.org/groups/G0026) is a threat group that has operated since at least 2009 and has targeted a range of industries, including technology, manufacturing, human rights groups, government, and medical. (Citation: Dell Lateral Movement)",
+      "aliases": [
+        "APT18",
+        "TG-0416",
+        "Dynamite Panda",
+        "Threat Group-0416"
+      ],
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "2.2",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--a7bb0d8c-2333-5d31-9935-8941b75a00dd",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--38fd6a28-3353-4f2b-bb2b-459fecd5c648",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "APT18 actors used the native at Windows task scheduler tool to use scheduled tasks for execution on a victim network.",
+      "external_references": [
+        {
+          "source_name": "Dell Lateral Movement",
+          "url": "http://www.secureworks.com/resources/blog/where-you-at-indicators-of-lateral-movement-using-at-exe-on-windows-7-systems/"
+        }
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--93f52415-0fe4-4d3d-896c-fc9b8e88ab90",
+      "created": "2018-01-16T16:13:52.465Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0060",
+          "external_id": "G0060"
+        },
+        {
+          "source_name": "BRONZE BUTLER",
+          "description": "(Citation: Trend Micro Daserf Nov 2017)(Citation: Trend Micro Tick November 2019)"
+        },
+        {
+          "source_name": "REDBALDKNIGHT",
+          "description": "(Citation: Trend Micro Daserf Nov 2017)(Citation: Trend Micro Tick November 2019)"
+        },
+        {
+          "source_name": "Tick",
+          "description": "(Citation: Trend Micro Daserf Nov 2017)(Citation: Symantec Tick Apr 2016)(Citation: Trend Micro Tick November 2019)"
+        },
+        {
+          "source_name": "Trend Micro Daserf Nov 2017",
+          "description": "Chen, J. and Hsieh, M. (2017, November 7). REDBALDKNIGHT/BRONZE BUTLER’s Daserf Backdoor Now Using Steganography. Retrieved December 27, 2017.",
+          "url": "http://blog.trendmicro.com/trendlabs-security-intelligence/redbaldknight-bronze-butler-daserf-backdoor-now-using-steganography/"
+        },
+        {
+          "source_name": "Secureworks BRONZE BUTLER Oct 2017",
+          "description": "Counter Threat Unit Research Team. (2017, October 12). BRONZE BUTLER Targets Japanese Enterprises. Retrieved January 4, 2018.",
+          "url": "https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses"
+        },
+        {
+          "source_name": "Trend Micro Tick November 2019",
+          "description": "Chen, J. et al. (2019, November). Operation ENDTRADE: TICK’s Multi-Stage Backdoors for Attacking Industries and Stealing Classified Data. Retrieved June 9, 2020.",
+          "url": "https://documents.trendmicro.com/assets/pdf/Operation-ENDTRADE-TICK-s-Multi-Stage-Backdoors-for-Attacking-Industries-and-Stealing-Classified-Data.pdf"
+        },
+        {
+          "source_name": "Symantec Tick Apr 2016",
+          "description": "DiMaggio, J. (2016, April 28). Tick cyberespionage group zeros in on Japan. Retrieved July 16, 2018.",
+          "url": "https://www.symantec.com/connect/blogs/tick-cyberespionage-group-zeros-japan"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-07-31T18:48:09.344Z",
+      "name": "BRONZE BUTLER",
+      "description": "[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) is a cyber espionage group with likely Chinese origins that has been active since at least 2008. The group primarily targets Japanese organizations, particularly those in government, biotechnology, electronics manufacturing, and industrial chemistry.(Citation: Trend Micro Daserf Nov 2017)(Citation: Secureworks BRONZE BUTLER Oct 2017)(Citation: Trend Micro Tick November 2019)",
+      "aliases": [
+        "BRONZE BUTLER",
+        "REDBALDKNIGHT",
+        "Tick"
+      ],
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.3",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_contributors": [
+        "Trend Micro Incorporated"
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--c76d0c04-a147-5ec5-92e8-e6ea36a3a11e",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--93f52415-0fe4-4d3d-896c-fc9b8e88ab90",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "\nBRONZE BUTLER has used at to register a scheduled task to execute malware during lateral movement.",
+      "external_references": [
+        {
+          "source_name": "Secureworks BRONZE BUTLER Oct 2017",
+          "url": "https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses"
+        }
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--06a11b7e-2a36-47fe-8d3e-82c265df3258",
+      "created": "2019-07-18T20:47:50.050Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0093",
+          "external_id": "G0093"
+        },
+        {
+          "source_name": "GALLIUM",
+          "description": "(Citation: Microsoft GALLIUM December 2019)"
+        },
+        {
+          "source_name": "Granite Typhoon",
+          "description": "(Citation: Microsoft Threat Actor Naming July 2023)"
+        },
+        {
+          "source_name": "Cybereason Soft Cell June 2019",
+          "description": "Cybereason Nocturnus. (2019, June 25). Operation Soft Cell: A Worldwide Campaign Against Telecommunications Providers. Retrieved July 18, 2019.",
+          "url": "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+        },
+        {
+          "source_name": "Microsoft Threat Actor Naming July 2023",
+          "description": "Microsoft . (2023, July 12). How Microsoft names threat actors. Retrieved November 17, 2023.",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/security/intelligence/microsoft-threat-actor-naming?view=o365-worldwide"
+        },
+        {
+          "source_name": "Microsoft GALLIUM December 2019",
+          "description": "MSTIC. (2019, December 12). GALLIUM: Targeting global telecom. Retrieved January 13, 2021.",
+          "url": "https://www.microsoft.com/security/blog/2019/12/12/gallium-targeting-global-telecom/"
+        },
+        {
+          "source_name": "Unit 42 PingPull Jun 2022",
+          "description": "Unit 42. (2022, June 13). GALLIUM Expands Targeting Across Telecommunications, Government and Finance Sectors With New PingPull Tool. Retrieved August 7, 2022.",
+          "url": "https://unit42.paloaltonetworks.com/pingpull-gallium/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-07-31T18:47:36.314Z",
+      "name": "GALLIUM",
+      "description": "[GALLIUM](https://attack.mitre.org/groups/G0093) is a cyberespionage group that has been active since at least 2012, primarily targeting telecommunications companies, financial institutions, and government entities in Afghanistan, Australia, Belgium, Cambodia, Malaysia, Mozambique, the Philippines, Russia, and Vietnam. This group is particularly known for launching Operation Soft Cell, a long-term campaign targeting telecommunications providers.(Citation: Cybereason Soft Cell June 2019) Security researchers have identified [GALLIUM](https://attack.mitre.org/groups/G0093) as a likely Chinese state-sponsored group, based in part on tools used and TTPs commonly associated with Chinese threat actors.(Citation: Cybereason Soft Cell June 2019)(Citation: Microsoft GALLIUM December 2019)(Citation: Unit 42 PingPull Jun 2022)",
+      "aliases": [
+        "GALLIUM",
+        "Granite Typhoon"
+      ],
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "4.0",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security",
+        "Cybereason Nocturnus, @nocturnus"
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--5b0196b1-62d4-5ebd-832c-eb13f9056b77",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--06a11b7e-2a36-47fe-8d3e-82c265df3258",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "",
+      "external_references": [
+        {
+          "source_name": "Cybereason Soft Cell June 2019",
+          "url": "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+        }
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--7113eaa5-ba79-4fb3-b68a-398ee9cd698e",
+      "created": "2018-04-18T17:59:24.739Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0065",
+          "external_id": "G0065"
+        },
+        {
+          "source_name": "MUDCARP",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: Accenture MUDCARP March 2019)"
+        },
+        {
+          "source_name": "Kryptonite Panda",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: Crowdstrike KRYPTONITE PANDA August 2018)"
+        },
+        {
+          "source_name": "Gadolinium",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: MSTIC GADOLINIUM September 2020)"
+        },
+        {
+          "source_name": "BRONZE MOHAWK",
+          "description": "(Citation: CISA AA21-200A APT40 July 2021)(Citation: SecureWorks BRONZE MOHAWK n.d.)"
+        },
+        {
+          "source_name": "Gingham Typhoon",
+          "description": "(Citation: Microsoft Threat Actor Naming July 2023)"
+        },
+        {
+          "source_name": "Leviathan",
+          "description": "(Citation: Proofpoint Leviathan Oct 2017)"
+        },
+        {
+          "source_name": "TEMP.Jumper",
+          "description": "[Leviathan](https://attack.mitre.org/groups/G0065) was previously reported upon by FireEye as TEMP.Periscope and TEMP.Jumper.(Citation: CISA AA21-200A APT40 July 2021)(Citation: FireEye APT40 March 2019)"
+        },
+        {
+          "source_name": "TEMP.Periscope",
+          "description": "[Leviathan](https://attack.mitre.org/groups/G0065) was previously reported upon by FireEye as TEMP.Periscope and TEMP.Jumper.(Citation: CISA AA21-200A APT40 July 2021)(Citation: FireEye Periscope March 2018)(Citation: FireEye APT40 March 2019)"
+        },
+        {
+          "source_name": "Accenture MUDCARP March 2019",
+          "description": "Accenture iDefense Unit. (2019, March 5). Mudcarp's Focus on Submarine Technologies. Retrieved August 24, 2021.",
+          "url": "https://www.accenture.com/us-en/blogs/cyber-defense/mudcarps-focus-on-submarine-technologies"
+        },
+        {
+          "source_name": "Crowdstrike KRYPTONITE PANDA August 2018",
+          "description": "Adam Kozy. (2018, August 30). Two Birds, One Stone Panda. Retrieved August 24, 2021.",
+          "url": "https://www.crowdstrike.com/blog/two-birds-one-stone-panda/"
+        },
+        {
+          "source_name": "Proofpoint Leviathan Oct 2017",
+          "description": "Axel F, Pierre T. (2017, October 16). Leviathan: Espionage actor spearphishes maritime and defense targets. Retrieved February 15, 2018.",
+          "url": "https://www.proofpoint.com/us/threat-insight/post/leviathan-espionage-actor-spearphishes-maritime-and-defense-targets"
+        },
+        {
+          "source_name": "MSTIC GADOLINIUM September 2020",
+          "description": "Ben Koehl, Joe Hannon. (2020, September 24). Microsoft Security - Detecting Empires in the Cloud. Retrieved August 24, 2021.",
+          "url": "https://www.microsoft.com/security/blog/2020/09/24/gadolinium-detecting-empires-cloud/"
+        },
+        {
+          "source_name": "CISA Leviathan 2024",
+          "description": "CISA et al. (2024, July 8). People’s Republic of China (PRC) Ministry of State Security APT40 Tradecraft in Action. Retrieved February 3, 2025.",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-190a"
+        },
+        {
+          "source_name": "CISA AA21-200A APT40 July 2021",
+          "description": "CISA. (2021, July 19). (AA21-200A) Joint Cybersecurity Advisory – Tactics, Techniques, and Procedures of Indicted APT40 Actors Associated with China’s MSS Hainan State Security Department. Retrieved August 12, 2021.",
+          "url": "https://us-cert.cisa.gov/ncas/alerts/aa21-200a"
+        },
+        {
+          "source_name": "APT40",
+          "description": "FireEye reporting on TEMP.Periscope (which was combined into APT40) indicated TEMP.Periscope was reported upon as Leviathan.(Citation: CISA AA21-200A APT40 July 2021)(Citation: Proofpoint Leviathan Oct 2017)(Citation: FireEye Periscope March 2018)(Citation: FireEye APT40 March 2019)"
+        },
+        {
+          "source_name": "FireEye Periscope March 2018",
+          "description": "FireEye. (2018, March 16). Suspected Chinese Cyber Espionage Group (TEMP.Periscope) Targeting U.S. Engineering and Maritime Industries. Retrieved April 11, 2018.",
+          "url": "https://www.fireeye.com/blog/threat-research/2018/03/suspected-chinese-espionage-group-targeting-maritime-and-engineering-industries.html"
+        },
+        {
+          "source_name": "Microsoft Threat Actor Naming July 2023",
+          "description": "Microsoft . (2023, July 12). How Microsoft names threat actors. Retrieved November 17, 2023.",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/security/intelligence/microsoft-threat-actor-naming?view=o365-worldwide"
+        },
+        {
+          "source_name": "FireEye APT40 March 2019",
+          "description": "Plan, F., et al. (2019, March 4). APT40: Examining a China-Nexus Espionage Actor. Retrieved March 18, 2019.",
+          "url": "https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html"
+        },
+        {
+          "source_name": "SecureWorks BRONZE MOHAWK n.d.",
+          "description": "SecureWorks. (n.d.). Threat Profile - BRONZE MOHAWK. Retrieved August 24, 2021.",
+          "url": "https://www.secureworks.com/research/threat-profiles/bronze-mohawk"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-07-31T20:48:37.749Z",
+      "name": "Leviathan",
+      "description": "[Leviathan](https://attack.mitre.org/groups/G0065) is a Chinese state-sponsored cyber espionage group that has been attributed to the Ministry of State Security's (MSS) Hainan State Security Department and an affiliated front company.(Citation: CISA AA21-200A APT40 July 2021) Active since at least 2009, [Leviathan](https://attack.mitre.org/groups/G0065) has targeted the following sectors: academia, aerospace/aviation, biomedical, defense industrial base, government, healthcare, manufacturing, maritime, and transportation across the US, Canada, Australia, Europe, the Middle East, and Southeast Asia.(Citation: CISA AA21-200A APT40 July 2021)(Citation: Proofpoint Leviathan Oct 2017)(Citation: FireEye Periscope March 2018)(Citation: CISA Leviathan 2024)",
+      "aliases": [
+        "Leviathan",
+        "MUDCARP",
+        "Kryptonite Panda",
+        "Gadolinium",
+        "BRONZE MOHAWK",
+        "TEMP.Jumper",
+        "APT40",
+        "TEMP.Periscope",
+        "Gingham Typhoon"
+      ],
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "4.1",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_contributors": [
+        "Valerii Marchuk, Cybersecurity Help s.r.o."
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--c126f2ad-6305-51ac-a2c2-73acac167c89",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--7113eaa5-ba79-4fb3-b68a-398ee9cd698e",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "",
+      "external_references": [
+        {
+          "source_name": "FireEye APT40 March 2019",
+          "url": "https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html"
+        }
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--fb366179-766c-4a4a-afa1-52bff1fd601c",
+      "created": "2017-05-31T21:31:58.518Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0027",
+          "external_id": "G0027"
+        },
+        {
+          "source_name": "Threat Group-3390",
+          "description": "(Citation: Dell TG-3390)(Citation: Hacker News LuckyMouse June 2018)"
+        },
+        {
+          "source_name": "TG-3390",
+          "description": "(Citation: Dell TG-3390)(Citation: Nccgroup Emissary Panda May 2018)(Citation: Hacker News LuckyMouse June 2018)"
+        },
+        {
+          "source_name": "Emissary Panda",
+          "description": "(Citation: Gallagher 2015)(Citation: Nccgroup Emissary Panda May 2018)(Citation: Securelist LuckyMouse June 2018)(Citation: Hacker News LuckyMouse June 2018)(Citation: Unit42 Emissary Panda May 2019)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "Iron Tiger",
+          "description": "(Citation: Hacker News LuckyMouse June 2018)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "Linen Typhoon",
+          "description": "(Citation: Microsoft Naming Conventions Frequently Updated)"
+        },
+        {
+          "source_name": "APT27",
+          "description": "(Citation: Nccgroup Emissary Panda May 2018)(Citation: Securelist LuckyMouse June 2018)(Citation: Hacker News LuckyMouse June 2018)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "LuckyMouse",
+          "description": "(Citation: Securelist LuckyMouse June 2018)(Citation: Hacker News LuckyMouse June 2018)(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "BRONZE UNION",
+          "description": "(Citation: SecureWorks BRONZE UNION June 2017)(Citation: Nccgroup Emissary Panda May 2018)"
+        },
+        {
+          "source_name": "Earth Smilodon",
+          "description": "(Citation: Trend Micro Iron Tiger April 2021)"
+        },
+        {
+          "source_name": "SecureWorks BRONZE UNION June 2017",
+          "description": "Counter Threat Unit Research Team. (2017, June 27). BRONZE UNION Cyberespionage Persists Despite Disclosures. Retrieved July 13, 2017.",
+          "url": "https://www.secureworks.com/research/bronze-union"
+        },
+        {
+          "source_name": "Dell TG-3390",
+          "description": "Dell SecureWorks Counter Threat Unit Threat Intelligence. (2015, August 5). Threat Group-3390 Targets Organizations for Cyberespionage. Retrieved August 18, 2018.",
+          "url": "https://www.secureworks.com/research/threat-group-3390-targets-organizations-for-cyberespionage"
+        },
+        {
+          "source_name": "Unit42 Emissary Panda May 2019",
+          "description": "Falcone, R. and Lancaster, T. (2019, May 28). Emissary Panda Attacks Middle East Government Sharepoint Servers. Retrieved July 9, 2019.",
+          "url": "https://unit42.paloaltonetworks.com/emissary-panda-attacks-middle-east-government-sharepoint-servers/"
+        },
+        {
+          "source_name": "Gallagher 2015",
+          "description": "Gallagher, S.. (2015, August 5). Newly discovered Chinese hacking group hacked 100+ websites to use as “watering holes”. Retrieved January 25, 2016.",
+          "url": "http://arstechnica.com/security/2015/08/newly-discovered-chinese-hacking-group-hacked-100-websites-to-use-as-watering-holes/"
+        },
+        {
+          "source_name": "Hacker News LuckyMouse June 2018",
+          "description": "Khandelwal, S. (2018, June 14). Chinese Hackers Carried Out Country-Level Watering Hole Attack. Retrieved August 18, 2018.",
+          "url": "https://thehackernews.com/2018/06/chinese-watering-hole-attack.html"
+        },
+        {
+          "source_name": "Securelist LuckyMouse June 2018",
+          "description": "Legezo, D. (2018, June 13). LuckyMouse hits national data center to organize country-level waterholing campaign. Retrieved August 18, 2018.",
+          "url": "https://securelist.com/luckymouse-hits-national-data-center/86083/"
+        },
+        {
+          "source_name": "Trend Micro Iron Tiger April 2021",
+          "description": "Lunghi, D. and Lu, K. (2021, April 9). Iron Tiger APT Updates Toolkit With Evolved SysUpdate Malware. Retrieved November 12, 2021.",
+          "url": "https://www.trendmicro.com/en_us/research/21/d/iron-tiger-apt-updates-toolkit-with-evolved-sysupdate-malware-va.html"
+        },
+        {
+          "source_name": "Trend Micro DRBControl February 2020",
+          "description": "Lunghi, D. et al. (2020, February). Uncovering DRBControl. Retrieved November 12, 2021.",
+          "url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+        },
+        {
+          "source_name": "Microsoft Naming Conventions Frequently Updated",
+          "description": "Microsoft. (2025, September 8). How Microsoft names threat actors. Retrieved September 10, 2025.",
+          "url": "https://learn.microsoft.com/en-us/unified-secops-platform/microsoft-threat-actor-naming"
+        },
+        {
+          "source_name": "Nccgroup Emissary Panda May 2018",
+          "description": "Pantazopoulos, N., Henry T. (2018, May 18). Emissary Panda – A potential new malicious tool. Retrieved June 25, 2018.",
+          "url": "https://research.nccgroup.com/2018/05/18/emissary-panda-a-potential-new-malicious-tool/"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-07-31T18:48:27.731Z",
+      "name": "Threat Group-3390",
+      "description": "[Threat Group-3390](https://attack.mitre.org/groups/G0027) is a Chinese threat group that has extensively used strategic Web compromises to target victims.(Citation: Dell TG-3390) The group has been active since at least 2010 and has targeted organizations in the aerospace, government, defense, technology, energy, manufacturing and gambling/betting sectors.(Citation: SecureWorks BRONZE UNION June 2017)(Citation: Securelist LuckyMouse June 2018)(Citation: Trend Micro DRBControl February 2020)",
+      "aliases": [
+        "Threat Group-3390",
+        "Earth Smilodon",
+        "TG-3390",
+        "Emissary Panda",
+        "BRONZE UNION",
+        "APT27",
+        "Iron Tiger",
+        "LuckyMouse",
+        "Linen Typhoon"
+      ],
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "3.0",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_contributors": [
+        "Daniyal Naeem, BT Security",
+        "Kyaw Pyiyt Htet, @KyawPyiytHtet"
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--40c28b86-95bf-51e2-be09-2f1818de5bc1",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--fb366179-766c-4a4a-afa1-52bff1fd601c",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "Threat Group-3390 actors use at to schedule tasks to run self-extracting RAR archives, which install HTTPBrowser or PlugX on other victims on a network.",
+      "external_references": [
+        {
+          "source_name": "Dell TG-3390",
+          "url": "https://www.secureworks.com/research/threat-group-3390-targets-organizations-for-cyberespionage"
+        }
+      ]
+    },
+    {
+      "type": "grouping",
+      "id": "grouping--4755e90d-d289-50bc-abff-ae7dcdc1131e",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Associated APTs",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "intrusion-set--38fd6a28-3353-4f2b-bb2b-459fecd5c648",
+        "intrusion-set--93f52415-0fe4-4d3d-896c-fc9b8e88ab90",
+        "intrusion-set--06a11b7e-2a36-47fe-8d3e-82c265df3258",
+        "intrusion-set--7113eaa5-ba79-4fb3-b68a-398ee9cd698e",
+        "intrusion-set--fb366179-766c-4a4a-afa1-52bff1fd601c"
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--4755e90d-d289-50bc-abff-ae7dcdc1131e",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "grouping--4755e90d-d289-50bc-abff-ae7dcdc1131e",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "type": "campaign",
+      "id": "campaign--ae407e32-87e0-4d92-8705-3ae25d504d8a",
+      "created": "2022-09-08T13:31:37.391Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/campaigns/C0002",
+          "external_id": "C0002"
+        },
+        {
+          "source_name": "McAfee Night Dragon",
+          "description": "McAfee® Foundstone® Professional Services and McAfee Labs™. (2011, February 10). Global Energy Cyberattacks: “Night Dragon”. Retrieved February 19, 2018.",
+          "url": "https://scadahacker.com/library/Documents/Cyber_Events/McAfee%20-%20Night%20Dragon%20-%20Global%20Energy%20Cyberattacks.pdf"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-07-31T18:47:29.891Z",
+      "name": "Night Dragon",
+      "description": "[Night Dragon](https://attack.mitre.org/campaigns/C0002) was a cyber espionage campaign that targeted oil, energy, and petrochemical companies, along with individuals and executives in Kazakhstan, Taiwan, Greece, and the United States. The unidentified threat actors searched for information related to oil and gas field production systems, financials, and collected data from SCADA systems. Based on the observed techniques, tools, and network activities, security researchers assessed the campaign involved a threat group based in China.(Citation: McAfee Night Dragon)",
+      "aliases": [
+        "Night Dragon"
+      ],
+      "first_seen": "2009-11-01T04:00:00.000Z",
+      "last_seen": "2011-02-01T05:00:00.000Z",
+      "x_mitre_first_seen_citation": "(Citation: McAfee Night Dragon)",
+      "x_mitre_last_seen_citation": "(Citation: McAfee Night Dragon)",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--ebdbca69-9b22-501f-a8d3-cf8284429ef0",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "campaign--ae407e32-87e0-4d92-8705-3ae25d504d8a",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "During Night Dragon, threat actors used at to execute droppers.",
+      "external_references": [
+        {
+          "source_name": "McAfee Night Dragon",
+          "url": "https://scadahacker.com/library/Documents/Cyber_Events/McAfee%20-%20Night%20Dragon%20-%20Global%20Energy%20Cyberattacks.pdf"
+        }
+      ]
+    },
+    {
+      "type": "grouping",
+      "id": "grouping--a739dfca-80ad-5a5a-9808-ed969c206f84",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Associated Campaigns",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "campaign--ae407e32-87e0-4d92-8705-3ae25d504d8a"
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--a739dfca-80ad-5a5a-9808-ed969c206f84",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "grouping--a739dfca-80ad-5a5a-9808-ed969c206f84",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "modified": "2024-03-14T17:29:49.200Z",
+      "name": "CrackMapExec",
+      "description": "[CrackMapExec](https://attack.mitre.org/software/S0488), or CME, is a post-exploitation tool developed in Python and designed for penetration testing against networks. [CrackMapExec](https://attack.mitre.org/software/S0488) collects Active Directory information to conduct lateral movement through targeted networks.(Citation: CME Github September 2018)",
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.1",
+      "x_mitre_aliases": [
+        "CrackMapExec"
+      ],
+      "type": "tool",
+      "id": "tool--c4810609-7da6-48ec-8057-1b70a7814db0",
+      "created": "2020-07-17T14:23:05.958Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0488",
+          "external_id": "S0488"
+        },
+        {
+          "source_name": "CME Github September 2018",
+          "description": "byt3bl33d3r. (2018, September 8). SMB: Command Reference. Retrieved July 17, 2020.",
+          "url": "https://github.com/byt3bl33d3r/CrackMapExec/wiki/SMB-Command-Reference"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.2.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "labels": [
+        "tool"
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--ce92e95f-0c42-5c5d-b98d-20723f7a9351",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "tool--c4810609-7da6-48ec-8057-1b70a7814db0",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "CrackMapExec can set a scheduled task on the target system to execute commands remotely using at.",
+      "external_references": [
+        {
+          "source_name": "CME Github September 2018",
+          "url": "https://github.com/byt3bl33d3r/CrackMapExec/wiki/SMB-Command-Reference"
+        }
+      ]
+    },
+    {
+      "type": "grouping",
+      "id": "grouping--cede3247-1dc3-5bec-b29c-86306873c83b",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Associated Tools",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "tool--c4810609-7da6-48ec-8057-1b70a7814db0"
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--cede3247-1dc3-5bec-b29c-86306873c83b",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "grouping--cede3247-1dc3-5bec-b29c-86306873c83b",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0",
+      "created": "2019-11-27T13:52:45.853Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1053/002",
+          "external_id": "T1053.002"
+        },
+        {
+          "source_name": "rowland linux at 2019",
+          "description": "Craig Rowland. (2019, July 25). Getting an Attacker IP Address from a Malicious Linux At Job. Retrieved October 15, 2021.",
+          "url": "https://www.linkedin.com/pulse/getting-attacker-ip-address-from-malicious-linux-job-craig-rowland/"
+        },
+        {
+          "source_name": "GTFObins at",
+          "description": "Emilio Pinna, Andrea Cardaci. (n.d.). gtfobins at. Retrieved September 28, 2021.",
+          "url": "https://gtfobins.github.io/gtfobins/at/"
+        },
+        {
+          "source_name": "Linux at",
+          "description": "IEEE/The Open Group. (2017). at(1p) — Linux manual page. Retrieved February 25, 2022.",
+          "url": "https://man7.org/linux/man-pages/man1/at.1p.html"
+        },
+        {
+          "source_name": "Twitter Leoloobeek Scheduled Task",
+          "description": "Loobeek, L. (2017, December 8). leoloobeek Status. Retrieved September 12, 2024.",
+          "url": "https://x.com/leoloobeek/status/939248813465853953"
+        },
+        {
+          "source_name": "Microsoft Scheduled Task Events Win10",
+          "description": "Microsoft. (2017, May 28). Audit Other Object Access Events. Retrieved June 27, 2019.",
+          "url": "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-other-object-access-events"
+        },
+        {
+          "source_name": "TechNet Scheduled Task Events",
+          "description": "Microsoft. (n.d.). General Task Registration. Retrieved December 12, 2017.",
+          "url": "https://technet.microsoft.com/library/dd315590.aspx"
+        },
+        {
+          "source_name": "Malicious Life by Cybereason",
+          "description": "Philip Tsukerman. (n.d.). No Win32 Process Needed | Expanding the WMI Lateral Movement Arsenal. Retrieved June 19, 2024.",
+          "url": "https://www.cybereason.com/blog/wmi-lateral-movement-win32#blog-subscribe"
+        },
+        {
+          "source_name": "TechNet Autoruns",
+          "description": "Russinovich, M. (2016, January 4). Autoruns for Windows v13.51. Retrieved June 6, 2016.",
+          "url": "https://technet.microsoft.com/en-us/sysinternals/bb963902"
+        },
+        {
+          "source_name": "TechNet Forum Scheduled Task Operational Setting",
+          "description": "Satyajit321. (2015, November 3). Scheduled Tasks History Retention settings. Retrieved December 12, 2017.",
+          "url": "https://social.technet.microsoft.com/Forums/en-US/e5bca729-52e7-4fcb-ba12-3225c564674c/scheduled-tasks-history-retention-settings?forum=winserver8gen"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2025-10-24T17:49:36.495Z",
+      "name": "At",
+      "description": "Adversaries may abuse the [at](https://attack.mitre.org/software/S0110) utility to perform task scheduling for initial or recurring execution of malicious code. The [at](https://attack.mitre.org/software/S0110) utility exists as an executable within Windows, Linux, and macOS for scheduling tasks at a specified time and date. Although deprecated in favor of [Scheduled Task](https://attack.mitre.org/techniques/T1053/005)'s [schtasks](https://attack.mitre.org/software/S0111) in Windows environments, using [at](https://attack.mitre.org/software/S0110) requires that the Task Scheduler service be running, and the user to be logged on as a member of the local Administrators group. In addition to explicitly running the `at` command, adversaries may also schedule a task with [at](https://attack.mitre.org/software/S0110) by directly leveraging the [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) `Win32_ScheduledJob` WMI class.(Citation: Malicious Life by Cybereason)\n\nOn Linux and macOS, [at](https://attack.mitre.org/software/S0110) may be invoked by the superuser as well as any users added to the <code>at.allow</code> file. If the <code>at.allow</code> file does not exist, the <code>at.deny</code> file is checked. Every username not listed in <code>at.deny</code> is allowed to invoke [at](https://attack.mitre.org/software/S0110). If the <code>at.deny</code> exists and is empty, global use of [at](https://attack.mitre.org/software/S0110) is permitted. If neither file exists (which is often the baseline) only the superuser is allowed to use [at](https://attack.mitre.org/software/S0110).(Citation: Linux at)\n\nAdversaries may use [at](https://attack.mitre.org/software/S0110) to execute programs at system startup or on a scheduled basis for [Persistence](https://attack.mitre.org/tactics/TA0003). [at](https://attack.mitre.org/software/S0110) can also be abused to conduct remote [Execution](https://attack.mitre.org/tactics/TA0002) as part of [Lateral Movement](https://attack.mitre.org/tactics/TA0008) and/or to run a process under the context of a specified account (such as SYSTEM).\n\nIn Linux environments, adversaries may also abuse [at](https://attack.mitre.org/software/S0110) to break out of restricted environments by using a task to spawn an interactive system shell or to run system commands. Similarly, [at](https://attack.mitre.org/software/S0110) may also be used for [Privilege Escalation](https://attack.mitre.org/tactics/TA0004) if the binary is allowed to run as superuser via <code>sudo</code>.(Citation: GTFObins at)",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "execution"
+        },
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "persistence"
+        },
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "privilege-escalation"
+        }
+      ],
+      "x_mitre_attack_spec_version": "3.2.0",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "x_mitre_version": "2.4",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "grouping",
+      "id": "grouping--3e468684-a11b-5c80-bd1a-fd5e5a61b055",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Associated TTPs",
+      "context": "suspicious-activity",
+      "object_refs": [
+        "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0"
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--3e468684-a11b-5c80-bd1a-fd5e5a61b055",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "grouping--3e468684-a11b-5c80-bd1a-fd5e5a61b055",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--d4d35e55-6a09-47ef-8de5-160468276025",
+      "created": "2017-12-14T16:46:06.044Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "TechNet At",
+          "description": "Microsoft. (n.d.). At. Retrieved April 28, 2016.",
+          "url": "https://technet.microsoft.com/en-us/library/bb490866.aspx"
+        },
+        {
+          "source_name": "Linux at",
+          "description": "IEEE/The Open Group. (2017). at(1p) — Linux manual page. Retrieved February 25, 2022.",
+          "url": "https://man7.org/linux/man-pages/man1/at.1p.html"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-04-29T14:23:06.216Z",
+      "description": "[at](https://attack.mitre.org/software/S0110) can be used to schedule a task on a system to be executed at a specific date or time.(Citation: TechNet At)(Citation: Linux at)",
+      "relationship_type": "uses",
+      "source_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "target_ref": "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "course-of-action",
+      "id": "course-of-action--93e7968a-9074-4eac-8ae9-9f5200ec3317",
+      "created": "2019-06-06T16:50:58.767Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/mitigations/M1018",
+          "external_id": "M1018"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-05-12T15:12:00.731Z",
+      "name": "User Account Management",
+      "description": "User Account Management involves implementing and enforcing policies for the lifecycle of user accounts, including creation, modification, and deactivation. Proper account management reduces the attack surface by limiting unauthorized access, managing account privileges, and ensuring accounts are used according to organizational policies. This mitigation can be implemented through the following measures:\n\nEnforcing the Principle of Least Privilege\n\n- Implementation: Assign users only the minimum permissions required to perform their job functions. Regularly audit accounts to ensure no excess permissions are granted.\n- Use Case: Reduces the risk of privilege escalation by ensuring accounts cannot perform unauthorized actions.\n\nImplementing Strong Password Policies\n\n- Implementation: Enforce password complexity requirements (e.g., length, character types). Require password expiration every 90 days and disallow password reuse.\n- Use Case: Prevents adversaries from gaining unauthorized access through password guessing or brute force attacks.\n\nManaging Dormant and Orphaned Accounts\n\n- Implementation: Implement automated workflows to disable accounts after a set period of inactivity (e.g., 30 days). Remove orphaned accounts (e.g., accounts without an assigned owner) during regular account audits.\n- Use Case: Eliminates dormant accounts that could be exploited by attackers.\n\nAccount Lockout Policies\n\n- Implementation: Configure account lockout thresholds (e.g., lock accounts after five failed login attempts). Set lockout durations to a minimum of 15 minutes.\n- Use Case: Mitigates automated attack techniques that rely on repeated login attempts.\n\nMulti-Factor Authentication (MFA) for High-Risk Accounts\n\n- Implementation: Require MFA for all administrative accounts and high-risk users. Use MFA mechanisms like hardware tokens, authenticator apps, or biometrics.\n- Use Case: Prevents unauthorized access, even if credentials are stolen.\n\nRestricting Interactive Logins\n\n- Implementation: Restrict interactive logins for privileged accounts to specific secure systems or management consoles. Use group policies to enforce logon restrictions.\n- Use Case: Protects sensitive accounts from misuse or exploitation.\n\n*Tools for Implementation*\n\nBuilt-in Tools:\n\n- Microsoft Active Directory (AD): Centralized account management and RBAC enforcement.\n- Group Policy Object (GPO): Enforce password policies, logon restrictions, and account lockout policies.\n\nIdentity and Access Management (IAM) Tools:\n\n- Okta: Centralized user provisioning, MFA, and SSO integration.\n- Microsoft Azure Active Directory: Provides advanced account lifecycle management, role-based access, and conditional access policies.\n\nPrivileged Account Management (PAM):\n- CyberArk, BeyondTrust, Thycotic: Manage and monitor privileged account usage, enforce session recording, and JIT access.",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.2",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "modified": "2024-12-18T18:44:23.306Z",
+      "name": "Privileged Account Management",
+      "description": "Privileged Account Management focuses on implementing policies, controls, and tools to securely manage privileged accounts (e.g., SYSTEM, root, or administrative accounts). This includes restricting access, limiting the scope of permissions, monitoring privileged account usage, and ensuring accountability through logging and auditing.This mitigation can be implemented through the following measures:\n\nAccount Permissions and Roles:\n\n- Implement RBAC and least privilege principles to allocate permissions securely.\n- Use tools like Active Directory Group Policies to enforce access restrictions.\n\nCredential Security:\n\n- Deploy password vaulting tools like CyberArk, HashiCorp Vault, or KeePass for secure storage and rotation of credentials.\n- Enforce password policies for complexity, uniqueness, and expiration using tools like Microsoft Group Policy Objects (GPO).\n\nMulti-Factor Authentication (MFA):\n\n- Enforce MFA for all privileged accounts using Duo Security, Okta, or Microsoft Azure AD MFA.\n\nPrivileged Access Management (PAM):\n\n- Use PAM solutions like CyberArk, BeyondTrust, or Thycotic to manage, monitor, and audit privileged access.\n\nAuditing and Monitoring:\n\n- Integrate activity monitoring into your SIEM (e.g., Splunk or QRadar) to detect and alert on anomalous privileged account usage.\n\nJust-In-Time Access:\n\n- Deploy JIT solutions like Azure Privileged Identity Management (PIM) or configure ephemeral roles in AWS and GCP to grant time-limited elevated permissions.\n\n*Tools for Implementation*\n\nPrivileged Access Management (PAM):\n\n- CyberArk, BeyondTrust, Thycotic, HashiCorp Vault.\n\nCredential Management:\n\n- Microsoft LAPS (Local Admin Password Solution), Password Safe, HashiCorp Vault, KeePass.\n\nMulti-Factor Authentication:\n\n- Duo Security, Okta, Microsoft Azure MFA, Google Authenticator.\n\nLinux Privilege Management:\n\n- sudo configuration, SELinux, AppArmor.\n\nJust-In-Time Access:\n\n- Azure Privileged Identity Management (PIM), AWS IAM Roles with session constraints, GCP Identity-Aware Proxy.",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.2",
+      "type": "course-of-action",
+      "id": "course-of-action--9bb9e696-bff8-4ae1-9454-961fc7d91d5f",
+      "created": "2019-06-06T21:09:47.115Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/mitigations/M1026",
+          "external_id": "M1026"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.2.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "spec_version": "2.1"
+    },
+    {
+      "modified": "2024-12-18T18:04:26.025Z",
+      "name": "Operating System Configuration",
+      "description": "Operating System Configuration involves adjusting system settings and hardening the default configurations of an operating system (OS) to mitigate adversary exploitation and prevent abuse of system functionality. Proper OS configurations address security vulnerabilities, limit attack surfaces, and ensure robust defense against a wide range of techniques. This mitigation can be implemented through the following measures: \n\nDisable Unused Features:\n\n- Turn off SMBv1, LLMNR, and NetBIOS where not needed.\n- Disable remote registry and unnecessary services.\n\nEnforce OS-level Protections:\n\n- Enable Data Execution Prevention (DEP), Address Space Layout Randomization (ASLR), and Control Flow Guard (CFG) on Windows.\n- Use AppArmor or SELinux on Linux for mandatory access controls.\n\nSecure Access Settings:\n\n- Enable User Account Control (UAC) for Windows.\n- Restrict root/sudo access on Linux/macOS and enforce strong permissions using sudoers files.\n\nFile System Hardening:\n\n- Implement least-privilege access for critical files and system directories.\n- Audit permissions regularly using tools like icacls (Windows) or getfacl/chmod (Linux/macOS).\n\nSecure Remote Access:\n\n- Restrict RDP, SSH, and VNC to authorized IPs using firewall rules.\n- Enable NLA for RDP and enforce strong password/lockout policies.\n\nHarden Boot Configurations:\n\n- Enable Secure Boot and enforce UEFI/BIOS password protection.\n- Use BitLocker or LUKS to encrypt boot drives.\n\nRegular Audits:\n\n- Periodically audit OS configurations using tools like CIS Benchmarks or SCAP tools.\n\n*Tools for Implementation*\n\nWindows:\n\n- Microsoft Group Policy Objects (GPO): Centrally enforce OS security settings.\n- Windows Defender Exploit Guard: Built-in OS protection against exploits.\n- CIS-CAT Pro: Audit Windows security configurations based on CIS Benchmarks.\n\nLinux/macOS:\n\n- AppArmor/SELinux: Enforce mandatory access controls.\n- Lynis: Perform comprehensive security audits.\n- SCAP Security Guide: Automate configuration hardening using Security Content Automation Protocol.\n\nCross-Platform:\n\n- Ansible or Chef/Puppet: Automate configuration hardening at scale.\n- OpenSCAP: Perform compliance and configuration checks.",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.3",
+      "type": "course-of-action",
+      "id": "course-of-action--2f316f6c-ae42-44fe-adf8-150989e0f6d3",
+      "created": "2019-06-06T21:16:18.709Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/mitigations/M1028",
+          "external_id": "M1028"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "x_mitre_attack_spec_version": "3.2.0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "course-of-action",
+      "id": "course-of-action--cc2399fd-3cd3-4319-8d0a-fbd6420cdaf8",
+      "created": "2019-06-11T17:06:14.029Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/mitigations/M1047",
+          "external_id": "M1047"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-05-12T15:12:00.731Z",
+      "name": "Audit",
+      "description": "Auditing is the process of recording activity and systematically reviewing and analyzing the activity and system configurations. The primary purpose of auditing is to detect anomalies and identify potential threats or weaknesses in the environment. Proper auditing configurations can also help to meet compliance requirements. The process of auditing encompasses regular analysis of user behaviors and system logs in support of proactive security measures.\n\nAuditing is applicable to all systems used within an organization, from the front door of a building to accessing a file on a fileserver. It is considered more critical for regulated industries such as, healthcare, finance and government where compliance requirements demand stringent tracking of user and system activates.This mitigation can be implemented through the following measures: \n\nSystem Audit:\n\n- Use Case: Regularly assess system configurations to ensure compliance with organizational security policies.\n- Implementation: Use tools to scan for deviations from established benchmarks.\n\nPermission Audits:\n\n- Use Case: Review file and folder permissions to minimize the risk of unauthorized access or privilege escalation.\n- Implementation: Run access reviews to identify users or groups with excessive permissions.\n\nSoftware Audits:\n\n- Use Case: Identify outdated, unsupported, or insecure software that could serve as an attack vector.\n- Implementation: Use inventory and vulnerability scanning tools to detect outdated versions and recommend secure alternatives.\n\nConfiguration Audits:\n\n- Use Case: Evaluate system and network configurations to ensure secure settings (e.g., disabled SMBv1, enabled MFA).\n- Implementation: Implement automated configuration scanning tools like SCAP (Security Content Automation Protocol) to identify non-compliant systems.\n\nNetwork Audits:\n\n- Use Case: Examine network traffic, firewall rules, and endpoint communications to identify unauthorized or insecure connections.\n- Implementation: Utilize tools such as Wireshark, or Zeek to monitor and log suspicious network behavior.",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "1.3",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "grouping",
+      "id": "grouping--c1f9b8b7-7850-5433-98a2-af4352291de4",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Associated Mitigations",
+      "context": "unspecified",
+      "object_refs": [
+        "course-of-action--93e7968a-9074-4eac-8ae9-9f5200ec3317",
+        "course-of-action--9bb9e696-bff8-4ae1-9454-961fc7d91d5f",
+        "course-of-action--2f316f6c-ae42-44fe-adf8-150989e0f6d3",
+        "course-of-action--cc2399fd-3cd3-4319-8d0a-fbd6420cdaf8"
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--c1f9b8b7-7850-5433-98a2-af4352291de4",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "grouping--c1f9b8b7-7850-5433-98a2-af4352291de4",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--0c0d4b96-9cef-58ea-80e0-92ec97059d92",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Interactive AT Job",
+      "pattern_type": "sigma",
+      "pattern": "title: Interactive AT Job\nid: 60fc936d-2eb0-4543-8a13-911c750a1dfc\nstatus: test\ndescription: Detects an interactive AT job, which may be used as a form of privilege escalation.\nreferences:\n    - https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1053.002/T1053.002.md\n    - https://eqllib.readthedocs.io/en/latest/analytics/d8db43cf-ed52-4f5c-9fb3-c9a4b95a0b56.html\nauthor: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community\ndate: 2019-10-24\nmodified: 2021-11-27\ntags:\n    - attack.persistence\n    - attack.execution\n    - attack.privilege-escalation\n    - attack.t1053.002\nlogsource:\n    category: process_creation\n    product: windows\ndetection:\n    selection:\n        Image|endswith: '\\at.exe'\n        CommandLine|contains: 'interactive'\n    condition: selection\nfalsepositives:\n    - Unlikely (at.exe deprecated as of Windows 8)\nlevel: high\nsimulation:\n    - type: atomic-red-team\n      name: At.exe Scheduled task\n      technique: T1053.002\n      atomic_guid: 4a6c0dc4-0f2a-4203-9298-a5a9bdc21ed8\nregression_tests_path: regression_data/rules/windows/process_creation/proc_creation_win_at_interactive_execution/info.yml\n",
+      "valid_from": "2019-10-24T00:00:00.000Z",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "description": "Level: high. Status: test. Author: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community. SigmaHQ rule released under the Detection Rule License (DRL) 1.1 (https://github.com/SigmaHQ/Detection-Rule-License).",
+      "external_references": [
+        {
+          "source_name": "SigmaHQ",
+          "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml",
+          "external_id": "60fc936d-2eb0-4543-8a13-911c750a1dfc"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--c44a858f-a6b5-530f-b306-21b908f292a0",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--0c0d4b96-9cef-58ea-80e0-92ec97059d92",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "type": "x-mitre-detection-strategy",
+      "id": "x-mitre-detection-strategy--ca20fecb-6b8e-49ae-9ecf-19f4edd812ad",
+      "created": "2025-10-21T15:10:28.402Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/detectionstrategies/DET0333",
+          "external_id": "DET0333"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-05-12T16:34:50.692Z",
+      "name": "Cross-Platform Detection of Scheduled Task/Job Abuse via `at` Utility",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_version": "1.0",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_analytic_refs": [
+        "x-mitre-analytic--b9f79a81-9fee-47f2-bef8-a9f64fde935e",
+        "x-mitre-analytic--70e28077-c8a6-425f-94c7-a74a7140c7ce",
+        "x-mitre-analytic--98ce32fb-1b91-4487-9e5a-951375f2380e"
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "x-mitre-analytic",
+      "id": "x-mitre-analytic--b9f79a81-9fee-47f2-bef8-a9f64fde935e",
+      "created": "2025-10-21T15:10:28.402Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/detectionstrategies/DET0333#AN0943",
+          "external_id": "AN0943"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2025-10-21T15:10:28.402Z",
+      "name": "Analytic 0943",
+      "description": "Detects creation of scheduled tasks via `at.exe` or WMI `Win32_ScheduledJob` class, followed by execution of anomalous processes by svchost.exe or taskeng.exe.",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_version": "1.0",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "x_mitre_log_source_references": [
+        {
+          "x_mitre_data_component_ref": "x-mitre-data-component--f42df6f0-6395-4f0c-9376-525a031f00c3",
+          "name": "WinEventLog:Security",
+          "channel": "EventCode=4698"
+        },
+        {
+          "x_mitre_data_component_ref": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1"
+        }
+      ],
+      "x_mitre_mutable_elements": [
+        {
+          "field": "TaskUser",
+          "description": "Unusual users creating jobs (e.g., non-admin accounts or service users)."
+        },
+        {
+          "field": "ExecutionTimeWindow",
+          "description": "Delay between task registration and execution."
+        },
+        {
+          "field": "CommandLinePattern",
+          "description": "Unexpected script or binary execution (e.g., cmd.exe /c PowerShell payload)."
+        }
+      ],
+      "x_mitre_deprecated": false,
+      "spec_version": "2.1"
+    },
+    {
+      "type": "x-mitre-data-component",
+      "id": "x-mitre-data-component--f42df6f0-6395-4f0c-9376-525a031f00c3",
+      "created": "2021-10-20T15:05:19.271Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/datacomponents/DC0001",
+          "external_id": "DC0001"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-10-13T17:43:53.278Z",
+      "name": "Scheduled Job Creation",
+      "description": "The establishment of a task or job that will execute at a predefined time or based on specific triggers.",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "ics-attack",
+        "enterprise-attack",
+        "mobile-attack"
+      ],
+      "x_mitre_version": "3.0",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_log_sources": [
+        {
+          "name": "Scheduled Job",
+          "channel": "None"
+        },
+        {
+          "name": "WinEventLog:Security",
+          "channel": "EventCode=4698"
+        },
+        {
+          "name": "linux:syslog",
+          "channel": "Execution of non-standard script or binary by cron"
+        },
+        {
+          "name": "WinEventLog:TaskScheduler",
+          "channel": "EventCode=106"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "crontab, systemd_timers"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "launchd_jobs"
+        },
+        {
+          "name": "esxi:vmkernel",
+          "channel": "Startup script and task execution logs"
+        },
+        {
+          "name": "kubernetes:apiserver",
+          "channel": "verb=create, resource=cronjobs, group=batch"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "file_events"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process: crontab edits, launch of cron job"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "file_events - cron, launchd"
+        },
+        {
+          "name": "esxi:cron",
+          "channel": "execution of scheduled job"
+        },
+        {
+          "name": "esxi:hostd",
+          "channel": "task creation events"
+        },
+        {
+          "name": "macos:cron",
+          "channel": "cron/launchd"
+        },
+        {
+          "name": "WinEventLog:Security",
+          "channel": "EventCode=4699"
+        },
+        {
+          "name": "linux:cron",
+          "channel": "Scheduled execution of unknown or unusual script/binary"
+        },
+        {
+          "name": "MobiledEDR:telemetry",
+          "channel": "Scheduled task execution creates cache, staged payload, local output, or collected data artifact immediately after wake or job trigger"
+        },
+        {
+          "name": "mobile:ForensicArtifacts",
+          "channel": "Dynamic filesystem trace or acquired app-container/filesystem artifacts: Scheduled task execution creates file, accesses sensor, or initiates network connection immediately after firing, with no recent user interaction triggering the task"
+        },
+        {
+          "name": "mobile:ForensicArtifacts",
+          "channel": "Dynamic filesystem trace or acquired app-container/filesystem artifacts: Scheduled task execution produces network, local-write, or sensor artifact while app_state=background or device_locked=true without user trigger"
+        },
+        {
+          "name": "WinEventLog:Security",
+          "channel": "Windows Security Event ID 4698/4702: EventCode=4698 referencing Industrial Control Systems (ICS) vendor binary name from unauthorized process"
+        }
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "x-mitre-data-component",
+      "id": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+      "created": "2021-10-20T15:05:19.272Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/datacomponents/DC0032",
+          "external_id": "DC0032"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-10-13T17:43:45.184Z",
+      "name": "Process Creation",
+      "description": "Refers to the event in which a new process (executable) is initialized by an operating system. This can involve parent-child process relationships, process arguments, and environmental variables. Monitoring process creation is crucial for detecting malicious behaviors, such as execution of unauthorized binaries, scripting abuse, or privilege escalation attempts.. ",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "ics-attack",
+        "mobile-attack",
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "2.2",
+      "x_mitre_attack_spec_version": "3.3.0",
+      "x_mitre_log_sources": [
+        {
+          "name": "android:logcat",
+          "channel": "dlopen of a recently created .so OR short-lived child (/system/bin/sh,toybox,linker) spawned by app_process"
+        },
+        {
+          "name": "android:logcat",
+          "channel": "startActivity on top of <target_pkg> (launchMode/singleTop), task switch immediately after focus"
+        },
+        {
+          "name": "android:logcat",
+          "channel": "unexpected spikes in fork/exec/app process start events for helper utilities used for enumeration (ps, toybox/toolbox variants) from same UID"
+        },
+        {
+          "name": "AndroidLogs:Framework",
+          "channel": "Creation of a new process running as system or root UID whose executable path resides under an app container path (for example, /data/app or /data/user/0/<pkg>), or whose parent process originates from an app sandbox"
+        },
+        {
+          "name": "AndroidLogs:Kernel",
+          "channel": "init or zygote process executing scripts or binaries from non-standard data or sdcard locations during early boot"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "execve: Processes launched with LD_PRELOAD/LD_LIBRARY_PATH pointing to non-system dirs"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "EXECVE"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "execution of unexpected binaries during user shell startup"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "systemctl spawning managed processes"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "execve"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "Execution of dd, shred, wipe targeting block devices"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "/usr/sbin/postfix, /usr/sbin/exim, /usr/sbin/sendmail"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "None"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "Shell commands invoked by SQL process such as postgres, mysqld, or mariadbd"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "Execution of ssh/scp/sftp without corresponding authentication log"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "Execution of dd/sgdisk with arguments writing to sector 0 or partition table"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "Execution of dd, shred, or wipe with arguments targeting block devices"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "systemctl stop auditd, kill -9 <pid>, or modifications to /etc/selinux/config"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "cat|less|grep accessing .bash_history from a non-shell process"
+        },
+        {
+          "name": "auditd:EXECVE",
+          "channel": "Process execution via .desktop Exec path from /etc/xdg/autostart or ~/.config/autostart"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve for python/python3 and script path/arguments"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve for node/nodejs or JavaScript runtime and child processes "
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve for shell/interpreter and child commands "
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "syscall=execve; command or executable associated with the technique runs outside the approved ICS administrative/application baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve network tools"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve calls to soffice.bin with suspicious macro execution flags"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of systemctl or service stop"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of launchctl or pkill"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of klist, kinit, or tools interacting with ccache outside normal user context"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Electron-based binary spawning shell or script interpreter"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve calls with high-frequency or known bandwidth-intensive tools"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve or syscall invoking vm artifact check commands (e.g., dmidecode, lspci, dmesg)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "process persists beyond parent shell termination"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of scripts or binaries sourced from mail directories (/var/mail, ~/Maildir)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of container management CLIs (docker, crictl, kubectl) or interpreted shells (sh, bash, python) within container context"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of discovery commands targeting backup binaries, processes, or config paths"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of scripts or binaries spawned from browser processes"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "EXECVE"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of bash, python, or perl processes spawned by browser/email client"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of /bin/sh,/bin/bash,/usr/bin/curl,/usr/bin/python by service accounts (e.g., apache, mysql, nobody) immediately after inbound network activity."
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "SYSCALL record where exe contains passwd/userdel/chage and auid != root"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of base64|openssl|xxd|python|perl with arguments matching Base64 flags"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve on code or jetbrains-gateway with remote flags"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of sleep or ping command within script interpreted by bash/python"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve or socket/connect system calls from processes using crypto libraries"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "type=EXECVE or SYSCALL for /bin/date, /usr/bin/timedatectl, /sbin/hwclock, /bin/cat /etc/timezone, /bin/cat /proc/uptime"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "socket(AF_PACKET|AF_INET, SOCK_RAW, *), setsockopt(… SO_ATTACH_FILTER|SO_ATTACH_BPF …), bpf(cmd=BPF_PROG_LOAD), open/openat path=\"/dev/bpf*\" (BSD/macOS-like) or setcap cap_net_raw."
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execution of known flash tools (e.g., flashrom, fwupd)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of system tools like dmidecode, lspci, lscpu, dmesg, systemd-detect-virt"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Suspicious binaries or scripts interacting with authentication binaries (sshd, gdm, login)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: execve calls where a browser/webview process is parent and child is interpreter (python, sh, ruby) or downloader (curl, wget)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of smbclient, smbmap, rpcclient, nmblookup, crackmapexec smb"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve call with argv matching known disk enumeration commands (lsblk, parted, fdisk)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve, connect"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve logging for /usr/bin/systemctl and systemd-run"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of files saved in mail or download directories"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of CLI tools like psql, mysql, mongo, sqlite3"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of pip, npm, gem, or similar package managers"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "fork/exec of service via PID 1 (systemd)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: execve where exe=/usr/bin/python3 or similar interpreter"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Execution of binaries located in /etc/init.d/ or systemd service paths"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: exe in {/bin/bash,/bin/sh,/usr/bin/python*,/usr/bin/perl,/usr/bin/php,/usr/bin/node,/usr/bin/curl,/usr/bin/wget,/usr/bin/xdg-open,/usr/bin/ssh,/usr/bin/rundll32 (wine)} AND ppid process is a document viewer/browser"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Commands that alter firewall or start listeners: iptables|nft|ufw|firewall-cmd|pfctl|systemctl start sshd/telnet/dropbear; raw-socket/libpcap tools (tcpdump, tshark, nmap --raw)."
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of binaries/scripts presenting false health messages for security daemons"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve, setifflags"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve calls for qemu-system*, kvm, or VBoxHeadless"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of interpreters (python, perl), custom binaries, or shell utilities with long arguments containing non-standard tokens"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Execution of dpkg or rpm followed by fork/execve from within postinst, prerm, etc."
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: exe in (/usr/bin/bash,/usr/bin/sh,/usr/bin/zsh,/usr/bin/python*) AND cmdline matches '(curl|wget).*(\\||\\|\\s*sh|bash)|base64\\s*-d|python\\s*-c'"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Invocation of packet generation tools (e.g., hping3, nping) or fork bombs"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve for proxy tools"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve or nanosleep with no stdout/stderr I/O"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Execution of dpkg, rpm, or other package manager with list flag"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "apache2 or nginx spawning sh, bash, or python interpreter"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of commands modifying iptables/nftables to block selective IPs"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve with LD_PRELOAD or linker-related environment variables set"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve of re-parented process"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "socket: Suspicious creation of AF_UNIX sockets outside expected daemons"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Agent/headless flags (listen/connect/reverse/tunnel) or remote-control binaries spawning shells"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "systemctl enable/start: Creation/enablement of custom .service units in /etc/systemd/system"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: systemctl stop, service stop, or kill -9 on security daemons (e.g., falcon-sensor, auditd)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Execution of network stress tools or anomalies in socket/syscall behavior"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Commands altering firewall or enabling listeners (iptables, nft, ufw, firewall-cmd, systemctl start *ssh*/*telnet*, ip route add, tcpdump, tshark)"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve, unlink"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve or socket/connect system calls for processes using RSA handshake"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: parent process is usb/hid device handler, child process bash/python invoked"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "execve: Execution of suspicious exploit binaries targeting security daemons"
+        },
+        {
+          "name": "azure:vmguest",
+          "channel": "Unexpected execution of cloud agent processes (e.g., WindowsAzureGuestAgent.exe, ssm-agent) followed by arbitrary script or binary execution"
+        },
+        {
+          "name": "containerd:events",
+          "channel": "New container with suspicious image name or high resource usage"
+        },
+        {
+          "name": "containerd:Events",
+          "channel": "unusual process spawned from container image context"
+        },
+        {
+          "name": "containerd:runtime",
+          "channel": "/var/log/containers/*.log"
+        },
+        {
+          "name": "containers:osquery",
+          "channel": "bandwidth-intensive command execution from within a container namespace"
+        },
+        {
+          "name": "docker:audit",
+          "channel": "Process execution events within container namespace context"
+        },
+        {
+          "name": "docker:events",
+          "channel": "Docker/Kubernetes audit of exec/attach (kubectl exec) or unexpected child processes inside container"
+        },
+        {
+          "name": "ebpf:syscalls",
+          "channel": "process execution or network connect from just-created container PID namespace"
+        },
+        {
+          "name": "ebpf:syscalls",
+          "channel": "execve"
+        },
+        {
+          "name": "esxi:cron",
+          "channel": "process or cron activity"
+        },
+        {
+          "name": "esxi:hostd",
+          "channel": "process execution across cloud VM"
+        },
+        {
+          "name": "esxi:hostd",
+          "channel": "execution of esxcli with args matching 'storage', 'filesystem', 'core device list'"
+        },
+        {
+          "name": "esxi:hostd",
+          "channel": "process"
+        },
+        {
+          "name": "esxi:hostd",
+          "channel": "host daemon events related to VM operations and configuration queries during reconnaissance"
+        },
+        {
+          "name": "esxi:shell",
+          "channel": "/root/.ash_history or /etc/init.d/*"
+        },
+        {
+          "name": "esxi:shell",
+          "channel": "/var/log/shell.log"
+        },
+        {
+          "name": "esxi:shell",
+          "channel": "commands containing base64, openssl enc -base64, xxd -p"
+        },
+        {
+          "name": "esxi:shell",
+          "channel": "/var/log/vmkernel.log, /var/log/vmkwarning.log"
+        },
+        {
+          "name": "esxi:shell",
+          "channel": "Shell Execution"
+        },
+        {
+          "name": "esxi:shell",
+          "channel": "None"
+        },
+        {
+          "name": "esxi:shell",
+          "channel": "commands containing long non-standard tokens or custom lookup tables"
+        },
+        {
+          "name": "esxi:vmkernel",
+          "channel": "spawned shell or execution environment activity"
+        },
+        {
+          "name": "esxi:vmkernel",
+          "channel": "Exec"
+        },
+        {
+          "name": "esxi:vmkernel",
+          "channel": "VMware kernel events for hardware and system configuration access during environmental validation"
+        },
+        {
+          "name": "esxi:vobd",
+          "channel": "/var/log/vobd.log"
+        },
+        {
+          "name": "etw:Microsoft-Windows-Kernel-Process",
+          "channel": "provider: ETW CreateProcess events linking msbuild.exe to suspicious children where standard logs are incomplete"
+        },
+        {
+          "name": "fs:fsusage",
+          "channel": "Execution of disguised binaries"
+        },
+        {
+          "name": "fs:fsusage",
+          "channel": "binary execution of security_authtrampoline"
+        },
+        {
+          "name": "iOS:unifiedlog",
+          "channel": "launchd invocation of binary from non-Apple, non-AppStore, or sideloaded location during boot or shortly after unlock"
+        },
+        {
+          "name": "iOS:unifiedlog",
+          "channel": "Creation of a new process with elevated UID or sensitive entitlements whose binary path is associated with an app container or whose parent/caller is a low-privileged app/webcontent process"
+        },
+        {
+          "name": "kubernetes:apiserver",
+          "channel": "kubectl exec or kubelet API calls targeting running pods"
+        },
+        {
+          "name": "kubernetes:apiserver",
+          "channel": "exec into pod followed by secret retrieval via API"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "Execution of binary resolved from $PATH not located in /usr/bin or /bin"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "process_events"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "execution of known firewall binaries"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "execve: command like 'date', 'timedatectl', 'hwclock', 'cat /etc/timezone'"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "Process execution with LD_PRELOAD or modified library path"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "process listening or connecting on non-standard ports"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "Processes linked with libssl or crypto libraries making outbound connections"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "process execution events for permission modification utilities with command-line analysis"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "Anomalous parent PID change"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "child process invoking dynamic linker post-ptrace"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "socat, ssh, or nc processes opening unexpected ports"
+        },
+        {
+          "name": "linux:osquery",
+          "channel": "processes modifying environment variables related to history logging"
+        },
+        {
+          "name": "linux:syslog",
+          "channel": "KERN messages about eBPF program load/verify or LSM denials related to bpf."
+        },
+        {
+          "name": "linux:syslog",
+          "channel": "Unauthorized sudo or shell access, especially leading to file changes in /var/www or /srv/http"
+        },
+        {
+          "name": "linux:syslog",
+          "channel": "systemd-udevd spawning user-defined action from RUN+="
+        },
+        {
+          "name": "linux:Sysmon",
+          "channel": "EventCode=1"
+        },
+        {
+          "name": "linux:Sysmon",
+          "channel": "process creation events linked to container namespaces executing host-level binaries"
+        },
+        {
+          "name": "m365:defender",
+          "channel": "AdvancedHunting(DeviceEvents, ProcessCreate, ImageLoad, AMSI/ETW derived signals)"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "ES_EVENT_TYPE_NOTIFY_EXEC"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "exec"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "exec: Process execution context for loaders calling dlopen/dlsym"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "ES_EVENT_TYPE_NOTIFY_EXEC with unusual parent-child process relationships from zsh"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "es_event_exec"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "exec: arguments contain Base64-like strings"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "exec: binary == \"/usr/sbin/systemsetup\" and args contains \"-gettimezone\""
+        },
+        {
+          "name": "macos:endpointSecurity",
+          "channel": "ES_EVENT_TYPE_NOTIFY_EXEC"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "ES_EVENT_TYPE_NOTIFY_EXEC: Process execution of \"sharing -l\", \"smbutil view\", \"mount_smbfs\""
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "exec: Exec of ffmpeg, avfoundation-based binaries, or custom signed apps accessing camera"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "ES_EVENT_TYPE_NOTIFY_EXEC: arguments contain long, non-standard tokens / custom alphabets"
+        },
+        {
+          "name": "macos:endpointsecurity",
+          "channel": "exec events"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "processes"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "process_events"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "process reading browser configuration paths"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "Execution of non-standard binaries accessing Kerberos APIs"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "execve"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "process_events OR launchd"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "launchd or process_events"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "parent_name in ('sshd','httpd','screensharingd') spawning shells or scripting runtimes."
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "execve: command LIKE '%systemsetup -gettimezone%' OR '%date%'"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "execve: Processes unexpectedly invoking Keychain or authentication APIs"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "Invocation of osascript or dylib injection"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "query: process_events, launchd, and tcc.db access"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "exec"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "process_events where path like '%tcpdump%'"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "process execution monitoring for permission modification utilities with command-line argument analysis"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "Execution of flooding tools or compiled packet generators"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "process_events table"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "curl, python scripts, rsync with internal share URLs"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "Rapid spawning of resource-heavy applications (e.g., Preview, Safari, Office)"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "Processes executing kextload, spctl, or modifying kernel extension directories"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "Unsigned or ad-hoc signed process executions in user contexts"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "process event monitoring with focus on discovery utilities and cryptographic framework usage correlation"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "launchd, processes"
+        },
+        {
+          "name": "macos:osquery",
+          "channel": "execve: Unsigned or unnotarized processes launched with high privileges"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log stream 'eventMessage contains pubsub or broker'"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process execution path inconsistent with baseline PATH directories"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of launchctl with suspicious arguments"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process execution of Microsoft Word, Excel, PowerPoint with macro execution attempts"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec logs"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launch of Terminal.app or shell with non-standard environment setup"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process::exec"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Electron app spawning unexpected child process"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec or spawn calls to proxy tools or torrent clients"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process launch"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log stream --info --predicate 'subsystem == \"com.apple.cfprefsd\"'"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of security, sqlite3, or unauthorized binaries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unexpected applications generating outbound DNS queries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unexpected child process of Safari or Chrome"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of system_profiler, ioreg, kextstat with argument patterns related to VM/sandbox checks"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process writes or modifies files in excluded paths"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "com.apple.mail.* exec.*"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of memory inspection tools (lldb, gdb, osqueryi)"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "background process persists beyond user logout"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Preview.app, Safari.app, or Mail.app spawning new processes outside normal patterns"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "None"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of processes linked to hijacked sessions (e.g., anomalous parent-child process lineage)"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec events where web process starts a shell/tooling"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec of osascript, bash, curl with suspicious parameters"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process execution logs showing discovery commands like mdfind, system_profiler, or launchctl list"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process and file events via log stream"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Browser processes launching unexpected interpreters (osascript, bash)"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec: Execution of defaults, plutil, or common editors (vim/nano) targeting plist files"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process:exec"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of osascript, bash, or Terminal initiated from Mail.app or Safari"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process activity stream"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Post-login execution of unrecognized child process from launchd or loginwindow"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process command line contains base64, -enc, openssl enc -base64"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of process launched via loginwindow session restore"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process: exec + filewrite: ~/.ssh/authorized_keys"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of Java apps or other processes with hidden window attributes"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process Execution"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process: code or jetbrains-gateway launching with --tunnel or --remote"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log stream --predicate 'processImagePath CONTAINS \"curl\" OR \"osascript\"'"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process using AES/RC4 routines unexpectedly"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process exec events of systemsetup, date, ioreg with command_line parameters indicating time discovery"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of osascript, curl, or unexpected automation"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec /usr/bin/pwpolicy"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Exec of tcpdump, rvictl, custom tools linked to libpcap.A.dylib; sysextd/systemextensionsctl events for NetworkExtension content filters."
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "com.apple.firmwareupdater activity or update-firmware binary invoked"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec or spawn of 'system_profiler', 'ioreg', 'kextstat', 'sysctl', or calls to sysctl API"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process_create: Process creation where parent is Safari/Google Chrome and child is script interpreter or signed-but-unusual helper binary"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process:launch"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of scp, rsync, curl with remote destination"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "logMessage contains pbpaste or osascript"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process launch of diskutil or system_profiler with SPStorageDataType"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Mail.app executing with parameters updating rules state"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process_name IN (\"VBoxManage\", \"prlctl\") AND command CONTAINS (\"list\", \"show\")"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec srm|exec openssl|exec gpg"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of process with DYLD_INSERT_LIBRARIES set"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process and signing chain events"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchservices events for misleading extensions"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchd services binding to non-standard ports"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of binaries with unsigned or anomalously signed certificates"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of Terminal, osascript, or other interpreters originating from Mail or Preview"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process events"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of unexpected terminal or web scripts modifying /Library/WebServer/Documents"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process start of Java or native DB client tools"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "loginwindow or tccd-related entries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Command line invocation of pip3, brew install, npm install from interactive Terminal"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of ssh or sftp without corresponding login event"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launch of remote desktop app or helper binary"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unexpected processes making network calls based on DNS-derived ports"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchctl spawning new processes"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchctl activity and process creation"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of Python, Swift, or other binaries invoking archiving libraries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process invoking SSL routines from Security framework"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of binary listed in newly modified LaunchAgent plist"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of bless or nvram modifying boot parameters"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unexpected processes registered with launchd"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process launch"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of curl, osascript, or unexpected Office processes"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Trust validation failures or bypass attempts during notarization and code signing checks"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process_exec: image in {/bin/bash,/bin/zsh,/usr/bin/osascript,/usr/bin/python*,/usr/bin/curl,/usr/bin/ssh,/usr/bin/open} AND parent in {Preview, TextEdit, Microsoft Word, Microsoft Excel, AdobeReader, Archive Utility, Finder}"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of zip, ditto, hdiutil, or openssl by processes not normally associated with archiving"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process execution events for chmod, chown, chflags with unusual parameters or targets"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execve or dylib load from memory without backing file"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec: Execution of pfctl, socketfilterfw, launchctl start ssh/telnet, libpcap consumers."
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unusual child process tree indicating attempted recovery after crash"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of processes mimicking Apple Security & Privacy GUIs"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of curl, git, or Office processes with network connections"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log stream - process subsystem"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process execution for VBoxHeadless, prl_vm_app, vmware-vmx"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process logs"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "command line or log output shows non-standard encoding routines"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of /usr/sbin/installer spawning child process from within /private/tmp or package contents"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execve: Helper tools invoked through XPC executing unexpected binaries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of modified binary without valid signature"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec: ParentImage in (Terminal, iTerm2) AND Image in (/bin/zsh,/bin/bash,/usr/bin/python*) AND CommandLine matches '(curl|wget).*(\\||\\|\\s*sh|bash)|base64 -D|python -c'"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process created with repeated ICMP or UDP flood behavior"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process: exec"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Child processes of Safari, Chrome, or Firefox executing scripting interpreters"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of older or non-standard interpreters"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process execution events for chmod, chown, chflags with parameter analysis and target path examination"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process, socket, and DNS logs"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Command line containing `trap` or `echo 'trap` written to login shell files"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log collect --predicate"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchd or osascript spawns process with delay command"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process:spawn"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log stream --predicate 'eventMessage contains \"exec\"'"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of system_profiler or osascript invoking enumeration"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "httpd spawning bash, zsh, python, or osascript"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of /usr/libexec/security_authtrampoline or child processes originating from non-trusted binaries triggering credential prompts"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of security or osascript"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchd spawning processes tied to new or modified LaunchDaemon .plist entries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of ping, nping, or crafted network packets via bash or python to reflection services"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "System process modifications altering DNS/proxy settings"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process: spawn, exec"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process creation events where command line = pmset with arguments affecting sleep, hibernatemode, displaysleep"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unexpected apps performing repeated DNS lookups"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchservices or loginwindow events"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of process with DYLD_INSERT_LIBRARIES set"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Suspicious Swift/Objective-C or scripting processes writing archive-like outputs"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process creation with parent PID of 1 (launchd)"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of diskutil or hdiutil attaching hidden partitions"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process execution events for discovery utilities (system_profiler, sw_vers, dscl, networksetup) with command-line parameter analysis"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unexpected apps generating frequent DNS queries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process exec"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Non-standard processes invoking financial applications or payment APIs"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process exec of remote-control apps or binaries with headless/connect flags"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of launchctl unload, kill, or removal of security agent daemons"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process activity, exec events"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log stream process subsystem"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process:exec and kext load events"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "log stream --info --predicate 'eventMessage CONTAINS \"exec\"'"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Unsigned binary execution following SIP change"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec: Execution of /sbin/pfctl, /usr/libexec/ApplicationFirewall/socketfilterfw, ifconfig, tcpdump, npcap/libpcap consumers"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of zip, ditto, hdiutil, or openssl by non-terminal parent processes"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of binaries with TCC protected access under unexpected parent processes such as Finder.app, SystemUIServer, or nsurlsessiond"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process execution of ssh with -L/-R forwarding flags"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launchd or cron spawning mining binaries"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process invoking SecKeyCreateRandomKey or asymmetric crypto APIs"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Script interpreter invoked by nginx/apache worker process"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of Office binaries with network activity"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "launch of bash/zsh/python/osascript targeting key file locations"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of /sbin/emond with child processes launched"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "shutdown -h now or reboot"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Execution of Code.app, idea, JetBrainsToolbox, eclipse with install/extension flags"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process execution events for system discovery utilities (system_profiler, sysctl, networksetup, ioreg) with parameter analysis"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "execution of curl, rclone, or Office apps invoking network sessions"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "exec: Execution of kextstat, kextfind, or ioreg targeting driver information"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "Process creation involving binaries interacting with resource fork data"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "process event"
+        },
+        {
+          "name": "macos:unifiedlog",
+          "channel": "security OR injection attempts into 1Password OR LastPass"
+        },
+        {
+          "name": "MobileEDR:telemetry",
+          "channel": "Application writes audio buffer or recorded audio file into application storage directories"
+        },
+        {
+          "name": "MobileEDR:telemetry",
+          "channel": "Browser or WebView-hosting application brought to foreground and navigates to external content, followed by abnormal state transition, crash, restart, or process spawn behavior"
+        },
+        {
+          "name": "MobileEDR:telemetry",
+          "channel": "application installed from adb, sideload, or unknown USB source"
+        },
+        {
+          "name": "MobileEDR:telemetry",
+          "channel": "Application invokes Runtime.exec, ProcessBuilder, JNI-backed command launcher, or equivalent command-execution bridge immediately before shell or command process creation"
+        },
+        {
+          "name": "MobileEDR:telemetry",
+          "channel": "Managed app invokes lower-level OS process-launch or command-execution behavior before file or network effects, including interpreter-like execution flow where visible to sensor"
+        },
+        {
+          "name": "MobileEDR:telemetry",
+          "channel": "application execution triggered with unexpected parent context or via indirect invocation (intent redirection or component hijack)"
+        },
+        {
+          "name": "OpenBSM:AuditTrail",
+          "channel": "open/openat of /dev/bpf*; ioctl BIOCSETF-like operations."
+        },
+        {
+          "name": "OpenBSM:AuditTrail",
+          "channel": "BSM audit events for process execution and system call monitoring during reconnaissance"
+        },
+        {
+          "name": "Process",
+          "channel": "None"
+        },
+        {
+          "name": "WinEventLog:AppLocker",
+          "channel": "EventCode=8003, 8004"
+        },
+        {
+          "name": "WinEventLog:Microsoft-Windows-DotNETRuntime",
+          "channel": "Unexpected AppDomain creation events or anomalous AppDomainManager assembly load behavior"
+        },
+        {
+          "name": "WinEventLog:Security",
+          "channel": "EventCode=4688; cmd.exe/batch execution with parent and command line "
+        },
+        {
+          "name": "WinEventLog:Security",
+          "channel": "EventCode=4688"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1; Python interpreter/script execution and lineage"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1; process lineage and command line"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1; powershell/pwsh or suspicious parent-child chain"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1"
+        },
+        {
+          "name": "WinEventLog:Sysmon ",
+          "channel": "EventCode=1; wscript.exe/cscript.exe/mshta.exe and child-process lineage "
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "Application invokes Runtime.exec(), ProcessBuilder.start(), or JNI-backed launcher with sh, bash, toybox, toolbox, or su as command argument NOT IN $ApprovedShellApps$ — explicit Unix shell invocation"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "Managed iOS app invokes process-launch behavior resulting in sh, bash, or equivalent shell child process on supervised device — any shell spawn on stock iOS is a jailbreak indicator"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "execve()"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "com.apple.WebKit or com.apple.WebContent process fault at level=fault within $DriveByWindow$ of navigation to flagged URL — kernel fault in WebKit subsystem is the exploit-execution signal"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "execve() of modified binary (hash != baseline) — execution of modified binary is the persistence activation"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "com.apple.WebContent or com.apple.imagent process shows unexpected child spawn or memory fault at level=fault in Unified Log — kernel fault in message-processing subsystem is exploit execution signal"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "execve() from APK installed within $PhishingWindow$ of navigation to flagged URL — first execution confirms malware activation"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "sh or cmd process spawned with arguments containing 'pm uninstall' or 'rm' by parent NOT IN $MDMAgentPackageList$ — shell invocation for destruction commands"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "kernel fault or unexpected child spawn in subsystem IN (com.apple.WebKit, com.apple.imtransferagent, com.apple.imagent) at level=fault in Unified Log"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "Application installed with install_source=adb or install_source=sideload from USB-connected host within $USBInstallWindow$ of USB mode change"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "App invokes Runtime.exec(), ProcessBuilder.start(), or JNI-backed command execution framework to spawn shell or command interpreter process NOT IN $ApprovedShellApps$ — programmatic shell spawn is the interpreter invocation"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "Managed iOS app invokes lower-level process-launch behavior or command-execution-equivalent activity outside sandbox-permitted APIs on supervised device"
+        },
+        {
+          "name": "mobile:DynamicAnalysis",
+          "channel": "App execution triggered with unexpected parent context or via indirect invocation (intent redirect, implicit intent resolution to unexpected handler) — indirect invocation path is the flow hijack confirmation"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; command line invokes iptables/nftables to change ICS traffic filtering or redirection outside the authorized network-administration baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; mount/udisksctl invoked to mount a removable block device on an ICS asset outside the approved removable-media workflow"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): execve with path under /media/ or /mnt/ removable mount point within Universial Serial Bus (USB) execution window of mount event"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): execve of network discovery tool (nmap, arp-scan, PLCScan) by User Identifier (UID) not in authorized net admin UIDs"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): unexpected process creation from web server daemon User Identifier (UID) spawning shell process"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): Secure Shell (SSH)-based propagation pattern (connection to multiple hosts followed by file transfer and execution) within a short window"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; systemctl/kill command targets a critical ICS service from a UID not in the authorized service-administration set"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; shell/interpreter process is spawned by an ICS network-facing service or other unexpected parent process"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; network-enumeration utility launched by a UID not in the authorized network-administration set"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; passwd/chpasswd targets an ICS service account outside the approved credential-rotation workflow"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; ICS HMI/GUI application launched from an SSH-associated process/session outside the approved remote-administration baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; browser process spawns a command shell, script interpreter, or executable child inconsistent with the approved browser-child baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; SSH/SNMP/remote-management command includes a remote target host and queries system identity/inventory from an account outside the authorized management set"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; document/viewer process launches a child process outside the expected viewer-child baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; device restart/shutdown command invoked outside the approved change-control window by an unauthorized UID"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; firmware-update utility invoked outside the approved maintenance window or by a UID not in the authorized firmware-management set"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): execve of nmap/masscan with arguments targeting Industrial Control Systems (ICS) protocol port ranges"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; command or executable associated with the technique runs outside the approved ICS administrative/application baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; iptables/nftables command adds a rule that blocks ICS protocol traffic outside the authorized network-administration baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; ip link command disables an interface on an ICS gateway outside the authorized network-administration baseline"
+        },
+        {
+          "name": "auditd:SYSCALL",
+          "channel": "Linux Audit SYSCALL/EXECVE/SOCKADDR records (configured audit rule): syscall=execve; hostapd/wireless-controller configuration command disables or alters an ICS wireless network outside the authorized wireless-administration baseline"
+        },
+        {
+          "name": "WinEventLog:System",
+          "channel": "System crash or unexpected halt occurring within wiper crash window of the bulk deletion event"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 firmware-update utility spawned by an account outside the authorized firmware-management set or outside the approved maintenance window"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 where a browser process spawns cmd.exe, powershell.exe, wscript.exe, or another executable outside the approved browser-child baseline"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 with parent matching web/application server process and image matching shell/script interpreter within exploit-to-shell window of anomalous request"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 of the newly-created file within tool transfer window of its creation"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 process execution associated with a remote session targets ICS application directories or initiates device-subnet activity"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "Microsoft-Windows-Sysmon/Operational Event ID 1 ProcessCreate: Process execution within the remote session targeting Industrial Control Systems (ICS) application directories or device subnet connections"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 with image path on removable drive letter within Universal Serial Bus (USB) execution window of insertion event"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 of network discovery tool (nmap, PLCScan) from process not in authorized network tools list"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 of archive utility immediately following bulk file access pattern from same parent process tree"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 sc.exe/net.exe invocation targeting a critical ICS service from an account outside the authorized service-administration set"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 network enumeration command from account not in approved network admins, with more than one distinct command within enumeration time window"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 parent matches outlook.exe/winword.exe/excel.exe and image matches cmd.exe/powershell.exe/wscript.exe/mshta.exe on host in Industrial Control Systems (ICS) workstation inventory"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 remote-management command (for example wmic /node, winrs, or PowerShell/CIM with -ComputerName) includes a remote target and queries system identity/inventory outside the authorized management baseline"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 chain originating from user-invoked file open or link click action, spawning processes not in expected document viewer children"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 image matches certutil.exe/regsvr32.exe/mshta.exe/rundll32.exe and command line matches Living-off-the-Land Binary (LOLBin) abuse patterns on host in Industrial Control Systems (ICS) workstation inventory"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 capture utility execution from account not in approved network analysts"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 firmware update tool process activating firmware mode, by account not in authorized firmware managers, outside maintenance window schedule"
+        },
+        {
+          "name": "WinEventLog:Sysmon",
+          "channel": "EventCode=1 of port scanning utility with arguments targeting Industrial Control Systems (ICS) protocol port ranges"
+        }
+      ],
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--1de84f77-a767-59a8-a554-59c934a8af9d",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses-data-component",
+      "source_ref": "x-mitre-analytic--b9f79a81-9fee-47f2-bef8-a9f64fde935e",
+      "target_ref": "x-mitre-data-component--f42df6f0-6395-4f0c-9376-525a031f00c3",
+      "description": "WinEventLog:Security: EventCode=4698"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--07d1b701-727e-5b47-befb-87d2fd85841d",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "uses-data-component",
+      "source_ref": "x-mitre-analytic--b9f79a81-9fee-47f2-bef8-a9f64fde935e",
+      "target_ref": "x-mitre-data-component--3d20385b-24ef-40e1-9f56-f39750379077",
+      "description": "WinEventLog:Sysmon: EventCode=1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--42bc2957-217a-51c0-aca1-90ae43a568f7",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "has-analytic",
+      "source_ref": "x-mitre-detection-strategy--ca20fecb-6b8e-49ae-9ecf-19f4edd812ad",
+      "target_ref": "x-mitre-analytic--b9f79a81-9fee-47f2-bef8-a9f64fde935e"
+    },
+    {
+      "type": "grouping",
+      "id": "grouping--8680c756-73aa-5631-9b38-db3f27307cd7",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Associated Detections",
+      "context": "unspecified",
+      "object_refs": [
+        "indicator--0c0d4b96-9cef-58ea-80e0-92ec97059d92",
+        "x-mitre-detection-strategy--ca20fecb-6b8e-49ae-9ecf-19f4edd812ad"
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--8680c756-73aa-5631-9b38-db3f27307cd7",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "grouping--8680c756-73aa-5631-9b38-db3f27307cd7",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "type": "note",
+      "id": "note--c21cf353-1ab3-58c6-9e29-d78d55e1eba9",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "abstract": "Other detection rules",
+      "content": "SigmaHQ rules where the binary is one of several processes, a parent, or part of a command line, and third-party rules (Splunk, Elastic).",
+      "object_refs": [
+        "grouping--8680c756-73aa-5631-9b38-db3f27307cd7"
+      ],
+      "external_references": [
+        {
+          "source_name": "SigmaHQ",
+          "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml",
+          "description": "Suspicious Process By Web Server Process"
+        }
+      ]
+    },
+    {
+      "type": "directory",
+      "spec_version": "2.1",
+      "id": "directory--a949bd3b-e6d3-5cc6-9c9d-c80d3d1eab4b",
+      "path": "C:\\WINDOWS\\System32"
+    },
+    {
+      "type": "file",
+      "spec_version": "2.1",
+      "id": "file--0450538c-49f5-5562-8438-06eedd9e8e10",
+      "name": "At.exe",
+      "parent_directory_ref": "directory--a949bd3b-e6d3-5cc6-9c9d-c80d3d1eab4b",
+      "hashes": {
+        "MD5": "15FE2283B40819234C9909E841EBCA0A"
+      }
+    },
+    {
+      "type": "directory",
+      "spec_version": "2.1",
+      "id": "directory--6c73a887-c24f-5a9e-a317-d4c164590ee8",
+      "path": "C:\\WINDOWS\\SysWOW64"
+    },
+    {
+      "type": "file",
+      "spec_version": "2.1",
+      "id": "file--03bdb76f-ea96-5388-8688-99d53a99006c",
+      "name": "At.exe",
+      "parent_directory_ref": "directory--6c73a887-c24f-5a9e-a317-d4c164590ee8",
+      "hashes": {
+        "MD5": "15FE2283B40819234C9909E841EBCA0A"
+      }
+    },
+    {
+      "type": "grouping",
+      "id": "grouping--744c4952-6465-5427-b693-d938eea4e7a6",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "Binary files",
+      "context": "unspecified",
+      "object_refs": [
+        "file--0450538c-49f5-5562-8438-06eedd9e8e10",
+        "file--03bdb76f-ea96-5388-8688-99d53a99006c"
+      ],
+      "description": "Where the binary is found on disk, with its hash."
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--744c4952-6465-5427-b693-d938eea4e7a6",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "grouping--744c4952-6465-5427-b693-d938eea4e7a6",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--bca7e51a-968c-5762-ba5d-ba8c99f3e184",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "name": "15FE2283B40819234C9909E841EBCA0A",
+      "description": "Original Filename: AT.EXE.MUI\nProduct Name: Microsoft Windows Operating System\nCompany Name: Microsoft Corporation\nFile Version: 10.0.19041.1 (WinBuild.160101.0800)\nProduct Version: 10.0.19041.1\nLanguage: English (United States)\nLegal Copyright: Microsoft Corporation. All rights reserved.\nPath: C:\\Windows\\system32\\at.exe\nSHA256: 5B97C39D87AD627C53023BFEBB0EA1B5227C3F4E86E3BF06B23F3E4B0D6726E2\nSSDEEP: 768:e0+CAGU0QOBk7EUXPHbSGYH2rZ/kmJvjjOr:PKWkYKPi2RkmJ7jOr",
+      "pattern_type": "stix",
+      "pattern": "[file:hashes.MD5 = '15FE2283B40819234C9909E841EBCA0A']",
+      "valid_from": "2026-10-16T00:15:00.000Z",
+      "indicator_types": [
+        "benign"
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--bca7e51a-968c-5762-ba5d-ba8c99f3e184",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--bca7e51a-968c-5762-ba5d-ba8c99f3e184",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952"
+    },
+    {
+      "definition": {
+        "statement": "Copyright 2015-2026, The MITRE Corporation. MITRE ATT&CK and ATT&CK are registered trademarks of The MITRE Corporation."
+      },
+      "id": "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168",
+      "type": "marking-definition",
+      "created": "2017-06-01T00:00:00.000Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "definition_type": "statement",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--26168a76-af02-57fb-bdf1-e65a806f5100",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "report--31865473-bbef-5f3f-a874-e183e3481a55",
+      "target_ref": "tool--0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+      "description": "This report describes at.exe."
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--14911dc2-d2e5-5d89-8755-4248b90000bb",
+      "spec_version": "2.1",
+      "created_by_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "created": "2026-10-16T00:15:00.000Z",
+      "modified": "2026-10-16T00:15:00.000Z",
+      "relationship_type": "related-to",
+      "source_ref": "identity--1dd7bca6-cef5-4395-826f-64994241b3cf",
+      "target_ref": "report--31865473-bbef-5f3f-a874-e183e3481a55",
+      "description": "Author of this report."
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--be34e043-48a0-4192-a877-e8520a2800cc",
+      "created": "2019-11-27T13:52:46.026Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-04-29T14:23:06.185Z",
+      "description": "Limit privileges of user accounts and remediate Privilege Escalation vectors so only authorized administrators can create scheduled tasks on remote systems. In Linux environments, users account-level access to <code>[at](https://attack.mitre.org/software/S0110)</code> can be managed using <code>at.allow</code> and <code>at.deny</code> files. Users listed in the at.allow are enabled to schedule actions using at, whereas users listed in at.deny file disabled from the utility.",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--93e7968a-9074-4eac-8ae9-9f5200ec3317",
+      "target_ref": "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--e23ce4ac-b82c-4af1-9545-2bb237a03ed1",
+      "created": "2019-11-27T13:52:46.029Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "TechNet Scheduling Priority",
+          "description": "Microsoft. (2013, May 8). Increase scheduling priority. Retrieved December 18, 2017.",
+          "url": "https://technet.microsoft.com/library/dn221960.aspx"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-04-29T14:23:06.233Z",
+      "description": "Configure the Increase Scheduling Priority option to only allow the Administrators group the rights to schedule a priority process. This can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > User Rights Assignment: Increase scheduling priority. (Citation: TechNet Scheduling Priority)",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--9bb9e696-bff8-4ae1-9454-961fc7d91d5f",
+      "target_ref": "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--1fdd8726-606a-482d-b371-044eea79be29",
+      "created": "2019-11-27T13:52:46.031Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "TechNet Server Operator Scheduled Task",
+          "description": "Microsoft. (2012, November 15). Domain controller: Allow server operators to schedule tasks. Retrieved December 18, 2017.",
+          "url": "https://technet.microsoft.com/library/jj852168.aspx"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-04-29T14:23:05.948Z",
+      "description": "Configure settings for scheduled tasks to force tasks to run under the context of the authenticated account instead of allowing them to run as SYSTEM. The associated Registry key is located at <code>HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\SubmitControl</code>. The setting can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > Security Options: Domain Controller: Allow server operators to schedule tasks, set to disabled. (Citation: TechNet Server Operator Scheduled Task) ",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--2f316f6c-ae42-44fe-adf8-150989e0f6d3",
+      "target_ref": "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--4928c2f8-a102-4a33-9543-8df8ecb8e806",
+      "created": "2025-10-21T15:10:28.402Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2025-10-21T15:10:28.402Z",
+      "relationship_type": "detects",
+      "source_ref": "x-mitre-detection-strategy--ca20fecb-6b8e-49ae-9ecf-19f4edd812ad",
+      "target_ref": "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--3e76b11e-8a9e-4300-b9d4-8cbd8e8bb37f",
+      "created": "2019-11-27T13:52:46.033Z",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "revoked": false,
+      "external_references": [
+        {
+          "source_name": "Secureworks - AT.exe Scheduled Task",
+          "description": "Carvey, H.. (2014, September). Where You AT?: Indicators of Lateral Movement Using at.exe on Windows 7 Systems. Retrieved November 27, 2019.",
+          "url": "https://www.secureworks.com/blog/where-you-at-indicators-of-lateral-movement-using-at-exe-on-windows-7-systems"
+        },
+        {
+          "source_name": "Kifarunix - Task Scheduling in Linux",
+          "description": "Koromicha. (2019, September 7). Scheduling tasks using at command in Linux. Retrieved December 3, 2019.",
+          "url": "https://kifarunix.com/scheduling-tasks-using-at-command-in-linux/"
+        },
+        {
+          "source_name": "Powersploit",
+          "description": "PowerSploit. (n.d.). Retrieved December 4, 2014.",
+          "url": "https://github.com/mattifestation/PowerSploit"
+        }
+      ],
+      "object_marking_refs": [
+        "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+      ],
+      "modified": "2026-04-29T14:23:06.010Z",
+      "description": "Toolkits like the PowerSploit framework contain PowerUp modules that can be used to explore systems for permission weaknesses in scheduled tasks that could be used to escalate privileges. (Citation: Powersploit) Windows operating system also creates a registry key specifically associated with the creation of a scheduled task on the destination host at: Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tree\\At1. (Citation: Secureworks - AT.exe Scheduled Task) In Linux and macOS environments, scheduled tasks using <code>[at](https://attack.mitre.org/software/S0110)</code> can be audited locally, or through centrally collected logging, using syslog, or auditd events from the host. (Citation: Kifarunix - Task Scheduling in Linux)",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--cc2399fd-3cd3-4319-8d0a-fbd6420cdaf8",
+      "target_ref": "attack-pattern--f3d95a1f-bba2-44ce-9af7-37866cd63fd0",
+      "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "x_mitre_deprecated": false,
+      "x_mitre_attack_spec_version": "3.3.0",
+      "spec_version": "2.1"
+    }
+  ]
+}

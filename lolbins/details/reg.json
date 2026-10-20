@@ -1,0 +1,3036 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "cc31e472-8787-49f7-be75-65d74ed949dd",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2024-01-01T00:00:00.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
+  "name": "Reg.exe",
+  "image": "reg.exe",
+  "description": "Reg is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. Utilities such as Reg are known to be used by persistent threats.",
+  "attack": {
+    "id": "S0075",
+    "name": "Reg",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0075",
+    "version": "20.0"
+  },
+  "summary": [
+    "Interact with and modify the Windows Registry of a local or remote system",
+    "Gather details from the Windows Registry of a local or remote system",
+    "Find/Extract credentials from the Registry",
+    "Check for installed software on the system",
+    "Retrieve proxy information in the Registry",
+    "Remove/Deactivate security settings eg.(AV/EDR/FW/UAC)"
+  ],
+  "required_privileges": [
+    "User",
+    "Administrator"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\reg.exe",
+    "c:\\windows\\syswow64\\reg.exe"
+  ],
+  "hashes": {
+    "MD5": "227F63E1D9008B36BDBCC4B397780BE4"
+  },
+  "capabilities": [
+    "Reconnaissance",
+    "Dump"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0112:Defense Impairment:T1112",
+    "TA0003:Persistence:T1112",
+    "TA0007:Discovery:T1012",
+    "TA0006:Credential Access:T1552.002",
+    "TA0006:Credential Access:T1003.002",
+    "TA0005:Stealth:T1564.004"
+  ],
+  "techniques": [
+    {
+      "id": "T1112",
+      "name": "Modify Registry",
+      "url": "https://attack.mitre.org/techniques/T1112",
+      "tactics": [
+        "Defense Impairment",
+        "Persistence"
+      ]
+    },
+    {
+      "id": "T1012",
+      "name": "Query Registry",
+      "url": "https://attack.mitre.org/techniques/T1012",
+      "tactics": [
+        "Discovery"
+      ]
+    },
+    {
+      "id": "T1552.002",
+      "name": "Credentials in Registry",
+      "url": "https://attack.mitre.org/techniques/T1552/002",
+      "tactics": [
+        "Credential Access"
+      ]
+    },
+    {
+      "id": "T1003.002",
+      "name": "Security Account Manager",
+      "url": "https://attack.mitre.org/techniques/T1003/002",
+      "tactics": [
+        "Credential Access"
+      ]
+    },
+    {
+      "id": "T1564.004",
+      "name": "NTFS File Attributes",
+      "url": "https://attack.mitre.org/techniques/T1564/004",
+      "tactics": [
+        "Stealth"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT29",
+        "attack_id": "G0016",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "BianLian Ransomware Group",
+        "attack_id": null,
+        "evidence": [
+          "reported by CISA AA23-136A BianLian Ransomware Group May 2023"
+        ],
+        "source": {
+          "source_name": "CISA AA23-136A BianLian Ransomware Group May 2023",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a",
+          "quote": "reg.exe add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f (\"Adds/overwrites a new Registry value to allow a user to receive help from Remote Assistance.\")"
+        }
+      },
+      {
+        "name": "Chimera",
+        "attack_id": "G0114",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Daggerfly",
+        "attack_id": "G1034",
+        "evidence": [
+          "uses S0075",
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Dragonfly",
+        "attack_id": "G0035",
+        "evidence": [
+          "uses S0075",
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Earth Lusca",
+        "attack_id": "G1006",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Ember Bear",
+        "attack_id": "G1003",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "FIN13",
+        "attack_id": "G1016",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": [
+          "uses S0075",
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": [
+          "uses S0075",
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Lotus Blossom",
+        "attack_id": "G0030",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "OilRig",
+        "attack_id": "G0049",
+        "evidence": [
+          "uses S0075",
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Rancor",
+        "attack_id": "G0075",
+        "evidence": [
+          "uses S0075"
+        ]
+      },
+      {
+        "name": "Turla",
+        "attack_id": "G0010",
+        "evidence": [
+          "uses S0075",
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": [
+          "uses S0075",
+          "names reg.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "APT28 Nearest Neighbor Campaign",
+        "attack_id": "C0051",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Operation CuckooBees",
+        "attack_id": "C0012",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Operation Digital Eye",
+        "attack_id": "C0061",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Operation Honeybee",
+        "attack_id": "C0006",
+        "evidence": [
+          "uses S0075"
+        ]
+      },
+      {
+        "name": "Operation Wocao",
+        "attack_id": "C0014",
+        "evidence": [
+          "names reg.exe"
+        ]
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "BabyShark",
+        "attack_id": "S0414",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Epic",
+        "attack_id": "S0091",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "HeartCrypt",
+        "attack_id": "S9018",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "KeyBoy",
+        "attack_id": "S0387",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "PLAINTEE",
+        "attack_id": "S0254",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "POWRUNER",
+        "attack_id": "S0184",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "PUBLOAD",
+        "attack_id": "S1228",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "RATANKBA",
+        "attack_id": "S0241",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "SMOKEDHAM",
+        "attack_id": "S0649",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "The Gentlemen Ransomware",
+        "attack_id": "S9051",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Ursnif",
+        "attack_id": "S0386",
+        "evidence": [
+          "names reg.exe"
+        ]
+      },
+      {
+        "name": "Zebrocy",
+        "attack_id": "S0251",
+        "evidence": [
+          "names reg.exe"
+        ]
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "APT29",
+        "type": "intrusion-set",
+        "attack_id": "G0016",
+        "description": "APT29 has used the `reg save` command to extract LSA secrets offline.",
+        "citations": [
+          {
+            "source_name": "Mandiant APT29 Eye Spy Email Nov 22",
+            "url": "https://www.mandiant.com/resources/blog/unc3524-eye-spy-email"
+          }
+        ]
+      },
+      {
+        "source": "APT29",
+        "type": "intrusion-set",
+        "attack_id": "G0016",
+        "description": "APT29 has used the `reg save` command to save registry hives.",
+        "citations": [
+          {
+            "source_name": "Mandiant APT29 Eye Spy Email Nov 22",
+            "url": "https://www.mandiant.com/resources/blog/unc3524-eye-spy-email"
+          }
+        ]
+      },
+      {
+        "source": "APT41",
+        "type": "intrusion-set",
+        "attack_id": "G0096",
+        "description": "APT41 extracted user account data from the Security Account Managerr (SAM), making a copy of this database from the registry using the reg save command or by exploiting volume shadow copies.",
+        "citations": [
+          {
+            "source_name": "Rostovcev APT41 2021",
+            "url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+          }
+        ]
+      },
+      {
+        "source": "BianLian Ransomware Group",
+        "type": "intrusion-set",
+        "attack_id": null,
+        "description": "reg.exe add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f (\"Adds/overwrites a new Registry value to allow a user to receive help from Remote Assistance.\")",
+        "citations": [
+          {
+            "source_name": "CISA AA23-136A BianLian Ransomware Group May 2023",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a"
+          }
+        ]
+      },
+      {
+        "source": "Chimera",
+        "type": "intrusion-set",
+        "attack_id": "G0114",
+        "description": "Chimera has queried Registry keys using reg query \\<host>\\HKU\\<SID>\\SOFTWARE\\Microsoft\\Terminal Server Client\\Servers and reg query \\<host>\\HKU\\<SID>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings.",
+        "citations": [
+          {
+            "source_name": "NCC Group Chimera January 2021",
+            "url": "https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+          }
+        ]
+      },
+      {
+        "source": "Daggerfly",
+        "type": "intrusion-set",
+        "attack_id": "G1034",
+        "description": "Daggerfly has used Reg to dump various Windows registry hives from victim machines.",
+        "citations": [
+          {
+            "source_name": "Symantec Daggerfly 2023",
+            "url": "https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+          }
+        ]
+      },
+      {
+        "source": "Daggerfly",
+        "type": "intrusion-set",
+        "attack_id": "G1034",
+        "description": "Daggerfly used Reg to dump the Security Account Manager (SAM) hive from victim machines for follow-on credential extraction.",
+        "citations": [
+          {
+            "source_name": "Symantec Daggerfly 2023",
+            "url": "https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+          }
+        ]
+      },
+      {
+        "source": "Daggerfly",
+        "type": "intrusion-set",
+        "attack_id": "G1034",
+        "description": "Daggerfly used Reg to dump the Security Account Manager (SAM), System, and Security Windows registry hives from victim machines.",
+        "citations": [
+          {
+            "source_name": "Symantec Daggerfly 2023",
+            "url": "https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+          }
+        ]
+      },
+      {
+        "source": "Dragonfly",
+        "type": "intrusion-set",
+        "attack_id": "G0035",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "US-CERT TA18-074A",
+            "url": "https://www.us-cert.gov/ncas/alerts/TA18-074A"
+          }
+        ]
+      },
+      {
+        "source": "Dragonfly",
+        "type": "intrusion-set",
+        "attack_id": "G0035",
+        "description": "Dragonfly has modified the Registry to perform multiple techniques through the use of Reg.",
+        "citations": [
+          {
+            "source_name": "US-CERT TA18-074A",
+            "url": "https://www.us-cert.gov/ncas/alerts/TA18-074A"
+          }
+        ]
+      },
+      {
+        "source": "Earth Lusca",
+        "type": "intrusion-set",
+        "attack_id": "G1006",
+        "description": "Earth Lusca modified the registry using the command reg add “HKEY_CURRENT_USER\\Environment” /v UserInitMprLogonScript /t REG_SZ /d “[file path]” for persistence.",
+        "citations": [
+          {
+            "source_name": "TrendMicro EarthLusca 2022",
+            "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Ember Bear",
+        "type": "intrusion-set",
+        "attack_id": "G1003",
+        "description": "Ember Bear acquires victim credentials by extracting registry hives such as the Security Account Manager through commands such as reg save.",
+        "citations": [
+          {
+            "source_name": "Cadet Blizzard emerges as novel threat actor",
+            "url": "https://www.microsoft.com/en-us/security/blog/2023/06/14/cadet-blizzard-emerges-as-a-novel-and-distinct-russian-threat-actor/"
+          },
+          {
+            "source_name": "CISA GRU29155 2024",
+            "url": "https://www.cisa.gov/sites/default/files/2024-09/aa24-249a-russian-military-cyber-actors-target-us-and-global-critical-infrastructure.pdf"
+          }
+        ]
+      },
+      {
+        "source": "FIN13",
+        "type": "intrusion-set",
+        "attack_id": "G1016",
+        "description": "FIN13 has extracted the SAM and SYSTEM registry hives using the `reg.exe` binary for obtaining password hashes from a compromised machine.",
+        "citations": [
+          {
+            "source_name": "Sygnia Elephant Beetle Jan 2022",
+            "url": "https://web.archive.org/web/20220105132433/https://f.hubspotusercontent30.net/hubfs/8776530/Sygnia-%20Elephant%20Beetle_Jan2022.pdf"
+          }
+        ]
+      },
+      {
+        "source": "GALLIUM",
+        "type": "intrusion-set",
+        "attack_id": "G0093",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Cybereason Soft Cell June 2019",
+            "url": "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+          }
+        ]
+      },
+      {
+        "source": "GALLIUM",
+        "type": "intrusion-set",
+        "attack_id": "G0093",
+        "description": "GALLIUM used reg commands to dump specific hives from the Windows Registry, such as the SAM hive, and obtain password hashes.",
+        "citations": [
+          {
+            "source_name": "Cybereason Soft Cell June 2019",
+            "url": "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+          }
+        ]
+      },
+      {
+        "source": "Gamaredon Group",
+        "type": "intrusion-set",
+        "attack_id": "G0047",
+        "description": "Gamaredon Group has used Reg to add Run keys to the Registry.",
+        "citations": [
+          {
+            "source_name": "unit42_gamaredon_dec2022",
+            "url": "https://unit42.paloaltonetworks.com/trident-ursa/"
+          }
+        ]
+      },
+      {
+        "source": "Gamaredon Group",
+        "type": "intrusion-set",
+        "attack_id": "G0047",
+        "description": "Gamaredon Group has used various legitimate tools, such as `mshta.exe` and Reg, and services during operations.",
+        "citations": [
+          {
+            "source_name": "ESET Gamaredon Sept2024",
+            "url": "https://web-assets.esetstatic.com/wls/en/papers/white-papers/cyberespionage-gamaredon-way.pdf"
+          },
+          {
+            "source_name": "unit42_gamaredon_dec2022",
+            "url": "https://unit42.paloaltonetworks.com/trident-ursa/"
+          }
+        ]
+      },
+      {
+        "source": "Gamaredon Group",
+        "type": "intrusion-set",
+        "attack_id": "G0047",
+        "description": "Gamaredon Group has replicated to removable media by leveraging the User Assist Reg Key and creating LNKs on all network and removable drives available on the infected host.",
+        "citations": [
+          {
+            "source_name": "SymantecCarbonBlack_ShuckwormUSB_Apr2025",
+            "url": "https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+          }
+        ]
+      },
+      {
+        "source": "Kimsuky",
+        "type": "intrusion-set",
+        "attack_id": "G0094",
+        "description": "Kimsuky has run reg add ‘HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\UserList’ /v to hide a newly created user.",
+        "citations": [
+          {
+            "source_name": "KISA Operation Muzabi",
+            "url": "https://web.archive.org/web/20220328121326/https://boho.or.kr/filedownload.do?attach_file_seq=2695&attach_file_id=EpF2695.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Lotus Blossom",
+        "type": "intrusion-set",
+        "attack_id": "G0030",
+        "description": "Lotus Blossom has run commands such as `reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\[service name]\\Parameters` to verify if installed implants are running as a service.",
+        "citations": [
+          {
+            "source_name": "Cisco LotusBlossom 2025",
+            "url": "https://blog.talosintelligence.com/lotus-blossom-espionage-group/"
+          }
+        ]
+      },
+      {
+        "source": "Mustang Panda",
+        "type": "intrusion-set",
+        "attack_id": "G0129",
+        "description": "Mustang Panda has used vssadmin to create a volume shadow copy and retrieve the NTDS.dit file. Mustang Panda has also used reg save on the SYSTEM file Registry location to help extract the NTDS.dit file.",
+        "citations": [
+          {
+            "source_name": "Secureworks BRONZE PRESIDENT December 2019",
+            "url": "https://www.secureworks.com/research/bronze-president-targets-ngos"
+          },
+          {
+            "source_name": "Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023",
+            "url": "https://unit42.paloaltonetworks.com/stately-taurus-attacks-se-asian-government/"
+          }
+        ]
+      },
+      {
+        "source": "OilRig",
+        "type": "intrusion-set",
+        "attack_id": "G0049",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Palo Alto OilRig May 2016",
+            "url": "http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+          },
+          {
+            "source_name": "FireEye APT34 Dec 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+          }
+        ]
+      },
+      {
+        "source": "OilRig",
+        "type": "intrusion-set",
+        "attack_id": "G0049",
+        "description": "OilRig has used reg.exe to modify system configuration.",
+        "citations": [
+          {
+            "source_name": "Trend Micro Earth Simnavaz October 2024",
+            "url": "https://www.trendmicro.com/en_us/research/24/j/earth-simnavaz-cyberattacks.html"
+          },
+          {
+            "source_name": "Symantec Crambus OCT 2023",
+            "url": "https://www.security.com/threat-intelligence/crambus-middle-east-government"
+          }
+        ]
+      },
+      {
+        "source": "OilRig",
+        "type": "intrusion-set",
+        "attack_id": "G0049",
+        "description": "OilRig has used reg query “HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default” on a victim to query the Registry.",
+        "citations": [
+          {
+            "source_name": "Palo Alto OilRig May 2016",
+            "url": "http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+          }
+        ]
+      },
+      {
+        "source": "Rancor",
+        "type": "intrusion-set",
+        "attack_id": "G0075",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Rancor Unit42 June 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+          }
+        ]
+      },
+      {
+        "source": "Turla",
+        "type": "intrusion-set",
+        "attack_id": "G0010",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          }
+        ]
+      },
+      {
+        "source": "Turla",
+        "type": "intrusion-set",
+        "attack_id": "G0010",
+        "description": "Turla surveys a system upon check-in to discover information in the Windows Registry with the reg query command. Turla has also retrieved PowerShell payloads hidden in Registry keys as well as checking keys associated with null session named pipes.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          },
+          {
+            "source_name": "ESET Turla PowerShell May 2019",
+            "url": "https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/"
+          }
+        ]
+      },
+      {
+        "source": "Volt Typhoon",
+        "type": "intrusion-set",
+        "attack_id": "G1017",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "CISA AA24-038A PRC Critical Infrastructure February 2024",
+            "url": "https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Volt Typhoon",
+        "type": "intrusion-set",
+        "attack_id": "G1017",
+        "description": "Volt Typhoon has queried the Registry on compromised systems, `reg query hklm\\software\\`, for information on installed software including PuTTY.",
+        "citations": [
+          {
+            "source_name": "CISA AA24-038A PRC Critical Infrastructure February 2024",
+            "url": "https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf"
+          },
+          {
+            "source_name": "Joint Cybersecurity Advisory Volt Typhoon June 2023",
+            "url": "https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF"
+          }
+        ]
+      },
+      {
+        "source": "APT28 Nearest Neighbor Campaign",
+        "type": "campaign",
+        "attack_id": "C0051",
+        "description": "During APT28 Nearest Neighbor Campaign, APT28 used the following commands to dump SAM, SYSTEM, and SECURITY hives: reg save hklm\\sam, reg save hklm\\system, and reg save hklm\\security.",
+        "citations": [
+          {
+            "source_name": "Nearest Neighbor Volexity",
+            "url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+          }
+        ]
+      },
+      {
+        "source": "Operation CuckooBees",
+        "type": "campaign",
+        "attack_id": "C0012",
+        "description": "During Operation CuckooBees, the threat actors leveraged a custom tool to dump OS credentials and used following commands: `reg save HKLM\\SYSTEM system.hiv`, `reg save HKLM\\SAM sam.hiv`, and `reg save HKLM\\SECURITY security.hiv`, to dump SAM, SYSTEM and SECURITY hives.",
+        "citations": [
+          {
+            "source_name": "Cybereason OperationCuckooBees May 2022",
+            "url": "https://www.cybereason.com/blog/operation-cuckoobees-deep-dive-into-stealthy-winnti-techniques"
+          }
+        ]
+      },
+      {
+        "source": "Operation Digital Eye",
+        "type": "campaign",
+        "attack_id": "C0061",
+        "description": "During Operation Digital Eye, threat actors used `reg save` to retrieve credentials from the Security Account Manager (SAM) database.",
+        "citations": [
+          {
+            "source_name": "sentinelone operationDigitalEye Dec 2024",
+            "url": "https://www.sentinelone.com/labs/operation-digital-eye-chinese-apt-compromises-critical-digital-infrastructure-via-visual-studio-code-tunnels/"
+          }
+        ]
+      },
+      {
+        "source": "Operation Honeybee",
+        "type": "campaign",
+        "attack_id": "C0006",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "McAfee Honeybee",
+            "url": "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/mcafee-uncovers-operation-honeybee-malicious-document-campaign-targeting-humanitarian-aid-groups/"
+          }
+        ]
+      },
+      {
+        "source": "Operation Wocao",
+        "type": "campaign",
+        "attack_id": "C0014",
+        "description": "During Operation Wocao, the threat actors executed `/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions\\` to detect recent PuTTY sessions, likely to further lateral movement.",
+        "citations": [
+          {
+            "source_name": "FoxIT Wocao December 2019",
+            "url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+          }
+        ]
+      },
+      {
+        "source": "BabyShark",
+        "type": "malware",
+        "attack_id": "S0414",
+        "description": "BabyShark has executed the reg query command for HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default.",
+        "citations": [
+          {
+            "source_name": "Unit42 BabyShark Feb 2019",
+            "url": "https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+          }
+        ]
+      },
+      {
+        "source": "Epic",
+        "type": "malware",
+        "attack_id": "S0091",
+        "description": "Epic uses the rem reg query command to obtain values from Registry keys.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          }
+        ]
+      },
+      {
+        "source": "HeartCrypt",
+        "type": "malware",
+        "attack_id": "S9018",
+        "description": "HeartCrypt can use the `reg add` command via `cmd.exe` for Registry modification.",
+        "citations": [
+          {
+            "source_name": "Palo Alto HeartCrypt DEC 2024",
+            "url": "https://unit42.paloaltonetworks.com/packer-as-a-service-heartcrypt-malware/"
+          }
+        ]
+      },
+      {
+        "source": "KeyBoy",
+        "type": "malware",
+        "attack_id": "S0387",
+        "description": "KeyBoy issues the command reg add “HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon” to achieve persistence.",
+        "citations": [
+          {
+            "source_name": "CitizenLab KeyBoy Nov 2016",
+            "url": "https://citizenlab.ca/2016/11/parliament-keyboy/"
+          },
+          {
+            "source_name": "PWC KeyBoys Feb 2017",
+            "url": "https://web.archive.org/web/20211129064701/https://www.pwc.co.uk/issues/cyber-security-services/research/the-keyboys-are-back-in-town.html"
+          }
+        ]
+      },
+      {
+        "source": "PLAINTEE",
+        "type": "malware",
+        "attack_id": "S0254",
+        "description": "PLAINTEE uses reg add to add a Registry Run key for persistence.",
+        "citations": [
+          {
+            "source_name": "Rancor Unit42 June 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+          }
+        ]
+      },
+      {
+        "source": "POWRUNER",
+        "type": "malware",
+        "attack_id": "S0184",
+        "description": "POWRUNER may query the Registry by running reg query on a victim.",
+        "citations": [
+          {
+            "source_name": "FireEye APT34 Dec 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+          }
+        ]
+      },
+      {
+        "source": "PUBLOAD",
+        "type": "malware",
+        "attack_id": "S1228",
+        "description": "PUBLOAD has queried Registry values to identify software using `reg query`.",
+        "citations": [
+          {
+            "source_name": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024",
+            "url": "https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+          }
+        ]
+      },
+      {
+        "source": "RATANKBA",
+        "type": "malware",
+        "attack_id": "S0241",
+        "description": "RATANKBA uses the command reg query “HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\InternetSettings”.",
+        "citations": [
+          {
+            "source_name": "RATANKBA",
+            "url": "https://www.trendmicro.com/en_us/research/17/b/ratankba-watering-holes-against-enterprises.html"
+          }
+        ]
+      },
+      {
+        "source": "SMOKEDHAM",
+        "type": "malware",
+        "attack_id": "S0649",
+        "description": "SMOKEDHAM has used reg.exe to create a Registry Run key.",
+        "citations": [
+          {
+            "source_name": "FireEye SMOKEDHAM June 2021",
+            "url": "https://www.fireeye.com/blog/threat-research/2021/06/darkside-affiliate-supply-chain-software-compromise.html"
+          }
+        ]
+      },
+      {
+        "source": "The Gentlemen Ransomware",
+        "type": "malware",
+        "attack_id": "S9051",
+        "description": "The Gentlemen Ransomware has written registry keys within HKLM and HKCU to gain persistence device wide and to have redundancy. The Gentlemen Ransomware has added registry keys to maintain persistence through `reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v GupdateS /t REG_SZ /d “<malware_path>” /f` and `reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v GupdateU /t REG_SZ /d “<malware_path>” /f`.",
+        "citations": [
+          {
+            "source_name": "CheckPointResearch_TheGentlemen_April2026",
+            "url": "https://research.checkpoint.com/2026/dfir-report-the-gentlemen/"
+          },
+          {
+            "source_name": "MSTI_GentelmenRansomware_May2026",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/"
+          }
+        ]
+      },
+      {
+        "source": "Ursnif",
+        "type": "malware",
+        "attack_id": "S0386",
+        "description": "Ursnif has used Reg to query the Registry for installed programs.",
+        "citations": [
+          {
+            "source_name": "TrendMicro Ursnif Mar 2015",
+            "url": "https://web.archive.org/web/20210719165945/https://www.trendmicro.com/en_us/research/15/c/ursnif-the-multifaceted-malware.html?_ga=2.165628854.808042651.1508120821-744063452.1505819992"
+          },
+          {
+            "source_name": "TrendMicro BKDR_URSNIF.SM",
+            "url": "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/BKDR_URSNIF.SM?_ga=2.129468940.1462021705.1559742358-1202584019.1549394279"
+          }
+        ]
+      },
+      {
+        "source": "Zebrocy",
+        "type": "malware",
+        "attack_id": "S0251",
+        "description": "Zebrocy executes the reg query command to obtain information in the Registry.",
+        "citations": [
+          {
+            "source_name": "ESET Zebrocy May 2019",
+            "url": "https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "reg delete \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /f",
+        "intent": "Disable Windows Defender: one of the registry commands in the fed scripts the actors ran for this.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID to XingLocker October 2021",
+        "source_url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+      },
+      {
+        "command": "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"SubmitSamplesConsent\" /t REG_DWORD /d \"2\" /f",
+        "intent": "One of the registry commands DEV-0832 used to try to turn off Microsoft Defender Antivirus (Figure 3 of the report).",
+        "status": "verified",
+        "source_name": "Microsoft DEV-0832 Vice Society Ransomware Campaigns October 2022",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2022/10/25/dev-0832-vice-society-opportunistic-ransomware-campaigns-impacting-us-education-sector/"
+      },
+      {
+        "command": "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderApiLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
+        "intent": "Disable Windows Defender logging: follows the comment \"rem 0 - Disable Logging\" in the fed2.bat script.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID to XingLocker October 2021",
+        "source_url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+      },
+      {
+        "command": "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderAuditLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
+        "intent": "Disable Windows Defender logging: follows the comment \"rem 0 - Disable Logging\" in the fed2.bat script.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID to XingLocker October 2021",
+        "source_url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
+        "intent": "Open port 3389 for Remote Desktop in the firewall policy. Part of enu.cmd, which the report says also created an administrator account and disabled the host-based firewall.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
+        "intent": "Open port 3389 for Remote Desktop in the firewall policy. Part of enu.cmd, which the report says also created an administrator account and disabled the host-based firewall.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fSingleSessionPerUser /t REG_DWORD /d 0 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\Licensing Core\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllowMultipleTSSessions /t REG_DWORD /d 1 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services\" /v MaxInstanceCount /t REG_DWORD /d 100 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions",
+        "intent": "Discovery: list the user's saved PuTTY sessions to find remote systems for further lateral movement.",
+        "status": "verified",
+        "source_name": "FoxIT Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "reg.exe add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f",
+        "intent": "Enable Remote Assistance on the host, one of the registry changes BianLian made.",
+        "status": "verified",
+        "source_name": "CISA AA23-136A BianLian Ransomware Group May 2023",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a"
+      },
+      {
+        "command": "reg save hklm\\sam C:\\ProgramData\\sam.save",
+        "intent": "A batch file ran reg save on the SAM hive, and the saved hives were then compressed into a ZIP file.",
+        "status": "verified",
+        "source_name": "Volexity Nearest Neighbor Attack November 2024",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "reg save hklm\\system C:\\ProgramData\\system.save",
+        "intent": "A batch file ran reg save on the SYSTEM hive, and the saved hives were then compressed into a ZIP file.",
+        "status": "verified",
+        "source_name": "Volexity Nearest Neighbor Attack November 2024",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "reg.exe save HKLM\\SYSTEM “C:\\Windows\\temp\\1\\sy.sa” /y",
+        "intent": "The threat actor used reg.exe to dump the SYSTEM registry hive to gain access to local user credentials.",
+        "status": "verified",
+        "source_name": "Fortinet TeamCity Intrusion Saga APT29 Suspected December 2023",
+        "source_url": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
+      },
+      {
+        "command": "reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\tapisrv\\Parameters /v ServiceDll /t REG_EXPAND_SZ /d c:\\windows\\tapisrv.dll /f",
+        "intent": "Lotus Blossom used this command line to install the Sagerunex backdoor in the registry, configuring it to run as a service.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lotus Blossom Espionage Group February 2025",
+        "source_url": "https://blog.talosintelligence.com/lotus-blossom-espionage-group/"
+      },
+      {
+        "command": "cmd /c reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v CurlUpdate /f /d rundll32.exe C:\\Users\\Public\\libcurl.dll,#52",
+        "intent": "The macro set up a Registry Run key as the persistence mechanism for the Libcurl.dll malware loader.",
+        "status": "verified",
+        "source_name": "Proofpoint LookBack Malware Targets US Utilities Sector August 2019",
+        "source_url": "https://www.proofpoint.com/us/threat-insight/post/lookback-malware-targets-united-states-utilities-sector-phishing-attacks"
+      },
+      {
+        "command": "REG ADD \"HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Shell /t REG_SZ /d [path to wsslc.exe]",
+        "intent": "The Trojan created persistence by writing this command to r.bat and executing it.",
+        "status": "verified",
+        "source_name": "Unit 42 Sofacy Cannon Trojan November 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/11/unit42-sofacy-continues-global-attacks-wheels-new-cannon-trojan/"
+      },
+      {
+        "command": "reg query \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\"",
+        "intent": "BabyShark issued a sequence of Windows commands, including this query, and saved the results to a log that was then uploaded to the C2.",
+        "status": "verified",
+        "source_name": "Unit 42 BabyShark Malware Targets US National Security Think Tanks February 2019",
+        "source_url": "https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+      },
+      {
+        "command": "reg export hklm\\sam c:\\sam.reg",
+        "intent": "The hijack command scheduled a task to run a batch file with this command, to hijack a user account with a known password.",
+        "status": "verified",
+        "source_name": "Proofpoint ServHelper and FlawedGrace TA505 January 2019",
+        "source_url": "https://www.proofpoint.com/us/threat-insight/post/servhelper-and-flawedgrace-new-malware-introduced-ta505"
+      },
+      {
+        "command": "REG ADD \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /V \\\"microsoft update\\\" /t REG_SZ /F /D \"SCHTASKS /run /tn 9T6ukfi6\"",
+        "intent": "Persistence was set up on the beachhead host with scheduled tasks and this Run key.",
+        "status": "verified",
+        "source_name": "The DFIR Report Ryuk Speed Run 2 Hours to Ransom November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/05/ryuk-speed-run-2-hours-to-ransom/"
+      },
+      {
+        "command": "reg add HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services \\LanmanServer\\Parameters /v MaxMpxCt /d 65535 /t REG_DWORD /f",
+        "intent": "BlackCat modifies the MaxMpxCt registry setting to increase the number of outstanding requests allowed, for example SMB requests when distributing ransomware via PsExec.",
+        "status": "verified",
+        "source_name": "Microsoft Many Lives of BlackCat Ransomware June 2022",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+      },
+      {
+        "command": "REG  ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /t REG_DWORD /v \"MaxInstanceCount\" /d 0xffffffff /f",
+        "intent": "Commands were executed to enable the RDP service on various hosts; this one increases the number of RDP connections allowed to an arbitrarily large number.",
+        "status": "verified",
+        "source_name": "The DFIR Report Qbot and Zerologon Lead to Full Domain Compromise February 2022",
+        "source_url": "https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /v UserAuthentication /t REG_DWORD /d 0 /f",
+        "intent": "The setup.bat script run by the threat actors on servers enabled BitLocker and RDP before encrypting the system drives.",
+        "status": "verified",
+        "source_name": "The DFIR Report Exchange Exploit Leads to Domain Wide Ransomware November 2021",
+        "source_url": "https://thedfirreport.com/2021/11/15/exchange-exploit-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "REG ADD HKLM\\SOFTWARE\\Policies\\Microsoft\\FVE /v EnableBDEWithNoTPM /t REG_DWORD /d 1 /f",
+        "intent": "The setup.bat script run by the threat actors on servers enabled BitLocker (and RDP) to encrypt the systems.",
+        "status": "verified",
+        "source_name": "The DFIR Report Exchange Exploit Leads to Domain Wide Ransomware November 2021",
+        "source_url": "https://thedfirreport.com/2021/11/15/exchange-exploit-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "c:\\windows\\system32\\cmd.exe /C reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v Amdesk /t REG_SZ /d \"Rundll32.exe SHELL32.DLL,ShellExec_RunDLL \"C:\\Users\\Public\\Libraries\\active_desktop\\desktop_launcher.exe\"\" /f",
+        "intent": "The stager creates persistence for itself across reboots via the registry Run key using this command.",
+        "status": "verified",
+        "source_name": "Cisco Talos Mustang Panda Targets Europe May 2022",
+        "source_url": "https://blog.talosintelligence.com/mustang-panda-targets-europe/"
+      },
+      {
+        "command": "cmd.exe /c reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v lsm /t reg_sz /d \"%appdata%\\lsm.exe\" /f",
+        "intent": "The pisloader dropper builds this string and uses it to set the Run registry key before writing and executing lsm.exe.",
+        "status": "verified",
+        "source_name": "Unit 42 Wekby pisloader DNS Command and Control May 2016",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2016/05/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/"
+      },
+      {
+        "command": "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest /v UseLogonCredential /t REG_DWORD /f /d 1",
+        "intent": "The !light.bat file in the credential-theft toolset sets UseLogonCredential to 1 so Windows keeps plaintext logon credentials in memory for Mimikatz.",
+        "status": "verified",
+        "source_name": "Cisco Talos Qilin Attack Methods October 2025",
+        "source_url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "command": "cmd /c reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem /v LongPathsEnabled /t REG_DWORD /d 1 /f",
+        "intent": "BlackByte ran this among the commands that modify the registry to facilitate elevated execution on the device.",
+        "status": "verified",
+        "source_name": "Microsoft Five Day Job BlackByte Ransomware Intrusion July 2023",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2023/07/06/the-five-day-job-a-blackbyte-ransomware-intrusion-case-study/"
+      },
+      {
+        "command": "reg delete \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Servers\" /f",
+        "intent": "Example of UNC1549 commands to delete RDP connection history registry keys, as part of deleting forensic artifacts.",
+        "status": "verified",
+        "source_name": "Google Cloud UNC1549 Aerospace and Defense TTPs November 2025",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/analysis-of-unc1549-ttps-targeting-aerospace-defense"
+      },
+      {
+        "command": "reg save HKLM\\SAM C:\\perflogs \\sam.save",
+        "intent": "The threat actors tried to copy the SAM database from the registry using the reg save command.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour August 2022",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "reg.exe ADD ;HKEY_LOCAL_MACHINE\\SYSTEM\\CurentControlSet\\Control\\Terminal Server; /v fDenyTSConnections /t REG_DWORD /d 0 /f",
+        "intent": "The attackers ran these reg.exe commands to modify system configuration to enable Terminal Services (RDP) on the computer.",
+        "status": "verified",
+        "source_name": "Symantec Crambus Espionage Middle East Government February 2023",
+        "source_url": "https://www.security.com/threat-intelligence/crambus-middle-east-government"
+      },
+      {
+        "command": "cmd.exe /c reg delete \"HKCU\\Software\\Microsoft\\Office\\14.0\\Word\\Resiliency\" /F",
+        "intent": "Shellcode in the weaponised RTF dropped svchost.exe and then tried to disable Word's recovery features with this command.",
+        "status": "verified",
+        "source_name": "Forcepoint MONSOON Analysis of an APT Campaign May 2016",
+        "source_url": "https://www.forcepoint.com/sites/default/files/resources/files/forcepoint-security-labs-monsoon-analysis-report.pdf"
+      },
+      {
+        "command": "reg add HKCU\\Software\\Classes\\mscfile\\shell\\open\\command /d %tmp%\\sick.exe /f",
+        "intent": "The macro's shell command added this registry entry so the downloaded Fareit sample runs when an .msc file is opened, to bypass UAC.",
+        "status": "verified",
+        "source_name": "Fortinet Malicious Macro Bypasses UAC for Fareit December 2016",
+        "source_url": "https://blog.fortinet.com/2016/12/16/malicious-macro-bypasses-uac-to-elevate-privilege-for-fareit-malware"
+      },
+      {
+        "command": "REG ADD HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v BGClient /t REG_SZ /d \"c:\\Users\\Public\\Music\\VSTOInstaller.exe\" /F",
+        "intent": "Persistence was set up via svmetrics.exe for a few tools using this command.",
+        "status": "verified",
+        "source_name": "Bitdefender LuminousMoth PlugX Persistence Revisited July 2021",
+        "source_url": "https://www.bitdefender.com/blog/labs/luminousmoth-plugx-file-exfiltration-and-persistence-revisited"
+      },
+      {
+        "command": "reg add 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\wercplsupport\\Parameters' /f /v ServiceDll /t REG_EXPAND_SZ /d 'c:\\windows\\System32\\wercplsupporte.dll'",
+        "intent": "The actor modified the existing wercplsupport service to use the miner DLL instead of the legitimate one.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird Cryptominer May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "reg.exe add hkcu\\software\\classes\\ms-settings\\shell\\open\\command /ve /d \"reg.exe save hklm\\sam c:\\ProgramData\\sam.save\" /f",
+        "intent": "Threat actors dumped the SAM, SECURITY and SYSTEM registry hives using the batch script fodhelper_reg_hashes.bat, which uses fodhelper.",
+        "status": "verified",
+        "source_name": "The DFIR Report Diavol Ransomware December 2021",
+        "source_url": "https://thedfirreport.com/2021/12/13/diavol-ransomware/"
+      },
+      {
+        "command": "cmd.exe /C reg add \"hklm\\system\\currentControlSet\\Control\\Terminal Server\" /v \"fDenyTSConnections\" /t REG_DWORD /d 0x0 /f",
+        "intent": "Cobalt Strike was used to enable RDP, and allow it through the firewall, on the domain controllers.",
+        "status": "verified",
+        "source_name": "The DFIR Report Conti Ransomware May 2021",
+        "source_url": "https://thedfirreport.com/2021/05/12/conti-ransomware/"
+      },
+      {
+        "command": "cmd /C > C:\\ProgramData\\1.txt 2>&1 reg query HKEY_USERS\\\\<SID>\\Network",
+        "intent": "The attackers examined the registry of the local host and saved a list of all mapped shares in a text file called 1.txt.",
+        "status": "verified",
+        "source_name": "The DFIR Report A Truly Graceful Wipe Out June 2023",
+        "source_url": "https://thedfirreport.com/2023/06/12/a-truly-graceful-wipe-out/"
+      },
+      {
+        "command": "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f",
+        "intent": "The attackers force the system to cache credentials so that they can be harvested afterward.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lazarus and the Tale of Three RATs September 2022",
+        "source_url": "https://blog.talosintelligence.com/lazarus-three-rats/"
+      },
+      {
+        "command": "cmd.exe /u /c reg add HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f",
+        "intent": "Listed by the report as a system configuration command (disable UAC) among the configuration changes made on the victim host.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lazarus and the Tale of Three RATs September 2022",
+        "source_url": "https://blog.talosintelligence.com/lazarus-three-rats/"
+      },
+      {
+        "command": "reg.exe add HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp /v PortNumber /t REG_DWORD /d 3389 /f",
+        "intent": "Listed by the report as a command to configure RDP.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lazarus and the Tale of Three RATs September 2022",
+        "source_url": "https://blog.talosintelligence.com/lazarus-three-rats/"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:PowerShell": [
+        {
+          "event_id": 4103,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1012"
+          ]
+        },
+        {
+          "event_id": 4104,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1012"
+          ]
+        },
+        {
+          "event_id": 4105,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1012"
+          ]
+        },
+        {
+          "event_id": 4106,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1012"
+          ]
+        }
+      ],
+      "WinEventLog:Security": [
+        {
+          "event_id": 4688,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1003.002"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 1,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1112",
+            "T1012",
+            "T1552.002",
+            "T1564.004"
+          ]
+        },
+        {
+          "event_id": 2,
+          "data_components": [
+            "File Modification"
+          ],
+          "techniques": [
+            "T1003.002"
+          ]
+        },
+        {
+          "event_id": 11,
+          "data_components": [
+            "File Creation"
+          ],
+          "techniques": [
+            "T1003.002",
+            "T1564.004"
+          ]
+        },
+        {
+          "event_id": 13,
+          "data_components": [
+            "Windows Registry Key Modification"
+          ],
+          "techniques": [
+            "T1112",
+            "T1012",
+            "T1552.002",
+            "T1003.002"
+          ]
+        },
+        {
+          "event_id": 14,
+          "data_components": [
+            "Windows Registry Key Modification"
+          ],
+          "techniques": [
+            "T1112",
+            "T1012",
+            "T1552.002",
+            "T1003.002"
+          ]
+        },
+        {
+          "event_id": 15,
+          "data_components": [
+            "File Metadata"
+          ],
+          "techniques": [
+            "T1564.004"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [
+      {
+        "log": "EDR:hunting",
+        "channel": "Behavioral rule for registry enumeration under credential-related paths",
+        "data_component": "Windows Registry Key Access",
+        "technique": "T1552.002"
+      },
+      {
+        "log": "etw:Microsoft-Windows-Kernel-File",
+        "channel": "ZwSetEaFile or ZwQueryEaFile function calls",
+        "data_component": "OS API Execution",
+        "technique": "T1564.004"
+      }
+    ],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1112",
+        "id": "DET0280",
+        "name": "Behavior-Based Registry Modification Detection on Windows",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0280",
+        "analytics": [
+          {
+            "id": "AN0781",
+            "description": "Behavior chain involving abnormal registry modifications via CLI, PowerShell, WMI, or direct API calls, especially targeting persistence, privilege escalation, or defense evasion keys, potentially followed by service restart or process execution. Such as editing Notify/Userinit/Startup keys, or disabling SafeDllSearchMode.",
+            "log_sources": [
+              {
+                "data_component": "Windows Registry Key Modification",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=13, 14"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1012",
+        "id": "DET0209",
+        "name": "Detection of Registry Query for Environmental Discovery",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0209",
+        "analytics": [
+          {
+            "id": "AN0589",
+            "description": "Registry read access associated with suspicious or non-interactive processes querying system config, installed software, or security settings.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              },
+              {
+                "data_component": "Windows Registry Key Modification",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=13, 14"
+              },
+              {
+                "data_component": "Command Execution",
+                "name": "WinEventLog:PowerShell",
+                "channel": "EventCode=4103, 4104, 4105, 4106"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1552.002",
+        "id": "DET0250",
+        "name": "Detect Credential Discovery via Windows Registry Enumeration",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0250",
+        "analytics": [
+          {
+            "id": "AN0694",
+            "description": "Defenders observe command-line executions or API-based registry reads targeting sensitive paths like HKLM or HKCU with keyword filters such as 'password', 'cred', or 'logon'. Typically performed by Reg.exe, PowerShell, custom binaries, or offensive tools such as Cobalt Strike. Correlation with process ancestry and command-line arguments indicates suspicious credential discovery activity.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              },
+              {
+                "data_component": "Windows Registry Key Modification",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=13, 14"
+              },
+              {
+                "data_component": "Windows Registry Key Access",
+                "name": "EDR:hunting",
+                "channel": "Behavioral rule for registry enumeration under credential-related paths"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1003.002",
+        "id": "DET0085",
+        "name": "Credential Dumping from SAM via Registry Dump and Local File Access",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0085",
+        "analytics": [
+          {
+            "id": "AN0235",
+            "description": "An adversary running with SYSTEM-level privileges executes commands or accesses registry keys to dump the SAM hive or directly reads sensitive local files from the config directory. This behavior often involves sequential access to HKLM\\SAM, HKLM\\SYSTEM, and creation of .save or .dmp files, enabling offline hash extraction.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "Windows Registry Key Modification",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=13, 14"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              },
+              {
+                "data_component": "File Modification",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1564.004",
+        "id": "DET0432",
+        "name": "Detection Strategy for NTFS File Attribute Abuse (ADS/EAs)",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0432",
+        "analytics": [
+          {
+            "id": "AN1206",
+            "description": "Suspicious use of NTFS file attributes such as Alternate Data Streams (ADS) or Extended Attributes (EA) to hide data. Defender perspective: anomalous file creations or modifications containing colon syntax (file.ext:ads), API calls like ZwSetEaFile/ZwQueryEaFile, or PowerShell/Windows utilities interacting with -stream parameters. Correlation across file metadata anomalies, process lineage, and command execution provides context.",
+            "log_sources": [
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              },
+              {
+                "data_component": "File Metadata",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=15"
+              },
+              {
+                "data_component": "OS API Execution",
+                "name": "etw:Microsoft-Windows-Kernel-File",
+                "channel": "ZwSetEaFile or ZwQueryEaFile function calls"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "System Information Discovery via Registry Queries",
+        "id": "0022869c-49f7-4ff2-ba03-85ac42ddac58",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml",
+        "level": "low",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1082"
+        ]
+      },
+      {
+        "title": "Potential Persistence Attempt Via Run Keys Using Reg.EXE",
+        "id": "de587dce-915e-4218-aac4-835ca6af6f70",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "Add SafeBoot Keys Via Reg Utility",
+        "id": "d7662ff6-9e97-4596-a61d-9839e32dee8d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_add_safeboot.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Suspicious Reg Add BitLocker",
+        "id": "0e0255bf-2548-47b8-9582-c0955c9283f5",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_bitlocker.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1486"
+        ]
+      },
+      {
+        "title": "Dropping Of Password Filter DLL",
+        "id": "b7966f4a-b333-455b-8370-8ca53c229762",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_credential_access_via_password_filter.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1556.002"
+        ]
+      },
+      {
+        "title": "Suspicious Windows Defender Folder Exclusion Added Via Reg.EXE",
+        "id": "48917adc-a28e-4f5d-b729-11e75da8941f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_defender_exclusion.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "RunMRU Registry Key Deletion",
+        "id": "c11aecef-9c37-45a6-9c07-bc0782f963fd",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_delete_runmru.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1070.003"
+        ]
+      },
+      {
+        "title": "SafeBoot Registry Key Deleted Via Reg.EXE",
+        "id": "fc0e89b5-adb0-43c1-b749-c12a10ec37de",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_delete_safeboot.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Service Registry Key Deleted Via Reg.EXE",
+        "id": "05b2aa93-1210-42c8-8d9a-2fcc13b284f5",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_delete_services.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Desktop Background Change Using Reg.EXE",
+        "id": "8cbc9475-8d05-4e27-9c32-df960716c701",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1112",
+          "T1491.001"
+        ]
+      },
+      {
+        "title": "Direct Autorun Keys Modification",
+        "id": "24357373-078f-44ed-9ac4-6d334a668a11",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_direct_asep_registry_keys_modification.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "Disabling Windows Defender WMI Autologger Session via Reg.exe",
+        "id": "a1b2c3d4-e5f6-a7b8-c9d0-e1f2a3b4c5d6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Security Service Disabled Via Reg.EXE",
+        "id": "5e95028c-5229-4214-afae-d653d573d0ec",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_disable_sec_services.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Dumping of Sensitive Hives Via Reg.EXE",
+        "id": "fd877b94-9bb5-4191-bb25-d79cbd93c167",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_dumping_sensitive_hives.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1003.002",
+          "T1003.004",
+          "T1003.005"
+        ]
+      },
+      {
+        "title": "Windows Recall Feature Enabled Via Reg.EXE",
+        "id": "817f252c-5143-4dae-b418-48c3e9f63728",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_enable_windows_recall.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1113"
+        ]
+      },
+      {
+        "title": "Enumeration for Credentials in Registry",
+        "id": "e0b0c2ab-3d52-46d9-8cb7-049dc775fbd1",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_enumeration_for_credentials_in_registry.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1552.002"
+        ]
+      },
+      {
+        "title": "Potential Suspicious Registry File Imported Via Reg.EXE",
+        "id": "62e0298b-e994-4189-bc87-bc699aa62d97",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112"
+        ]
+      },
+      {
+        "title": "Suspicious Query of MachineGUID",
+        "id": "f5240972-3938-4e56-8e4b-e33893176c1f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_machineguid.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1082"
+        ]
+      },
+      {
+        "title": "Modify Group Policy Settings",
+        "id": "ada4b0c4-758b-46ac-9033-9004613a150d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1484.001"
+        ]
+      },
+      {
+        "title": "Potential Configuration And Service Reconnaissance Via Reg.EXE",
+        "id": "970007b7-ce32-49d0-a4a4-fbef016950bd",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_query_registry.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1007",
+          "T1012"
+        ]
+      },
+      {
+        "title": "Potential Tampering With RDP Related Registry Keys Via Reg.EXE",
+        "id": "0d5675be-bc88-4172-86d3-1e96a4476536",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1021.001",
+          "T1112"
+        ]
+      },
+      {
+        "title": "Suspicious ScreenSave Change by Reg.exe",
+        "id": "0fc35fc3-efe6-4898-8a37-0b233339524f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_screensaver.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1546.002"
+        ]
+      },
+      {
+        "title": "Changing Existing Service ImagePath Value Via Reg.EXE",
+        "id": "9b0b7ac3-6223-47aa-a3fd-e8f211e637db",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_service_imagepath_change.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1574.011"
+        ]
+      },
+      {
+        "title": "Detected Windows Software Discovery",
+        "id": "e13f668e-7f95-443d-98d2-1816a7648a7b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_software_discovery.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1518"
+        ]
+      },
+      {
+        "title": "Reg Add Suspicious Paths",
+        "id": "b7e2a8d4-74bb-4b78-adc9-3f92af2d4829",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112",
+          "T1685"
+        ]
+      },
+      {
+        "title": "System Language Discovery via Reg.Exe",
+        "id": "c43a5405-e8e1-4221-9ac9-dbe3fa14e886",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_system_language_discovery.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1614.001"
+        ]
+      },
+      {
+        "title": "System Restore Registry Modification via CommandLine",
+        "id": "7c06ab9b-b1d2-4ba9-b06e-09491ded20d9",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_system_restore_modification.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1490"
+        ]
+      },
+      {
+        "title": "Suspicious Windows Defender Registry Key Tampering Via Reg.EXE",
+        "id": "452bce90-6fb0-43cc-97a5-affc283139b3",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_windows_defender_tamper.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Non-privileged Usage of Reg or Powershell",
+        "id": "8f02c935-effe-45b3-8fc9-ef8696a9e41d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112"
+        ]
+      },
+      {
+        "title": "Potential Baby Shark Malware Activity",
+        "id": "2b30fa36-3a18-402f-a22d-bf4ce2189f35",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2019/Malware/BabyShark/proc_creation_win_malware_babyshark.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1012",
+          "T1059.001",
+          "T1059.003",
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Operation Wocao Activity",
+        "id": "1cfac73c-be78-4f9a-9b08-5bde0c3953ab",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2019/TA/Operation-Wocao/proc_creation_win_apt_wocao.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1012",
+          "T1027",
+          "T1036.004",
+          "T1053.005",
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Exploited CVE-2020-10189 Zoho ManageEngine",
+        "id": "846b866e-2a57-46ee-8e16-85fa92759be7",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2020/Exploits/CVE-2020-10189/proc_creation_win_exploit_cve_2020_10189.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.003",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Lazarus Group Activity",
+        "id": "24c4d154-05a4-4b99-b57d-9b977472443a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2020/TA/Lazarus/proc_creation_win_apt_lazarus_group_activity.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "SOURGUM Actor Behaviours",
+        "id": "7ba08e95-1e0b-40cd-9db5-b980555e42fd",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2021/TA/SOURGUM/proc_creation_win_apt_sourgrum.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1546",
+          "T1546.015"
+        ]
+      },
+      {
+        "title": "Mint Sandstorm - AsperaFaspex Suspicious Process Execution",
+        "id": "91048c0d-5b81-4b85-a099-c9ee4fb87979",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Mint Sandstorm - ManageEngine Suspicious Process Execution",
+        "id": "58d8341a-5849-44cd-8ac8-8b020413a31b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_manage_engine_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential APT Mustang Panda Activity Against Australian Gov",
+        "id": "7806bb49-f653-48d3-a915-5115c1a85234",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mustang-Panda-Australia-Campaign/proc_creation_win_apt_mustang_panda_indicators.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Kapeka Backdoor Persistence Activity",
+        "id": "64a871dd-83f6-4e5f-80fc-5a7ca3a8a819",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2024/Malware/kapeka/proc_creation_win_malware_kapeka_backdoor_persistence.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Windows Suspicious Child Process from Node.js - React2Shell",
+        "id": "271de298-cc0e-4842-acd8-079a0a99ea65",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-55182/proc_creation_win_exploit_cve_2025_55182_susp_nodejs_server_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Windows AMSI Related Registry Tampering Via CommandLine",
+        "id": "7dbbcac2-57a0-45ac-b306-ff30a8bd2981",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_amsi_registry_tampering.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Windows EventLog Autologger Session Registry Modification Via CommandLine",
+        "id": "d7b81144-b866-48a4-9bcc-275dc69d870e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_autologger_session_registry_modification.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685.001"
+        ]
+      },
+      {
+        "title": "Suspicious Autorun Registry Modified via WMI",
+        "id": "c80e66d8-1780-48a9-b412-46663fd21ac0",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_autorun_registry_modified_via_wmic.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "Control Panel Items",
+        "id": "0ba863e6-def5-4e50-9cea-4dd8c7dc46a4",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_control_panel_item.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1218.002",
+          "T1546"
+        ]
+      },
+      {
+        "title": "Windows Credential Guard Registry Tampering Via CommandLine",
+        "id": "c17d47b7-dcd6-4109-87eb-d1817bd4cbc9",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_credential_guard_registry_tampering.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Windows Defender Context Menu Removed",
+        "id": "b9e8c7d6-a5f4-4e3d-8b1a-9f0c8d7e6a5b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_defender_remove_context_menu.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Suspicious Desktopimgdownldr Command",
+        "id": "bb58aa4a-b80b-415a-a2c0-2f65a4c81009",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_susp_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1105"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Child Process Of ClickOnce Application",
+        "id": "67bc0e75-c0a9-4cfc-8754-84a505b63c04",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_dfsvc_suspicious_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Security Event Logging Disabled via MiniNt Registry Key - Process",
+        "id": "1a4bd6af-99ac-4466-b5b2-7b72b4a05462",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_event_logging_disable_via_key_minint.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112",
+          "T1685.001"
+        ]
+      },
+      {
+        "title": "HackTool - SharPersist Execution",
+        "id": "26488ad0-f9fd-4536-876f-52fea846a2e4",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_sharpersist.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1053"
+        ]
+      },
+      {
+        "title": "Hypervisor-protected Code Integrity (HVCI) Related Registry Tampering Via CommandLine",
+        "id": "6225c53a-a96e-4235-b28f-8d7997cd96eb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hvci_registry_tampering.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Suspicious Shells Spawn by Java Utility Keytool",
+        "id": "90fb5e62-ca1f-4e22-b42e-cc521874c938",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process Of Manage Engine ServiceDesk",
+        "id": "cea2b7ea-792b-405f-95a1-b903ea06458f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1102"
+        ]
+      },
+      {
+        "title": "Suspicious Processes Spawned by Java.EXE",
+        "id": "0d34ed8b-1c12-4ff2-828c-16fc860b766d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "LSA PPL Protection Setting Modification via CommandLine",
+        "id": "8c0eca51-0f88-4db2-9183-fdfb10c703f9",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_lsa_ppl_protection_setting_modification_via_cli.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1689"
+        ]
+      },
+      {
+        "title": "MMC Spawning Windows Shell",
+        "id": "05a2ab7e-ce11-4b63-86db-ab32e763e11d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mmc_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1021.003"
+        ]
+      },
+      {
+        "title": "Suspicious MSHTA Child Process",
+        "id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Suspicious PowerShell Invocations - Specific - ProcessCreation",
+        "id": "536e2947-3729-478c-9903-745aaffe60d2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Enumeration for 3rd Party Creds From CLI",
+        "id": "87a476dc-0079-4583-a985-dee7a20a03de",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_registry_enumeration_for_credentials_cli.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1552.002"
+        ]
+      },
+      {
+        "title": "Registry Export of Third-Party Credentials",
+        "id": "cc1abf27-78a3-4ac5-a51c-f3070b1d8e40",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_registry_export_of_thirdparty_creds.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1552.002"
+        ]
+      },
+      {
+        "title": "Hiding User Account Via SpecialAccounts Registry Key - CommandLine",
+        "id": "9ec9fb1b-e059-4489-9642-f270c207923d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_registry_special_accounts_hide_user.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1564.002"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Child Process Of Regsvr32",
+        "id": "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Potential Defense Evasion Via Rename Of Highly Relevant Binaries",
+        "id": "0ba1da6d-b6ce-4366-828c-18826c9de23e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Potential Persistence Attempt Via Existing Service Tampering",
+        "id": "38879043-7e1e-47a9-8d46-6bec88e201df",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sc_service_tamper_for_persistence.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1543.003",
+          "T1574.011"
+        ]
+      },
+      {
+        "title": "Suspicious Spool Service Child Process",
+        "id": "dcdbc940-0bff-46b2-95f3-2d73f848e33b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1068",
+          "T1203"
+        ]
+      },
+      {
+        "title": "Execute From Alternate Data Streams",
+        "id": "7f43c430-5001-4f8b-aaa9-c3b88f18fa5c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_alternate_data_streams.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1564.004"
+        ]
+      },
+      {
+        "title": "Raccine Uninstall",
+        "id": "a31eeaed-3fd5-478e-a8ba-e62c6b3f9ecc",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_disable_raccine.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Registry Modification of MS-settings Protocol Handler",
+        "id": "dd3ee8cc-f751-41c9-ba53-5a32ed47e563",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_registry_modification_of_ms_setting_protocol_handler.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112",
+          "T1546.001",
+          "T1548.002"
+        ]
+      },
+      {
+        "title": "Suspicious SYSTEM User Process Creation",
+        "id": "2617e7ed-adb7-40ba-b0f3-8f9945fe6c09",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1003",
+          "T1027",
+          "T1134"
+        ]
+      },
+      {
+        "title": "User Shell Folders Registry Modification via CommandLine",
+        "id": "8f3ab69a-aa22-4943-aa58-e0a52fdf6818",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_user_shell_folders_registry_modification.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112",
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "Vulnerable Driver Blocklist Registry Tampering Via CommandLine",
+        "id": "22154f0e-5132-4a54-aa78-cc62f6def531",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_vulnerable_driver_blocklist_registry_tampering.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "Webshell Hacking Activity Patterns",
+        "id": "4ebc877f-4612-45cb-b3a5-8e3834db36c9",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_hacking.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1018",
+          "T1033",
+          "T1087",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Suspicious Process By Web Server Process",
+        "id": "8202070f-edeb-4d31-a010-a26c72ac5600",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Suspicious WSL InstallLocation Registry Key Modification Via CommandLine",
+        "id": "f9f62824-de4e-40ca-afe7-8358f76a876d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wsl_installlocation_modification_via_cmdline.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Removal of Potential COM Hijacking Registry Keys",
+        "id": "96f697b0-b499-4e5d-9908-a67bec11cdb6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_delete/registry_delete_removal_com_hijacking_registry_key.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "registry_delete"
+        },
+        "attack": [
+          "T1112"
+        ]
+      },
+      {
+        "title": "Potential PendingFileRenameOperations Tampering",
+        "id": "4eec988f-7bf0-49f1-8675-1e6a510b3a2a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_susp_pendingfilerenameoperations.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      }
+    ],
+    "other_rules": []
+  },
+  "related_CVE": [
+    {
+      "id": "CVE-2023-42793",
+      "description": "JetBrains TeamCity authentication bypass leading to remote code execution. A threat actor who exploited it used reg.exe to save the SYSTEM registry hive for credential dumping.",
+      "references": [
+        {
+          "source_name": "Fortinet TeamCity intrusion December 2023",
+          "url": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
+        }
+      ]
+    }
+  ],
+  "mitigations": [
+    {
+      "id": "M1024",
+      "name": "Restrict Registry Permissions",
+      "technique": "T1112",
+      "description": "Ensure proper permissions are set for Registry hives to prevent users from modifying keys for system components that may lead to privilege escalation."
+    },
+    {
+      "id": "M1027",
+      "name": "Password Policies",
+      "technique": "T1552.002",
+      "description": "Do not store credentials within the Registry."
+    },
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1552.002",
+      "description": "Proactively search for credentials within the Registry and attempt to remediate the risk."
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1552.002",
+      "description": "If it is necessary that software must store credentials in the Registry, then ensure the associated accounts have limited permissions so they cannot be abused if obtained by an adversary."
+    },
+    {
+      "id": "M1027",
+      "name": "Password Policies",
+      "technique": "T1003.002",
+      "description": "Ensure that local administrator accounts have complex, unique passwords across all systems on the network."
+    },
+    {
+      "id": "M1017",
+      "name": "User Training",
+      "technique": "T1003.002",
+      "description": "Limit credential overlap across accounts and systems by training users and administrators not to use the same password for multiple accounts."
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1003.002",
+      "description": "Do not put user or admin domain accounts in the local administrator groups across systems unless they are tightly controlled, as this is often equivalent to having a local administrator account with the same password on all systems. Follow best practices for design and administration of an enterprise network to limit privileged account use across administrative tiers."
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1003.002",
+      "description": "Consider disabling or restricting NTLM."
+    },
+    {
+      "id": "M1022",
+      "name": "Restrict File and Directory Permissions",
+      "technique": "T1564.004",
+      "description": "Consider adjusting read and write permissions for NTFS EA, though this should be tested to ensure routine OS operations are not impeded."
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0075/",
+    "https://strontic.github.io/xcyclopedia/library/reg.exe-227F63E1D9008B36BDBCC4B397780BE4.html",
+    "https://lolbas-project.github.io/lolbas/Binaries/Reg/",
+    "https://app.tidalcyber.com/software/d796615c-fa3d-4afd-817a-1a3db8c73532"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

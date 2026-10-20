@@ -1,0 +1,2971 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "55f43378-76f1-4e0e-8216-7200c206541c",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:15:00.000Z",
+  "modified": "2026-10-16T00:15:00.000Z",
+  "name": "WMIC.exe",
+  "image": "wmic.exe",
+  "description": "The WMI command-line (WMIC) utility provides a command-line interface for WMI",
+  "attack": {
+    "id": "T1047",
+    "name": "Windows Management Instrumentation",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1047",
+    "version": "20.0"
+  },
+  "summary": [
+    "Execute commands and payloads on remote computers with process call create",
+    "Move laterally and deploy ransomware across a network",
+    "Delete volume shadow copies",
+    "Identify installed antivirus products through the SecurityCenter2 namespace",
+    "Gather system, process and disk information for discovery",
+    "Execute remote XSL scripts",
+    "Change the start type of services such as the Volume Shadow Copy Service"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\wbem\\wmic.exe",
+    "C:\\Windows\\SysWOW64\\wbem\\wmic.exe"
+  ],
+  "hashes": {
+    "MD5": "A2EF3F0AD95FDA9262A5F9533B6DD1BD"
+  },
+  "capabilities": [
+    "Execute",
+    "Reconnaissance",
+    "Alternate data streams",
+    "Copy"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1047"
+  ],
+  "techniques": [
+    {
+      "id": "T1047",
+      "name": "Windows Management Instrumentation",
+      "url": "https://attack.mitre.org/techniques/T1047",
+      "tactics": [
+        "Execution"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "Blue Mockingbird",
+        "attack_id": "G0108",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Chimera",
+        "attack_id": "G0114",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "FIN8",
+        "attack_id": "G0061",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "INC Ransom",
+        "attack_id": "G1032",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Indrik Spider",
+        "attack_id": "G0119",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Magic Hound",
+        "attack_id": "G0059",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "MirrorFace",
+        "attack_id": "G1054",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Naikon",
+        "attack_id": "G0019",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "NIMBUS MANTICORE",
+        "attack_id": "G1059",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "ToddyCat",
+        "attack_id": "G1022",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "VOID MANTICORE",
+        "attack_id": "G1055",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Wizard Spider",
+        "attack_id": "G0102",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "C0015",
+        "attack_id": "C0015",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "C0018",
+        "attack_id": "C0018",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Operation Dream Job",
+        "attack_id": "C0022",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "Action RAT",
+        "attack_id": "S1028",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Astaroth",
+        "attack_id": "S0373",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Avaddon",
+        "attack_id": "S0640",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "BlackCat",
+        "attack_id": "S1068",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "CharmPower",
+        "attack_id": "S0674",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "IcedID",
+        "attack_id": "S0483",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "INC Ransomware",
+        "attack_id": "S1139",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "jRAT",
+        "attack_id": "S0283",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "KOCTOPUS",
+        "attack_id": "S0669",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "LAMEHUG",
+        "attack_id": "S9035",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "LockBit 2.0",
+        "attack_id": "S1199",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Meteor",
+        "attack_id": "S0688",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "NotPetya",
+        "attack_id": "S0368",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Octopus",
+        "attack_id": "S0340",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "ProLock",
+        "attack_id": "S0654",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "PUBLOAD",
+        "attack_id": "S1228",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "PyDCrypt",
+        "attack_id": "S1032",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Qilin",
+        "attack_id": "S1242",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Raspberry Robin",
+        "attack_id": "S1130",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Remexi",
+        "attack_id": "S0375",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "StoneDrill",
+        "attack_id": "S0380",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "The Gentlemen Ransomware",
+        "attack_id": "S9051",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Valak",
+        "attack_id": "S0476",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "WannaCry",
+        "attack_id": "S0366",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      },
+      {
+        "name": "Zebrocy",
+        "attack_id": "S0251",
+        "evidence": [
+          "names wmic.exe"
+        ]
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "Blue Mockingbird",
+        "type": "intrusion-set",
+        "attack_id": "G0108",
+        "description": "Blue Mockingbird has used wmic.exe and Windows Registry modifications to set the COR_PROFILER environment variable to execute a malicious DLL whenever a process loads the.NET CLR.",
+        "citations": [
+          {
+            "source_name": "RedCanary Mockingbird May 2020",
+            "url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+          }
+        ]
+      },
+      {
+        "source": "Blue Mockingbird",
+        "type": "intrusion-set",
+        "attack_id": "G0108",
+        "description": "Blue Mockingbird has used wmic.exe to set environment variables.",
+        "citations": [
+          {
+            "source_name": "RedCanary Mockingbird May 2020",
+            "url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+          }
+        ]
+      },
+      {
+        "source": "Chimera",
+        "type": "intrusion-set",
+        "attack_id": "G0114",
+        "description": "Chimera has harvested data from victim's e-mail including through execution of wmic /node:<ip> process call create \"cmd /c copy c:\\Users\\<username>\\<path>\\backup.pst c:\\windows\\temp\\backup.pst\" copy \"i:\\<path>\\<username>\\My Documents\\<filename>.pst\"\ncopy.",
+        "citations": [
+          {
+            "source_name": "NCC Group Chimera January 2021",
+            "url": "https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+          }
+        ]
+      },
+      {
+        "source": "Chimera",
+        "type": "intrusion-set",
+        "attack_id": "G0114",
+        "description": "Chimera has used WMIC to execute remote commands.",
+        "citations": [
+          {
+            "source_name": "Cycraft Chimera April 2020",
+            "url": "https://web.archive.org/web/20231214094657/https://cycraft.com/download/CyCraft-Whitepaper-Chimera_V4.1.pdf"
+          },
+          {
+            "source_name": "NCC Group Chimera January 2021",
+            "url": "https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+          }
+        ]
+      },
+      {
+        "source": "FIN8",
+        "type": "intrusion-set",
+        "attack_id": "G0061",
+        "description": "FIN8's malicious spearphishing payloads use WMI to launch malware and spawn `cmd.exe` execution. FIN8 has also used WMIC and the Impacket suite for lateral movement, as well as during and post compromise cleanup activities.",
+        "citations": [
+          {
+            "source_name": "FireEye Obfuscation June 2017",
+            "url": "https://web.archive.org/web/20170923102302/https://www.fireeye.com/blog/threat-research/2017/06/obfuscation-in-the-wild.html"
+          },
+          {
+            "source_name": "FireEye Know Your Enemy FIN8 Aug 2016",
+            "url": "https://www2.fireeye.com/WBNR-Know-Your-Enemy-UNC622-Spear-Phishing.html"
+          },
+          {
+            "source_name": "Bitdefender FIN8 July 2021",
+            "url": "https://businessinsights.bitdefender.com/deep-dive-into-a-fin8-attack-a-forensic-investigation"
+          },
+          {
+            "source_name": "Symantec FIN8 Jul 2023",
+            "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/syssphinx-fin8-backdoor"
+          }
+        ]
+      },
+      {
+        "source": "INC Ransom",
+        "type": "intrusion-set",
+        "attack_id": "G1032",
+        "description": "INC Ransom has used WMIC to deploy ransomware.",
+        "citations": [
+          {
+            "source_name": "Cybereason INC Ransomware November 2023",
+            "url": "https://web.archive.org/web/20231202022946/https://www.cybereason.com/hubfs/dam/collateral/reports/threat-alert-inc-ransomware.pdf"
+          },
+          {
+            "source_name": "SOCRadar INC Ransom January 2024",
+            "url": "https://socradar.io/dark-web-profile-inc-ransom/"
+          },
+          {
+            "source_name": "Huntress INC Ransom Group August 2023",
+            "url": "https://www.huntress.com/blog/investigating-new-inc-ransom-group-activity"
+          }
+        ]
+      },
+      {
+        "source": "Indrik Spider",
+        "type": "intrusion-set",
+        "attack_id": "G0119",
+        "description": "Indrik Spider has used WMIC to execute commands on remote computers.",
+        "citations": [
+          {
+            "source_name": "Symantec WastedLocker June 2020",
+            "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/wastedlocker-ransomware-us"
+          }
+        ]
+      },
+      {
+        "source": "Indrik Spider",
+        "type": "intrusion-set",
+        "attack_id": "G0119",
+        "description": "Indrik Spider used wmic.exe to add a new user to the system.",
+        "citations": [
+          {
+            "source_name": "Symantec WastedLocker June 2020",
+            "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/wastedlocker-ransomware-us"
+          }
+        ]
+      },
+      {
+        "source": "Lazarus Group",
+        "type": "intrusion-set",
+        "attack_id": "G0032",
+        "description": "Lazarus Group has used WMIC for discovery as well as to execute payloads for persistence and lateral movement.",
+        "citations": [
+          {
+            "source_name": "Novetta Blockbuster RATs",
+            "url": "https://web.archive.org/web/20220608001455/https://www.operationblockbuster.com/wp-content/uploads/2016/02/Operation-Blockbuster-RAT-and-Staging-Report.pdf"
+          },
+          {
+            "source_name": "Novetta Blockbuster",
+            "url": "https://web.archive.org/web/20160226161828/https://www.operationblockbuster.com/wp-content/uploads/2016/02/Operation-Blockbuster-Report.pdf"
+          },
+          {
+            "source_name": "Qualys LolZarus",
+            "url": "https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns"
+          },
+          {
+            "source_name": "Kaspersky ThreatNeedle Feb 2021",
+            "url": "https://securelist.com/lazarus-threatneedle/100803/"
+          }
+        ]
+      },
+      {
+        "source": "Magic Hound",
+        "type": "intrusion-set",
+        "attack_id": "G0059",
+        "description": "Magic Hound has used a tool to run `cmd /c wmic computersystem get domain` for discovery.",
+        "citations": [
+          {
+            "source_name": "DFIR Report APT35 ProxyShell March 2022",
+            "url": "https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell"
+          }
+        ]
+      },
+      {
+        "source": "MirrorFace",
+        "type": "intrusion-set",
+        "attack_id": "G1054",
+        "description": "MirrorFace has leveraged WMIC on targeted systems post compromise.",
+        "citations": [
+          {
+            "source_name": "JPCERT MirrorFace JUL 2024",
+            "url": "https://blogs.jpcert.or.jp/en/2024/07/mirrorface-attack-against-japanese-organisations.html"
+          }
+        ]
+      },
+      {
+        "source": "Naikon",
+        "type": "intrusion-set",
+        "attack_id": "G0019",
+        "description": "Naikon has used WMIC.exe for lateral movement.",
+        "citations": [
+          {
+            "source_name": "Bitdefender Naikon April 2021",
+            "url": "https://www.bitdefender.com/files/News/CaseStudies/study/396/Bitdefender-PR-Whitepaper-NAIKON-creat5397-en-EN.pdf"
+          }
+        ]
+      },
+      {
+        "source": "NIMBUS MANTICORE",
+        "type": "intrusion-set",
+        "attack_id": "G1059",
+        "description": "NIMBUS MANTICORE has identified logged in users on victim hosts using `quser.exe` and `wmic.exe`.",
+        "citations": [
+          {
+            "source_name": "Mandiant_UNC1549TTPsTools_Nov2025",
+            "url": "https://cloud.google.com/blog/topics/threat-intelligence/analysis-of-unc1549-ttps-targeting-aerospace-defense"
+          }
+        ]
+      },
+      {
+        "source": "NIMBUS MANTICORE",
+        "type": "intrusion-set",
+        "attack_id": "G1059",
+        "description": "NIMBUS MANTICORE has leveraged `wmic.exe` to enumerate logged in users on compromised devices.",
+        "citations": [
+          {
+            "source_name": "Mandiant_UNC1549TTPsTools_Nov2025",
+            "url": "https://cloud.google.com/blog/topics/threat-intelligence/analysis-of-unc1549-ttps-targeting-aerospace-defense"
+          }
+        ]
+      },
+      {
+        "source": "ToddyCat",
+        "type": "intrusion-set",
+        "attack_id": "G1022",
+        "description": "ToddyCat can determine is Kaspersky software is running on an endpoint by running `cmd /c wmic process where name=\"avp.exe\"`.",
+        "citations": [
+          {
+            "source_name": "Kaspersky ToddyCat Check Logs October 2023",
+            "url": "https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+          }
+        ]
+      },
+      {
+        "source": "VOID MANTICORE",
+        "type": "intrusion-set",
+        "attack_id": "G1055",
+        "description": "VOID MANTICORE has utilized WMIC to log into the victim host and create a process `process call create “cmd.exe /c copy \\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy1\\windows\\system32\\config\\system c:\\users\\public”`.",
+        "citations": [
+          {
+            "source_name": "Check Point VOID MANTICORE Handala Hack March 2026",
+            "url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/"
+          }
+        ]
+      },
+      {
+        "source": "Volt Typhoon",
+        "type": "intrusion-set",
+        "attack_id": "G1017",
+        "description": "Volt Typhoon has leveraged WMIC for execution, remote system discovery, and to create and use temporary directories.",
+        "citations": [
+          {
+            "source_name": "CISA AA24-038A PRC Critical Infrastructure February 2024",
+            "url": "https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf"
+          },
+          {
+            "source_name": "Secureworks BRONZE SILHOUETTE May 2023",
+            "url": "https://web.archive.org/web/20230601025540/https://www.secureworks.com/blog/chinese-cyberespionage-group-bronze-silhouette-targets-us-government-and-defense-organizations"
+          },
+          {
+            "source_name": "Microsoft Volt Typhoon May 2023",
+            "url": "https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/"
+          },
+          {
+            "source_name": "Joint Cybersecurity Advisory Volt Typhoon June 2023",
+            "url": "https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF"
+          }
+        ]
+      },
+      {
+        "source": "Wizard Spider",
+        "type": "intrusion-set",
+        "attack_id": "G0102",
+        "description": "Wizard Spider has used WMI and LDAP queries for network discovery and to move laterally. Wizard Spider has also used batch scripts to leverage WMIC to deploy ransomware.",
+        "citations": [
+          {
+            "source_name": "Red Canary Hospital Thwarted Ryuk October 2020",
+            "url": "https://redcanary.com/blog/how-one-hospital-thwarted-a-ryuk-ransomware-outbreak/"
+          },
+          {
+            "source_name": "DHS/CISA Ransomware Targeting Healthcare October 2020",
+            "url": "https://us-cert.cisa.gov/ncas/alerts/aa20-302a"
+          },
+          {
+            "source_name": "CrowdStrike Grim Spider May 2019",
+            "url": "https://www.crowdstrike.com/blog/timelining-grim-spiders-big-game-hunting-tactics/"
+          },
+          {
+            "source_name": "FireEye KEGTAP SINGLEMALT October 2020",
+            "url": "https://www.fireeye.com/blog/threat-research/2020/10/kegtap-and-singlemalt-with-a-ransomware-chaser.html"
+          },
+          {
+            "source_name": "Mandiant FIN12 Oct 2021",
+            "url": "https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Wizard Spider",
+        "type": "intrusion-set",
+        "attack_id": "G0102",
+        "description": "Wizard Spider has used batch scripts that utilizes WMIC to execute a BITSAdmin transfer of a ransomware payload to each compromised machine.",
+        "citations": [
+          {
+            "source_name": "Mandiant FIN12 Oct 2021",
+            "url": "https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Wizard Spider",
+        "type": "intrusion-set",
+        "attack_id": "G0102",
+        "description": "Wizard Spider has used WMIC and vssadmin to manually delete volume shadow copies. Wizard Spider has also used Conti ransomware to delete volume shadow copies automatically with the use of vssadmin.",
+        "citations": [
+          {
+            "source_name": "Mandiant FIN12 Oct 2021",
+            "url": "https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf"
+          }
+        ]
+      },
+      {
+        "source": "C0015",
+        "type": "campaign",
+        "attack_id": "C0015",
+        "description": "During C0015, the threat actors used `wmic` and `rundll32` to load Cobalt Strike onto a target host.",
+        "citations": [
+          {
+            "source_name": "DFIR Conti Bazar Nov 2021",
+            "url": "https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+          }
+        ]
+      },
+      {
+        "source": "C0018",
+        "type": "campaign",
+        "attack_id": "C0018",
+        "description": "During C0018, the threat actors used WMIC to modify administrative settings on both a local and a remote host, likely as part of the first stages for their lateral movement; they also used WMI Provider Host (`wmiprvse.exe`) to execute a variety of encoded PowerShell scripts using the `DownloadString` method.",
+        "citations": [
+          {
+            "source_name": "Costa AvosLocker May 2022",
+            "url": "https://www.linkedin.com/pulse/raas-avoslocker-incident-response-analysis-fl%C3%A1vio-costa?trk=articles_directory"
+          },
+          {
+            "source_name": "Cisco Talos Avos Jun 2022",
+            "url": "https://blog.talosintelligence.com/avoslocker-new-arsenal/"
+          }
+        ]
+      },
+      {
+        "source": "Operation Dream Job",
+        "type": "campaign",
+        "attack_id": "C0022",
+        "description": "During Operation Dream Job, Lazarus Group used WMIC to executed a remote XSL script.",
+        "citations": [
+          {
+            "source_name": "ESET Lazarus Jun 2020",
+            "url": "https://www.welivesecurity.com/wp-content/uploads/2020/06/ESET_Operation_Interception.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Action RAT",
+        "type": "malware",
+        "attack_id": "S1028",
+        "description": "Action RAT can identify AV products on an infected host using the following command: `cmd.exe WMIC /Node:localhost /Namespace:\\root\\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List`.",
+        "citations": [
+          {
+            "source_name": "MalwareBytes SideCopy Dec 2021",
+            "url": "https://www.malwarebytes.com/blog/news/2021/12/sidecopy-apt-connecting-lures-to-victims-payloads-to-infrastructure"
+          }
+        ]
+      },
+      {
+        "source": "Astaroth",
+        "type": "malware",
+        "attack_id": "S0373",
+        "description": "Astaroth uses WMIC to execute payloads.",
+        "citations": [
+          {
+            "source_name": "Cofense Astaroth Sept 2018",
+            "url": "https://web.archive.org/web/20200302071436/https://cofense.com/seeing-resurgence-demonic-astaroth-wmic-trojan/"
+          }
+        ]
+      },
+      {
+        "source": "Avaddon",
+        "type": "malware",
+        "attack_id": "S0640",
+        "description": "Avaddon uses wmic.exe to delete shadow copies.",
+        "citations": [
+          {
+            "source_name": "Hornet Security Avaddon June 2020",
+            "url": "https://www.hornetsecurity.com/en/security-information/avaddon-from-seeking-affiliates-to-in-the-wild-in-2-days/"
+          }
+        ]
+      },
+      {
+        "source": "BlackCat",
+        "type": "malware",
+        "attack_id": "S1068",
+        "description": "BlackCat can delete shadow copies using `vssadmin.exe delete shadows /all /quiet` and `wmic.exe Shadowcopy Delete`; it can also modify the boot loader using `bcdedit /set {default} recoveryenabled No`.",
+        "citations": [
+          {
+            "source_name": "Microsoft BlackCat Jun 2022",
+            "url": "https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+          }
+        ]
+      },
+      {
+        "source": "BlackCat",
+        "type": "malware",
+        "attack_id": "S1068",
+        "description": "BlackCat can use `wmic.exe` to delete shadow copies on compromised networks.",
+        "citations": [
+          {
+            "source_name": "Microsoft BlackCat Jun 2022",
+            "url": "https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+          }
+        ]
+      },
+      {
+        "source": "CharmPower",
+        "type": "malware",
+        "attack_id": "S0674",
+        "description": "CharmPower can use `wmic` to gather information from a system.",
+        "citations": [
+          {
+            "source_name": "Check Point APT35 CharmPower January 2022",
+            "url": "https://research.checkpoint.com/2022/apt35-exploits-log4j-vulnerability-to-distribute-new-modular-powershell-toolkit/"
+          }
+        ]
+      },
+      {
+        "source": "IcedID",
+        "type": "malware",
+        "attack_id": "S0483",
+        "description": "IcedID can identify AV products on an infected host using the following command:\n` WMIC.exe WMIC /Node:localhost /Namespace:\\root\\SecurityCenter2 Path AntiVirusProduct Get * /Format:List`.",
+        "citations": [
+          {
+            "source_name": "DFIR_Sodinokibi_Ransomware",
+            "url": "https://thedfirreport.com/2021/03/29/sodinokibi-aka-revil-ransomware/"
+          },
+          {
+            "source_name": "DFIR_Quantum_Ransomware",
+            "url": "https://thedfirreport.com/2022/04/25/quantum-ransomware/"
+          }
+        ]
+      },
+      {
+        "source": "INC Ransomware",
+        "type": "malware",
+        "attack_id": "S1139",
+        "description": "INC Ransomware has the ability to use wmic.exe to spread to multiple endpoints within a compromised environment.",
+        "citations": [
+          {
+            "source_name": "Secureworks GOLD IONIC April 2024",
+            "url": "https://www.secureworks.com/blog/gold-ionic-deploys-inc-ransomware"
+          },
+          {
+            "source_name": "Huntress INC Ransom Group August 2023",
+            "url": "https://www.huntress.com/blog/investigating-new-inc-ransom-group-activity"
+          }
+        ]
+      },
+      {
+        "source": "jRAT",
+        "type": "malware",
+        "attack_id": "S0283",
+        "description": "jRAT can list security software, such as by using WMIC to identify anti-virus products installed on the victim’s machine and to obtain firewall details.",
+        "citations": [
+          {
+            "source_name": "jRAT Symantec Aug 2018",
+            "url": "https://www.symantec.com/blogs/threat-intelligence/jrat-new-anti-parsing-techniques"
+          },
+          {
+            "source_name": "Kaspersky Adwind Feb 2016",
+            "url": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/07195002/KL_AdwindPublicReport_2016.pdf"
+          }
+        ]
+      },
+      {
+        "source": "jRAT",
+        "type": "malware",
+        "attack_id": "S0283",
+        "description": "jRAT uses WMIC to identify anti-virus products installed on the victim’s machine and to obtain firewall details.",
+        "citations": [
+          {
+            "source_name": "jRAT Symantec Aug 2018",
+            "url": "https://www.symantec.com/blogs/threat-intelligence/jrat-new-anti-parsing-techniques"
+          }
+        ]
+      },
+      {
+        "source": "KOCTOPUS",
+        "type": "malware",
+        "attack_id": "S0669",
+        "description": "KOCTOPUS has checked the OS version using `wmic.exe` and the `find` command.",
+        "citations": [
+          {
+            "source_name": "MalwareBytes LazyScripter Feb 2021",
+            "url": "https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+          }
+        ]
+      },
+      {
+        "source": "LAMEHUG",
+        "type": "malware",
+        "attack_id": "S9035",
+        "description": "LAMEHUG can use wmic to collect system information.",
+        "citations": [
+          {
+            "source_name": "Splunk LAMEHUG SEP 2025",
+            "url": "https://www.splunk.com/en_us/blog/security/lamehug-ai-driven-malware-llm-cyber-intrusion-analysis.html"
+          }
+        ]
+      },
+      {
+        "source": "LockBit 2.0",
+        "type": "malware",
+        "attack_id": "S1199",
+        "description": "LockBit 2.0 can use wmic.exe to delete volume shadow copies.",
+        "citations": [
+          {
+            "source_name": "Cybereason Lockbit 2.0",
+            "url": "https://www.cybereason.com/blog/threat-analysis-report-lockbit-2.0-all-paths-lead-to-ransom"
+          }
+        ]
+      },
+      {
+        "source": "Meteor",
+        "type": "malware",
+        "attack_id": "S0688",
+        "description": "Meteor can use `wmic.exe` as part of its effort to delete shadow copies.",
+        "citations": [
+          {
+            "source_name": "Check Point Meteor Aug 2021",
+            "url": "https://research.checkpoint.com/2021/indra-hackers-behind-recent-attacks-on-iran/"
+          }
+        ]
+      },
+      {
+        "source": "Meteor",
+        "type": "malware",
+        "attack_id": "S0688",
+        "description": "Meteor can use `bcdedit` to delete different boot identifiers on a compromised host; it can also use `vssadmin.exe delete shadows /all /quiet` and `C:\\Windows\\system32\\wbem\\wmic.exe shadowcopy delete`.",
+        "citations": [
+          {
+            "source_name": "Check Point Meteor Aug 2021",
+            "url": "https://research.checkpoint.com/2021/indra-hackers-behind-recent-attacks-on-iran/"
+          }
+        ]
+      },
+      {
+        "source": "NotPetya",
+        "type": "malware",
+        "attack_id": "S0368",
+        "description": "NotPetya can use wmic to help propagate itself across a network.",
+        "citations": [
+          {
+            "source_name": "Talos Nyetya June 2017",
+            "url": "https://blog.talosintelligence.com/2017/06/worldwide-ransomware-variant.html"
+          },
+          {
+            "source_name": "US-CERT NotPetya 2017",
+            "url": "https://www.us-cert.gov/ncas/alerts/TA17-181A"
+          }
+        ]
+      },
+      {
+        "source": "NotPetya",
+        "type": "malware",
+        "attack_id": "S0368",
+        "description": "NotPetya can use valid credentials with PsExec or wmic to spread itself to remote systems.",
+        "citations": [
+          {
+            "source_name": "Talos Nyetya June 2017",
+            "url": "https://blog.talosintelligence.com/2017/06/worldwide-ransomware-variant.html"
+          },
+          {
+            "source_name": "US-CERT NotPetya 2017",
+            "url": "https://www.us-cert.gov/ncas/alerts/TA17-181A"
+          }
+        ]
+      },
+      {
+        "source": "NotPetya",
+        "type": "malware",
+        "attack_id": "S0368",
+        "description": "NotPetya uses rundll32.exe to install itself on remote systems when accessed via PsExec or wmic.",
+        "citations": [
+          {
+            "source_name": "Talos Nyetya June 2017",
+            "url": "https://blog.talosintelligence.com/2017/06/worldwide-ransomware-variant.html"
+          }
+        ]
+      },
+      {
+        "source": "Octopus",
+        "type": "malware",
+        "attack_id": "S0340",
+        "description": "Octopus has used wmic.exe for local discovery information.",
+        "citations": [
+          {
+            "source_name": "Securelist Octopus Oct 2018",
+            "url": "https://securelist.com/octopus-infested-seas-of-central-asia/88200/"
+          }
+        ]
+      },
+      {
+        "source": "ProLock",
+        "type": "malware",
+        "attack_id": "S0654",
+        "description": "ProLock can use WMIC to execute scripts on targeted hosts.",
+        "citations": [
+          {
+            "source_name": "Group IB Ransomware September 2020",
+            "url": "https://web.archive.org/web/20220119114433/https://groupib.pathfactory.com/ransomware-reports/prolock_wp"
+          }
+        ]
+      },
+      {
+        "source": "PUBLOAD",
+        "type": "malware",
+        "attack_id": "S1228",
+        "description": "PUBLOAD has leveraged `wmic logicaldisk get` to map local network drives.",
+        "citations": [
+          {
+            "source_name": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024",
+            "url": "https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+          }
+        ]
+      },
+      {
+        "source": "PUBLOAD",
+        "type": "malware",
+        "attack_id": "S1228",
+        "description": "PUBLOAD has used `wmic` to gather information from the victim device.",
+        "citations": [
+          {
+            "source_name": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024",
+            "url": "https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+          }
+        ]
+      },
+      {
+        "source": "PUBLOAD",
+        "type": "malware",
+        "attack_id": "S1228",
+        "description": "PUBLOAD has identified AV products on an infected host using the following command: `WMIC /Node:localhost /Namespace:\\root\\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List`.",
+        "citations": [
+          {
+            "source_name": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024",
+            "url": "https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+          }
+        ]
+      },
+      {
+        "source": "PyDCrypt",
+        "type": "malware",
+        "attack_id": "S1032",
+        "description": "PyDCrypt has attempted to execute with WMIC.",
+        "citations": [
+          {
+            "source_name": "Checkpoint MosesStaff Nov 2021",
+            "url": "https://research.checkpoint.com/2021/mosesstaff-targeting-israeli-companies/"
+          }
+        ]
+      },
+      {
+        "source": "Qilin",
+        "type": "malware",
+        "attack_id": "S1242",
+        "description": "Qilin can use WMIC to change the Volume Shadow Copy Service (VSS) startup type to manual.",
+        "citations": [
+          {
+            "source_name": "Cisco Talos Qilin Ransomware OCT 2025",
+            "url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+          }
+        ]
+      },
+      {
+        "source": "Raspberry Robin",
+        "type": "malware",
+        "attack_id": "S1130",
+        "description": "Raspberry Robin can execute via LNK containing a command to run a legitimate executable, such as wmic.exe, to download a malicious Windows Installer (MSI) package.",
+        "citations": [
+          {
+            "source_name": "TrendMicro RaspberryRobin 2022",
+            "url": "https://www.trendmicro.com/en_us/research/22/l/raspberry-robin-malware-targets-telecom-governments.html"
+          }
+        ]
+      },
+      {
+        "source": "Remexi",
+        "type": "malware",
+        "attack_id": "S0375",
+        "description": "Remexi executes received commands with wmic.exe (for WMI commands).",
+        "citations": [
+          {
+            "source_name": "Securelist Remexi Jan 2019",
+            "url": "https://securelist.com/chafer-used-remexi-malware/89538/"
+          }
+        ]
+      },
+      {
+        "source": "StoneDrill",
+        "type": "malware",
+        "attack_id": "S0380",
+        "description": "StoneDrill has used the WMI command-line (WMIC) utility to run tasks.",
+        "citations": [
+          {
+            "source_name": "Kaspersky StoneDrill 2017",
+            "url": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/07180722/Report_Shamoon_StoneDrill_final.pdf"
+          }
+        ]
+      },
+      {
+        "source": "The Gentlemen Ransomware",
+        "type": "malware",
+        "attack_id": "S9051",
+        "description": "The Gentlemen Ransomware has deleted Volume Shadow Copies through the use of `vssadmin delete shadows /all /quiet` and `wmic shadowcopy delete`. The Gentlemen Ransomware has also inhibited system recovery by stopping backup services, disabling endpoint protection agents and remote access tools.",
+        "citations": [
+          {
+            "source_name": "BradyUnit42_TheGentlemen_July2026",
+            "url": "https://unit42.paloaltonetworks.com/the-gentlemen-ransomware/"
+          },
+          {
+            "source_name": "CheckPointResearch_TheGentlemen_April2026",
+            "url": "https://research.checkpoint.com/2026/dfir-report-the-gentlemen/"
+          },
+          {
+            "source_name": "MSTI_GentelmenRansomware_May2026",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/"
+          },
+          {
+            "source_name": "TrendAI_TheGentlemen_Sept2025",
+            "url": "https://www.trendaisecurity.com/en-us/resources-insights/trendai-security-blog/unmasking-the-gentlemen-ransomware"
+          }
+        ]
+      },
+      {
+        "source": "The Gentlemen Ransomware",
+        "type": "malware",
+        "attack_id": "S9051",
+        "description": "The Gentlemen Ransomware has utilized wmic to execute commands on victim devices. The Gentlemen Ransomware has also leveraged WMI to enumerate volumes and drives.",
+        "citations": [
+          {
+            "source_name": "CheckPointResearch_TheGentlemen_April2026",
+            "url": "https://research.checkpoint.com/2026/dfir-report-the-gentlemen/"
+          },
+          {
+            "source_name": "MSTI_GentelmenRansomware_May2026",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/"
+          }
+        ]
+      },
+      {
+        "source": "Valak",
+        "type": "malware",
+        "attack_id": "S0476",
+        "description": "Valak can use wmic process call create in a scheduled task to launch plugins and for execution.",
+        "citations": [
+          {
+            "source_name": "SentinelOne Valak June 2020",
+            "url": "https://assets.sentinelone.com/labs/sentinel-one-valak-i"
+          }
+        ]
+      },
+      {
+        "source": "WannaCry",
+        "type": "malware",
+        "attack_id": "S0366",
+        "description": "WannaCry uses vssadmin, wbadmin, bcdedit, and wmic to delete and disable operating system recovery features.",
+        "citations": [
+          {
+            "source_name": "FireEye WannaCry 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/05/wannacry-malware-profile.html"
+          },
+          {
+            "source_name": "SecureWorks WannaCry Analysis",
+            "url": "https://www.secureworks.com/research/wcry-ransomware-analysis"
+          },
+          {
+            "source_name": "LogRhythm WannaCry",
+            "url": "https://web.archive.org/web/20230522041200/https://logrhythm.com/blog/a-technical-analysis-of-wannacry-ransomware/"
+          }
+        ]
+      },
+      {
+        "source": "WannaCry",
+        "type": "malware",
+        "attack_id": "S0366",
+        "description": "WannaCry utilizes wmic to delete shadow copies.",
+        "citations": [
+          {
+            "source_name": "FireEye WannaCry 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/05/wannacry-malware-profile.html"
+          },
+          {
+            "source_name": "SecureWorks WannaCry Analysis",
+            "url": "https://www.secureworks.com/research/wcry-ransomware-analysis"
+          },
+          {
+            "source_name": "LogRhythm WannaCry",
+            "url": "https://web.archive.org/web/20230522041200/https://logrhythm.com/blog/a-technical-analysis-of-wannacry-ransomware/"
+          }
+        ]
+      },
+      {
+        "source": "Zebrocy",
+        "type": "malware",
+        "attack_id": "S0251",
+        "description": "Zebrocy uses the tasklist and wmic process get Capture, ExecutablePath commands to gather the processes running on the system.",
+        "citations": [
+          {
+            "source_name": "Unit42 Cannon Nov 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/11/unit42-sofacy-continues-global-attacks-wheels-new-cannon-trojan/"
+          },
+          {
+            "source_name": "ESET Zebrocy Nov 2018",
+            "url": "https://www.welivesecurity.com/2018/11/20/sednit-whats-going-zebrocy/"
+          },
+          {
+            "source_name": "Unit42 Sofacy Dec 2018",
+            "url": "https://unit42.paloaltonetworks.com/dear-joohn-sofacy-groups-global-campaign/"
+          },
+          {
+            "source_name": "ESET Zebrocy May 2019",
+            "url": "https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/"
+          },
+          {
+            "source_name": "Accenture SNAKEMACKEREL Nov 2018",
+            "url": "https://www.accenture.com/t20181129T203820Z__w__/us-en/_acnmedia/PDF-90/Accenture-snakemackerel-delivers-zekapab-malware.pdf#zoom=50"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "“C:\\Windows\\system32\\cmd.exe” /c “wmic.exe Shadowcopy Delete”",
+        "intent": "Inhibit recovery: BlackCat deletes volume shadow copies.",
+        "status": "verified",
+        "source_name": "Microsoft BlackCat Jun 2022",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+      },
+      {
+        "command": "wmic csproduct get UUID",
+        "intent": "Discovery: BlackCat reads the device UUID of the target machine.",
+        "status": "verified",
+        "source_name": "Microsoft BlackCat Jun 2022",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+      },
+      {
+        "command": "wmic /node:\"<node>\" /user:\"<user>\" /password:\"!Secure4u123!\" process call create \"cmd.exe /c copy \\\\<node>\\c$\\windows\\temp\\<redacted>.exe c:\\windows\\temp\\\"",
+        "intent": "Ransomware deployment: copy the encryption executable onto each remote endpoint over WMI, with stolen credentials.",
+        "status": "verified",
+        "source_name": "Huntress INC Ransom Group August 2023",
+        "source_url": "https://www.huntress.com/blog/investigating-new-inc-ransom-group-activity"
+      },
+      {
+        "command": "cmd /c wmic computersystem get domain",
+        "intent": "Discovery: the dropped Go binary checks which domain the compromised host belongs to.",
+        "status": "verified",
+        "source_name": "DFIR Report APT35 ProxyShell March 2022",
+        "source_url": "https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell"
+      },
+      {
+        "command": "cmd /c start /b wmic diskdrive where Name=\"\\\\.\\PHYSICALDRIVE0\" get model,name,SerialNumber >> c:\\users\\public\\d",
+        "intent": "Discovery during lateral movement: record the model, name and serial number of the remote host's first disk.",
+        "status": "verified",
+        "source_name": "Kaspersky ToddyCat Check Logs October 2023",
+        "source_url": "https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+      },
+      {
+        "command": "cmd /c wmic process where name=\"avp.exe\" get processid,executablepath,name,creationdate,CommandLine >> C:\\users\\public\\d",
+        "intent": "Check whether Kaspersky's endpoint agent (avp.exe) is running on the remote host.",
+        "status": "verified",
+        "source_name": "Kaspersky ToddyCat Check Logs October 2023",
+        "source_url": "https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+      },
+      {
+        "command": "cmd.exe /c \"wmic product get name, InstallLocation, InstallDate, Version /format:csv > $FilePath\"",
+        "intent": "Discovery: the CharmPower toolkit lists installed programs with their versions and install paths.",
+        "status": "verified",
+        "source_name": "Check Point APT35 CharmPower January 2022",
+        "source_url": "https://research.checkpoint.com/2022/apt35-exploits-log4j-vulnerability-to-distribute-new-modular-powershell-toolkit/"
+      },
+      {
+        "command": "wmic.exe process call create 'regsvr32 -s C:\\Users\\Public\\microsoft.security'",
+        "intent": "Run the dropped IcedID loader with regsvr32 through WMI, started from the malicious Excel document.",
+        "status": "verified",
+        "source_name": "DFIR_Sodinokibi_Ransomware",
+        "source_url": "https://thedfirreport.com/2021/03/29/sodinokibi-aka-revil-ransomware/"
+      },
+      {
+        "command": "WMIC /Node:localhost /Namespace:\\\\root\\SecurityCenter2 Path AntiVirusProduct Get * /Format:List",
+        "intent": "Discovery: IcedID lists the installed antivirus products right after it checks in.",
+        "status": "verified",
+        "source_name": "DFIR_Quantum_Ransomware",
+        "source_url": "https://thedfirreport.com/2022/04/25/quantum-ransomware/"
+      },
+      {
+        "command": "wmic /node:\"<IP ADDRESS>\" /user:\"<DOMAIN>\\Administrator\" /password:\"<PASSWORD>\" process call create \"cmd.exe /c c:\\windows\\temp\\ttsel.exe\"",
+        "intent": "Ransomware deployment: start the Quantum payload on remote hosts over WMI with stolen administrator credentials.",
+        "status": "verified",
+        "source_name": "DFIR_Quantum_Ransomware",
+        "source_url": "https://thedfirreport.com/2022/04/25/quantum-ransomware/"
+      },
+      {
+        "command": "Wbem\\wmic.exe /node:\"w.x.y.z\" /user:\"username\" /password:\"password\" \"process call create \"C:\\Windows\\System32\\rundll32.exe \\\"C:\\Windows\\perfc.dat\\\" #1 60\"",
+        "intent": "Lateral movement: NotPetya runs its DLL on other hosts through WMI with recovered credentials.",
+        "status": "verified",
+        "source_name": "Talos Nyetya June 2017",
+        "source_url": "https://blog.talosintelligence.com/2017/06/worldwide-ransomware-variant.html"
+      },
+      {
+        "command": "C:\\WINDOWS\\system32\\wbem\\WMIC.exe computersystem get Name /format:list",
+        "intent": "Fingerprint the victim: the Octopus Trojan reads the computer name to build a victim ID.",
+        "status": "verified",
+        "source_name": "Securelist Octopus Oct 2018",
+        "source_url": "https://securelist.com/octopus-infested-seas-of-central-asia/88200/"
+      },
+      {
+        "command": "wmic startup get command,caption",
+        "intent": "Discovery: list programs that start automatically, part of PUBLOAD's network mapping commands.",
+        "status": "verified",
+        "source_name": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024",
+        "source_url": "https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+      },
+      {
+        "command": "cmd /C wmic service where name='vss' call ChangeStartMode Manual",
+        "intent": "Inhibit recovery: set the Volume Shadow Copy service to manual start before deleting all shadow copies.",
+        "status": "verified",
+        "source_name": "Cisco Talos Qilin Ransomware OCT 2025",
+        "source_url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "command": "cmd.exe /C wmic product where Name like '%kaspe%' get Name, IdentifyingNumber",
+        "intent": "Check whether Kaspersky products are installed while the ransomware spreads across hosts.",
+        "status": "verified",
+        "source_name": "CheckPointResearch_TheGentlemen_April2026",
+        "source_url": "https://research.checkpoint.com/2026/dfir-report-the-gentlemen/"
+      },
+      {
+        "command": "“C:\\Windows\\system32\\cmd.exe” /c “wmic process get processid,commandline,sessionid | findstr SysWOW”",
+        "intent": "The attackers used the WMI command-line tool to list the compromised system's running processes, which are sent to the C&C server.",
+        "status": "verified",
+        "source_name": "Trend Micro RATANKBA Lazarus January 2018",
+        "source_url": "https://blog.trendmicro.com/trendlabs-security-intelligence/lazarus-campaign-targeting-cryptocurrencies-reveals-remote-controller-tool-evolved-ratankba/"
+      },
+      {
+        "command": "wmic process get Caption,ExecutablePath",
+        "intent": "Zebrocy sends commands to the victim to collect system information, including the process list with wmic.",
+        "status": "verified",
+        "source_name": "ESET Zebrocy May 2019",
+        "source_url": "https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/"
+      },
+      {
+        "command": "cmd /c cd /d C:\\inetpub\\wwwroot\\aspnet_client\\system_web&wmic process where name=smex_master.exe get ExecutablePath,commandline&echo [S]&cd&echo [E]",
+        "intent": "The attacker enumerated further information about specific processes on the victim system, here the Trend Micro ScanMail process smex_master.exe.",
+        "status": "verified",
+        "source_name": "Rapid7 Exchange Zero-Day Post-Exploitation March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "wmic os get lastbootuptime",
+        "intent": "The actor performs initial reconnaissance using WMI, here querying the last boot time.",
+        "status": "verified",
+        "source_name": "Fox-IT Operation Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "wmic product where name=\"CarbonBlack Sensor\" call uninstall /nointeractive",
+        "intent": "UNC2165 scripts used WMI to uninstall anti-virus products and stop services before ransomware deployment.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2165 June 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/unc2165-shifts-to-evade-sanctions/"
+      },
+      {
+        "command": "wmic process where name=\"svchost.exe\" get processid,name,commandline,sessionid,creationdate",
+        "intent": "After the Falcon platform blocked their PowerShell scripts, the adversary tried to diagnose the failure with this command and tasklist.",
+        "status": "verified",
+        "source_name": "CrowdStrike Global Threat Report 2021",
+        "source_url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2021GTR.pdf"
+      },
+      {
+        "command": "cmd /c WMIC Process Call Create \"C:\\Windows\\System32\\Wscript.exe //NOLOGO %TEMP%\\C-PDC-C-Cpy-T.vbs\"",
+        "intent": "StoneDrill runs a dropped VBS script through WMIC to copy itself into the %COMMON_APPDATA%\\Chrome folder.",
+        "status": "verified",
+        "source_name": "Kaspersky Shamoon StoneDrill March 2017",
+        "source_url": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/07180722/Report_Shamoon_StoneDrill_final.pdf"
+      },
+      {
+        "command": "wmic /node:[target] process call create “rundll32 c:\\windows\\[folder]\\[beacon].dll [export]”",
+        "intent": "During lateral movement the attackers ran their Cobalt Strike DLL through rundll32 started by WMIC.",
+        "status": "verified",
+        "source_name": "Microsoft Solorigate Second Stage January 2021",
+        "source_url": "https://www.microsoft.com/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/"
+      },
+      {
+        "command": "wmic.exe /node:[REDACTED_HOSTNAME] /user:[REDACTED] /password:[REDACTED] process call create \"cmd.exe /c copy \\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy1\\windows\\system32\\config\\system c:\\users\\public”",
+        "intent": "During credential extraction the attacker used WMIC to copy the SYSTEM hive from a volume shadow copy on a remote host.",
+        "status": "verified",
+        "source_name": "Check Point Handala Modus Operandi March 2026",
+        "source_url": "https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C wmic /namespace:\\\\root\\SecurityCenter2 PATH AntiSpywareProduct GET /value",
+        "intent": "On the Domain Controller the threat actors gathered information about the installed security software through WMI.",
+        "status": "verified",
+        "source_name": "The DFIR Report Qbot and Zerologon February 2022",
+        "source_url": "https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/"
+      },
+      {
+        "command": "wmic ENVIRONMENT create name='COR_ENABLE_PROFILING',username='',VariableValue='1'",
+        "intent": "To use COR_PROFILER persistence, the actor used wmic.exe and Registry modifications to set environment variables and specify a DLL payload.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "wmic /node:172[.]16[.]2[.]114 /user:test\\administrator /password:[REDACTED] process call create “c:\\users\\Public\\install.bat”",
+        "intent": "Listed as an example of a command used for lateral movement in the compromised network.",
+        "status": "verified",
+        "source_name": "Group-IB ColunmTK APT41 June 2021",
+        "source_url": "https://www.group-ib.com/blog/colunmtk-apt41/"
+      },
+      {
+        "command": "wmic /node:172.19.97.102 /user:{redacted}\\{redacted} /password:P$ssw0rd0006 process call create \"C:\\users\\Public\\COMSysUpdate.exe\"",
+        "intent": "The report shows APT41 using WMIC to run a payload on a remote host (Windows Management Instrumentation, T1047).",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour 2021",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "wmic /node:localhost /namespace:\\\\root\\SecurityCenter2 path AntiVirusProduct get /format:list",
+        "intent": "The jRAT payload uses a WMIC interface to identify the antivirus products installed on the compromised computer.",
+        "status": "verified",
+        "source_name": "Symantec jRAT Anti-Parsing Techniques",
+        "source_url": "https://www.symantec.com/blogs/threat-intelligence/jrat-new-anti-parsing-techniques"
+      },
+      {
+        "command": "C:\\WINDOWS\\system32\\wbem\\WMIC.exe os get installdate /format:list",
+        "intent": "The Octopus Trojan runs WMIC.exe to build the victim fingerprint id, here reading the OS install date.",
+        "status": "verified",
+        "source_name": "Securelist Octopus October 2018",
+        "source_url": "https://securelist.com/octopus-infested-seas-of-central-asia/88200/"
+      },
+      {
+        "command": "wmic /Namespace:\\\\root\\SecurityCenter2 Path AntiVirusProduct Get *",
+        "intent": "LunarWeb discovers installed security solutions via this WMI query.",
+        "status": "verified",
+        "source_name": "ESET Lunar Toolset May 2024",
+        "source_url": "https://www.welivesecurity.com/en/eset-research/moon-backdoors-lunar-landing-diplomatic-missions/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cmd.exe /c wmic.exe /node:localhost /namespace:\\\\root\\SecurityCenter2 path AntiVirusProduct Get DisplayName | findstr /V /B /C:displayName || echo No Antivirus installed",
+        "intent": "The LATRODECTUS command handler runs system discovery commands, including this wmic antivirus query, and sends the output to the C2.",
+        "status": "verified",
+        "source_name": "Elastic Latrodectus May 2024",
+        "source_url": "https://www.elastic.co/security-labs/spring-cleaning-with-latrodectus"
+      },
+      {
+        "command": "wmic logicaldisk get Caption, Description,VolumeSerialNumber,Size,FreeSpace",
+        "intent": "The C# Zebrocy variant gathers system information with WMI queries run through wmic instead of systeminfo and tasklist.",
+        "status": "verified",
+        "source_name": "Unit 42 Dear Joohn Sofacy December 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/dear-joohn-sofacy-groups-global-campaign/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C WMIC/node:\"DC.DOMAIN.local\" process call create \"cmd /c C:\\PerfLogs\\servisess.exe\\\"",
+        "intent": "After copying an executable to the domain controller over SMB, the threat actors used WMI from the beachhead host to execute it.",
+        "status": "verified",
+        "source_name": "The DFIR Report Ryuk in 5 Hours October 2020",
+        "source_url": "https://thedfirreport.com/2020/10/18/ryuk-in-5-hours/"
+      },
+      {
+        "command": "wmic /node:<REDACTED> /user:\"<REDACTED>\" /password:\"<REDACTED>\" logicaldisk get caption,description,drivetype,providername,volumename",
+        "intent": "A batch file queried target hosts with WMIC to determine the host disk drive configuration, including mounted network shares.",
+        "status": "verified",
+        "source_name": "The DFIR Report Malicious ISO to Ransomware April 2023",
+        "source_url": "https://thedfirreport.com/2023/04/03/malicious-iso-file-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "wmic /node:<REDACTED> process list brief",
+        "intent": "The beacon launched this command during system information and software discovery.",
+        "status": "verified",
+        "source_name": "The DFIR Report Bumblebee August 2022",
+        "source_url": "https://thedfirreport.com/2022/08/08/bumblebee-roasts-its-way-to-domain-admin/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C wmic /node:\"REDACTED\" /user:\"USER\" /password:\"REDACTED\" os get caption",
+        "intent": "After AD discovery the threat actors used WMI to gather information about Windows OS version and licensing on remote hosts.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID Nokoyawa May 2023",
+        "source_url": "https://thedfirreport.com/2023/05/22/icedid-macro-ends-in-nokoyawa-ransomware/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C wmic /node:<REDACTED> process call create \"cmd /C > C:\\ProgramData\\1.txt 2>&1 reg query HKEY_USERS\\<SID>\\Network\"",
+        "intent": "The attackers saved the list of mapped shares of a remote host to a text file by running reg query through wmic.",
+        "status": "verified",
+        "source_name": "The DFIR Report Truebot Graceful Wipe-Out June 2023",
+        "source_url": "https://thedfirreport.com/2023/06/12/a-truly-graceful-wipe-out/"
+      },
+      {
+        "command": "cmd.exe /C \"wmic path win32_logicaldisk get caption,filesystem,freespace,size,volumename\"",
+        "intent": "The actor ran this command to gather information about local drives.",
+        "status": "verified",
+        "source_name": "NSA/CISA PRC Actor Living off the Land June 2023",
+        "source_url": "https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF"
+      },
+      {
+        "command": "wmic process get name,processid",
+        "intent": "Volt Typhoon actors listed running processes, potentially to find process IDs needed for other operations such as memory dumping.",
+        "status": "verified",
+        "source_name": "CISA AA24-038A Volt Typhoon February 2024",
+        "source_url": "https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 1,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1047"
+          ]
+        },
+        {
+          "event_id": 3,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1047"
+          ]
+        },
+        {
+          "event_id": 22,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1047"
+          ]
+        }
+      ],
+      "WinEventLog:WMI": [
+        {
+          "event_id": 5857,
+          "data_components": [
+            "WMI Creation"
+          ],
+          "techniques": [
+            "T1047"
+          ]
+        },
+        {
+          "event_id": 5858,
+          "data_components": [
+            "WMI Creation"
+          ],
+          "techniques": [
+            "T1047"
+          ]
+        },
+        {
+          "event_id": 5860,
+          "data_components": [
+            "WMI Creation"
+          ],
+          "techniques": [
+            "T1047"
+          ]
+        },
+        {
+          "event_id": 5861,
+          "data_components": [
+            "WMI Creation"
+          ],
+          "techniques": [
+            "T1047"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1047",
+        "id": "DET0364",
+        "name": "Behavioral Detection Strategy for WMI Execution Abuse on Windows",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0364",
+        "analytics": [
+          {
+            "id": "AN1031",
+            "description": "Detects adversarial abuse of WMI to execute local or remote commands via WMIC, PowerShell, or COM API through a multi-event chain: process creation, command execution, and corresponding network connection if remote.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              },
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              },
+              {
+                "data_component": "WMI Creation",
+                "name": "WinEventLog:WMI",
+                "channel": "EventCode=5857, 5858, 5860, 5861"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "System Information Discovery Via Wmic.EXE",
+        "id": "d85ecdd7-b855-4e6e-af59-d9c78b5b861e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_wmic_recon_system_info.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1082"
+        ]
+      },
+      {
+        "title": "WMIC Loading Scripting Libraries",
+        "id": "06ce37c2-61ab-4f05-9ff5-b1a96d18ae32",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "image_load",
+          "product": "windows"
+        },
+        "attack": [
+          "T1220"
+        ]
+      },
+      {
+        "title": "Suspicious Autorun Registry Modified via WMI",
+        "id": "c80e66d8-1780-48a9-b412-46663fd21ac0",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_autorun_registry_modified_via_wmic.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "NewActiveScriptEventConsumer Creation Attempt via Wmic.EXE",
+        "id": "ebef4391-1a81-4761-a40a-1db446c0e625",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_eventconsumer_creation.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1546.003"
+        ]
+      },
+      {
+        "title": "Potential Windows Defender Tampering Via Wmic.EXE",
+        "id": "51cbac1e-eee3-4a90-b1b7-358efb81fa0a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_namespace_defender.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047",
+          "T1685"
+        ]
+      },
+      {
+        "title": "Process Creation Attempt via Wmic.EXE",
+        "id": "526be59f-a573-4eea-b5f7-f0973207634d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_process_creation.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Computer System Reconnaissance Via Wmic.EXE",
+        "id": "9d7ca793-f6bd-471c-8d0f-11e68b2f0d2f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_computersystem.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Hardware Model Reconnaissance Via Wmic.EXE",
+        "id": "3e3ceccd-6c06-48b8-b5ff-ab1d25db8c1d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_csproduct.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Local Groups Reconnaissance Via Wmic.EXE",
+        "id": "164eda96-11b2-430b-85ff-6a265c15bf32",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_group.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1069.001"
+        ]
+      },
+      {
+        "title": "Windows Hotfix Updates Reconnaissance Via Wmic.EXE",
+        "id": "dfd2fcb7-8bd5-4daa-b132-5adb61d6ad45",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_hotfix.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Potential Process Reconnaissance via Wmic.EXE",
+        "id": "221b251a-357a-49a9-920a-271802777cc0",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_process.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1057"
+        ]
+      },
+      {
+        "title": "Potential Product Reconnaissance Via Wmic.EXE",
+        "id": "15434e33-5027-4914-88d5-3d4145ec25a9",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_product.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Potential Product Class Reconnaissance Via Wmic.EXE",
+        "id": "e568650b-5dcd-4658-8f34-ded0b1e13992",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_product_class.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1082"
+        ]
+      },
+      {
+        "title": "Service Reconnaissance Via Wmic.EXE",
+        "id": "76f55eaa-d27f-4213-9d45-7b0e4b60bbae",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_service.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Uncommon System Information Discovery Via Wmic.EXE",
+        "id": "9d5a1274-922a-49d0-87f3-8c653483b909",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_system_info_uncommon.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1082"
+        ]
+      },
+      {
+        "title": "Potential Unquoted Service Path Reconnaissance Via Wmic.EXE",
+        "id": "68bcd73b-37ef-49cb-95fc-edc809730be6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_unquoted_service_search.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "System Disk And Volume Reconnaissance Via Wmic.EXE",
+        "id": "c79da740-5030-45ec-a2e0-479e824a562c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_recon_volume.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1082"
+        ]
+      },
+      {
+        "title": "WMIC Remote Command Execution",
+        "id": "7773b877-5abb-4a3e-b9c9-fd0369b59b00",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_remote_execution.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Service Started/Stopped Via Wmic.EXE",
+        "id": "0b7163dc-7eee-4960-af17-c0cd517f92da",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_service_manipulation.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Service Startup Type Change Via Wmic.EXE",
+        "id": "c0514f28-fdae-42df-b886-06e2b2bc5b37",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_service_startup_change.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1685"
+        ]
+      },
+      {
+        "title": "Potential Remote SquiblyTwo Technique Execution",
+        "id": "8d63dadf-b91b-4187-87b6-34a1114577ea",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_squiblytwo_bypass.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1059.005",
+          "T1059.007",
+          "T1220"
+        ]
+      },
+      {
+        "title": "Registry Enumeration via WMI Stdregprov",
+        "id": "a0e417e2-2fa1-40da-b6d2-e094cd5e1191",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_enumeration.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1012",
+          "T1047"
+        ]
+      },
+      {
+        "title": "Registry Manipulation via WMI Stdregprov",
+        "id": "c453ab7a-1f5c-4716-a3b4-dea8135fb43a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_modification.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1112"
+        ]
+      },
+      {
+        "title": "Suspicious WMIC Execution Via Office Process",
+        "id": "e1693bc8-7168-4eab-8718-cdcaa68a1738",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_susp_execution_via_office_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Application Termination Attempt via Wmic.EXE",
+        "id": "49d9671b-0a0a-4c09-8280-d215bfd30662",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Application Removed Via Wmic.EXE",
+        "id": "b53317a0-8acf-4fd1-8de8-a5401e776b96",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_uninstall_application.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Potential Tampering With Security Products Via WMIC",
+        "id": "847d5ff3-8a31-4737-a970-aeae8fe21765",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685"
+        ]
+      },
+      {
+        "title": "XSL Script Execution Via WMIC.EXE",
+        "id": "05c36dd6-79d6-4a9a-97da-3db20298ab2d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_xsl_script_processing.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1059.005",
+          "T1059.007",
+          "T1220"
+        ]
+      },
+      {
+        "title": "Blue Mockingbird",
+        "id": "c3198a27-23a0-4c2c-af19-e5328d49680e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2020/Malware/Blue-Mockingbird/proc_creation_win_malware_blue_mockingbird.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1112"
+        ]
+      },
+      {
+        "title": "Potential Maze Ransomware Activity",
+        "id": "29fd07fc-9cfd-4331-b7fd-cc18dfa21052",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2020/Malware/Maze/proc_creation_win_malware_maze_ransomware.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1490"
+        ]
+      },
+      {
+        "title": "UNC2452 PowerShell Pattern",
+        "id": "b7155193-8a81-4d8f-805d-88de864ca50c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_ps.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Potential CVE-2023-21554 QueueJumper Exploitation",
+        "id": "53207cc2-0745-4c19-bc72-80be1cc16b3f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2022/Exploits/CVE-2022-21554/proc_creation_win_exploit_cve_2023_21554_queuejumper.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": []
+      },
+      {
+        "title": "Mint Sandstorm - AsperaFaspex Suspicious Process Execution",
+        "id": "91048c0d-5b81-4b85-a099-c9ee4fb87979",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Mint Sandstorm - ManageEngine Suspicious Process Execution",
+        "id": "58d8341a-5849-44cd-8ac8-8b020413a31b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_manage_engine_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "PaperCut MF/NG Potential Exploitation",
+        "id": "0934ac71-a331-4e98-a034-d49c491fbbcb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/PaperCut-Print-Management-Exploitation/proc_creation_win_papercut_print_management_exploitation_pc_app.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process of SolarWinds WebHelpDesk",
+        "id": "8c7f4a2d-3b9e-4f1c-9a6d-2e8f5c3d9a1b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-40551/proc_creation_win_exploit_cve_2025_40551.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190"
+        ]
+      },
+      {
+        "title": "Windows Suspicious Child Process from Node.js - React2Shell",
+        "id": "271de298-cc0e-4842-acd8-079a0a99ea65",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-55182/proc_creation_win_exploit_cve_2025_55182_susp_nodejs_server_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Dbghelp/Dbgcore DLL Loaded By Uncommon/Suspicious Process",
+        "id": "0e277796-5f23-4e49-a490-483131d4f6e1",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/image_load/image_load_dll_dbghelp_dbgcore_susp_load.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "image_load",
+          "product": "windows"
+        },
+        "attack": [
+          "T1003.001"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious PowerShell Child Processes",
+        "id": "e4b6d2a7-d8a4-4f19-acbd-943c16d90647",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "EventLog Query Requests By Builtin Utilities",
+        "id": "9cd55b6c-430a-4fa9-96f4-7cadf5229e9f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_event_log_query.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1552"
+        ]
+      },
+      {
+        "title": "Windows Shell/Scripting Application File Write to Suspicious Folder",
+        "id": "1277f594-a7d1-4f28-a2d3-73af5cbeab43",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "DotNet CLR DLL Loaded By Scripting Applications",
+        "id": "4508a70e-97ef-4300-b62b-ff27992990ea",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/image_load/image_load_susp_script_dotnet_clr_dll_load.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "image_load",
+          "product": "windows"
+        },
+        "attack": [
+          "T1055"
+        ]
+      },
+      {
+        "title": "Suspicious ArcSOC.exe Child Process",
+        "id": "8e95e73e-ba02-4a87-b4d7-0929b8053038",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_arcsoc_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1203"
+        ]
+      },
+      {
+        "title": "Suspicious BitLocker Access Agent Update Utility Execution",
+        "id": "9f38c1db-e2ae-40bf-81d0-5b68f73fb512",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_baaupdate_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1021.003",
+          "T1218"
+        ]
+      },
+      {
+        "title": "HTML Help HH.EXE Suspicious Child Process",
+        "id": "52cad028-0ff0-4854-8f67-d25dfcbc78b4",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1059.001",
+          "T1059.003",
+          "T1059.005",
+          "T1059.007",
+          "T1218",
+          "T1218.001",
+          "T1218.010",
+          "T1218.011",
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Shells Spawn by Java Utility Keytool",
+        "id": "90fb5e62-ca1f-4e22-b42e-cc521874c938",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process Of Manage Engine ServiceDesk",
+        "id": "cea2b7ea-792b-405f-95a1-b903ea06458f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1102"
+        ]
+      },
+      {
+        "title": "Suspicious Processes Spawned by Java.EXE",
+        "id": "0d34ed8b-1c12-4ff2-828c-16fc860b766d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious MSDT Parent Process",
+        "id": "7a74da6b-ea76-47db-92cc-874ad90df734",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msdt_susp_parent.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft OneNote Child Process",
+        "id": "c27515df-97a9-4162-8a60-dc0eeb51b775",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Outlook Child Process",
+        "id": "208748f7-881d-47ac-a29c-07ea84bf691d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1204.002"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft Office Child Process",
+        "id": "438025f9-5856-4663-83f7-52f878a70a50",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Execution Of PDQDeployRunner",
+        "id": "12b8e9f5-96b2-41e1-9a42-8c6779a5c184",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_pdqdeploy_runner_susp_children.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "RDP Enable or Disable via Win32_TerminalServiceSetting WMI Class",
+        "id": "4b8f6d3a-9c5e-4f2a-a7d8-6b9c3e5f2a8d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rdp_enable_or_disable_via_win32_terminalservicesetting_wmi_class.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1021.001",
+          "T1047"
+        ]
+      },
+      {
+        "title": "Potential Defense Evasion Via Rename Of Highly Relevant Binaries",
+        "id": "0ba1da6d-b6ce-4366-828c-18826c9de23e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Suspicious ShellExec_RunDLL Call Via Ordinal",
+        "id": "8823e85d-31d8-473e-b7f4-92da070f0fc6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_ordinal_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.011"
+        ]
+      },
+      {
+        "title": "Suspicious Modification Of Scheduled Tasks",
+        "id": "1c0e41cd-21bb-4433-9acc-4a2cd6367b9b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_change.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Uncommon One Time Only Scheduled Task At 00:00",
+        "id": "970823b7-273b-460a-8afc-3a6811998529",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_one_time_only_midnight_task.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Suspicious Serv-U Process Pattern",
+        "id": "58f4ea09-0fc2-4520-ba18-b85c540b0eaf",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1555"
+        ]
+      },
+      {
+        "title": "Suspicious Spool Service Child Process",
+        "id": "dcdbc940-0bff-46b2-95f3-2d73f848e33b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1068",
+          "T1203"
+        ]
+      },
+      {
+        "title": "Suspicious Eventlog Clearing or Configuration Change Activity",
+        "id": "cc36992a-4671-4f21-a91d-6c2b72a2edf5",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_eventlog_clear.yml",
+        "level": "high",
+        "status": "stable",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685.001",
+          "T1685.005"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious EventLog Recon Activity Using Log Query Utilities",
+        "id": "beaa66d6-aa1b-4e3c-80f5-e0145369bfaf",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_eventlog_content_recon.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1087",
+          "T1552"
+        ]
+      },
+      {
+        "title": "Local Accounts Discovery",
+        "id": "502b42de-4306-40b4-9596-6f590c81f073",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_local_system_owner_account_discovery.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1033",
+          "T1087.001"
+        ]
+      },
+      {
+        "title": "Recon Information for Export with Command Prompt",
+        "id": "aa2efee7-34dd-446e-8a37-40790a66efd7",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_recon.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1119"
+        ]
+      },
+      {
+        "title": "Suspicious Windows Service Tampering",
+        "id": "ce72ef99-22f1-43d4-8695-419dcb5d9330",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_service_tamper.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1489",
+          "T1685"
+        ]
+      },
+      {
+        "title": "Shadow Copies Creation Using Operating Systems Utilities",
+        "id": "b17ea6f7-6e90-447e-a799-e6c0a493d6ce",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_creation.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1003",
+          "T1003.002",
+          "T1003.003"
+        ]
+      },
+      {
+        "title": "Shadow Copies Deletion Using Operating Systems Utilities",
+        "id": "c947b146-0abc-4c87-9c64-b17e9d7274a2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_shadow_copies_deletion.yml",
+        "level": "high",
+        "status": "stable",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1070",
+          "T1490"
+        ]
+      },
+      {
+        "title": "System File Execution Location Anomaly",
+        "id": "e4a6b256-3e47-40fc-89d2-7a477edd6915",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036"
+        ]
+      },
+      {
+        "title": "Webshell Detection With Command Line Keywords",
+        "id": "bed2a484-9348-4143-8a8a-b801c979301c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_recon_commands_and_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1018",
+          "T1033",
+          "T1087",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Suspicious Process By Web Server Process",
+        "id": "8202070f-edeb-4d31-a010-a26c72ac5600",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Password Set to Never Expire via WMI",
+        "id": "7864a175-3654-4824-9f0d-f0da18ab27c0",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmi_password_never_expire.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1098"
+        ]
+      }
+    ],
+    "other_rules": [
+      "https://github.com/elastic/detection-rules/blob/414d32027632a49fb239abb8fbbb55d3fa8dd861/rules/windows/defense_evasion_suspicious_wmi_script.toml",
+      "https://github.com/elastic/detection-rules/blob/61afb1c1c0c3f50637b1bb194f3e6fb09f476e50/rules/windows/persistence_via_windows_management_instrumentation_event_subscription.toml",
+      "https://github.com/elastic/detection-rules/blob/82ec6ac1eeb62a1383792719a1943b551264ed16/rules/windows/defense_evasion_suspicious_managedcode_host_process.toml",
+      "https://github.com/splunk/security_content/blob/961a81d4a5cb5c5febec4894d6d812497171a85c/detections/endpoint/xsl_script_execution_with_wmic.yml",
+      "https://github.com/splunk/security_content/blob/3f77e24974239fcb7a339080a1a483e6bad84a82/detections/endpoint/remote_wmi_command_attempt.yml",
+      "https://github.com/splunk/security_content/blob/3f77e24974239fcb7a339080a1a483e6bad84a82/detections/endpoint/remote_process_instantiation_via_wmi.yml",
+      "https://github.com/splunk/security_content/blob/08ed88bd88259c03c771c30170d2934ed0a8f878/detections/endpoint/process_execution_via_wmi.yml"
+    ]
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1047",
+      "description": "Use application control configured to block execution of wmic.exe if it is not required for a given system or network to prevent potential misuse by adversaries. For example, in Windows 10 and Windows Server 2016 and above, Windows Defender Application Control (WDAC) policy rules may be applied to block the wmic.exe application and to prevent abuse."
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1047",
+      "description": "On Windows 10, enable Attack Surface Reduction (ASR) rules to block processes created by WMI commands from running. Note: many legitimate tools and applications utilize WMI for command execution."
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1047",
+      "description": "Prevent credential overlap across systems of administrator and privileged accounts."
+    },
+    {
+      "id": "M1018",
+      "name": "User Account Management",
+      "technique": "T1047",
+      "description": "By default, only administrators are allowed to connect remotely using WMI. Restrict other users who are allowed to connect, or disallow all users to connect remotely to WMI."
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/techniques/T1047",
+    "https://lolbas-project.github.io/lolbas/Binaries/Wmic/",
+    "https://strontic.github.io/xcyclopedia/library/WMIC.exe-A2EF3F0AD95FDA9262A5F9533B6DD1BD.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

@@ -1,13 +1,25 @@
 {
   "type": "lolbin",
-  "version": 1,
+  "version": 2,
   "id": "identifier UUID e.g:f9aa24ad-a4a6-41dd-8e42-c8449b1a9fb4",
   "created_by_ref": "@Nounou_Mbeiri",
-  "created": "YYYY-MM-DDTHH:MM",
-  "modified": "YYYY-MM-DDTHH:MM",
-  "name": "binary_name.exe",
+  "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+  "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+  "name": "Binary_name.exe",
+  "image": "binary_name.exe",
   "description": "A general description about the binary.",
-  "Required_privilege": [
+  "attack": {
+    "id": "S0160 (software) or T1218.005 (technique, when ATT&CK has no software entry)",
+    "name": "Name in ATT&CK",
+    "type": "software | technique",
+    "url": "https://attack.mitre.org/software/S0160",
+    "version": "20.0"
+  },
+  "summary": [
+    "What an adversary may use the binary to do",
+    "etc."
+  ],
+  "required_privileges": [
     "User",
     "Admin",
     "etc."
@@ -16,12 +28,9 @@
     "c:\\windows\\system32\\binary.exe",
     "c:\\windows\\syswow64\\binary.exe"
   ],
-  "hashe": "The hashe of the binary e.g: bf379376c124b19a7535cba8ea179802",
-  "associated_kill_chain_phases": [
-    "TA0001:Initial Access",
-    "TA0007:Discovery",
-    "etc."
-  ],
+  "hashes": {
+    "MD5": "The hash of the binary e.g: BF379376C124B19A7535CBA8EA179802"
+  },
   "capabilities": [
     "Download",
     "AWL Bypass",
@@ -32,70 +41,105 @@
     "Upload",
     "etc."
   ],
-  "relationship": [
-    {
-      "associated_apts": [
-        "APT1",
-        "APT2"
-      ],
-      "associated_campaigns": [
-        "campaigns1",
-        "-"
-      ],
-      "associated_commands": [
-        "cmd1",
-        "cmd2"
-      ],
-      "pre_and_next_related_cmd": [
-        {
-          "pre_cmd_event": [
-            "cmd1",
-            "cmd2"
-          ]
-        },
-        {
-          "next_cmd_event": [
-            "cmd1",
-            "cmd2"
-          ]
-        }
-      ]
-    }
-  ],
   "platforms": [
     "windows"
   ],
-  "detections": [
+  "associated_kill_chain_phases": [
+    "TA0011:Command and Control:T1105",
+    "etc."
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT1",
+        "attack_id": "G0006",
+        "evidence": "uses S0160; names binary.exe",
+        "description": "ATT&CK's statement about how this group used the binary.",
+        "sources": "Report name https://example.com/report"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "campaign1",
+        "attack_id": "C0001",
+        "evidence": "uses S0160"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "malware1",
+        "attack_id": "S0001",
+        "evidence": "names binary.exe"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "tool1",
+        "attack_id": "S0002",
+        "evidence": "uses T1218.005"
+      }
+    ],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "binary.exe -arg hxxp://198.51.100[.]7/payload.exe",
+        "intent": "One sentence on what the attacker used the command for, from the source report",
+        "status": "verified",
+        "source_name": "Report name as ATT&CK cites it",
+        "source_url": "https://report.example/where-the-command-was-seen"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1105"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4688,
+        "data_components": "Process Creation",
+        "techniques": "T1105"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Rule title",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/<commit>/rules/..."
+      }
+    ],
+    "related_sigma_rules": 0,
+    "other_rules": [
+      "https://example.com/to/splunk/or/elastic/rule"
+    ]
+  },
+  "related_CVE": [
     {
-      "eventsid": [
-        {
-          "sysmon": [
-            "eventID1",
-            "eventID2"
-          ],
-          "windows": [
-            "eventID1",
-            "eventID2"
-          ]
-        }
-      ],
-      "sigma_rules": [
-        "https://example.com/to/sigma/rule1",
-        "https://example.com/to/sigma/rule2"
-      ],
-      "other_rules": [
-        "https://example.com/to/others/rules"
-      ]
+      "id": "CVE-YYYY-NNNNN",
+      "description": "How the binary was used with it",
+      "references": "https://source1 https://source2"
     }
   ],
-  "related_CVE": [
-    "CVE1"
-  ],
   "mitigations": [
-    "A general description about mitigation."
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1560.001"
+    }
+  ],
+  "additional_mitigations": [
+    "Mitigation advice not covered by ATT&CK."
   ],
   "references": [
     "https://reference1.com",
     "https://reference2.com"
-  ]
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit <sha> (rules under DRL 1.1)"
+  }
 }

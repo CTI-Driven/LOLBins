@@ -1,0 +1,1993 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "28e7832e-a36b-4893-8ca0-a305eaa2eff1",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:16:00.000Z",
+  "modified": "2026-10-16T00:16:00.000Z",
+  "name": "Tasklist.exe",
+  "image": "tasklist.exe",
+  "description": "The Tasklist utility displays a list of applications and services with their Process IDs (PID) for all tasks running on either a local or a remote computer. It is packaged with Windows operating systems and can be executed from the command-line interface.",
+  "attack": {
+    "id": "S0057",
+    "name": "Tasklist",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0057",
+    "version": "20.0"
+  },
+  "summary": [
+    "Discover services running on a system",
+    "Discover processes running on a system",
+    "Enumerate security software currently running on a system by process name of known products"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\system32\\tasklist.exe",
+    "C:\\Windows\\SysWOW64\\tasklist.exe"
+  ],
+  "hashes": {
+    "MD5": "D0A49A170E13D7F6AEBBEFED9DF88AAA"
+  },
+  "capabilities": [
+    "Reconnaissance"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0007:Discovery:T1007",
+    "TA0007:Discovery:T1057",
+    "TA0007:Discovery:T1518.001"
+  ],
+  "techniques": [
+    {
+      "id": "T1007",
+      "name": "System Service Discovery",
+      "url": "https://attack.mitre.org/techniques/T1007",
+      "tactics": [
+        "Discovery"
+      ]
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "url": "https://attack.mitre.org/techniques/T1057",
+      "tactics": [
+        "Discovery"
+      ]
+    },
+    {
+      "id": "T1518.001",
+      "name": "Security Software Discovery",
+      "url": "https://attack.mitre.org/techniques/T1518/001",
+      "tactics": [
+        "Discovery"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "Andariel",
+        "attack_id": "G0138",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "APT1",
+        "attack_id": "G0006",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "APT29",
+        "attack_id": "G0016",
+        "evidence": [
+          "uses S0057"
+        ]
+      },
+      {
+        "name": "APT5",
+        "attack_id": "G1023",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Chimera",
+        "attack_id": "G0114",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Deep Panda",
+        "attack_id": "G0009",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Earth Lusca",
+        "attack_id": "G1006",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "FIN7",
+        "attack_id": "G0046",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "HAFNIUM",
+        "attack_id": "G0125",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Ke3chang",
+        "attack_id": "G0004",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "MirrorFace",
+        "attack_id": "G1054",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Naikon",
+        "attack_id": "G0019",
+        "evidence": [
+          "uses S0057"
+        ]
+      },
+      {
+        "name": "OilRig",
+        "attack_id": "G0049",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Storm-0501",
+        "attack_id": "G1053",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Threat Group-3390",
+        "attack_id": "G0027",
+        "evidence": [
+          "uses S0057"
+        ]
+      },
+      {
+        "name": "ToddyCat",
+        "attack_id": "G1022",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Turla",
+        "attack_id": "G0010",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "2025 Poland Wiper Attacks",
+        "attack_id": "C0063",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "C0015",
+        "attack_id": "C0015",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "FunnyDream",
+        "attack_id": "C0007",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Operation CuckooBees",
+        "attack_id": "C0012",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Operation Honeybee",
+        "attack_id": "C0006",
+        "evidence": [
+          "uses S0057",
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Operation Wocao",
+        "attack_id": "C0014",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "Avenger",
+        "attack_id": "S0473",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "BabyShark",
+        "attack_id": "S0414",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "BlackEnergy",
+        "attack_id": "S0089",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "CharmPower",
+        "attack_id": "S0674",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Comnie",
+        "attack_id": "S0244",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Elise",
+        "attack_id": "S0081",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Epic",
+        "attack_id": "S0091",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Flagpro",
+        "attack_id": "S0696",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Helminth",
+        "attack_id": "S0170",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "KONNI",
+        "attack_id": "S0356",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Kwampirs",
+        "attack_id": "S0236",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Lumma Stealer",
+        "attack_id": "S1213",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Mosquito",
+        "attack_id": "S0256",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "NavRAT",
+        "attack_id": "S0247",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "PLAINTEE",
+        "attack_id": "S0254",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "POWRUNER",
+        "attack_id": "S0184",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "PUBLOAD",
+        "attack_id": "S1228",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Ramsay",
+        "attack_id": "S0458",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "RATANKBA",
+        "attack_id": "S0241",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Sardonic",
+        "attack_id": "S1085",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "SoreFang",
+        "attack_id": "S0516",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Sykipot",
+        "attack_id": "S0018",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "SYSCON",
+        "attack_id": "S0464",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Trojan.Karagany",
+        "attack_id": "S0094",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "USBferry",
+        "attack_id": "S0452",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "yty",
+        "attack_id": "S0248",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      },
+      {
+        "name": "Zebrocy",
+        "attack_id": "S0251",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "IronNetInjector",
+        "attack_id": "S0581",
+        "evidence": [
+          "names tasklist.exe"
+        ]
+      }
+    ],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "Andariel",
+        "type": "intrusion-set",
+        "attack_id": "G0138",
+        "description": "Andariel has used tasklist to enumerate processes and find a specific string.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Andariel Ransomware June 2021",
+            "url": "https://securelist.com/andariel-evolves-to-target-south-korea-with-ransomware/102811/"
+          }
+        ]
+      },
+      {
+        "source": "APT1",
+        "type": "intrusion-set",
+        "attack_id": "G0006",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Mandiant APT1",
+            "url": "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
+          }
+        ]
+      },
+      {
+        "source": "APT1",
+        "type": "intrusion-set",
+        "attack_id": "G0006",
+        "description": "APT1 used the commands net start and tasklist to get a listing of the services on the system.",
+        "citations": [
+          {
+            "source_name": "Mandiant APT1",
+            "url": "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
+          }
+        ]
+      },
+      {
+        "source": "APT1",
+        "type": "intrusion-set",
+        "attack_id": "G0006",
+        "description": "APT1 gathered a list of running processes on the system using tasklist /v.",
+        "citations": [
+          {
+            "source_name": "Mandiant APT1",
+            "url": "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
+          }
+        ]
+      },
+      {
+        "source": "APT29",
+        "type": "intrusion-set",
+        "attack_id": "G0016",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "CISA SoreFang July 2016",
+            "url": "https://us-cert.cisa.gov/ncas/analysis-reports/ar20-198a"
+          }
+        ]
+      },
+      {
+        "source": "APT5",
+        "type": "intrusion-set",
+        "attack_id": "G1023",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Mandiant Pulse Secure Update May 2021",
+            "url": "https://www.mandiant.com/resources/blog/updates-on-chinese-apt-compromising-pulse-secure-vpn-devices"
+          }
+        ]
+      },
+      {
+        "source": "APT5",
+        "type": "intrusion-set",
+        "attack_id": "G1023",
+        "description": "APT5 has used Windows-based utilities to carry out tasks including tasklist.exe.",
+        "citations": [
+          {
+            "source_name": "Mandiant Pulse Secure Update May 2021",
+            "url": "https://www.mandiant.com/resources/blog/updates-on-chinese-apt-compromising-pulse-secure-vpn-devices"
+          }
+        ]
+      },
+      {
+        "source": "Chimera",
+        "type": "intrusion-set",
+        "attack_id": "G0114",
+        "description": "Chimera has used tasklist to enumerate processes.",
+        "citations": [
+          {
+            "source_name": "NCC Group Chimera January 2021",
+            "url": "https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+          }
+        ]
+      },
+      {
+        "source": "Deep Panda",
+        "type": "intrusion-set",
+        "attack_id": "G0009",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Alperovitch 2014",
+            "url": "https://web.archive.org/web/20200424075623/https:/www.crowdstrike.com/blog/deep-thought-chinese-targeting-national-security-think-tanks/"
+          }
+        ]
+      },
+      {
+        "source": "Deep Panda",
+        "type": "intrusion-set",
+        "attack_id": "G0009",
+        "description": "Deep Panda uses the Microsoft Tasklist utility to list processes running on systems.",
+        "citations": [
+          {
+            "source_name": "Alperovitch 2014",
+            "url": "https://web.archive.org/web/20200424075623/https:/www.crowdstrike.com/blog/deep-thought-chinese-targeting-national-security-think-tanks/"
+          }
+        ]
+      },
+      {
+        "source": "Earth Lusca",
+        "type": "intrusion-set",
+        "attack_id": "G1006",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "TrendMicro EarthLusca 2022",
+            "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Earth Lusca",
+        "type": "intrusion-set",
+        "attack_id": "G1006",
+        "description": "Earth Lusca has used Tasklist to obtain information from a compromised host.",
+        "citations": [
+          {
+            "source_name": "TrendMicro EarthLusca 2022",
+            "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Earth Lusca",
+        "type": "intrusion-set",
+        "attack_id": "G1006",
+        "description": "Earth Lusca has used Tasklist to obtain information from a compromised host.",
+        "citations": [
+          {
+            "source_name": "TrendMicro EarthLusca 2022",
+            "url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+          }
+        ]
+      },
+      {
+        "source": "FIN7",
+        "type": "intrusion-set",
+        "attack_id": "G0046",
+        "description": "FIN7 has used the PowerShell script 3CF9.ps1 to perform process discovery by executing `tasklist /v`. Additionally, WsTaskLoad.exe executes `tasklist /v` to perform process discovery.",
+        "citations": [
+          {
+            "source_name": "BlackBerry_FIN7_April2024",
+            "url": "https://blogs.blackberry.com/en/2024/04/fin7-targets-the-united-states-automotive-industry"
+          }
+        ]
+      },
+      {
+        "source": "HAFNIUM",
+        "type": "intrusion-set",
+        "attack_id": "G0125",
+        "description": "HAFNIUM has used `tasklist` to enumerate processes.",
+        "citations": [
+          {
+            "source_name": "Rapid7 HAFNIUM Mar 2021",
+            "url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+          }
+        ]
+      },
+      {
+        "source": "Ke3chang",
+        "type": "intrusion-set",
+        "attack_id": "G0004",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "NCC Group APT15 Alive and Strong",
+            "url": "https://research.nccgroup.com/2018/03/10/apt15-is-alive-and-strong-an-analysis-of-royalcli-and-royaldns/"
+          }
+        ]
+      },
+      {
+        "source": "Ke3chang",
+        "type": "intrusion-set",
+        "attack_id": "G0004",
+        "description": "Ke3chang performs process discovery using tasklist commands.",
+        "citations": [
+          {
+            "source_name": "Mandiant Operation Ke3chang November 2014",
+            "url": "https://www.mandiant.com/resources/operation-ke3chang-targeted-attacks-against-ministries-of-foreign-affairs"
+          },
+          {
+            "source_name": "NCC Group APT15 Alive and Strong",
+            "url": "https://research.nccgroup.com/2018/03/10/apt15-is-alive-and-strong-an-analysis-of-royalcli-and-royaldns/"
+          }
+        ]
+      },
+      {
+        "source": "MirrorFace",
+        "type": "intrusion-set",
+        "attack_id": "G1054",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "JPCERT MirrorFace JUL 2024",
+            "url": "https://blogs.jpcert.or.jp/en/2024/07/mirrorface-attack-against-japanese-organisations.html"
+          }
+        ]
+      },
+      {
+        "source": "MirrorFace",
+        "type": "intrusion-set",
+        "attack_id": "G1054",
+        "description": "MirrorFace has used Tasklist on compromised hosts for discovery.",
+        "citations": [
+          {
+            "source_name": "JPCERT MirrorFace JUL 2024",
+            "url": "https://blogs.jpcert.or.jp/en/2024/07/mirrorface-attack-against-japanese-organisations.html"
+          }
+        ]
+      },
+      {
+        "source": "MirrorFace",
+        "type": "intrusion-set",
+        "attack_id": "G1054",
+        "description": "MirrorFace has used Tasklist for discovery post compromise.",
+        "citations": [
+          {
+            "source_name": "JPCERT MirrorFace JUL 2024",
+            "url": "https://blogs.jpcert.or.jp/en/2024/07/mirrorface-attack-against-japanese-organisations.html"
+          }
+        ]
+      },
+      {
+        "source": "Mustang Panda",
+        "type": "intrusion-set",
+        "attack_id": "G0129",
+        "description": "Mustang Panda has used tasklist /v to determine active process information. Mustang Panda has also used TONESHELL malware to check the process name and process path to ensure it matches the expected one prior to triggering a custom exception handler.",
+        "citations": [
+          {
+            "source_name": "Avira Mustang Panda January 2020",
+            "url": "https://www.avira.com/en/blog/new-wave-of-plugx-targets-hong-kong"
+          },
+          {
+            "source_name": "2022 November_TrendMicro_Earth Preta_Toneshell_Pubload",
+            "url": "https://www.trendmicro.com/en_us/research/22/k/earth-preta-spear-phishing-governments-worldwide.html"
+          }
+        ]
+      },
+      {
+        "source": "Naikon",
+        "type": "intrusion-set",
+        "attack_id": "G0019",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Baumgartner Naikon 2015",
+            "url": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/07205555/TheNaikonAPT-MsnMM1.pdf"
+          }
+        ]
+      },
+      {
+        "source": "OilRig",
+        "type": "intrusion-set",
+        "attack_id": "G0049",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Palo Alto OilRig May 2016",
+            "url": "http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+          },
+          {
+            "source_name": "FireEye APT34 Dec 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+          }
+        ]
+      },
+      {
+        "source": "OilRig",
+        "type": "intrusion-set",
+        "attack_id": "G0049",
+        "description": "OilRig has run tasklist on a victim's machine and used infostealers to capture processes.",
+        "citations": [
+          {
+            "source_name": "Palo Alto OilRig May 2016",
+            "url": "http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+          },
+          {
+            "source_name": "Symantec Crambus OCT 2023",
+            "url": "https://www.security.com/threat-intelligence/crambus-middle-east-government"
+          }
+        ]
+      },
+      {
+        "source": "Storm-0501",
+        "type": "intrusion-set",
+        "attack_id": "G1053",
+        "description": "Storm-0501 discovered running processes through `tasklist.exe`.",
+        "citations": [
+          {
+            "source_name": "Microsoft Storm-501 Sabbath Ransomware Embargo September 2024",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/09/26/storm-0501-ransomware-attacks-expanding-to-hybrid-cloud-environments/"
+          }
+        ]
+      },
+      {
+        "source": "Storm-0501",
+        "type": "intrusion-set",
+        "attack_id": "G1053",
+        "description": "Storm-0501 has discovered running processes through `tasklist.exe`.",
+        "citations": [
+          {
+            "source_name": "Microsoft Storm-501 Sabbath Ransomware Embargo September 2024",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/09/26/storm-0501-ransomware-attacks-expanding-to-hybrid-cloud-environments/"
+          }
+        ]
+      },
+      {
+        "source": "Threat Group-3390",
+        "type": "intrusion-set",
+        "attack_id": "G0027",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Trend Micro DRBControl February 2020",
+            "url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+          }
+        ]
+      },
+      {
+        "source": "ToddyCat",
+        "type": "intrusion-set",
+        "attack_id": "G1022",
+        "description": "ToddyCat has run `cmd /c start /b tasklist` to enumerate processes.",
+        "citations": [
+          {
+            "source_name": "Kaspersky ToddyCat Check Logs October 2023",
+            "url": "https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+          }
+        ]
+      },
+      {
+        "source": "Turla",
+        "type": "intrusion-set",
+        "attack_id": "G0010",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          }
+        ]
+      },
+      {
+        "source": "Turla",
+        "type": "intrusion-set",
+        "attack_id": "G0010",
+        "description": "Turla surveys a system upon check-in to discover running services and associated processes using the tasklist /svc command.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          }
+        ]
+      },
+      {
+        "source": "Turla",
+        "type": "intrusion-set",
+        "attack_id": "G0010",
+        "description": "Turla surveys a system upon check-in to discover running processes using the tasklist /v command. Turla RPC backdoors have also enumerated processes associated with specific open ports or named pipes.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          },
+          {
+            "source_name": "ESET Turla PowerShell May 2019",
+            "url": "https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/"
+          }
+        ]
+      },
+      {
+        "source": "Volt Typhoon",
+        "type": "intrusion-set",
+        "attack_id": "G1017",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "CISA AA24-038A PRC Critical Infrastructure February 2024",
+            "url": "https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf"
+          },
+          {
+            "source_name": "Secureworks BRONZE SILHOUETTE May 2023",
+            "url": "https://web.archive.org/web/20230601025540/https://www.secureworks.com/blog/chinese-cyberespionage-group-bronze-silhouette-targets-us-government-and-defense-organizations"
+          },
+          {
+            "source_name": "Joint Cybersecurity Advisory Volt Typhoon June 2023",
+            "url": "https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF"
+          }
+        ]
+      },
+      {
+        "source": "Volt Typhoon",
+        "type": "intrusion-set",
+        "attack_id": "G1017",
+        "description": "Volt Typhoon has enumerated running processes on targeted systems including through the use of Tasklist.",
+        "citations": [
+          {
+            "source_name": "CISA AA24-038A PRC Critical Infrastructure February 2024",
+            "url": "https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf"
+          },
+          {
+            "source_name": "Secureworks BRONZE SILHOUETTE May 2023",
+            "url": "https://web.archive.org/web/20230601025540/https://www.secureworks.com/blog/chinese-cyberespionage-group-bronze-silhouette-targets-us-government-and-defense-organizations"
+          },
+          {
+            "source_name": "Microsoft Volt Typhoon May 2023",
+            "url": "https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/"
+          }
+        ]
+      },
+      {
+        "source": "2025 Poland Wiper Attacks",
+        "type": "campaign",
+        "attack_id": "C0063",
+        "description": "During the 2025 Poland Wiper Attacks, the adversaries used Tasklist for reconnaissance activities running `cmd.exe /c \"tasklist > C:\\Windows\\TEMP\\outlog.txt && netstat -nao >> C:\\Windows\\TEMP\\outlog.txt && netstat -r >> C:\\Windows\\TEMP\\ outlog.txt && arp -a >> C:\\Windows\\TEMP\\outlog.txt && dir /s /b C:\\ Users >> C:\\Windows\\TEMP\\outlog.txt`.",
+        "citations": [
+          {
+            "source_name": "CERT Polska",
+            "url": "https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+          }
+        ]
+      },
+      {
+        "source": "2025 Poland Wiper Attacks",
+        "type": "campaign",
+        "attack_id": "C0063",
+        "description": "During the 2025 Poland Wiper Attacks, the adversaries enumerated current running processes using `tasklist`.",
+        "citations": [
+          {
+            "source_name": "CERT Polska",
+            "url": "https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+          }
+        ]
+      },
+      {
+        "source": "C0015",
+        "type": "campaign",
+        "attack_id": "C0015",
+        "description": "During C0015, the threat actors used the `tasklist /s` command as well as `taskmanager` to obtain a list of running processes.",
+        "citations": [
+          {
+            "source_name": "DFIR Conti Bazar Nov 2021",
+            "url": "https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+          }
+        ]
+      },
+      {
+        "source": "FunnyDream",
+        "type": "campaign",
+        "attack_id": "C0007",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Bitdefender FunnyDream Campaign November 2020",
+            "url": "https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+          }
+        ]
+      },
+      {
+        "source": "FunnyDream",
+        "type": "campaign",
+        "attack_id": "C0007",
+        "description": "During FunnyDream, the threat actors used Tasklist on targeted systems.",
+        "citations": [
+          {
+            "source_name": "Bitdefender FunnyDream Campaign November 2020",
+            "url": "https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Operation CuckooBees",
+        "type": "campaign",
+        "attack_id": "C0012",
+        "description": "During Operation CuckooBees, the threat actors used the `tasklist` command as part of their advanced reconnaissance.",
+        "citations": [
+          {
+            "source_name": "Cybereason OperationCuckooBees May 2022",
+            "url": "https://www.cybereason.com/blog/operation-cuckoobees-deep-dive-into-stealthy-winnti-techniques"
+          }
+        ]
+      },
+      {
+        "source": "Operation Honeybee",
+        "type": "campaign",
+        "attack_id": "C0006",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "McAfee Honeybee",
+            "url": "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/mcafee-uncovers-operation-honeybee-malicious-document-campaign-targeting-humanitarian-aid-groups/"
+          }
+        ]
+      },
+      {
+        "source": "Operation Honeybee",
+        "type": "campaign",
+        "attack_id": "C0006",
+        "description": "During Operation Honeybee, the threat actors obtained a list of running processes on a victim machine using `cmd /c tasklist > %temp%\\temp.ini`.",
+        "citations": [
+          {
+            "source_name": "McAfee Honeybee",
+            "url": "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/mcafee-uncovers-operation-honeybee-malicious-document-campaign-targeting-humanitarian-aid-groups/"
+          }
+        ]
+      },
+      {
+        "source": "Operation Wocao",
+        "type": "campaign",
+        "attack_id": "C0014",
+        "description": "During Operation Wocao, the threat actors used `tasklist` to collect a list of running processes on an infected system.",
+        "citations": [
+          {
+            "source_name": "FoxIT Wocao December 2019",
+            "url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Operation Wocao",
+        "type": "campaign",
+        "attack_id": "C0014",
+        "description": "During Operation Wocao, threat actors used the `tasklist` command to search for one of its backdoors.",
+        "citations": [
+          {
+            "source_name": "FoxIT Wocao December 2019",
+            "url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Avenger",
+        "type": "malware",
+        "attack_id": "S0473",
+        "description": "Avenger has the ability to use Tasklist to identify running processes.",
+        "citations": [
+          {
+            "source_name": "Trend Micro Tick November 2019",
+            "url": "https://documents.trendmicro.com/assets/pdf/Operation-ENDTRADE-TICK-s-Multi-Stage-Backdoors-for-Attacking-Industries-and-Stealing-Classified-Data.pdf"
+          }
+        ]
+      },
+      {
+        "source": "BabyShark",
+        "type": "malware",
+        "attack_id": "S0414",
+        "description": "BabyShark has executed the tasklist command.",
+        "citations": [
+          {
+            "source_name": "Unit42 BabyShark Feb 2019",
+            "url": "https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+          }
+        ]
+      },
+      {
+        "source": "BlackEnergy",
+        "type": "malware",
+        "attack_id": "S0089",
+        "description": "BlackEnergy has gathered a process list by using Tasklist.exe.",
+        "citations": [
+          {
+            "source_name": "F-Secure BlackEnergy 2014",
+            "url": "https://blog-assets.f-secure.com/wp-content/uploads/2019/10/15163408/BlackEnergy_Quedagh.pdf"
+          },
+          {
+            "source_name": "Securelist BlackEnergy Nov 2014",
+            "url": "https://securelist.com/be2-custom-plugins-router-abuse-and-target-profiles/67353/"
+          },
+          {
+            "source_name": "ESET BlackEnergy Jan 2016",
+            "url": "https://www.welivesecurity.com/2016/01/03/blackenergy-sshbeardoor-details-2015-attacks-ukrainian-news-media-electric-industry/"
+          }
+        ]
+      },
+      {
+        "source": "CharmPower",
+        "type": "malware",
+        "attack_id": "S0674",
+        "description": "CharmPower has the ability to list running processes through the use of `tasklist`.",
+        "citations": [
+          {
+            "source_name": "Check Point APT35 CharmPower January 2022",
+            "url": "https://research.checkpoint.com/2022/apt35-exploits-log4j-vulnerability-to-distribute-new-modular-powershell-toolkit/"
+          }
+        ]
+      },
+      {
+        "source": "Comnie",
+        "type": "malware",
+        "attack_id": "S0244",
+        "description": "Comnie uses the tasklist to view running processes on the victim’s machine.",
+        "citations": [
+          {
+            "source_name": "Palo Alto Comnie",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/01/unit42-comnie-continues-target-organizations-east-asia/"
+          }
+        ]
+      },
+      {
+        "source": "Elise",
+        "type": "malware",
+        "attack_id": "S0081",
+        "description": "Elise enumerates processes via the tasklist command.",
+        "citations": [
+          {
+            "source_name": "Accenture Dragonfish Jan 2018",
+            "url": "https://web.archive.org/web/20190508165226/https://www.accenture.com/t20180127T003755Z_w_/us-en/_acnmedia/PDF-46/Accenture-Security-Dragonfish-Threat-Analysis.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Epic",
+        "type": "malware",
+        "attack_id": "S0091",
+        "description": "Epic uses the tasklist /svc command to list the services on the system.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          }
+        ]
+      },
+      {
+        "source": "Epic",
+        "type": "malware",
+        "attack_id": "S0091",
+        "description": "Epic uses the tasklist /v command to obtain a list of processes.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Turla",
+            "url": "https://securelist.com/the-epic-turla-operation/65545/"
+          },
+          {
+            "source_name": "Kaspersky Turla Aug 2014",
+            "url": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/08080105/KL_Epic_Turla_Technical_Appendix_20140806.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Flagpro",
+        "type": "malware",
+        "attack_id": "S0696",
+        "description": "Flagpro has been used to run the tasklist command on a compromised system.",
+        "citations": [
+          {
+            "source_name": "NTT Security Flagpro new December 2021",
+            "url": "https://insight-jp.nttsecurity.com/post/102hf3q/flagpro-the-new-malware-used-by-blacktech"
+          }
+        ]
+      },
+      {
+        "source": "Helminth",
+        "type": "malware",
+        "attack_id": "S0170",
+        "description": "Helminth has used Tasklist to get information on processes.",
+        "citations": [
+          {
+            "source_name": "Unit 42 Playbook Dec 2017",
+            "url": "https://web.archive.org/web/20230702043312/https://pan-unit42.github.io/playbook_viewer/"
+          }
+        ]
+      },
+      {
+        "source": "KONNI",
+        "type": "malware",
+        "attack_id": "S0356",
+        "description": "KONNI has used the command cmd /c tasklist to get a snapshot of the current processes on the target machine.",
+        "citations": [
+          {
+            "source_name": "Medium KONNI Jan 2020",
+            "url": "https://medium.com/d-hunter/a-look-into-konni-2019-campaign-b45a0f321e9b"
+          },
+          {
+            "source_name": "Malwarebytes Konni Aug 2021",
+            "url": "https://blog.malwarebytes.com/threat-intelligence/2021/08/new-variant-of-konni-malware-used-in-campaign-targetting-russia/"
+          }
+        ]
+      },
+      {
+        "source": "Kwampirs",
+        "type": "malware",
+        "attack_id": "S0236",
+        "description": "Kwampirs collects a list of running services with the command tasklist /v.",
+        "citations": [
+          {
+            "source_name": "Symantec Orangeworm April 2018",
+            "url": "https://www.symantec.com/blogs/threat-intelligence/orangeworm-targets-healthcare-us-europe-asia"
+          }
+        ]
+      },
+      {
+        "source": "Kwampirs",
+        "type": "malware",
+        "attack_id": "S0236",
+        "description": "Kwampirs collects a list of running services with the command tasklist /svc.",
+        "citations": [
+          {
+            "source_name": "Symantec Orangeworm April 2018",
+            "url": "https://www.symantec.com/blogs/threat-intelligence/orangeworm-targets-healthcare-us-europe-asia"
+          }
+        ]
+      },
+      {
+        "source": "Lumma Stealer",
+        "type": "malware",
+        "attack_id": "S1213",
+        "description": "Lumma Stealer has detected antivirus processes using commands such as “tasklist” and “findstr.”",
+        "citations": [
+          {
+            "source_name": "Qualys LummaStealer 2024",
+            "url": "https://blog.qualys.com/vulnerabilities-threat-research/2024/10/20/unmasking-lumma-stealer-analyzing-deceptive-tactics-with-fake-captcha"
+          }
+        ]
+      },
+      {
+        "source": "Mosquito",
+        "type": "malware",
+        "attack_id": "S0256",
+        "description": "Mosquito runs tasklist to obtain running processes.",
+        "citations": [
+          {
+            "source_name": "ESET Turla Mosquito Jan 2018",
+            "url": "https://www.welivesecurity.com/wp-content/uploads/2018/01/ESET_Turla_Mosquito.pdf"
+          }
+        ]
+      },
+      {
+        "source": "NavRAT",
+        "type": "malware",
+        "attack_id": "S0247",
+        "description": "NavRAT uses tasklist /v to check running processes.",
+        "citations": [
+          {
+            "source_name": "Talos NavRAT May 2018",
+            "url": "https://blog.talosintelligence.com/2018/05/navrat.html"
+          }
+        ]
+      },
+      {
+        "source": "PLAINTEE",
+        "type": "malware",
+        "attack_id": "S0254",
+        "description": "PLAINTEE performs the tasklist command to list running processes.",
+        "citations": [
+          {
+            "source_name": "Rancor Unit42 June 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+          }
+        ]
+      },
+      {
+        "source": "POWRUNER",
+        "type": "malware",
+        "attack_id": "S0184",
+        "description": "POWRUNER may collect process information by running tasklist on a victim.",
+        "citations": [
+          {
+            "source_name": "FireEye APT34 Dec 2017",
+            "url": "https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+          }
+        ]
+      },
+      {
+        "source": "PUBLOAD",
+        "type": "malware",
+        "attack_id": "S1228",
+        "description": "PUBLOAD has leveraged `tasklist` to gather running services on victim host.",
+        "citations": [
+          {
+            "source_name": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024",
+            "url": "https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+          }
+        ]
+      },
+      {
+        "source": "PUBLOAD",
+        "type": "malware",
+        "attack_id": "S1228",
+        "description": "PUBLOAD has used `tasklist` to gather running processes on victim host. PUBLOAD has also leveraged the `OpenEventA` Windows API function to check whether the same process was already running.",
+        "citations": [
+          {
+            "source_name": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024",
+            "url": "https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+          },
+          {
+            "source_name": "2022 November_TrendMicro_Earth Preta_Toneshell_Pubload",
+            "url": "https://www.trendmicro.com/en_us/research/22/k/earth-preta-spear-phishing-governments-worldwide.html"
+          }
+        ]
+      },
+      {
+        "source": "Ramsay",
+        "type": "malware",
+        "attack_id": "S0458",
+        "description": "Ramsay can gather a list of running processes by using Tasklist.",
+        "citations": [
+          {
+            "source_name": "Antiy CERT Ramsay April 2020",
+            "url": "https://www.programmersought.com/article/62493896999/"
+          }
+        ]
+      },
+      {
+        "source": "RATANKBA",
+        "type": "malware",
+        "attack_id": "S0241",
+        "description": "RATANKBA uses tasklist /svc to display running tasks.",
+        "citations": [
+          {
+            "source_name": "RATANKBA",
+            "url": "https://www.trendmicro.com/en_us/research/17/b/ratankba-watering-holes-against-enterprises.html"
+          }
+        ]
+      },
+      {
+        "source": "Sardonic",
+        "type": "malware",
+        "attack_id": "S1085",
+        "description": "Sardonic has the ability to execute the `tasklist` command.",
+        "citations": [
+          {
+            "source_name": "Bitdefender Sardonic Aug 2021",
+            "url": "https://www.bitdefender.com/files/News/CaseStudies/study/401/Bitdefender-PR-Whitepaper-FIN8-creat5619-en-EN.pdf"
+          }
+        ]
+      },
+      {
+        "source": "SoreFang",
+        "type": "malware",
+        "attack_id": "S0516",
+        "description": "SoreFang can enumerate processes on a victim machine through use of Tasklist.",
+        "citations": [
+          {
+            "source_name": "CISA SoreFang July 2016",
+            "url": "https://us-cert.cisa.gov/ncas/analysis-reports/ar20-198a"
+          }
+        ]
+      },
+      {
+        "source": "Sykipot",
+        "type": "malware",
+        "attack_id": "S0018",
+        "description": "Sykipot may gather a list of running processes by running tasklist /v.",
+        "citations": [
+          {
+            "source_name": "AlienVault Sykipot 2011",
+            "url": "https://www.alienvault.com/open-threat-exchange/blog/another-sykipot-sample-likely-targeting-us-federal-agencies"
+          }
+        ]
+      },
+      {
+        "source": "SYSCON",
+        "type": "malware",
+        "attack_id": "S0464",
+        "description": "SYSCON has the ability to use Tasklist to list running processes.",
+        "citations": [
+          {
+            "source_name": "Unit 42 CARROTBAT January 2020",
+            "url": "https://unit42.paloaltonetworks.com/the-fractured-statue-campaign-u-s-government-targeted-in-spear-phishing-attacks/"
+          }
+        ]
+      },
+      {
+        "source": "Trojan.Karagany",
+        "type": "malware",
+        "attack_id": "S0094",
+        "description": "Trojan.Karagany can use Tasklist to collect a list of running tasks.",
+        "citations": [
+          {
+            "source_name": "Symantec Dragonfly",
+            "url": "https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=7382dce7-0260-4782-84cc-890971ed3f17&CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&tab=librarydocuments"
+          },
+          {
+            "source_name": "Secureworks Karagany July 2019",
+            "url": "https://www.secureworks.com/research/updated-karagany-malware-targets-energy-sector"
+          }
+        ]
+      },
+      {
+        "source": "USBferry",
+        "type": "malware",
+        "attack_id": "S0452",
+        "description": "USBferry can use tasklist to gather information about the process running on the infected system.",
+        "citations": [
+          {
+            "source_name": "TrendMicro Tropic Trooper May 2020",
+            "url": "https://documents.trendmicro.com/assets/Tech-Brief-Tropic-Trooper-s-Back-USBferry-Attack-Targets-Air-gapped-Environments.pdf"
+          }
+        ]
+      },
+      {
+        "source": "yty",
+        "type": "malware",
+        "attack_id": "S0248",
+        "description": "yty gets an output of running processes using the tasklist command.",
+        "citations": [
+          {
+            "source_name": "ASERT Donot March 2018",
+            "url": "https://www.arbornetworks.com/blog/asert/donot-team-leverages-new-modular-malware-framework-south-asia/"
+          }
+        ]
+      },
+      {
+        "source": "Zebrocy",
+        "type": "malware",
+        "attack_id": "S0251",
+        "description": "Zebrocy uses the tasklist and wmic process get Capture, ExecutablePath commands to gather the processes running on the system.",
+        "citations": [
+          {
+            "source_name": "Unit42 Cannon Nov 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/11/unit42-sofacy-continues-global-attacks-wheels-new-cannon-trojan/"
+          },
+          {
+            "source_name": "ESET Zebrocy Nov 2018",
+            "url": "https://www.welivesecurity.com/2018/11/20/sednit-whats-going-zebrocy/"
+          },
+          {
+            "source_name": "Unit42 Sofacy Dec 2018",
+            "url": "https://unit42.paloaltonetworks.com/dear-joohn-sofacy-groups-global-campaign/"
+          },
+          {
+            "source_name": "ESET Zebrocy May 2019",
+            "url": "https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/"
+          },
+          {
+            "source_name": "Accenture SNAKEMACKEREL Nov 2018",
+            "url": "https://www.accenture.com/t20181129T203820Z__w__/us-en/_acnmedia/PDF-90/Accenture-snakemackerel-delivers-zekapab-malware.pdf#zoom=50"
+          }
+        ]
+      },
+      {
+        "source": "IronNetInjector",
+        "type": "tool",
+        "attack_id": "S0581",
+        "description": "IronNetInjector can identify processes via C# methods such as GetProcessesByName and running Tasklist with the Python os.popen function.",
+        "citations": [
+          {
+            "source_name": "Unit 42 IronNetInjector February 2021 ",
+            "url": "https://unit42.paloaltonetworks.com/ironnetinjector/"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "tasklist | findstr sqlwriter.exe",
+        "intent": "Check whether sqlwriter.exe is running; the report lists the command among Andariel's but does not say why.",
+        "status": "verified",
+        "source_name": "Kaspersky Andariel Ransomware June 2021",
+        "source_url": "https://securelist.com/andariel-evolves-to-target-south-korea-with-ransomware/102811/"
+      },
+      {
+        "command": "tasklist | findstr juchmon.exe",
+        "intent": "Check whether juchmon.exe is running; the report lists the command among Andariel's but does not say why.",
+        "status": "verified",
+        "source_name": "Kaspersky Andariel Ransomware June 2021",
+        "source_url": "https://securelist.com/andariel-evolves-to-target-south-korea-with-ransomware/102811/"
+      },
+      {
+        "command": "cmd /c cd /d C:\\inetpub\\wwwroot\\aspnet_client\\system_web&tasklist /v&echo [S]&cd&echo [E]",
+        "intent": "Discovery: list running processes with details through the China Chopper webshell on Exchange.",
+        "status": "verified",
+        "source_name": "Rapid7 HAFNIUM Mar 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "c:\\windows\\system32\\cmd.exe /c tasklist /v",
+        "intent": "Discovery: list running processes with details on the compromised Exchange server.",
+        "status": "verified",
+        "source_name": "Rapid7 HAFNIUM Mar 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "\"cmd\" /c start /b tasklist /v >> c:\\users\\public\\d",
+        "intent": "Discovery during lateral movement: save the remote host's process list to a file the attackers collect.",
+        "status": "verified",
+        "source_name": "Kaspersky ToddyCat Check Logs October 2023",
+        "source_url": "https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+      },
+      {
+        "command": "/Q /c tasklist /v |find /I \"keepass\"",
+        "intent": "Find the KeePass process ID so code can be injected into it to steal the KeePass master key.",
+        "status": "verified",
+        "source_name": "FoxIT Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "/c cd /d c:\\windows\\temp & tasklist /v|find \"cb.exe\"",
+        "intent": "Check newly compromised systems for the Carbon Black incident response agent (cb.exe).",
+        "status": "verified",
+        "source_name": "FoxIT Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "/c cd /d c:\\windows\\temp\\ & tasklist /svc|find \"aia.exe\"",
+        "intent": "List running services to find one of the actor's own backdoors (aia.exe).",
+        "status": "verified",
+        "source_name": "FoxIT Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "cmd.exe /c \"tasklist /v /FO csv > $FilePath\"",
+        "intent": "Discovery: the CharmPower toolkit saves the list of running processes to a CSV file.",
+        "status": "verified",
+        "source_name": "Check Point APT35 CharmPower January 2022",
+        "source_url": "https://research.checkpoint.com/2022/apt35-exploits-log4j-vulnerability-to-distribute-new-modular-powershell-toolkit/"
+      },
+      {
+        "command": "tasklist >> %TEMP%\\info.dat",
+        "intent": "Discovery: a batch script sent by Comnie's C2 server collects the process list into info.dat.",
+        "status": "verified",
+        "source_name": "Palo Alto Comnie",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/01/unit42-comnie-continues-target-organizations-east-asia/"
+      },
+      {
+        "command": "\"C:\\WINDOWS\\system32\\cmd.exe\" /C tasklist /v >> \"C:\\Ahnlab\\$$$A24F.TMP\"",
+        "intent": "Discovery: NavRAT saves the process list to a file hidden in an AhnLab folder.",
+        "status": "verified",
+        "source_name": "Talos NavRAT May 2018",
+        "source_url": "https://blog.talosintelligence.com/2018/05/navrat.html"
+      },
+      {
+        "command": "cmd /c chcp 65001 & tasklist /v",
+        "intent": "Discovery: the Sardonic backdoor lists running processes and sends the output to its C2 server.",
+        "status": "verified",
+        "source_name": "Bitdefender Sardonic Aug 2021",
+        "source_url": "https://www.bitdefender.com/files/News/CaseStudies/study/401/Bitdefender-PR-Whitepaper-FIN8-creat5619-en-EN.pdf"
+      },
+      {
+        "command": "tasklist /s 172.16.2.132 /u test\\administrator /p {redacted}",
+        "intent": "Process Discovery on a remote device to check whether files the attackers had downloaded there earlier were running.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour 2021 August 2022",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "tasklist | findstr update_x64.exe",
+        "intent": "Check on a remote device whether a file with a certain name was running.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour 2021 August 2022",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "tasklist /FI \"IMAGENAME eq explorer.exe\" /FO CSV /NH",
+        "intent": "Enumerate active processes such as explorer.exe during reconnaissance after access through a VPN.",
+        "status": "verified",
+        "source_name": "Cisco Talos Qilin Attack Methods October 2025",
+        "source_url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "command": "cmd.exe /c \"tasklist > C:\\Windows\\TEMP\\outlog.txt && netstat -nao >> C:\\Windows\\TEMP\\outlog.txt && netstat -r >> C:\\Windows\\TEMP\\outlog.txt && arp -a >> C:\\Windows\\TEMP\\outlog.txt && dir /s /b C:\\Users >> C:\\Windows\\TEMP\\outlog.txt\"",
+        "intent": "Run through PsExec on many machines to write running processes, network connections, routing table, ARP cache and user directory contents to outlog.txt.",
+        "status": "verified",
+        "source_name": "CERT Polska Energy Sector Incident Report December 2025",
+        "source_url": "https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+      },
+      {
+        "command": "cmd.exe /C tasklist | findstr /i socks",
+        "intent": "Validate the SystemBC socks.exe that had just been staged and executed on a compromised host.",
+        "status": "verified",
+        "source_name": "Check Point The Gentlemen DFIR Report April 2026",
+        "source_url": "https://research.checkpoint.com/2026/dfir-report-the-gentlemen/"
+      },
+      {
+        "command": "SYSTEMINFO & TASKLIST",
+        "intent": "The Zebrocy Trojan runs it to collect system information that it sends to the C2 server.",
+        "status": "verified",
+        "source_name": "Unit 42 Sofacy Cannon Trojan November 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/11/unit42-sofacy-continues-global-attacks-wheels-new-cannon-trojan/"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\cmd.exe\" /c tasklist > \"C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\\\temp\\task.list\"",
+        "intent": "Dumps the running processes list into a file (the report text for this command line).",
+        "status": "verified",
+        "source_name": "Cyberbit DTrack Nuclear Power Plant November 2019",
+        "source_url": "https://www.cyberbit.com/blog/endpoint-security/dtrack-apt-malware-found-in-nuclear-power-plant/"
+      },
+      {
+        "command": "tasklist /SVC",
+        "intent": "Issued in cmd by the malware to enumerate processes and services as part of gathering the information it steals.",
+        "status": "verified",
+        "source_name": "Trend Micro PE_URSNIF.A2 December 2014",
+        "source_url": "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/PE_URSNIF.A2"
+      },
+      {
+        "command": "cmd /c cd /d c:\\\\temp&tasklist&echo [S]&cd&echo [E]",
+        "intent": "Discovery with the net, netstat and tasklist utilities through the webshell on a compromised Exchange server.",
+        "status": "verified",
+        "source_name": "Rapid7 Exchange Post-Exploitation March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "/Q /c tasklist /v|find \"explorer.exe\"",
+        "intent": "List running processes to find the explorer.exe process ID, which the actor injected a keylogger into.",
+        "status": "verified",
+        "source_name": "Fox-IT Operation Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "tasklist /svc",
+        "intent": "Obtain the PID of the LSASS process, then dumped with comsvcs.dll.",
+        "status": "verified",
+        "source_name": "ESET Operation FishMedley March 2025",
+        "source_url": "https://www.welivesecurity.com/en/eset-research/operation-fishmedley/"
+      },
+      {
+        "command": "cmd.exe /c tasklist /v > C:\\Windows\\temp\\temp_log.log",
+        "intent": "Probe for running processes, likely to find out whether the hosts had security solutions such as EDR agents.",
+        "status": "verified",
+        "source_name": "Kaspersky SOC Files APT41 Africa July 2025",
+        "source_url": "https://securelist.com/apt41-in-africa/116986/"
+      },
+      {
+        "command": "cmd /c tasklist /svc",
+        "intent": "Listed among the system information collection commands that list active processes and the services they run.",
+        "status": "verified",
+        "source_name": "Trend Micro Warlock Ransomware SharePoint August 2025",
+        "source_url": "https://www.trendmicro.com/en_us/research/25/h/warlock-ransomware.html"
+      },
+      {
+        "command": "C:\\Windows\\System32\\tasklist.exe /svc",
+        "intent": "First post-exploitation command seen; the attacker was still in the reconnaissance phase looking for high-value targets.",
+        "status": "verified",
+        "source_name": "Trend Micro TAOTH Campaign August 2025",
+        "source_url": "https://www.trendmicro.com/en_us/research/25/h/taoth-campaign.html"
+      },
+      {
+        "command": "tasklist /v /s <REMOTE_IP>",
+        "intent": "Enumerate processes on multiple hosts remotely from the wab.exe beacon.",
+        "status": "verified",
+        "source_name": "The DFIR Report BumbleBee Roasts Its Way to Domain Admin August 2022",
+        "source_url": "https://thedfirreport.com/2022/08/08/bumblebee-roasts-its-way-to-domain-admin/"
+      },
+      {
+        "command": "tasklist /S <IP of remote host>",
+        "intent": "Use the /S parameter to retrieve the list of running processes from remote hosts.",
+        "status": "verified",
+        "source_name": "The DFIR Report A Truly Graceful Wipe Out June 2023",
+        "source_url": "https://thedfirreport.com/2023/06/12/a-truly-graceful-wipe-out/"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:PowerShell": [
+        {
+          "event_id": 4103,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1007"
+          ]
+        },
+        {
+          "event_id": 4104,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1007"
+          ]
+        },
+        {
+          "event_id": 4105,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1007"
+          ]
+        },
+        {
+          "event_id": 4106,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1007"
+          ]
+        }
+      ],
+      "WinEventLog:Security": [
+        {
+          "event_id": 4688,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1007",
+            "T1057",
+            "T1518.001"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 7,
+          "data_components": [
+            "Module Load"
+          ],
+          "techniques": [
+            "T1518.001"
+          ]
+        },
+        {
+          "event_id": 10,
+          "data_components": [
+            "Process Access"
+          ],
+          "techniques": [
+            "T1057"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1007",
+        "id": "DET0483",
+        "name": "Detection of System Service Discovery Commands Across OS Platforms",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0483",
+        "analytics": [
+          {
+            "id": "AN1325",
+            "description": "Enumeration of services via native CLI tools (e.g., `sc query`, `tasklist /svc`, `net start`) or API calls via PowerShell and WMI.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "Command Execution",
+                "name": "WinEventLog:PowerShell",
+                "channel": "EventCode=4103, 4104, 4105, 4106"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1057",
+        "id": "DET0034",
+        "name": "Detection of Adversarial Process Discovery Behavior",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0034",
+        "analytics": [
+          {
+            "id": "AN0095",
+            "description": "Identifies adversary behavior that launches commands or invokes APIs to enumerate active processes (e.g., tasklist.exe, Get-Process, or CreateToolhelp32Snapshot). Detects execution combined with parent process lineage, network session context, or remote origin.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "Process Access",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=10"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1518.001",
+        "id": "DET0016",
+        "name": "Security Software Discovery Across Platforms",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0016",
+        "analytics": [
+          {
+            "id": "AN0048",
+            "description": "Adversary executes commands to enumerate installed antivirus, EDR, or firewall agents using WMI, registry queries, and built-in tools (e.g., tasklist, netsh, sc query). Correlated with elevated process privileges or scripting engine usage.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "Module Load",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Suspicious Tasklist Discovery Command",
+        "id": "63332011-f057-496c-ad8d-d2b6afb27f96",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_tasklist_basic_execution.yml",
+        "level": "informational",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line",
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1057"
+        ]
+      },
+      {
+        "title": "Loaded Module Enumeration Via Tasklist.EXE",
+        "id": "34275eb8-fa19-436b-b959-3d9ecd53fa1f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_tasklist_module_enumeration.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1003"
+        ]
+      },
+      {
+        "title": "Potential Devil Bait Malware Reconnaissance",
+        "id": "e8954be4-b2b8-4961-be18-da1a5bda709c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2021/Malware/Devil-Bait/proc_creation_win_malware_devil_bait_output_redirect.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "Mint Sandstorm - AsperaFaspex Suspicious Process Execution",
+        "id": "91048c0d-5b81-4b85-a099-c9ee4fb87979",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Mint Sandstorm - ManageEngine Suspicious Process Execution",
+        "id": "58d8341a-5849-44cd-8ac8-8b020413a31b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_manage_engine_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Recon Command Output Piped To Findstr.EXE",
+        "id": "ccb5742c-c248-4982-8c5c-5571b9275ad3",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_findstr_recon_pipe_output.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1057"
+        ]
+      },
+      {
+        "title": "HackTool - CrackMapExec Process Patterns",
+        "id": "f26307d8-14cd-47e3-a26b-4b4769f24af6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_patterns.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1003.001"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process Of SQL Server",
+        "id": "869b9ca7-9ea2-4a5a-8325-e80e62f75445",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mssql_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process Of Veeam Dabatase",
+        "id": "d55b793d-f847-4eea-b59a-5ab09908ac90",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mssql_veaam_susp_child_processes.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Data Exfiltration Activity Via CommandLine Tools",
+        "id": "7d1aaf3d-4304-425c-b7c3-162055e0b3ab",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Webshell Detection With Command Line Keywords",
+        "id": "bed2a484-9348-4143-8a8a-b801c979301c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_recon_commands_and_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1018",
+          "T1033",
+          "T1087",
+          "T1505.003"
+        ]
+      }
+    ],
+    "other_rules": []
+  },
+  "related_CVE": [],
+  "mitigations": [],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0057",
+    "https://strontic.github.io/xcyclopedia/library/tasklist.exe-D0A49A170E13D7F6AEBBEFED9DF88AAA.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

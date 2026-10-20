@@ -1,0 +1,457 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lolbins-ctidriven.vercel.app/template/lolbin.schema.json",
+  "title": "LOLBins CTI-Driven: LOLBin template v2",
+  "description": "Every file in lolbins/jsoncrack/ follows this schema (example: template/jsoncrack.json). Each list item is one JSON Crack node, so nested lists are flattened to text. build/build.py validates against it. The full data behind the website is in lolbins/details/ (template/lolbin-details.schema.json).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "version",
+    "id",
+    "created_by_ref",
+    "created",
+    "modified",
+    "name",
+    "image",
+    "description",
+    "attack",
+    "summary",
+    "required_privileges",
+    "paths",
+    "hashes",
+    "capabilities",
+    "platforms",
+    "associated_kill_chain_phases",
+    "relationship",
+    "detections",
+    "related_CVE",
+    "mitigations",
+    "additional_mitigations",
+    "references",
+    "sources"
+  ],
+  "$defs": {
+    "strings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "association": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "attack_id",
+        "evidence"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "attack_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "ATT&CK ID (G, C or S); null when the name is not in ATT&CK"
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why it is listed, '; '-separated: 'uses <ATT&CK ID>', 'names <binary>', 'uses technique <ID> (v1 research)' or 'v1 research'"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "ATT&CK's own statement about this association, as published; several statements are joined with a space. Left out when ATT&CK has none."
+        },
+        "sources": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The reports behind that statement, as '<source name> <url>' pairs separated by '; '"
+        }
+      }
+    }
+  },
+  "properties": {
+    "type": {
+      "const": "lolbin"
+    },
+    "version": {
+      "const": 2
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "created_by_ref": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "modified": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "pattern": "\\.exe$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "type",
+        "url",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(S\\d{4}|T\\d{4}(\\.\\d{3})?)$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "software",
+            "technique"
+          ],
+          "description": "software when ATT&CK has a tool entry for the binary, otherwise the technique describing its abuse"
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "version": {
+          "type": "string",
+          "description": "ATT&CK release the file was built from"
+        }
+      }
+    },
+    "summary": {
+      "$ref": "#/$defs/strings",
+      "minItems": 1,
+      "description": "What an adversary may use the binary to do"
+    },
+    "required_privileges": {
+      "$ref": "#/$defs/strings"
+    },
+    "paths": {
+      "$ref": "#/$defs/strings",
+      "minItems": 1
+    },
+    "hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "$ref": "#/$defs/strings"
+    },
+    "platforms": {
+      "$ref": "#/$defs/strings"
+    },
+    "associated_kill_chain_phases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^TA\\d{4}:[^:]+:T\\d{4}(\\.\\d{3})?$"
+      },
+      "description": "TACTIC_ID:Tactic name:TECHNIQUE_ID, one entry per tactic of each technique"
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "associated_apts",
+        "associated_campaigns",
+        "associated_malware",
+        "associated_tools",
+        "associated_commands",
+        "technique_only"
+      ],
+      "properties": {
+        "associated_apts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "associated_campaigns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "associated_malware": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "associated_tools": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "associated_commands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "command",
+              "status",
+              "source_name",
+              "source_url",
+              "intent"
+            ],
+            "properties": {
+              "command": {
+                "type": "string",
+                "minLength": 1,
+                "description": "As observed; URLs, domains and public IPs defanged"
+              },
+              "status": {
+                "enum": [
+                  "verified"
+                ],
+                "description": "verified: found verbatim in source_url; probable: found with parts redacted or reformatted; emulation: found in an Atomic Red Team test (source_url), not in an intrusion report; unverified: source not confirmed"
+              },
+              "source_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_url": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/url"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "intent": {
+                "type": "string",
+                "minLength": 1,
+                "description": "What the attacker used the command for, in one sentence. From the cited report when there is one; for unverified commands it describes only what the command does."
+              }
+            },
+            "if": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "source_url": {
+                  "$ref": "#/$defs/url"
+                }
+              }
+            }
+          }
+        },
+        "technique_only": {
+          "type": "array",
+          "description": "Use one of the binary's techniques according to ATT&CK, which does not say they used this binary (v1 research).",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "attack_id",
+              "evidence"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "attack_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "detections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eventsid",
+        "sigma_rules",
+        "related_sigma_rules",
+        "other_rules"
+      ],
+      "properties": {
+        "eventsid": {
+          "type": "array",
+          "description": "Windows event IDs from the ATT&CK v20+ detection strategies of the binary's techniques",
+          "items": {
+            "type": "object",
+            "required": [
+              "log",
+              "event_id",
+              "data_components",
+              "techniques"
+            ],
+            "properties": {
+              "log": {
+                "type": "string",
+                "description": "As ATT&CK writes it, e.g. WinEventLog:Sysmon"
+              },
+              "event_id": {
+                "type": "integer"
+              },
+              "data_components": {
+                "type": "string"
+              },
+              "techniques": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "sigma_rules": {
+          "type": "array",
+          "description": "SigmaHQ rules written for this binary",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "level",
+              "url"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "level": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "url": {
+                "$ref": "#/$defs/url"
+              }
+            }
+          }
+        },
+        "related_sigma_rules": {
+          "type": "integer",
+          "description": "Number of other SigmaHQ rules that involve the binary (listed in lolbins/details/)"
+        },
+        "other_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/url"
+          },
+          "description": "Splunk, Elastic and other third-party rules"
+        }
+      }
+    },
+    "related_CVE": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "references"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^CVE-\\d{4}-\\d+$"
+          },
+          "description": {
+            "type": "string"
+          },
+          "references": {
+            "type": "string",
+            "description": "Space-separated source URLs"
+          }
+        }
+      }
+    },
+    "mitigations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "technique"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^M\\d{4}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "technique": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "additional_mitigations": {
+      "$ref": "#/$defs/strings"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/url"
+      }
+    },
+    "sources": {
+      "type": "object",
+      "required": [
+        "attack",
+        "sigma"
+      ],
+      "properties": {
+        "attack": {
+          "type": "string"
+        },
+        "sigma": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

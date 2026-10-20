@@ -1,0 +1,28 @@
+let Lookback = 7d;
+let LOLBinContext = externaldata(BinaryKey:string, FileName:string, OriginalFileName:string, Binary:string, AttackId:string, AttackName:string, AttackUrl:string, Techniques:string, Tactics:string, Capabilities:string, Privileges:string, ExpectedPaths:string, GroupCount:int, Groups:string, CampaignCount:int, Campaigns:string, MalwareCount:int, Malware:string, ToolCount:int, Tools:string, SigmaRuleCount:int, EventIds:string, Mitigations:string, CVEs:string, SourcedCommandCount:int, PageUrl:string, StixUrl:string, AttackVersion:string) [h@"https://raw.githubusercontent.com/CTI-Driven/LOLBins/HEAD/lolbins/kql/lolbins.csv"] with (format = "csv", ignoreFirstRecord = true);
+let LOLBinKeys = union
+    (LOLBinContext | project MatchName = FileName, BinaryKey),
+    (LOLBinContext | where isnotempty(OriginalFileName) | project MatchName = OriginalFileName, BinaryKey)
+| distinct MatchName, BinaryKey;
+let LOLBinNames = toscalar(LOLBinKeys | summarize make_set(MatchName));
+let LOLBinInfo = LOLBinContext
+| summarize take_any(*) by BinaryKey
+| project-away FileName, OriginalFileName;
+DeviceProcessEvents
+| extend EventTime = coalesce(column_ifexists("Timestamp", datetime(null)),
+                              column_ifexists("TimeGenerated", datetime(null)))
+| where EventTime >= ago(Lookback)
+| extend LowerFileName = tolower(FileName),
+         LowerOriginalName = tolower(ProcessVersionInfoOriginalFileName)
+| where LowerFileName in (LOLBinNames) or LowerOriginalName in (LOLBinNames)
+| extend MatchName = iif(LowerOriginalName in (LOLBinNames), LowerOriginalName, LowerFileName)
+| lookup kind=inner LOLBinKeys on MatchName
+| extend RenamedBinary = LowerOriginalName in (LOLBinNames) and not(LowerFileName in (LOLBinNames))
+| lookup kind=leftouter LOLBinInfo on BinaryKey
+| summarize Executions = count(), Devices = dcount(DeviceId),
+            RenamedExecutions = countif(RenamedBinary),
+            SampleCommandLines = make_set(ProcessCommandLine, 5)
+          by BinaryKey, Binary, AttackId, Techniques, GroupCount, MalwareCount, SigmaRuleCount, PageUrl
+| project Binary, Executions, Devices, RenamedExecutions, AttackId, Techniques,
+          GroupCount, MalwareCount, SigmaRuleCount, SampleCommandLines, PageUrl
+| order by Executions desc

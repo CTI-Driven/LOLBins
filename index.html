@@ -1,489 +1,83 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta name="Living-Off-the-Land Binaries Cyber Threat Intelligence Driven"
-    content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>LOLBins CTI-Driven</title>
+  <meta name="description" content="How threat actors abuse Windows living-off-the-land binaries: MITRE ATT&amp;CK groups, campaigns, malware and techniques, SigmaHQ detections, Windows event IDs and commands traced to their source reports, with STIX 2.1 bundles.">
+  <meta property="og:title" content="LOLBins CTI-Driven">
+  <meta property="og:description" content="Living-Off-the-Land Binaries Cyber Threat Intelligence Driven: ATT&amp;CK context, detections and sourced commands for 17 Windows binaries, as STIX 2.1.">
+  <meta property="og:image" content="https://lolbins-ctidriven.vercel.app/logo.png">
+  <meta property="og:url" content="https://lolbins-ctidriven.vercel.app/">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Mono:wght@700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
 </head>
-
 <body>
-  <script src="/js/funcs.js"></script>
-  <div class="navbar">
-    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-    <a href="#"><i class="fa fa-connectdevelop"></i> LOLBins CTI-Driven</a>
-    <a href="https://github.com/CTI-Driven/LOLBins"><i class="fa fa-github"></i> Github</a>
+<header class="masthead">
+  <div class="wrap">
+    <img src="logo.png" alt="LOLBins CTI-Driven logo">
+    <div class="titles">
+      <p class="eyebrow">LOLBins CTI-Driven</p>
+      <h1>Living-Off-the-Land Binaries Cyber Threat Intelligence Driven</h1>
+      <ul class="stats" id="sources"><li>Loading data...</li></ul>
+    </div>
+    <nav class="mast-links" aria-label="Project links">
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch color theme">Dark mode</button>
+      <a href="https://github.com/CTI-Driven/LOLBins" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+      <a href="https://youtu.be/xiu17NC61J4" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>Video demo</a>
+      <a class="coffee" href="https://buymeacoffee.com/ctidrivenprojects" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3v2M11 3v2M14 3v2"/></svg>Buy me a coffee</a>
+    </nav>
   </div>
-  <br />
-  <img src="logo.png" alt="logo" class="logo">
+</header>
 
-  <p
-    style="color:rgb(62, 34, 138); font-size: 25px; text-align:center; text-decoration: underline; text-shadow: 0 0 1px;">
-    Living-Off-the-Land Binaries Cyber Threat Intelligence Driven</p>
+<main>
+  <section class="wrap hunting-wrap" aria-label="Advanced hunting (KQL)"><div class="hunting" id="hunting"></div></section>
+  <section class="picker wrap" aria-label="Choose a binary">
+    <div class="picker-row">
+      <div>
+        <label for="search" class="search-label">Filter binaries</label>
+        <input type="text" id="search" placeholder="e.g. wmic, PowerShell or T1218" autocomplete="off">
+      </div>
+      <p class="legend-note">Each binary links to its ATT&amp;CK software entry, or to the technique that describes its abuse.</p>
+    </div>
+    <div class="tab" id="binaries" role="tablist" aria-label="Binaries"></div>
+    <p class="empty-search" id="no-match" hidden>No binary matches that filter.</p>
+  </section>
+  <div class="wrap" id="panels"><p class="loading">Loading LOLBins...</p></div>
+</main>
 
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for binary.." title="binary">
-
-  <div class="tab">
-    <button class="tablinks" onclick="opentag(event, 'Certutil')">Certutil</button>
-    <button class="tablinks" onclick="opentag(event, 'Bitsadmin')">Bitsadmin</button>
-    <button class="tablinks" onclick="opentag(event, 'Mshta')">Mshta</button>
-    <button class="tablinks" onclick="opentag(event, 'Rundll32')">Rundll32</button>
-    <button class="tablinks" onclick="opentag(event, 'PsExec')">PsExec</button>
-    <button class="tablinks" onclick="opentag(event, 'Schtasks')">Schtasks</button>
-    <button class="tablinks" onclick="opentag(event, 'Regsvr32')">Regsvr32</button>
-    <button class="tablinks" onclick="opentag(event, 'Reg')">Reg</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'WMIC')">WMIC</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Tasklist')">Tasklist</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'At')">At</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'CMD')">CMD</button>
-    <button style="background-color: #b0b2be;" class="tablinks"
-      onclick="opentag(event, 'PowerShell')">PowerShell</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Cscript')">Cscript</button>
-    <button style="background-color: #b0b2be;" class="tablinks" onclick="opentag(event, 'Wscript')">Wscript</button>
+<footer>
+  <div class="wrap">
+    <p>Author: <a href="https://www.linkedin.com/in/nounou-mbeiri" target="_blank" rel="noopener noreferrer">Nounou Mbeiri</a>. Every binary's STIX 2.1 bundle and LOLBin JSON file is published with the site and can be imported into a threat intelligence platform.</p>
   </div>
+</footer>
 
-  <!--Certutil-->
-  <div id="Certutil" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/software/S0160">[MITRE ATT&CK: S0160]</a>
-      <p><b>Certutil</b> is a command-line utility that can be used to obtain certificate authority information and
-        configure Certificate Services.</p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [certutil] to:</b><br />| Download files from a given
-        URL
-        | Base64 encode collected data | Decode binaries hidden inside certificate files as Base64 information | Install
-        browser root certificates as a precursor to performing Adversary-in-the-Middle |</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixCertutil')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackCertutil')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaCertutil')">Sigma
-        Rules SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixCertutil" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/certutil.json"></iframe>
+<template id="panel-template">
+  <div class="tabcontent" role="tabpanel">
+    <div class="overview">
+      <div class="overview-head"><h2 class="binary-name"></h2><a class="attack-link"></a></div>
+      <div>
+        <p class="description"></p>
+        <p class="summary-title"></p>
+        <ul class="summary-items"></ul>
       </div>
+      <dl class="facts"></dl>
     </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackCertutil" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/certutil.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaCertutil" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:certutil.exe</b> in the below input
-          and press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
+    <div class="tab subtabs" role="tablist" aria-label="Views"></div>
+    <div class="views"></div>
   </div>
+</template>
 
-  <!--Bitsadmin-->
-  <div id="Bitsadmin" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/software/S0190">[MITRE ATT&CK: S0190]</a>
-      <p><b>BITSAdmin</b> is a command line tool used to create and manage BITS Jobs. </p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [BITSAdmin] to:</b><br />| Create BITS Jobs to launch
-        a malicious process | Create BITS Jobs to upload files from a compromised host | Create BITS Jobs to upload
-        and/or download files | Create BITS Jobs to upload and/or download files from SMB file servers |</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixBitsadmin')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackBitsadmin')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaBitsadmin')">Sigma
-        Rules SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixBitsadmin" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/bitsadmin.json"></iframe>
-      </div>
-    </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackBitsadmin" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/bitsadmin.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaBitsadmin" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:bitsadmin.exe</b> in the below input
-          and press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
-  </div>
-
-  <!--Mshta-->
-  <div id="Mshta" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/techniques/T1218/005/">[MITRE ATT&CK: T1218.005]</a>
-      <p>Adversaries may abuse <b>mshta.exe</b> to proxy execution of malicious .hta files and Javascript or VBScript
-        through a trusted Windows utility. </p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Mshta] to:</b><br />| Execute malicious payloads |
-        Execute a malicious hta file | Executed malicious JavaScript code | Execute HTML pages | Execute malicious
-        VBScript | Execute DLLs | Download and execute applications from a remote server |</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixMshta')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackMshta')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaMshta')">Sigma Rules
-        SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixMshta" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/mshta.json"></iframe>
-      </div>
-    </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackMshta" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/mshta.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaMshta" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:mshta.exe</b> in the below input and
-          press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
-  </div>
-
-  <!--Rundll32-->
-  <div id="Rundll32" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/techniques/T1218/011/">[MITRE ATT&CK: T1218.011]</a>
-      <p>Adversaries may abuse <b>Rundll32.exe</b> to proxy execution of malicious code. </p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Rundll32] to:</b><br />| Execute binaries, scripts,
-        and Control Panel Item files and to execute code via proxy to avoid triggering security tools | Establish
-        persistence within Registry Run Keys / Startup Folder entries to execute malicious DLLs |
-        Execute an initial infection process and launch a malicious DLL | Load a malicious DLL | Execute the Cobalt
-        Strike Beacon loader DLL | Execute commands and scripts |</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixRundll32')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackRundll32')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaRundll32')">Sigma
-        Rules SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixRundll32" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/rundll32.json"></iframe>
-      </div>
-    </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackRundll32" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/rundll32.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaRundll32" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:rundll32.exe</b> in the below input
-          and press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
-  </div>
-
-  <!--PsExec-->
-  <div id="PsExec" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/software/S0029/">[MITRE ATT&CK: S0029]</a>
-      <p>Adversaries may abuse <b>PsExec.exe</b> to move laterally between computers on the company's network and
-        install their malicious tools on multiple assets. </p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [PsExec] to:</b><br />| Remotely create accounts on
-        target systems | Leverage Windows services to escalate privileges from administrator to SYSTEM | Download or
-        upload a file over a network share |
-        Writes programs to the ADMIN$ network share to execute commands on remote systems | Execute binaries on remote
-        systems using a temporary Windows service</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixPsExec')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackPsExec')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmapsexec')">Sigma Rules
-        SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixPsExec" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/psexec.json"></iframe>
-      </div>
-    </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackPsExec" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/psexec.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmapsexec" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:psexec.exe</b> in the below input and
-          press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
-  </div>
-
-  <!--Schtasks-->
-  <div id="Schtasks" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/software/S0111/">[MITRE ATT&CK: S0111]</a>
-      <p>Adversaries may abuse the Windows Task Scheduler (<b>schtasks.exe</b>) to perform task scheduling for initial
-        or recurring execution of malicious code.</p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Schtasks] to:</b><br />| Achieved persistence via
-        scheduled tasks | Created a scheduled SYSTEM task that runs when a user logs in | Run programs at system startup
-        |
-        Run malicious scripts on a compromised host (.vbe, .dat) | Downloaded additional malware including Cobalt
-        Strike, PowerShell loader| Execute malware during lateral movement | Bypass UAC | Maintain RDP backdoors</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixschtasks')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackschtasks')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaschtasks')">Sigma
-        Rules SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixschtasks" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/schtasks.json"></iframe>
-      </div>
-    </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackschtasks" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/schtasks.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaschtasks" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:schtasks.exe</b> in the below input
-          and press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
-  </div>
-
-  <!--Regsvr32-->
-  <div id="Regsvr32" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/techniques/T1218/010/">[MITRE ATT&CK: T1218.010]</a>
-      <p>Adversaries may abuse (<b>Regsvr32.exe</b>) to proxy execution of malicious code. Regsvr32.exe is a
-        command-line program used to register and unregister object linking and embedding controls, including dynamic
-        link libraries (DLLs), on Windows systems.</p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [Regsvr32] to:</b><br />| Bypass application control
-        techniques | Execute a COM scriptlet that dynamically downloaded a backdoor and injected it into memory |
-        Execute malicious scripts | Load malicious DLLs| Execute malicious DLLs | Execute malicious payloads | Run a
-        remote scriptlet that drops a file and executes it | Ensure persistence at system boot | Run a .sct file for
-        execution</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixregsvr32')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackregsvr32')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmaregsvr32')">Sigma
-        Rules SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixregsvr32" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/regsvr32.json"></iframe>
-      </div>
-    </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackregsvr32" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/regsvr32.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmaregsvr32" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:regsvr32.exe</b> in the below input
-          and press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
-  </div>
-
-  <!--Reg-->
-  <div id="Reg" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <a href="https://attack.mitre.org/software/S0075/">[MITRE ATT&CK: S0075]</a>
-      <p><b>Reg.exe</b> is a Windows utility used to interact with the Windows Registry.
-        It can be used at the command-line interface to query, add, modify, and remove information.
-        Utilities such as <b>Reg.exe</b> are known to be used by persistent threats.</p>
-      <p><b style='color:rgb(49, 132, 200);'>An adversary may use [reg.exe] to:</b><br />| Interact with and modify the
-        Windows Registry of a local or remote system | Gather details from the Windows Registry of a local or remote
-        system | Find/Extract credentials from the Registry | Check for installed software on the system | Retrieve
-        proxy information in the Registry | Remove/Deactivate security settings eg.(AV/EDR/FW/UAC) |</p>
-    </div>
-    <img src="/screenshots/aide.png" alt="aide" align="right" height="50px">
-    <div class="tab">
-      <button class="tablinksn" onclick="opentagn(event, 'stixreg')">STIX Visualizer</button>
-      <button class="tablinksn" onclick="opentagn(event, 'jsoncrackreg')">JSON Crack Visualizer</button>
-      <button style="background-color: #76abf0;" class="tablinksn" onclick="opentagn(event, 'sigmareg')">Sigma
-        Rules SearchEngine</button>
-    </div>
-
-    <!--STIX Visualizer-->
-    <div id="stixreg" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <iframe
-          src="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/stix2/reg.json"></iframe>
-      </div>
-    </div>
-
-    <!--JSON Crack Visualizer-->
-    <div id="jsoncrackreg" class="tabcontentn" style="display:none">
-      <iframe id="jsoncrackEmbed"
-        src="https://jsoncrack.com/widget?json=https://raw.githubusercontent.com/CTI-Driven/LOLBins/main/lolbins/jsoncrack/reg.json"></iframe>
-    </div>
-
-    <!--SIGMA Sigmasearchengine-->
-    <div id="sigmareg" class="tabcontentn">
-      <div class="cti-stix-visualization">
-        <p>-| Type <b style='color:rgb(132, 4, 4); align-content: center;'>Image:reg.exe</b> in the below input
-          and press submit<br /></p>
-        <iframe src="https://sigmasearchengine.com/"></iframe>
-      </div>
-      <b style='color:rgb(49, 132, 200);'>Ref:https://sigmasearchengine.com</b>
-    </div>
-  </div>
-
-  <!--Cscript-->
-  <div id="Cscript" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--Wscript-->
-  <div id="Wscript" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--WMIC-->
-  <div id="WMIC" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--Tasklist-->
-  <div id="Tasklist" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--At-->
-  <div id="At" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--CMD-->
-  <div id="CMD" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
-  <!--PowerShell-->
-  <div id="PowerShell" class="tabcontent">
-    <div class="w3-panel w3-border-left">
-      <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-      <div class="w3-panel w3-border-left">
-        <center><i class="fa fa-connectdevelop" style="font-size:100px;color:rgb(51, 39, 130)">Work in progress...</i>
-        </center>
-      </div>
-    </div>
-  </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.9/standalone/umd/vis-network.min.js" integrity="sha384-yxKDWWf0wwdUj/gPeuL11czrnKFQROnLgY8ll7En9NYoXibgg3C6NK/UDHNtUgWJ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/icons.js"></script>
+<script src="js/stixgraph.js"></script>
+<script src="js/jsongraph.js"></script>
+<script src="js/app.js"></script>
 </body>
-
 </html>

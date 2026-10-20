@@ -1,0 +1,588 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lolbins-ctidriven.vercel.app/template/lolbin-details.schema.json",
+  "title": "LOLBins CTI-Driven: LOLBin details (website data)",
+  "description": "Every file in lolbins/details/ follows this schema: the full data behind the website. lolbins/jsoncrack/ holds the compact LOLBin template v2 (template/lolbin.schema.json). build/build.py writes and validates both.",
+  "type": "object",
+  "required": [
+    "type",
+    "version",
+    "id",
+    "created_by_ref",
+    "created",
+    "modified",
+    "name",
+    "image",
+    "description",
+    "attack",
+    "summary",
+    "required_privileges",
+    "paths",
+    "hashes",
+    "capabilities",
+    "platforms",
+    "associated_kill_chain_phases",
+    "techniques",
+    "relationship",
+    "detections",
+    "related_CVE",
+    "mitigations",
+    "additional_mitigations",
+    "references",
+    "sources"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "strings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "citation": {
+      "type": "object",
+      "required": [
+        "source_name",
+        "url"
+      ],
+      "properties": {
+        "source_name": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        }
+      }
+    },
+    "association": {
+      "type": "object",
+      "required": [
+        "name",
+        "attack_id",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "attack_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "ATT&CK ID (G/C/S), null when the name is not in ATT&CK"
+        },
+        "evidence": {
+          "$ref": "#/$defs/strings",
+          "minItems": 1,
+          "description": "Why it is listed: 'uses <ID>' (ATT&CK relationship to the binary), 'names <binary>' (an ATT&CK statement names it) or 'reported by <source>' (v1 research confirmed by a report)"
+        },
+        "source": {
+          "type": "object",
+          "required": [
+            "source_name",
+            "url",
+            "quote"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "source_name": {
+              "type": "string"
+            },
+            "url": {
+              "$ref": "#/$defs/url"
+            },
+            "quote": {
+              "type": "string",
+              "description": "The report's own words showing the binary in use"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "type": {
+      "const": "lolbin-details"
+    },
+    "version": {
+      "const": 2
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "created_by_ref": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "modified": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "pattern": "\\.exe$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attack": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "type",
+        "url",
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(S\\d{4}|T\\d{4}(\\.\\d{3})?)$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "software",
+            "technique"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "summary": {
+      "$ref": "#/$defs/strings",
+      "minItems": 1
+    },
+    "required_privileges": {
+      "$ref": "#/$defs/strings"
+    },
+    "paths": {
+      "$ref": "#/$defs/strings",
+      "minItems": 1
+    },
+    "hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "$ref": "#/$defs/strings"
+    },
+    "platforms": {
+      "$ref": "#/$defs/strings"
+    },
+    "associated_kill_chain_phases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^TA\\d{4}:[^:]+:T\\d{4}(\\.\\d{3})?$"
+      }
+    },
+    "techniques": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "url",
+          "tactics"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^T\\d{4}(\\.\\d{3})?$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "$ref": "#/$defs/url"
+          },
+          "tactics": {
+            "$ref": "#/$defs/strings"
+          }
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "required": [
+        "associated_apts",
+        "associated_campaigns",
+        "associated_malware",
+        "associated_tools",
+        "attack_relationships",
+        "associated_commands",
+        "technique_only"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "associated_apts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "associated_campaigns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "associated_malware": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "associated_tools": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "attack_relationships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "source",
+              "type",
+              "attack_id",
+              "description",
+              "citations"
+            ],
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attack_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "citations": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/citation"
+                }
+              }
+            }
+          }
+        },
+        "associated_commands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "command",
+              "status",
+              "source_name",
+              "source_url",
+              "intent"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "command": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "verified"
+                ],
+                "description": "verified: found verbatim in source_url; probable: found with parts redacted or reformatted; emulation: found in an Atomic Red Team test (source_url), not in an intrusion report; unverified: source not confirmed"
+              },
+              "source_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_url": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/url"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "intent": {
+                "type": "string",
+                "minLength": 1,
+                "description": "What the attacker used the command for, in one sentence. From the cited report when there is one; for unverified commands it describes only what the command does."
+              }
+            },
+            "if": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "source_url": {
+                  "$ref": "#/$defs/url"
+                }
+              }
+            }
+          }
+        },
+        "technique_only": {
+          "type": "array",
+          "description": "Use one of the binary's techniques according to ATT&CK, which does not say they used this binary (v1 research). No 'uses' relationship is published for these.",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "type",
+              "attack_id",
+              "evidence"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "attack_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence": {
+                "$ref": "#/$defs/strings"
+              }
+            }
+          }
+        }
+      }
+    },
+    "detections": {
+      "type": "object",
+      "required": [
+        "event_ids",
+        "other_log_sources",
+        "attack_detection_strategies",
+        "sigma_rules",
+        "other_rules"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "event_ids": {
+          "type": "object",
+          "description": "Log name (as ATT&CK writes it, e.g. WinEventLog:Sysmon) -> event IDs",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "event_id",
+                "data_components",
+                "techniques"
+              ],
+              "properties": {
+                "event_id": {
+                  "type": "integer"
+                },
+                "data_components": {
+                  "$ref": "#/$defs/strings"
+                },
+                "techniques": {
+                  "$ref": "#/$defs/strings"
+                }
+              }
+            }
+          }
+        },
+        "other_log_sources": {
+          "type": "array"
+        },
+        "attack_detection_strategies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "technique",
+              "id",
+              "name",
+              "url",
+              "analytics"
+            ],
+            "properties": {
+              "technique": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^DET\\d{4}$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "#/$defs/url"
+              },
+              "analytics": {
+                "type": "array"
+              }
+            }
+          }
+        },
+        "sigma_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "id",
+              "url",
+              "level",
+              "status",
+              "scope",
+              "matched_on",
+              "logsource",
+              "attack"
+            ],
+            "properties": {
+              "url": {
+                "$ref": "#/$defs/url"
+              },
+              "scope": {
+                "enum": [
+                  "dedicated",
+                  "related"
+                ],
+                "description": "dedicated: the rule is written for this binary; related: the binary is one of several processes, a parent, or part of a command line"
+              },
+              "matched_on": {
+                "$ref": "#/$defs/strings"
+              }
+            }
+          }
+        },
+        "other_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/url"
+          }
+        }
+      }
+    },
+    "related_CVE": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "references"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^CVE-\\d{4}-\\d+$"
+          },
+          "description": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/citation"
+            }
+          }
+        }
+      }
+    },
+    "mitigations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "technique",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^M\\d{4}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "technique": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "additional_mitigations": {
+      "$ref": "#/$defs/strings"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/url"
+      }
+    },
+    "sources": {
+      "type": "object",
+      "required": [
+        "attack",
+        "sigma"
+      ],
+      "properties": {
+        "attack": {
+          "type": "string"
+        },
+        "sigma": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

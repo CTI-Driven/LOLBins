@@ -1,0 +1,168 @@
+{
+  "csv_url": "https://raw.githubusercontent.com/CTI-Driven/LOLBins/HEAD/lolbins/kql/lolbins.csv",
+  "site_csv": "lolbins/kql/lolbins.csv",
+  "columns": [
+    {
+      "name": "BinaryKey",
+      "type": "string",
+      "description": "Short key of the binary (certutil, psexec, ...)"
+    },
+    {
+      "name": "FileName",
+      "type": "string",
+      "description": "File name to match against FileName"
+    },
+    {
+      "name": "OriginalFileName",
+      "type": "string",
+      "description": "PE original file name to match against ProcessVersionInfoOriginalFileName"
+    },
+    {
+      "name": "Binary",
+      "type": "string",
+      "description": "Display name"
+    },
+    {
+      "name": "AttackId",
+      "type": "string",
+      "description": "ATT&CK software or technique ID for the binary"
+    },
+    {
+      "name": "AttackName",
+      "type": "string",
+      "description": "ATT&CK name"
+    },
+    {
+      "name": "AttackUrl",
+      "type": "string",
+      "description": "ATT&CK page"
+    },
+    {
+      "name": "Techniques",
+      "type": "string",
+      "description": "ATT&CK techniques, '; ' separated"
+    },
+    {
+      "name": "Tactics",
+      "type": "string",
+      "description": "ATT&CK tactics, '; ' separated"
+    },
+    {
+      "name": "Capabilities",
+      "type": "string",
+      "description": "LOLBAS capabilities"
+    },
+    {
+      "name": "Privileges",
+      "type": "string",
+      "description": "Privileges required"
+    },
+    {
+      "name": "ExpectedPaths",
+      "type": "string",
+      "description": "Normal install paths, '; ' separated"
+    },
+    {
+      "name": "GroupCount",
+      "type": "int",
+      "description": "Threat groups tied to the binary with evidence"
+    },
+    {
+      "name": "Groups",
+      "type": "string",
+      "description": "Their names, '; ' separated"
+    },
+    {
+      "name": "CampaignCount",
+      "type": "int",
+      "description": "Campaigns tied to the binary"
+    },
+    {
+      "name": "Campaigns",
+      "type": "string",
+      "description": "Their names"
+    },
+    {
+      "name": "MalwareCount",
+      "type": "int",
+      "description": "Malware tied to the binary"
+    },
+    {
+      "name": "Malware",
+      "type": "string",
+      "description": "Their names"
+    },
+    {
+      "name": "ToolCount",
+      "type": "int",
+      "description": "Tools tied to the binary"
+    },
+    {
+      "name": "Tools",
+      "type": "string",
+      "description": "Their names"
+    },
+    {
+      "name": "SigmaRuleCount",
+      "type": "int",
+      "description": "SigmaHQ rules written for the binary"
+    },
+    {
+      "name": "EventIds",
+      "type": "string",
+      "description": "Windows event IDs from ATT&CK detection strategies (log:id)"
+    },
+    {
+      "name": "Mitigations",
+      "type": "string",
+      "description": "ATT&CK mitigations (ID name)"
+    },
+    {
+      "name": "CVEs",
+      "type": "string",
+      "description": "CVEs tied to the binary"
+    },
+    {
+      "name": "SourcedCommandCount",
+      "type": "int",
+      "description": "Commands traced to an intrusion report"
+    },
+    {
+      "name": "PageUrl",
+      "type": "string",
+      "description": "LOLBins CTI-Driven page for the binary"
+    },
+    {
+      "name": "StixUrl",
+      "type": "string",
+      "description": "STIX 2.1 bundle"
+    },
+    {
+      "name": "AttackVersion",
+      "type": "string",
+      "description": "ATT&CK release the data comes from"
+    }
+  ],
+  "queries": [
+    {
+      "file": "lolbins/kql/1-check-lookup.kql",
+      "title": "1. Check the lookup loads"
+    },
+    {
+      "file": "lolbins/kql/2-enrich-process-events.kql",
+      "title": "2. Enrich process events (the pattern to reuse)"
+    },
+    {
+      "file": "lolbins/kql/3-enrich-network-events.kql",
+      "title": "3. Enrich network events with the same join"
+    },
+    {
+      "file": "lolbins/kql/4-renamed-or-moved.kql",
+      "title": "4. Renamed copies and copies outside their normal path"
+    },
+    {
+      "file": "lolbins/kql/5-summary-by-binary.kql",
+      "title": "5. Executions per LOLBin, with context"
+    }
+  ]
+}

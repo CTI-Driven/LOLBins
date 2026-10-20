@@ -1,0 +1,30 @@
+let Lookback = 7d;
+let LOLBinContext = externaldata(BinaryKey:string, FileName:string, OriginalFileName:string, Binary:string, AttackId:string, AttackName:string, AttackUrl:string, Techniques:string, Tactics:string, Capabilities:string, Privileges:string, ExpectedPaths:string, GroupCount:int, Groups:string, CampaignCount:int, Campaigns:string, MalwareCount:int, Malware:string, ToolCount:int, Tools:string, SigmaRuleCount:int, EventIds:string, Mitigations:string, CVEs:string, SourcedCommandCount:int, PageUrl:string, StixUrl:string, AttackVersion:string) [h@"https://raw.githubusercontent.com/CTI-Driven/LOLBins/HEAD/lolbins/kql/lolbins.csv"] with (format = "csv", ignoreFirstRecord = true);
+let LOLBinKeys = union
+    (LOLBinContext | project MatchName = FileName, BinaryKey),
+    (LOLBinContext | where isnotempty(OriginalFileName) | project MatchName = OriginalFileName, BinaryKey)
+| distinct MatchName, BinaryKey;
+let LOLBinNames = toscalar(LOLBinKeys | summarize make_set(MatchName));
+let LOLBinInfo = LOLBinContext
+| summarize take_any(*) by BinaryKey
+| project-away FileName, OriginalFileName;
+DeviceProcessEvents
+| extend EventTime = coalesce(column_ifexists("Timestamp", datetime(null)),
+                              column_ifexists("TimeGenerated", datetime(null)))
+| where EventTime >= ago(Lookback)
+| extend LowerFileName = tolower(FileName),
+         LowerOriginalName = tolower(ProcessVersionInfoOriginalFileName)
+| where LowerFileName in (LOLBinNames) or LowerOriginalName in (LOLBinNames)
+| extend MatchName = iif(LowerOriginalName in (LOLBinNames), LowerOriginalName, LowerFileName)
+| lookup kind=inner LOLBinKeys on MatchName
+| extend RenamedBinary = LowerOriginalName in (LOLBinNames) and not(LowerFileName in (LOLBinNames))
+| lookup kind=leftouter LOLBinInfo on BinaryKey
+| extend ExpectedPathList = split(tolower(ExpectedPaths), "; ")
+| extend FullPath = tolower(iif(FolderPath endswith FileName, FolderPath, strcat(FolderPath, @"\", FileName)))
+| extend OutsideExpectedPath = isnotempty(ExpectedPaths)
+         and not(set_has_element(ExpectedPathList, FullPath))
+| where RenamedBinary or OutsideExpectedPath
+| project EventTime, DeviceName, DeviceId, AccountName, FileName,
+          ProcessVersionInfoOriginalFileName, FolderPath, RenamedBinary, OutsideExpectedPath,
+          ProcessCommandLine, InitiatingProcessFileName, Binary, AttackId, Groups, PageUrl
+| order by EventTime desc

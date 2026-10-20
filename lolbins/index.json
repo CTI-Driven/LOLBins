@@ -1,0 +1,334 @@
+{
+  "attack_version": "20.0",
+  "sigma_commit": "7d8b152a5fc062ebd309f62ae4d8276aca2786af",
+  "all": {
+    "stix": "lolbins/stix2/all.json",
+    "stix_objects": 2996,
+    "stix_sha256": "93a0a3df27ffa83a082bc9b8bcdb60e90c71811c292037a121d8fbc0e44206ba"
+  },
+  "lolbins": [
+    {
+      "key": "certutil",
+      "label": "Certutil",
+      "name": "Certutil.exe",
+      "image": "certutil.exe",
+      "attack": {
+        "id": "S0160",
+        "name": "certutil",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0160",
+        "version": "20.0"
+      },
+      "order": 1,
+      "stix": "lolbins/stix2/certutil.json",
+      "jsoncrack": "lolbins/jsoncrack/certutil.json",
+      "details": "lolbins/details/certutil.json",
+      "stix_objects": 162,
+      "stix_sha256": "bfd2d6f2f2343a1ed50f884f4276cae09e2c1ff227199fa1370c2553308be949"
+    },
+    {
+      "key": "bitsadmin",
+      "label": "Bitsadmin",
+      "name": "BITSAdmin.exe",
+      "image": "bitsadmin.exe",
+      "attack": {
+        "id": "S0190",
+        "name": "BITSAdmin",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0190",
+        "version": "20.0"
+      },
+      "order": 2,
+      "stix": "lolbins/stix2/bitsadmin.json",
+      "jsoncrack": "lolbins/jsoncrack/bitsadmin.json",
+      "details": "lolbins/details/bitsadmin.json",
+      "stix_objects": 144,
+      "stix_sha256": "0b7580ba707289fe831e2635439bcc066a1fa05f37485d077d4e02483fac23ca"
+    },
+    {
+      "key": "mshta",
+      "label": "Mshta",
+      "name": "mshta.exe",
+      "image": "mshta.exe",
+      "attack": {
+        "id": "T1218.005",
+        "name": "Mshta",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1218/005",
+        "version": "20.0"
+      },
+      "order": 3,
+      "stix": "lolbins/stix2/mshta.json",
+      "jsoncrack": "lolbins/jsoncrack/mshta.json",
+      "details": "lolbins/details/mshta.json",
+      "stix_objects": 130,
+      "stix_sha256": "497d07597af1a954b11bba8e701d703fb558dffb38b6de60de393ff7a6a91bce"
+    },
+    {
+      "key": "rundll32",
+      "label": "Rundll32",
+      "name": "rundll32.exe",
+      "image": "rundll32.exe",
+      "attack": {
+        "id": "T1218.011",
+        "name": "Rundll32",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1218/011",
+        "version": "20.0"
+      },
+      "order": 4,
+      "stix": "lolbins/stix2/rundll32.json",
+      "jsoncrack": "lolbins/jsoncrack/rundll32.json",
+      "details": "lolbins/details/rundll32.json",
+      "stix_objects": 404,
+      "stix_sha256": "aae4be1c67106169b20ad50e4cf89315db02b9cae432d0c1a6f1e7a9e66d83f6"
+    },
+    {
+      "key": "psexec",
+      "label": "PsExec",
+      "name": "PsExec.exe",
+      "image": "psexec.exe",
+      "attack": {
+        "id": "S0029",
+        "name": "PsExec",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0029",
+        "version": "20.0"
+      },
+      "order": 5,
+      "stix": "lolbins/stix2/psexec.json",
+      "jsoncrack": "lolbins/jsoncrack/psexec.json",
+      "details": "lolbins/details/psexec.json",
+      "stix_objects": 271,
+      "stix_sha256": "44b43f049881851fb52b0449ac9d5e5703e3a40ffcbdd183a19e5c6978154126"
+    },
+    {
+      "key": "schtasks",
+      "label": "Schtasks",
+      "name": "schtasks.exe",
+      "image": "schtasks.exe",
+      "attack": {
+        "id": "S0111",
+        "name": "schtasks",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0111",
+        "version": "20.0"
+      },
+      "order": 6,
+      "stix": "lolbins/stix2/schtasks.json",
+      "jsoncrack": "lolbins/jsoncrack/schtasks.json",
+      "details": "lolbins/details/schtasks.json",
+      "stix_objects": 297,
+      "stix_sha256": "caffde12b79039f397507a0b0152eb61c86d5da2ae69023bb70783aa2e235eaa"
+    },
+    {
+      "key": "regsvr32",
+      "label": "Regsvr32",
+      "name": "Regsvr32.exe",
+      "image": "regsvr32.exe",
+      "attack": {
+        "id": "T1218.010",
+        "name": "Regsvr32",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1218/010",
+        "version": "20.0"
+      },
+      "order": 7,
+      "stix": "lolbins/stix2/regsvr32.json",
+      "jsoncrack": "lolbins/jsoncrack/regsvr32.json",
+      "details": "lolbins/details/regsvr32.json",
+      "stix_objects": 146,
+      "stix_sha256": "c91d63d635351fcd9f481c52ee54131f10a6820d4ebeb4f5d72947d5521e33ff"
+    },
+    {
+      "key": "reg",
+      "label": "Reg",
+      "name": "Reg.exe",
+      "image": "reg.exe",
+      "attack": {
+        "id": "S0075",
+        "name": "Reg",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0075",
+        "version": "20.0"
+      },
+      "order": 8,
+      "stix": "lolbins/stix2/reg.json",
+      "jsoncrack": "lolbins/jsoncrack/reg.json",
+      "details": "lolbins/details/reg.json",
+      "stix_objects": 230,
+      "stix_sha256": "cdd0a6b2c164a62c57b9ae68e1a7cd4265e6b537bb5df9327ad5f4695eaf22f0"
+    },
+    {
+      "key": "wmic",
+      "label": "WMIC",
+      "name": "WMIC.exe",
+      "image": "wmic.exe",
+      "attack": {
+        "id": "T1047",
+        "name": "Windows Management Instrumentation",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1047",
+        "version": "20.0"
+      },
+      "order": 9,
+      "stix": "lolbins/stix2/wmic.json",
+      "jsoncrack": "lolbins/jsoncrack/wmic.json",
+      "details": "lolbins/details/wmic.json",
+      "stix_objects": 188,
+      "stix_sha256": "3d3a62e4f522e33dee9ed91dc86e7a24a6a3c28315d44ddd999d1ae8768128a0"
+    },
+    {
+      "key": "tasklist",
+      "label": "Tasklist",
+      "name": "Tasklist.exe",
+      "image": "tasklist.exe",
+      "attack": {
+        "id": "S0057",
+        "name": "Tasklist",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0057",
+        "version": "20.0"
+      },
+      "order": 10,
+      "stix": "lolbins/stix2/tasklist.json",
+      "jsoncrack": "lolbins/jsoncrack/tasklist.json",
+      "details": "lolbins/details/tasklist.json",
+      "stix_objects": 166,
+      "stix_sha256": "6ad6a2e8e0be9ea939f6bb002b2eda103d09f57121b197a730c107c80ca67f42"
+    },
+    {
+      "key": "at",
+      "label": "At",
+      "name": "At.exe",
+      "image": "at.exe",
+      "attack": {
+        "id": "S0110",
+        "name": "at",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0110",
+        "version": "20.0"
+      },
+      "order": 11,
+      "stix": "lolbins/stix2/at.json",
+      "jsoncrack": "lolbins/jsoncrack/at.json",
+      "details": "lolbins/details/at.json",
+      "stix_objects": 61,
+      "stix_sha256": "aeebda5ceb3bc7cd82187c24cc8e6557bebbc7a018305701947ebdc92d9a61c8"
+    },
+    {
+      "key": "cmd",
+      "label": "CMD",
+      "name": "CMD.exe",
+      "image": "cmd.exe",
+      "attack": {
+        "id": "S0106",
+        "name": "cmd",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0106",
+        "version": "20.0"
+      },
+      "order": 12,
+      "stix": "lolbins/stix2/cmd.json",
+      "jsoncrack": "lolbins/jsoncrack/cmd.json",
+      "details": "lolbins/details/cmd.json",
+      "stix_objects": 548,
+      "stix_sha256": "e808011c0114144027f5e2c5ebc5441fb669b0afe9ef530e20dc145b33982e00"
+    },
+    {
+      "key": "powershell",
+      "label": "PowerShell",
+      "name": "PowerShell.exe",
+      "image": "powershell.exe",
+      "attack": {
+        "id": "T1059.001",
+        "name": "PowerShell",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1059/001",
+        "version": "20.0"
+      },
+      "order": 13,
+      "stix": "lolbins/stix2/powershell.json",
+      "jsoncrack": "lolbins/jsoncrack/powershell.json",
+      "details": "lolbins/details/powershell.json",
+      "stix_objects": 674,
+      "stix_sha256": "f5d5eec6bcd3d3dcdfd2cf257765d5020c10828a8e0d64476399bc83db019307"
+    },
+    {
+      "key": "cscript",
+      "label": "Cscript",
+      "name": "Cscript.exe",
+      "image": "cscript.exe",
+      "attack": {
+        "id": "T1059.005",
+        "name": "Visual Basic",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1059/005",
+        "version": "20.0"
+      },
+      "order": 14,
+      "stix": "lolbins/stix2/cscript.json",
+      "jsoncrack": "lolbins/jsoncrack/cscript.json",
+      "details": "lolbins/details/cscript.json",
+      "stix_objects": 75,
+      "stix_sha256": "7348587528e039c053501c477dfc41dd583c6e0f8a51462a365460ffb27d7d8a"
+    },
+    {
+      "key": "wscript",
+      "label": "Wscript",
+      "name": "Wscript.exe",
+      "image": "wscript.exe",
+      "attack": {
+        "id": "T1059.005",
+        "name": "Visual Basic",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1059/005",
+        "version": "20.0"
+      },
+      "order": 15,
+      "stix": "lolbins/stix2/wscript.json",
+      "jsoncrack": "lolbins/jsoncrack/wscript.json",
+      "details": "lolbins/details/wscript.json",
+      "stix_objects": 85,
+      "stix_sha256": "2afc0cc94693de9041729aab25fdc05510208ee8420f87c203d4ab8fb68df744"
+    },
+    {
+      "key": "forfiles",
+      "label": "Forfiles",
+      "name": "Forfiles.exe",
+      "image": "forfiles.exe",
+      "attack": {
+        "id": "S0193",
+        "name": "Forfiles",
+        "type": "software",
+        "url": "https://attack.mitre.org/software/S0193",
+        "version": "20.0"
+      },
+      "order": 16,
+      "stix": "lolbins/stix2/forfiles.json",
+      "jsoncrack": "lolbins/jsoncrack/forfiles.json",
+      "details": "lolbins/details/forfiles.json",
+      "stix_objects": 64,
+      "stix_sha256": "806ac37b879a61676330605b0531f05fa1727f6dacc454a52b7e4ca5875abac3"
+    },
+    {
+      "key": "msiexec",
+      "label": "Msiexec",
+      "name": "Msiexec.exe",
+      "image": "msiexec.exe",
+      "attack": {
+        "id": "T1218.007",
+        "name": "Msiexec",
+        "type": "technique",
+        "url": "https://attack.mitre.org/techniques/T1218/007",
+        "version": "20.0"
+      },
+      "order": 17,
+      "stix": "lolbins/stix2/msiexec.json",
+      "jsoncrack": "lolbins/jsoncrack/msiexec.json",
+      "details": "lolbins/details/msiexec.json",
+      "stix_objects": 118,
+      "stix_sha256": "a7f1fdc7b032da215e57c16fd9d806bb03ff38b182bdb394540c5a6cb78e989f"
+    }
+  ]
+}

